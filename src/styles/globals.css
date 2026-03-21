@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #003434;
+  --color-primary-container: #004d4d;
+  --color-primary-fixed: #b0eeed;
+  --color-primary-fixed-dim: #94d1d1;
+  --color-on-primary-fixed: #002020;
+  --color-secondary: #516161;
+  
+  --color-surface: #f8f9fa;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #3f4848;
+  --color-outline-variant: #bfc8c8;
+  --color-tertiary: #4c230b;
+  --shadow-color: rgba(0, 0, 0, 0.04);
+
+  --font-manrope: var(--font-manrope);
+  --font-inter: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --color-primary: #5EEAD4;
+  --color-primary-container: #134E4A;
+  --color-primary-fixed: #0D1117;
+  --color-primary-fixed-dim: #042F2E;
+  --color-on-primary-fixed: #CCFBF1;
+  --color-secondary: #94A3B8;
+  
+  --color-surface: #0A0D10;
+  --color-surface-container-low: #0F1419;
+  --color-surface-container: #151C23;
+  --color-surface-container-high: #1E2730;
+  --color-surface-container-highest: #28343E;
+  --color-surface-container-lowest: #050709;
+  
+  --color-on-surface: #F1F5F9;
+  --color-on-surface-variant: #94A3B8;
+  --color-outline-variant: #1E293B;
+  --color-tertiary: #FDBA74;
+  --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-inter), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-manrope), sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Glassmorphism helpers based on Stitch specs */
+@utility glass-nav {
+  background-color: color-mix(in srgb, var(--color-surface-container-lowest) 85%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+@utility shadow-ambient {
+  box-shadow: 0 8px 30px var(--shadow-color), 0 12px 40px rgba(25, 28, 29, 0.08);
 }
