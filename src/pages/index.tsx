@@ -93,7 +93,7 @@ export default function Home_Page() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-manrope font-bold text-primary mb-4">How it works</h2>
-            <p className="text-lg text-on-surface-variant">We've removed the clutter so you can focus on what matters: the numbers.</p>
+            <p className="text-lg text-on-surface-variant">We&apos;ve removed the clutter so you can focus on what matters: the numbers.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

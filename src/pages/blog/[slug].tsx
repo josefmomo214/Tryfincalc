@@ -18,7 +18,7 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
       <MainLayout>
         <div className="min-h-screen flex flex-col items-center justify-center p-4 text-center text-on-surface">
           <h1 className="text-4xl font-bold mb-4">Guide Not Found</h1>
-          <p className="mb-8">The financial guide you're looking for doesn't exist.</p>
+          <p className="mb-8">The financial guide you&apos;re looking for doesn&apos;t exist.</p>
           <Link href="/blog">
             <Button><ArrowLeft className="mr-2 w-4 h-4" /> Back to Guides</Button>
           </Link>
@@ -113,16 +113,26 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
               </Link>
             ))}
           </div>
+          <h2 className="text-xl font-bold text-primary mb-4 flex items-center">
+               Still haven&apos;t found what you&apos;re looking for?
+             </h2>
         </div>
       </div>
     </MainLayout>
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = articles.map((article) => ({
-    params: { slug: article.slug },
-  }));
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const paths: { params: { slug: string }; locale: string }[] = [];
+  
+  articles.forEach((article) => {
+    locales?.forEach((locale) => {
+      paths.push({
+        params: { slug: article.slug },
+        locale,
+      });
+    });
+  });
 
   return {
     paths,

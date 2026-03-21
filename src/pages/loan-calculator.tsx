@@ -133,7 +133,7 @@ export default function LoanCalculator() {
         }
         howItWorks={
           <>
-            <p>Personal loans are typically unsecured, meaning you don't need to provide collateral like a home or car. The interest rate you receive is heavily influenced by your credit history and current market conditions.</p>
+            <p>Personal loans are typically unsecured, meaning you don&apos;t need to provide collateral like a home or car. The interest rate you receive is heavily influenced by your credit history and current market conditions.</p>
             <ul>
               <li><strong>Fixed installments:</strong> Most personal loans come with a fixed interest rate, ensuring your monthly payments stay the same throughout the term.</li>
               <li><strong>APR vs. Interest Rate:</strong> The APR (Annual Percentage Rate) includes both the interest rate and any mandatory fees, representing the true annual cost of borrowing.</li>
