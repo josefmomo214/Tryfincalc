@@ -19,8 +19,8 @@ export default function FAQPage() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Frequently Asked Questions" 
-        description="Find answers to common questions about mortgages, personal loans, and financial planning."
+        title="FAQ - Frequently Asked Questions" 
+        description="Find answers to common questions about our financial calculators and how to use them effectively."
         canonicalUrl="https://tryfincalc.com/faq"
       />
 

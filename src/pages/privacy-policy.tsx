@@ -5,7 +5,11 @@ import { SEOHandler } from "@/components/seo/SEOHandler";
 export default function PrivacyPolicy() {
   return (
     <MainLayout>
-      <SEOHandler title="Privacy Policy" description="Privacy Policy for TryFinCalc" />
+      <SEOHandler 
+        title="Privacy Policy" 
+        description="Learn how we protect your data and respect your privacy at TryFinCalc."
+        canonicalUrl="https://tryfincalc.com/privacy-policy"
+      />
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-manrope font-bold text-primary mb-8">Privacy Policy</h1>
         <div className="prose prose-teal max-w-none text-on-surface-variant">

@@ -84,8 +84,8 @@ export default function MortgageCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Mortgage Calculator - Monthly Payment Estimator"
-        description="Calculate your monthly mortgage payments including taxes, insurance, and fees. Estimate your borrowing capacity and monthly budget with precision."
+        title="Mortgage Calculator" 
+        description="Calculate your monthly mortgage payments with taxes and insurance. Adjust rates, terms, and down payments instantly."
         canonicalUrl="https://tryfincalc.com/mortgage-calculator"
       />
       

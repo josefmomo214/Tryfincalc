@@ -80,8 +80,8 @@ export default function RentVsBuy() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Rent vs Buy Calculator - Should You Own or Rent?"
-        description="Compare the long-term financial impact of renting vs buying a home. Factor in interest rates, closing costs, and property appreciation."
+        title="Rent vs Buy Calculator" 
+        description="Compare the long-term costs of renting vs. buying a home. Factor in appreciation, maintenance, and the true cost of renting."
         canonicalUrl="https://tryfincalc.com/rent-vs-buy"
       />
 

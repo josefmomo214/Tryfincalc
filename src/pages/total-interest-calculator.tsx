@@ -41,8 +41,8 @@ export default function TotalInterestCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Total Interest Calculator - The True Cost of Borrowing"
-        description="Calculate the total interest you will pay on any loan or mortgage. Understand the long-term impact of interest rates on your financial future."
+        title="Total Interest Calculator" 
+        description="Calculate the total interest you will pay over the life of your loan. See the true cost of borrowing."
         canonicalUrl="https://tryfincalc.com/total-interest-calculator"
       />
 

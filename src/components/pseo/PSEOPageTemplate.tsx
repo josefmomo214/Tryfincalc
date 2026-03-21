@@ -54,7 +54,11 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
 
   return (
     <MainLayout>
-      <SEOHandler title={content.title} description={content.description} />
+      <SEOHandler 
+        title={content.title} 
+        description={content.description} 
+        canonicalUrl={`https://tryfincalc.com/calculator/${params.slug}`}
+      />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         {/* Navigation / Breadcrumb */}

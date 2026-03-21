@@ -28,6 +28,7 @@ interface BlogTemplateProps {
   faqs: FAQItem[];
   ctaText: string;
   ctaHref: string;
+  slug: string; // Added slug
   relatedPSEO?: { title: string; href: string }[];
 }
 
@@ -42,11 +43,16 @@ export function BlogTemplate({
   faqs,
   ctaText,
   ctaHref,
+  slug, // Added slug
   relatedPSEO = []
 }: BlogTemplateProps) {
   return (
     <MainLayout>
-      <SEOHandler title={title} description={description} />
+      <SEOHandler 
+        title={title} 
+        description={description} 
+        canonicalUrl={`https://tryfincalc.com/blog/${slug}`}
+      />
       
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <Breadcrumb 

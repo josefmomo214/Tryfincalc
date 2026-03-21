@@ -66,8 +66,8 @@ export default function AmortizationSchedule() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Mortgage Amortization Schedule - Payment Breakdown"
-        description="View your detailed monthly payment schedule for any mortgage or loan. See how your principal and interest change over the life of your debt."
+        title="Amortization Schedule Calculator" 
+        description="View your full loan or mortgage amortization schedule. See how your monthly payments are split between principal and interest."
         canonicalUrl="https://tryfincalc.com/amortization-schedule"
       />
 

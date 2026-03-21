@@ -44,6 +44,7 @@ export default function BlogPost() {
       category={article.category}
       date="March 21, 2026"
       readTime={article.readTime}
+      slug={article.slug}
       intro={<p>{content.intro}</p>}
       sections={content.sections.map(s => ({
         title: s.title,

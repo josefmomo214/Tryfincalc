@@ -5,7 +5,11 @@ import { SEOHandler } from "@/components/seo/SEOHandler";
 export default function TermsOfService() {
   return (
     <MainLayout>
-      <SEOHandler title="Terms of Service" description="Terms of Service for TryFinCalc" />
+      <SEOHandler 
+        title="Terms of Service" 
+        description="Read our terms and conditions for using TryFinCalc's financial tools and calculators."
+        canonicalUrl="https://tryfincalc.com/terms-of-service"
+      />
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-manrope font-bold text-primary mb-8">Terms of Service</h1>
         <div className="prose prose-teal max-w-none text-on-surface-variant">
