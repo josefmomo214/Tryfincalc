@@ -127,6 +127,9 @@ export default function Home_Page() {
             <p>
               <strong>Why use a loan calculator?</strong> By calculating your expected monthly payments and understanding the total interest you will pay over the life of a loan, you can make informed decisions about whether a specific financial product is right for you. It helps you ensure that your borrowing fits comfortably within your budget alongside other obligations.
             </p>
+            <p className="text-sm italic">
+              * Interest rates can vary depending on market conditions. You can follow general trends through sources like the Federal Reserve.
+            </p>
           </div>
           <div className="mt-8">
             <Link href="/blog">

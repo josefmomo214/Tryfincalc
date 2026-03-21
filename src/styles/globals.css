@@ -70,3 +70,17 @@
 @utility shadow-ambient {
   box-shadow: 0 8px 30px var(--shadow-color), 0 12px 40px rgba(25, 28, 29, 0.08);
 }
+
+/* Blog Content Link Styling */
+.blog-content a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+  transition: all 0.2s ease;
+}
+
+.blog-content a:hover {
+  border-bottom-color: var(--color-primary);
+  color: var(--color-primary);
+}
