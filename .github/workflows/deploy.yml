@@ -40,6 +40,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
           local-dir: .next/standalone/
-          server-dir: domains/tryfincalc.com/public_html/
-          delete: false # Set to true if you want to wipe old files
+          server-dir: ./public_html/
+          # No clean slate for now to avoid errors

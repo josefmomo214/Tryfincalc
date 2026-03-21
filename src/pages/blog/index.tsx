@@ -10,14 +10,17 @@ import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
 import { articles } from "@/data/articles";
 
 export default function BlogIndex() {
+  const featuredArticle = articles[0];
+  const remainingArticles = articles.slice(1);
+  
   const [visibleCount, setVisibleCount] = useState(6);
   
   const handleLoadMore = () => {
     setVisibleCount(prev => prev + 6);
   };
 
-  const visibleArticles = articles.slice(0, visibleCount);
-  const hasMore = visibleCount < articles.length;
+  const visibleArticles = remainingArticles.slice(0, visibleCount);
+  const hasMore = visibleCount < remainingArticles.length;
 
   return (
     <MainLayout>
@@ -52,25 +55,27 @@ export default function BlogIndex() {
       {/* Featured Article */}
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <Link href="/blog/2026-homebuyers-playbook" className="block group">
-            <div className="bg-surface-container-low rounded-3xl overflow-hidden flex flex-col lg:flex-row h-full border border-outline-variant/10 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
-              <div className="lg:w-1/2 bg-surface-container-highest p-12 flex flex-col justify-center">
-                <span className="text-sm font-semibold tracking-wider text-primary uppercase mb-4 block">Featured Report</span>
-                <h2 className="text-3xl md:text-4xl font-manrope font-bold text-primary mb-4 group-hover:underline underline-offset-4 decoration-primary-fixed">
-                  The 2026 Homebuyer's Playbook
-                </h2>
-                <p className="text-lg text-on-surface-variant mb-8 line-clamp-3">
-                  Navigating the current real estate market requires more than just pre-approval. We break down the exact strategies top buyers use to negotiate and win without over-leveraging their future.
-                </p>
-                <div className="flex items-center text-primary font-medium group-hover:text-primary-container transition-colors">
-                  Read Full Report <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
+          {featuredArticle && (
+            <Link href={`/blog/${featuredArticle.slug}`} className="block group">
+              <div className="bg-surface-container-low rounded-3xl overflow-hidden flex flex-col lg:flex-row h-full border border-outline-variant/10 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="lg:w-1/2 bg-surface-container-highest p-12 flex flex-col justify-center">
+                  <span className="text-sm font-semibold tracking-wider text-primary uppercase mb-4 block">Featured Report</span>
+                  <h2 className="text-3xl md:text-4xl font-manrope font-bold text-primary mb-4 group-hover:underline underline-offset-4 decoration-primary-fixed">
+                    {featuredArticle.title}
+                  </h2>
+                  <p className="text-lg text-on-surface-variant mb-8 line-clamp-3">
+                    {featuredArticle.excerpt}
+                  </p>
+                  <div className="flex items-center text-primary font-medium group-hover:text-primary-container transition-colors">
+                    Read Full Report <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
+                  </div>
+                </div>
+                <div className="lg:w-1/2 min-h-[300px] relative overflow-hidden">
+                  <BlogThumbnail category={featuredArticle.category} isFeatured={true} className="h-full" />
                 </div>
               </div>
-              <div className="lg:w-1/2 min-h-[300px] relative overflow-hidden">
-                <BlogThumbnail category="Financial Planning" isFeatured={true} className="h-full" />
-              </div>
-            </div>
-          </Link>
+            </Link>
+          )}
         </div>
       </section>
 

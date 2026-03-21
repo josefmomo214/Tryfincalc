@@ -1,58 +1,127 @@
 import React from "react";
-import { useRouter } from "next/router";
-import { BlogTemplate } from "@/components/blog/BlogTemplate";
-import { articles } from "@/data/articles";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { articles, Article } from "@/data/articles";
+import { MainLayout } from "@/components/layout/MainLayout";
+import { SEOHandler } from "@/components/seo/SEOHandler";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
-export default function BlogPost() {
-  const router = useRouter();
-  const { slug } = router.query;
+interface BlogPostProps {
+  article: Article;
+  recentArticles: Article[];
+}
 
-  const article = articles.find((a) => a.slug === slug);
-
+export default function BlogPost({ article, recentArticles }: BlogPostProps) {
   if (!article) {
-    if (router.isReady) {
-      // Fallback if slug not found
-      return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-4 text-center">
+    return (
+      <MainLayout>
+        <div className="min-h-screen flex flex-col items-center justify-center p-4 text-center text-on-surface">
           <h1 className="text-4xl font-bold mb-4">Guide Not Found</h1>
-          <p className="mb-8">The financial guide you're looking for doesn't exist or has been moved.</p>
+          <p className="mb-8">The financial guide you're looking for doesn't exist.</p>
           <Link href="/blog">
             <Button><ArrowLeft className="mr-2 w-4 h-4" /> Back to Guides</Button>
           </Link>
         </div>
-      );
-    }
-    return null; // Loading state
+      </MainLayout>
+    );
   }
 
-  // Use full content if available, otherwise fallback to a generic placeholder version
-  const content = article.fullContent || {
-    intro: article.excerpt,
-    sections: [
-      { title: "Quick Overview", content: "This guide is currently being expanded with more technical details. Stay tuned for the full breakdown!" }
-    ],
-    faqs: []
-  };
-
   return (
-    <BlogTemplate
-      title={article.title}
-      description={article.excerpt}
-      category={article.category}
-      date="March 21, 2026"
-      readTime={article.readTime}
-      slug={article.slug}
-      intro={<p>{content.intro}</p>}
-      sections={content.sections.map(s => ({
-        title: s.title,
-        content: <p className="text-on-surface-variant leading-relaxed">{s.content}</p>
-      }))}
-      faqs={content.faqs}
-      ctaText={article.ctaText || "Try our Calculator"}
-      ctaHref={article.ctaHref || "/"}
-    />
+    <MainLayout>
+      <SEOHandler 
+        title={article.title} 
+        description={article.excerpt} 
+        canonicalUrl={`https://tryfincalc.com/blog/${article.slug}`}
+      />
+      
+      <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
+        <Link href="/blog" className="inline-flex items-center text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 mb-8 font-medium transition-colors">
+          <ArrowLeft className="mr-2 w-4 h-4" /> Back to Guides
+        </Link>
+        
+        <article className="prose prose-lg prose-teal dark:prose-invert max-w-none">
+          <header className="mb-12 border-b border-outline-variant pb-12">
+            <div className="flex items-center space-x-2 text-sm text-on-surface-variant mb-4 font-medium uppercase tracking-wider">
+              <span>{article.category}</span>
+              <span>•</span>
+              <span>{article.readTime}</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-manrope font-extrabold text-primary leading-tight mb-6">
+              {article.title}
+            </h1>
+            <p className="text-xl text-on-surface-variant leading-relaxed">
+              {article.excerpt}
+            </p>
+          </header>
+          
+          <div 
+            className="mt-12 blog-content leading-relaxed text-on-surface"
+            dangerouslySetInnerHTML={{ __html: article.content }} 
+          />
+        </article>
+
+        {/* Recent Articles Section */}
+        <div className="mt-24 border-t border-outline-variant pt-16">
+          <div className="flex justify-between items-end mb-10">
+            <div>
+              <h2 className="text-3xl font-manrope font-bold text-primary mb-2">Continue your journey</h2>
+              <p className="text-on-surface-variant">More expert guides to help you master your finances.</p>
+            </div>
+            <Link href="/blog" className="hidden sm:block text-primary font-medium hover:underline underline-offset-4">
+              View all guides
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {recentArticles.map((item) => (
+              <Link key={item.slug} href={`/blog/${item.slug}`} className="group block bg-surface-container-low p-8 rounded-3xl border border-outline-variant/10 hover:-translate-y-1 transition-all duration-300">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-3 block">{item.category}</span>
+                <h3 className="text-xl font-bold text-primary mb-4 group-hover:underline underline-offset-2">{item.title}</h3>
+                <p className="text-on-surface-variant text-sm mb-6 line-clamp-2">{item.excerpt}</p>
+                <span className="text-teal-600 dark:text-teal-400 text-sm font-semibold flex items-center">
+                  Read more <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MainLayout>
   );
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = articles.map((article) => ({
+    params: { slug: article.slug },
+  }));
+
+  return {
+    paths,
+    fallback: false, 
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+  const article = articles.find((a) => a.slug === slug);
+
+  if (!article) {
+    return {
+      notFound: true,
+    };
+  }
+
+  // Get 2 other articles for the "Read more" section
+  const recentArticles = articles
+    .filter((a) => a.slug !== slug)
+    .slice(0, 2);
+
+  return {
+    props: {
+      article,
+      recentArticles,
+    },
+    revalidate: 3600, 
+  };
 }
