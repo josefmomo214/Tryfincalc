@@ -21,12 +21,36 @@ interface ScheduleItem {
 export default function AmortizationSchedule() {
   const router = useRouter();
   const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'EUR';
+  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
 
   const [loanAmount, setLoanAmount] = useState(250000);
   const [interestRate, setInterestRate] = useState(3.75);
   const [loanTerm, setLoanTerm] = useState(20);
   const [schedule, setSchedule] = useState<ScheduleItem[]>([]);
+  const [isCalculated, setIsCalculated] = useState(false);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does a variable rate affect my schedule?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your interest rate is variable, your schedule will be recalculated by your lender at each revision date based on the new rate and remaining balance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this for a car loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Most installment loans for vehicles use the same base amortization math, showing how each payment reduces your total balance."
+        }
+      }
+    ]
+  };
 
   // Sync state when currency changes
   useEffect(() => {
@@ -66,9 +90,10 @@ export default function AmortizationSchedule() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Amortization Schedule Calculator" 
-        description="View your full loan or mortgage amortization schedule. See how your monthly payments are split between principal and interest."
+        title="Amortization Schedule Calculator - Payoff Details"
+        description="View your full amortization schedule to see how payments are split between principal and interest. Free and requires no sign-up. Plan your payoff schedule."
         canonicalUrl="https://tryfincalc.com/amortization-schedule"
+        structuredData={faqSchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">
@@ -88,15 +113,15 @@ export default function AmortizationSchedule() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Loan Amount ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={loanAmount} onChange={(e) => setLoanAmount(Number(e.target.value))} />
+              <Input type="number" value={loanAmount} onChange={(e) => { setIsCalculated(true); setLoanAmount(Number(e.target.value)); }} />
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Interest Rate (%)</label>
-              <Input type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(Number(e.target.value))} />
+              <Input type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(Number(e.target.value)); }} />
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Loan Term (Years)</label>
-              <Input type="number" value={loanTerm} onChange={(e) => setLoanTerm(Number(e.target.value))} />
+              <Input type="number" value={loanTerm} onChange={(e) => { setIsCalculated(true); setLoanTerm(Number(e.target.value)); }} />
             </div>
           </div>
         </CalculatorInputArea>
@@ -104,24 +129,30 @@ export default function AmortizationSchedule() {
         <CalculatorResultsArea>
           <div className="space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-6 bg-primary/5 rounded-3xl border border-primary/20">
+              <div className="p-6 bg-primary/5 rounded-3xl border border-primary/20 text-center sm:text-left">
                 <h3 className="text-xs font-bold text-primary uppercase mb-2">First Pmt Principal</h3>
                 <div className="text-3xl font-bold text-primary">
-                  {schedule.length > 0 ? formatCurrency(schedule[0].principal, 2, currency) : formatCurrency(0, 0, currency)}
+                  {isCalculated && schedule.length > 0 ? formatCurrency(schedule[0].principal, 2, currency) : "—"}
                 </div>
               </div>
-              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10">
+              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h3 className="text-xs font-bold text-on-surface-variant uppercase mb-2">First Pmt Interest</h3>
                 <div className="text-3xl font-bold text-primary">
-                  {schedule.length > 0 ? formatCurrency(schedule[0].interest, 2, currency) : formatCurrency(0, 0, currency)}
+                  {isCalculated && schedule.length > 0 ? formatCurrency(schedule[0].interest, 2, currency) : "—"}
                 </div>
               </div>
             </div>
             <div className="p-6 bg-surface-container-high rounded-3xl border border-outline-variant/10 text-center">
               <h3 className="text-xs font-bold text-on-surface-variant uppercase mb-1">Estimated Monthly Payment</h3>
-              <div className="text-4xl font-manrope font-extrabold text-primary">
-                {schedule.length > 0 ? formatCurrency(schedule[0].payment, 2, currency) : formatCurrency(0, 0, currency)}
-              </div>
+              {isCalculated && schedule.length > 0 ? (
+                <div className="text-4xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
+                  {formatCurrency(schedule[0].payment, 2, currency)}
+                </div>
+              ) : (
+                <div className="py-2 text-lg font-medium text-on-surface-variant/40 italic">
+                  Enter details to see schedule
+                </div>
+              )}
             </div>
           </div>
         </CalculatorResultsArea>
@@ -135,37 +166,45 @@ export default function AmortizationSchedule() {
             <span className="text-xs font-bold text-on-surface-variant uppercase bg-white px-3 py-1 rounded-full border border-outline-variant/20">{loanTerm * 12} Payments</span>
           </div>
           <div className="overflow-x-auto max-h-[500px] scrollbar-thin scrollbar-thumb-primary/20">
-            <table className="min-w-full divide-y divide-outline-variant/10">
-              <thead className="bg-surface sticky top-0 z-10 shadow-sm border-b border-outline-variant/20">
-                <tr>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">No.</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Payment</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Principal</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Interest</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Total Interest</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Balance</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-outline-variant/10">
-                {schedule.filter((_, i) => i < 36 || i >= schedule.length - 12).map((row, idx) => (
-                  <React.Fragment key={row.no}>
-                    {idx === 36 && (
-                      <tr className="bg-surface-container-lowest">
-                        <td colSpan={6} className="px-6 py-3 text-center text-xs font-bold text-on-surface-variant uppercase tracking-[0.2em]">... Intermediate Years Omitted ...</td>
+            {isCalculated ? (
+              <table className="min-w-full divide-y divide-outline-variant/10">
+                <thead className="bg-surface sticky top-0 z-10 shadow-sm border-b border-outline-variant/20">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">No.</th>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Payment</th>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Principal</th>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Interest</th>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Total Interest</th>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-on-surface-variant uppercase tracking-wider">Balance</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-outline-variant/10">
+                  {schedule.filter((_, i) => i < 36 || i >= schedule.length - 12).map((row, idx) => (
+                    <React.Fragment key={row.no}>
+                      {idx === 36 && (
+                        <tr className="bg-surface-container-lowest">
+                          <td colSpan={6} className="px-6 py-3 text-center text-xs font-bold text-on-surface-variant uppercase tracking-[0.2em]">... Intermediate Years Omitted ...</td>
+                        </tr>
+                      )}
+                      <tr className="hover:bg-primary/5 transition-colors group">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-on-surface-variant">{row.no}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-primary font-bold">{formatCurrency(row.payment, 2, currency)}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-on-surface-variant">{formatCurrency(row.principal, 2, currency)}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-on-surface-variant">{formatCurrency(row.interest, 2, currency)}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-on-surface-variant">{formatCurrency(row.totalInterest, 2, currency)}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-on-surface font-bold">{formatCurrency(row.balance, 2, currency)}</td>
                       </tr>
-                    )}
-                    <tr className="hover:bg-primary/5 transition-colors group">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-on-surface-variant">{row.no}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-primary font-bold">{formatCurrency(row.payment, 2, currency)}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-on-surface-variant">{formatCurrency(row.principal, 2, currency)}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-on-surface-variant">{formatCurrency(row.interest, 2, currency)}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-on-surface-variant">{formatCurrency(row.totalInterest, 2, currency)}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-on-surface font-bold">{formatCurrency(row.balance, 2, currency)}</td>
-                    </tr>
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </table>
+                    </React.Fragment>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <div className="py-40 text-center">
+                <p className="text-xl font-medium text-on-surface-variant/40 italic">
+                  Complete the form to generate your full amortization roadmap
+                </p>
+              </div>
+            )}
           </div>
           <div className="px-8 py-4 bg-surface-container-lowest text-center">
             <p className="text-xs text-on-surface-variant italic">Showing first 3 years and final year for brevity. Access full breakdown upon request.</p>
@@ -194,20 +233,20 @@ export default function AmortizationSchedule() {
           {
             title: "Standard Home Mortgage",
             items: [
-              { label: "Loan Amount", value: currency === 'EUR' ? "€250,000" : "$250,000" },
+              { label: "Loan Amount", value: currency === 'USD' ? "$250,000" : "€250,000" },
               { label: "Interest Rate", value: "4.0%" },
-              { label: "Month 1 Interest", value: currency === 'EUR' ? "€833" : "$833" },
-              { label: "Month 1 Principal", value: currency === 'EUR' ? "€681" : "$681" }
+              { label: "Month 1 Interest", value: currency === 'USD' ? "$833" : "€833" },
+              { label: "Month 1 Principal", value: currency === 'USD' ? "$681" : "€681" }
             ],
             description: "Showing how early mortgage payments are heavily weighted toward interest."
           },
           {
             title: "Final Year Milestone",
             items: [
-              { label: "Loan Balance", value: currency === 'EUR' ? "€15,000" : "$15,000" },
-              { label: "Final Interest", value: currency === 'EUR' ? "€50" : "$50" },
-              { label: "Final Principal", value: currency === 'EUR' ? "€14,950" : "$14,950" },
-              { label: "Total Debt", value: "€0 / $0" }
+              { label: "Loan Balance", value: currency === 'USD' ? "$15,000" : "€15,000" },
+              { label: "Final Interest", value: currency === 'USD' ? "$50" : "€50" },
+              { label: "Final Principal", value: currency === 'USD' ? "$14,950" : "€14,950" },
+              { label: "Total Debt", value: "$0 / €0" }
             ],
             description: "At the end of the term, almost every cent goes to your equity."
           }

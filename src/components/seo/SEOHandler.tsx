@@ -6,6 +6,7 @@ interface SEOHandlerProps {
   keywords?: string;
   canonicalUrl?: string;
   ogImage?: string;
+  structuredData?: object;
 }
 
 export function SEOHandler({
@@ -13,7 +14,8 @@ export function SEOHandler({
   description,
   keywords = "calculator, loan, mortgage, finance, amortization",
   canonicalUrl,
-  ogImage = "/og-image.jpg" // Placeholder for an actual OG image
+  ogImage = "/og-image.jpg", // Placeholder for an actual OG image
+  structuredData
 }: SEOHandlerProps) {
   const siteName = "TryFinCalc";
   const fullTitle = `${title} | ${siteName}`;
@@ -40,6 +42,13 @@ export function SEOHandler({
       <meta property="twitter:image" content={ogImage} />
 
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      )}
     </Head>
   );
 }

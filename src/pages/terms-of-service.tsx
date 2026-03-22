@@ -7,7 +7,7 @@ export default function TermsOfService() {
     <MainLayout>
       <SEOHandler 
         title="Terms of Service" 
-        description="Read our terms and conditions for using TryFinCalc's financial tools and calculators."
+        description="Read the terms of service for using TryFinCalc's financial calculators and guides. Our tools are free and require no sign-up. Understand our user agreement."
         canonicalUrl="https://tryfincalc.com/terms-of-service"
       />
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">

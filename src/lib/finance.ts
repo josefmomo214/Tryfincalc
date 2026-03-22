@@ -6,7 +6,7 @@ export const convertCurrency = (amount: number, from: 'USD' | 'EUR', to: 'USD' |
   return amount / EXCHANGE_RATE;
 };
 
-export const formatCurrency = (val: number, decimals: number = 0, currency: 'USD' | 'EUR' = 'EUR') => {
+export const formatCurrency = (val: number, decimals: number = 0, currency: 'USD' | 'EUR' = 'USD') => {
   const locale = currency === 'USD' ? 'en-US' : 'en-GB';
   return new Intl.NumberFormat(locale, { 
     style: 'currency', 

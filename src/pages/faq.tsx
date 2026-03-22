@@ -20,7 +20,7 @@ export default function FAQPage() {
     <MainLayout>
       <SEOHandler 
         title="FAQ - Frequently Asked Questions" 
-        description="Find answers to common questions about our financial calculators and how to use them effectively."
+        description="Find answers to commonly asked questions about our financial tools and loan calculations. Our resources are free and require no sign-up. Get your info here."
         canonicalUrl="https://tryfincalc.com/faq"
       />
 

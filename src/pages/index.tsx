@@ -19,7 +19,7 @@ export default function Home_Page() {
     <MainLayout>
       <SEOHandler 
         title="Financial Calculators & Tools" 
-        description="Premium financial calculators for the modern professional. Fast, accurate, and completely free."
+        description="Expert financial calculators for the modern professional. Fast, accurate, and completely free. Requires no sign-up. Try our tools at TryFinCalc.com today."
         canonicalUrl="https://tryfincalc.com"
       />
 
@@ -31,7 +31,7 @@ export default function Home_Page() {
             TryFinCalc: Precision in Finance
           </div>
           <h1 className="text-display-lg font-manrope font-bold text-primary tracking-tight mb-6 max-w-4xl">
-            Clarity in every calculation. <br className="hidden md:block"/> Confidence in every decision.
+            Clarity in every calculation. <br className="hidden md:block"/> Confidence in every USD or EUR decision.
           </h1>
           <p className="text-xl text-on-surface-variant max-w-2xl mb-10 leading-relaxed">
             Our premium suite of financial calculators provides the exact numbers you need, presented in a beautifully simple interface.

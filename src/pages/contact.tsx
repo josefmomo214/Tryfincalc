@@ -10,7 +10,7 @@ export default function ContactAbout() {
     <MainLayout>
       <SEOHandler 
         title="Contact Us" 
-        description="Have questions or feedback? Get in touch with the TryFinCalc team for assistance."
+        description="Get in touch with the TryFinCalc team for any questions or feedback about our tools. Our support is free and requires no sign-up. We are here to help you."
         canonicalUrl="https://tryfincalc.com/contact"
       />
 

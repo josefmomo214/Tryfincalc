@@ -12,11 +12,12 @@ import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSecti
 export default function TotalInterestCalculator() {
   const router = useRouter();
   const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'EUR';
+  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
 
   const [principal, setPrincipal] = useState(50000);
   const [rate, setRate] = useState(5.0);
   const [years, setYears] = useState(10);
+  const [isCalculated, setIsCalculated] = useState(false);
 
   const [results, setResults] = useState({
     totalInterest: 0,
@@ -42,7 +43,7 @@ export default function TotalInterestCalculator() {
     <MainLayout>
       <SEOHandler 
         title="Total Interest Calculator" 
-        description="Calculate the total interest you will pay over the life of your loan. See the true cost of borrowing."
+        description="Calculate the total interest you will pay over the life of your loan. Understand your borrowing costs. Free and requires no sign-up. Use our accurate tool."
         canonicalUrl="https://tryfincalc.com/total-interest-calculator"
       />
 
@@ -63,15 +64,15 @@ export default function TotalInterestCalculator() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Principal Amount ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={principal} onChange={(e) => setPrincipal(Number(e.target.value))} />
+              <Input type="number" value={principal} onChange={(e) => { setIsCalculated(true); setPrincipal(Number(e.target.value)); }} />
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Interest Rate (APR %)</label>
-              <Input type="number" step="0.1" value={rate} onChange={(e) => setRate(Number(e.target.value))} />
+              <Input type="number" step="0.1" value={rate} onChange={(e) => { setIsCalculated(true); setRate(Number(e.target.value)); }} />
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Time Period (Years)</label>
-              <Input type="number" value={years} onChange={(e) => setYears(Number(e.target.value))} />
+              <Input type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(Number(e.target.value)); }} />
             </div>
           </div>
         </CalculatorInputArea>
@@ -80,13 +81,21 @@ export default function TotalInterestCalculator() {
           <div className="space-y-8">
             <div className="text-center p-8 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Total Interest Paid</h3>
-              <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary">
-                {formatCurrency(results.totalInterest, 0, currency)}
-              </div>
+              {isCalculated ? (
+                <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
+                  {formatCurrency(results.totalInterest, 0, currency)}
+                </div>
+              ) : (
+                <div className="py-4 text-lg font-medium text-on-surface-variant/40 italic">
+                  Enter details to see total interest
+                </div>
+              )}
             </div>
             <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center">
               <h4 className="text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-1">Total Amount (Principal + Interest)</h4>
-              <div className="text-3xl font-bold text-primary">{formatCurrency(results.totalPaid, 0, currency)}</div>
+              <div className="text-3xl font-bold text-primary">
+                {isCalculated ? formatCurrency(results.totalPaid, 0, currency) : "—"}
+              </div>
             </div>
           </div>
         </CalculatorResultsArea>
@@ -114,19 +123,19 @@ export default function TotalInterestCalculator() {
             title: "The $300,000 Mortgage Lesson",
             items: [
               { label: "Interest Rate", value: "7.0%" },
-              { label: "30 Year Total Interest", value: currency === 'EUR' ? "€418,527" : "$418,527" },
-              { label: "15 Year Total Interest", value: currency === 'EUR' ? "€185,426" : "$185,426" },
-              { label: "Total Savings", value: currency === 'EUR' ? "€233,101" : "$233,101" }
+              { label: "30 Year Total Interest", value: currency === 'USD' ? "$418,527" : "€418,527" },
+              { label: "15 Year Total Interest", value: currency === 'USD' ? "$185,426" : "€185,426" },
+              { label: "Total Savings", value: currency === 'USD' ? "$233,101" : "€233,101" }
             ],
             description: "A stark look at how loan term length affects long-term sustainability."
           },
           {
             title: "Auto Loan Term Comparison",
             items: [
-              { label: "Loan Amount", value: currency === 'EUR' ? "€35,000" : "$35,000" },
+              { label: "Loan Amount", value: currency === 'USD' ? "$35,000" : "€35,000" },
               { label: "Interest Rate", value: "8.0%" },
-              { label: "60 Month Interest", value: currency === 'EUR' ? "€7,575" : "$7,575" },
-              { label: "72 Month Interest", value: currency === 'EUR' ? "€9,228" : "$9,228" }
+              { label: "60 Month Interest", value: currency === 'USD' ? "$7,575" : "€7,575" },
+              { label: "72 Month Interest", value: currency === 'USD' ? "$9,228" : "€9,228" }
             ],
             description: "Choosing a shorter term often saves thousands in interest alone."
           }

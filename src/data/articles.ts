@@ -28,14 +28,14 @@ export const articles: Article[] = [
     title: "How to Calculate Mortgage Payments: A Complete Guide",
     category: "Mortgages",
     readTime: "6 min read",
-    excerpt: "Learn the math behind mortgage payments. Understand how principal, interest, and terms affect your costs with USD/EUR examples.",
+    excerpt: "Learn the math behind mortgage payments. Understand how principal, interest, and terms affect your costs with clear USD examples.",
     slug: "mortgage-payment-guide",
     content: `
       <p>Whether you're looking at a home in New York or London, understanding your monthly costs is the first step to a successful purchase. Our <a href="/mortgage-calculator">mortgage tool</a> simplifies this math instantly.</p>
       <h2>The Core Components</h2>
       <p>Your payment consists of Principal, Interest, Taxes, and Insurance (PITI). Principal pays down the debt, while interest is the lender's fee. You can find more detail on these components at <a href="https://www.investopedia.com/terms/m/mortgage.asp" target="_blank" rel="noopener noreferrer">Investopedia</a>.</p>
-      <h2>USD vs EUR Examples</h2>
-      <p>A $300k mortgage at 6% results in a $1,798 P&I payment. A €250k mortgage at 4% results in a €1,319 payment. Try comparing these with a <a href="/loan-calculator">loan calculator</a> for different terms.</p>
+      <h2>USD & Global Examples</h2>
+      <p>A $300,000 mortgage at 6% interest results in a $1,798 monthly P&I payment. For our European users, a €250,000 mortgage at 4% results in a €1,319 payment. Try comparing these with a <a href="/loan-calculator">loan calculator</a> for different terms.</p>
       <h3>What is the 28% rule?</h3>
       <p>Lenders typically advise that your mortgage payment should not exceed 28% of your gross monthly income.</p>
     `
@@ -105,7 +105,7 @@ export const articles: Article[] = [
     content: `
       <p>Looking for an entry-level mortgage? Here is how $100,000 breaks down across global markets. Our <a href="/mortgage-calculator">home loan tool</a> can help you visualize the cost.</p>
       <h2>The $100k Breakdown</h2>
-      <p>At 5.5% interest, your monthly P&I is approximately $567. Over 30 years, you'll pay about $104k in interest. Try seeing if <a href="/rent-vs-buy">renting or buying</a> makes more sense at this price point.</p>
+      <p>At 5.5% interest, your monthly P&I is approximately $567. Over 30 years, you'll pay about $104,000 in total interest. Try seeing if <a href="/rent-vs-buy">renting or buying</a> makes more sense at this price point.</p>
       <h3>Is $100k too small for a mortgage?</h3>
       <p>Many lenders have a minimum loan amount, but $100k is generally accepted by most major banks.</p>
     `

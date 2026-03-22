@@ -11,7 +11,7 @@ export function Header() {
   const { pathname, asPath, query, locale } = router;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const currency = locale?.toUpperCase() || 'EUR';
+  const currency = locale?.toUpperCase() || 'USD';
 
   const handleCurrencyChange = (newLocale: string) => {
     router.push({ pathname, query }, asPath, { locale: newLocale });

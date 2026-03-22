@@ -13,11 +13,35 @@ import { ArrowLeftRight, BarChart3, TrendingDown } from "lucide-react";
 export default function LoanCalculator() {
   const router = useRouter();
   const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'EUR';
+  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
 
   const [loanAmount, setLoanAmount] = useState(15000);
   const [interestRate, setInterestRate] = useState(6.5);
   const [loanTerm, setLoanTerm] = useState(5);
+  const [isCalculated, setIsCalculated] = useState(false);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between APR and interest rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The interest rate is the cost you pay each year to borrow the money, expressed as a percentage. APR is a broader measure that includes the interest rate plus other costs such as lender fees and closing costs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I pay off my loan early?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most modern personal loans allow for early repayment without penalties, which can save you a significant amount in total interest. Always check your specific loan agreement for 'prepayment penalty' clauses."
+        }
+      }
+    ]
+  };
 
   const [results, setResults] = useState({
     monthly: 0,
@@ -44,9 +68,10 @@ export default function LoanCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Personal Loan Calculator - Monthly Payment Estimator"
-        description="Estimate your monthly personal loan payments, total interest costs, and repayment schedule for various loan amounts and interest rates."
+        title="Loan Calculator - Simple & Fast Personal Finance Tool"
+        description="Calculate monthly payments for any personal or auto loan. See your total interest and repayment plan. Free and requires no sign-up. Easy financial planning."
         canonicalUrl="https://tryfincalc.com/loan-calculator"
+        structuredData={faqSchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">
@@ -66,15 +91,15 @@ export default function LoanCalculator() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Loan Amount ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={loanAmount} onChange={(e) => setLoanAmount(Number(e.target.value))} />
+               <Input type="number" value={loanAmount} onChange={(e) => { setIsCalculated(true); setLoanAmount(Number(e.target.value)); }} />
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Interest Rate (APR %)</label>
-              <Input type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(Number(e.target.value))} />
+               <Input type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(Number(e.target.value)); }} />
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Loan Term (Years)</label>
-              <Input type="number" value={loanTerm} onChange={(e) => setLoanTerm(Number(e.target.value))} />
+               <Input type="number" value={loanTerm} onChange={(e) => { setIsCalculated(true); setLoanTerm(Number(e.target.value)); }} />
             </div>
           </div>
         </CalculatorInputArea>
@@ -102,22 +127,32 @@ export default function LoanCalculator() {
           ]}
         >
           <div className="space-y-8">
-            <div className="text-center p-6 bg-primary/5 rounded-3xl border border-primary/10">
-              <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Estimated Monthly Payment</h3>
-              <div className="text-5xl font-manrope font-extrabold text-primary">
-                {formatCurrency(results.monthly, 2, currency)}
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10">
-                <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Interest</h4>
-                <div className="text-2xl font-bold text-primary">{formatCurrency(results.totalInterest, 2, currency)}</div>
-              </div>
-              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10">
-                <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Paid</h4>
-                <div className="text-2xl font-bold text-primary">{formatCurrency(results.totalPaid, 2, currency)}</div>
-              </div>
-            </div>
+             <div className="text-center p-6 bg-primary/5 rounded-3xl border border-primary/10">
+               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Estimated Monthly Payment</h3>
+               {isCalculated ? (
+                 <div className="text-5xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
+                   {formatCurrency(results.monthly, 2, currency)}
+                 </div>
+               ) : (
+                 <div className="py-4 text-lg font-medium text-on-surface-variant/40 italic">
+                   Enter details to calculate
+                 </div>
+               )}
+             </div>
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
+                 <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Interest</h4>
+                 <div className="text-2xl font-bold text-primary">
+                   {isCalculated ? formatCurrency(results.totalInterest, 2, currency) : "—"}
+                 </div>
+               </div>
+               <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
+                 <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Paid</h4>
+                 <div className="text-2xl font-bold text-primary">
+                   {isCalculated ? formatCurrency(results.totalPaid, 2, currency) : "—"}
+                 </div>
+               </div>
+             </div>
           </div>
         </CalculatorResultsArea>
       </CalculatorContainer>
@@ -145,10 +180,10 @@ export default function LoanCalculator() {
           {
             title: "Major Project",
             items: [
-              { label: "Loan Amount", value: currency === 'EUR' ? "€20,000" : "$20,000" },
-              { label: "APR", value: "6.5%" },
-              { label: "Term", value: "60 Months" },
-              { label: "Monthly Payment", value: currency === 'EUR' ? "€391.32" : "$391.32" }
+              { label: "Loan Amount", value: currency === 'USD' ? "$10,000" : "€10,000" },
+              { label: "Interest Rate", value: "8.0%" },
+              { label: "Term", value: "3 Years" },
+              { label: "Monthly Payment", value: currency === 'USD' ? "$313.36" : "€313.36" }
             ],
             description: "Typical scenario for a significant home improvement or high-value purchase."
           },

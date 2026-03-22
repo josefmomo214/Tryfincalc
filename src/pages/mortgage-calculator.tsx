@@ -14,7 +14,7 @@ import { Search, PieChart, TrendingDown } from "lucide-react";
 export default function MortgageCalculator() {
   const router = useRouter();
   const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'EUR';
+  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
 
   // State reflects the value in the CURRENT currency
   const [homePrice, setHomePrice] = useState<number>(450000);
@@ -25,6 +25,38 @@ export default function MortgageCalculator() {
   const [propertyTax, setPropertyTax] = useState<number>(1200);
   const [insurance, setInsurance] = useState<number>(800);
   const [hoa, setHoa] = useState<number>(0);
+  const [isCalculated, setIsCalculated] = useState(false);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is included in a mortgage monthly payment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A typical payment includes Principal (repaying the borrowed amount), Interest (the lender's fee), and often Escrow for Property Taxes and Homeowners Insurance (known as PITI)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much down payment do I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While 20% is the traditional benchmark to avoid PMI, many programs allow as little as 3% or even 0% for qualified veterans (VA loans)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a higher credit score lower my payment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, a higher credit score qualifies you for lower interest rates, which directly reduces both your monthly installment and the total interest paid over the life of the loan."
+        }
+      }
+    ]
+  };
 
   // Sync state when currency changes
   useEffect(() => {
@@ -66,17 +98,20 @@ export default function MortgageCalculator() {
   }, [homePrice, downPayment, interestRate, loanTerm, propertyTax, insurance, hoa]);
 
   const handlePriceChange = (value: number) => {
+    setIsCalculated(true);
     setHomePrice(value);
     const newDown = (value * downPaymentPercent) / 100;
     setDownPayment(newDown);
   };
 
   const handleDownPaymentChange = (value: number) => {
+    setIsCalculated(true);
     setDownPayment(value);
     setDownPaymentPercent((value / homePrice) * 100);
   };
 
   const handleDownPercentChange = (value: number) => {
+    setIsCalculated(true);
     setDownPaymentPercent(value);
     setDownPayment((homePrice * value) / 100);
   };
@@ -84,9 +119,10 @@ export default function MortgageCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Mortgage Calculator" 
-        description="Calculate your monthly mortgage payments with taxes and insurance. Adjust rates, terms, and down payments instantly."
+        title="Mortgage Calculator - Estimate Your Monthly House Payments"
+        description="Calculate your monthly mortgage payments with our easy-to-use tool. Factor in interest, term, and down payment. Free, no sign-up required. Plan your home purchase."
         canonicalUrl="https://tryfincalc.com/mortgage-calculator"
+        structuredData={faqSchema}
       />
       
       <div className="bg-surface pt-20 pb-12 px-4 sm:px-6 lg:px-8">
@@ -126,14 +162,14 @@ export default function MortgageCalculator() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <label className="block text-sm font-semibold text-on-surface">Interest Rate (%)</label>
-                    <Input type="number" step="0.1" value={interestRate} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInterestRate(Number(e.target.value))} />
+                    <Input type="number" step="0.1" value={interestRate} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setInterestRate(Number(e.target.value)); }} />
                   </div>
                   <div className="space-y-4">
                     <label className="block text-sm font-semibold text-on-surface">Loan Term (Years)</label>
                     <select 
                       className="w-full h-12 px-4 rounded-xl border border-outline-variant/30 bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium text-on-surface"
                       value={loanTerm} 
-                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setLoanTerm(Number(e.target.value))}
+                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) => { setIsCalculated(true); setLoanTerm(Number(e.target.value)); }}
                     >
                       {[10, 15, 20, 25, 30].map(term => (
                         <option key={term} value={term}>{term} Years</option>
@@ -147,15 +183,15 @@ export default function MortgageCalculator() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div className="space-y-2">
                       <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tax / yr</label>
-                      <Input type="number" value={propertyTax} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPropertyTax(Number(e.target.value))} />
+                      <Input type="number" value={propertyTax} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setPropertyTax(Number(e.target.value)); }} />
                     </div>
                     <div className="space-y-2">
                       <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">Insurance / yr</label>
-                      <Input type="number" value={insurance} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInsurance(Number(e.target.value))} />
+                      <Input type="number" value={insurance} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setInsurance(Number(e.target.value)); }} />
                     </div>
                     <div className="space-y-2">
                       <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">HOA / mo</label>
-                      <Input type="number" value={hoa} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHoa(Number(e.target.value))} />
+                      <Input type="number" value={hoa} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setHoa(Number(e.target.value)); }} />
                     </div>
                   </div>
                 </div>
@@ -187,22 +223,28 @@ export default function MortgageCalculator() {
               <div className="space-y-12">
                 <div className="text-center">
                   <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-4">Estimated Monthly Payment</h3>
-                  <div className="text-6xl md:text-7xl font-manrope font-extrabold text-primary mb-2">
-                    {formatCurrency(results.monthlyPayment, 0, currency)}
-                    <span className="text-2xl font-medium text-on-surface-variant ml-2">/ mo</span>
-                  </div>
+                  {isCalculated ? (
+                    <div className="text-6xl md:text-7xl font-manrope font-extrabold text-primary mb-2 animate-in fade-in duration-700">
+                      {formatCurrency(results.monthlyPayment, 0, currency)}
+                      <span className="text-2xl font-medium text-on-surface-variant ml-2">/ mo</span>
+                    </div>
+                  ) : (
+                    <div className="py-10 text-xl font-medium text-on-surface-variant/40 italic">
+                      Enter your details above to see your results
+                    </div>
+                  )}
                 </div>
 
                 <div className="bg-surface rounded-3xl p-8 border border-outline-variant/10">
                   <h4 className="text-xs font-semibold tracking-widest text-on-surface-variant uppercase mb-6">Monthly Breakdown</h4>
                   <div className="space-y-4">
-                    <ResultCard title="Principal & Interest" value={formatCurrency(results.principalInterest, 0, currency)} />
-                    <ResultCard title="Property Taxes" value={formatCurrency(results.tax, 0, currency)} />
-                    <ResultCard title="Homeowners Insurance" value={formatCurrency(results.insurance, 0, currency)} />
-                    {results.pmi > 0 && <ResultCard title="PMI" value={formatCurrency(results.pmi, 0, currency)} />}
-                    {results.hoa > 0 && <ResultCard title="HOA Fees" value={formatCurrency(results.hoa, 0, currency)} />}
+                    <ResultCard title="Principal & Interest" value={isCalculated ? formatCurrency(results.principalInterest, 0, currency) : "—"} />
+                    <ResultCard title="Property Taxes" value={isCalculated ? formatCurrency(results.tax, 0, currency) : "—"} />
+                    <ResultCard title="Homeowners Insurance" value={isCalculated ? formatCurrency(results.insurance, 0, currency) : "—"} />
+                    {results.pmi > 0 && <ResultCard title="PMI" value={isCalculated ? formatCurrency(results.pmi, 0, currency) : "—"} />}
+                    {results.hoa > 0 && <ResultCard title="HOA Fees" value={isCalculated ? formatCurrency(results.hoa, 0, currency) : "—"} />}
                     <div className="pt-4 border-t border-outline-variant/10">
-                      <ResultCard title="Total Loan Amount" value={formatCurrency(results.loanAmount, 0, currency)} highlighted={true} />
+                      <ResultCard title="Total Loan Amount" value={isCalculated ? formatCurrency(results.loanAmount, 0, currency) : "—"} highlighted={true} />
                     </div>
                   </div>
                 </div>
@@ -264,24 +306,24 @@ export default function MortgageCalculator() {
             }
             examples={[
               {
-                title: "Starter Home",
-                items: [
-                  { label: "Home Price", value: currency === 'EUR' ? "€250,000" : "$250,000" },
-                  { label: "Down Payment (10%)", value: currency === 'EUR' ? "€25,000" : "$25,000" },
-                  { label: "Interest Rate", value: "3.75%" },
-                  { label: "Monthly Payment", value: currency === 'EUR' ? "€1,332" : "$1,332" }
-                ],
-                description: "Typical scenario for first-time buyers entering the market with a moderate down payment."
-              },
-              {
                 title: "Family Residence",
                 items: [
-                  { label: "Home Price", value: currency === 'EUR' ? "€500,000" : "$500,000" },
-                  { label: "Down Payment (20%)", value: currency === 'EUR' ? "€100,000" : "$100,000" },
-                  { label: "Interest Rate", value: "3.5%" },
-                  { label: "Monthly Payment", value: currency === 'EUR' ? "€2,001" : "$2,001" }
+                  { label: "Home Price", value: currency === 'USD' ? "$500,000" : "€500,000" },
+                  { label: "Down Payment (20%)", value: currency === 'USD' ? "$100,000" : "€100,000" },
+                  { label: "Interest Rate", value: "6.5%" },
+                  { label: "PITI Payment", value: currency === 'USD' ? "$3,850" : "€3,850" }
                 ],
                 description: "A long-term scenario reflecting the benefits of higher equity and larger contributions."
+              },
+              {
+                title: "Starter Home",
+                items: [
+                  { label: "Home Price", value: currency === 'USD' ? "$250,000" : "€250,000" },
+                  { label: "Down Payment (10%)", value: currency === 'USD' ? "$25,000" : "€25,000" },
+                  { label: "Interest Rate", value: "7.0%" },
+                  { label: "PITI Payment", value: currency === 'USD' ? "$1,700" : "€1,700" }
+                ],
+                description: "Typical scenario for first-time buyers entering the market with a moderate down payment."
               }
             ]}
             tips={[

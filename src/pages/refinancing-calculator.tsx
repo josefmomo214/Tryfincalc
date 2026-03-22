@@ -13,7 +13,7 @@ import { ArrowLeftRight, TrendingDown, RefreshCw } from "lucide-react";
 export default function RefinancingCalculator() {
   const router = useRouter();
   const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'EUR';
+  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
 
   const [balance, setBalance] = useState(250000);
   const [currentRate, setCurrentRate] = useState(4.5);
@@ -21,6 +21,30 @@ export default function RefinancingCalculator() {
   const [newRate, setNewRate] = useState(3.2);
   const [newTerm, setNewTerm] = useState(20);
   const [fees, setFees] = useState(5500);
+  const [isCalculated, setIsCalculated] = useState(false);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When is the best time to refinance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The general rule of thumb is when interest rates drop at least 1% below your current rate, or if your credit score has improved significantly since you took out the original loan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are typical refinancing closing costs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Expect to pay between 2% and 5% of the loan amount in various fees, including appraisal, title search, and application fees."
+        }
+      }
+    ]
+  };
 
   const [results, setResults] = useState({
     monthlySavings: 0,
@@ -55,9 +79,10 @@ export default function RefinancingCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Mortgage Refinancing Calculator - Is it Worth It?"
-        description="Calculate if refinancing your mortgage makes sense. Compare your current interest rate with new offers and see your monthly and lifetime savings."
+        title="Refinancing Calculator - Save on Your Monthly Payments"
+        description="Calculate how much you can save by refinancing your mortgage or loan. Find your break-even point today. Free and requires no sign-up. Compare rates now."
         canonicalUrl="https://tryfincalc.com/refinancing-calculator"
+        structuredData={faqSchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">
@@ -77,7 +102,7 @@ export default function RefinancingCalculator() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Remaining Loan Balance ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={balance} onChange={(e) => setBalance(Number(e.target.value))} />
+              <Input type="number" value={balance} onChange={(e) => { setIsCalculated(true); setBalance(Number(e.target.value)); }} />
             </div>
 
             <div className="border border-outline-variant/30 rounded-xl p-4 bg-surface-container-low">
@@ -85,11 +110,11 @@ export default function RefinancingCalculator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="block text-xs font-semibold text-on-surface">Current Rate (%)</label>
-                  <Input type="number" step="0.1" value={currentRate} onChange={(e) => setCurrentRate(Number(e.target.value))} />
+                  <Input type="number" step="0.1" value={currentRate} onChange={(e) => { setIsCalculated(true); setCurrentRate(Number(e.target.value)); }} />
                 </div>
                 <div className="space-y-2">
                   <label className="block text-xs font-semibold text-on-surface">Years Remaining</label>
-                  <Input type="number" value={yearsRemaining} onChange={(e) => setYearsRemaining(Number(e.target.value))} />
+                  <Input type="number" value={yearsRemaining} onChange={(e) => { setIsCalculated(true); setYearsRemaining(Number(e.target.value)); }} />
                 </div>
               </div>
             </div>
@@ -99,16 +124,16 @@ export default function RefinancingCalculator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="block text-xs font-semibold text-on-surface">New Rate (%)</label>
-                  <Input type="number" step="0.1" value={newRate} onChange={(e) => setNewRate(Number(e.target.value))} />
+                  <Input type="number" step="0.1" value={newRate} onChange={(e) => { setIsCalculated(true); setNewRate(Number(e.target.value)); }} />
                 </div>
                 <div className="space-y-2">
                   <label className="block text-xs font-semibold text-on-surface">New Term (Years)</label>
-                  <Input type="number" value={newTerm} onChange={(e) => setNewTerm(Number(e.target.value))} />
+                  <Input type="number" value={newTerm} onChange={(e) => { setIsCalculated(true); setNewTerm(Number(e.target.value)); }} />
                 </div>
               </div>
               <div className="space-y-2 mt-4">
                 <label className="block text-xs font-semibold text-on-surface text-primary font-bold">Total Closing / Refi Costs ({currency === 'EUR' ? '€' : '$'})</label>
-                <Input type="number" value={fees} onChange={(e) => setFees(Number(e.target.value))} />
+                <Input type="number" value={fees} onChange={(e) => { setIsCalculated(true); setFees(Number(e.target.value)); }} />
                 <p className="text-[10px] text-on-surface-variant italic">
                   Include bank fees, appraisal, and typical closing costs.
                 </p>
@@ -142,19 +167,33 @@ export default function RefinancingCalculator() {
           <div className="space-y-8">
             <div className="text-center p-6 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Monthly Savings</h3>
-              <div className="text-5xl font-manrope font-extrabold text-primary">
-                {formatCurrency(Math.max(0, results.monthlySavings), 0, currency)}
-              </div>
+              {isCalculated ? (
+                <div className="text-5xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
+                  {formatCurrency(Math.max(0, results.monthlySavings), 0, currency)}
+                </div>
+              ) : (
+                <div className="py-4 text-lg font-medium text-on-surface-variant/40 italic">
+                  Enter details to calculate savings
+                </div>
+              )}
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center">
+              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Lifetime Savings</h4>
-                <div className="text-2xl font-bold text-primary">{formatCurrency(results.lifetimeSavings, 0, currency)}</div>
+                <div className="text-2xl font-bold text-primary">
+                  {isCalculated ? formatCurrency(results.lifetimeSavings, 0, currency) : "—"}
+                </div>
               </div>
               <div className="p-6 bg-surface-container-lowest border-t-4 border-tertiary rounded-3xl text-center shadow-sm">
                 <h4 className="text-xs font-semibold text-tertiary uppercase mb-1">Break-even Point</h4>
-                <div className="text-3xl font-bold text-primary">{Math.max(0, Math.ceil(results.breakEven))} <span className="text-sm font-normal">Mo.</span></div>
+                <div className="text-3xl font-bold text-primary">
+                  {isCalculated ? (
+                    <>
+                      {Math.max(0, Math.ceil(results.breakEven))} <span className="text-sm font-normal">Mo.</span>
+                    </>
+                  ) : "—"}
+                </div>
               </div>
             </div>
           </div>
@@ -184,21 +223,21 @@ export default function RefinancingCalculator() {
           {
             title: "Monthly Budget Optimization",
             items: [
-              { label: "Remaining Capital", value: currency === 'EUR' ? "€200,000" : "$200,000" },
-              { label: "Rate Drop", value: "4.5% -> 3.2%" },
-              { label: "Refi Costs", value: currency === 'EUR' ? "€5,000" : "$5,000" },
+              { label: "Current Payment", value: currency === 'USD' ? "$2,150" : "€2,150" },
+              { label: "New Rate", value: "5.5%" },
+              { label: "Monthly Savings", value: currency === 'USD' ? "$285" : "€285" },
               { label: "Break-even", value: "28 Months" }
             ],
             description: "Typically achieved when market rates drop significantly below your locked rate."
           },
           {
             title: "Term Reduction Strategy",
-            items: [
-              { label: "Remaining Capital", value: currency === 'EUR' ? "€350,000" : "$350,000" },
-              { label: "Rate Switch", value: "7% (30y) -> 5.5% (15y)" },
-              { label: "Years Saved", value: "11 Years" },
-              { label: "Total Interest Saved", value: currency === 'EUR' ? "€185,000" : "$185,000" }
-            ],
+                items: [
+                  { label: "Home Price", value: currency === 'USD' ? "$500,000" : "€500,000" },
+                  { label: "Down Payment (20%)", value: currency === 'USD' ? "$100,000" : "€100,000" },
+                  { label: "Interest Rate", value: "6.5%" },
+                  { label: "PITI Payment", value: currency === 'USD' ? "$3,850" : "€3,850" }
+                ],
             description: "Prioritizing debt freedom and long-term interest savings."
           }
         ]}

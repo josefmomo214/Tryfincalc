@@ -12,11 +12,12 @@ import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSecti
 export default function MonthlyPaymentCalculator() {
   const router = useRouter();
   const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'EUR';
+  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
 
   const [amount, setAmount] = useState(250000);
   const [rate, setRate] = useState(3.75);
   const [years, setYears] = useState(25);
+  const [isCalculated, setIsCalculated] = useState(false);
 
   const [results, setResults] = useState({
     monthly: 0,
@@ -44,7 +45,7 @@ export default function MonthlyPaymentCalculator() {
     <MainLayout>
       <SEOHandler 
         title="Monthly Payment Calculator - Loan & Mortgage Estimator"
-        description="Estimate your monthly payments for any loan or mortgage. Clear, simple monthly payment results for your home or car loan."
+        description="Get a quick breakdown of your monthly payment for any loan type. See the total cost of borrowing. It is free and requires no sign-up. Calculate accurately."
         canonicalUrl="https://tryfincalc.com/monthly-payment-calculator"
       />
 
@@ -65,15 +66,15 @@ export default function MonthlyPaymentCalculator() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Total Loan Amount ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} />
+              <Input type="number" value={amount} onChange={(e) => { setIsCalculated(true); setAmount(Number(e.target.value)); }} />
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Interest Rate (%)</label>
-              <Input type="number" step="0.1" value={rate} onChange={(e) => setRate(Number(e.target.value))} />
+              <Input type="number" step="0.1" value={rate} onChange={(e) => { setIsCalculated(true); setRate(Number(e.target.value)); }} />
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Term (Years)</label>
-              <Input type="number" value={years} onChange={(e) => setYears(Number(e.target.value))} />
+              <Input type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(Number(e.target.value)); }} />
             </div>
           </div>
         </CalculatorInputArea>
@@ -82,24 +83,30 @@ export default function MonthlyPaymentCalculator() {
           <div className="space-y-8">
             <div className="text-center p-8 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Estimated Monthly Payment</h3>
-              <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary">
-                {formatCurrency(results.monthly, 2, currency)}
-              </div>
+              {isCalculated ? (
+                <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
+                  {formatCurrency(results.monthly, 2, currency)}
+                </div>
+              ) : (
+                <div className="py-4 text-lg font-medium text-on-surface-variant/40 italic">
+                  Enter details to see payment
+                </div>
+              )}
             </div>
             <div className="bg-white rounded-3xl p-6 border border-outline-variant/10">
               <h4 className="text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-4">Summary</h4>
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-on-surface-variant">Principal</span>
-                  <span className="font-bold text-primary">{formatCurrency(amount, 0, currency)}</span>
+                  <span className="font-bold text-primary">{isCalculated ? formatCurrency(amount, 0, currency) : "—"}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-on-surface-variant">Total Interest</span>
-                  <span className="font-bold text-primary">{formatCurrency(results.totalInterest, 2, currency)}</span>
+                  <span className="font-bold text-primary">{isCalculated ? formatCurrency(results.totalInterest, 2, currency) : "—"}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm pt-2 border-t border-outline-variant/10">
                   <span className="text-on-surface font-bold">Total Cost</span>
-                  <span className="font-bold text-primary">{formatCurrency(results.totalPaid, 2, currency)}</span>
+                  <span className="font-bold text-primary">{isCalculated ? formatCurrency(results.totalPaid, 2, currency) : "—"}</span>
                 </div>
               </div>
             </div>
@@ -130,20 +137,20 @@ export default function MonthlyPaymentCalculator() {
           {
             title: "Starter Home Mortgage",
             items: [
-              { label: "Loan Amount", value: currency === 'EUR' ? "€300,000" : "$300,000" },
+              { label: "Loan Amount", value: currency === 'USD' ? "$300,000" : "€300,000" },
               { label: "Interest Rate", value: "5.5%" },
               { label: "Term", value: "30 Years" },
-              { label: "Monthly P&I", value: currency === 'EUR' ? "€1,703" : "$1,703" }
+              { label: "Monthly P&I", value: currency === 'USD' ? "$1,703" : "€1,703" }
             ],
             description: "A typical 30-year fixed-rate mortgage scenario."
           },
           {
             title: "Vehicle Financing",
             items: [
-              { label: "Loan Amount", value: currency === 'EUR' ? "€35,000" : "$35,000" },
+              { label: "Loan Amount", value: currency === 'USD' ? "$35,000" : "€35,000" },
               { label: "Interest Rate", value: "6.0%" },
               { label: "Term", value: "5 Years" },
-              { label: "Monthly Payment", value: currency === 'EUR' ? "€677" : "$677" }
+              { label: "Monthly Payment", value: currency === 'USD' ? "$677" : "€677" }
             ],
             description: "Choosing a shorter term for personal or auto loans."
           }

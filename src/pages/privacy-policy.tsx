@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
     <MainLayout>
       <SEOHandler 
         title="Privacy Policy" 
-        description="Learn how we protect your data and respect your privacy at TryFinCalc."
+        description="View our privacy policy to see how we protect your data while you use our tools. Our platform is free and requires no sign-up. Your privacy is our priority."
         canonicalUrl="https://tryfincalc.com/privacy-policy"
       />
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">

@@ -13,13 +13,36 @@ import { Search, PieChart, Wallet } from "lucide-react";
 export default function AffordabilityCalculator() {
   const router = useRouter();
   const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'EUR';
-
-  const [monthlyIncome, setMonthlyIncome] = useState(4500);
+  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const [monthlyIncome, setMonthlyIncome] = useState(7500);
   const [monthlyDebts, setMonthlyDebts] = useState(0);
   const [downPayment, setDownPayment] = useState(50000);
   const [interestRate, setInterestRate] = useState(3.75);
   const [loanTerm, setLoanTerm] = useState(25);
+  const [isCalculated, setIsCalculated] = useState(false);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the 28/36 rule?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard rule where your mortgage payment should not exceed 28% of your gross monthly income, and your total debt payments should not exceed 36%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does debt affect my mortgage limit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lenders look at your Debt-to-Income (DTI) ratio. High existing monthly payments (car loans, student debt) will directly reduce the maximum mortgage payment you can qualify for."
+        }
+      }
+    ]
+  };
 
   const [results, setResults] = useState({
     maxPrice: 0,
@@ -61,9 +84,10 @@ export default function AffordabilityCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Mortgage Affordability Calculator - How Much Can I Borrow?"
-        description="Calculate your home borrowing capacity based on standard income-to-debt rules. Estimate your maximum home budget with confidence."
+        title="Affordability Calculator - How Much House Can I Buy?"
+        description="Find out how much home you can afford based on your income and debts. Get a realistic estimate in seconds. Free tool, no sign-up. Start your home search."
         canonicalUrl="https://tryfincalc.com/affordability-calculator"
+        structuredData={faqSchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">
@@ -77,7 +101,7 @@ export default function AffordabilityCalculator() {
 
       <CalculatorContainer 
         title="Affordability Calculator" 
-        description="Find out your ideal price range based on your income and repayment capacity."
+        description="Find out how much house you can afford based on your income and debts. Plan your budget with confidence. Free and requires no sign-up. Try it at TryFinCalc."
       >
         <CalculatorInputArea>
           <div className="space-y-6">
@@ -85,17 +109,17 @@ export default function AffordabilityCalculator() {
               <label className="block text-sm font-semibold text-on-surface">
                 Monthly Household Income ({currency === 'EUR' ? '€' : '$'})
               </label>
-              <Input type="number" value={monthlyIncome} onChange={(e) => setMonthlyIncome(Number(e.target.value))} />
+              <Input type="number" value={monthlyIncome} onChange={(e) => { setIsCalculated(true); setMonthlyIncome(Number(e.target.value)); }} />
               <p className="text-xs text-on-surface-variant">Include base salary and any recurring income sources.</p>
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Other Monthly Debts ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={monthlyDebts} onChange={(e) => setMonthlyDebts(Number(e.target.value))} />
+              <Input type="number" value={monthlyDebts} onChange={(e) => { setIsCalculated(true); setMonthlyDebts(Number(e.target.value)); }} />
               <p className="text-xs text-on-surface-variant">Auto loans, personal loans, or other commitments.</p>
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-on-surface">Personal Contribution / Down Payment ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={downPayment} onChange={(e) => setDownPayment(Number(e.target.value))} />
+              <Input type="number" value={downPayment} onChange={(e) => { setIsCalculated(true); setDownPayment(Number(e.target.value)); }} />
               <p className="text-xs text-on-surface-variant">Savings used for the purchase.</p>
             </div>
             
@@ -104,11 +128,11 @@ export default function AffordabilityCalculator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="block text-xs font-semibold text-on-surface">Interest Rate (%)</label>
-                  <Input type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(Number(e.target.value))} />
+                  <Input type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(Number(e.target.value)); }} />
                 </div>
                 <div className="space-y-2">
                   <label className="block text-xs font-semibold text-on-surface">Loan Term (Years)</label>
-                  <Input type="number" value={loanTerm} onChange={(e) => setLoanTerm(Number(e.target.value))} />
+                  <Input type="number" value={loanTerm} onChange={(e) => { setIsCalculated(true); setLoanTerm(Number(e.target.value)); }} />
                 </div>
               </div>
             </div>
@@ -140,19 +164,29 @@ export default function AffordabilityCalculator() {
           <div className="space-y-8">
             <div className="text-center p-8 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Estimated Home Price</h3>
-              <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary">
-                {formatCurrency(results.maxPrice, 0, currency)}
-              </div>
+              {isCalculated ? (
+                <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
+                  {formatCurrency(results.maxPrice, 0, currency)}
+                </div>
+              ) : (
+                <div className="py-6 text-xl font-medium text-on-surface-variant/40 italic">
+                  Enter your income details above to see results
+                </div>
+              )}
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10">
+              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Max Monthly Budget</h4>
-                <div className="text-2xl font-bold text-primary">{formatCurrency(results.monthlyPayment, 0, currency)}</div>
+                <div className="text-2xl font-bold text-primary">
+                  {isCalculated ? formatCurrency(results.monthlyPayment, 0, currency) : "—"}
+                </div>
               </div>
-              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10">
+              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Max Loan Amount</h4>
-                <div className="text-2xl font-bold text-primary">{formatCurrency(results.loanAmount, 0, currency)}</div>
+                <div className="text-2xl font-bold text-primary">
+                  {isCalculated ? formatCurrency(results.loanAmount, 0, currency) : "—"}
+                </div>
               </div>
             </div>
             
@@ -199,10 +233,10 @@ export default function AffordabilityCalculator() {
           {
             title: "Dual-Income Household",
             items: [
-              { label: "Joint Income", value: currency === 'EUR' ? "€7,000" : "$7,000" },
-              { label: "Vehicle Loan", value: currency === 'EUR' ? "€450" : "$450" },
-              { label: "Estimated Budget", value: currency === 'EUR' ? "€1,800" : "$1,800" },
-              { label: "Approx. Loan", value: currency === 'EUR' ? "€380,000" : "$380,000" }
+              { label: "Loan Amount", value: currency === 'USD' ? "$250,000" : "€250,000" },
+              { label: "Interest Rate", value: "4.0%" },
+              { label: "Month 1 Interest", value: currency === 'USD' ? "$833" : "€833" },
+              { label: "Month 1 Principal", value: currency === 'USD' ? "$681" : "€681" }
             ],
             description: "A strong dual-income scenario for a family-sized residence."
           }

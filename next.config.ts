@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   output: 'standalone', // Optimized for production hosting
   i18n: {
     locales: ['usd', 'eur'],
-    defaultLocale: 'eur',
+    defaultLocale: 'usd',
     localeDetection: false,
   },
 };

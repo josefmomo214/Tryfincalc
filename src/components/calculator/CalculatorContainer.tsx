@@ -15,9 +15,9 @@ export function CalculatorContainer({ title, description, children, className }:
   return (
     <div className={cn("w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12", className)}>
       <div className="mb-10 max-w-3xl">
-        <h1 className="text-display-lg font-manrope font-bold text-primary tracking-tight mb-4">
+        <h2 className="text-display-lg font-manrope font-bold text-primary tracking-tight mb-4">
           {title}
-        </h1>
+        </h2>
         {description && (
           <p className="text-xl text-on-surface-variant leading-relaxed">
             {description}

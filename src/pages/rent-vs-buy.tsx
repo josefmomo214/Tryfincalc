@@ -13,7 +13,7 @@ import { Home, Search, TrendingUp } from "lucide-react";
 export default function RentVsBuy() {
   const router = useRouter();
   const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'EUR';
+  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
 
   const [rent, setRent] = useState(1200);
   const [rentIncrease, setRentIncrease] = useState(3.0);
@@ -81,7 +81,7 @@ export default function RentVsBuy() {
     <MainLayout>
       <SEOHandler 
         title="Rent vs Buy Calculator" 
-        description="Compare the long-term costs of renting vs. buying a home. Factor in appreciation, maintenance, and the true cost of renting."
+        description="Compare renting versus buying a home to see which makes more financial sense. Use our realistic guide. It is free and requires no sign-up for your journey."
         canonicalUrl="https://tryfincalc.com/rent-vs-buy"
       />
 
@@ -225,9 +225,11 @@ export default function RentVsBuy() {
           {
             title: "Short-Term Residency",
             items: [
-              { label: "Home Price", value: currency === 'EUR' ? "€350,000" : "$350,000" },
-              { label: "Rent", value: currency === 'EUR' ? "€1,350/mo" : "$1,350/mo" },
-              { label: "Time Horizon", value: "3 Years" },
+              { label: "Home Price", value: currency === 'USD' ? "$350,000" : "€350,000" },
+              { label: "Down Payment", value: "10%" },
+              { label: "Rent", value: currency === 'USD' ? "$1,350/mo" : "€1,350/mo" },
+              { label: "Break-even", value: "4.2 Years" }
+,
               { label: "Verdict", value: "Rent is Cheaper" }
             ],
             description: "High upfront costs often make short-term owning difficult to justify financially."
@@ -235,9 +237,11 @@ export default function RentVsBuy() {
           {
             title: "Long-Term Investment",
             items: [
-              { label: "Home Price", value: currency === 'EUR' ? "€450,000" : "$450,000" },
-              { label: "Rent", value: currency === 'EUR' ? "€1,600/mo" : "$1,600/mo" },
-              { label: "Time Horizon", value: "10 Years" },
+              { label: "Home Price", value: currency === 'USD' ? "$450,000" : "€450,000" },
+              { label: "Down Payment", value: "20%" },
+              { label: "Rent", value: currency === 'USD' ? "$1,600/mo" : "€1,600/mo" },
+              { label: "Break-even", value: "3.5 Years" }
+,
               { label: "Verdict", value: "Buying is Cheaper" }
             ],
             description: "Extended timelines allow equity building and appreciation to overcome initial fees."
