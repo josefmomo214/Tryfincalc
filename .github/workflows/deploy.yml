@@ -26,13 +26,14 @@ jobs:
         run: npm run build
 
       # The standalone output requires merging folders for deployment:
-      # 1. Copy public into .next/standalone/public
+      # 1. Copy public into .next/standalone/
       # 2. Copy .next/static into .next/standalone/.next/static
       - name: Prepare Deployment Files
         run: |
-          cp -r public .next/standalone/public
+          mkdir -p .next/standalone/public
+          cp -rv public/* .next/standalone/public/
           mkdir -p .next/standalone/.next/static
-          cp -r .next/static .next/standalone/.next/static
+          cp -rv .next/static/* .next/standalone/.next/static/
 
       - name: Deploy via ftps
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
