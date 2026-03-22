@@ -9,6 +9,271 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    title: "$400k Mortgage Monthly Payment (2026)",
+    category: "Mortgage Guides",
+    readTime: "7 min read",
+    excerpt: "What is the monthly payment on a $400,000 mortgage in 2026? See payment tables for every rate and term, total interest costs, income requirements, and a full breakdown including taxes and insurance.",
+    slug: "400k-mortgage-monthly-payment",
+    content: `
+      <p>Thinking about taking out a $400,000 mortgage? Whether you're buying your first home or upgrading to something larger, knowing your exact monthly costs before you sign anything is essential. This guide breaks down everything you'll pay — not just the principal and interest, but taxes, insurance, and the total cost over the life of the loan.</p>
+      
+      <div class="bg-primary/5 p-6 rounded-2xl my-8 border border-primary/10">
+        <p class="text-primary font-bold mb-2">Try the TryFinCalc Mortgage Calculator →</p>
+        <p>Use the calculator below to run your own numbers instantly: <a href="/mortgage-calculator">Mortgage Calculator</a></p>
+      </div>
+
+      <h2>What is the monthly payment on a $400k mortgage?</h2>
+      <p>The monthly payment on a $400,000 mortgage depends on three variables: your interest rate, your loan term, and your down payment. At the current average 30-year fixed rate in 2026, here are the most common scenarios:</p>
+      
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Loan term</th>
+              <th class="py-3 font-bold text-on-surface">Interest rate</th>
+              <th class="py-3 font-bold text-on-surface">Monthly payment (P&I)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">30 years</td>
+              <td class="py-3">6.0%</td>
+              <td class="py-3">$2,398</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">30 years</td>
+              <td class="py-3">6.5%</td>
+              <td class="py-3">$2,528</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">30 years</td>
+              <td class="py-3">7.0%</td>
+              <td class="py-3">$2,661</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">15 years</td>
+              <td class="py-3">6.0%</td>
+              <td class="py-3">$3,375</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">15 years</td>
+              <td class="py-3">6.5%</td>
+              <td class="py-3">$3,485</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">15 years</td>
+              <td class="py-3">7.0%</td>
+              <td class="py-3">$3,596</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>These figures cover principal and interest only. Your actual out-of-pocket monthly cost will be higher once you factor in property taxes, homeowners insurance, and HOA fees if applicable — more on that below.</p>
+
+      <h2>How is the monthly payment calculated?</h2>
+      <p>The standard mortgage payment formula is:</p>
+      <div class="bg-surface-container-low p-4 rounded-lg font-mono text-center my-4">
+        M = P × [r(1+r)^n] / [(1+r)^n - 1]
+      </div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>M</strong> = monthly payment</li>
+        <li><strong>P</strong> = loan principal ($400,000)</li>
+        <li><strong>r</strong> = monthly interest rate (annual rate ÷ 12)</li>
+        <li><strong>n</strong> = total number of payments (years × 12)</li>
+      </ul>
+
+      <p>At 6.5% over 30 years, that works out to:</p>
+      <ul>
+        <li>Monthly rate: 6.5% ÷ 12 = 0.5417%</li>
+        <li>Number of payments: 30 × 12 = 360</li>
+        <li><strong>Monthly payment: $2,528</strong></li>
+      </ul>
+
+      <p>Rather than doing this by hand, you can run any combination of rate, term, and down payment instantly using <a href="/mortgage-calculator">TryFinCalc's mortgage calculator</a>.</p>
+
+      <h2>What is the total cost of a $400k mortgage?</h2>
+      <p>Monthly payment figures only tell part of the story. Here's the full picture for a $400,000 mortgage at 6.5%:</p>
+      
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Metric</th>
+              <th class="py-3 font-bold text-on-surface">30-year term</th>
+              <th class="py-3 font-bold text-on-surface">15-year term</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">Monthly payment</td>
+              <td class="py-3">$2,528</td>
+              <td class="py-3">$3,485</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">Total paid over life of loan</td>
+              <td class="py-3">$910,080</td>
+              <td class="py-3">$627,300</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">Total interest paid</td>
+              <td class="py-3">$510,080</td>
+              <td class="py-3">$227,300</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 font-bold text-primary">Interest saved vs 30-year</td>
+              <td class="py-3">—</td>
+              <td class="py-3 font-bold text-primary">$282,780</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The difference is striking — a 15-year mortgage at the same rate saves over $280,000 in interest. The trade-off is a monthly payment that's roughly $960 higher. Whether that trade-off makes sense depends entirely on your income, other financial obligations, and how long you plan to stay in the home.</p>
+      <p>Use the <a href="/amortization-schedule">TryFinCalc amortization schedule</a> to see a full year-by-year breakdown of how your payments split between principal and interest for any loan scenario.</p>
+
+      <h2>Your real monthly cost: adding taxes and insurance</h2>
+      <p>The figures above cover principal and interest only. Most homeowners pay significantly more each month when you include:</p>
+      <ul>
+        <li><strong>Property taxes:</strong> vary widely by location. The national average in the US is around 1.1% of home value annually, which on a $400,000 home works out to approximately $367/month. In high-tax states like New Jersey or Illinois, this can exceed $700/month.</li>
+        <li><strong>Homeowners insurance:</strong> typically $100–$200/month for a $400,000 home, depending on your location and coverage level. The <a href="https://www.iii.org" target="_blank" rel="noopener noreferrer">Insurance Information Institute</a> provides guidance on average premiums by state.</li>
+        <li><strong>PMI (Private Mortgage Insurance):</strong> if your down payment is less than 20%, your lender will require PMI. This typically adds 0.5%–1.5% of the loan amount per year, or roughly $170–$500/month on a $400k loan. PMI is removed automatically once you reach 20% equity.</li>
+        <li><strong>HOA fees:</strong> if applicable, these range from $100 to $700/month depending on the community and amenities.</li>
+      </ul>
+      
+      <p>Here's what a realistic total monthly payment looks like for a $400k mortgage at 6.5% over 30 years:</p>
+      
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse bg-surface-container-low rounded-xl px-4">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-on-surface">Cost component</th>
+              <th class="py-3 px-4 font-bold text-on-surface">Monthly amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Principal & interest</td>
+              <td class="py-3 px-4">$2,528</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Property taxes (avg.)</td>
+              <td class="py-3 px-4">$367</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Homeowners insurance</td>
+              <td class="py-3 px-4">$150</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">PMI (if < 20% down)</td>
+              <td class="py-3 px-4">$200</td>
+            </tr>
+            <tr class="bg-primary/10">
+              <td class="py-3 px-4 font-bold">Total (estimated)</td>
+              <td class="py-3 px-4 font-bold">$3,245</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>For a personalised breakdown including your specific tax and insurance figures, use the full <a href="/mortgage-calculator">mortgage calculator</a> at TryFinCalc which lets you enter all four components.</p>
+
+      <h2>How does the down payment affect your monthly payment?</h2>
+      <p>A larger down payment reduces your loan principal, which lowers your monthly payment and eliminates PMI once you reach 20%. Here's the impact on a $400,000 home:</p>
+      
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Down payment</th>
+              <th class="py-3 font-bold text-on-surface">Loan amount</th>
+              <th class="py-3 font-bold text-on-surface">Monthly payment (6.5%, 30yr)</th>
+              <th class="py-3 font-bold text-on-surface">PMI required?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">3% ($12,000)</td>
+              <td class="py-3">$388,000</td>
+              <td class="py-3">$2,453</td>
+              <td class="py-3">Yes</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">5% ($20,000)</td>
+              <td class="py-3">$380,000</td>
+              <td class="py-3">$2,402</td>
+              <td class="py-3">Yes</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">10% ($40,000)</td>
+              <td class="py-3">$360,000</td>
+              <td class="py-3">$2,275</td>
+              <td class="py-3">Yes</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">20% ($80,000)</td>
+              <td class="py-3">$320,000</td>
+              <td class="py-3">$2,023</td>
+              <td class="py-3">No</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">25% ($100,000)</td>
+              <td class="py-3">$300,000</td>
+              <td class="py-3">$1,896</td>
+              <td class="py-3">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Going from a 5% to a 20% down payment saves $379/month in principal and interest alone — plus eliminates PMI, saving another $150–$200/month. That's a combined saving of over $500/month for buyers who can manage the larger upfront sum.</p>
+
+      <h2>How much income do you need for a $400k mortgage?</h2>
+      <p>Most lenders use the 28/36 rule: your monthly mortgage payment should not exceed 28% of your gross monthly income, and your total monthly debt payments should not exceed 36%.</p>
+      <p>At $2,528/month in principal and interest (6.5%, 30 years):</p>
+      <ul>
+        <li>Minimum gross income recommended: ~$9,028/month ($108,336/year)</li>
+        <li>With taxes and insurance ($3,245 total): ~$11,589/month ($139,068/year)</li>
+      </ul>
+      <p>These are guidelines, not hard limits. Lenders also consider your credit score, existing debt, employment history, and assets. To find out what you can realistically afford based on your specific income and debts, use the <a href="/affordability-calculator">TryFinCalc affordability calculator</a>.</p>
+      <p>The <a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> also provides a free guide on understanding what lenders look for in a mortgage application.</p>
+
+      <h2>Should you choose a 15-year or 30-year mortgage?</h2>
+      <p>This is one of the most common questions for buyers at the $400k price point, and the answer depends on your priorities:</p>
+      <ul>
+        <li><strong>Choose a 30-year mortgage</strong> if you want the lowest possible monthly payment, you have other high-interest debt to pay off first, or you want to keep cash available for investing or emergencies. The lower payment gives you flexibility.</li>
+        <li><strong>Choose a 15-year mortgage</strong> if you can comfortably afford the higher monthly payment, you want to build equity faster, or you're buying later in life and want the mortgage paid off before retirement. The interest savings are substantial — over $280,000 at current rates.</li>
+      </ul>
+      <p>A useful middle path: take the 30-year mortgage but make extra payments toward the principal whenever your budget allows. This gives you the flexibility of a lower required payment while still reducing your total interest cost significantly. You can model this using the <a href="/loan-calculator">TryFinCalc loan calculator</a> by adjusting the term to see how different payoff timelines affect your total interest paid.</p>
+
+      <h3>Frequently asked questions</h3>
+      <h4>Can I afford a $400k mortgage on a $100k salary?</h4>
+      <p>It's tight but possible. At $100k annual salary ($8,333/month gross), a $2,528 monthly payment represents 30.3% of gross income — just above the recommended 28% threshold. You would need a strong credit score, minimal existing debt, and a lender willing to go up to 30–31% front-end DTI. A larger down payment that reduces the loan principal would help significantly.</p>
+      
+      <h4>What credit score do I need for a $400k mortgage?</h4>
+      <p>Most conventional lenders require a minimum score of 620, but you'll need 740 or above to qualify for the best available rates. The difference between a 6.5% rate and a 7.5% rate on a $400k mortgage is approximately $262/month — or $94,320 over 30 years. Your credit score is worth protecting before you apply.</p>
+      
+      <h4>How much is a $400k mortgage per month in Europe?</h4>
+      <p>European mortgage rates vary significantly by country. In the Eurozone, 20-year fixed rates currently range from around 3.5% to 5.5% depending on the country and lender. At 4.5% over 20 years, a €400,000 mortgage costs approximately €2,533/month. Use the <a href="/mortgage-calculator">TryFinCalc mortgage calculator</a> with the EUR option selected to run your specific scenario.</p>
+      
+      <h4>What happens if interest rates drop after I take out my mortgage?</h4>
+      <p>If rates fall significantly — typically by 1% or more — refinancing may save you money. Use the <a href="/refinancing-calculator">TryFinCalc refinancing calculator</a> to calculate your break-even point: how many months of lower payments it takes to recover the closing costs of refinancing.</p>
+
+      <h2>The bottom line</h2>
+      <p>A $400,000 mortgage at today's rates costs between $2,398 and $2,661 per month in principal and interest, depending on your rate and term. Add taxes, insurance, and PMI and your realistic all-in monthly cost is closer to $3,000–$3,500 for most buyers.</p>
+      <p>The most important step before committing is running your specific numbers — your rate, your down payment, your local taxes — rather than relying on averages. Every scenario is different, and the difference between a good and a bad mortgage decision is often just a matter of seeing the full picture before you sign.</p>
+      
+      <div class="flex justify-center my-10">
+        <a href="/mortgage-calculator" class="bg-primary !text-white !no-underline hover:bg-primary-hover px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all scale-100 hover:scale-105">
+          Run your $400k mortgage calculation now →
+        </a>
+      </div>
+
+      <p class="text-on-surface-variant/60 text-sm italic mt-12 border-t border-outline-variant/30 pt-4">This article is for informational purposes only and does not constitute financial advice. Mortgage rates change daily — always confirm current rates with your lender before making a decision.</p>
+    `
+  },
+  {
     title: "The 2026 Homebuyer's Playbook",
     category: "Financial Planning",
     readTime: "12 min read",

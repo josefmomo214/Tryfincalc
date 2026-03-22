@@ -31,7 +31,7 @@ export default function Home_Page() {
             TryFinCalc: Precision in Finance
           </div>
           <h1 className="text-display-lg font-manrope font-bold text-primary tracking-tight mb-6 max-w-4xl">
-            Clarity in every calculation. <br className="hidden md:block"/> Confidence in every USD or EUR decision.
+            Clarity in every calculation. <br className="hidden md:block"/> Confidence in every financial decision.
           </h1>
           <p className="text-xl text-on-surface-variant max-w-2xl mb-10 leading-relaxed">
             Our premium suite of financial calculators provides the exact numbers you need, presented in a beautifully simple interface.

@@ -12,10 +12,12 @@ const cspHeader = `
   base-uri 'self';
 `.replace(/\s{2,}/g, ' ').trim();
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
-  output: 'standalone', // Optimized for production hosting
+  output: isProd ? 'standalone' : undefined, // Only use standalone for production builds
   i18n: {
     locales: ['usd', 'eur'],
     defaultLocale: 'usd',
