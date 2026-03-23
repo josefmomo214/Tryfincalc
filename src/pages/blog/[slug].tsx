@@ -33,6 +33,7 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
         title={article.title} 
         description={article.excerpt} 
         canonicalUrl={`https://tryfincalc.com/blog/${article.slug}`}
+        structuredData={article.structuredData}
       />
       
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">

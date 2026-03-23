@@ -5,6 +5,7 @@ export interface Article {
   excerpt: string;
   slug: string;
   content: string; // The full article content as an HTML string
+  structuredData?: object;
 }
 
 export const articles: Article[] = [
@@ -274,19 +275,210 @@ export const articles: Article[] = [
     `
   },
   {
-    title: "The 2026 Homebuyer's Playbook",
+    title: "The 2026 Homebuyer's Playbook: Exact Strategies to Buy Smart This Year",
     category: "Financial Planning",
-    readTime: "12 min read",
-    excerpt: "Navigating the current real estate market requires more than just pre-approval. We break down the exact strategies top buyers use to negotiate and win.",
+    readTime: "14 min read",
+    excerpt: "A complete guide to buying a home in 2026 — affordability calculations, mortgage pre-approval, offer tactics, home inspection strategy, and rate lock advice. With real numbers and free calculators.",
     slug: "2026-homebuyers-playbook",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the first step to buying a home in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with your finances before you start looking at homes. Calculate your true affordability using the 28/36 rule, check your credit score, and get mortgage pre-approval from at least two lenders. Knowing your real budget before you fall in love with a home prevents the most common and costly buyer mistake."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do I need saved to buy a home in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a $400,000 home, budget for $55,000–$75,000 in total cash: a 10–20% down payment ($40,000–$80,000), closing costs of 2–5% ($8,000–$20,000), and an emergency reserve of 1–2% ($4,000–$8,000). Having less than this is not disqualifying but significantly increases financial stress in the first years of ownership."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does the homebuying process take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "From starting your search to getting keys, the typical timeline is 3–6 months. Pre-approval takes 1–2 weeks, finding the right home takes 1–3 months in most markets, and the period from accepted offer to closing is typically 30–45 days. In very competitive markets with limited inventory, the search phase can extend to 6–12 months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What credit score do I need to buy a house in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most conventional lenders require a minimum score of 620. FHA loans are available with scores as low as 580 with 3.5% down. But to qualify for the best available rates — which saves you significantly over the life of the loan — aim for 740 or above. Check your score at AnnualCreditReport.com before you start the process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I waive the home inspection to win a bidding war?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rarely, and only if you fully understand the risk. A home inspection protects you from buying a property with serious undisclosed defects. Waiving it to win a bidding war means accepting the home exactly as-is. If a major issue surfaces after closing, the cost falls entirely on you. If you are in a situation where waiving is being considered, at minimum commission a pre-offer inspection — a shorter walkthrough before making the offer — so you have some visibility into the property's condition."
+          }
+        }
+      ]
+    },
     content: `
-      <p>In 2026, the real estate market has shifted. Being a successful buyer today requires a blend of mathematical precision and strategic negotiation.</p>
-      <h2>Step 1: Your True Affordability</h2>
-      <p>Don't just look at what the bank will lend you. Use a professional <a href="/affordability-calculator">affordability calculator</a> to understand what you can comfortably pay while maintaining your lifestyle and savings goals.</p>
-      <h2>Market Negotiation Tactics</h2>
-      <p>From contingency waivers to escalation clauses, we explore how to make your offer stand out in a competitive environment. According to the <a href="https://www.federalreserve.gov/" target="_blank" rel="noopener noreferrer">Federal Reserve</a>, market conditions continue to evolve, making precision more important than ever.</p>
-      <h3>Is 2026 a good year to buy?</h3>
-      <p>This depends heavily on your local market and personal financial stability. Our <a href="/mortgage-calculator">mortgage calculator</a> helps you decide based on your unique numbers.</p>
+      <p>Buying a home in 2026 is harder than it was five years ago, but it is far from impossible. Mortgage rates have stabilised after years of volatility, inventory in many markets is slowly recovering, and buyers who come prepared with a clear financial strategy are winning deals that unprepared buyers are losing. This guide gives you the exact playbook — from calculating what you can genuinely afford, to making an offer that stands out, to understanding every cost before you sign.</p>
+      <p>If you want to run your own numbers at any point, the TryFinCalc <a href="/mortgage-calculator">mortgage calculator</a> gives you an instant breakdown of your monthly payment, total interest, and full <a href="/amortization-schedule">amortization schedule</a> — no signup required.</p>
+
+      <h2>Step 1: Calculate your true affordability — not what the bank will lend you</h2>
+      <p>The first mistake most first-time buyers make is confusing what a lender will approve with what they can actually afford. These are two very different numbers.</p>
+      <p>Lenders typically approve mortgages up to a 43% debt-to-income ratio — meaning your total monthly debt payments, including the new mortgage, can be up to 43% of your gross monthly income. But living at 43% DTI is financially suffocating for most households, especially once you add the unexpected costs of homeownership: maintenance, repairs, appliance replacements, and the general reality that houses always cost more than you expect.</p>
+      <p>A more comfortable target is the 28/36 rule:</p>
+      <ul>
+        <li>Your <a href="/mortgage-calculator">monthly mortgage payment</a> (principal, interest, taxes, insurance) should not exceed 28% of your gross monthly income</li>
+        <li>Your total monthly debt payments should not exceed 36% of your gross monthly income</li>
+      </ul>
+      <p>Here's what that means in practice for a $400,000 home with 10% down at 6.5% interest over 30 years:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Cost component</th>
+              <th class="py-3 font-bold text-on-surface">Monthly amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">Principal & interest</td>
+              <td class="py-3">$2,275</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">Property taxes (avg. 1.1%)</td>
+              <td class="py-3">$367</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">Homeowners insurance</td>
+              <td class="py-3">$150</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3">PMI (&lt; 20% down)</td>
+              <td class="py-3">$180</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30 font-bold">
+              <td class="py-3">Total monthly payment</td>
+              <td class="py-3">$2,972</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At the 28% threshold, you would need a gross monthly income of at least $10,614 ($127,368/year) to comfortably afford this payment. At the more relaxed 36% threshold, the minimum drops to $8,256/month ($99,072/year).</p>
+      <p>Use the TryFinCalc <a href="/affordability-calculator">affordability calculator</a> to work backwards from your actual income, existing debts, and savings to find the home price range that fits your life — not just your lender's spreadsheet.</p>
+
+      <h3>Beyond the monthly payment: the costs buyers forget</h3>
+      <p>The down payment and monthly mortgage are the costs buyers focus on, but they are not the only significant upfront expenses. Before you make an offer, budget for:</p>
+
+      <ul>
+        <li><strong>Closing costs</strong> — typically 2–5% of the purchase price. On a $400,000 home, that is $8,000–$20,000 paid at closing on top of your down payment.</li>
+        <li><strong>Home inspection</strong> — $300–$600, paid out of pocket before closing. Never skip this.</li>
+        <li><strong>Moving costs</strong> — $1,000–$5,000 depending on distance and volume.</li>
+        <li><strong>Immediate repairs and updates</strong> — even a move-in-ready home typically requires $3,000–$10,000 in the first year for things the previous owner deferred.</li>
+        <li><strong>Emergency fund</strong> — financial advisors typically recommend keeping 1–3% of the home's value in reserve for unexpected repairs. On a $400,000 home, that is $4,000–$12,000 you should not touch for the mortgage.</li>
+      </ul>
+
+      <p>A buyer purchasing a $400,000 home with 10% down should budget for a total cash outlay of $55,000–$75,000, not just the $40,000 down payment.</p>
+
+      <h2>Step 2: Get mortgage pre-approval — and understand what it really means</h2>
+      <p>A mortgage pre-approval letter is your entry ticket to serious house hunting in 2026. In competitive markets, sellers and their agents will not consider an offer without one. But there is an important distinction that most buyers miss.</p>
+      <p><strong>Pre-qualification</strong> is an informal estimate based on self-reported income and assets. It takes minutes and means very little to sellers.</p>
+      <p><strong>Pre-approval</strong> is a formal assessment where the lender verifies your income, employment, credit history, and assets. It results in a conditional commitment for a specific loan amount and is what sellers actually care about.</p>
+
+      <p>To get pre-approved, you will need:</p>
+      <ul>
+        <li>Two years of tax returns and W-2s (or two years of business tax returns if self-employed)</li>
+        <li>Recent pay stubs (last 30 days)</li>
+        <li>Two to three months of bank and investment account statements</li>
+        <li>Government-issued photo ID</li>
+        <li>Employment contact information for the past two years</li>
+      </ul>
+
+      <p>Shop multiple lenders before committing. The <a href="https://www.consumerfinance.gov/owning-a-home/explore-rates/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> found that borrowers who get at least three mortgage quotes save an average of $1,500 over the life of their loan compared to borrowers who accept the first quote. Getting multiple pre-approvals within a 45-day window counts as a single inquiry on your credit report, so there is no penalty for comparing.</p>
+
+      <p>Once pre-approved, understand two limitations. First, pre-approval is conditional — it can be revoked if your financial situation changes before closing. Do not change jobs, open new credit accounts, or make large purchases between pre-approval and closing. Second, the pre-approved amount is a ceiling, not a target. Being pre-approved for $500,000 does not mean buying a $500,000 home is financially wise.</p>
+
+      <h2>Step 3: Understand the market you are buying in</h2>
+      <p>The national housing market headline means very little for your specific purchase. Real estate is intensely local — a buyer in Austin faces an entirely different market than a buyer in Cleveland, and conditions can vary significantly even between neighbourhoods in the same city.</p>
+
+      <p>Before making any offer, research these five data points for your specific target market:</p>
+      <ul>
+        <li><strong>Days on market (DOM)</strong> — how long homes are sitting before going under contract. Under 30 days is a competitive market where you will likely face multiple offers. Over 60 days is a buyer's market where you have more negotiating room.</li>
+        <li><strong>List-to-sale price ratio</strong> — the percentage of asking price that homes are actually selling for. If homes are selling at 98–102% of list price, expect to offer at or above asking. If homes are selling at 93–95%, there is room to negotiate.</li>
+        <li><strong>Months of inventory</strong> — how long it would take to sell all currently listed homes at the current rate of sales. Under 3 months is a seller's market. Over 6 months is a buyer's market. Most markets in 2026 sit between 3–5 months.</li>
+        <li><strong>Price per square foot</strong> — useful for comparing properties that differ in size and quickly identifying whether a specific home is priced fairly relative to comparable recent sales.</li>
+        <li><strong>Foreclosure and distressed sale rates</strong> — a rising rate of distressed sales in a market can signal softening prices ahead, which matters for your long-term equity position.</li>
+      </ul>
+
+      <p>Your real estate agent should be able to provide all of this data for any specific market. The <a href="https://www.nar.realtor/research-and-statistics" target="_blank" rel="noopener noreferrer">National Association of Realtors</a> publishes monthly market statistics by region as a free reference point.</p>
+
+      <h2>Step 4: Making a competitive offer — the exact tactics</h2>
+      <p>Once you have found the right home, the offer strategy determines whether you get it. Here are the specific tactics that work in 2026's market conditions:</p>
+      <ul>
+        <li><strong>Know your ceiling before you start.</strong> Decide in advance the absolute maximum you will pay for a specific home and do not let emotion push you past it. Use the TryFinCalc <a href="/mortgage-calculator">mortgage calculator</a> to model what different purchase prices do to your monthly payment before you are in the heat of a negotiation.</li>
+        <li><strong>Escalation clauses.</strong> In a multiple-offer situation, an escalation clause automatically increases your offer in set increments above any competing offer, up to a maximum you specify. For example: "I offer $420,000, and will beat any competing offer by $2,500 up to a maximum of $440,000." This can be effective but also signals to the seller exactly how much you are willing to pay.</li>
+        <li><strong>Contingency strategy.</strong> Every contingency in an offer — financing, inspection, appraisal — protects you but makes your offer less attractive to sellers. In highly competitive markets, buyers sometimes waive contingencies to win. This carries real risk: waiving an inspection contingency means accepting the property as-is, including any defects; waiving a financing contingency means losing your earnest money if your loan falls through. Only waive contingencies if you fully understand and accept the risk.</li>
+        <li><strong>Earnest money.</strong> A higher earnest money deposit — typically 1–3% of the purchase price, so $4,000–$12,000 on a $400,000 home — signals serious commitment to the seller and can differentiate your offer when the price is similar to competing bids.</li>
+        <li><strong>Personal letters.</strong> Some sellers respond to a personal letter from buyers explaining why they love the home. This is not universally effective and is discouraged in some markets for fair housing reasons, but in the right situation with the right seller it can tip a close decision.</li>
+        <li><strong>Flexible closing timeline.</strong> Offering to close on the seller's preferred timeline — whether that is fast (21 days) or slow (60–90 days while they find their next home) — can be as valuable as a higher price to a motivated seller.</li>
+      </ul>
+
+      <h2>Step 5: The home inspection — what to look for and what to do with it</h2>
+      <p>A home inspection is one of the most valuable $400 you will spend in the homebuying process. Never skip it, even on a new build or a move-in-ready home.</p>
+      <p>A qualified inspector will examine the structure, roof, foundation, electrical systems, plumbing, HVAC, insulation, and more. A typical inspection report runs 30–50 pages and will almost always find something. The goal is not a perfect report — the goal is understanding what you are buying.</p>
+
+      <p>Categorise findings by severity:</p>
+      <ul>
+        <li><strong>Safety hazards</strong> — exposed wiring, carbon monoxide risks, structural defects. Non-negotiable — require repair before closing or walk away.</li>
+        <li><strong>Major systems near end of life</strong> — a roof with 3 years left, an HVAC system that is 18 years old. These are negotiation points for a price reduction or seller credit.</li>
+        <li><strong>Minor cosmetic issues</strong> — cracked caulk, worn paint, stiff doors. Normal in any lived-in home. Do not use these as negotiation points — it signals inexperience and irritates sellers.</li>
+      </ul>
+
+      <p>A common approach is to request a seller credit for the estimated cost of major repairs rather than asking the seller to do the repairs themselves. This gives you control over the quality and timing of the work.</p>
+
+      <h2>Step 6: Locking your rate and navigating closing</h2>
+      <p>Once your offer is accepted, you have a mortgage to finalise and a closing to get through. Two decisions in this phase have significant financial implications.</p>
+      <p><strong>Rate lock.</strong> When you apply for your mortgage, your lender will offer you the option to lock your interest rate for a set period — typically 30, 45, or 60 days. Locking protects you if rates rise before closing; floating (not locking) could save you money if rates fall. In a stable or rising rate environment, locking is almost always the right call. The cost of a half-point rate increase in the 30–45 days between offer acceptance and closing can add tens of thousands of dollars to your total interest cost.</p>
+      <p>Use the TryFinCalc <a href="/refinancing-calculator">refinancing calculator</a> to model what a rate change of 0.25% or 0.5% would mean for your <a href="/loan-calculator">total loan cost</a> — the numbers are more dramatic than most buyers expect.</p>
+      <p><strong>The Closing Disclosure.</strong> Three business days before closing, your lender is required to send you a Closing Disclosure — a detailed breakdown of every cost associated with the transaction. Review it line by line and compare it to the Loan Estimate you received when you applied. Any significant differences should be questioned before you sit down at the closing table. The <a href="https://www.consumerfinance.gov/owning-a-home/closing-disclosure/" target="_blank" rel="noopener noreferrer">CFPB's closing disclosure explainer</a> walks through every line item.</p>
+
+      <h3>Is 2026 a good year to buy a home?</h3>
+      <p>The honest answer is: it depends entirely on your personal financial situation and your local market. There is no universal right or wrong time to buy.</p>
+      <p>The case for buying in 2026 is that rates have stabilised, inventory is gradually improving in most markets, and waiting carries its own risk — rents continue to rise in most major cities, home prices have historically appreciated over any 7–10 year window, and every year of renting is a year of building someone else's equity rather than your own. As the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> shapes monetary policy, these factors continue to evolve.</p>
+      <p>The case for waiting is that affordability remains stretched in many markets, a meaningful rate drop could significantly improve your purchasing power, and buying when you are not financially ready — insufficient down payment, high existing debt, unstable income — is a much bigger risk than waiting another 12–18 months.</p>
+      <p>The best way to make this decision is with actual numbers rather than headlines. Use the TryFinCalc <a href="/rent-vs-buy">rent vs buy</a> calculator to model your specific situation — your local rent, your target home price, your expected tenure in the home — and see whether <a href="/rent-vs-buy">buying or renting</a> comes out ahead financially over your specific time horizon.</p>
+
+      <h2>Frequently asked questions</h2>
+      <h3>What is the first step to buying a home in 2026?</h3>
+      <p>Start with your finances before you start looking at homes. <a href="/affordability-calculator">Calculate your true affordability</a> using the 28/36 rule, check your credit score, and get mortgage pre-approval from at least two lenders. Knowing your real budget before you fall in love with a home prevents the most common and costly buyer mistake.</p>
+      
+      <h3>How much do I need saved to buy a home in 2026?</h3>
+      <p>For a $400,000 home, budget for $55,000–$75,000 in total cash: a 10–20% down payment ($40,000–$80,000), closing costs of 2–5% ($8,000–$20,000), and an emergency reserve of 1–2% ($4,000–$8,000). Having less than this is not disqualifying but significantly increases financial stress in the first years of ownership.</p>
+      
+      <h3>How long does the homebuying process take?</h3>
+      <p>From starting your search to getting keys, the typical timeline is 3–6 months. Pre-approval takes 1–2 weeks, finding the right home takes 1–3 months in most markets, and the period from accepted offer to closing is typically 30–45 days. In very competitive markets with limited inventory, the search phase can extend to 6–12 months.</p>
+      
+      <h3>What credit score do I need to buy a house in 2026?</h3>
+      <p>Most conventional lenders require a minimum score of 620. FHA loans are available with scores as low as 580 with 3.5% down. But to qualify for the best available rates — which saves you significantly over the life of the loan — aim for 740 or above. Check your score at <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">AnnualCreditReport.com</a> before you start the process.</p>
+      
+      <h3>Should I waive the home inspection to win a bidding war?</h3>
+      <p>Rarely, and only if you fully understand the risk. A home inspection protects you from buying a property with serious undisclosed defects. Waiving it to win a bidding war means accepting the home exactly as-is. If a major issue surfaces after closing, the cost falls entirely on you. If you are in a situation where waiving is being considered, at minimum commission a pre-offer inspection — a shorter walkthrough before making the offer — so you have some visibility into the property's condition.</p>
+
+      <h2>The bottom line</h2>
+      <p>Buying a home in 2026 rewards preparation and penalises impulsiveness. The buyers winning deals are the ones who know their numbers cold, have their financing ready before they need it, understand their local market deeply, and make clean, credible offers. The buyers getting outbid or overpaying are the ones reacting to the market rather than planning for it.</p>
+      <p>Use the tools, do the math, and make your decision based on your specific financial reality — not on market headlines or the pressure of a competitive offer.</p>
+      <p>Start with your numbers: Try the <a href="/mortgage-calculator">TryFinCalc mortgage calculator</a> →</p>
+
+      <p class="text-on-surface-variant/60 text-sm italic mt-12 border-t border-outline-variant/30 pt-4">This article is for informational purposes only and does not constitute financial or legal advice. Always consult with a qualified financial advisor or mortgage professional before making major financial decisions.</p>
     `
   },
   {
