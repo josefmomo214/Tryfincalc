@@ -484,17 +484,123 @@ export const articles: Article[] = [
   {
     title: "How to Calculate Mortgage Payments: A Complete Guide",
     category: "Mortgages",
-    readTime: "6 min read",
-    excerpt: "Learn the math behind mortgage payments. Understand how principal, interest, and terms affect your costs with clear USD examples.",
+    readTime: "7 min read",
+    excerpt: "Learn exactly how mortgage payments are calculated — principal, interest, taxes, and insurance — with real examples, a step-by-step formula, and tips to lower your monthly bill.",
     slug: "mortgage-payment-guide",
     content: `
-      <p>Whether you're looking at a home in New York or London, understanding your monthly costs is the first step to a successful purchase. Our <a href="/mortgage-calculator">mortgage tool</a> simplifies this math instantly.</p>
-      <h2>The Core Components</h2>
-      <p>Your payment consists of Principal, Interest, Taxes, and Insurance (PITI). Principal pays down the debt, while interest is the lender's fee. You can find more detail on these components at <a href="https://www.investopedia.com/terms/m/mortgage.asp" target="_blank" rel="noopener noreferrer">Investopedia</a>.</p>
-      <h2>USD & Global Examples</h2>
-      <p>A $300,000 mortgage at 6% interest results in a $1,798 monthly P&I payment. For our European users, a €250,000 mortgage at 4% results in a €1,319 payment. Try comparing these with a <a href="/loan-calculator">loan calculator</a> for different terms.</p>
-      <h3>What is the 28% rule?</h3>
-      <p>Lenders typically advise that your mortgage payment should not exceed 28% of your gross monthly income.</p>
+      <p>Understanding <strong>how to calculate mortgage payments</strong> is an essential skill for any US first-time homebuyer. While most rely on a <a href="/mortgage-calculator">mortgage calculator</a> for quick answers, knowing the math behind your monthly bill helps you make better financial decisions. In this guide, we break down what makes up your payment, show you the step-by-step formula, and provide real-world examples to guide your purchase.</p>
+
+      <h2>What Makes Up a Mortgage Payment?</h2>
+      <p>In the US, your monthly mortgage payment is often referred to as <strong>PITI</strong>. This acronym stands for the four main components that determine your total out-of-pocket cost each month:</p>
+
+      <ul>
+        <li><strong>Principal:</strong> The amount that goes directly toward paying down your original loan balance.</li>
+        <li><strong>Interest:</strong> The fee charged by the lender for borrowing the money, based on your annual percentage rate (APR).</li>
+        <li><strong>Taxes:</strong> Property taxes charged by your local government, often held in an escrow account by your lender.</li>
+        <li><strong>Insurance:</strong> This includes homeowners insurance and, if you put down less than 20%, Private Mortgage Insurance (PMI).</li>
+      </ul>
+
+      <p>Understanding these components helps when comparing <a href="/blog/fixed-vs-variable-mortgage">fixed vs. variable mortgages</a>, as each affects your PITI breakdown differently.</p>
+
+      <h2>The Mortgage Payment Formula</h2>
+      <p>To manually calculate the principal and interest (P&I) portion of your payment, lenders use the following formula:</p>
+      <div class="bg-surface-container-low p-4 rounded-lg font-mono text-center my-6 border border-outline-variant">
+        <strong>M = P [ r(1 + r)^n ] / [ (1 + r)^n – 1 ]</strong>
+      </div>
+
+      <p>Where:</p>
+      <ul>
+        <li><strong>M:</strong> Total monthly principal and interest.</li>
+        <li><strong>P:</strong> Principal loan amount.</li>
+        <li><strong>r:</strong> Monthly interest rate (annual rate divided by 12).</li>
+        <li><strong>n:</strong> Number of months in the loan term (e.g., 360 for 30 years).</li>
+      </ul>
+
+      <p>By using this math, you can see how your base payment is formed before taxes and insurance are added.</p>
+
+      <h2>Worked Example: $350,000 Home</h2>
+      <p>Suppose you're buying a <strong>$350,000 home</strong> with a 10% down payment ($35,000). Your loan amount is <strong>$315,000</strong> with a <strong>30-year fixed rate of 6.8%</strong>.</p>
+
+      <ul>
+        <li><strong>Principal & Interest:</strong> ~$2,052</li>
+        <li><strong>Property Taxes (est.):</strong> ~$350</li>
+        <li><strong>Homeowners Insurance (est.):</strong> ~$150</li>
+        <li><strong>PMI (if applicable):</strong> ~$78</li>
+      </ul>
+      <p><strong>Total Monthly Payment: ~$2,630</strong></p>
+      <p>This shows why it's critical to factor in the "extras" beyond just the loan balance when determining <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
+
+      <h2>How Your Interest Rate Changes Everything</h2>
+      <p>Your interest rate has a massive impact on your long-term costs. The <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB) emphasizes shopping with multiple lenders to find the best rate.</p>
+
+      <p>Here is how different rates affect a <strong>$315,000 loan</strong> over 30 years (P&I only):</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant bg-surface-container-low">
+              <th class="py-3 px-4 font-bold">Interest Rate</th>
+              <th class="py-3 px-4 font-bold">Monthly Payment (P&I)</th>
+              <th class="py-3 px-4 font-bold">Total Interest Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$1,789</td><td>$328,879</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.0%</td><td>$1,889</td><td>$364,895</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td><strong>6.8%</strong></td><td><strong>$2,052</strong></td><td><strong>$424,242</strong></td></tr>
+            <tr class="border-b border-outline-variant/30"><td>7.5%</td><td>$2,202</td><td>$477,883</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>A 2% difference in rate can cost you over $400 more per month and $150,000 extra in interest over 30 years.</p>
+
+      <h2>15-Year vs. 30-Year: Which Is Right for You?</h2>
+      <p>Comparing a <strong>$315,000 loan</strong> at 6.0% interest:</p>
+      <ul>
+        <li><strong>30-Year:</strong> $1,889/mo | Total Interest: $364,895</li>
+        <li><strong>15-Year:</strong> $2,658/mo | Total Interest: $163,472</li>
+      </ul>
+      <p>The 15-year term saves you over $201,000 in interest but increases your monthly payment by nearly $800. You can compare these terms instantly using our <a href="/amortization-schedule">amortization schedule</a> tool.</p>
+
+      <h2>5 Ways to Lower Your Monthly Mortgage Payment</h2>
+      <ol>
+        <li><strong>Increase Your Down Payment:</strong> Reduces your loan balance and can eliminate PMI.</li>
+        <li><strong>Improve Your Credit Score:</strong> Qualifies you for lower interest rates.</li>
+        <li><strong>Shop Multiple Lenders:</strong> Compare quotes to find the narrowest margins.</li>
+        <li><strong>Extend the Loan Term:</strong> Moving from a 15-year to a 30-year term lowers the monthly requirement.</li>
+        <li><strong>Buy Points:</strong> Pay upfront to lower your interest rate for the life of the loan.</li>
+      </ol>
+
+      <p>Before committing, check the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> for updates on market trends that might influence when you should lock in your rate.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>How is a mortgage payment calculated?</h3>
+      <p>To understand <strong>how to calculate mortgage payments</strong>, you must use the amortization formula to find your base principal and interest, then add your local property taxes and homeowners insurance premiums. Most experts suggest using an <a href="/affordability-calculator">affordability calculator</a> to see the total impact on your monthly budget.</p>
+
+      <h3>What is a good monthly mortgage payment?</h3>
+      <p>A good payment is one that doesn't exceed 28% of your gross monthly income. This "28% rule" is a standard used by many lenders to ensure you aren't overextended financially.</p>
+
+      <h3>Does a higher down payment lower my monthly payment?</h3>
+      <p>Yes. A higher down payment reduces your total loan amount, meaning you pay less in interest and principal each month. It also helps you avoid PMI costs if you reach 20% equity.</p>
+
+      <h3>What happens if I pay extra each month?</h3>
+      <p>Paying extra reduces your principal balance faster, which drastically cuts the total interest you pay over the life of the loan. Knowing <strong>how to calculate mortgage payments</strong> with extra principal can help you pay off your home years early.</p>
+
+      <h3>Can I calculate my mortgage payment without a calculator?</h3>
+      <p>While possible using the manual formula, it's complex and prone to error. Using a digital tool is faster, but knowing the inputs (principal, rate, term) is key to understanding your results.</p>
+
+      <h2>The Bottom Line</h2>
+      <p>Mastering the math of homeownership is your first step toward financial security. Whether you're deciding between <a href="/blog/rent-vs-buy-2026">rent vs. buy</a> or deciding <a href="/blog/when-to-refinance">when to refinance</a>, having accurate numbers is essential. Ready to see your own specific breakdown?</p>
+
+      <div class="bg-primary p-8 rounded-3xl my-10 text-white text-center shadow-lg">
+        <h3 class="text-2xl font-bold mb-4">Run Your Numbers Today</h3>
+        <p class="mb-6 opacity-90">Get a detailed breakdown of your monthly PITI and amortization schedule.</p>
+        <a href="/mortgage-calculator" class="inline-block bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all">Go to Mortgage Calculator →</a>
+      </div>
+
+      <p class="text-sm italic mt-12 border-t pt-4 text-on-surface-variant/60">This guide is for informational purposes only. Consult with a financial professional before making major mortgage decisions.</p>
     `
   },
   {
