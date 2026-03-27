@@ -939,18 +939,156 @@ export const articles: Article[] = [
 </div>`
   },
   {
-    title: "$200,000 Mortgage Monthly Payment Example",
-    category: "Mortgage Guides",
-    readTime: "4 min read",
-    excerpt: "See exactly what a $200k mortgage costs in 2026 with different interest rates and down payment scenarios.",
     slug: "200k-mortgage-monthly-payment",
-    content: `
-      <p>The mid-range mortgage benchmark. How $200,000 impacts your monthly budget in 2026. Use our <a href="/mortgage-calculator">mortgage calculator</a> for accurate local taxes.</p>
-      <h2>Interest Rate Comparison</h2>
-      <p>A 1% drop in rates on a $200k loan can save you over $130 per month and $40k over the loan's life. See how this affects your <a href="/loan-eligibility-by-income">loan eligibility</a>.</p>
-      <h3>What is the payment at 7%?</h3>
-      <p>At 7%, a $200k 30-year fixed mortgage costs $1,331 per month for principal and interest.</p>
-    `
+    category: "Mortgage Guides",
+    readTime: "9 min read",
+    title: "$200,000 Mortgage Monthly Payment: Full Breakdown for 2026",
+    excerpt: "What is the monthly payment on a $200,000 mortgage in 2026? See exact payments for every interest rate and term, total interest costs, income requirements, and a full PITI breakdown.",
+    content: `<p>A $200,000 mortgage is one of the most common loan amounts in the United States, typically covering first-time buyers in affordable markets, buyers with substantial down payments on mid-range homes, and homeowners refinancing existing balances into more favorable terms. Whether you are stepping into homeownership for the first time or optimizing your current debt, knowing the exact **$200000 mortgage monthly payment** is the foundation of a sound financial strategy. This guide provides the exact monthly payment at every realistic interest rate and term for 2026, plus total interest costs, income requirements, and a full PITI breakdown so there are no surprises on closing day. For an instant, personalized calculation, use our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+<h2>Monthly Payment on a $200,000 Mortgage by Interest Rate</h2>
+<p>The interest rate is the primary driver of your monthly housing cost. In today's market, even a 0.5% difference in your rate can change your payment by nearly $100 and your total interest by tens of thousands of dollars. The following table shows the monthly principal and interest (P&I) for a $200,000 mortgage on a standard 30-year fixed term:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Interest Rate</th>
+      <th>Monthly P&I</th>
+      <th>Total Interest</th>
+      <th>Total Paid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>5.0%</td><td>$1,074</td><td>$186,512</td><td>$386,512</td></tr>
+    <tr><td>5.5%</td><td>$1,136</td><td>$208,844</td><td>$408,844</td></tr>
+    <tr><td>6.0%</td><td>$1,199</td><td>$231,676</td><td>$431,676</td></tr>
+    <tr><td>6.5%</td><td>$1,264</td><td>$255,040</td><td>$455,040</td></tr>
+    <tr><td>6.8% (Current Avg)</td><td>$1,307</td><td>$270,520</td><td>$470,520</td></tr>
+    <tr><td>7.0%</td><td>$1,331</td><td>$279,016</td><td>$479,016</td></tr>
+    <tr><td>7.5%</td><td>$1,398</td><td>$303,434</td><td>$503,434</td></tr>
+    <tr><td>8.0%</td><td>$1,468</td><td>$328,310</td><td>$528,310</td></tr>
+  </tbody>
+</table>
+
+<p>As of 2026, with average rates around 6.8% according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, a $200,000 mortgage costs approximately $1,307 per month in principal and interest. Over 30 years, that results in $270,520 in total interest—meaning you pay back $470,520 on a $200,000 loan, which is 135% of the original amount in interest alone. To find <a href="/blog/interest-rate-impact">how your interest rate affects total cost</a> more deeply, run your own scenarios through our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+<h2>Monthly Payment by Loan Term</h2>
+<p>While the 30-year term offers the lowest monthly payment, shorter terms allow you to own your home outright much faster while saving a fortune in interest. Here is how that same $200,000 loan at 6.8% breaks down by term:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Loan Term</th>
+      <th>Monthly P&I</th>
+      <th>Total Interest</th>
+      <th>Interest Saved vs 30yr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>10 years</td><td>$2,302</td><td>$76,240</td><td>$194,280</td></tr>
+    <tr><td>15 years</td><td>$1,774</td><td>$119,320</td><td>$151,200</td></tr>
+    <tr><td>20 years</td><td>$1,524</td><td>$165,760</td><td>$104,760</td></tr>
+    <tr><td>25 years</td><td>$1,392</td><td>$217,600</td><td>$52,920</td></tr>
+    <tr><td>30 years</td><td>$1,307</td><td>$270,520</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<p>Choosing a 15-year term instead of a 30-year term costs $467 more per month but saves $151,200 in total interest—more than 75% of the original loan amount. Use our <a href="/amortization-schedule">amortization schedule</a> for a full year-by-year breakdown of either option and see <a href="/blog/amortization-schedule-explained">how amortization works</a> over time.</p>
+
+<h2>Full Monthly Cost Breakdown: Beyond Principal and Interest</h2>
+<p>In reality, your total **$200000 mortgage monthly payment** includes property taxes, homeowners insurance, and private mortgage insurance (PMI). Below is a realistic PITI breakdown for a $225,000 home purchase with 11% down ($25,000), resulting in a $200,000 loan at 6.8% over 30 years:</p>
+
+<table>
+  <thead>
+    <tr><th>Component</th><th>Monthly Cost</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Principal and interest</td><td>$1,307</td></tr>
+    <tr><td>Property tax (1.1%/yr)</td><td>$206</td></tr>
+    <tr><td>Homeowners insurance</td><td>$100</td></tr>
+    <tr><td>PMI (~0.5% - under 20%)</td><td>$83</td></tr>
+    <tr><td><strong>Total monthly payment</strong></td><td><strong>$1,696</strong></td></tr>
+  </tbody>
+</table>
+
+<p>Note: Property taxes vary significantly by state and county—from under 0.5% in Hawaii and Alabama to over 2% in New Jersey and Illinois. Use our <a href="/mortgage-calculator">mortgage calculator</a> for a personalized PITI estimate based on your location and down payment, and learn <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> including these extra costs.</p>
+
+<h2>What Income Do You Need for a $200,000 Mortgage?</h2>
+<p>Lenders typically apply the "28% rule," which suggests that your total housing costs should not exceed 28% of your gross monthly income. Here is what that looks like at different payment levels:</p>
+
+<table>
+  <thead>
+    <tr><th>Scenario</th><th>Monthly Payment</th><th>Required Annual Income</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>P&I only</td><td>$1,307</td><td>~$56,014</td></tr>
+    <tr><td>Full PITI (example)</td><td>$1,696</td><td>~$72,686</td></tr>
+    <tr><td>With existing debts</td><td>$1,696 + $400</td><td>~$89,829</td></tr>
+  </tbody>
+</table>
+
+<p>Most buyers will need a household income between $56,000 and $90,000 to comfortably qualify for a $200,000 mortgage depending on their existing debts and local taxes. Use our <a href="/affordability-calculator">affordability calculator</a> to get a personalized figure based on your full financial picture and find out <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
+
+<h2>How a Down Payment Affects Your $200,000 Mortgage</h2>
+<p>A $200,000 mortgage refers to the loan amount *after* your down payment. Here is how that loan maps to home purchase prices:</p>
+
+<table>
+  <thead>
+    <tr><th>Down Payment</th><th>%</th><th>Home Purchase Price</th><th>PMI Required?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>$6,186</td><td>3%</td><td>$206,186</td><td>Yes</td></tr>
+    <tr><td>$10,526</td><td>5%</td><td>$210,526</td><td>Yes</td></tr>
+    <tr><td>$22,222</td><td>10%</td><td>$222,222</td><td>Yes</td></tr>
+    <tr><td>$50,000</td><td>20%</td><td>$250,000</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<p>Putting 20% down on a $250,000 home eliminates PMI entirely—saving $83/month on this loan and removing a cost that never builds equity. Check our <a href="/blog/down-payment-guide">down payment guide</a> for strategies to reach 20% faster and understand your rights under the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB) guidelines.</p>
+
+<h2>How a $200,000 Mortgage Compares to Other Loan Amounts</h2>
+<p>When shopping for a home, it's helpful to see how much your payment shifts if you adjust your budget by $50,000 to $100,000. Here is a comparison at 6.8% over 30 years:</p>
+
+<table>
+  <thead>
+    <tr><th>Loan Amount</th><th>Monthly P&I</th><th>Total Interest</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>$100,000</td><td>$654</td><td>$135,320</td></tr>
+    <tr><td>$150,000</td><td>$980</td><td>$202,880</td></tr>
+    <tr><td>$200,000</td><td>$1,307</td><td>$270,520</td></tr>
+    <tr><td>$300,000</td><td>$1,961</td><td>$405,960</td></tr>
+    <tr><td>$400,000</td><td>$2,615</td><td>$541,400</td></tr>
+  </tbody>
+</table>
+
+<p>If you find that $200,000 is slightly above your comfortable limit, check out our <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage payment breakdown</a> for a lower-cost alternative. If you have a larger budget, our $300,000 mortgage analysis (coming soon) provides similar depth for larger properties.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>What is the monthly payment on a $200,000 mortgage?</h3>
+<p>At a 6.8% interest rate on a 30-year term, the **$200000 mortgage monthly payment** is approximately $1,307 for P&I. With taxes, insurance, and PMI, the total payment (PITI) is likely between $1,650 and $1,750.</p>
+<h3>How much income do I need for a $200,000 mortgage?</h3>
+<p>Generally, you need an annual household income of $65,000 to $85,000 to qualify, depending on your other debt obligations and the specific tax rates in your area.</p>
+<h3>How much is a $200,000 mortgage over 30 years?</h3>
+<p>At 6.8% interest, you will pay a total of $470,520 over 30 years. This includes the $200,000 principal plus $270,520 in total interest.</p>
+<h3>What is the total cost of a $200,000 mortgage at 7% interest?</h3>
+<p>At a 7% interest rate over 30 years, you will pay $1,331 per month in P&I, and a total of $279,016 in interest, totaling $479,016 overall.</p>
+<h3>How much do I need to put down on a $200,000 mortgage?</h3>
+<p>The minimum down payment for conventional loans is typically 3% ($6,186), but putting down 20% ($50,000) is recommended to avoid PMI and lower your monthly cost.</p>
+
+<h2>Calculate Your Exact Payment</h2>
+<p>Ready to see your own numbers? Enter $200,000 as the loan amount into our mortgage calculator, set your interest rate and term, and see your personalized monthly breakdown including taxes, insurance, and PMI in seconds. Don't leave your largest financial decision to guesswork—get the exact data you need today.</p>
+
+<div class="flex flex-col md:flex-row gap-6 my-10 text-center">
+  <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center">
+    <h3 class="text-xl font-bold mb-4">Mortgage Tool</h3>
+    <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline">Run My Numbers →</a>
+  </div>
+  <div class="flex-1 bg-primary/5 p-8 rounded-3xl border border-primary/20 shadow-lg text-center font-bold">
+    <h3 class="text-xl font-bold mb-4">Amortization Table</h3>
+    <a href="/amortization-schedule" class="text-primary hover:underline">See Payoff Schedule →</a>
+  </div>
+</div>`
   },
   {
     title: "$300,000 Mortgage Monthly Payment Example",
