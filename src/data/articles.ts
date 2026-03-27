@@ -799,18 +799,144 @@ export const articles: Article[] = [
     `
   },
   {
-    title: "$100,000 Mortgage Monthly Payment Example",
-    category: "Mortgage Guides",
-    readTime: "4 min read",
-    excerpt: "See exactly what a $100k mortgage costs in 2026 with different interest rates and down payment scenarios.",
     slug: "100k-mortgage-monthly-payment",
-    content: `
-      <p>Looking for an entry-level mortgage? Here is how $100,000 breaks down across global markets. Our <a href="/mortgage-calculator">home loan tool</a> can help you visualize the cost.</p>
-      <h2>The $100k Breakdown</h2>
-      <p>At 5.5% interest, your monthly P&I is approximately $567. Over 30 years, you'll pay about $104,000 in total interest. Try seeing if <a href="/rent-vs-buy">renting or buying</a> makes more sense at this price point.</p>
-      <h3>Is $100k too small for a mortgage?</h3>
-      <p>Many lenders have a minimum loan amount, but $100k is generally accepted by most major banks.</p>
-    `
+    category: "Mortgage Guides",
+    readTime: "9 min read",
+    title: "$100,000 Mortgage Monthly Payment: Full Breakdown for 2026",
+    excerpt: "What is the monthly payment on a $100,000 mortgage in 2026? See exact payments for every interest rate and term, total interest costs, income requirements, and a full PITI breakdown.",
+    content: `<p>A $100,000 mortgage remains a highly effective tool for buyers in affordable U.S. markets, those purchasing a secondary residence, or homeowners refinancing a small equity balance into more favorable terms. While it is lower than the national average mortgage balance, understanding the exact **$100000 mortgage monthly payment** is fundamental for precise financial planning in 2026. This guide provides a comprehensive breakdown of monthly costs at various interest rates, comparisons across loan terms, income requirements, and the total cost of borrowing. For an instant, personalized figure based on your specific situation, use our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+<h2>Monthly Payment on a $100,000 Mortgage by Interest Rate</h2>
+<p>The interest rate is the most significant factor in determining your monthly commitment. Even a fractional difference in the rate can translate into tens of thousands of dollars saved over the life of the loan. The table below illustrates the monthly principal and interest (P&I) for a $100,000 mortgage on a standard 30-year fixed term across realistic 2026 scenarios:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Interest Rate</th>
+      <th>Monthly P&I</th>
+      <th>Total Interest</th>
+      <th>Total Paid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>5.0%</td><td>$537</td><td>$93,256</td><td>$193,256</td></tr>
+    <tr><td>5.5%</td><td>$568</td><td>$104,422</td><td>$204,422</td></tr>
+    <tr><td>6.0%</td><td>$600</td><td>$115,838</td><td>$215,838</td></tr>
+    <tr><td>6.5%</td><td>$632</td><td>$127,544</td><td>$227,544</td></tr>
+    <tr><td>6.8% (Current Avg)</td><td>$654</td><td>$135,320</td><td>$235,320</td></tr>
+    <tr><td>7.0%</td><td>$665</td><td>$139,508</td><td>$239,508</td></tr>
+    <tr><td>7.5%</td><td>$699</td><td>$151,717</td><td>$251,717</td></tr>
+    <tr><td>8.0%</td><td>$734</td><td>$164,155</td><td>$264,155</td></tr>
+  </tbody>
+</table>
+
+<p>At current market benchmarks of approximately 6.8% (see the <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> for live updates), a $100,000 mortgage costs roughly $654 per month in principal and interest. Over 30 years, this results in $135,320 in total interest—meaning you pay back significantly more than the original loan amount. Use our <a href="/mortgage-calculator">mortgage calculator</a> to adjust for your exact credit-qualified rate.</p>
+
+<h2>Monthly Payment by Loan Term</h2>
+<p>While the 30-year term is the most popular due to its lower monthly payment, shorter terms offer massive savings for those who can afford the higher monthly bills. Here is how a $100,000 loan at a 6.8% interest rate compares across different timelines:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Loan Term</th>
+      <th>Monthly P&amp;I</th>
+      <th>Total Interest</th>
+      <th>Monthly Difference vs 30yr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>10 years</td><td>$1,151</td><td>$38,120</td><td>+$497</td></tr>
+    <tr><td>15 years</td><td>$887</td><td>$59,660</td><td>+$233</td></tr>
+    <tr><td>20 years</td><td>$762</td><td>$82,880</td><td>+$108</td></tr>
+    <tr><td>25 years</td><td>$696</td><td>$108,800</td><td>+$42</td></tr>
+    <tr><td>30 years</td><td>$654</td><td>$135,320</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<p>Conclusively, choosing a 15-year term instead of a 30-year term costs $233 more per month but saves you $75,660 in total interest—nearly the entire value of the original loan. Review our <a href="/blog/amortization-schedule-explained">how amortization works</a> guide and use the <a href="/amortization-schedule">amortization schedule</a> tool for a full year-by-year breakdown.</p>
+
+<h2>Full Monthly Cost Breakdown: Beyond Principal and Interest</h2>
+<p>The actual monthly payment you write a check for—known as PITI—includes more than just principal and interest. It encompasses property taxes, homeowners insurance, and potentially private mortgage insurance (PMI). Here is a realistic breakdown for a $125,000 home purchase with a 20% down payment ($25,000), resulting in a $100,000 loan at 6.8% over 30 years:</p>
+
+<table>
+  <thead>
+    <tr><th>Component</th><th>Monthly Cost</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Principal and interest</td><td>$654</td></tr>
+    <tr><td>Property tax (1.1%/yr)</td><td>$115</td></tr>
+    <tr><td>Homeowners insurance</td><td>$60</td></tr>
+    <tr><td>PMI (none - 20% down)</td><td>$0</td></tr>
+    <tr><td><strong>Total monthly payment</strong></td><td><strong>$829</strong></td></tr>
+  </tbody>
+</table>
+
+<p>Property tax and insurance vary significantly by location and ZIP code. For a personalized PITI estimate, visit our <a href="/mortgage-calculator">mortgage calculator</a> and see <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> including local variations.</p>
+
+<h2>What Income Do You Need for a $100,000 Mortgage?</h2>
+<p>Lenders use Debt-to-Income (DTI) ratios to determine if you can afford a loan. The most common standard is the "28% rule," which suggests housing costs shouldn't exceed 28% of your gross monthly income. For our 6.8% interest rate example:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Monthly Payment Scope</th>
+      <th>Required Monthly Income</th>
+      <th>Required Annual Income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>$654 (P&amp;I only)</td><td>$2,336</td><td>~$28,029</td></tr>
+    <tr><td>$829 (Full PITI)</td><td>$2,961</td><td>~$35,571</td></tr>
+  </tbody>
+</table>
+
+<p>A $100,000 mortgage is accessible to a wide range of income levels, making it a realistic goal for buyers in affordable US markets or those with significant savings. However, lenders also factor in your existing debts—use our <a href="/affordability-calculator">affordability calculator</a> to see <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> based on your full financial profile.</p>
+
+<h2>How a Down Payment Affects Your $100,000 Mortgage</h2>
+<p>Remember that a "$100,000 mortgage" is the loan amount after your down payment is applied. The total home purchase price will differ based on how much cash you put down:</p>
+
+<table>
+  <thead>
+    <tr><th>Down Payment</th><th>%</th><th>Home Purchase Price</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>$3,093</td><td>3%</td><td>$103,093</td></tr>
+    <tr><td>$5,263</td><td>5%</td><td>$105,263</td></tr>
+    <tr><td>$11,111</td><td>10%</td><td>$111,111</td></tr>
+    <tr><td>$25,000</td><td>20%</td><td>$125,000</td></tr>
+  </tbody>
+</table>
+
+<p>Note: Buyers putting less than 20% down will typically pay Private Mortgage Insurance (PMI), adding $40–$80/month to the payment. For more, see our <a href="/blog/down-payment-guide">down payment guide</a> and check the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> for PMI cancellation rights under the Homeowners Protection Act.</p>
+
+<h2>Is a $100,000 Mortgage Worth It? When It Makes Sense</h2>
+<p>A $100,000 mortgage is a strategic financial decision in several scenarios: (1) Buying in an affordable Midwest or Southern US market where median home prices are below $150,000. (2) Purchasing a second property or vacation home where you want a smaller, manageable loan balance. (3) Refinancing a nearly paid-off primary mortgage to access home equity at a low rate for renovations. (4) Financing a manufactured home or condo in a lower-cost area. Contrast this with larger loans; see our <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage payment breakdown</a> for comparison. Always run your numbers through the <a href="/total-interest-calculator">total interest calculator</a> before committing to any borrowing strategy.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>What is the monthly payment on a $100,000 mortgage?</h3>
+<p>At a 6.8% interest rate on a 30-year term, the **$100000 mortgage monthly payment** is approximately $654 for P&amp;I. With taxes and insurance, the total PITI typically lands between $800 and $850.</p>
+<h3>How much income do I need for a $100,000 mortgage?</h3>
+<p>A gross annual income of $35,000 to $40,000 is typically sufficient to qualify for a $100,000 loan, assuming moderate existing debts and a decent credit score.</p>
+<h3>How much is a $100,000 mortgage over 30 years?</h3>
+<p>At 6.8%, you will pay a total of $235,320 over 30 years, which includes $135,320 in cumulative interest costs.</p>
+<h3>Can I get a $100,000 mortgage with a low credit score?</h3>
+<p>Yes, programs like FHA or VA loans allow for lower credit scores (down to 580), though your interest rate will be higher, increasing your monthly bill.</p>
+<h3>What is the total cost of a $100,000 mortgage?</h3>
+<p>Including interest at 6.8%, the total cost to borrow $100,000 over three decades is approximately $135,320 in interest alone.</p>
+
+<h2>Calculate Your Exact Payment</h2>
+<p>Every successful home purchase starts with knowing exactly what you can afford. Enter $100,000 as the loan amount into the <a href="/mortgage-calculator">mortgage calculator</a>, set your interest rate and term, and see your full monthly breakdown in seconds. Don't leave your financial future to guesswork—get the exact data you need to borrow with confidence.</p>
+
+<div class="flex flex-col md:flex-row gap-6 my-10 text-center">
+  <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center">
+    <h3 class="text-xl font-bold mb-4">Mortgage Tool</h3>
+    <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline">Run My Numbers →</a>
+  </div>
+  <div class="flex-1 bg-primary/5 p-8 rounded-3xl border border-primary/20 shadow-lg text-center font-bold">
+    <h3 class="text-xl font-bold mb-4">Amortization Table</h3>
+    <a href="/amortization-schedule" class="text-primary hover:underline">See Payoff Schedule →</a>
+  </div>
+</div>`
   },
   {
     title: "$200,000 Mortgage Monthly Payment Example",
