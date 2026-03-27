@@ -109,22 +109,28 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
           <div className="space-y-12">
             <section className="bg-surface-container-lowest rounded-3xl p-8 md:p-12 border border-outline-variant/10">
               <h3 className="text-3xl font-manrope font-bold text-primary mb-6 flex items-center gap-3">
-                <Info className="w-8 h-8 text-secondary" /> How it breaks down
+                <Info className="w-8 h-8 text-secondary" /> {content.body ? "Detailed Breakdown" : "How it breaks down"}
               </h3>
               <div className="prose prose-lg prose-teal max-w-none text-on-surface-variant leading-relaxed">
-                <p>
-                  To find the monthly payment for a <strong>{formatCurrency(params.amount || totalCost, 0, currency)}</strong> commitment, we apply a mathematical formula known as amortization.
-                </p>
-                <p>
-                  For a <strong>{params.term}-year fixed-rate</strong> product at {params.rate}%, your payment is biased towards interest early in the life of the loan. As time passes, more of your {formatCurrency(monthlyPayment, 0, currency)} monthly payment goes toward the principal.
-                </p>
-                {params.type === 'mortgage' && (
-                  <div className="mt-8 p-6 bg-secondary/5 rounded-2xl border border-secondary/10 flex items-start gap-4">
-                    <TrendingDown className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                    <p className="text-sm italic m-0">
-                      Pro Tip: Did you know that increasing your payment by just 10% each month could shave years off your mortgage and save you thousands in total interest?
+                {content.body ? (
+                  <div dangerouslySetInnerHTML={{ __html: content.body }} />
+                ) : (
+                  <>
+                    <p>
+                      To find the monthly payment for a <strong>{formatCurrency(params.amount || totalCost, 0, currency)}</strong> commitment, we apply a mathematical formula known as amortization.
                     </p>
-                  </div>
+                    <p>
+                      For a <strong>{params.term}-year fixed-rate</strong> product at {params.rate}%, your payment is biased towards interest early in the life of the loan. As time passes, more of your {formatCurrency(monthlyPayment, 0, currency)} monthly payment goes toward the principal.
+                    </p>
+                    {params.type === 'mortgage' && (
+                      <div className="mt-8 p-6 bg-secondary/5 rounded-2xl border border-secondary/10 flex items-start gap-4">
+                        <TrendingDown className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
+                        <p className="text-sm italic m-0">
+                          Pro Tip: Did you know that increasing your payment by just 10% each month could shave years off your mortgage and save you thousands in total interest?
+                        </p>
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
             </section>
@@ -148,7 +154,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
           </div>
 
           {/* Comparison Table / Scenarios */}
-          {scenarios.length > 0 && (
+          {scenarios.length > 0 && !content.body && (
             <div className="space-y-12">
               <section className="bg-surface-container-high rounded-[2rem] p-8 md:p-12 border border-outline-variant/10 shadow-sm">
                 <h3 className="text-3xl font-manrope font-bold text-primary mb-8 flex items-center gap-3">
