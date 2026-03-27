@@ -1795,6 +1795,68 @@ export const articles: Article[] = [
   },
   { title: "Understanding Escrow Accounts", category: "Mortgage Guides", readTime: "5 min read", excerpt: "Why does your lender require an escrow account?", slug: "escrow-accounts-explained", content: "The basics of escrow and how it affects your payment. Learn more at the <a href='https://www.consumerfinance.gov/' target='_blank' rel='noopener noreferrer'>CFPB</a>." },
   {
+    slug: "2026-homebuyers-playbook",
+    category: "Home Buying",
+    readTime: "9 min read",
+    title: "The 2026 Homebuyer's Playbook: How to Buy Smart in Today's Market",
+    excerpt: "Your complete guide to buying a home in 2026 — affordability calculations, mortgage pre-approval, offer strategy, rate locks, and the exact steps from first search to closing day.",
+    content: `<p>Buying a home in 2026 requires a more strategic approach than in years past. With mortgage rates hovering above 6% and inventory remains tight, the "wait and see" strategy is being replaced by proactive preparation. Buyers who understand their numbers, secure pre-approval early, and move decisively are winning deals and building long-term wealth. This playbook provides a clear roadmap to navigate today's market realities, starting with a fundamental <a href="/affordability-calculator">affordability calculator</a> check.</p>
+
+<h2>Step 1 — Know Your Numbers Before You Search</h2>
+<p>The biggest mistake modern buyers make is starting with Zillow instead of a calculator. Before looking at a single listing, you must define your financial guardrails. First, determine your maximum comfortable monthly payment using the 28% rule: multiply your gross monthly income by 0.28. Second, calculate your maximum loan amount based on that payment at current rates. Third, identify your total cash needed upfront, including a down payment and closing costs (typically 2–5% of the purchase price).</p>
+<p>For example, if you earn $95,000 annually ($7,916/month), your housing ceiling is roughly $2,216 per month. Under a 6.8% rate environment, this supports a home price of approximately $315,000 with 10% down, accounting for taxes and insurance. Use our <a href="/affordability-calculator">affordability calculator</a> and <a href="/mortgage-calculator">mortgage calculator</a> to find <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> before approaching a lender.</p>
+
+<h2>Step 2 — Get Pre-Approved, Not Just Pre-Qualified</h2>
+<p>In 2026, a pre-qualification letter is insufficient for a serious offer. Pre-qualification is a rough estimate based on self-reported data. In contrast, pre-approval involves a full credit check and verification of income and assets, resulting in a conditional commitment from the lender. Sellers routinely prioritize offers with pre-approval letters in competitive markets.</p>
+<p>We advise getting pre-approved by at least two lenders. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, multiple mortgage applications within a 45-day window count as a single credit inquiry, allowing you to compare rates without damaging your score. This strengthens your negotiating position and helps you choose between a <a href="/blog/fixed-vs-variable-mortgage">fixed vs. variable rate mortgage</a> wisely.</p>
+
+<h2>Step 3 — Understand What You Are Really Buying</h2>
+<p>The true monthly cost of a home—PITI—includes more than just the mortgage principal and interest. It encompasses property taxes, homeowners insurance, and PMI if your down payment is under 20%. Consider a $375,000 home purchase with 10% down at 6.8%:</p>
+<ul>
+  <li><strong>Principal and interest:</strong> ~$2,206</li>
+  <li><strong>Property tax (1.1%/yr):</strong> ~$344</li>
+  <li><strong>Homeowners insurance:</strong> ~$120</li>
+  <li><strong>PMI (~0.5%):</strong> ~$141</li>
+  <li><strong>Total monthly cost:</strong> ~$2,811</li>
+</ul>
+<p>This total is the number to budget against, not just the listing price. Our <a href="/mortgage-calculator">mortgage calculator</a> allows you to run a full breakdown and see <a href="/blog/mortgage-payment-guide">how your mortgage payment is calculated</a>. You can also review your <a href="/amortization-schedule">amortization schedule</a> to see how much equity you'll build each year.</p>
+
+<h2>Step 4 — Make a Competitive Offer Without Overpaying</h2>
+<p>To win **buying a home in 2026**, use these four tactics: (1) Ask your lender for a pre-approval letter matching your exact offer amount (not your maximum) to keep your ceiling private. (2) Include an escalation clause to automatically outbid others up to your limit. (3) Offer flexibility on the closing date to accommodate the seller's needs. (4) Limit contingencies strategically; while waiving a financing contingency is risky, it can signal strength if you have a massive down payment. However, never waive the inspection contingency, as structural repairs can ruin your budget. Check our <a href="/blog/down-payment-guide">how much down payment you need</a> for more offer strategies.</p>
+
+<h2>Step 5 — Lock Your Rate at the Right Moment</h2>
+<p>A rate lock guarantees your interest rate for 30–60 days. Timing is everything: lock too early and it may expire; lock too late and <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> movements could raise your costs. Best practice is to lock immediately once under contract with a clear closing timeline. Ask about "float-down" provisions that allow you to take a lower rate if market conditions improve before closing. Even a 0.25% rate change on a $350,000 loan impacts your payment by ~$54/month, or nearly $20,000 over 30 years. See <a href="/blog/interest-rate-impact">how your rate affects your total cost</a> to understand the long-term stakes.</p>
+
+<h2>Step 6 — Navigate Closing Without Surprises</h2>
+<p>The final steps involve four key areas: (1) Budget 2–5% for closing costs on top of your down payment. (2) Perform a walkthrough 24–48 hours before closing to confirm the property's condition. (3) Be vigilant about wire fraud; verify all instructions by phone using a number from the title company's official website. (4) Remember that payments are in arrears, so your first payment is typically due on the first of the month after your first full month of ownership. After closing, keep an eye on <a href="/blog/when-to-refinance">refinancing options after you buy</a> as market conditions evolve.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is 2026 a good time to buy a house?</h3>
+<p>Market timing is less critical than personal financial readiness. If you have stable income and plan to stay for 7+ years, **buying a home in 2026** is a solid path to building equity. Resources from <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> can help first-time buyers find assistance programs.</p>
+<h3>How much do I need to earn to buy a home in 2026?</h3>
+<p>It depends on your local market and debt levels, but the 28% rule is a safe benchmark. Use our tools to determine <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> based on your specific 2026 salary.</p>
+<h3>What is the difference between pre-qualification and pre-approval?</h3>
+<p>Pre-qualification is an informal estimate based on your words. Pre-approval is a verified commitment from a lender after a thorough audit of your finances.</p>
+<h3>How long does it take to buy a house from start to finish?</h3>
+<p>Expect 3 to 6 months: 1 to 4 months for searching and a 30 to 45-day escrow period once your offer is accepted.</p>
+<h3>What should I look for in a home inspection?</h3>
+<p>Focus on structural integrity, roofing, electrical, plumbing, and HVAC systems. These are the "big five" that can cause major financial strain if they fail.</p>
+
+<h2>Start With Your Numbers</h2>
+<p>Every successful home purchase starts with knowing exactly what you can afford. Enter your income, debts, and savings into the affordability calculator to get your personalised budget in 30 seconds—before you look at a single listing. Whether you are deciding <a href="/blog/rent-vs-buy-2026">whether renting still makes sense in 2026</a> or are ready to bid, start with clarity.</p>
+
+<div class="flex flex-col md:flex-row gap-6 my-10">
+  <div class="flex-1 bg-surface-container-high p-8 rounded-3xl border border-outline-variant text-center">
+    <h3 class="text-xl font-bold mb-4">Mortgage Affordability</h3>
+    <a href="/affordability-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline">Calculate Budget →</a>
+  </div>
+  <div class="flex-1 bg-surface-container-low p-8 rounded-3xl border border-outline-variant text-center">
+    <h3 class="text-xl font-bold mb-4">Payment Calculator</h3>
+    <a href="/mortgage-calculator" class="text-primary font-bold hover:underline">See Full PITI Breakdown →</a>
+  </div>
+</div>`
+  },
+  {
     title: "VA Loans in 2026: The Complete Guide for Veterans and Active Military",
     category: "Home Loans",
     readTime: "8 min read",

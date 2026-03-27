@@ -1,3 +1,5 @@
+import { EXCHANGE_RATE, convertCurrency } from "./finance";
+
 export interface PSEOParams {
   slug: string;
   type: 'mortgage' | 'loan' | 'affordability';
@@ -42,7 +44,7 @@ function getSimpleHash(str: string) {
   return Math.abs(hash);
 }
 
-import { EXCHANGE_RATE, convertCurrency } from "./finance";
+
 
 export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR') {
   const currency = targetCurrency || params.currency;
