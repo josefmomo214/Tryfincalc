@@ -2214,6 +2214,177 @@ export const articles: Article[] = [
       </div>
     `
   },
-  { title: "What Are Closing Costs?", category: "Home Buying", readTime: "7 min read", excerpt: "A complete breakdown of the fees you'll pay on closing day.", slug: "closing-costs-breakdown", content: "Every fee explained, from appraisal to title insurance. See how these fit your <a href='/affordability-calculator'>budget</a>." },
+  {
+    title: "Closing Costs Explained: What You Will Pay and When in 2026",
+    category: "Home Buying",
+    readTime: "9 min read",
+    excerpt: "What are closing costs when buying a home? See the full breakdown of every fee, typical amounts for a $300k–$500k home, who pays what, and how to reduce your closing costs legally.",
+    slug: "closing-costs-breakdown",
+    content: `
+      <p>Discovering that you owe an additional 2–5% of your home's purchase price on closing day is a genuine shock for most first-time buyers. After years of disciplined saving for a down payment, the realization that a $400,000 home requires another $12,000 to $20,000 in cash-to-close can feel like a setback. However, understanding the <strong>closing costs breakdown</strong> is the first step toward managing these expenses effectively. This guide breaks down every typical fee, explains who is responsible for each cost, and shows exactly how much you should budget when purchasing a home in the $300,000 to $500,000 range. Before you commit to a loan, always run your numbers through a <a href="/mortgage-calculator">mortgage calculator</a> to see how these costs impact your overall financial picture.</p>
+
+      <h2>What Are Closing Costs?</h2>
+      <p>In the simplest terms, closing costs are the variety of fees and expenses paid at the very end of a real estate transaction, separate from your down payment. These costs represent the price of "doing business" in the mortgage world. They cover the essential services required to finalize your loan and legally transfer the property title from the seller to you.</p>
+      <p>While your down payment goes directly toward building equity in your home, most closing costs are paid to third parties, such as lenders, title companies, government agencies, and service providers like inspectors and appraisers. These expenses are categorized into four main buckets: lender fees, third-party services, prepaid expenses (like interest and insurance), and government charges such as recording fees and transfer taxes.</p>
+
+      <h2>Full Closing Cost Breakdown</h2>
+      <p>To help you prepare your budget, here is a detailed <strong>closing costs breakdown</strong> of the most common fees you will encounter in 2026. Note that these figures can vary based on your lender, your location, and the specifics of your loan program.</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Fee</th>
+              <th class="py-4 px-4 font-bold">Typical Cost</th>
+              <th class="py-4 px-4 font-bold">Paid To</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Loan origination fee</td>
+              <td class="py-3 px-4">0.5–1% of loan</td>
+              <td class="py-3 px-4">Lender</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Appraisal fee</td>
+              <td class="py-3 px-4">$300–$600</td>
+              <td class="py-3 px-4">Appraiser</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Credit report fee</td>
+              <td class="py-3 px-4">$25–$50</td>
+              <td class="py-3 px-4">Credit bureau</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Title search</td>
+              <td class="py-3 px-4">$200–$400</td>
+              <td class="py-3 px-4">Title company</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Title insurance (lender)</td>
+              <td class="py-3 px-4">$500–$1,000</td>
+              <td class="py-3 px-4">Title company</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Title insurance (owner)</td>
+              <td class="py-3 px-4">$500–$1,000</td>
+              <td class="py-3 px-4">Title company</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Attorney fee</td>
+              <td class="py-3 px-4">$500–$1,500</td>
+              <td class="py-3 px-4">Attorney</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Home inspection</td>
+              <td class="py-3 px-4">$300–$600</td>
+              <td class="py-3 px-4">Inspector</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Survey fee</td>
+              <td class="py-3 px-4">$300–$700</td>
+              <td class="py-3 px-4">Surveyor</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Recording fees</td>
+              <td class="py-3 px-4">$25–$250</td>
+              <td class="py-3 px-4">Government</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Transfer taxes</td>
+              <td class="py-3 px-4">0.1–2% of price</td>
+              <td class="py-3 px-4">Government</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Prepaid interest</td>
+              <td class="py-3 px-4">Varies</td>
+              <td class="py-3 px-4">Lender</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Homeowners insurance</td>
+              <td class="py-3 px-4">12 months upfront</td>
+              <td class="py-3 px-4">Insurer</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Property tax escrow</td>
+              <td class="py-3 px-4">2–6 months</td>
+              <td class="py-3 px-4">Escrow account</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">PMI upfront (if applicable)</td>
+              <td class="py-3 px-4">1–1.5% of loan</td>
+              <td class="py-3 px-4">Lender</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>How Much Are Closing Costs? Real Examples by Home Price</h2>
+      <p>While the percentage range is typically 2% to 5%, the raw dollar amount can feel quite different depending on your home's list price. Understanding <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> requires looking at the total cash needed at once, not just the monthly payment. Here is what a typical <strong>closing costs breakdown</strong> looks like at various price points:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Home Price</th>
+              <th class="py-4 px-4 font-bold">Low (2%)</th>
+              <th class="py-4 px-4 font-bold">High (5%)</th>
+              <th class="py-4 px-4 font-bold">Midpoint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$200,000</td><td class="py-3 px-4">$4,000</td><td class="py-3 px-4">$10,000</td><td class="py-3 px-4">$7,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$300,000</td><td class="py-3 px-4">$6,000</td><td class="py-3 px-4">$15,000</td><td class="py-3 px-4">$10,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$400,000</td><td class="py-3 px-4">$8,000</td><td class="py-3 px-4">$20,000</td><td class="py-3 px-4">$14,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$500,000</td><td class="py-3 px-4">$10,000</td><td class="py-3 px-4">$25,000</td><td class="py-3 px-4">$17,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>For a standard $350,000 home purchase, you should budget approximately $7,000 to $17,500 in closing costs on top of your down payment. We recommend running these numbers through an <a href="/affordability-calculator">affordability calculator</a> to factor this initial cash requirement into your overall savings plan. If you are still in the early planning stages, our <a href="/blog/down-payment-guide">down payment guide</a> can help you strategize how to save for both the equity and the fees.</p>
+
+      <h2>Who Pays Closing Costs — Buyer or Seller?</h2>
+      <p>A common misconception among first-time buyers is that they are responsible for every single fee. In reality, both parties typically pay certain closing costs, though the buyer usually shoulders the majority of lender and title-specific fees. Sellers, on the other hand, are typically responsible for real estate agent commissions—which can range from 5–6% of the sale price—and often cover state or local transfer taxes.</p>
+      <p>However, everything in a real estate contract is negotiable. In what is known as a "buyer's market," it is very common to negotiate seller concessions as part of your offer. This involves asking the seller to cover a portion (typically 2–3%) of your closing costs to reduce your upfront cash burden. In a highly competitive "seller's market," asking for concessions can make your offer less attractive, so strategy is key. Understanding the <a href="/blog/2026-homebuyers-playbook">2026 homebuyer's playbook</a> strategies will help you decide when to push for these credits.</p>
+
+      <h2>5 Ways to Reduce Your Closing Costs</h2>
+      <p>If the total on your Loan Estimate is higher than expected, don't panic. There are several legal ways to bring that number down:</p>
+      <ol>
+        <li><strong>Shop for title insurance:</strong> Many buyers don't realize that title insurance rates vary by provider. In most states, you are legally entitled to choose your own title company rather than using the one your lender or the seller recommends. Comparing quotes can save you hundreds.</li>
+        <li><strong>Negotiate a no-closing-cost mortgage:</strong> In this scenario, the lender pays your upfront costs in exchange for a slightly higher interest rate. This is an excellent option for buyers who are "cash poor" but have high incomes, or for those who plan to refinance or sell within 5 years. This is sometimes referred to as <a href="/blog/when-to-refinance">no-closing-cost refinancing</a> in later years.</li>
+        <li><strong>Ask for seller concessions:</strong> As mentioned above, this is one of the most effective ways to lower your cash-to-close. A seller covering $5,000 in costs is mathematically equivalent to a $5,000 price reduction, but it's often easier for a seller to agree to, especially if they are motivated to close quickly.</li>
+        <li><strong>Close at the end of the month:</strong> Prepaid interest is calculated from the day you close until the end of that month. If you close on the 2nd, you'll owe nearly 30 days of interest. If you close on the 28th, you only owe 2 or 3 days. This simple scheduling tweak can save you over $1,000 upfront.</li>
+        <li><strong>Compare loan estimates from multiple lenders:</strong> Lender fees, also known as origination or "junk" fees, vary significantly from one bank to another. Taking one afternoon to look at <a href="/blog/compare-loan-offers">comparing loan estimates from multiple lenders</a> can save you $1,000–$3,000 in pure origination costs.</li>
+      </ol>
+
+      <h2>The Loan Estimate and Closing Disclosure: Your Rights</h2>
+      <p>Transparency in closing costs is protected by federal law under the TILA-RESPA Integrated Disclosure (TRID) rule. Within three business days of applying for a mortgage, your lender is legally required to provide you with a <strong>Loan Estimate</strong>. This standardized three-page document shows the estimated interest rate, monthly payment, and total closing costs for your loan. Reviewing this document carefully is your best defense against unexpected "junk fees."</p>
+      <p>Then, three business days before your actual closing date, you will receive the <strong>Closing Disclosure</strong>. This document contains the final, confirmed figures. You should compare the Closing Disclosure to your original Loan Estimate line by line. Under rules enforced by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB), certain fees (like origination fees) cannot increase at all, while others (like third-party services you can shop for) can increase by no more than 10%. If you notice discrepancies, you have the right to question the lender or the <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> settlement agent before signing.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much are closing costs on a $300,000 home?</h3>
+      <p>For a $300,000 home, a typical <strong>closing costs breakdown</strong> usually totals between $6,000 and $15,000. The exact amount depends on your state's tax laws, your lender's fees, and whether you choose to pay "discount points" to lower your interest rate. You can calculate the impact of these variables using a <a href="/loan-calculator">loan calculator</a>.</p>
+
+      <h3>Can closing costs be rolled into the mortgage?</h3>
+      <p>Technically, most conventional purchase loans do not allow you to "roll" closing costs into the loan balance in the same way you can with a refinance. However, you can achieve the same result through lender credits (accepting a higher interest rate) or by negotiating seller concessions. This effectively "finances" those costs over the life of the loan.</p>
+
+      <h3>Who pays closing costs — buyer or seller?</h3>
+      <p>Both parties pay, but they pay for different things. The buyer typically pays for loan-related and title-related fees. The seller usually pays for real estate commissions and transfer taxes. A clear <strong>closing costs breakdown</strong> in your contract will specify if either party has agreed to pay expenses typically handled by the other side.</p>
+
+      <h3>What are the biggest closing cost fees?</h3>
+      <p>The largest individual fees typically include the loan origination fee (often 1% of the loan amount), the homeowners insurance premium (usually 12 months paid upfront), and prepaid property taxes. Transfer taxes can also be a major expense in certain states like New York or Florida. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> will help you see how these prepaids build your escrow account.</p>
+
+      <h3>Can I negotiate closing costs?</h3>
+      <p>Yes. You can negotiate with the lender to lower or waive certain origination fees, shop for your own title insurance to find a lower rate, and negotiate with the seller for a "closing cost credit." Your goal should be to minimize the out-of-pocket cash required while maintaining a competitive interest rate.</p>
+
+      <div class="bg-primary/5 p-8 rounded-3xl my-10 border border-primary/20 text-center shadow-lg">
+        <h2 class="text-2xl font-bold text-primary mb-4">Calculate Your Total Upfront Cost</h2>
+        <p class="mb-6 opacity-90">Don't let closing day surprises stall your home purchase. Add your estimated closing costs to your down payment and see if you have enough cash to close comfortably.</p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <a href="/affordability-calculator" class="bg-primary text-white no-underline hover:bg-primary/90 px-8 py-4 rounded-full font-bold transition-all">Check Affordability →</a>
+          <a href="/mortgage-calculator" class="bg-surface-container text-primary no-underline hover:bg-surface-container-high px-8 py-4 rounded-full font-bold transition-all">Calculate Payment →</a>
+        </div>
+      </div>
+    `
+  },
   { title: "The 28/36 Rule for Debt-to-Income", category: "Affordability", readTime: "5 min read", excerpt: "The gold standard for mortgage affordability.", slug: "28-36-rule-explained", content: "How the 28/36 rule determines your maximum mortgage payment. Calculate your <a href='/affordability-calculator'>DTI ratio</a>." }
 ];
