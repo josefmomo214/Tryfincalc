@@ -2057,7 +2057,112 @@ export const articles: Article[] = [
       </div>
     `
   },
-  { title: "Understanding Escrow Accounts", category: "Mortgage Guides", readTime: "5 min read", excerpt: "Why does your lender require an escrow account?", slug: "escrow-accounts-explained", content: "The basics of escrow and how it affects your payment. Learn more at the <a href='https://www.consumerfinance.gov/' target='_blank' rel='noopener noreferrer'>CFPB</a>." },
+  {
+    title: "Escrow Accounts Explained: What They Are and How They Work",
+    category: "Mortgage Guides",
+    readTime: "9 min read",
+    excerpt: "What is an escrow account on a mortgage? Learn how escrow works, what goes into it, why your payment changes each year, and how to manage your escrow account effectively.",
+    slug: "escrow-accounts-explained",
+    content: `
+      <p>Escrow is one of those mortgage terms that confuses nearly everyone at first. You see it on your monthly statement, your payment changes unexpectedly each year, and often, nobody fully explained it at the closing table. If you feel like your mortgage payment is a "black box" where money disappears and changes without rhyme or reason, you aren't alone. This guide provides an <strong>escrow account explained</strong> in plain English—what it is, what goes into it, why it changes, and what to do if your account runs short. Before you dive into the details, you can see how escrow fits into your overall PITI (Principal, Interest, Taxes, and Insurance) by using our <a href="/mortgage-calculator">mortgage calculator</a> to model your specific scenario.</p>
+
+      <h2>What Is an Escrow Account?</h2>
+      <p>A mortgage <strong>escrow account explained</strong> simply is a dedicated savings account managed by your loan servicer. Its sole purpose is to hold funds for your property taxes and homeowners insurance. Instead of you having to save up thousands of dollars and pay these massive bills yourself once or twice a year, your lender collects a portion of the annual cost with every single monthly mortgage payment. They hold onto this money and then pay the bills on your behalf when they come due.</p>
+      <p>For lenders, escrow is a risk-management tool. They want to ensure that the property taxes are paid (so the government doesn't put a tax lien on the home) and that insurance is active (so the collateral is protected from fire or storm damage). Most conventional loans with a down payment of less than 20% require an escrow account. However, many lenders require it regardless of your down payment size to simplify their oversight of the property.</p>
+
+      <h2>What Does Escrow Cover?</h2>
+      <p>While your principal and interest go toward paying back the bank, your escrow contributions cover the "holding costs" of the home. There are two main components and one optional component that typically make up your escrow payment:</p>
+
+      <ol>
+        <li><strong>Property taxes:</strong> These are collected monthly and paid to your local county or city government, typically twice a year. If your annual tax bill is $4,200, your servicer will add $350 to your monthly payment ($4,200 / 12 = $350).</li>
+        <li><strong>Homeowners insurance:</strong> Your annual premium for fire, theft, and hazard coverage is divided by 12 and added to your bill. For an annual premium of $1,440, you would see $120 added to your monthly mortgage payment.</li>
+        <li><strong>PMI (Private Mortgage Insurance):</strong> If your down payment was under 20%, PMI is also typically collected through escrow. This insurance protects the lender if you default and continues until you reach 20% equity in the home.</li>
+      </ol>
+
+      <p>To see how these individual pieces come together, here is a sample monthly payment breakdown for a $300,000 mortgage at a 6.8% interest rate:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Component</th>
+              <th class="py-4 px-4 font-bold">Monthly Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Principal and interest</td>
+              <td class="py-3 px-4">$1,961</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Property tax (escrow)</td>
+              <td class="py-3 px-4">$350</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">Homeowners insurance</td>
+              <td class="py-3 px-4">$120</td>
+            </tr>
+            <tr class="border-b border-outline-variant/30">
+              <td class="py-3 px-4">PMI (if applicable)</td>
+              <td class="py-3 px-4">$125</td>
+            </tr>
+            <tr class="bg-primary/5 font-bold border-t-2 border-primary/20">
+              <td class="py-3 px-4">Total monthly payment</td>
+              <td class="py-3 px-4">$2,556</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>For a personalized look at your own numbers, use our <a href="/mortgage-calculator">mortgage calculator</a> which lets you toggle taxes and insurance on and off to see your base vs. total cost.</p>
+
+      <h2>Why Does My Mortgage Payment Change Each Year?</h2>
+      <p>One of the most common complaints from homeowners is: "I have a fixed-rate mortgage, so why did my payment increase?" The answer is almost always the <strong>annual escrow analysis</strong>.</p>
+      <p>Every 12 months, your loan servicer is required to review your escrow account to make sure it has enough funds to cover the upcoming year's bills. Because property taxes and insurance premiums are not fixed—they rise and fall based on local government budgets and insurance market conditions—your monthly escrow contribution must adjust to keep pace. If your property taxes increased from $4,200 to $4,500, that $300 annual increase means your escrow contribution must rise by $25 per month. Consequently, your total monthly payment rises by $25, even though your principal and interest portion stayed exactly the same. This is part of the <a href="/blog/2026-homebuyers-playbook">2026 homebuyer's playbook</a> knowledge: your "fixed" payment is rarely truly fixed due to escrow.</p>
+
+      <h2>What Is an Escrow Shortage?</h2>
+      <p>An escrow shortage occurs when your servicer paid out more in taxes or insurance than was actually collected in the account during the year. This usually happens because your tax assessment or insurance premium rose unexpectedly mid-year. When your annual analysis is complete, your servicer will send a statement showing the shortage amount.</p>
+      <p>Under the rules monitored by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB), you typically have two options to resolve a shortage:</p>
+      <ol>
+        <li><strong>Pay the shortage in a lump sum:</strong> You pay the full deficit immediately. Your monthly payment will still increase slightly to cover the higher bills for the next year, but you won't be paying back the "debt" from the previous year.</li>
+        <li><strong>Spread it across 12 months:</strong> The servicer adds 1/12th of the shortage to each of your monthly payments for the next year. This is the more common choice, though it results in a larger "payment shock" since you are paying for both the higher future bills AND the past deficit simultaneously.</li>
+      </ol>
+      <p>Always review your escrow analysis carefully. Errors do occur, especially with property tax exemptions or new construction. If the shortage seems incorrect, contact your servicer immediately and request a detailed <a href="/blog/mortgage-payment-guide">how your full mortgage payment is calculated</a> breakdown.</p>
+
+      <h2>What Is an Escrow Surplus?</h2>
+      <p>The good news! If your local government lowered taxes or you switched to a significantly cheaper insurance policy, you might have an <strong>escrow surplus</strong>. This means the account collected more money than was needed to pay the bills.</p>
+      <p>If the surplus is greater than $50, federal law (specifically the Real Estate Settlement Procedures Act, or RESPA) requires the servicer to refund the money to you, typically in the form of a check mailed shortly after the annual analysis. Many smart homeowners choose to apply this refund check back toward their mortgage principal to pay off the home faster. If you do this, always specify in writing that the funds should be applied to "Principal Only" to ensure it isn't just held for future escrow. You can track your equity growth using an <a href="/amortization-schedule">amortization schedule</a>.</p>
+
+      <h2>Can You Opt Out of Escrow?</h2>
+      <p>If you prefer to have absolute control over your money, you might wonder about an <strong>escrow waiver</strong>. Some lenders allow borrowers with 20% or more equity and a strong payment history to manage their own property taxes and insurance. This is common for those <a href="/blog/down-payment-guide">reaching 20% equity to waive escrow</a>.</p>
+      <p><strong>The Benefits:</strong> You keep the money in your own high-yield savings account earning interest until the bills are due, rather than letting the bank hold it for $0 interest. It also prevents "payment shock" from annual servicer adjustments.</p>
+      <p><strong>The Drawbacks:</strong> You are 100% responsible for making massive lump-sum payments on time. Missing a property tax payment is a serious default that can result in heavy penalties and even a tax lien on your home. Furthermore, lenders often charge a small "escrow waiver fee" (typically 0.125% to 0.25% of the loan amount) to allow you to opt out. Weigh the 1–2% interest you might earn against this upfront fee and the administrative effort before deciding. If your goal is simply to lower your bill, check out other <a href="/blog/reduce-mortgage-payment">ways to reduce your monthly mortgage payment</a>.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is an escrow account on a mortgage?</h3>
+      <p>An <strong>escrow account explained</strong> simply is a dedicated account where your lender holds a portion of your monthly payment to pay your property taxes and homeowners insurance when they come due. It ensures these critical bills are paid on time without you needing to budget for large lump sums.</p>
+
+      <h3>Why did my mortgage payment go up if I have a fixed rate?</h3>
+      <p>While your principal and interest are fixed, your escrow costs are not. If your local property taxes or insurance premiums increase, your lender must increase your monthly escrow contribution to cover the difference, which raises your total monthly bill.</p>
+
+      <h3>What happens if my escrow account runs short?</h3>
+      <p>If there isn't enough money in your escrow account to pay your bills, your lender will "front" the money and then ask you to pay it back. You can usually pay the shortage in one lump sum or have it added to your monthly payments over the next 12 months.</p>
+
+      <h3>Can I cancel my escrow account?</h3>
+      <p>Often, yes—if you have at least 20% equity in your home and a history of on-time payments. This is called an escrow waiver. However, some lenders charge a fee for this privilege, and you become solely responsible for paying your own tax and insurance bills.</p>
+
+      <h3>How do I know if my escrow amount is correct?</h3>
+      <p>Review your annual escrow analysis statement provided by your servicer. Compare the projected tax and insurance amounts to your actual bills from the county and your insurance provider. If you find a discrepancy, contact your servicer and reference your rights under the <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> and RESPA guidelines.</p>
+
+      <div class="bg-primary/5 p-8 rounded-3xl my-10 border border-primary/20 text-center shadow-lg">
+        <h2 class="text-2xl font-bold text-primary mb-4">See Your Full Monthly Payment Breakdown</h2>
+        <p class="mb-6 opacity-90">Are you curious how much of your payment goes to escrow? Enter your loan details now to see a clear split between principal, interest, taxes, and insurance.</p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <a href="/mortgage-calculator" class="bg-primary text-white no-underline hover:bg-primary/90 px-8 py-4 rounded-full font-bold transition-all">Go to Mortgage Calculator →</a>
+          <a href="/affordability-calculator" class="bg-surface-container text-primary no-underline hover:bg-surface-container-high px-8 py-4 rounded-full font-bold transition-all">Check Affordability →</a>
+        </div>
+      </div>
+    `
+  },
   {
     slug: "2026-homebuyers-playbook",
     category: "Home Buying",
