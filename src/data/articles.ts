@@ -1591,7 +1591,102 @@ export const articles: Article[] = [
   { title: "How Extra Payments Reduce Loan Interest", category: "Debt Management", readTime: "6 min read", excerpt: "See the dramatic effect of even small extra payments.", slug: "extra-payments-impact", content: "How to save thousands on interest by paying more today. Try our <a href='/loan-calculator'>extra payment tool</a>." },
   { title: "Refinance Calculator Explained", category: "Refinance", readTime: "5 min read", excerpt: "Learn how to use our refinancing tools to find your break-even point.", slug: "refinance-calculator-guide", content: "Master our <a href='/loan-calculator'>refinancing tools</a> in minutes. Learn the math at the <a href='https://www.federalreserve.gov/' target='_blank' rel='noopener noreferrer'>Federal Reserve</a>." },
   { title: "How to Budget for a Home Purchase", category: "Home Buying", readTime: "8 min read", excerpt: "Beyond the mortgage—budgeting for closing costs and repairs.", slug: "home-purchase-budgeting", content: "The ultimate guide to budgeting for your first home. Start by checking your <a href='/affordability-calculator'>affordability</a>." },
-  { title: "Common Loan Calculator Mistakes to Avoid", category: "Financial Planning", readTime: "5 min read", excerpt: "Are you forgetting taxes and insurance?", slug: "calculator-mistakes", content: "Avoid these common errors when using <a href='/mortgage-calculator'>financial calculators</a>. Refer to <a href='https://www.investopedia.com/' target='_blank' rel='noopener noreferrer'>Investopedia</a> for best practices." },
+  {
+    title: "7 Mortgage Calculator Mistakes That Lead to Budget Surprises",
+    category: "Financial Planning",
+    readTime: "9 min read",
+    excerpt: "Are you using a mortgage calculator correctly? Discover the 7 most common mistakes people make — from ignoring taxes and insurance to using the wrong rate.",
+    slug: "calculator-mistakes",
+    content: `
+      <p>Mortgage calculators are among the most useful tools a homebuyer has at their disposal, but they are only as good as the data you feed them. A small input error or a missing field can make a $2,800 monthly payment look like an affordable $1,900, leading buyers to overextend their budget and face genuine financial strain after they move in. If you have ever used an online tool and wondered whether the result was accurate or dangerously optimistic, you are right to be cautious. This guide covers the seven most common <strong>mortgage calculator mistakes</strong> buyers make and shows you exactly how to avoid every one of them. For a reliable starting point, our <a href="/mortgage-calculator">mortgage calculator</a> includes many of these essential fields by default to help you build a safer budget.</p>
+
+      <h2>Mistake 1 — Only Calculating Principal and Interest</h2>
+      <p>The single most frequent error is treating the "Principal and Interest" (P&I) output as your total monthly cost. While P&I is the base of your mortgage, your true out-of-pocket expense includes four components: Principal, Interest, Property Taxes, and Homeowners Insurance—often abbreviated as PITI.</p>
+      <p>For a $350,000 home with a 6.8% interest rate, the P&I portion alone is approximately $2,059 per month. However, once you add local property taxes (averaging 1.1% nationally) and homeowners insurance, your true all-in monthly payment is closer to $2,700—a $641 difference. Failing to account for this is a primary driver of <strong>mortgage calculator mistakes</strong>. Always use a tool that provides a full PITI breakdown so you aren't surprised by the escrow bill later. You can see how these "extra" costs are calculated in our guide on <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</p>
+
+      <h2>Mistake 2 — Using a Rate You Saw in an Advertisement</h2>
+      <p>Advertised mortgage rates are almost always a "best-case scenario" designed to grab your attention. These rates are typically offered only to borrowers with 760+ credit scores, at least a 20% down payment, and very specific loan types. For the average buyer, the actual interest rate they qualify for is often 0.25% to 0.75% higher than the headline rate.</p>
+      <p>On a $350,000 loan, a 0.5% rate increase adds roughly $110 to your monthly payment and tens of thousands of dollars in total interest over the life of the loan. Before you rely on any calculation, get a personalized rate quote from at least two lenders. Understanding <a href="/blog/interest-rate-impact">how interest rates affect your payment</a> is critical for creating a budget that actually holds up when you apply for a loan. You can also benchmark these rates against current <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> to see where market averages currently sit.</p>
+
+      <h2>Mistake 3 — Forgetting PMI</h2>
+      <p>If your down payment is less than 20% of the home's purchase price, your lender will require Private Mortgage Insurance (PMI). This is an insurance policy that protects the lender if you default, but you are the one who pays the premium. PMI typically costs between 0.5% and 1.5% of the total loan amount per year. On a $315,000 loan, that can add between $131 and $394 to your monthly bill.</p>
+      <p>Many basic calculators do not include PMI in their default output, which is why buyers with smaller down payments frequently underestimate their total costs. Here is the typical impact of PMI based on your down payment size:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Down Payment</th>
+              <th class="py-4 px-4 font-bold">PMI Rate (Est.)</th>
+              <th class="py-4 px-4 font-bold">Monthly PMI</th>
+              <th class="py-4 px-4 font-bold">Often Forgotten?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">3%</td><td class="py-3 px-4">1.2%</td><td class="py-3 px-4">$378</td><td class="py-3 px-4">Yes</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">5%</td><td class="py-3 px-4">1.0%</td><td class="py-3 px-4">$316</td><td class="py-3 px-4">Yes</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">10%</td><td class="py-3 px-4">0.5%</td><td class="py-3 px-4">$131</td><td class="py-3 px-4">Yes</td></tr>
+            <tr class="bg-primary/5 font-bold"><td class="py-3 px-4">20%</td><td class="py-3 px-4">None</td><td class="py-3 px-4">$0</td><td class="py-3 px-4">N/A</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>If you are planning a smaller down payment, refer to our <a href="/blog/down-payment-guide">down payment guide</a> for strategies to eliminate these insurance costs faster through accelerated equity growth.</p>
+
+      <h2>Mistake 4 — Ignoring Closing Costs in the Upfront Budget</h2>
+      <p>Your down payment is not the only cash you need at the closing table. Closing costs are the collection of fees paid to lenders, title companies, and government agencies to finalize the sale. They typically range from 2% to 5% of the home's purchase price. A buyer who has saved exactly $35,000 for a 10% down payment on a $350,000 home might be shocked to learn they also need an additional $7,000 to $17,500 in closing costs.</p>
+      <p>When you use an <a href="/affordability-calculator">affordability calculator</a>, always consider your total upfront cash requirement. A safe formula is: <strong>Total Cash Needed = Down Payment + Closing Costs + 2 Month Buffer</strong>. For a full list of what these fees cover, read our <a href="/blog/closing-costs-breakdown">closing costs breakdown</a>.</p>
+
+      <h2>Mistake 5 — Calculating Based on Gross Income Instead of Net</h2>
+      <p>Most mortgage calculators and lenders use your <strong>gross monthly income</strong> (your salary before taxes and deductions) to apply the "28% rule." While this is the industry standard for qualification, it can be misleading for your personal budget. Your actual take-home pay is what you use to buy groceries, pay for childcare, and save for retirement.</p>
+      <p>For example, a buyer earning $90,000 a year has a gross monthly income of $7,500. By the 28% rule, their maximum mortgage payment is $2,100. However, after taxes, health insurance, and 401(k) contributions, their net take-home pay might only be $5,800. Spending $2,100 on housing out of $5,800 is 36% of their actual cash flow—much tighter than it looked on the calculator. Always stress-test your payment against your "spendable" money to find out <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> in the real world.</p>
+
+      <h2>Mistake 6 — Not Testing Different Rate Scenarios</h2>
+      <p>Many buyers find a home, run the calculator once at today's interest rate, and stop there. But mortgage rates are volatile. They can move 0.25% or even 0.5% between the time you start house hunting and the time you actually lock in your rate with a lender. If you are shopping at the very top of your budget, a small rate increase can suddenly make your dream home unaffordable.</p>
+      <p>To avoid this, always run three scenarios on your <a href="/mortgage-calculator">mortgage calculator</a>: a low-rate scenario (0.5% below current), a current-rate scenario, and a high-rate scenario (0.5% above current). This gives you a "payment range" and prevents budget shock if the market shifts before your closing date. Refer to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> for advice on when to lock your rate to protect against these moves.</p>
+
+      <h2>Mistake 7 — Ignoring HOA Fees</h2>
+      <p>If you are looking at condominiums, townhomes, or homes in planned communities, you will likely have to pay monthly Homeowners Association (HOA) fees. These fees are not part of your mortgage, and they are almost never included in the default output of a mortgage calculator. HOA fees can range from a modest $100 to over $1,000 per month depending on the amenities provided, such as pools, security, or landscaping.</p>
+      <p>On a condo with a $400/month HOA fee, a buyer who budgeted $2,500/month for housing is actually committing to $2,900/month once you add the fees. This extra $4800 a year can disrupt even the most disciplined financial plan. Always add the specific HOA fee from the listing manually to your total monthly cost estimate before making an offer.</p>
+
+      <h2>The Right Way to Use a Mortgage Calculator</h2>
+      <p>To get the most accurate results and avoid painful surprises, follow this comprehensive checklist every time you use a financial tool:</p>
+      <ol>
+        <li><strong>Use a calculator that includes PITI</strong> — Never calculate principal and interest alone.</li>
+        <li><strong>Get a personalized rate</strong> — Use a <a href="/blog/compare-loan-offers">comparing loan offers</a> strategy to get real numbers rather than advertised ones.</li>
+        <li><strong>Include PMI</strong> — If you are putting down less than 20%, ensure the <strong>mortgage calculator mistakes</strong> of leaving out insurance aren't made.</li>
+        <li><strong>Budget for closing costs</strong> — Add 3% of the price as a placeholder for upfront fees.</li>
+        <li><strong>Test against net income</strong> — Use your take-home pay as the ultimate reality check.</li>
+        <li><strong>Run multiple rate scenarios</strong> — Always know your "worst-case" payment if rates rise.</li>
+        <li><strong>Add HOA fees manually</strong> — Check the listing details for monthly community costs.</li>
+      </ol>
+      <p>Our <a href="/mortgage-calculator">mortgage calculator</a> is designed to help you with several of these steps automatically, including custom tax and insurance fields and detailed <a href="/amortization-schedule">amortization schedule</a> projections.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Why is my mortgage calculator result different from my lender's quote?</h3>
+      <p>This is often due to <strong>mortgage calculator mistakes</strong> where specific local taxes, exact insurance premiums, or proprietary lender fees weren't included. A lender's quote is based on a "Loan Estimate" which is a legally binding disclosure of exact costs.</p>
+
+      <h3>Does a mortgage calculator include taxes and insurance?</h3>
+      <p>Most basic calculators do not. However, premium tools like the one on this site allow you to enter estimated annual property taxes and homeowners insurance premiums to get a more accurate PITI total.</p>
+
+      <h3>How accurate are online mortgage calculators?</h3>
+      <p>They are mathematically perfect for principal and interest but only as accurate as the estimates you provide for the variable costs like taxes, insurance, and interest rates. Always verify your inputs with real-world quotes.</p>
+
+      <h3>Should I use gross or net income for mortgage calculations?</h3>
+      <p>Lenders use gross income to see if you qualify. However, for personal budgeting, you should always check the monthly payment against your net take-home pay to ensure you aren't "house poor."</p>
+
+      <h3>What is not included in a basic mortgage calculator?</h3>
+      <p>The average basic tool misses PMI, closing costs, HOA fees, and the cost of monthly utilities. To get the full picture, you must investigate these costs for the specific property you are considering.</p>
+
+      <div class="bg-primary/5 p-8 rounded-3xl my-10 border border-primary/20 text-center shadow-lg">
+        <h2 class="text-2xl font-bold text-primary mb-4">Get an Accurate Estimate Right Now</h2>
+        <p class="mb-6 opacity-90">Avoid the common <strong>mortgage calculator mistakes</strong> that caught previous home buyers off guard. Use our comprehensive tool to see your full PITI payment including taxes, insurance, and PMI.</p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <a href="/mortgage-calculator" class="bg-primary text-white no-underline hover:bg-primary/90 px-8 py-4 rounded-full font-bold transition-all">Go to Mortgage Calculator →</a>
+          <a href="/affordability-calculator" class="bg-surface-container text-primary no-underline hover:bg-surface-container-high px-8 py-4 rounded-full font-bold transition-all">Check Affordability →</a>
+        </div>
+      </div>
+    `
+  },
   {
     title: "How Interest Rates Affect Your Mortgage Payment: The Full Picture",
     category: "Guide",
