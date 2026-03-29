@@ -11,7 +11,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const baseStyles = "inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50";
     
     const variants = {
-      primary: "bg-gradient-to-br from-primary to-primary-container text-white hover:from-primary-container hover:to-[#005a5a] shadow-ambient rounded-3xl", // Stitch specs: xl (1.5rem / 24px - rounded-3xl)
+      primary: "bg-gradient-to-br from-primary to-primary-container text-[#FFFFFF] hover:from-primary-container hover:to-[#005a5a] shadow-ambient rounded-3xl", // Stitch specs: xl (1.5rem / 24px - rounded-3xl)
       secondary: "bg-transparent text-primary pb-1 border-b-2 border-primary-fixed-dim hover:border-primary-fixed hover:-translate-y-0.5 rounded-none",
       outline: "border border-outline-variant bg-transparent text-on-surface hover:bg-surface-container-low",
       ghost: "bg-transparent text-on-surface hover:bg-surface-container-low",

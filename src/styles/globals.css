@@ -84,3 +84,19 @@
   border-bottom-color: var(--color-primary);
   color: var(--color-primary);
 }
+
+/* Global Fix for Primary CTA Buttons: Ensure white text against dark backgrounds */
+.bg-primary,
+.bg-primary-hover,
+.blog-content a.bg-primary, 
+.blog-content a.bg-primary-hover,
+.blog-content a[class*="bg-primary"],
+.btn-primary {
+  color: #FFFFFF !important;
+}
+
+.blog-content a.bg-white,
+.blog-content a.bg-surface-container-low,
+.blog-content a.bg-surface-container-high {
+  color: var(--color-primary) !important;
+}

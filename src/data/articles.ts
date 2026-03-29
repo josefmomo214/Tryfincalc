@@ -1133,22 +1133,6 @@ export const articles: Article[] = [
     `
   },
   {
-    title: "€200,000 Mortgage Monthly Payment Example",
-    category: "Mortgage Guides",
-    readTime: "4 min read",
-    excerpt: "Real-world European mortgage scenarios. Breakdown of costs for a €200k loan with current interest rates.",
-    slug: "200k-euro-mortgage",
-    content: `
-      <p>Planning a home purchase in Europe? A €200,000 mortgage is a common entry point. Use our <a href="/mortgage-calculator">currency-aware calculator</a> to see your costs.</p>
-      <h2>Monthly Costs at 4% Interest</h2>
-      <p>With a 25-year term at current European rates, your principal and interest payment would be approximately €1,055 per month. Compare this with <a href="/rent-vs-buy-2026">renting in city centers</a>.</p>
-      <h2>The Power of the Euro</h2>
-      <p>Financial planning in the Eurozone requires understanding how Different central bank rates impact your local lending options. Refer to the <a href="https://www.ecb.europa.eu/home/html/index.en.html" target="_blank" rel="noopener noreferrer">European Central Bank</a> for latest rate trends.</p>
-      <h3>Is €200k enough for a home?</h3>
-      <p>This varies significantly by region. While it might cover a small apartment in a capital city, it can often buy a full family home in suburban or rural areas.</p>
-    `
-  },
-  {
     title: "How Much Can I Borrow Based on My Income? A 2026 Guide",
     category: "Affordability",
     readTime: "8 min read",
@@ -3765,6 +3749,219 @@ export const articles: Article[] = [
           <a href="/mortgage-calculator" class="bg-primary-hover text-white border-2 border-white/30 px-10 py-5 rounded-full font-bold text-xl no-underline hover:bg-white/10 transition-all shadow-lg transform hover:-translate-y-1">Calculate Payment →</a>
         </div>
       </div>
+    `
+  },
+  {
+    title: "€200,000 Mortgage: Monthly Payments, Rates, and Full Cost Breakdown for 2026",
+    category: "Mortgage Guides",
+    readTime: "10 min read",
+    excerpt: "What is the monthly payment on a €200,000 mortgage in 2026? See exact payments for European mortgage rates, full cost breakdown in euros, income requirements, and how rates differ across Belgium, France, Germany, and the Netherlands.",
+    slug: "200k-euro-mortgage",
+    content: `
+      <p>Taking out a <strong>€200,000 mortgage</strong> is one of the most common and accessible entry points for homebuyers across Western Europe in 2026. Whether you are a first-time buyer in a smaller Belgian city like Ghent or Liège, a professional looking for a mid-range property in regional France, or a savvy investor in the growing suburbs of Germany, this loan amount represents a balanced commitment for many households. With property prices and interest rates stabilising after years of fluctuation, having a precise understanding of your monthly repayment is the foundational step of your home-buying journey. This guide provides an exact breakdown of the monthly payment on a <strong>200k euro mortgage</strong> at current European rates, including specific income requirements, hidden costs, and a direct country-by-country comparison. Before you finalize your budget, you can use our <a href="/mortgage-calculator">mortgage calculator — supports EUR currency</a> to run your own numbers instantly; simply use the currency toggle to switch from dollars to euros for full accuracy.</p>
+
+      <h2>Monthly Payment on a €200,000 Mortgage by Interest Rate</h2>
+      <p>Your interest rate is the single most important factor in determining your monthly out-of-pocket cost. In 2026, most European lenders are offering fixed rates between 3.0% and 6.0%, depending on your credit profile and down payment. Below is the monthly principal and interest (P&I) breakdown for a €200,000 loan over a standard 25-year term:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Interest Rate</th>
+              <th class="py-3 font-bold text-on-surface">Monthly P&I</th>
+              <th class="py-3 font-bold text-on-surface">Total Interest</th>
+              <th class="py-3 font-bold text-on-surface">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>3.0%</td><td>€949</td><td>€84,700</td><td>€284,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>3.5%</td><td>€1,001</td><td>€100,300</td><td>€300,300</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>4.0%</td><td>€1,055</td><td>€116,500</td><td>€316,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>4.5%</td><td>€1,111</td><td>€133,300</td><td>€333,300</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>5.0%</td><td>€1,169</td><td>€150,700</td><td>€350,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>€1,229</td><td>€168,700</td><td>€368,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.0%</td><td>€1,289</td><td>€186,700</td><td>€386,700</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>As you can see, every 0.5% increase in your rate adds approximately €50–€60 to your monthly bill. Over the life of the loan, that small difference translates to tens of thousands of euros in additional interest costs.</p>
+
+      <h3>The Impact of Loan Duration</h3>
+      <p>While the interest rate sets the cost of borrowing, the loan term determines how fast you build equity. Here is how a €200,000 mortgage at a fixed 4.0% interest rate compares across different timeframes:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse bg-surface-container-low rounded-xl px-4">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold">Loan Term</th>
+              <th class="py-3 px-4 font-bold">Monthly P&I</th>
+              <th class="py-3 px-4 font-bold">Total Interest</th>
+              <th class="py-3 px-4 font-bold">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">20 years</td><td class="px-4 py-3">€1,212</td><td class="px-4 py-3">€90,880</td><td class="px-4 py-3">€290,880</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold"><td class="px-4 py-3">25 years</td><td class="px-4 py-3">€1,055</td><td class="px-4 py-3">€116,500</td><td class="px-4 py-3">€316,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">30 years</td><td class="px-4 py-3">€955</td><td class="px-4 py-3">€143,800</td><td class="px-4 py-3">€343,800</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 4.0% over 25 years, the monthly principal and interest on a €200,000 mortgage is €1,055. Choosing a 20-year term adds €157 per month to your repayment but saves you a massive <strong>€25,620</strong> in total interest. You can view the full yearly breakdown of your equity growth using our <a href="/amortization-schedule">amortization schedule</a> tool.</p>
+
+      <h2>Mortgage Rates Across Europe in 2026</h2>
+      <p>National housing markets in Europe are influenced by the policies of the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a> (ECB). While the base rate is set centrally, local market competition and banking regulations mean that a buyer in Dublin will likely face a different rate than a buyer in Brussels or Paris. Here are the indicative benchmarks for 2026:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant bg-surface-container-low">
+              <th class="py-3 px-4 font-bold">Country</th>
+              <th class="py-3 px-4 font-bold">Typical Fixed Rate</th>
+              <th class="py-3 px-4 font-bold">Common Term</th>
+              <th class="py-3 px-4 font-bold">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Belgium</td><td class="px-4 py-3">3.2–4.1%</td><td class="px-4 py-3">20–25 years</td><td class="px-4 py-3">Fixed rate very common</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">France</td><td class="px-4 py-3">3.4–4.3%</td><td class="px-4 py-3">20–25 years</td><td class="px-4 py-3">Fixed rate standard</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Germany</td><td class="px-4 py-3">3.6–4.5%</td><td class="px-4 py-3">15–20 years</td><td class="px-4 py-3">Short fixed periods common</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Netherlands</td><td class="px-4 py-3">3.8–4.6%</td><td class="px-4 py-3">30 years</td><td class="px-4 py-3">NHG guarantee available</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Ireland</td><td class="px-4 py-3">4.0–5.0%</td><td class="px-4 py-3">25–30 years</td><td class="px-4 py-3">Variable rate still common</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Spain</td><td class="px-4 py-3">3.5–4.5%</td><td class="px-4 py-3">25–30 years</td><td class="px-4 py-3">Mixed fixed/variable market</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Unlike the US market, where 30-year fixed rates are the gold standard — a structure tracked by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB) — many European markets prefer shorter fixed periods (Germany) or even variable rates (Ireland). It is essential to get a personalised quote from your bank or mortgage broker before committing to a specific property.</p>
+
+      <h2>Full Monthly Cost Breakdown for a €200,000 Mortgage in Belgium</h2>
+      <p>When planning your <strong>200k euro mortgage</strong> budget, the principal and interest are just the start. Let's look at a realistic scenario for a €250,000 property with a 20% down payment (€50,000), resulting in a €200,000 loan at a 3.8% rate over 25 years:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse bg-primary/5 rounded-xl border border-primary/10">
+          <thead>
+            <tr class="border-b border-primary/20">
+              <th class="py-3 px-6 font-bold text-primary">Component</th>
+              <th class="py-3 px-6 font-bold text-primary">Monthly Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-primary/10"><td class="px-6 py-3">Principal and Interest</td><td class="px-6 py-3">€1,038</td></tr>
+            <tr class="border-b border-primary/10"><td class="px-6 py-3">Property Insurance (Brandverzekering)</td><td class="px-6 py-3">~€60</td></tr>
+            <tr class="border-b border-primary/10"><td class="px-6 py-3">Life Insurance (Schuldsaldoverzekering)</td><td class="px-6 py-3">~€45</td></tr>
+            <tr class="border-b border-primary/10"><td class="px-6 py-3">Municipal Taxes (Estimate)</td><td class="px-6 py-3">~€100</td></tr>
+            <tr class="bg-primary/10 font-bold"><td class="px-6 py-3 text-primary">Total Monthly Cost</td><td class="px-6 py-3 text-primary">~€1,243</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Note that Belgian lenders typically require life insurance (Schuldsaldoverzekering) as a condition of the mortgage — a mandatory cost that many first-time buyers overlook. To ensure you have included all these "extras" in your calculation, use the <a href="/mortgage-calculator">mortgage calculator</a> for a personalised EUR estimate.</p>
+
+      <h2>What Income Do You Need for a €200,000 Mortgage in Europe?</h2>
+      <p>European lenders typically apply a debt-to-income (DTI) ratio of 33% to 35%. This means your total monthly debt obligations should not exceed roughly one-third of your net net monthly household income. Here is the minimum income required based on different mortgage rate scenarios:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant bg-surface-container-low">
+              <th class="py-3 px-4 font-bold">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold">Required Monthly Income (33%)</th>
+              <th class="py-3 px-4 font-bold">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">€949 (3.0%)</td><td class="px-4 py-3">€2,876</td><td class="px-4 py-3">€34,512</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="px-4 py-3">€1,055 (4.0%)</td><td class="px-4 py-3">€3,197</td><td class="px-4 py-3">€38,364</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">€1,169 (5.0%)</td><td class="px-4 py-3">€3,542</td><td class="px-4 py-3">€42,504</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">€1,289 (6.0%)</td><td class="px-4 py-3">€3,906</td><td class="px-4 py-3">€46,872</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>In conclusion, a €200,000 mortgage is accessible to a wide range of European buyers, typically requiring a net household income between approximately €35,000 and €47,000 per year. For double-income households, meeting these requirements is often straightforward. You can use our <a href="/affordability-calculator">affordability calculator</a> to see how your specific income affects your borrowing power and <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> given your current debts.</p>
+
+      <h2>Upfront Costs: What You Need Beyond the Down Payment</h2>
+      <p>Unlike some other markets, property purchases in Europe involve significant transaction costs that are usually paid out-of-pocket and cannot be financed. When you are planning your <a href="/blog/down-payment-guide">down payment guide</a> budget, remember to set aside separate funds for the "notary costs" and taxes:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant bg-surface-container-low">
+              <th class="py-3 px-4 font-bold">Country</th>
+              <th class="py-3 px-4 font-bold">Typical Purchase Costs</th>
+              <th class="py-3 px-4 font-bold">On €250,000 Home</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Belgium</td><td class="px-4 py-3">10–15%</td><td class="px-4 py-3">€25,000–€37,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">France</td><td class="px-4 py-3">7–8%</td><td class="px-4 py-3">€17,500–€20,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Germany</td><td class="px-4 py-3">9–12%</td><td class="px-4 py-3">€22,500–€30,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Netherlands</td><td class="px-4 py-3">2–4%</td><td class="px-4 py-3">€5,000–€10,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Ireland</td><td class="px-4 py-3">2–4%</td><td class="px-4 py-3">€5,000–€10,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>For a buyer in Belgium, purchasing a €250,000 home might require €50,000 for the 20% deposit plus up to €37,500 in purchase costs — meaning a total upfront cash requirement of up to €87,500. For a more detailed look at these expenses, read our <a href="/blog/closing-costs-breakdown">closing costs breakdown</a> and building a <a href="/blog/home-purchase-budgeting">full home purchase budget</a>.</p>
+
+      <h2>€200,000 vs €300,000 Mortgage: How the Payments Compare</h2>
+      <p>If you're debating whether to push your budget further, it helps to see how the numbers change at a standard 4.0% rate over 25 years:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold">Loan Amount</th>
+              <th class="py-3 font-bold">Monthly P&I</th>
+              <th class="py-3 font-bold">Total Interest</th>
+              <th class="py-3 font-bold">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>€150,000</td><td>€791</td><td>€87,300</td><td>€237,300</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>€200,000</td><td>€1,055</td><td>€116,500</td><td>€316,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>€250,000</td><td>€1,319</td><td>€145,700</td><td>€395,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>€300,000</td><td>€1,582</td><td>€174,600</td><td>€474,600</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>For buyers considering a larger property or those in higher-cost cities who need a <strong>€300,000 euro mortgage</strong>, the monthly jump is approximately €527. You can dive deeper into that specific loan amount in our <a href="/blog/300k-euro-mortgage">€300,000 euro mortgage</a> guide.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is the monthly payment on a €200,000 mortgage?</h3>
+      <p>At a 4.0% interest rate over 25 years, the monthly principal and interest payment is €1,055. This number will vary depending on your specific loan term and interest rate; for example, at 3.0%, the payment drops to €949, while at 5.0%, it rises to €1,169.</p>
+
+      <h3>What income do I need for a €200,000 mortgage in Belgium?</h3>
+      <p>To qualify for a <strong>200k euro mortgage</strong> in Belgium, you typically need a net monthly household income of at least €3,200 (assuming a 33% DTI ratio). This ensures you can comfortably cover the €1,055 repayment along with other living expenses.</p>
+
+      <h3>How do European mortgage rates compare in 2026?</h3>
+      <p>European rates are currently stabilised but vary by country. Belgium and France offer some of the most competitive fixed rates (3.2–4.3%), while Ireland and the Netherlands tend to be slightly higher (3.8–5.0%). Always compare multiple lenders to find the best deal for your profile.</p>
+
+      <h3>Is a fixed or variable rate better for a European mortgage?</h3>
+      <p>A <a href="/blog/fixed-vs-variable-mortgage">fixed vs. variable rate mortgage</a> depends on your appetite for risk. Fixed rates provide certainty in your monthly budget, which is currently popular in France and Belgium. Variable rates may start lower but can increase if the European Central Bank raises rates in the future.</p>
+
+      <h3>What are the upfront costs of buying a home in Europe?</h3>
+      <p>Upfront costs, or "purchasing costs," vary significantly. In the Netherlands and Ireland, they are low (2–4%), but in Belgium and Germany, they can reach 10–15% due to high registration taxes and notary fees. These costs must be paid in cash alongside your down payment.</p>
+
+      <h2>The Bottom Line</h2>
+      <p>Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> is the key to a stress-free home purchase. Whether you are buying in Brussels, Paris, or Berlin, the math of a €200,000 loan is the anchor for your financial planning. Ready to see your own specific monthly breakdown?</p>
+
+      <div class="bg-primary p-12 rounded-3xl mt-16 text-white text-center shadow-2xl overflow-hidden relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-50"></div>
+        <div class="relative z-10">
+          <h2 class="text-4xl font-bold mb-4">Calculate Your €200,000 Mortgage Payment</h2>
+          <p class="mb-10 opacity-90 max-w-2xl mx-auto text-xl italic">Switch the calculator to EUR using the currency toggle, enter €200,000 as the loan amount, and see your full monthly breakdown instantly. TryFinCalc is one of the only English-language mortgage calculators that fully supports EUR for European buyers.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="/mortgage-calculator" class="bg-white text-primary px-10 py-5 rounded-full font-bold text-xl no-underline hover:bg-opacity-90 transition-all shadow-lg transform hover:-translate-y-1">Mortgage Calculator →</a>
+            <a href="/affordability-calculator" class="bg-primary-container text-white border-2 border-white/30 px-10 py-5 rounded-full font-bold text-xl no-underline hover:bg-white/10 transition-all shadow-lg transform hover:-translate-y-1">Affordability Calculator →</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-sm italic mt-12 border-t pt-4 text-on-surface-variant/60">This guide is for informational purposes only. Local mortgage regulations and rates vary by country and lender — always consult with a professional financial advisor or mortgage broker in your specific jurisdiction before committing to a loan.</p>
     `
   },
 ];
