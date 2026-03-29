@@ -1590,7 +1590,207 @@ export const articles: Article[] = [
   { title: "Fixed vs Variable Rate Mortgage Explained", category: "Mortgage Guides", readTime: "6 min read", excerpt: "Stability vs. potential savings. Which path is right for you?", slug: "fixed-vs-variable-mortgage", content: "Evaluating rate types for your financial future. Compare scenarios in our <a href='/mortgage-calculator'>calculator</a>." },
   { title: "How Extra Payments Reduce Loan Interest", category: "Debt Management", readTime: "6 min read", excerpt: "See the dramatic effect of even small extra payments.", slug: "extra-payments-impact", content: "How to save thousands on interest by paying more today. Try our <a href='/loan-calculator'>extra payment tool</a>." },
   { title: "Refinance Calculator Explained", category: "Refinance", readTime: "5 min read", excerpt: "Learn how to use our refinancing tools to find your break-even point.", slug: "refinance-calculator-guide", content: "Master our <a href='/loan-calculator'>refinancing tools</a> in minutes. Learn the math at the <a href='https://www.federalreserve.gov/' target='_blank' rel='noopener noreferrer'>Federal Reserve</a>." },
-  { title: "How to Budget for a Home Purchase", category: "Home Buying", readTime: "8 min read", excerpt: "Beyond the mortgage—budgeting for closing costs and repairs.", slug: "home-purchase-budgeting", content: "The ultimate guide to budgeting for your first home. Start by checking your <a href='/affordability-calculator'>affordability</a>." },
+  {
+    title: "Home Purchase Budget: Everything You Need to Save Before You Buy",
+    category: "Home Buying",
+    readTime: "9 min read",
+    excerpt: "Planning to buy a home in 2026? Here is exactly how much you need to save — down payment, closing costs, reserves, moving costs, and the hidden expenses most buyers forget until it is too late.",
+    slug: "home-purchase-budgeting",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much money do I need to buy a $350,000 house?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a complete home purchase budget on a $350,000 home with a 10% down payment, you generally need between $55,000 and $85,000 in accessible savings. This covers the down payment, closing costs, required cash reserves, and immediate moving expenses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the upfront costs of buying a home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The main upfront costs include your down payment (typically 3% to 20%), closing costs (2% to 5% of the purchase price), upfront home inspection and appraisal fees, plus moving expenses and any immediate home repairs needed before you settle in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should I save before buying a house?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your ideal home purchase budget should cover your targeted down payment, another 2% to 5% for closing costs, plus 2 to 6 months of mortgage payments in reserves to ensure you can safely afford homeownership without financial panic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are cash reserves and why do lenders require them?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cash reserves are liquid funds (like savings or money market accounts) equal to a certain number of months of mortgage payments. Lenders require them to ensure that if you temporarily lose income or face unexpected expenses after closing, you can still pay your mortgage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What costs are due at closing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At closing, you will pay your remaining down payment balance plus closing costs, which typically include lender origination fees, title insurance, appraisal fees, attorney fees, prepaid property taxes, and the first year of homeowners insurance."
+          }
+        }
+      ]
+    },
+    content: `
+      <p>When pulling together a home purchase budget, most home buying guides focus heavily on the monthly mortgage payment and stop there. But the upfront cash requirement to purchase a home is almost always larger than buyers expect — and running short at closing is one of the most stressful situations in real estate. This guide builds a complete home purchase budget from scratch, covering every cost category so there are zero surprises on closing day. Before you start looking at homes, be sure to use an <a href="/affordability-calculator">affordability calculator</a> to establish your true home purchase budget based on your income and debts.</p>
+
+      <h2>The 5 Budget Categories Every Buyer Needs</h2>
+      <p>A comprehensive home purchase budget must account for five distinct buckets of costs. Most buyers only budget for categories 1 and partially 2 — leaving categories 3, 4, and 5 as expensive surprises.</p>
+      <ul>
+        <li>(1) Down payment</li>
+        <li>(2) Closing costs</li>
+        <li>(3) Cash reserves</li>
+        <li>(4) Moving and immediate costs</li>
+        <li>(5) Ongoing monthly costs</li>
+      </ul>
+
+      <h2>Category 1 — Down Payment</h2>
+      <p>Your down payment is the most significant upfront cost. Here is the range of down payment options and their total cash requirements on homes priced from $250,000 to $500,000:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold">Home Price</th>
+              <th class="py-3 px-4 font-bold">3% Down</th>
+              <th class="py-3 px-4 font-bold">10% Down</th>
+              <th class="py-3 px-4 font-bold">20% Down</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$250,000</td><td class="py-3 px-4">$7,500</td><td class="py-3 px-4">$25,000</td><td class="py-3 px-4">$50,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$350,000</td><td class="py-3 px-4">$10,500</td><td class="py-3 px-4">$35,000</td><td class="py-3 px-4">$70,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$400,000</td><td class="py-3 px-4">$12,000</td><td class="py-3 px-4">$40,000</td><td class="py-3 px-4">$80,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$500,000</td><td class="py-3 px-4">$15,000</td><td class="py-3 px-4">$50,000</td><td class="py-3 px-4">$100,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Note that putting less than 20% down triggers Private Mortgage Insurance (PMI) — adding $100–$400/month to your ongoing costs. Check our full <a href="/blog/down-payment-guide">down payment guide</a> for an analysis of which down payment percentage makes sense for different financial situations.</p>
+
+      <h2>Category 2 — Closing Costs</h2>
+      <p>Closing costs are paid on top of the down payment and typically run 2–5% of the purchase price. For a $350,000 home, that means $7,000–$17,500 in additional cash due at closing. The major components include lender fees, title insurance, appraisal, attorney fees, prepaid taxes, and upfront insurance premiums. Stress that these are non-negotiable minimums — you cannot close without paying them. In some cases, sellers can be negotiated to cover a portion as a concession. See our comprehensive <a href="/blog/closing-costs-breakdown">closing costs breakdown</a> for the full itemised list.</p>
+
+      <h2>Category 3 — Cash Reserves</h2>
+      <p>Most lenders require borrowers to have 2–6 months of mortgage payments remaining in savings after closing. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, this is not money you spend — it is money you must demonstrate you have. On a $2,500/month mortgage, a lender requiring 3 months of reserves wants to see $7,500 untouched in your account at closing.</p>
+      <p>Beyond lender requirements, financial advisors recommend keeping a separate home emergency fund of 1–3% of the home value for unexpected repairs. On a $350,000 home, that is $3,500–$10,500 in accessible savings. Here is a combined reserves table:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold">Home Price</th>
+              <th class="py-3 px-4 font-bold">3 Month Reserves ($2,500/mo)</th>
+              <th class="py-3 px-4 font-bold">1% Emergency Fund</th>
+              <th class="py-3 px-4 font-bold">Total Reserves</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$250,000</td><td class="py-3 px-4">$7,500</td><td class="py-3 px-4">$2,500</td><td class="py-3 px-4">$10,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$350,000</td><td class="py-3 px-4">$7,500</td><td class="py-3 px-4">$3,500</td><td class="py-3 px-4">$11,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$500,000</td><td class="py-3 px-4">$7,500</td><td class="py-3 px-4">$5,000</td><td class="py-3 px-4">$12,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Category 4 — Moving and Immediate Costs</h2>
+      <p>These are the costs most buyers completely forget to budget for:</p>
+      <ul>
+        <li><strong>Moving costs:</strong> $1,000–$5,000 for a local move, $5,000–$15,000 for long distance.</li>
+        <li><strong>Immediate repairs and upgrades:</strong> even move-in ready homes often need paint, new locks, cleaning, and minor repairs — budget $1,500–$5,000.</li>
+        <li><strong>New appliances:</strong> if the home does not include a washer, dryer, or refrigerator, budget $1,500–$4,000.</li>
+        <li><strong>Window treatments and basic furniture:</strong> $1,000–$5,000 depending on the home size.</li>
+        <li><strong>Utility deposits and connection fees:</strong> $200–$500 across electricity, gas, water, and internet.</li>
+      </ul>
+      <p>Total realistic immediate costs run from $5,000–$20,000 depending on the home condition and distance of the move.</p>
+
+      <h2>Category 5 — Ongoing Monthly Costs</h2>
+      <p>To truly understand <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>, you must build a complete monthly budget for homeownership beyond the mortgage payment. Here is a realistic example for a $350,000 home with 10% down at 6.8%:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold">Monthly Cost</th>
+              <th class="py-3 px-4 font-bold">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Principal and interest</td><td class="py-3 px-4">$2,059</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Property tax (escrow)</td><td class="py-3 px-4">$321</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Homeowners insurance</td><td class="py-3 px-4">$120</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">PMI (under 20% down)</td><td class="py-3 px-4">$131</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">HOA fees (if applicable)</td><td class="py-3 px-4">$0–$500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Maintenance (1%/yr rule)</td><td class="py-3 px-4">$292</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Utilities (estimate)</td><td class="py-3 px-4">$250–$400</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 font-bold">Total</td><td class="py-3 px-4 font-bold">$3,173–$3,823</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Conclude: the true monthly cost of homeownership is typically $500–$1,000 higher than the mortgage payment alone. Plan your budget around the full number. Find out exactly <a href="/blog/mortgage-payment-guide">how your mortgage payment is calculated</a> and get <a href="/blog/escrow-accounts-explained">escrow accounts explained</a> to avoid surprises. First-time buyers can also check with <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> for assistance programs.</p>
+
+      <h2>Your Complete Home Purchase Budget: A Summary</h2>
+      <p>Let's pull it all together in one table for a $350,000 home with 10% down:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold">Budget Category</th>
+              <th class="py-3 px-4 font-bold">Low Estimate</th>
+              <th class="py-3 px-4 font-bold">High Estimate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Down payment (10%)</td><td class="py-3 px-4">$35,000</td><td class="py-3 px-4">$35,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Closing costs (2–5%)</td><td class="py-3 px-4">$7,000</td><td class="py-3 px-4">$17,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Cash reserves</td><td class="py-3 px-4">$7,500</td><td class="py-3 px-4">$11,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Moving and immediate</td><td class="py-3 px-4">$5,000</td><td class="py-3 px-4">$20,000</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 font-bold">Total upfront needed</td><td class="py-3 px-4 font-bold">$54,500</td><td class="py-3 px-4 font-bold">$83,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Conclude: for a $350,000 home with 10% down, plan to have between $55,000 and $85,000 in accessible savings — not $35,000. This is the number most buyers do not know until it is too late. Link to the <a href="/affordability-calculator">affordability calculator</a> to build a personalised version of your home purchase budget and review our <a href="/blog/2026-homebuyers-playbook">2026 homebuyer's playbook</a> to refine your strategy.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much money do I need to buy a $350,000 house?</h3>
+      <p>For a complete home purchase budget on a $350,000 home with a 10% down payment, you generally need between $55,000 and $85,000 in accessible savings. This covers the down payment, closing costs, required cash reserves, and immediate moving expenses.</p>
+
+      <h3>What are the upfront costs of buying a home?</h3>
+      <p>The main upfront costs include your down payment (typically 3% to 20%), closing costs (2% to 5% of the purchase price), upfront home inspection and appraisal fees, plus moving expenses and any immediate home repairs needed before you settle in.</p>
+
+      <h3>How much should I save before buying a house?</h3>
+      <p>Your ideal home purchase budget should cover your targeted down payment, another 2% to 5% for closing costs, plus 2 to 6 months of mortgage payments in reserves to ensure you can safely afford homeownership without financial panic.</p>
+
+      <h3>What are cash reserves and why do lenders require them?</h3>
+      <p>Cash reserves are liquid funds (like savings or money market accounts) equal to a certain number of months of mortgage payments. Lenders require them to ensure that if you temporarily lose income or face unexpected expenses after closing, you can still pay your mortgage.</p>
+
+      <h3>What costs are due at closing?</h3>
+      <p>At closing, you will pay your remaining down payment balance plus closing costs, which typically include lender origination fees, title insurance, appraisal fees, attorney fees, prepaid property taxes, and the first year of homeowners insurance.</p>
+
+      <div class="bg-primary/5 border border-primary/20 rounded-2xl p-8 my-10 text-center">
+        <h3 class="text-2xl font-bold text-primary mb-4">Build Your Personal Home Purchase Budget</h3>
+        <p class="mb-6 max-w-2xl mx-auto">Start with the affordability calculator to find your maximum comfortable loan amount, then use the mortgage calculator to build your full monthly cost picture and prevent <a href="/blog/calculator-mistakes">mortgage calculator mistakes to avoid</a>. You can also review your options using our <a href="/loan-calculator">loan calculator</a>.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/affordability-calculator" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full no-underline transition-colors block">Affordability Calculator →</a>
+          <a href="/mortgage-calculator" class="bg-white border-2 border-primary text-primary hover:bg-primary/5 font-bold py-3 px-8 rounded-full no-underline transition-colors block">Mortgage Calculator →</a>
+        </div>
+      </div>
+    `
+  },
   {
     title: "7 Mortgage Calculator Mistakes That Lead to Budget Surprises",
     category: "Financial Planning",
