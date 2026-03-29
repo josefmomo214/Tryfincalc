@@ -1588,7 +1588,158 @@ export const articles: Article[] = [
   { title: "€300,000 Mortgage Monthly Payment Example", category: "Mortgage Guides", readTime: "4 min read", excerpt: "Real-world European mortgage scenarios. Breakdown of costs for a €300k loan.", slug: "300k-euro-mortgage", content: "Stay tuned for the full breakdown of €300k mortgage costs. In the meantime, use our <a href='/mortgage-calculator'>currency-aware tool</a>." },
   { title: "Loan Eligibility by Income", category: "Affordability", readTime: "5 min read", excerpt: "Lenders use specific formulas to decide your borrowing limit.", slug: "loan-eligibility-by-income-detail", content: "Full income-based eligibility guide coming soon. Check your <a href='/affordability-calculator'>current eligibility</a> here." },
   { title: "Fixed vs Variable Rate Mortgage Explained", category: "Mortgage Guides", readTime: "6 min read", excerpt: "Stability vs. potential savings. Which path is right for you?", slug: "fixed-vs-variable-mortgage", content: "Evaluating rate types for your financial future. Compare scenarios in our <a href='/mortgage-calculator'>calculator</a>." },
-  { title: "How Extra Payments Reduce Loan Interest", category: "Debt Management", readTime: "6 min read", excerpt: "See the dramatic effect of even small extra payments.", slug: "extra-payments-impact", content: "How to save thousands on interest by paying more today. Try our <a href='/loan-calculator'>extra payment tool</a>." },
+  {
+    title: "The Impact of Extra Mortgage Payments: What the Math Actually Shows",
+    category: "Debt Management",
+    readTime: "9 min read",
+    excerpt: "What happens when you make extra mortgage payments? See the exact impact on your loan term, total interest, and monthly payment — with real numbers for every extra payment amount from $50 to $1,000 per month.",
+    slug: "extra-payments-impact",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happens if I pay an extra $200 a month on my mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paying an extra $200 per month on a $300,000 mortgage at 6.8% reduces your loan term by over 6 years and saves more than $63,000 in total interest over the life of the loan. This single action is one of the most effective ways to build home equity faster."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do extra mortgage payments reduce monthly payments or shorten the term?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standard extra mortgage payments go entirely to principal, which shortens the loan term and reduces total interest paid. Your required monthly payment stays the same, but because you are paying off the balance faster, you will reach your final zero balance years ahead of schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it better to make extra mortgage payments or invest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on your mortgage rate. If your rate is high (above 6.5%), extra payments provide a guaranteed, risk-free return that is highly competitive. If your rate is very low (below 4%), you may achieve higher long-term wealth by investing in the stock market instead. Many homeowners choose a hybrid approach."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I make sure extra payments go to principal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To ensure <strong>extra mortgage payments impact</strong> your balance correctly, you should specify in writing or via your lender's online portal that the additional funds should be 'applied to principal.' Otherwise, some lenders may treat it as a prepayment for next month's total bill."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best time to make a lump sum mortgage payment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The best time to make a lump sum payment is as early as possible in the loan term. Because mortgage interest is compounded based on the remaining balance, a $10,000 payment in Year 1 of a 30-year mortgage saves nearly twice as much interest as the same $10,000 payment in Year 10."
+          }
+        }
+      ]
+    },
+    content: `
+      <p>Making extra mortgage payments is one of the most debated topics in personal finance. Some financial advisors say you should invest the money instead, taking advantage of potentially higher market returns. Others argue that you should pay off the mortgage as fast as possible to secure your home and eliminate debt stress. Both sides have merit — but before you decide, you need to see the actual numbers. This guide shows exactly what <strong>extra mortgage payments impact</strong> looks like on your loan term, your total interest, and your net worth — so you can make the decision with full information. To see how your specific schedule changes, check your custom <a href="/amortization-schedule">amortization schedule</a>.</p>
+
+      <h2>How Extra Payments Work: The Mechanics</h2>
+      <p>On a standard fixed-rate mortgage, your monthly payment is fixed and split between interest and principal according to a predetermined <a href="/blog/amortization-schedule-explained">how amortization works</a> calculation. In the early years, the majority of your check goes toward interest. However, any payment made *above* the scheduled amount goes entirely toward the principal balance. This creates a powerful compounding effect: every extra dollar paid today eliminates not just that dollar of principal, but all the future interest that would have accrued on it over the remaining decades of the loan.</p>
+      <p>One critical instruction from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>: always tell your lender in writing to apply extra payments specifically to principal. Otherwise, some servicers may apply it to next month's payment instead — which includes interest and doesn't reduce your principal balance any faster. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> is the first step to mastering this strategy.</p>
+
+      <h2>The Impact of Extra Monthly Payments on a $300,000 Loan</h2>
+      <p>Let's look at a comprehensive example. For a $300,000 mortgage at 6.8% over 30 years, the baseline monthly P&I payment is $1,961. Here is how different extra monthly amounts change the outcome:</p>
+
+      <div class="overflow-x-auto my-10">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Extra Monthly</th>
+              <th class="py-4 px-4 font-bold">New Term</th>
+              <th class="py-4 px-4 font-bold">Interest Saved</th>
+              <th class="py-4 px-4 font-bold">Time Saved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$0 (baseline)</td><td class="py-3 px-4">30 years</td><td class="py-3 px-4">—</td><td class="py-3 px-4">—</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$50/month</td><td class="py-3 px-4">28 yrs 2 mo</td><td class="py-3 px-4">$19,280</td><td class="py-3 px-4">1 yr 10 mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-green-600 font-bold">$100/month</td><td class="py-3 px-4">26 yrs 6 mo</td><td class="py-3 px-4 font-bold">$36,320</td><td class="py-3 px-4">3 yrs 6 mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$200/month</td><td class="py-3 px-4">23 yrs 8 mo</td><td class="py-3 px-4">$63,440</td><td class="py-3 px-4">6 yrs 4 mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$300/month</td><td class="py-3 px-4">21 yrs 5 mo</td><td class="py-3 px-4">$84,960</td><td class="py-3 px-4">8 yrs 7 mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$500/month</td><td class="py-3 px-4">18 yrs 1 mo</td><td class="py-3 px-4 font-bold">$117,280</td><td class="py-3 px-4">11 yrs 11 mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="py-3 px-4">$1,000/month</td><td class="py-3 px-4">13 yrs 8 mo</td><td class="py-3 px-4">$159,600</td><td class="py-3 px-4">16 yrs 4 mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>As the math shows, even $100/month extra — which is less than $3.50 per day — saves over $36,000 in interest and pays off the loan 3.5 years early. You can use our <a href="/mortgage-calculator">mortgage calculator</a> or specialized <a href="/amortization-schedule">amortization schedule</a> tool to model your own specific loan amount and current rate.</p>
+
+      <h2>The Impact of Lump Sum Extra Payments</h2>
+      <p>One-time lump sum payments from tax refunds, bonuses, or inheritances can be just as powerful as monthly extra payments, especially when applied early in the loan lifecycle. Because interest is calculated on the remaining balance each month, knocking out a large chunk of principal early stops interest from accruing on that amount for the next several decades. Here is the <strong>extra mortgage payments impact</strong> of a lump sum on a $300,000 loan at 6.8%:</p>
+
+      <div class="overflow-x-auto my-10 border border-outline-variant rounded-xl">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Lump Sum Applied</th>
+              <th class="py-4 px-4 font-bold">Applied in Year</th>
+              <th class="py-4 px-4 font-bold">Interest Saved</th>
+              <th class="py-4 px-4 font-bold">Time Saved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$5,000</td><td class="py-3 px-4">Year 1</td><td class="py-3 px-4">$18,240</td><td class="py-3 px-4">1 yr 2 mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$5,000</td><td class="py-3 px-4">Year 10</td><td class="py-3 px-4">$9,120</td><td class="py-3 px-4">7 months</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4">$10,000</td><td class="py-3 px-4">Year 1</td><td class="py-3 px-4">$35,760</td><td class="py-3 px-4">2 yrs 3 mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$10,000</td><td class="py-3 px-4">Year 10</td><td class="py-3 px-4">$17,880</td><td class="py-3 px-4">1 yr 2 mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4">$20,000</td><td class="py-3 px-4">Year 1</td><td class="py-3 px-4">$67,440</td><td class="py-3 px-4">4 yrs 1 mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The earlier a lump sum is applied, the more powerful its impact. A $10,000 payment in Year 1 saves nearly twice as much interest as the same $10,000 payment in Year 10. This is why financial windfalls early in the mortgage are extraordinarily valuable. To see exactly how much you can save, use our <a href="/total-interest-calculator">total interest calculator</a>.</p>
+
+      <h2>Bi-Weekly Payments: The Effortless Extra Payment Strategy</h2>
+      <p>Switching from monthly to bi-weekly payments is the simplest extra payment strategy available. Instead of making 12 monthly payments, you make 26 half-payments per year — which equals 13 full monthly payments annually. That one extra full payment per year, spread out over time, has a significant compounding effect. On a $300,000 loan at 6.8%:</p>
+      <ul>
+        <li><strong>Standard monthly:</strong> 360 payments | $405,960 total interest</li>
+        <li><strong>Bi-weekly:</strong> approximately 308 payments | ~$347,960 total interest</li>
+        <li><strong>Result:</strong> $58,000 saved and the loan is paid off 4.3 years early.</li>
+      </ul>
+      <p>Warn that some lenders charge a fee for bi-weekly programs. The free alternative: divide your monthly payment by 12 and add that amount to every monthly payment manually. The mathematical result is identical, with no fees. Review other <a href="/blog/early-mortgage-payoff">strategies to pay off your mortgage early</a> for more ideas.</p>
+
+      <h2>Extra Payments vs. Investing: The Real Comparison</h2>
+      <p>Presenting both sides honestly is vital for a trustworthy guide. The case for extra payments is anchored in a guaranteed, risk-free return equal to your mortgage rate (6.8% in our example). This reduces financial stress and accelerates your path to debt-free ownership. The case for investing instead is based on historical market data; according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, the S&P 500 has historically returned approximately 10% annually before inflation — significantly higher than most mortgage rates. However, investing involves risk, whereas extra mortgage payments are a guaranteed win. If your mortgage rate is above 6.5%, the mortgage paydown is increasingly competitive with market returns on a risk-adjusted basis. For most homeowners in 2026, a <strong>hybrid approach</strong> — maximizing tax-advantaged accounts (like 401ks and IRAs) first, then directing surplus toward the mortgage — provides the best balance of growth and security. Check <a href="/blog/interest-rate-impact">how your rate affects total interest</a> to see where your specific tipping point is.</p>
+
+      <h2>One Important Check Before Making Extra Payments</h2>
+      <p>Before you commit, there is "one important check." Some older mortgages and certain non-QM loans include prepayment penalties — fees charged for paying off the loan ahead of schedule. While these are uncommon in modern conventional loans, they do exist. You should also check whether you have higher-interest debt — such as credit cards, personal loans, or auto loans at rates above 8–10% — as <a href="/blog/compare-loan-offers">paying off higher-interest debt first</a> is almost always the mathematically superior move. Finally, ensure <a href="/blog/when-to-refinance">when refinancing makes more sense than extra payments</a> isn't the better path for your situation. Use our <a href="/refinancing-calculator">refinancing calculator</a> to double-check.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What happens if I pay an extra $200 a month on my mortgage?</h3>
+      <p>Paying an extra $200 per month on a $300,000 mortgage at 6.8% reduces your loan term by over 6 years and saves more than $63,000 in total interest over the life of the loan. This single action is one of the most effective ways to build home equity faster.</p>
+
+      <h3>Do extra mortgage payments reduce monthly payments or shorten the term?</h3>
+      <p>Standard extra mortgage payments go entirely to principal, which shortens the loan term and reduces total interest paid. Your required monthly payment stays the same, but because you are paying off the balance faster, you will reach your final zero balance years ahead of schedule.</p>
+
+      <h3>Is it better to make extra mortgage payments or invest?</h3>
+      <p>It depends on your mortgage rate. If your rate is high (above 6.5%), extra payments provide a guaranteed, risk-free return that is highly competitive. If your rate is very low (below 4%), you may achieve higher long-term wealth by investing in the stock market instead. Many homeowners choose a hybrid approach.</p>
+
+      <h3>How do I make sure extra payments go to principal?</h3>
+      <p>To ensure <strong>extra mortgage payments impact</strong> your balance correctly, you should specify in writing or via your lender's online portal that the additional funds should be 'applied to principal.' Otherwise, some lenders may treat it as a prepayment for next month's total bill.</p>
+
+      <h3>What is the best time to make a lump sum mortgage payment?</h3>
+      <p>The best time to make a lump sum payment is as early as possible in the loan term. Because mortgage interest is compounded based on the remaining balance, a $10,000 payment in Year 1 of a 30-year mortgage saves nearly twice as much interest as the same $10,000 payment in Year 10.</p>
+
+      <div class="bg-primary/5 border-2 border-primary/20 p-10 rounded-3xl my-16 text-center shadow-lg">
+        <h3 class="text-3xl font-bold text-primary mb-4">See Your Personal Extra Payment Impact</h3>
+        <p class="mb-8 opacity-90 max-w-2xl mx-auto text-lg text-on-surface">Enter your current loan details into our interactive tool and add an extra monthly payment to see exactly how many years you can cut from your loan.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/amortization-schedule" class="bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary/90 transition-all no-underline shadow-md">Open Amortization Schedule →</a>
+          <a href="/total-interest-calculator" class="bg-white border-2 border-primary text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-primary/5 transition-all no-underline shadow-md">Total Interest Calculator →</a>
+        </div>
+      </div>
+    `
+  },
   {
     title: "How to Use a Refinance Calculator: A Step-by-Step Guide",
     category: "Refinance",
