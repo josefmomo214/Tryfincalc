@@ -1589,7 +1589,156 @@ export const articles: Article[] = [
   { title: "Loan Eligibility by Income", category: "Affordability", readTime: "5 min read", excerpt: "Lenders use specific formulas to decide your borrowing limit.", slug: "loan-eligibility-by-income-detail", content: "Full income-based eligibility guide coming soon. Check your <a href='/affordability-calculator'>current eligibility</a> here." },
   { title: "Fixed vs Variable Rate Mortgage Explained", category: "Mortgage Guides", readTime: "6 min read", excerpt: "Stability vs. potential savings. Which path is right for you?", slug: "fixed-vs-variable-mortgage", content: "Evaluating rate types for your financial future. Compare scenarios in our <a href='/mortgage-calculator'>calculator</a>." },
   { title: "How Extra Payments Reduce Loan Interest", category: "Debt Management", readTime: "6 min read", excerpt: "See the dramatic effect of even small extra payments.", slug: "extra-payments-impact", content: "How to save thousands on interest by paying more today. Try our <a href='/loan-calculator'>extra payment tool</a>." },
-  { title: "Refinance Calculator Explained", category: "Refinance", readTime: "5 min read", excerpt: "Learn how to use our refinancing tools to find your break-even point.", slug: "refinance-calculator-guide", content: "Master our <a href='/loan-calculator'>refinancing tools</a> in minutes. Learn the math at the <a href='https://www.federalreserve.gov/' target='_blank' rel='noopener noreferrer'>Federal Reserve</a>." },
+  {
+    title: "How to Use a Refinance Calculator: A Step-by-Step Guide",
+    category: "Refinance",
+    readTime: "9 min read",
+    excerpt: "Learn how to use a refinance calculator to find your break-even point, calculate monthly savings, and decide whether refinancing your mortgage makes financial sense in 2026 — with real examples.",
+    slug: "refinance-calculator-guide",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I use a refinance calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Using a refinance calculator guide properly requires five core inputs: your current loan balance, current interest rate, remaining loan term, the new quoted interest rate, and the estimated closing costs. By comparing your current monthly payment to the new calculated payment, you can identify your monthly savings and the time required to break even on the transaction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the break-even point for refinancing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The break-even point is the number of months it takes for your cumulative monthly savings to equal the upfront closing costs paid for the refinance. For example, if your closing costs are $5,000 and you save $200 per month, your break-even point is 25 months. You should generally only refinance if you plan to stay in the home longer than this period."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I refinance to a 30-year or 15-year mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Refinancing to a 15-year mortgage typically offers a lower interest rate and massive lifetime interest savings, but results in a higher monthly payment. Refinancing to a 30-year mortgage provides the lowest possible monthly payment but may cost more in total interest if it resets your timeline. Choose the term that aligns with your monthly cash flow needs and long-term equity goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does refinancing reset my mortgage term?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, unless you specifically choose a shorter term. If you are 10 years into a 30-year mortgage and refinance into a new 30-year loan, you have 'reset' your clock, extending your total debt period to 40 years. To avoid this, look for 15, 20, or 25-year options that match your remaining schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What information do I need to calculate a refinance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To get an accurate result from a refinancing calculator, you need your current mortgage statement (for balance and rate), an estimate of how many years are left on your current loan, a fresh interest rate quote from a lender, and a detailed estimate of the new closing costs."
+          }
+        }
+      ]
+    },
+    content: `
+      <p>A <a href="/refinancing-calculator">refinancing calculator</a> is one of the most powerful tools a homeowner can use — but only if you know exactly what inputs to enter and how to interpret the results. Most people either skip the calculator entirely and rely on a lender's word, or use it incorrectly and reach the wrong conclusion. This guide walks through every input, every output, and the exact decision framework for turning the numbers into a clear yes or no. By the time you finish this <strong>refinance calculator guide</strong>, you will have the confidence to run your own numbers before ever calling a lender.</p>
+
+      <h2>The 5 Inputs Every Refinance Calculator Needs</h2>
+      <p>To get an accurate answer, you must feed the calculator precise data. Here is what you need and where to find it:</p>
+      <ul>
+        <li><strong>(1) Current loan balance:</strong> Find this on your most recent mortgage statement or by calling your servicer. This is not your original loan amount — it is the principal you still owe today.</li>
+        <li><strong>(2) Current interest rate:</strong> This is located on your original loan documents or your monthly statement. If you have an adjustable-rate mortgage, use your current adjusted rate.</li>
+        <li><strong>(3) Remaining loan term:</strong> This is the number of years and months left on your current loan. For example, a 30-year loan taken out 7 years ago has 23 years remaining.</li>
+        <li><strong>(4) New interest rate:</strong> Get a real personalised quote from at least two lenders before entering this. Do not use advertised rates found online; according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> benchmarks, advertised rates are often best-case scenarios that include points you might not want to pay.</li>
+        <li><strong>(5) Closing costs:</strong> These typically run $3,000–$8,000 for a refinance. Ask your lender for a Loan Estimate (a requirement enforced by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>) before running your calculation. If you do not have a quote yet, use $5,500 as a conservative estimate for a $250,000–$350,000 loan.</li>
+      </ul>
+
+      <h2>Step-by-Step Example: Should This Homeowner Refinance?</h2>
+      <p>Let's walk through a real-world scenario to see how the math works in practice.</p>
+      <div class="bg-surface-container-low p-6 rounded-2xl my-8 border border-outline-variant">
+        <h3 class="text-xl font-bold mb-4">Current Situation</h3>
+        <ul>
+          <li>Remaining balance: $265,000</li>
+          <li>Current rate: 7.4%</li>
+          <li>Remaining term: 24 years</li>
+          <li>Current monthly P&I: ~$2,012</li>
+        </ul>
+        <h3 class="text-xl font-bold mt-6 mb-4">Refinance Scenario</h3>
+        <ul>
+          <li>New rate: 6.3%</li>
+          <li>New term: 24 years (keeping the same remaining term)</li>
+          <li>Estimated closing costs: $5,800</li>
+        </ul>
+      </div>
+
+      <p><strong>Step 1 — Calculate new monthly payment:</strong> Using a <a href="/mortgage-calculator">mortgage calculator</a> formula, $265,000 at 6.3% over 24 years results in a payment of approximately $1,798/month P&I.</p>
+      <p><strong>Step 2 — Calculate monthly savings:</strong> $2,012 (old) − $1,798 (new) = $214/month saved.</p>
+      <p><strong>Step 3 — Calculate break-even point:</strong> $5,800 (closing costs) ÷ $214 (savings) = 27 months (2.25 years).</p>
+      <p><strong>Step 4 — Make the decision:</strong> If this homeowner plans to stay in the home for more than 27 months, refinancing saves money. If they plan to sell or move within 2 years, refinancing actually costs more than it saves. In this case, the total interest saved over the remaining 24 years would be approximately $48,000, net of closing costs. You can run your own scenario right now using our <a href="/refinancing-calculator">refinancing calculator</a>.</p>
+
+      <h2>How to Interpret Your Refinance Calculator Results</h2>
+      <p>When you run the numbers, your calculator will likely provide three key outputs. Understanding what each means is critical:</p>
+      <ol>
+        <li><strong>Monthly savings:</strong> This is the direct reduction in your monthly P&I payment. Note that this doesn't account for taxes and insurance, which stay the same. If you want to see how these fit into your total budget, review <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</li>
+        <li><strong>Break-even point:</strong> The number of months until your cumulative monthly savings equal the closing costs paid upfront. This is the single most important number in any refinance decision.</li>
+        <li><strong>Lifetime interest savings:</strong> This shows how much total interest you save over the remaining loan term. It assumes you keep the loan to maturity. You can see a deeper breakdown of this using our <a href="/total-interest-calculator">total interest calculator</a>.</li>
+      </ol>
+
+      <div class="overflow-x-auto my-10">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Break-Even Point</th>
+              <th class="py-4 px-4 font-bold">Planning to Stay</th>
+              <th class="py-4 px-4 font-bold">Decision</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Under 12 months</td><td class="py-3 px-4">Any length</td><td class="py-3 px-4 text-green-600 font-bold">Refinance now</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">12–24 months</td><td class="py-3 px-4">3+ years</td><td class="py-3 px-4 text-green-600 font-bold">Refinance</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">24–36 months</td><td class="py-3 px-4">5+ years</td><td class="py-3 px-4 text-blue-600">Probably refinance</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">36–48 months</td><td class="py-3 px-4">7+ years</td><td class="py-3 px-4 text-on-surface-variant">Marginal — assess</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">48+ months</td><td class="py-3 px-4">Any length</td><td class="py-3 px-4 text-red-600 font-bold">Do not refinance</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The Term Reset Problem — A Common Mistake</h2>
+      <p>Many homeowners refinance into a new 30-year loan without realising they are restarting the amortization clock. For example, if you are 8 years into a 30-year loan and refinance into a new 30-year loan, you now have 30 years left instead of 22. Those extra 8 years of payments can cost more in total interest than the rate reduction saves. It is vital to understand <a href="/blog/amortization-schedule-explained">how amortization works</a> before you commit. The solution is to refinance into a term that matches your remaining term — using a 20-year or 15-year refinance preserves your progress better than defaulting back to 30 years. You can check the impact of different terms using an <a href="/amortization-schedule">amortization schedule</a>.</p>
+
+      <h2>Cash-Out Refinance: How the Calculator Works Differently</h2>
+      <p>A cash-out refinance replaces your existing mortgage with a larger one and gives you the difference in cash. The calculator inputs change slightly: the new loan amount is your remaining balance plus the cash you want to take out. For instance, if you have a $240,000 balance and want $30,000 cash out, your new loan amount is $270,000. You must calculate the new payment on $270,000 and compare it to the current payment on $240,000. The difference is the true monthly cost of accessing that $30,000. Be cautious: cash-out refinancing converts unsecured equity into secured debt. Only use this strategy when the cash-out rate is significantly lower than alternatives, which is often <a href="/blog/when-to-refinance">when refinancing makes sense</a> for debt consolidation.</p>
+
+      <h2>No-Closing-Cost Refinance: How to Calculate the True Cost</h2>
+      <p>Some lenders offer refinancing with zero upfront closing costs by rolling the costs into a slightly higher rate. For example, you might compare a standard refinance at 6.3% with $5,800 closing costs vs. a no-closing-cost refinance at 6.55% with $0 upfront. Run both through the calculator. The no-closing-cost option has a higher monthly payment but requires no upfront cash. This is often an excellent choice if you plan to refinance again or sell within 3–4 years. However, if you plan to keep the loan long-term, <a href="/blog/compare-loan-offers">comparing lender quotes</a> will usually show that paying closing costs upfront leads to a lower total cost. Seeing <a href="/blog/interest-rate-impact">how your rate affects total cost</a> over 30 years illustrates the long-term impact of even a 0.25% difference.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How do I use a refinance calculator?</h3>
+      <p>Using a <strong>refinance calculator guide</strong> properly requires five core inputs: your current loan balance, current interest rate, remaining loan term, the new quoted interest rate, and the estimated closing costs. By comparing your current monthly payment to the new calculated payment, you can identify your monthly savings and the time required to break even on the transaction.</p>
+
+      <h3>What is the break-even point for refinancing?</h3>
+      <p>The break-even point is the number of months it takes for your cumulative monthly savings to equal the upfront closing costs paid for the refinance. For example, if your closing costs are $5,000 and you save $200 per month, your break-even point is 25 months. You should generally only refinance if you plan to stay in the home longer than this period.</p>
+
+      <h3>Should I refinance to a 30-year or 15-year mortgage?</h3>
+      <p>Refinancing to a 15-year mortgage typically offers a lower interest rate and massive lifetime interest savings, but results in a higher monthly payment. Refinancing to a 30-year mortgage provides the lowest possible monthly payment but may cost more in total interest if it resets your timeline. Choose the term that aligns with your monthly cash flow needs and long-term equity goals.</p>
+
+      <h3>Does refinancing reset my mortgage term?</h3>
+      <p>Yes, unless you specifically choose a shorter term. If you are 10 years into a 30-year mortgage and refinance into a new 30-year loan, you have 'reset' your clock, extending your total debt period to 40 years. To avoid this, look for 15, 20, or 25-year options that match your remaining schedule.</p>
+
+      <h3>What information do I need to calculate a refinance?</h3>
+      <p>To get an accurate result from a refinancing calculator, you need your current mortgage statement (for balance and rate), an estimate of how many years are left on your current loan, a fresh interest rate quote from a lender, and a detailed estimate of the new closing costs.</p>
+
+      <div class="bg-primary p-10 rounded-3xl my-12 text-white text-center shadow-xl">
+        <h3 class="text-3xl font-bold mb-4">Run Your Refinance Calculation Now</h3>
+        <p class="mb-8 opacity-90 max-w-2xl mx-auto text-lg">Gather your current loan statement and a fresh rate quote to find your break-even point in under 60 seconds.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/refinancing-calculator" class="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all no-underline">Open Refinance Calculator →</a>
+          <a href="/blog/when-to-refinance" class="bg-primary-hover text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all no-underline">Learn When to Refinance →</a>
+        </div>
+      </div>
+    `
+  },
   {
     title: "Home Purchase Budget: Everything You Need to Save Before You Buy",
     category: "Home Buying",
