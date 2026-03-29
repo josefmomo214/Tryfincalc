@@ -1586,7 +1586,218 @@ export const articles: Article[] = [
   },
   // The rest are standard articles
   { title: "€300,000 Mortgage Monthly Payment Example", category: "Mortgage Guides", readTime: "4 min read", excerpt: "Real-world European mortgage scenarios. Breakdown of costs for a €300k loan.", slug: "300k-euro-mortgage", content: "Stay tuned for the full breakdown of €300k mortgage costs. In the meantime, use our <a href='/mortgage-calculator'>currency-aware tool</a>." },
-  { title: "Loan Eligibility by Income", category: "Affordability", readTime: "5 min read", excerpt: "Lenders use specific formulas to decide your borrowing limit.", slug: "loan-eligibility-by-income-detail", content: "Full income-based eligibility guide coming soon. Check your <a href='/affordability-calculator'>current eligibility</a> here." },
+  {
+    title: "Loan Eligibility by Income: Detailed Tables for Every Salary Level in 2026",
+    category: "Affordability",
+    readTime: "9 min read",
+    excerpt: "How much can you borrow based on your income in 2026? Detailed loan eligibility tables for salaries from $30k to $250k — covering mortgages, personal loans, and auto loans with DTI calculations included.",
+    slug: "loan-eligibility-by-income-detail",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much can I borrow on a $75,000 salary?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On a $75,000 salary with no existing debt, you can typically borrow up to $401,700 for a mortgage at a 6.8% interest rate, assuming a 43% back-end DTI. Actual eligibility depends on your credit score, down payment, and current monthly debt obligations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What DTI ratio do I need for a mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most conventional lenders prefer a front-end DTI (housing costs) below 28% and a back-end DTI (total debt) below 43%. However, FHA loans may allow a front-end DTI up to 31% and a back-end DTI up to 50% for qualified borrowers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does existing debt affect how much I can borrow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Existing monthly debt reduces your <strong>loan eligibility by income</strong> dollar-for-dollar from your maximum allowed total debt payment. For a $100,000 earner, every $300 in monthly debt (like a car loan or student loan) reduces mortgage borrowing power by approximately $44,800."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a mortgage with a high debt-to-income ratio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, programs like FHA loans are designed for borrowers with higher DTI ratios, often allowing up to 50% back-end DTI. Some conventional lenders may also go higher if you have 'compensating factors' like a high credit score or significant cash reserves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does my income alone determine my loan eligibility?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. While income sets the mathematical ceiling, lenders also weigh your credit score, employment stability, down payment size, and liquid cash reserves. A high income with a poor credit score may still result in a loan denial or significantly higher interest rates."
+          }
+        }
+      ]
+    },
+    content: `
+      <p>Knowing your <strong>loan eligibility by income</strong> before you apply is one of the smartest financial moves you can make. It prevents wasted credit inquiries, sets realistic expectations, and helps you identify whether paying down existing debt before applying would significantly increase your borrowing power. This guide provides detailed eligibility tables for every major loan type across a wide range of income levels for the 2026 market. Before you start shopping, get a baseline using our <a href="/affordability-calculator">affordability calculator</a> to see your specific range.</p>
+
+      <h2>How Lenders Calculate Loan Eligibility</h2>
+      <p>Lenders don't just look at your salary; they look at how much of that salary is already committed to other obligations. The primary metric used is the Debt-to-Income (DTI) ratio. There are two versions you need to know:</p>
+      <ul>
+        <li><strong>Front-end DTI (housing ratio):</strong> Your total monthly housing costs (principal, interest, taxes, insurance) divided by your gross monthly income. Most conventional lenders want this below 28%, though <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> guidelines for FHA loans allow up to 31%.</li>
+        <li><strong>Back-end DTI (total debt ratio):</strong> All monthly debt payments (housing plus credit cards, car loans, student loans) divided by gross monthly income. The <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> notes that 43% is the standard limit for 'Qualified Mortgages,' though some programs go up to 50%.</li>
+      </ul>
+
+      <p><strong>Example Calculation:</strong> For someone earning $80,000/year ($6,667 monthly) with $600 in existing monthly debts:</p>
+      <ul>
+        <li>Max back-end DTI (43%): $2,867 total debt allowed.</li>
+        <li>Remaining for mortgage: $2,867 − $600 = $2,267/month.</li>
+        <li>Estimated mortgage eligibility: ~$339,000 (at current 6.8% rates).</li>
+      </ul>
+      <p>You can run this same logic for any income and debt level using our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+      <h2>Mortgage Eligibility by Annual Income — Zero Existing Debt</h2>
+      <p>The table below shows the maximum mortgage borrowing power assuming a 43% back-end DTI, 6.8% interest rate, and a 30-year term. These figures assume you have no other monthly debt obligations.</p>
+
+      <div class="overflow-x-auto my-10">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Annual Income</th>
+              <th class="py-4 px-4 font-bold">Monthly Income</th>
+              <th class="py-4 px-4 font-bold">Max Payment (43%)</th>
+              <th class="py-4 px-4 font-bold">Max Loan Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>$30,000</td><td>$2,500</td><td>$1,075</td><td>~$160,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$40,000</td><td>$3,333</td><td>$1,433</td><td>~$214,200</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$50,000</td><td>$4,167</td><td>$1,792</td><td>~$267,800</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$60,000</td><td>$5,000</td><td>$2,150</td><td>~$321,300</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>$75,000</td><td>$6,250</td><td>$2,688</td><td>~$401,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$90,000</td><td>$7,500</td><td>$3,225</td><td>~$481,900</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$100,000</td><td>$8,333</td><td>$3,583</td><td>~$535,600</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$125,000</td><td>$10,417</td><td>$4,479</td><td>~$669,400</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$150,000</td><td>$12,500</td><td>$5,375</td><td>~$803,300</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$200,000</td><td>$16,667</td><td>$7,167</td><td>~$1,071,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$250,000</td><td>$20,833</td><td>$8,958</td><td>~$1,338,700</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Note: These are mathematical maximums. Most financial advisors recommend borrowing at 80–90% of your technical maximum to maintain financial flexibility for maintenance and life goals. You can refine these numbers using the <a href="/affordability-calculator">affordability calculator</a>.</p>
+
+      <h2>How Existing Debt Reduces Your Mortgage Eligibility</h2>
+      <p>Your <strong>loan eligibility by income</strong> is heavily impacted by existing recurring debts. Here is how borrowing power changes for a $100,000 earner as monthly debts increase:</p>
+
+      <div class="overflow-x-auto my-10 border border-outline-variant rounded-xl">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Existing Monthly Debt</th>
+              <th class="py-4 px-4 font-bold">Max Mortgage Payment</th>
+              <th class="py-4 px-4 font-bold">Max Loan Amount</th>
+              <th class="py-4 px-4 font-bold">Reduction vs No Debt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>$0</td><td>$3,583</td><td>~$535,600</td><td>—</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$300/month</td><td>$3,283</td><td>~$490,800</td><td class="text-red-600">−$44,800</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold"><td>$600/month</td><td>$2,983</td><td>~$446,000</td><td class="text-red-600">−$89,600</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$900/month</td><td>$2,683</td><td>~$401,100</td><td class="text-red-600">−$134,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$1,200/month</td><td>$2,383</td><td>~$356,300</td><td class="text-red-600">−$179,300</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>As the data shows, every $300 in monthly debt reduces mortgage eligibility by approximately $44,800 for a $100,000 earner. Paying off a car loan or credit card balance before applying is often the single highest-return financial move a buyer can make. For more on this, read <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> based on your specific debt profile.</p>
+
+      <h2>Personal Loan Eligibility by Income</h2>
+      <p>Personal loan lenders focus primarily on your back-end DTI and absolute minimum income thresholds. Most lenders cap DTI at 35–40% for these unsecured loans. Here is the estimated <strong>loan eligibility by income</strong> for personal loans:</p>
+
+      <div class="overflow-x-auto my-10">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Annual Income</th>
+              <th class="py-4 px-4 font-bold">Max Monthly Payment (36% DTI)</th>
+              <th class="py-4 px-4 font-bold">Max 3-yr Loan (10%)</th>
+              <th class="py-4 px-4 font-bold">Max 5-yr Loan (10%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>$30,000</td><td>$900</td><td>~$27,700</td><td>~$41,900</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$50,000</td><td>$1,500</td><td>~$46,200</td><td>~$69,800</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$75,000</td><td>$2,250</td><td>~$69,300</td><td>~$104,800</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>$100,000</td><td>$3,000</td><td>~$92,400</td><td>~$139,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$150,000</td><td>$4,500</td><td>~$138,600</td><td>~$209,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Actual personal loan maximums are often capped by the lender (commonly at $50,000 or $100,000) regardless of how high your income is. Since rate depends heavily on credit, use our <a href="/loan-calculator">loan calculator</a> to see how different interest rates change these totals.</p>
+
+      <h2>Auto Loan Eligibility by Income</h2>
+      <p>Auto lenders typically follow the "15% rule," suggesting that your total monthly auto payment should not exceed 15% of your gross monthly income. While more flexible than mortgages, these loans still count toward your overall DTI.</p>
+
+      <div class="overflow-x-auto my-10">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Annual Income</th>
+              <th class="py-4 px-4 font-bold">15% Monthly Ceiling</th>
+              <th class="py-4 px-4 font-bold">Max 5yr Loan (7%)</th>
+              <th class="py-4 px-4 font-bold">Max 7yr Loan (7%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>$30,000</td><td>$375</td><td>~$18,900</td><td>~$24,900</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$50,000</td><td>$625</td><td>~$31,500</td><td>~$41,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$75,000</td><td>$938</td><td>~$47,300</td><td>~$62,300</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$100,000</td><td>$1,250</td><td>~$63,000</td><td>~$82,900</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$150,000</td><td>$1,875</td><td>~$94,500</td><td>~$124,400</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Higher auto payments directly reduce your mortgage borrowing power. If you are planning a home purchase soon, it is vital to balance these borrowing needs. Check <a href="/blog/loan-eligibility-by-income">loan eligibility by income overview</a> for more on this balance.</p>
+
+      <h2>The 4 Factors Beyond Income That Determine Your Actual Eligibility</h2>
+      <p>While the tables above show the income-based maximum, four additional factors can reduce your actual borrowing power:</p>
+      <ol>
+        <li><strong>Credit Score:</strong> The most important factor after income. A score above 740 unlocks the best rates, while scores below 620 disqualify most conventional mortgages.</li>
+        <li><strong>Employment History:</strong> Lenders typically want two years of stable employment in the same field. This is critical for <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> and approved.</li>
+        <li><strong>Down Payment Size:</strong> A larger down payment reduces the loan amount and lender risk. Consult our <a href="/blog/down-payment-guide">down payment guide</a> for strategies to save.</li>
+        <li><strong>Cash Reserves:</strong> Lenders want to see 2–6 months of payments in the bank after closing. Insufficient reserves can trigger a denial even with a high salary. This is a key part of your <a href="/blog/home-purchase-budgeting">full home purchase budget</a>.</li>
+      </ol>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much can I borrow on a $75,000 salary?</h3>
+      <p>On a $75,000 salary with no existing debt, you can typically borrow up to $401,700 for a mortgage at a 6.8% interest rate, assuming a 43% back-end DTI. Actual eligibility depends on your credit score, down payment, and current monthly debt obligations.</p>
+
+      <h3>What DTI ratio do I need for a mortgage?</h3>
+      <p>Most conventional lenders prefer a front-end DTI (housing costs) below 28% and a back-end DTI (total debt) below 43%. However, FHA loans may allow a front-end DTI up to 31% and a back-end DTI up to 50% for qualified borrowers.</p>
+
+      <h3>How does existing debt affect how much I can borrow?</h3>
+      <p>Existing monthly debt reduces your <strong>loan eligibility by income</strong> dollar-for-dollar from your maximum allowed total debt payment. For a $100,000 earner, every $300 in monthly debt (like a car loan or student loan) reduces mortgage borrowing power by approximately $44,800.</p>
+
+      <h3>Can I get a mortgage with a high debt-to-income ratio?</h3>
+      <p>Yes, programs like FHA loans are designed for borrowers with higher DTI ratios, often allowing up to 50% back-end DTI. Some conventional lenders may also go higher if you have 'compensating factors' like a high credit score or significant cash reserves.</p>
+
+      <h3>Does my income alone determine my loan eligibility?</h3>
+      <p>No. While income sets the mathematical ceiling, lenders also weigh your credit score, employment stability, down payment size, and liquid cash reserves. A high income with a poor credit score may still result in a loan denial or significantly higher interest rates.</p>
+
+      <div class="bg-primary/5 p-10 rounded-3xl my-16 text-center shadow-lg border border-primary/10">
+        <h3 class="text-3xl font-bold text-primary mb-4">Find Your Personal Borrowing Limit</h3>
+        <p class="mb-8 max-w-2xl mx-auto opacity-90">Enter your income, monthly debts, and target down payment to get your exact personalised maximum loan amount in seconds. Don't forget to <a href="/blog/compare-loan-offers">compare loan offers</a> once you know your limit.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/affordability-calculator" class="bg-primary text-white px-10 py-4 rounded-full font-bold text-lg no-underline hover:bg-primary/90 transition-all">Affordability Calculator →</a>
+          <a href="/mortgage-calculator" class="bg-white border-2 border-primary text-primary px-10 py-4 rounded-full font-bold text-lg no-underline hover:bg-primary/5 transition-all">Mortgage Calculator →</a>
+        </div>
+        <p class="mt-6 text-sm opacity-60">Also available: <a href="/loan-calculator" class="underline">Loan Calculator</a> | <a href="/monthly-payment-calculator" class="underline">Monthly Payment Calculator</a></p>
+      </div>
+    `
+  },
   { title: "Fixed vs Variable Rate Mortgage Explained", category: "Mortgage Guides", readTime: "6 min read", excerpt: "Stability vs. potential savings. Which path is right for you?", slug: "fixed-vs-variable-mortgage", content: "Evaluating rate types for your financial future. Compare scenarios in our <a href='/mortgage-calculator'>calculator</a>." },
   {
     title: "The Impact of Extra Mortgage Payments: What the Math Actually Shows",
