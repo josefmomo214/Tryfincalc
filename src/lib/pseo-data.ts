@@ -561,7 +561,138 @@ export const pseoData: PSEOParams[] = [
   { slug: '25k-personal-loan-repayment-8-percent', type: 'loan', amount: 25000, rate: 8, term: 5, currency: 'USD' },
 
   // Affordability
-  { slug: 'how-much-house-can-i-afford-100k-salary', type: 'affordability', amount: 0, rate: 7, term: 30, currency: 'USD', salary: 100000 },
+  { 
+    slug: 'how-much-house-can-i-afford-100k-salary', 
+    type: 'affordability', 
+    amount: 0, 
+    rate: 6.8, 
+    term: 30, 
+    currency: 'USD', 
+    salary: 100000,
+    customTitle: "How Much House Can I Afford on a $100k Salary in 2026?",
+    customDescription: "How much house can you afford on a $100,000 salary? See your exact maximum loan amount, monthly payment, down payment requirements, and how existing debts affect your buying power in 2026.",
+    customH1: "How Much House Can I Afford on a $100k Salary in 2026?",
+    customIntro: "Earning $100,000 per year puts you in a strong position to buy a home in most US markets in 2026 — but the exact number depends on four variables: your existing monthly debts, your down payment, current interest rates, and local property taxes. This page gives you the precise answer based on the 28/36 rule that lenders actually use, a full breakdown of your maximum comfortable payment, and a table showing how debts and down payments shift your budget. Use the <a href='/affordability-calculator'>affordability calculator</a> above to personalise every number for your exact situation.",
+    customContent: `
+      <h2>How Much House Can You Afford on $100k? The Core Numbers</h2>
+      <p>Lenders evaluate your buying power using two primary ratios: the 28% front-end ratio and the 36% back-end ratio. Here is how those guidelines apply to a $100,000 annual income at current 2026 rates (6.8%):</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">DTI Limit</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">Taxes + Insurance Est.</th>
+              <th class="py-3 px-4 font-bold text-sm">Max P&I</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td>28% rule</td><td>$2,333</td><td>~$450</td><td>~$1,883</td><td>~$281,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>36% rule</td><td>$3,000</td><td>~$450</td><td>~$2,550</td><td>~$381,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The 28% rule is the conservative guideline most financial advisors recommend to ensure you remain "house-rich." The 36% rule (defined by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>) is the technical maximum most lenders will approve. This represents a $100,000 gap in buying power. Most buyers earning $100,000 find their comfort zone in the $280,000–$350,000 loan range. For more detail, see our guide on the <a href="/blog/28-36-rule-explained">28/36 rule explained</a>.</p>
+
+      <h2>How Existing Debts Reduce Your Buying Power</h2>
+      <p>Your debt-to-income ratio (DTI) is the biggest variable in your affordability. Here is how common debt loads impact a $100,000 salary at a 6.8% interest rate:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Monthly Debt Load</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Mortgage Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price (10% down)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>$0 (debt free)</td><td>$2,333</td><td>~$281,500</td><td>~$313,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$300 (one car)</td><td>$2,033</td><td>~$245,200</td><td>~$272,500</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td>$600 (car + student)</td><td>$1,733</td><td>~$209,000</td><td>~$232,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$900 (multiple debts)</td><td>$1,433</td><td>~$172,800</td><td>~$192,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Carrying $900/month in debt reduces your buying power by over $120,000. Use our <a href="/loan-calculator">loan calculator</a> to see how paying off specific debts before applying can unlock significantly more budget. Read more in our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility by income</a> guide.</p>
+
+      <h2>How Your Down Payment Changes the Picture</h2>
+      <p>Your down payment doesn't just change your loan amount — it also affects your monthly Private Mortgage Insurance (PMI) cost:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Down Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price</th>
+              <th class="py-3 px-4 font-bold text-sm">Loan Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">PMI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>3%</td><td>~$290,000</td><td>~$281,300</td><td>~$2,280</td><td>~$117/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>5%</td><td>~$296,000</td><td>~$281,200</td><td>~$2,260</td><td>~$98/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>10%</td><td>~$313,000</td><td>~$281,700</td><td>~$2,333</td><td>~$49/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>20%</td><td>~$352,000</td><td>~$281,600</td><td>~$2,150</td><td>$0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A 20% down payment eliminates PMI entirely, allowing you to buy more house for the same monthly payment. Check our <a href="/blog/down-payment-guide">down payment guide</a> for more strategies, or explore specialized <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> first-time buyer programs.</p>
+
+      <h2>Your Full Monthly Budget at $100k Salary</h2>
+      <p>What does a $300,000 home actually cost per month on a $100,000 salary? Here is a realistic breakdown at a 6.8% interest rate:</p>
+      
+      <ul>
+        <li><strong>Principal and Interest:</strong> $1,961</li>
+        <li><strong>Property Tax (1.1%/yr):</strong> $275</li>
+        <li><strong>Homeowners Insurance:</strong> $100</li>
+        <li><strong>PMI (~0.5%):</strong> $125</li>
+        <li><strong>Total Housing Cost:</strong> $2,461</li>
+        <li><strong>As % of $100k Gross Income:</strong> 29.5%</li>
+      </ul>
+
+      <p>This scenario sits just above the conservative 28% guidelines, which is manageable but leaves less buffer for maintenance or savings. You can use the <a href="/mortgage-calculator">mortgage calculator</a> to find exactly <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> at your specific tax rate. Avoid <a href="/blog/calculator-mistakes">common mortgage calculator mistakes</a> by including all PITI components.</p>
+
+      <h2>Get Your Personalised Home Budget</h2>
+      <p>Ready to see your exact numbers? Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your exact income and debts. You can also compare this to other common scenarios like a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a> or a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5%</a>. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> and your <a href="/blog/home-purchase-budgeting">full home purchase budget</a> are the final steps before visiting your first open house.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Affordability Tool</h3>
+          <p class="mb-6 opacity-90 text-sm">Find your max price in seconds.</p>
+          <a href="/affordability-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-70 text-sm">Model your monthly PITI.</p>
+          <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Calculator →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "How much house can I afford on a $100,000 salary?",
+        answer: "On a $100,000 salary, most buyers can comfortably afford a home priced between $280,000 and $350,000 depending on their down payment and existing debts. Identifying **how much house can I afford 100k salary** requires looking at your specific DTI ratio."
+      },
+      {
+        question: "What mortgage payment can I afford on $100k a year?",
+        answer: "A conservative target for a $100,000 salary is a $2,333 monthly PITI payment (28% of gross income). Most lenders will allow up to $3,000 if you have minimal other debts."
+      },
+      {
+        question: "Can I afford a $400,000 house on $100k salary?",
+        answer: "Affording a $400,000 house on a $100,000 salary is difficult at current 6.8% rates unless you have a very large down payment (20%+) or zero existing monthly debts."
+      },
+      {
+        question: "How much do I need for a down payment on a $100k salary?",
+        answer: "While you can purchase with as little as 3% ($9,000 on a $300k home), saving a 10-20% down payment significantly increases your buying power by reducing your monthly mortgage insurance costs."
+      }
+    ]
+  },
 ];
 
 function getSimpleHash(str: string) {
