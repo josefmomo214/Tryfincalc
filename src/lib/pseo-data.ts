@@ -288,7 +288,140 @@ export const pseoData: PSEOParams[] = [
   
   // Mortgages EUR
   { slug: '250k-mortgage-monthly-payment-3-5-percent', type: 'mortgage', amount: 250000, rate: 3.5, term: 20, currency: 'EUR' },
-  { slug: '400k-mortgage-monthly-payment-4-percent', type: 'mortgage', amount: 400000, rate: 4, term: 25, currency: 'EUR' },
+  { 
+    slug: '400k-mortgage-monthly-payment-4-percent', 
+    type: 'mortgage', 
+    amount: 400000, 
+    rate: 4, 
+    term: 30, 
+    currency: 'USD',
+    customTitle: "$400,000 Mortgage at 4%: Your Complete Payment Breakdown",
+    customDescription: "What is the monthly payment on a $400,000 mortgage at 4% interest? See your exact P&I payment, full PITI breakdown, total interest cost, income requirements, and how this compares to current 2026 rates.",
+    customH1: "$400,000 Mortgage at 4%: Your Complete Payment Breakdown",
+    customIntro: "A $400,000 mortgage at 4% represents one of the most financially favorable loan scenarios available — either locked in during the low-rate era of 2020–2021 or a potential future scenario if rates fall significantly from their 2026 levels. This page gives you the exact monthly payment at every term, a full PITI breakdown, the income needed to qualify, and a direct comparison to what the same loan costs at current 2026 rates — showing exactly how much the rate environment affects your total cost. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust for your specific situation.",
+    customContent: `
+      <h2>Monthly Payment on a $400,000 Mortgage at 4%</h2>
+      <p>A lower interest rate dramatically reduces your monthly commitment. Here is how a $400,000 loan at a 4% fixed rate breaks down across different common terms:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly P&I</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">$4,041</td><td class="py-3 px-4 text-sm">$84,920</td><td class="py-3 px-4 text-sm">$484,920</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">$2,959</td><td class="py-3 px-4 text-sm">$132,620</td><td class="py-3 px-4 text-sm">$532,620</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">$2,424</td><td class="py-3 px-4 text-sm">$181,760</td><td class="py-3 px-4 text-sm">$581,760</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">$2,112</td><td class="py-3 px-4 text-sm">$233,600</td><td class="py-3 px-4 text-sm">$633,600</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">30 years</td><td class="py-3 px-4 text-sm">$1,910</td><td class="py-3 px-4 text-sm">$287,480</td><td class="py-3 px-4 text-sm">$687,480</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 4% over 30 years the monthly principal and interest payment is $1,910 — and the total interest paid over the life of the loan is $287,480. Compared to the same loan at 6.8%, this saves $253,920 in total interest and $605/month — illustrating exactly why the rate environment matters so much. Review the complete year-by-year breakdown on our <a href="/amortization-schedule">amortization schedule</a>.</p>
+
+      <h2>Full Monthly Cost Including Taxes and Insurance (PITI)</h2>
+      <p>To understand your total monthly check to the lender, you must account for taxes and insurance. Here is a realistic breakdown for a $445,000 home purchase with 10% down ($45,000), resulting in a $400,000 loan at 4% over 30 years:</p>
+      
+      <ul>
+        <li><strong>Principal and Interest:</strong> $1,910</li>
+        <li><strong>Property Tax (1.1%/yr):</strong> $407</li>
+        <li><strong>Homeowners Insurance:</strong> $140</li>
+        <li><strong>Private Mortgage Insurance (PMI):</strong> $167</li>
+        <li><strong>Total Monthly Payment:</strong> $2,624</li>
+      </ul>
+
+      <p>Private Mortgage Insurance (PMI) typically cancels once you reach 20% equity under the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB) rules. Once cancelled, your total cost drops to approximately $2,457. Because interest costs are lower at 4%, your equity builds significantly faster than it would at higher rates. To see your specific scenario, check our <a href="/mortgage-calculator">mortgage calculator</a> for a personalised PITI breakdown.</p>
+
+      <h2>What Income Do You Need for a $400,000 Mortgage at 4%?</h2>
+      <p>Using the gold-standard 28% rule, here is the annual income required to qualify for a <strong>$400000 mortgage monthly payment 4 percent</strong> scenario:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
+              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>P&I only</td><td>$1,910</td><td>~$81,857</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td>Full PITI (example)</td><td>$2,624</td><td>~$112,457</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>With $500 other debts</td><td>$3,124</td><td>~$133,886</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A $400,000 mortgage at 4% is significantly more accessible than the same loan at current 2026 rates of 6.8%, which requires a household income of $108,000–$160,000. You can confirm your own buying power with our <a href="/affordability-calculator">affordability calculator</a>.</p>
+
+      <h2>4% vs. Current Rates: The Full Cost Comparison</h2>
+      <p>This comparison shows exactly why the low-rate environment of previous years was so powerful. Here is the cost difference on a $400,000 loan over 30 years compared to recent benchmarks:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Interest Rate</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly P&I</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Difference</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Extra Cost vs 4%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>4.0%</td><td>$1,910</td><td>—</td><td>$287,480</td><td>—</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>5.0%</td><td>$2,147</td><td>+$237/month</td><td>$372,920</td><td>+$85,440</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$2,271</td><td>+$361/month</td><td>$417,560</td><td>+$130,080</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.0%</td><td>$2,398</td><td>+$488/month</td><td>$463,280</td><td>+$175,800</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.5%</td><td>$2,528</td><td>+$618/month</td><td>$510,080</td><td>+$222,600</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>6.8%</td><td>$2,615</td><td>+$705/month</td><td>$541,400</td><td>+$253,920</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>7.0%</td><td>$2,661</td><td>+$751/month</td><td>$557,960</td><td>+$270,480</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Borrowers with a 4% rate are paying significantly less than current market participants. For buyers today, this data reinforces the importance of using a <a href="/refinancing-calculator">refinancing calculator</a> to identify exactly when a future rate drop makes a refinance profitable. Read more on <a href="/blog/when-to-refinance">when refinancing makes sense</a> and <a href="/blog/interest-rate-impact">how your rate affects total cost</a>.</p>
+
+      <h2>Run Your Personalised Scenario</h2>
+      <p>Whether you are comparing a historical rate or planning for the future, use the mortgage calculator above to run your specific numbers. Also, compare this scenario to a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5%</a>, a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a>, or a <a href="/calculator/500k-mortgage-monthly-payment-7-percent">$500,000 mortgage at 7%</a>. For those torn between terms, see our <a href="/blog/15-vs-30-year-mortgage">15-year vs 30-year mortgage comparison</a>.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm italic">Model any rate scenario.</p>
+          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Refinance Planning</h3>
+          <p class="mb-6 opacity-70 text-sm">Calculate your savings.</p>
+          <a href="/refinancing-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Refinance Calculator →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $400,000 mortgage at 4%?",
+        answer: "The monthly principal and interest payment is $1,910 for a 30-year fixed term. When including property taxes and insurance, the total **$400000 mortgage monthly payment 4 percent** typically comes to around $2,624."
+      },
+      {
+        question: "How much do I save with a 4% rate vs a 7% rate on a $400,000 mortgage?",
+        answer: "A 4% rate saves you roughly $751 per month in principal and interest compared to a 7% rate. Over 30 years, this results in a staggering $270,480 in interest savings."
+      },
+      {
+        question: "What income do I need for a $400,000 mortgage at 4%?",
+        answer: "To qualify comfortably, you typically need a gross annual household income between $82,000 and $112,000, assuming you have moderate down payment and minimal other monthly debts."
+      },
+      {
+        question: "Can I still get a 4% mortgage rate in 2026?",
+        answer: "While 4% is significantly lower than current 2026 market benchmarks, it remains a common target for refinancing if the economy shifts. Review **Federal Reserve Economic Data** (FRED) to see where today's national averages sit."
+      }
+    ]
+  },
 
   // Loans USD
   { slug: '10k-personal-loan-repayment-10-percent', type: 'loan', amount: 10000, rate: 10, term: 5, currency: 'USD' },
