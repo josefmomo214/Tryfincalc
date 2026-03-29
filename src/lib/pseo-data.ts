@@ -682,7 +682,138 @@ export const pseoData: PSEOParams[] = [
       }
     ]
   },
-  { slug: '25k-personal-loan-repayment-8-percent', type: 'loan', amount: 25000, rate: 8, term: 5, currency: 'USD' },
+  { 
+    slug: '25k-personal-loan-repayment-8-percent', 
+    type: 'loan', 
+    amount: 25000, 
+    rate: 8, 
+    term: 5, 
+    currency: 'USD',
+    customTitle: "$25,000 Personal Loan at 8%: Full Repayment Breakdown",
+    customDescription: "What are the monthly payments on a $25,000 personal loan at 8% interest? See exact payments for every term, total interest cost, income requirements, and how to qualify for the best rate on a $25k loan.",
+    customH1: "$25,000 Personal Loan at 8%: Full Repayment Breakdown",
+    customIntro: "A $25,000 personal loan at 8% APR is a common scenario for borrowers financing home improvements, consolidating credit card debt, covering medical expenses, or funding a major life event. At 8%, this is a competitive rate that typically requires a credit score above 700 and stable income. This page gives you the exact monthly payment at every common term, the total interest cost of each option, what income and credit you need to qualify at 8%, and a rate comparison showing exactly what a higher or lower rate would cost. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customContent: `
+      <h2>Monthly Payments on a $25,000 Loan at 8%</h2>
+      <p>The repayment term you choose balances your monthly lifestyle costs against the total lifetime cost of the loan. A $25,000 loan balance carries a significant monthly weight, making it critical to find your target payment-to-income ratio:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td>1 year</td><td>$2,172</td><td>$1,064</td><td>$26,064</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>2 years</td><td>$1,130</td><td>$2,120</td><td>$27,120</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>3 years</td><td>$783</td><td>$3,188</td><td>$28,188</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>4 years</td><td>$610</td><td>$4,280</td><td>$29,280</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>5 years</td><td>$507</td><td>$5,420</td><td>$30,420</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>7 years</td><td>$389</td><td>$7,676</td><td>$32,676</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 8% over 5 years — the most popular term for a $25,000 loan — the monthly payment is $507 and total interest is $5,420. Choosing a 3-year term increases the payment by $276/month but saves $2,232 in total interest. If your budget can absorb the higher payment, the 3-year term is almost always the better financial choice. Use our <a href="/total-interest-calculator">total interest calculator</a> to see your exact savings based on early payoff goals.</p>
+
+      <h2>How Your Rate Affects the Total Cost</h2>
+      <p>Qualified rates for a $25,000 loan vary significantly based on your debt-to-income (DTI) ratio and credit score. Here is what a 5-year repayment plan looks like across the rate spectrum:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Interest Rate</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>5%</td><td>$472</td><td>$3,320</td><td>$28,320</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5 text-primary"><td>6%</td><td>$483</td><td>$4,980</td><td>$29,980</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>8%</td><td>$507</td><td>$5,420</td><td>$30,420</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>10%</td><td>$531</td><td>$6,860</td><td>$31,860</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td>12%</td><td>$556</td><td>$8,360</td><td>$33,360</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>15%</td><td>$595</td><td>$10,700</td><td>$35,700</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold"><td>20%</td><td>$663</td><td>$14,780</td><td>$39,780</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The difference between an 8% and 20% rate over 5 years is $9,360 in total interest — more than a third of the original loan amount. Check your credit score at <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">AnnualCreditReport.com</a> before applying to understand where you land on this table. Read more in our <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guide.</p>
+
+      <h2>What You Need to Qualify for 8% on a $25,000 Loan</h2>
+      <p>Lenders consider $25,000 a major personal loan, often requiring more rigorous income verification than smaller loans. Here is the typical profile needed to secure an 8% APR:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Factor</th>
+              <th class="py-3 px-4 font-bold text-sm">Minimum for Approval</th>
+              <th class="py-3 px-4 font-bold text-sm">Required for 8% Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>Credit score</td><td>580–620</td><td>700–720+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>Annual income</td><td>~$30,000</td><td>$50,000+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>DTI ratio</td><td>Below 40%</td><td>Below 30%</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>Employment</td><td>Employed</td><td>2+ years stable</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>Existing debts</td><td>Manageable</td><td>Low relative to income</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Your Debt-to-Income (DTI) ratio is critical. See our <a href="/blog/loan-eligibility-by-income">loan eligibility by income</a> guide to find your borrowing limit. Before accepting an offer, learn <a href="/blog/compare-loan-offers">how to compare loan offers</a> and use our <a href="/blog/loan-calculator-explained">loan calculator guide</a> to verify lender claims.</p>
+
+      <h2>Using a $25,000 Loan for Debt Consolidation: Does the Math Work?</h2>
+      <p>Under the Truth in Lending Act by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, lenders must disclose the APR. Consolidating credit card debt is the most common use for a $25,000 loan. Consider this comparison:</p>
+      
+      <ul>
+        <li><strong>Consolidating 4 credit cards at 21% APR:</strong> Minimum payments of ~$625/month, paying off in ~9 years with ~$18,900 in total interest.</li>
+        <li><strong>$25,000 Personal Loan at 8% (5 yrs):</strong> Lower monthly payment of $507/month, paying off 4 years faster with only $5,420 in total interest.</li>
+      </ul>
+
+      <p>The math results in a staggering ~$13,480 in interest savings. Learn more in our <a href="/blog/total-interest-explained">total interest explained</a> guide and verify your own savings with the <a href="/loan-calculator">loan calculator</a>. For comparison, also see our breakdown of a <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at 10%</a>.</p>
+
+      <h2>Calculate Your Exact Repayment Schedule</h2>
+      <p>Before you sign, enter $25,000 into the loan calculator above with your quoted APR. You can also model how different payments affect <a href="/blog/monthly-payment-formula">the monthly payment formula</a>. Use our <a href="/monthly-payment-calculator">monthly payment calculator</a> to find a term that leaves you with sufficient budget surplus.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Loan Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm">Verify any personal loan offer.</p>
+          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Lifetime Interest</h3>
+          <p class="mb-6 opacity-70 text-sm">See your exact interest costs.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $25,000 loan at 8% interest?",
+        answer: "On a 5-year term, your monthly payment is $507. For a **$25000 personal loan repayment 8 percent** scenario over a 3-year term, the payment increases to $783."
+      },
+      {
+        question: "How much total interest do I pay on a $25,000 personal loan at 8%?",
+        answer: "Over a 5-year term, you will pay a total of $5,420 in interest. Opting for a 3-year term reduces the total interest to $3,188."
+      },
+      {
+        question: "What credit score do I need for an 8% personal loan rate?",
+        answer: "For a $25,000 loan amount, an 8% rate usually requires a 'Very Good' credit score of 700–720 or higher, along with a low DTI and stable employment history."
+      },
+      {
+        question: "Is a $25,000 personal loan a good idea for debt consolidation?",
+        answer: "Yes, if you qualify for an 8% rate, consolidating credit cards at 20%+ APR can save you over $13,000 in interest and shorten your payoff time by several years."
+      }
+    ]
+  },
 
   // Affordability
   { 
