@@ -25,7 +25,137 @@ export interface ComparisonScenario {
 
 export const pseoData: PSEOParams[] = [
   // Mortgages USD
-  { slug: '300k-mortgage-monthly-payment-6-percent', type: 'mortgage', amount: 300000, rate: 6, term: 30, currency: 'USD' },
+  { 
+    slug: '300k-mortgage-monthly-payment-6-percent', 
+    type: 'mortgage', 
+    amount: 300000, 
+    rate: 6, 
+    term: 30, 
+    currency: 'USD',
+    customTitle: "$300,000 Mortgage at 6%: Your Complete Payment Breakdown",
+    customDescription: "What is the monthly payment on a $300,000 mortgage at 6% interest? See your exact P&I payment, full PITI breakdown, total interest cost, income requirements, and amortization schedule.",
+    customH1: "$300,000 Mortgage at 6%: Your Complete Payment Breakdown",
+    customIntro: "A $300,000 mortgage at 6% is one of the most common loan scenarios in the US — typical for first-time buyers in affordable to mid-range markets across the Midwest, South, and Mountain West in 2026. This page gives you the exact monthly payment at every term, a full PITI breakdown including taxes and insurance, the income you need to qualify, and a rate sensitivity table showing exactly what a better or worse rate would cost. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust for your specific down payment and term.",
+    customContent: `
+      <h2>Monthly Payment on a $300,000 Mortgage at 6%</h2>
+      <p>The term of your loan is the biggest factor in determining your monthly cash flow versus your total interest savings. Here is the breakdown for a $300,000 balance at a 6% fixed rate:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly P&I</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">$3,330</td><td class="py-3 px-4 text-sm">$99,600</td><td class="py-3 px-4 text-sm">$399,600</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">$2,532</td><td class="py-3 px-4 text-sm">$155,760</td><td class="py-3 px-4 text-sm">$455,760</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">$2,149</td><td class="py-3 px-4 text-sm">$215,760</td><td class="py-3 px-4 text-sm">$515,760</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">$1,933</td><td class="py-3 px-4 text-sm">$279,900</td><td class="py-3 px-4 text-sm">$579,900</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">30 years</td><td class="py-3 px-4 text-sm">$1,799</td><td class="py-3 px-4 text-sm">$347,640</td><td class="py-3 px-4 text-sm">$647,640</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 6% over 30 years the monthly principal and interest payment is $1,799 — and the total interest paid over the life of the loan is $347,640. Choosing a <a href="/blog/15-vs-30-year-mortgage">15-year vs 30-year mortgage comparison</a> shows that the shorter term saves $191,880 in interest but adds $733 to the monthly payment. You can view the full year-by-year equity growth on our <a href="/amortization-schedule">amortization schedule</a>.</p>
+
+      <h2>Full Monthly Cost Including Taxes and Insurance (PITI)</h2>
+      <p>Your actual check to the bank includes more than just principal and interest. Here is a realistic breakdown for a $334,000 home purchase with 10% down ($34,000), resulting in a $300,000 loan at 6% over 30 years:</p>
+      
+      <ul>
+        <li><strong>Principal and Interest:</strong> $1,799</li>
+        <li><strong>Property Tax (1.1%/yr):</strong> $306</li>
+        <li><strong>Homeowners Insurance:</strong> $110</li>
+        <li><strong>Private Mortgage Insurance (PMI):</strong> $125</li>
+        <li><strong>Total Monthly Payment:</strong> $2,340</li>
+      </ul>
+
+      <p>Note that PMI typically cancels once you reach 20% equity (as defined by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>), dropping your total monthly cost to approximately $2,215. Property taxes vary significantly by state — please use our <a href="/mortgage-calculator">mortgage calculator</a> for a personalised PITI breakdown based on your local rates. Also, check our <a href="/blog/down-payment-guide">down payment guide</a> for more on avoiding PMI.</p>
+
+      <h2>What Income Do You Need for a $300,000 Mortgage at 6%?</h2>
+      <p>Most lenders follow the 28% rule, which states your housing costs shouldn't exceed 28% of your gross monthly income. Here is the income required for a <strong>$300000 mortgage monthly payment 6 percent</strong> scenario:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
+              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>P&I only</td><td>$1,799</td><td>~$77,100</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td>Full PITI (example)</td><td>$2,340</td><td>~$100,286</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>With $400 other debts</td><td>$2,740</td><td>~$117,429</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Most buyers will need a household income between $77,000 and $117,000 to comfortably qualify depending on existing debts and local property taxes. You can get a personalized requirement using our <a href="/affordability-calculator">affordability calculator</a> or read about <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
+
+      <h2>How 6% Compares to Other Rates on a $300,000 Loan</h2>
+      <p>How does 6% sit relative to current benchmarks? According to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, small rate movements have big consequences. Here is the sensitivity for a 30-year term:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Interest Rate</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly P&I</th>
+              <th class="py-3 px-4 font-bold text-sm">Difference vs 6%</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>5.0%</td><td>$1,610</td><td>−$189/month</td><td>$279,600</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$1,703</td><td>−$96/month</td><td>$313,080</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>6.0%</td><td>$1,799</td><td>—</td><td>$347,640</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.5%</td><td>$1,896</td><td>+$97/month</td><td>$382,560</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>7.0%</td><td>$1,996</td><td>+$197/month</td><td>$418,560</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td>7.5%</td><td>$2,098</td><td>+$299/month</td><td>$455,280</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A 1% rate increase adds approximately $197–$299/month and over $70,000 in total interest. Check out our <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guide for more. If rates drop after you close, the <a href="/refinancing-calculator">refinancing calculator</a> can help you find your break-even point. Also, see our related guides on a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5%</a> and a <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at 3.5%</a>.</p>
+
+      <h2>Run Your Personalised Scenario</h2>
+      <p>Ready to see your exact numbers? Use the mortgage calculator above to adjust the term, down payment, and rate and see exactly how your payment changes. Don't forget to use the <a href="/affordability-calculator">affordability calculator</a> to confirm this loan fits your income. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> is the first step toward smart homeownership.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm">Get an instant 2026 breakdown.</p>
+          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Total Interest</h3>
+          <p class="mb-6 opacity-70 text-sm">See the full lifetime cost.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">View Lifetime Cost →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $300,000 mortgage at 6%?",
+        answer: "The monthly principal and interest payment is $1,799 on a 30-year term. For a **$300000 mortgage monthly payment 6 percent** scenario including taxes and insurance, the total PITI is closer to $2,340."
+      },
+      {
+        question: "What income do I need for a $300,000 mortgage?",
+        answer: "To qualify for a $300,000 mortgage at 6%, most lenders look for a household income between $77,000 and $100,000 depending on your other monthly debts."
+      },
+      {
+        question: "How much total interest do I pay on a $300,000 mortgage at 6%?",
+        answer: "Over 30 years, you will pay a total of $347,640 in interest. If you choose a 15-year term, that interest cost drops to $155,760."
+      },
+      {
+        question: "Is 6% a good mortgage rate in 2026?",
+        answer: "In the 2026 market, 6% is considered a solid, mid-range rate for a 30-year fixed mortgage. Always check **Federal Reserve Economic Data** for the most current national benchmarks."
+      }
+    ]
+  },
   { 
     slug: '400k-mortgage-monthly-payment-6-5-percent', 
     type: 'mortgage', 
