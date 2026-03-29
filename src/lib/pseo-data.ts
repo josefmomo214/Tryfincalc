@@ -557,7 +557,131 @@ export const pseoData: PSEOParams[] = [
   },
 
   // Loans USD
-  { slug: '10k-personal-loan-repayment-10-percent', type: 'loan', amount: 10000, rate: 10, term: 5, currency: 'USD' },
+  { 
+    slug: '10k-personal-loan-repayment-10-percent', 
+    type: 'loan', 
+    amount: 10000, 
+    rate: 10, 
+    term: 3, 
+    currency: 'USD',
+    customTitle: "$10,000 Personal Loan at 10%: Full Repayment Breakdown",
+    customDescription: "What are the monthly payments on a $10,000 personal loan at 10% interest? See exact payments for every term, total interest cost, how to compare lenders, and tips to qualify for a lower rate.",
+    customH1: "$10,000 Personal Loan at 10%: Full Repayment Breakdown",
+    customIntro: "A $10,000 personal loan at 10% APR is one of the most common borrowing scenarios in the US — used for debt consolidation, home improvements, medical expenses, and major purchases. The monthly payment and total interest cost vary significantly depending on the loan term you choose. This page gives you the exact repayment figures at every common term, a comparison of how term length affects total cost, and the income and credit requirements to qualify at 10% APR. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customContent: `
+      <h2>Monthly Payments on a $10,000 Loan at 10%</h2>
+      <p>The repayment term you choose is the biggest factor in your monthly budget. A shorter term saves you money on interest, while a longer term provides a more manageable monthly payment. Here is the breakdown for a $10,000 loan at a 10% fixed rate:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>1 year</td><td>$879</td><td>$548</td><td>$10,548</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>2 years</td><td>$461</td><td>$1,064</td><td>$11,064</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5 text-primary"><td>3 years</td><td>$323</td><td>$1,616</td><td>$11,616</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>4 years</td><td>$254</td><td>$2,192</td><td>$12,192</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td>5 years</td><td>$212</td><td>$2,748</td><td>$12,748</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>7 years</td><td>$166</td><td>$3,944</td><td>$13,944</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 10% over 3 years — the most common personal loan term — the monthly payment is $323 and total interest is $1,616. Choosing a 5-year term instead drops the payment by $111/month but adds $1,132 in total interest. Use our <a href="/total-interest-calculator">total interest calculator</a> to see how much you could save by paying the loan off early.</p>
+
+      <h2>How Your Rate Affects the Total Cost</h2>
+      <p>Your credit profile determines the interest rate you are offered. Small shifts in your APR have massive consequences for a $10,000 loan balance over a 3-year term:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Interest Rate</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>6%</td><td>$304</td><td>$944</td><td>$10,944</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>8%</td><td>$313</td><td>$1,128</td><td>$11,128</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>10%</td><td>$323</td><td>$1,616</td><td>$11,616</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>12%</td><td>$332</td><td>$1,952</td><td>$11,952</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td>15%</td><td>$347</td><td>$2,492</td><td>$12,492</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>20%</td><td>$372</td><td>$3,392</td><td>$13,392</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold"><td>25%</td><td>$398</td><td>$4,328</td><td>$14,328</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The difference between a 6% and 25% rate is $3,384 in total interest. This is why checking your credit score at <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">AnnualCreditReport.com</a> and improving it before you apply is critical. Read more in our <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guide.</p>
+
+      <h2>What You Need to Qualify for a 10% Personal Loan Rate</h2>
+      <p>Securing a 10% rate generally requires a "good" credit profile. Here are the typical thresholds lenders look for:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Factor</th>
+              <th class="py-3 px-4 font-bold text-sm">Minimum Threshold</th>
+              <th class="py-3 px-4 font-bold text-sm">Best Rate Threshold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>Credit score</td><td>620</td><td>720+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>Annual income</td><td>~$20,000</td><td>$45,000+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>DTI ratio</td><td>Below 40%</td><td>Below 30%</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>Employment</td><td>Employed or stable</td><td>2+ years same job</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>Credit history</td><td>1+ year</td><td>3+ years</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Personal loan interest rates vary significantly between lenders. Before you commit, learn <a href="/blog/compare-loan-offers">how to compare loan offers</a> and use our <a href="/blog/loan-calculator-explained">loan calculator guide</a> to understand the math. For larger needs, you can also see our analysis of a <a href="/calculator/250k-personal-loan-repayment-8-percent">$25,000 personal loan at 8%</a>.</p>
+
+      <h2>10% APR vs. Nominal Rate: An Important Distinction</h2>
+      <p>Under the Truth in Lending Act enforced by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, lenders must disclose the APR. This includes not just the interest rate, but any origination fees. A 10% APR gives you a true cost comparison. For example, on a $10,000 loan, a 1% APR difference over 3 years costs approximately $160 extra in total interest — small but worth knowing when comparing offers using a <a href="/monthly-payment-calculator">monthly payment calculator</a>.</p>
+
+      <h2>Calculate Your Exact Repayment</h2>
+      <p>Ready to see your exact numbers? Use the <a href="/loan-calculator">loan calculator</a> above to enter $10,000 and your quoted rate. You can also dive deeper with our guides on <a href="/blog/total-interest-explained">total interest explained</a> and <a href="/blog/monthly-payment-formula">the monthly payment formula</a>. Comparing multiple lenders is the easiest way to ensure you aren't overpaying.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Loan Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm">Calculate any personal loan.</p>
+          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Total Interest</h3>
+          <p class="mb-6 opacity-70 text-sm">See the full lifetime cost.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $10,000 loan at 10% interest?",
+        answer: "On a 3-year term, your monthly payment is $323. For a **$10000 personal loan repayment 10 percent** scenario over 5 years, the payment drops to $212."
+      },
+      {
+        question: "How much total interest do I pay on a $10,000 personal loan at 10%?",
+        answer: "Over a 3-year term, you will pay a total of $1,616 in interest. Shifting to a 5-year term increases the total interest to $2,748."
+      },
+      {
+        question: "What credit score do I need for a 10% personal loan rate?",
+        answer: "Typically, a credit score of 680–720 or higher is required to qualify for personal loan rates in the 10% range from major online and traditional lenders."
+      },
+      {
+        question: "Is a 3-year or 5-year term better for a $10,000 loan?",
+        answer: "A 3-year term is better for minimizing interest cost while a 5-year term is better for fitting the payment into a tight monthly budget."
+      }
+    ]
+  },
   { slug: '25k-personal-loan-repayment-8-percent', type: 'loan', amount: 25000, rate: 8, term: 5, currency: 'USD' },
 
   // Affordability
