@@ -9,6 +9,7 @@ export default function TermsOfService() {
         title="Terms of Service" 
         description="Read the terms of service for using TryFinCalc's financial calculators and guides. Our tools are free and require no sign-up. Understand our user agreement."
         canonicalUrl="https://tryfincalc.com/terms-of-service"
+        noindex={true}
       />
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-manrope font-bold text-primary mb-8">Terms of Service</h1>

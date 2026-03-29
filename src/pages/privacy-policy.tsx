@@ -9,6 +9,7 @@ export default function PrivacyPolicy() {
         title="Privacy Policy" 
         description="View our privacy policy to see how we protect your data while you use our tools. Our platform is free and requires no sign-up. Your privacy is our priority."
         canonicalUrl="https://tryfincalc.com/privacy-policy"
+        noindex={true}
       />
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-manrope font-bold text-primary mb-8">Privacy Policy</h1>

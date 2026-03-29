@@ -12,6 +12,7 @@ export default function ContactAbout() {
         title="Contact Us" 
         description="Get in touch with the TryFinCalc team for any questions or feedback about our tools. Our support is free and requires no sign-up. We are here to help you."
         canonicalUrl="https://tryfincalc.com/contact"
+        noindex={true}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row gap-16">

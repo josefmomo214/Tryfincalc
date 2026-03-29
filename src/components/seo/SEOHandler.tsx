@@ -7,6 +7,7 @@ interface SEOHandlerProps {
   canonicalUrl?: string;
   ogImage?: string;
   structuredData?: object;
+  noindex?: boolean;
 }
 
 export function SEOHandler({
@@ -15,7 +16,8 @@ export function SEOHandler({
   keywords = "calculator, loan, mortgage, finance, amortization",
   canonicalUrl,
   ogImage = "/og-image.jpg", // Placeholder for an actual OG image
-  structuredData
+  structuredData,
+  noindex = false
 }: SEOHandlerProps) {
   const siteName = "TryFinCalc";
   const fullTitle = `${title} | ${siteName}`;
@@ -26,6 +28,7 @@ export function SEOHandler({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      {noindex && <meta name="robots" content="noindex, follow" />}
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
