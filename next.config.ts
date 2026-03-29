@@ -1,15 +1,16 @@
 import type { NextConfig } from "next";
 
 const cspHeader = `
-  default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://*.googlesyndication.com https://*.googletagservices.com https://www.googletagmanager.com;
-  style-src 'self' 'unsafe-inline';
-  img-src 'self' data: blob: https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com;
-  font-src 'self' data:;
-  frame-src 'self' https://*.googlesyndication.com https://*.doubleclick.net;
-  connect-src 'self' https://*.googlesyndication.com https://*.doubleclick.net https://www.google-analytics.com;
-  object-src 'none';
-  base-uri 'self';
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    connect-src 'self' https://www.google-analytics.com https://analytics.google.com;
+    frame-ancestors 'none';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
 `.replace(/\s{2,}/g, ' ').trim();
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -34,7 +35,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Strict-Transport-Security',
-            value: 'max-age=31536000; includeSubDomains; preload',
+            value: 'max-age=63072000; includeSubDomains',
           },
           {
             key: 'X-Frame-Options',

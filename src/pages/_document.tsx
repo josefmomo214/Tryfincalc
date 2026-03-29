@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y84YC0NQTR"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y84YC0NQTR" integrity="sha384-yJkU5G6Bvwy14KtEHtjKQSO5cA2XqMvPnNd45qzw1JrSc2MmXxDDYRq3vz0UFKjs" crossOrigin="anonymous"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
