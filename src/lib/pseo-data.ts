@@ -287,7 +287,140 @@ export const pseoData: PSEOParams[] = [
   { slug: '500k-mortgage-monthly-payment-7-percent', type: 'mortgage', amount: 500000, rate: 7, term: 30, currency: 'USD' },
   
   // Mortgages EUR
-  { slug: '250k-mortgage-monthly-payment-3-5-percent', type: 'mortgage', amount: 250000, rate: 3.5, term: 20, currency: 'EUR' },
+  { 
+    slug: '250k-mortgage-monthly-payment-3-5-percent', 
+    type: 'mortgage', 
+    amount: 250000, 
+    rate: 3.5, 
+    term: 30, 
+    currency: 'USD',
+    customTitle: "$250,000 Mortgage at 3.5%: Your Complete Payment Breakdown",
+    customDescription: "What is the monthly payment on a $250,000 mortgage at 3.5% interest? See your exact P&I payment, full PITI breakdown, total interest cost, income requirements, and how this compares to current 2026 rates.",
+    customH1: "$250,000 Mortgage at 3.5%: Your Complete Payment Breakdown",
+    customIntro: "A $250,000 mortgage at 3.5% is a scenario most relevant to two groups of buyers in 2026: homeowners who locked in this rate during the low-rate period of 2020–2021 and want to understand their remaining loan cost, and first-time buyers exploring FHA loans — which sometimes carry rates closer to 3.5% with the right credit profile and market conditions. This page gives you the exact monthly payment at every term, a full PITI breakdown, the income needed to qualify, and a direct comparison to what the same loan costs at current 2026 market rates. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust for your specific situation.",
+    customContent: `
+      <h2>Monthly Payment on a $250,000 Mortgage at 3.5%</h2>
+      <p>The interest rate is the single most powerful lever in your mortgage budget. Here is how a $250,000 loan at a 3.5% fixed rate breaks down across common repayment terms:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly P&I</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">$2,472</td><td class="py-3 px-4 text-sm">$46,640</td><td class="py-3 px-4 text-sm">$296,640</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">$1,787</td><td class="py-3 px-4 text-sm">$71,660</td><td class="py-3 px-4 text-sm">$321,660</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">$1,449</td><td class="py-3 px-4 text-sm">$97,760</td><td class="py-3 px-4 text-sm">$347,760</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">$1,252</td><td class="py-3 px-4 text-sm">$125,600</td><td class="py-3 px-4 text-sm">$375,600</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">30 years</td><td class="py-3 px-4 text-sm">$1,123</td><td class="py-3 px-4 text-sm">$154,280</td><td class="py-3 px-4 text-sm">$404,280</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 3.5% over 30 years the monthly principal and interest payment is $1,123 — and the total interest paid over the life of the loan is $154,280. Compared to the same loan at 6.8%, this saves $251,680 in total interest and $838/month — one of the most dramatic illustrations of how much the rate environment affects lifetime borrowing cost. See the complete month-by-month impact on our <a href="/amortization-schedule">amortization schedule</a>.</p>
+
+      <h2>Full Monthly Cost Including Taxes and Insurance (PITI)</h2>
+      <p>Your bank payment consists of four main parts: Principal, Interest, Taxes, and Insurance. Here is a realistic breakdown for a $278,000 home purchase with 10% down ($28,000), resulting in a $250,000 loan at 3.5% over 30 years:</p>
+      
+      <ul>
+        <li><strong>Principal and Interest:</strong> $1,123</li>
+        <li><strong>Property Tax (1.1%/yr):</strong> $255</li>
+        <li><strong>Homeowners Insurance:</strong> $95</li>
+        <li><strong>Private Mortgage Insurance (PMI):</strong> $104</li>
+        <li><strong>Total Monthly Payment:</strong> $1,577</li>
+      </ul>
+
+      <p>Note that Private Mortgage Insurance (PMI) cancels once you reach 20% equity. At a 3.5% interest rate, your monthly payment is low, making homeownership unusually accessible. To get your own specific numbers, check our <a href="/mortgage-calculator">mortgage calculator</a> for a personalised PITI breakdown. Also, see our <a href="/blog/down-payment-guide">down payment guide</a> for more on cost management.</p>
+
+      <h2>What Income Do You Need for a $250,000 Mortgage at 3.5%?</h2>
+      <p>Lenders use the DTI (Debt-to-Income) ratio to ensure you aren't overleveraged. Here is the income required for a <strong>$250000 mortgage monthly payment 3.5 percent</strong> scenario:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
+              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>P&I only</td><td>$1,123</td><td>~$48,129</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td>Full PITI (example)</td><td>$1,577</td><td>~$67,586</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>With $300 other debts</td><td>$1,877</td><td>~$80,443</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A $250,000 mortgage at 3.5% is highly accessible — requiring significantly less income than at current 2026 rates of 6.8%, which requires $83,000–$115,000. You can confirm your buying power with our <a href="/affordability-calculator">affordability calculator</a> or read about <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
+
+      <h2>3.5% vs. Current Rates: The Full Cost Comparison</h2>
+      <p>How does 3.5% compare to recent benchmarks? Historical data from <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> highlights the advantage of low rates. Here is the comparison for a $250,000 loan over 30 years:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Interest Rate</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly P&I</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Difference</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Extra Cost vs 3.5%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>3.5%</td><td>$1,123</td><td>—</td><td>$154,280</td><td>—</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>4.5%</td><td>$1,267</td><td>+$144/month</td><td>$206,120</td><td>+$51,840</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$1,419</td><td>+$296/month</td><td>$260,840</td><td>+$106,560</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.0%</td><td>$1,499</td><td>+$376/month</td><td>$289,640</td><td>+$135,360</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.5%</td><td>$1,580</td><td>+$457/month</td><td>$318,800</td><td>+$164,520</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>6.8%</td><td>$1,632</td><td>+$509/month</td><td>$337,920</td><td>+$183,640</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>7.5%</td><td>$1,748</td><td>+$625/month</td><td>$379,280</td><td>+$224,400</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Homeowners with a 3.5% rate save over $500 per month compared to those entering the market at 2026 rates. If you target a lower rate through an <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">FHA loan</a> or future refinance, use the <a href="/refinancing-calculator">refinancing calculator</a> to find when it becomes worthwhile. See our <a href="/blog/when-to-refinance">when refinancing makes sense</a> and <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guides for more. Also compare this to a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a> or a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage at 4%</a>. For those torn between payment plans, see the <a href="/blog/15-vs-30-year-mortgage">15-year vs 30-year mortgage comparison</a>.</p>
+
+      <h2>Run Your Personalised Scenario</h2>
+      <p>Model your exact situation using the mortgage calculator above to see your full lifetime cost breakdown instantly. If you are comparing future possibilities, the <a href="/refinancing-calculator">refinancing calculator</a> can help you see exactly how much you would save by dropping to 3.5% today. To learn more about the components of your bill, read <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm italic">Analyze any mortgage rate.</p>
+          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Lifetime Cost</h3>
+          <p class="mb-6 opacity-70 text-sm italic">See your total interest.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">View Lifetime Cost →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $250,000 mortgage at 3.5%?",
+        answer: "The monthly principal and interest payment is $1,123 for a 30-year fixed term. For a **$250000 mortgage monthly payment 3.5 percent** scenario including estimated taxes and insurance, the total PITI is typically around $1,577."
+      },
+      {
+        question: "How much do I save with a 3.5% rate vs 6.8% on a $250,000 mortgage?",
+        answer: "A 3.5% rate saves you approximately $509 per month in principal and interest compared to a 6.8% rate. Over 30 years, this translates to roughly $183,640 in interest savings."
+      },
+      {
+        question: "What income do I need for a $250,000 mortgage at 3.5%?",
+        answer: "To qualify comfortably, you typically need a gross annual household income between $48,000 and $68,000, assuming a moderate down payment and minimal existing debts."
+      },
+      {
+        question: "Can I still get a 3.5% mortgage rate in 2026?",
+        answer: "In 2026, 3.5% is significantly below market averages, though it remains a common target for refinancing if rates drop. Some specialized **HUD** FHA loan programs may offer rates closer to this for eligible buyers."
+      }
+    ]
+  },
   { 
     slug: '400k-mortgage-monthly-payment-4-percent', 
     type: 'mortgage', 
