@@ -3623,5 +3623,148 @@ export const articles: Article[] = [
       </div>
     `
   },
-  { title: "The 28/36 Rule for Debt-to-Income", category: "Affordability", readTime: "5 min read", excerpt: "The gold standard for mortgage affordability.", slug: "28-36-rule-explained", content: "How the 28/36 rule determines your maximum mortgage payment. Calculate your <a href='/affordability-calculator'>DTI ratio</a>." }
+  {
+    title: "The 28/36 Rule Explained: How to Know If You Can Afford a Home",
+    category: "Affordability",
+    readTime: "9 min read",
+    excerpt: "What is the 28/36 rule in mortgage lending? Learn how lenders use this ratio to determine affordability, see real income examples from $40k to $200k, and find out what to do if your numbers exceed the limits.",
+    slug: "28-36-rule-explained",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the 28/36 rule for mortgages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 28/36 rule is a debt-to-income (DTI) guideline used by mortgage lenders. It suggests that your housing costs (PITI) should not exceed 28% of your gross monthly income (front-end ratio), and your total debt payments including the mortgage should not exceed 36% of your gross monthly income (back-end ratio)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate the 28/36 rule for my income?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To calculate the 28/36 rule, multiply your gross monthly income by 0.28 to find your maximum housing payment. Then, multiply your gross monthly income by 0.36 and subtract your current monthly debt payments (car loans, student loans, etc.) to see how much mortgage you can afford under the total debt limit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a mortgage if I exceed the 28/36 rule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. While the 28/36 rule is a standard guideline, many modern loan programs allow for higher ratios. Fannie Mae and Freddie Mac often approve back-end DTIs up to 45% or 50% for borrowers with high credit scores and substantial down payments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What counts toward the 36% debt ratio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 36% back-end ratio includes your prospective housing payment (PITI) plus all other recurring monthly debts like car loans, student loans, minimum credit card payments, child support, and personal loans. It does not include variable expenses like groceries or utilities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the 28/36 rule still used by lenders in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the 28/36 rule remains the 'gold standard' for traditional underwriting and financial health despite more flexible limits available in specific loan products. Lenders consistently check these ratios as part of the <strong>Consumer Financial Protection Bureau</strong>'s Ability-to-Repay requirements."
+          }
+        }
+      ]
+    },
+    content: `
+      <p>The <strong>28/36 rule explained</strong> simply is the single most important affordability guideline in US mortgage lending. While modern lending has introduced more flexibility, virtually every conventional lender still uses this rule as their baseline for safety. Most buyers have never heard of it until they sit down with a loan officer, but understanding it before you apply tells you exactly where you stand, what loan amount you qualify for, and what changes would increase your eligibility. This guide explains the rule completely with worked examples for a wide range of income levels. Start your journey with our <a href="/affordability-calculator">affordability calculator</a>.</p>
+
+      <h2>What Is the 28/36 Rule?</h2>
+      <p>Lenders split the 28/36 rule into two distinct calculations, and both must usually be satisfied simultaneously:</p>
+      <ul>
+        <li><strong>The 28% Rule (Front-End Ratio):</strong> Your total monthly housing costs — including Principal, Interest, Property Taxes, and Homeowners Insurance (PITI) — should not exceed 28% of your gross monthly income. This is also called the housing ratio.</li>
+        <li><strong>The 36% Rule (Back-End Ratio):</strong> Your total monthly debt payments — including housing costs plus all other installments or revolving debts like car loans, student loans, credit cards, and personal loans — should not exceed 36% of your gross monthly income. This is also called the total debt-to-income (DTI) ratio.</li>
+      </ul>
+      <p>A borrower who passes the 28% test but fails the 36% test due to $800/month in car payments will still face obstacles during underwriting unless they increase their down payment or find a less expensive home.</p>
+
+      <h2>How to Calculate Your 28/36 Ratios</h2>
+      <p>Let's walk through a step-by-step calculation for a household earning $85,000 per year in 2026:</p>
+      <ol>
+        <li><strong>Find Gross Monthly Income:</strong> $85,000 ÷ 12 = $7,083/month.</li>
+        <li><strong>Calculate 28% Front-End Limit:</strong> $7,083 × 0.28 = <strong>$1,983/month</strong> maximum PITI.</li>
+        <li><strong>Calculate 36% Back-End Limit:</strong> $7,083 × 0.36 = <strong>$2,550/month</strong> maximum total debt.</li>
+        <li><strong>Subtract Existing Debts:</strong> If you have a $450/month car and student loan payment, your available credit for housing is $2,550 − $450 = <strong>$2,100/month</strong>.</li>
+        <li><strong>Determine the Binding Constraint:</strong> The lender takes the <em>lower</em> of the two figures ($1,983 vs $2,100). In this case, your maximum payment is $1,983.</li>
+        <li><strong>Convert to Loan Amount:</strong> Subtracting ~$450 for taxes and insurance leaves ~$1,533 for Principal and Interest. At a 6.8% rate over 30 years, this supports estimated max loan amount of ~$229,000.</li>
+      </ol>
+      <p>You can convert your own maximum payment into a specific loan figure using our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+      <h2>28/36 Rule by Income Level: Quick Reference Tables</h2>
+      <p>Here is how the 28/36 rule scales across different salary levels. Note that the "Max P&I" column estimates a $450/month reduction for taxes and insurance, which varies by state.</p>
+
+      <div class="overflow-x-auto my-10">
+        <table class="w-full text-left border-collapse border border-outline-variant rounded-xl overflow-hidden">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Annual Income</th>
+              <th class="py-4 px-4 font-bold">Max PITI (28%)</th>
+              <th class="py-4 px-4 font-bold">Max Total Debt (36%)</th>
+              <th class="py-4 px-4 font-bold">Max P&I Est.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$40,000</td><td class="py-3 px-4">$933</td><td class="py-3 px-4">$1,200</td><td class="py-3 px-4 text-primary font-medium">~$483</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$55,000</td><td>$1,283</td><td>$1,650</td><td>~$833</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$70,000</td><td>$1,633</td><td>$2,100</td><td>~$1,183</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td>$85,000</td><td>$1,983</td><td>$2,550</td><td>~$1,533</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>$100,000</td><td>$2,333</td><td>$3,000</td><td>~$1,883</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$125,000</td><td>$2,917</td><td>$3,750</td><td>~$2,467</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$150,000</td><td>$3,500</td><td>$4,500</td><td>~$3,050</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$200,000</td><td>$4,667</td><td>$6,000</td><td>~$4,217</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>For a more detailed breakdown beyond these estimates, check out our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility tables</a> or run a personalized calculation with the <a href="/affordability-calculator">affordability calculator</a>.</p>
+
+      <h2>The 28/36 Rule vs. What Lenders Actually Allow</h2>
+      <p>While the 28/36 rule is the benchmark for "financial health," modern underwriting is more flexible. Conventional loans backed by Fannie Mae and Freddie Mac may allow back-end DTIs up to 45–50% with "compensating factors" like an 800+ credit score or substantial cash reserves. FHA loans often allow front-end DTIs up to 31% and back-end DTIs up to 50% or higher. However, just because a lender approves you for a $450,000 loan doesn't mean you can comfortably afford it. The 28/36 rule exists to keep your housing costs from "crowding out" other goals like retirement or travel. Review our <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> guide for a balanced perspective on lending vs. living.</p>
+
+      <h2>What Happens If You Exceed the 28/36 Limits?</h2>
+      <p>If your current ratios are over the goal, you have five clear levers to pull:</p>
+      <ul>
+        <li><strong>Increase Income:</strong> Adding a co-borrower's income (like a spouse earning $40,000) immediately lowers both percentages.</li>
+        <li><strong>Pay Down Debt:</strong> Eliminating a $300 car payment frees up $300 in "back-end" capacity, which translates to roughly $44,000 in additional mortgage eligibility.</li>
+        <li><strong>Increase Down Payment:</strong> <a href="/blog/down-payment-guide">Increasing your down payment</a> reduces the loan amount and therefore the PITI, improving your front-end ratio.</li>
+        <li><strong>Lower Property Taxes:</strong> Buying a home in a different county or state with lower local taxes directly lowers the PITI.</li>
+        <li><strong>Improve Credit Score:</strong> A higher score unlocks a lower interest rate. Thanks to the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a>'s influence on mid-range lending rates in 2026, dropping your rate by 0.5% can significantly improve your DTI profile.</li>
+      </ul>
+
+      <h2>A Practical Warning: Gross Income vs. Take-Home Pay</h2>
+      <p>This is where most buyers stumble. The 28/36 rule uses <strong>gross income</strong> (before taxes), but your life runs on <strong>net income</strong> (take-home pay). For someone earning $85,000, the gross monthly is $7,083, but take-home after taxes, health insurance, and 401(k) might be only $5,400. A mortgage payment of $1,983 (28% of gross) actually represents nearly 37% of your actual spendable cash. Always stress-test your payment against your real bank account — avoid these <a href="/blog/calculator-mistakes">common mortgage calculator mistakes</a> before committing. For total clarity, start <a href="/blog/home-purchase-budgeting">building your full home purchase budget</a> today.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is the 28/36 rule for mortgages?</h3>
+      <p>The 28/36 rule is a debt-to-income (DTI) guideline used by mortgage lenders. It suggests that your housing costs (PITI) should not exceed 28% of your gross monthly income (front-end ratio), and your total debt payments including the mortgage should not exceed 36% of your gross monthly income (back-end ratio).</p>
+
+      <h3>How do I calculate the 28/36 rule for my income?</h3>
+      <p>To calculate the 28/36 rule, multiply your gross monthly income by 0.28 to find your maximum housing payment. Then, multiply your gross monthly income by 0.36 and subtract your current monthly debt payments (car loans, student loans, etc.) to see how much mortgage you can afford under the total debt limit.</p>
+
+      <h3>Can I get a mortgage if I exceed the 28/36 rule?</h3>
+      <p>Yes. While the 28/36 rule is a standard guideline, many modern loan programs allow for higher ratios. Fannie Mae and Freddie Mac often approve back-end DTIs up to 45% or 50% for borrowers with high credit scores and substantial down payments. See our guide on <a href="/blog/loan-eligibility-by-income">loan eligibility by income</a> for more details.</p>
+
+      <h3>What counts toward the 36% debt ratio?</h3>
+      <p>The 36% back-end ratio includes your prospective housing payment (PITI) plus all other recurring monthly debts like car loans, student loans, minimum credit card payments, child support, and personal loans. It does not include variable expenses like groceries or utilities. Use our <a href="/loan-calculator">loan calculator</a> to model your monthly debt obligations.</p>
+
+      <h3>Is the 28/36 rule still used by lenders in 2026?</h3>
+      <p>Yes, the 28/36 rule remains the 'gold standard' for traditional underwriting and financial health despite more flexible limits available in specific loan products. Lenders consistently check these ratios as part of the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>'s Ability-to-Repay requirements. Check out the <a href="/blog/2026-homebuyers-playbook">2026 homebuyer's playbook</a> for more strategic advice.</p>
+
+      <div class="bg-primary p-12 rounded-3xl mt-16 text-white text-center shadow-2xl">
+        <h2 class="text-4xl font-bold mb-4">Find Out If You Pass the 28/36 Rule</h2>
+        <p class="mb-10 opacity-90 max-w-2xl mx-auto text-xl italic font-serif">Enter your annual income and debts to instantly see your maximum comfortable loan amount based on the gold standard for home purchase budgeting.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a href="/affordability-calculator" class="bg-white text-primary px-10 py-5 rounded-full font-bold text-xl no-underline hover:bg-opacity-90 transition-all shadow-lg transform hover:-translate-y-1">Affordability Calculator →</a>
+          <a href="/mortgage-calculator" class="bg-primary-hover text-white border-2 border-white/30 px-10 py-5 rounded-full font-bold text-xl no-underline hover:bg-white/10 transition-all shadow-lg transform hover:-translate-y-1">Calculate Payment →</a>
+        </div>
+      </div>
+    `
+  },
 ];
