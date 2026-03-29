@@ -1521,19 +1521,160 @@ export const articles: Article[] = [
     `
   },
   {
-    title: "15-Year vs 30-Year Mortgage Comparison",
+    title: "15-Year vs. 30-Year Mortgage: Which Is Right for You in 2026?",
     category: "Mortgage Guides",
-    readTime: "7 min read",
-    excerpt: "Higher payments now vs. hundreds of thousands saved later. We run the numbers to find the right path for you.",
+    readTime: "9 min read",
+    excerpt: "15-year or 30-year mortgage — which should you choose in 2026? We compare monthly payments, total interest, break-even points, and the exact scenarios where each term wins — with real numbers for loan amounts from $200k to $600k.",
     slug: "15-vs-30-year-mortgage",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is a 15-year or 30-year mortgage better?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Neither is objectively 'better'—it depends on your goals. A 15-year mortgage is better for minimizing total interest and building equity fast, while a 30-year mortgage is better for monthly cash flow flexibility and those who plan to invest their savings in the stock market."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much more do I pay on a 30-year vs 15-year mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On a $350,000 loan at 2026 rates, a 30-year mortgage costs approximately $235,660 more in total interest than a 15-year mortgage. However, the 15-year monthly payment is about $703 higher."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I pay off a 30-year mortgage in 15 years?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Most conventional 30-year mortgages allow you to make extra principal payments. By paying the 15-year equivalent amount every month, you can pay off a 30-year loan in roughly 16 years while maintaining the flexibility to fall back to the lower minimum payment if needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the interest rate difference between a 15 and 30-year mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In 2026, 15-year mortgage rates are typically 0.5% to 0.75% lower than 30-year rates. This spread, tracked by <strong>Federal Reserve Economic Data</strong>, reflects the lower risk lenders take on shorter-term debt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I get a 15-year mortgage if I can afford it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the higher 15-year payment stays below 28% of your gross income and you value being debt-free (especially before retirement), then yes. But if it prevents you from building an emergency fund or investing in a 401(k), the 30-year may be the safer financial foundation."
+          }
+        }
+      ]
+    },
     content: `
-      <p>Choosing between a 15-year and a 30-year mortgage is a classic financial trade-off: short-term pain for massive long-term gain. Use our <a href="/mortgage-calculator">mortgage calculator</a> to see the difference in your monthly budget.</p>
-      <h2>The 30-Year Stability</h2>
-      <p>The 30-year fixed provides the lowest possible monthly payment, offering you the most flexibility in your monthly budget. See if <a href="/rent-vs-buy-2026">buying or renting</a> works better for this long-term commitment.</p>
-      <h2>The 15-Year Savings</h2>
-      <p>By doubling down on your principal each month, you can often cut your total interest cost by 60% or more while building equity twice as fast. Learn about <a href="/down-payment-guide">down payment requirements</a> for these terms.</p>
-      <h3>Which is more popular?</h3>
-      <p>The 30-year fixed is by far the most popular due to its affordability, but the 15-year is ideal for those focused on early retirement or debt-free living. Detailed stats can be found at <a href="https://www.freddiemac.com/" target="_blank" rel="noopener noreferrer">Freddie Mac</a>.</p>
+      <p>The choice between a <strong>15 year vs 30 year mortgage</strong> is one of the most important financial decisions a homebuyer makes — and one of the most frequently misunderstood. The 15-year option is not always the smarter financial choice, and the 30-year is not always the safer one. The right answer depends entirely on your current income stability, your investment alternatives, and your long-term financial goals for 2026 and beyond. This guide gives you the complete picture with real numbers so you can decide which term fits your life. Start by running your own baseline numbers on our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+      <h2>The Core Difference: Payment vs. Total Cost</h2>
+      <p>The fundamental trade-off is simple: a 15-year mortgage has a higher monthly payment but dramatically lower total interest. A 30-year mortgage has a lower monthly payment, but you pay far more over time. Neither is objectively better; it depends on what you do with the payment difference. Let's look at a $350,000 loan at 2026 rates (15-year at 6.2%, 30-year at 6.8%):</p>
+
+      <div class="overflow-x-auto my-10">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Feature</th>
+              <th class="py-4 px-4 font-bold">15-Year (6.2%)</th>
+              <th class="py-4 px-4 font-bold">30-Year (6.8%)</th>
+              <th class="py-4 px-4 font-bold">Difference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Monthly P&I</td><td class="py-3 px-4">$2,993</td><td class="py-3 px-4">$2,290</td><td class="py-3 px-4 text-red-600">+$703/month</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Total Interest Paid</td><td class="py-3 px-4">$188,740</td><td class="py-3 px-4">$424,400</td><td class="py-3 px-4 text-green-600">$235,660 saved</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Equity at Year 5</td><td class="py-3 px-4">~$98,000</td><td class="py-3 px-4">~$37,000</td><td class="py-3 px-4 font-bold">$61,000 more</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Loan Paid Off</td><td class="py-3 px-4">2041</td><td class="py-3 px-4">2056</td><td class="py-3 px-4">15 years sooner</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>As the table shows, the 30-year mortgage costs $235,660 more in total interest but frees up $703/month every month for 30 years. To see how this equity builds month-by-month, check your <a href="/amortization-schedule">amortization schedule</a>.</p>
+
+      <h2>The Full Payment Comparison by Loan Amount</h2>
+      <p>How much does the choice impact your specific budget? Here is the comparison across common loan amounts at 2026 rates (using a 15-year at 6.2% and a 30-year at 6.8%):</p>
+
+      <div class="overflow-x-auto my-10 border border-outline-variant rounded-xl">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Loan Amount</th>
+              <th class="py-4 px-4 font-bold">15-yr Monthly P&I</th>
+              <th class="py-4 px-4 font-bold">30-yr Monthly P&I</th>
+              <th class="py-4 px-4 font-bold">Monthly Difference</th>
+              <th class="py-4 px-4 font-bold">Interest Saved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>$200,000</td><td>$1,710</td><td>$1,307</td><td>+$403</td><td>$134,660</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$300,000</td><td>$2,565</td><td>$1,961</td><td>+$604</td><td>$201,980</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>$350,000</td><td>$2,993</td><td>$2,290</td><td>+$703</td><td>$235,660</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$400,000</td><td>$3,420</td><td>$2,615</td><td>+$805</td><td>$269,320</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$500,000</td><td>$4,275</td><td>$3,327</td><td>+$948</td><td>$326,600</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td>$600,000</td><td>$5,130</td><td>$3,993</td><td>+$1,137</td><td>$392,160</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Run these calculations for your exact home price using our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+      <h2>When the 15-Year Mortgage Wins</h2>
+      <p>There are four clear scenarios where the 15-year is the superior choice for your financial future:</p>
+      <ol>
+        <li><strong>Stable, High Income:</strong> If the higher 15-year payment comfortably stays within the 28% housing ratio enforced by many lenders (and discussed by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>), it's a great way to force savings.</li>
+        <li><strong>Buying Your "Forever Home":</strong> If you plan to stay for 20+ years, the interest savings are phenomenal and you achieve the security of full ownership much sooner.</li>
+        <li><strong>Approaching Retirement:</strong> Being mortgage-free before you stop working is a top-tier financial goal. A 45-year-old on a 15-year term pays off at 60; on a 30-year, they're still paying at 75.</li>
+        <li><strong>Lack of Investing Discipline:</strong> If you wouldn't actually invest that $600–$900/month difference, the 15-year "forces" you to build wealth through home equity.</li>
+      </ol>
+
+      <h2>When the 30-Year Mortgage Wins</h2>
+      <p>Conversely, the 30-year is often the safer and more strategic foundational choice in these situations:</p>
+      <ul>
+        <li><strong>Budget Constraints:</strong> If a 15-year payment strains your budget above 30% of your gross income, you leave no buffer for job loss or emergencies. Flexibility is valuable.</li>
+        <li><strong>Consistent Investing:</strong> If you invest the $703/month difference into a low-cost index fund averaging 8-10% annually, the math often favors the 30-year borrower over 30 years.</li>
+        <li><strong>Short-Term Tenure:</strong> If you plan to move or refinance within 7–10 years, the significant interest savings of the 15-year may not have fully materialized yet.</li>
+        <li><strong>High-Interest Debt:</strong> You should always pay off credit cards (often 20%+ interest) or auto loans before committing to higher mortgage payments. Review our guide on <a href="/blog/extra-payments-impact">making extra payments on a 30-year loan</a> for an alternative strategy.</li>
+      </ul>
+
+      <h2>The Hybrid Strategy: 30-Year Loan With 15-Year Payments</h2>
+      <p>One of the best-kept secrets in home finance is taking a 30-year mortgage but paying it like a 15-year loan. This gives you the best of both worlds: the interest savings of a faster payoff, with the contractual flexibility to drop back to the lower 30-year minimum payment if you hit a financial rough patch. Paying $2,993/month on a 30-year $350,000 loan at 6.8% pays it off in approximately 16.5 years and saves roughly $210,000 in interest — an outcome nearly as good as the 15-year loan but with significantly less risk. You can model this specific "what-if" scenario on our <a href="/amortization-schedule">amortization schedule</a> tool. Check out more <a href="/blog/early-mortgage-payoff">strategies for paying off your mortgage early</a>.</p>
+
+      <h2>Rate Difference: Why 15-Year Rates Are Lower</h2>
+      <p>15-year mortgages consistently carry lower interest rates than 30-year loans — typically 0.5%–0.75% lower. This is because a shorter loan represents less time-based risk to the lender. According to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, this spread is a historical constant. On a $350,000 loan, the rate difference alone saves approximately $40,000 in interest before even considering the shorter term. Understanding <a href="/blog/interest-rate-impact">how your rate affects total cost</a> is vital before you sign. If you already have a 30-year loan, consider <a href="/blog/when-to-refinance">refinancing from a 30-year to a 15-year</a> if rates have dropped.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is a 15-year or 30-year mortgage better?</h3>
+      <p>Neither is objectively 'better'—it depends on your goals. A 15-year mortgage is better for minimizing total interest and building equity fast, while a 30-year mortgage is better for monthly cash flow flexibility and those who plan to invest their savings in the stock market. Learn more about <a href="/blog/amortization-schedule-explained">how amortization works</a> for each.</p>
+
+      <h3>How much more do I pay on a 30-year vs 15-year mortgage?</h3>
+      <p>On a $350,000 loan at 2026 rates, a 30-year mortgage costs approximately $235,660 more in total interest than a 15-year mortgage. However, the 15-year monthly payment is about $703 higher. You can see the full breakdown on our <a href="/total-interest-calculator">total interest calculator</a>.</p>
+
+      <h3>Can I pay off a 30-year mortgage in 15 years?</h3>
+      <p>Yes. Most conventional 30-year mortgages allow you to make extra principal payments. By paying the 15-year equivalent amount every month, you can pay off a 30-year loan in roughly 16 years while maintaining the flexibility to fall back to the lower minimum payment if needed. Review our <a href="/blog/mortgage-payment-guide">mortgage payment guide</a> to see how these payments are structured.</p>
+
+      <h3>What is the interest rate difference between a 15 and 30-year mortgage?</h3>
+      <p>In 2026, 15-year mortgage rates are typically 0.5% to 0.75% lower than 30-year rates. This spread, tracked by <strong>Federal Reserve Economic Data</strong>, reflects the lower risk lenders take on shorter-term debt.</p>
+
+      <h3>Should I get a 15-year mortgage if I can afford it?</h3>
+      <p>If the higher 15-year payment stays below 28% of your gross income and you value being debt-free (especially before retirement), then yes. But if it prevents you from building an emergency fund or investing in a 401(k), the 30-year may be the safer financial foundation.</p>
+
+      <div class="bg-primary p-12 rounded-[2.5rem] my-16 text-white text-center shadow-2xl relative overflow-hidden">
+        <div class="relative z-10">
+          <h3 class="text-4xl font-black mb-6">Compare Both Options for Your Situation</h3>
+          <p class="mb-10 opacity-90 max-w-2xl mx-auto text-xl font-medium">Enter your loan amount below to see the exact monthly and lifetime difference between a 15 and 30-year term.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="/mortgage-calculator" class="bg-white text-primary px-12 py-5 rounded-full font-bold text-xl no-underline hover:scale-105 transition-transform shadow-xl">Mortgage Calculator →</a>
+            <a href="/amortization-schedule" class="glass-effect text-white border-2 border-white/40 px-12 py-5 rounded-full font-bold text-xl no-underline hover:bg-white/10 transition-all shadow-xl">Amortization Schedule →</a>
+          </div>
+        </div>
+      </div>
     `
   },
   {
