@@ -22,7 +22,72 @@ export default function RentVsBuy() {
   const [interestRate, setInterestRate] = useState(3.5);
   const [years, setYears] = useState(10);
   const [closingCosts, setClosingCosts] = useState(3.0); 
+  const [isCalculated, setIsCalculated] = useState(false);
 
+  const rentVsBuySchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Rent vs Buy Calculator",
+      "url": "https://tryfincalc.com/rent-vs-buy",
+      "description": "Compare the total cost of renting versus buying a home. Factor in appreciation, interest, taxes, and maintenance to see which makes more financial sense for your timeline.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it better to rent or buy a home in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The answer depends on your 'break-even' point — the number of years you must stay in the home for the benefits of equity and appreciation to outweigh the closing costs of buying. In many European and US markets, the break-even point currently ranges from 3 to 6 years."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are 'sunk costs' when comparing renting and buying?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sunk costs are expenses that do not build equity. For renters, the entire rent payment is a sunk cost. For buyers, sunk costs include mortgage interest, property taxes, home insurance, maintenance, and initial closing costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does inflation affect the rent vs buy decision?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inflation typically favors buyers. While rent often increases every year with inflation, a fixed-rate mortgage payment stays constant. Over time, the 'real' cost of a fixed mortgage payment decreases compared to rising rental prices."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tryfincalc.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rent vs Buy Calculator",
+          "item": "https://tryfincalc.com/rent-vs-buy"
+        }
+      ]
+    }
+  ];
   const [results, setResults] = useState({
     totalRent: 0,
     totalBuy: 0,
@@ -83,6 +148,7 @@ export default function RentVsBuy() {
         title="Rent vs Buy Calculator" 
         description="Compare renting versus buying a home to see which makes more financial sense. Use our realistic guide. It is free and requires no sign-up for your journey."
         canonicalUrl="https://tryfincalc.com/rent-vs-buy"
+        structuredData={rentVsBuySchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">
@@ -105,11 +171,11 @@ export default function RentVsBuy() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-sm font-semibold text-on-surface">Monthly Rent ({currency === 'EUR' ? '€' : '$'})</label>
-                  <Input type="number" value={rent} onChange={(e) => setRent(Number(e.target.value))} />
+                  <Input type="number" value={rent} onChange={(e) => { setIsCalculated(true); setRent(Number(e.target.value)); }} />
                 </div>
                 <div className="space-y-1">
                   <label className="text-sm font-semibold text-on-surface">Annual Increase (%)</label>
-                  <Input type="number" step="0.1" value={rentIncrease} onChange={(e) => setRentIncrease(Number(e.target.value))} />
+                  <Input type="number" step="0.1" value={rentIncrease} onChange={(e) => { setIsCalculated(true); setRentIncrease(Number(e.target.value)); }} />
                 </div>
               </div>
             </div>
@@ -120,22 +186,22 @@ export default function RentVsBuy() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="text-sm font-semibold text-on-surface">Home Price ({currency === 'EUR' ? '€' : '$'})</label>
-                    <Input type="number" value={homePrice} onChange={(e) => setHomePrice(Number(e.target.value))} />
+                    <Input type="number" value={homePrice} onChange={(e) => { setIsCalculated(true); setHomePrice(Number(e.target.value)); }} />
                   </div>
                     <div className="space-y-1">
                       <label className="text-sm font-semibold text-on-surface">Closing Costs (%)</label>
-                      <Input type="number" step="0.1" value={closingCosts} onChange={(e) => setClosingCosts(Number(e.target.value))} />
+                      <Input type="number" step="0.1" value={closingCosts} onChange={(e) => { setIsCalculated(true); setClosingCosts(Number(e.target.value)); }} />
                       <p className="text-[10px] text-on-surface-variant">Estimated taxes, notary, and administrative fees.</p>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="text-sm font-semibold text-on-surface">Down Pmt (%)</label>
-                    <Input type="number" value={downPercent} onChange={(e) => setDownPercent(Number(e.target.value))} />
+                    <Input type="number" value={downPercent} onChange={(e) => { setIsCalculated(true); setDownPercent(Number(e.target.value)); }} />
                   </div>
                   <div className="space-y-1">
                     <label className="text-sm font-semibold text-on-surface">Mortgage Rate (%)</label>
-                    <Input type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(Number(e.target.value))} />
+                    <Input type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(Number(e.target.value)); }} />
                   </div>
                 </div>
               </div>
@@ -143,7 +209,7 @@ export default function RentVsBuy() {
 
             <div className="space-y-1 pt-4 border-t border-outline-variant/20">
               <label className="text-sm font-semibold text-on-surface">Time Horizon (Years)</label>
-              <Input type="number" value={years} onChange={(e) => setYears(Number(e.target.value))} />
+              <Input type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(Number(e.target.value)); }} />
               <p className="text-xs text-on-surface-variant italic">How long will you live in this property?</p>
             </div>
           </div>

@@ -29,28 +29,70 @@ export default function AmortizationSchedule() {
   const [schedule, setSchedule] = useState<ScheduleItem[]>([]);
   const [isCalculated, setIsCalculated] = useState(false);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How does a variable rate affect my schedule?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "If your interest rate is variable, your schedule will be recalculated by your lender at each revision date based on the new rate and remaining balance."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use this for a car loan?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! Most installment loans for vehicles use the same base amortization math, showing how each payment reduces your total balance."
-        }
+  const amortizationSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Amortization Calculator",
+      "url": "https://tryfincalc.com/amortization-schedule",
+      "description": "Generate a full loan amortization schedule. See how each payment is split between principal and interest over the life of your mortgage or personal loan.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       }
-    ]
-  };
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an amortization schedule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An amortization schedule is a complete table of periodic loan payments, showing the amount of principal and the amount of interest that comprise each payment until the loan is paid off at the end of its term."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does extra principal affect amortization?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Making extra principal payments reduces the outstanding balance faster, which in turn reduces the amount of interest calculated for future periods. This can significantly shorten the loan term and save thousands in total interest costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is more interest paid at the beginning of a loan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because interest is calculated based on the remaining loan balance, and the balance is highest at the start of the loan. As you pay down the principal, the interest portion of each subsequent payment decreases, and the principal portion increases."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tryfincalc.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Amortization Schedule",
+          "item": "https://tryfincalc.com/amortization-schedule"
+        }
+      ]
+    }
+  ];
 
   // Sync state when currency changes
   useEffect(() => {
@@ -93,7 +135,7 @@ export default function AmortizationSchedule() {
         title="Amortization Schedule Calculator - Payoff Details"
         description="View your full amortization schedule to see how payments are split between principal and interest. Free and requires no sign-up. Plan your payoff schedule."
         canonicalUrl="https://tryfincalc.com/amortization-schedule"
-        structuredData={faqSchema}
+        structuredData={amortizationSchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">

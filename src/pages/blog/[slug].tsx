@@ -27,13 +27,75 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
     );
   }
 
+  const schemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": article.title,
+      "description": article.excerpt,
+      "image": "https://tryfincalc.com/og-image.png",
+      "author": {
+        "@type": "Organization",
+        "name": "TryFinCalc Editorial",
+        "url": "https://tryfincalc.com/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TryFinCalc",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tryfincalc.com/logo.png"
+        }
+      },
+      "datePublished": "2026-03-30",
+      "dateModified": "2026-03-30",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://tryfincalc.com/blog/${article.slug}`
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tryfincalc.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Financial Guides",
+          "item": "https://tryfincalc.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": article.title,
+          "item": `https://tryfincalc.com/blog/${article.slug}`
+        }
+      ]
+    }
+  ];
+
+  // Merge any predefined structuredData from the article object
+  if (article.structuredData) {
+    if (Array.isArray(article.structuredData)) {
+      schemas.push(...article.structuredData);
+    } else {
+      schemas.push(article.structuredData as any);
+    }
+  }
+
   return (
     <MainLayout>
       <SEOHandler 
         title={article.title} 
         description={article.excerpt} 
         canonicalUrl={`https://tryfincalc.com/blog/${article.slug}`}
-        structuredData={article.structuredData}
+        structuredData={schemas}
       />
       
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">

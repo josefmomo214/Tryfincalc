@@ -21,28 +21,70 @@ export default function AffordabilityCalculator() {
   const [loanTerm, setLoanTerm] = useState(25);
   const [isCalculated, setIsCalculated] = useState(false);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the 28/36 rule?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A standard rule where your mortgage payment should not exceed 28% of your gross monthly income, and your total debt payments should not exceed 36%."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does debt affect my mortgage limit?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Lenders look at your Debt-to-Income (DTI) ratio. High existing monthly payments (car loans, student debt) will directly reduce the maximum mortgage payment you can qualify for."
-        }
+  const affordabilitySchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Home Affordability Calculator",
+      "url": "https://tryfincalc.com/affordability-calculator",
+      "description": "Find out how much house you can afford based on your income, debts, and down payment. Free affordability calculator supporting USD and EUR.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       }
-    ]
-  };
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much house can I afford on a $75,000 salary?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On a $75,000 salary, applying the 28% rule, your maximum monthly housing cost is approximately $1,750. At current rates around 6.8% on a 30-year mortgage, this supports a loan amount of approximately $261,000 — meaning a home price of around $290,000 with a 10% down payment, assuming no other significant debts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the 28/36 rule for mortgage affordability?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 28/36 rule states that your monthly housing costs should not exceed 28% of your gross monthly income, and your total monthly debt payments should not exceed 36% of your gross monthly income. Most conventional lenders use these thresholds to evaluate mortgage applications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do I need for a down payment in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The minimum down payment depends on the loan type. Conventional loans allow as little as 3% down. FHA loans require 3.5%. VA loans require no down payment for eligible veterans. A 20% down payment eliminates private mortgage insurance (PMI) and produces the lowest monthly payment."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tryfincalc.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Home Affordability Calculator",
+          "item": "https://tryfincalc.com/affordability-calculator"
+        }
+      ]
+    }
+  ];
 
   const [results, setResults] = useState({
     maxPrice: 0,
@@ -87,7 +129,7 @@ export default function AffordabilityCalculator() {
         title="Affordability Calculator - How Much House Can I Buy?"
         description="Find out how much home you can afford based on your income and debts. Get a realistic estimate in seconds. Free tool, no sign-up. Start your home search."
         canonicalUrl="https://tryfincalc.com/affordability-calculator"
-        structuredData={faqSchema}
+        structuredData={affordabilitySchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">

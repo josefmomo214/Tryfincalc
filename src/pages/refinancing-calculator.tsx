@@ -23,28 +23,70 @@ export default function RefinancingCalculator() {
   const [fees, setFees] = useState(5500);
   const [isCalculated, setIsCalculated] = useState(false);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "When is the best time to refinance?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The general rule of thumb is when interest rates drop at least 1% below your current rate, or if your credit score has improved significantly since you took out the original loan."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What are typical refinancing closing costs?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Expect to pay between 2% and 5% of the loan amount in various fees, including appraisal, title search, and application fees."
-        }
+  const refinancingSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Refinancing Calculator",
+      "url": "https://tryfincalc.com/refinancing-calculator",
+      "description": "Calculate your potential savings from refinancing your mortgage. Estimate monthly and lifetime savings, and find your break-even point.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       }
-    ]
-  };
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "When does it make sense to refinance a mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Refinancing generally makes sense when you can lower your interest rate by at least 0.75% to 1%, or if you want to switch from an adjustable-rate to a fixed-rate mortgage for stability. The key is ensuring you will stay in the home long enough to reach the 'break-even' point where your monthly savings cover the closing costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the refinancing break-even point calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The break-even point is calculated by dividing the total closing costs of the new loan by your monthly savings. For example, if refinancing costs $5,000 and saves you $200 per month, your break-even point is 25 months ($5,000 / $200)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are typical closing costs for refinancing in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Closing costs for refinancing typically range from 2% to 5% of the loan principal. These costs often include application fees, home appraisal fees, title search and insurance, and lender attorney fees."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tryfincalc.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Refinancing Calculator",
+          "item": "https://tryfincalc.com/refinancing-calculator"
+        }
+      ]
+    }
+  ];
 
   const [results, setResults] = useState({
     monthlySavings: 0,
@@ -82,7 +124,7 @@ export default function RefinancingCalculator() {
         title="Refinancing Calculator - Save on Your Monthly Payments"
         description="Calculate how much you can save by refinancing your mortgage or loan. Find your break-even point today. Free and requires no sign-up. Compare rates now."
         canonicalUrl="https://tryfincalc.com/refinancing-calculator"
-        structuredData={faqSchema}
+        structuredData={refinancingSchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">

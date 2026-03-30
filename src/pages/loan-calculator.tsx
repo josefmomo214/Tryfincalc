@@ -20,28 +20,70 @@ export default function LoanCalculator() {
   const [loanTerm, setLoanTerm] = useState(5);
   const [isCalculated, setIsCalculated] = useState(false);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the difference between APR and interest rate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The interest rate is the cost you pay each year to borrow the money, expressed as a percentage. APR is a broader measure that includes the interest rate plus other costs such as lender fees and closing costs."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I pay off my loan early?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most modern personal loans allow for early repayment without penalties, which can save you a significant amount in total interest. Always check your specific loan agreement for 'prepayment penalty' clauses."
-        }
+  const loanSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Loan Calculator",
+      "url": "https://tryfincalc.com/loan-calculator",
+      "description": "Free loan calculator — calculate monthly payments, total interest, and full amortization schedule for any personal loan, auto loan, or mortgage.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       }
-    ]
-  };
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does a loan calculator work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A loan calculator uses the standard amortization formula M = P[r(1+r)^n]/[(1+r)^n-1] to calculate your monthly payment based on the loan amount, interest rate, and term. It then shows the total interest paid and full repayment schedule over the life of the loan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between APR and interest rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The interest rate is the base cost of borrowing the principal. The APR (Annual Percentage Rate) includes the interest rate plus all lender fees and charges, expressed as a yearly rate. Always compare APRs — not nominal rates — when evaluating loan offers from different lenders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it better to take a shorter or longer loan term?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A shorter loan term means higher monthly payments but significantly less total interest paid. A longer term lowers your monthly payment but costs more overall. For example, a $25,000 loan at 8% over 3 years costs $3,188 in interest. The same loan over 7 years costs $7,676 — more than double."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tryfincalc.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Loan Calculator",
+          "item": "https://tryfincalc.com/loan-calculator"
+        }
+      ]
+    }
+  ];
 
   const [results, setResults] = useState({
     monthly: 0,
@@ -71,7 +113,7 @@ export default function LoanCalculator() {
         title="Loan Calculator - Simple & Fast Personal Finance Tool"
         description="Calculate monthly payments for any personal or auto loan. See your total interest and repayment plan. Free and requires no sign-up. Easy financial planning."
         canonicalUrl="https://tryfincalc.com/loan-calculator"
-        structuredData={faqSchema}
+        structuredData={loanSchema}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">

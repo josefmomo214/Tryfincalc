@@ -27,36 +27,70 @@ export default function MortgageCalculator() {
   const [hoa, setHoa] = useState<number>(0);
   const [isCalculated, setIsCalculated] = useState(false);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is included in a mortgage monthly payment?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A typical payment includes Principal (repaying the borrowed amount), Interest (the lender's fee), and often Escrow for Property Taxes and Homeowners Insurance (known as PITI)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much down payment do I need?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "While 20% is the traditional benchmark to avoid PMI, many programs allow as little as 3% or even 0% for qualified veterans (VA loans)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does a higher credit score lower my payment?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, a higher credit score qualifies you for lower interest rates, which directly reduces both your monthly installment and the total interest paid over the life of the loan."
-        }
+  const mortgageSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Mortgage Calculator",
+      "url": "https://tryfincalc.com/mortgage-calculator",
+      "description": "Free mortgage calculator — estimate your monthly payment including principal, interest, taxes, and insurance. Supports USD and EUR.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       }
-    ]
-  };
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much should I save for a down payment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While 20% is the gold standard to avoid mortgage insurance, many programs allow as little as 3-10% down. A larger down payment always lowers your monthly obligation and reduces total interest paid."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an Agreement in Principle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An Agreement in Principle is an initial assessment from a lender indicating how much they might be willing to lend you. It strengthens your position when making an offer to sellers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I pay off my mortgage early?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most modern mortgages allow for extra payments or early payoff, but some may have prepayment penalties. Check your agreement for specifics on overpayments."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tryfincalc.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mortgage Calculator",
+          "item": "https://tryfincalc.com/mortgage-calculator"
+        }
+      ]
+    }
+  ];
 
   // Sync state when currency changes
   useEffect(() => {
@@ -122,7 +156,7 @@ export default function MortgageCalculator() {
         title="Mortgage Calculator - Estimate Your Monthly House Payments"
         description="Calculate your monthly mortgage payments with our easy-to-use tool. Factor in interest, term, and down payment. Free, no sign-up required. Plan your home purchase."
         canonicalUrl="https://tryfincalc.com/mortgage-calculator"
-        structuredData={faqSchema}
+        structuredData={mortgageSchema}
       />
       
       <div className="bg-surface pt-20 pb-12 px-4 sm:px-6 lg:px-8">
