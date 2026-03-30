@@ -23,6 +23,7 @@ export function Header() {
     { name: "Rent vs Buy", href: "/rent-vs-buy" },
     { name: "Amortization", href: "/amortization-schedule" },
     { name: "Guides", href: "/blog" },
+    { name: "About", href: "/about" },
   ];
 
   return (
