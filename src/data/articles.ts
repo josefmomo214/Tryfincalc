@@ -3192,7 +3192,7 @@ export const articles: Article[] = [
       <ul>
         <li><strong>Loan Amount:</strong> This is the total principal balance you are borrowing from the lender, which is often different from the purchase price of the item. For example, if you are buying a car with a price tag of $30,000 and you provide a $5,000 down payment, your actual loan amount is $25,000. This is the figure that interest will be calculated on.</li>
         <li><strong>Interest Rate (APR):</strong> This is the Annual Percentage Rate the lender charges for the privilege of borrowing. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, you should always use the APR rather than a "nominal" or "base" interest rate. The APR included both the interest rate and mandatory lender fees, providing a true "apples-to-apples" comparison between different loan offers.</li>
-        <li><strong>Loan Term:</strong>这是你偿还贷款的时间长度，通常以月（汽车贷款）或年（抵押贷款）为单位。A longer term leads to lower monthly payments but significantly more total interest paid over the life of the loan.</li>
+        <li><strong>Loan Term:</strong> This is the length of time you have to repay the loan, expressed in months or years. A 5-year auto loan has a term of 60 months. A standard mortgage runs 15 or 30 years. A longer term lowers your monthly payment but significantly increases the total interest paid over the life of the loan.</li>
       </ul>
 
       <h2>How Loan Payments Are Calculated</h2>
