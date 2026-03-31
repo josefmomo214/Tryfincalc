@@ -8,11 +8,14 @@ import { ThemeToggle } from "@/components/navigation/ThemeToggle";
 import SearchBar from "@/components/navigation/SearchBar";
 import { Search } from "lucide-react";
 
-export function Header() {
+interface HeaderProps {
+  onSearchOpen: () => void;
+}
+
+export function Header({ onSearchOpen }: HeaderProps) {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
   const currency = locale?.toUpperCase() || 'USD';
 
@@ -39,31 +42,29 @@ export function Header() {
             </Link>
           </div>
           
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-on-surface-variant font-medium hover:text-primary transition-colors hover:bg-surface-container-low px-3 py-2 rounded-md"
+                className="text-on-surface-variant font-medium hover:text-primary transition-colors hover:bg-surface-container-low px-3 py-2 rounded-md whitespace-nowrap"
               >
                 {link.name}
               </Link>
             ))}
           </nav>
           
-          <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
-            <SearchBar />
-          </div>
-          
-          <div className="hidden md:flex items-center space-x-6">
-            <div className="lg:hidden">
-              <button 
-                onClick={() => router.push('/search?q=')}
-                className="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-lg"
-              >
-                <Search size={22} />
-              </button>
-            </div>
+          <div className="hidden md:flex items-center space-x-4">
+            <button 
+              onClick={onSearchOpen}
+              aria-label="Search"
+              className="p-2 w-[36px] h-[36px] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-outline-variant/10 hover:bg-surface-container-low rounded-lg"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                <circle cx="6.5" cy="6.5" r="4.5"/>
+                <line x1="10" y1="10" x2="14" y2="14"/>
+              </svg>
+            </button>
             <ThemeToggle />
             <div className="flex bg-surface-container-low rounded-lg p-1 border border-outline-variant/10">
               <button
@@ -92,8 +93,9 @@ export function Header() {
 
           <div className="flex items-center gap-4 md:hidden">
             <button
-               onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
-               className={cn("p-2 rounded-md transition-colors", mobileSearchOpen ? "bg-primary text-white" : "text-on-surface-variant hover:bg-surface-container-low")}
+               onClick={onSearchOpen}
+               aria-label="Search"
+               className="p-2 rounded-md text-on-surface-variant hover:bg-surface-container-low transition-colors"
             >
               <Search size={20} />
             </button>
@@ -110,13 +112,6 @@ export function Header() {
                 <Menu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
-          </div>
-        </div>
-
-        {/* Mobile Search Overlay */}
-        <div className={cn("md:hidden overflow-hidden transition-all duration-300 border-t border-outline-variant/10 bg-surface-container-lowest shadow-ambient", mobileSearchOpen ? "max-h-20 opacity-100 py-3" : "max-h-0 opacity-0")}>
-          <div className="px-4">
-            <SearchBar className="max-w-full" />
           </div>
         </div>
       </div>
