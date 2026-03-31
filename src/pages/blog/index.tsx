@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BlogThumbnail } from "@/components/blog/BlogThumbnail";
 import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
+import SearchBar from "@/components/navigation/SearchBar";
 import { articles } from "@/data/articles";
 
 export default function BlogIndex() {
@@ -40,6 +41,9 @@ export default function BlogIndex() {
             <p className="text-xl text-on-surface-variant leading-relaxed max-w-2xl">
               Cutting through the noise. Clear, actionable, and mathematically sound advice for your next big financial move.
             </p>
+            <div className="mt-8 max-w-xl">
+              <SearchBar isLarge={true} />
+            </div>
           </div>
           <div className="md:w-1/3 flex flex-wrap gap-2 text-sm">
             <span className="px-4 py-2 rounded-full border border-primary text-primary font-medium hover:bg-primary-fixed transition-colors cursor-pointer">All</span>

@@ -5,11 +5,14 @@ import { Menu, X, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/navigation/Logo";
 import { ThemeToggle } from "@/components/navigation/ThemeToggle";
+import SearchBar from "@/components/navigation/SearchBar";
+import { Search } from "lucide-react";
 
 export function Header() {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
   const currency = locale?.toUpperCase() || 'USD';
 
@@ -48,7 +51,19 @@ export function Header() {
             ))}
           </nav>
           
+          <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
+            <SearchBar />
+          </div>
+          
           <div className="hidden md:flex items-center space-x-6">
+            <div className="lg:hidden">
+              <button 
+                onClick={() => router.push('/search?q=')}
+                className="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-lg"
+              >
+                <Search size={22} />
+              </button>
+            </div>
             <ThemeToggle />
             <div className="flex bg-surface-container-low rounded-lg p-1 border border-outline-variant/10">
               <button
@@ -76,6 +91,12 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-4 md:hidden">
+            <button
+               onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
+               className={cn("p-2 rounded-md transition-colors", mobileSearchOpen ? "bg-primary text-white" : "text-on-surface-variant hover:bg-surface-container-low")}
+            >
+              <Search size={20} />
+            </button>
             <ThemeToggle />
             <button
               type="button"
@@ -89,6 +110,13 @@ export function Header() {
                 <Menu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
+          </div>
+        </div>
+
+        {/* Mobile Search Overlay */}
+        <div className={cn("md:hidden overflow-hidden transition-all duration-300 border-t border-outline-variant/10 bg-surface-container-lowest shadow-ambient", mobileSearchOpen ? "max-h-20 opacity-100 py-3" : "max-h-0 opacity-0")}>
+          <div className="px-4">
+            <SearchBar className="max-w-full" />
           </div>
         </div>
       </div>
