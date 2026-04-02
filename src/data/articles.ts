@@ -1680,19 +1680,102 @@ export const articles: Article[] = [
     `
   },
   {
-    title: "Mortgage Down Payment Explained",
+    title: "How Much Do You Really Need for a Down Payment?",
     category: "Home Buying",
-    readTime: "5 min read",
-    excerpt: "Learn how much you really need for a down payment, including the secrets of low-down-payment programs.",
+    readTime: "9 min read",
+    excerpt: "The 20% down payment rule is outdated for most buyers. Here is how much you actually need in 2026, what PMI really costs, how long it takes to save, and the programs that can help you get there faster.",
     slug: "down-payment-guide",
     content: `
-      <p>The 20% down payment is a myth. Discover the modern reality of entering the housing market with less cash upfront. Use our <a href="/mortgage-calculator">mortgage calculator</a> to see how different down payments affect your monthly cost.</p>
-      <h2>Low Down Payment Options</h2>
-      <p>Programs like FHA only require 3.5% down, and some conventional loans allow for as little as 3% for first-time buyers. Review your <a href="/affordability-calculator">affordability ranges</a> for these options.</p>
-      <h2>The PMI Trade-off</h2>
-      <p>Putting down less than 20% usually means you'll pay Private Mortgage Insurance (PMI), which adds to your monthly cost but helps you buy sooner. Learn more about <a href="https://www.investopedia.com/terms/p/pmi.asp" target="_blank" rel="noopener noreferrer">PMI at Investopedia</a>.</p>
-      <h3>Can I use gifted money?</h3>
-      <p>Yes, many loan programs allow family members to provide 'gift funds' for your down payment, provided there is a proper <a href="/loan-calculator">loan structure</a> or gift letter.</p>
+      <p>Most people grew up hearing they need 20% down to buy a house. But for most buyers today, waiting to save 20% would mean waiting a decade. The median home price in the US is now over $400,000 — that's $80,000 before you even get to closing costs. The reality is that millions of Americans buy homes every year with far less than 20% down, and most of them are just fine.</p>
+
+      <p>The down payment decision is genuinely one of the most personal ones in the homebuying process. The right amount depends on your savings, your monthly budget, how long you plan to stay, and honestly — what lets you sleep at night. This guide lays out the real options so you can make the call that fits your life, not some generic rule from 1985. You can use our <a href="/affordability-calculator">affordability calculator</a> to see how different amounts impact your buying power.</p>
+
+      <h2>The Down Payment Options Actually Available to You in 2026</h2>
+      <p>In 2026, the options for getting into a home are more flexible than ever. For many first-time buyers and those with lower-to-moderate incomes, there are 3% down programs available through conventional loans like Fannie Mae's HomeReady and Freddie Mac's Home Possible. While these typically require a credit score of at least 620, you'll find that scoring 680 or higher generally unlocks much better terms. If your credit score is a bit lower, FHA loans are a common path, allowing for as little as 3.5% down with scores as low as 580. The trade-off here is that FHA mortgage insurance is a bit more persistent than conventional PMI, which we'll dive into shortly.</p>
+
+      <p>Many buyers find that 10% down represents the "sweet spot." It's enough to reduce your loan size and drop your PMI costs significantly, but it still leaves you with enough cash for closing costs, moving expenses, and the inevitable repairs that pop up in any new home. Of course, 20% down remains the gold standard for avoiding PMI entirely and securing the lowest possible interest rate. However, on a $400,000 home, that’s $80,000 in cash—a mountain of money that many people simply don't have sitting around, especially after also budgeting for closing costs. Worth targeting if you can, but not worth waiting years for if you're ready to buy.</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Down Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Loan Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly PMI</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly P&I (6.8%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">3%</td><td class="py-3 px-4">$11,400</td><td class="py-3 px-4">$368,600</td><td class="py-3 px-4">~$154/mo</td><td class="py-3 px-4">$2,413</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">3.5%</td><td class="py-3 px-4">$13,300</td><td class="py-3 px-4">$366,700</td><td class="py-3 px-4">~$153/mo</td><td class="py-3 px-4">$2,400</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="py-3 px-4">10%</td><td class="py-3 px-4">$38,000</td><td class="py-3 px-4">$342,000</td><td class="py-3 px-4">~$71/mo</td><td class="py-3 px-4">$2,239</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4">20%</td><td class="py-3 px-4">$76,000</td><td class="py-3 px-4">$304,000</td><td class="py-3 px-4">$0</td><td class="py-3 px-4">$1,990</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>When you look at the raw data, the difference between putting 3% down and 20% down on a typical home is about $423 per month. While that is absolutely real money, it may be less of a gap than many people expect given the massive difference in upfront cash. You can run your own scenarios using our <a href="/mortgage-calculator">mortgage calculator</a> to see how these numbers shift for your specific price point. Check out our guide on <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> for more on this.</p>
+
+      <h2>The PMI Question — Is It Really That Bad?</h2>
+      <p>PMI, or Private Mortgage Insurance, often gets a bad reputation in the homebuying world. Yes, it's essentially a fee you pay that doesn't build any equity in your home. However, it's also the very thing that enables you to buy a home three to seven years earlier than if you were forced to wait and save up a full 20% down payment. In a rising market, the math can actually work in your favor—getting into a home sooner often beats waiting for a "perfect" down payment while prices climb.</p>
+
+      <p>Typically, PMI costs between 0.5% and 1.5% of the loan amount per year, which is split into your monthly payments. On a $350,000 loan at an average 0.8% rate, you’re looking at about $233 per month. It isn't a small amount, but it’s also not permanent. Under the Homeowners Protection Act, which you can read about in detail at the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, lenders are required to automatically cancel your PMI once your loan balance reaches 78% of the original purchase price. You can even request early cancellation once you hit 80% equity, or get there faster by making <a href="/blog/extra-payments-impact">extra payments</a> toward your principal.</p>
+
+      <p>There is one important exception to keep in mind: FHA mortgage insurance. If you put down less than 10% on an FHA loan, that insurance stays for the entire life of the loan. If you put down 10% or more, it drops off after 11 years. This is a big reason why many buyers prefer conventional loans even when FHA rates seem slightly lower—over the long haul, the persistent cost of FHA insurance can easily erase any benefit from a lower interest rate.</p>
+
+      <h2>How Long Does It Actually Take to Save?</h2>
+      <p>Saving for a down payment while you're already paying rent is genuinely one of the hardest parts of the journey. There's no sense in sugarcoating it: it requires a high level of discipline and often some tough trade-offs. The timeline depends heavily on your monthly surplus and your target. If you're able to set aside $1,000 a month after tax and rent, here is what that path forward looks like:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse bg-surface-container-low px-4">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Down Payment Target</th>
+              <th class="py-3 px-4 font-bold text-sm">Time to Save</th>
+              <th class="py-3 px-4 font-bold text-sm">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$11,400 (3%)</td><td class="py-3 px-4">~11 months</td><td class="py-3 px-4">Realistic for many renters</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$38,000 (10%)</td><td class="py-3 px-4">~3.2 years</td><td class="py-3 px-4">Achievable with discipline</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$57,000 (15%)</td><td class="py-3 px-4">~4.7 years</td><td class="py-3 px-4">Start to question opportunity cost</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$76,000 (20%)</td><td class="py-3 px-4">~6.3 years</td><td class="py-3 px-4">A long time in a rising market</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>It's worth considering that if you're in a market where home prices are rising by 4–5% per year, waiting an extra three or four years just to hit that 20% mark means you’re essentially chasing a moving target. Sometimes, putting less down sooner is the smarter move than waiting for a "right" number that keeps getting further away. You can explore this dynamic further in our analysis of <a href="/blog/rent-vs-buy-2026">renting vs buying in 2026</a>.</p>
+
+      <h2>Programs That Can Help You Get There Faster</h2>
+      <p>Many homebuyers assume they have to save every single dollar of their down payment themselves, but there are several programs designed specifically to help you cross the finish line sooner. For instance, most US states offer Down Payment Assistance (DPA) programs. These often take the form of grants or low-interest second loans that can cover 3–5% of your purchase price. The <a href="https://www.ncsha.org" target="_blank" rel="noopener noreferrer">National Council of State Housing Agencies</a> maintains a directory where you can find programs specific to your area. These are often underutilized and are well worth checking before you assume you're on your own. If you're still wondering <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> given these programs, our guide has you covered.</p>
+
+      <p>Beyond state programs, most loan types—including conventional, FHA, and VA—allow you to use gift funds from family members for part or all of your down payment. You'll just need a signed "gift letter" confirming that the money isn't a loan that needs to be repaid. If you have a 401(k), some employers allow you to borrow against it for a home purchase, typically up to $50,000 or 50% of your vested balance. While it’s not always ideal to miss out on market gains, it’s an option worth knowing about. And of course, if you or your spouse have served in the military, <a href="/blog/va-loans-guide">VA loans</a> require zero down payment and no PMI, which is arguably the single best mortgage benefit available in the US today. For official information on all these assistance programs, <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> is the best place to start.</p>
+
+      <h2>The Decision Nobody Talks About — What to Do With Extra Cash</h2>
+      <p>One thing many buyers obsess over is maximizing their down payment, but from a practical standpoint, you might be better off keeping some of that cash in reserve. Most lenders will actually require you to have 2–6 months of mortgage payments available in your accounts after closing. If you drain every last dollar into your down payment and end up with empty pockets, you're one broken furnace or leaky roof away from serious financial stress.</p>
+
+      <p>Most financial planners suggest a "1% maintenance rule," meaning you should budget roughly 1% of your home's total value each year for upkeep. On a $380,000 home, that’s $3,800 a year that you need to have accessible, not locked away in home equity. The honest take is that putting 10% down and keeping $15,000 in an emergency fund is often a much stronger financial position than putting 15% down and having nothing left. After all, home equity doesn't pay your plumber. For a full breakdown of what you'll need beyond the down payment, check out our breakdown of <a href="/blog/home-purchase-budgeting">full cash requirements</a>.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>How much down payment do I need to buy a house in 2026?</strong><br/>The absolute minimum is 3% for most conventional loans and 3.5% for FHA loans. The right amount for your specific situation depends on your current savings, your monthly comfort level, and how long you plan to stay in the home. Many buyers find that landing somewhere between 5% and 10% is the ideal balance for keeping PMI costs manageable without wiping out their entire life savings.</p>
+
+      <p><strong>Is it worth putting 20% down to avoid PMI?</strong><br/>It really depends on how long it would take you to save that extra amount. If you can get there in 12–18 months, it might be worth it. But if it means waiting five years or more while rents rise and home prices climb, you're likely better off buying sooner with a smaller deposit. Run the numbers for your specific situation using our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+      <p><strong>Can I use gift money for a down payment?</strong><br/>Yes, most major loan programs allow for gift funds from family members. Your lender will just need a signed gift letter confirming that the money is a gift and not a loan that you’re expected to pay back. They usually have a simple template you can use for this.</p>
+
+      <p><strong>What is PMI and when does it go away?</strong><br/>PMI stands for Private Mortgage Insurance, and it's a policy that protects the lender (not you) in case you default on the loan. It's required on most loans with less than 20% down. On conventional loans, it automatically cancels when your loan balance reaches 78% of the original price, though you can request it at 80%. See our guide on <a href="/blog/extra-payments-impact">extra payments</a> for tips on how to get there faster.</p>
+
+      <p><strong>How long does it take to save a down payment?</strong><br/>If you’re saving $1,000 a month, you can reach a 3% down payment on a $380,000 home in about 11 months, while a 10% payment would take roughly three years. Whether you should wait longer for a bigger deposit really depends on your local market and how quickly prices are moving in your area.</p>
+
+      <div class="bg-primary/5 p-8 rounded-3xl my-16 border border-primary/10 shadow-sm text-center">
+        <h3 class="text-2xl font-bold mb-4">See What Your Down Payment Really Changes</h3>
+        <p class="mb-8 opacity-80 max-w-2xl mx-auto text-lg leading-relaxed text-on-surface">The fastest way to make this decision is to run your actual numbers. Enter your target home price and try two or three different down payment amounts in our mortgage calculator — see exactly how much the monthly payment changes and decide what works for your budget.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-4 rounded-full font-bold no-underline hover:scale-105 transition-transform shadow-lg">Mortgage Calculator</a>
+          <a href="/affordability-calculator" class="bg-surface-container text-on-surface px-8 py-4 rounded-full font-bold no-underline border border-outline-variant hover:bg-surface-container-high transition-colors">Affordability Calculator</a>
+        </div>
+      </div>
     `
   },
   // The rest are standard articles

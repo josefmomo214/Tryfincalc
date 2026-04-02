@@ -31,8 +31,8 @@ export const searchIndex = [
     category: "Refinancing",
   },
   {
-    title: "Down Payment Guide 2026",
-    description: "How much down payment do you really need to buy a house?",
+    title: "How Much Do You Really Need for a Down Payment?",
+    description: "The 20% down payment rule is outdated. See how much you actually need in 2026, what PMI costs, and the programs that can help.",
     url: "/blog/down-payment-guide",
     category: "Home Buying",
   },
