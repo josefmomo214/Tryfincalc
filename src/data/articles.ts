@@ -1664,19 +1664,219 @@ export const articles: Article[] = [
     `
   },
   {
-    title: "Rent vs Buy: Which Is Better in 2026?",
+    title: "Rent vs. Buy in 2026: An Honest Look at Both Sides",
     category: "Financial Planning",
-    readTime: "10 min read",
-    excerpt: "A deep dive into the 2026 financial landscape to help you decide between the freedom of renting and the equity of buying.",
+    readTime: "12 min read",
+    excerpt: "Is it better to rent or buy a home in 2026? We break down the real costs, the break-even timeline, the price-to-rent ratio, and how to decide based on your market and life situation — not generic rules.",
     slug: "rent-vs-buy-2026",
     content: `
-      <p>The age-old question has new answers in 2026. With shifting interest rates and evolving work trends, the math is more important than ever. Our <a href="/rent-vs-buy">rent vs buy tool</a> provides an instant comparison.</p>
-      <h2>The 7-Year Rule</h2>
-      <p>Generally, if you plan to stay in one place for more than 7 years, buying becomes the superior financial choice due to equity and appreciation. Check your <a href="/affordability-calculator">affordability limits</a> before searching.</p>
-      <h2>The Flexibility Premium</h2>
-      <p>Renting isn't 'throwing money away' if it gives you the mobility to pursue a higher-paying career in a different city. Use a <a href="/loan-calculator">loan tool</a> to compare other borrowing costs.</p>
-      <h3>Should I wait for rates to drop?</h3>
-      <p>Predicting the market is difficult. Focus on your personal financial readiness rather than trying to time the national interest rate cycles. Trends are available at the <a href="https://www.federalreserve.gov/" target="_blank" rel="noopener noreferrer">Federal Reserve</a>.</p>
+      <p>The idea that "renting is throwing money away" is one of the most repeated — and most misleading — pieces of financial advice in existence. The reality is more complicated. In some markets and some life situations, renting is genuinely the smarter financial move. In others, buying wins decisively. The answer depends almost entirely on three things: where you live, how long you plan to stay, and what you would do with the money you don't put into a down payment.</p>
+
+      <p>The 2026 context demands honesty. Mortgage rates are still above 6% after a period of historically low rates that ended sharply. Home prices in most markets haven't corrected significantly despite those rate increases. That combination has made the monthly cost of buying genuinely more expensive than renting in many US cities for the first time in decades. That doesn't mean you shouldn't buy — it means you need to run the actual numbers for your specific situation. You can use our <a href="/rent-vs-buy">rent vs buy calculator</a> to see how this applies to you.</p>
+
+      <p>This article does exactly that. Real numbers, real comparisons, and a framework for making the decision based on your life — not a generic rule someone invented in a different interest rate environment.</p>
+
+      <h2>What Renting Actually Costs — The Full Picture</h2>
+      <p>Most people calculate the cost of renting as just their monthly rent. That's mostly right — renting is financially simpler than owning. But the complete picture includes: monthly rent (obviously), renter's insurance (typically $15–$30/month, surprisingly often skipped), and the opportunity cost of not building equity.</p>
+
+      <p>That last one is the crux of the whole debate. Every month you rent, your landlord's equity grows and yours doesn't. But here's what that argument misses: if you had put $40,000 into a down payment instead of keeping it invested, you'd also be missing whatever that $40,000 earned in the market. Equity isn't free money — it's money you chose to put into real estate instead of somewhere else.</p>
+
+      <p>The genuine advantage of renting is flexibility and simplicity. No maintenance costs, no property taxes, no surprise $8,000 roof replacement. When the boiler breaks at 2am, you call your landlord. That has real value, especially if you're not sure where you'll be in three years.</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Monthly Rent</th>
+              <th class="py-4 px-4 font-bold">Renter's Insurance</th>
+              <th class="py-4 px-4 font-bold">True Monthly Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$1,500</td><td class="py-3 px-4">$20</td><td class="py-3 px-4">$1,520</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$2,000</td><td class="py-3 px-4">$22</td><td class="py-3 px-4">$2,022</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$2,500</td><td class="py-3 px-4">$25</td><td class="py-3 px-4">$2,525</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">$3,000</td><td class="py-3 px-4">$28</td><td class="py-3 px-4">$3,028</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-sm italic text-on-surface-variant">Note: rent typically increases 3–5% per year. A $2,000/month apartment today could cost $2,315–$2,552 in five years.</p>
+
+      <h2>What Buying Actually Costs — Beyond the Mortgage Payment</h2>
+      <p>This is where most people underestimate. The mortgage payment is just the beginning. The true monthly cost of homeownership includes principal and interest (which most people calculate), property taxes (which vary enormously — from under 0.5% annually in Hawaii to over 2% in New Jersey), homeowners insurance, PMI if your down payment is under 20%, and maintenance.</p>
+
+      <p>That last item is chronically underbudgeted. The standard rule of thumb is 1% of the home's value per year for maintenance — on a $380,000 home, that's $3,800/year or about $317/month on average. Some years it's nothing. Some years the HVAC dies in August. Budget for the average.</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <caption class="p-4 text-left font-bold bg-surface-container-low border-b border-outline-variant">$380,000 Home | 10% Down | 6.8% Rate</caption>
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Component</th>
+              <th class="py-4 px-4 font-bold">Monthly Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Principal and interest</td><td class="py-3 px-4">$2,239</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Property tax (1.1%/yr)</td><td class="py-3 px-4">$348</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Homeowners insurance</td><td class="py-3 px-4">$130</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">PMI (~0.5%)</td><td class="py-3 px-4">$142</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Maintenance reserve (1%)</td><td class="py-3 px-4">$317</td></tr>
+            <tr class="bg-primary/5 font-bold"><td class="py-3 px-4">Total true monthly cost</td><td class="py-3 px-4">$3,176</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="overflow-x-auto my-12 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <caption class="p-4 text-left font-bold bg-surface-container-low border-b border-outline-variant">High-Tax State (New Jersey @ 2.2% Property Tax)</caption>
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Component</th>
+              <th class="py-4 px-4 font-bold">Monthly Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Principal and interest</td><td class="py-3 px-4">$2,239</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Property tax (2.2%/yr)</td><td class="py-3 px-4">$697</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Homeowners insurance</td><td class="py-3 px-4">$160</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">PMI (~0.5%)</td><td class="py-3 px-4">$142</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Maintenance reserve (1%)</td><td class="py-3 px-4">$317</td></tr>
+            <tr class="bg-primary/5 font-bold"><td class="py-3 px-4">Total true monthly cost</td><td class="py-3 px-4">$3,555</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Location dramatically changes the math. A $380,000 home in Texas or New Jersey costs hundreds more per month than the same priced home in Alabama or Hawaii — purely because of property taxes. You can run your own PITI calculation using our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+      <h2>The Break-Even Timeline — The One Number That Should Drive Your Decision</h2>
+      <p>The break-even point is the year at which the total cost of buying becomes less than the total cost of renting the equivalent property. Before that point, renting is cheaper. After it, buying wins. And the break-even point varies enormously by market.</p>
+
+      <p>The calculation accounts for: upfront costs of buying (down payment, closing costs typically 2–5% of purchase price), monthly payment difference between buying and renting, equity built through mortgage payments and appreciation, and the investment return you could have earned on the down payment instead.</p>
+
+      <p>For most markets in 2026, with rates above 6%, the break-even sits somewhere between 4 and 8 years. In expensive coastal markets where rents are high relative to purchase prices, it can be faster. In markets where buying costs far more per month than renting, it can push past 10 years.</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <caption class="p-4 text-left font-bold bg-surface-container-low border-b border-outline-variant">Break-Even Comparison ($380k home, 10% down, 6.8% rate, vs $2,200/mo rent)</caption>
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Year</th>
+              <th class="py-4 px-4 font-bold">Cumulative Buying Cost</th>
+              <th class="py-4 px-4 font-bold">Cumulative Renting Cost</th>
+              <th class="py-4 px-4 font-bold">Equity Built</th>
+              <th class="py-4 px-4 font-bold">Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">1</td><td class="py-3 px-4">$88,212</td><td class="py-3 px-4">$26,664</td><td class="py-3 px-4">$7,840</td><td class="py-3 px-4">Renting wins</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">3</td><td class="py-3 px-4">$133,636</td><td class="py-3 px-4">$81,576</td><td class="py-3 px-4">$24,180</td><td class="py-3 px-4">Renting wins</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">5</td><td class="py-3 px-4">$179,060</td><td class="py-3 px-4">$138,276</td><td class="py-3 px-4">$41,840</td><td class="py-3 px-4">Renting wins</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4">7</td><td class="py-3 px-4">$224,484</td><td class="py-3 px-4">$197,892</td><td class="py-3 px-4">$61,240</td><td class="py-3 px-4 font-bold">~Break-even</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">10</td><td class="py-3 px-4">$292,120</td><td class="py-3 px-4">$296,244</td><td class="py-3 px-4">$95,600</td><td class="py-3 px-4 text-primary font-bold">Buying wins</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-sm italic text-on-surface-variant">Note: cumulative buying cost includes down payment and closing costs upfront. Equity built includes mortgage paydown and 3% annual appreciation. Renting cost assumes 4% annual rent increases.</p>
+
+      <p>The honest answer is that if you're planning to move in 3 years, this table says renting is almost certainly the right call financially. If you're planning to stay 10+ years, buying builds significantly more wealth. The 5–7 year zone is genuinely uncertain — it depends on your specific market and what home prices do. You can <a href="/rent-vs-buy">model your specific numbers here</a>.</p>
+
+      <h2>The Price-to-Rent Ratio — A Quick Market Test</h2>
+      <p>There's a quick calculation that tells you whether your local market favors buyers or renters. It's called the price-to-rent ratio: take the purchase price of a home and divide it by the annual rent for a comparable property. A ratio below 15 generally means buying is the better financial choice. Between 15 and 20 is neutral — it really depends on your timeline and the specifics. Above 20, renting is typically the more cost-effective option in the short to medium term.</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">City</th>
+              <th class="py-4 px-4 font-bold">Median Home Price</th>
+              <th class="py-4 px-4 font-bold">Annual Rent</th>
+              <th class="py-4 px-4 font-bold">P/R Ratio</th>
+              <th class="py-4 px-4 font-bold">Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Detroit, MI</td><td class="py-3 px-4">$185,000</td><td class="py-3 px-4">$15,600</td><td class="py-3 px-4">11.9</td><td class="py-3 px-4 text-green-600 font-bold">Strong buy</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Indianapolis</td><td class="py-3 px-4">$275,000</td><td class="py-3 px-4">$19,200</td><td class="py-3 px-4">14.3</td><td class="py-3 px-4 text-green-600 font-bold">Lean buy</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Atlanta, GA</td><td class="py-3 px-4">$385,000</td><td class="py-3 px-4">$24,000</td><td class="py-3 px-4">16.0</td><td class="py-3 px-4 font-bold">Neutral</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Austin, TX</td><td class="py-3 px-4">$490,000</td><td class="py-3 px-4">$26,400</td><td class="py-3 px-4">18.6</td><td class="py-3 px-4 text-orange-600 font-bold">Lean rent</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Denver, CO</td><td class="py-3 px-4">$580,000</td><td class="py-3 px-4">$27,600</td><td class="py-3 px-4">21.0</td><td class="py-3 px-4 text-orange-600 font-bold">Lean rent</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">San Francisco</td><td class="py-3 px-4">$1,100,000</td><td class="py-3 px-4">$42,000</td><td class="py-3 px-4">26.2</td><td class="py-3 px-4 text-red-600 font-bold">Strong rent</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-sm italic text-on-surface-variant">Note: these are approximate 2026 figures for illustration. Always verify local data before making a decision. Reference <a href="https://www.zillow.com/research/" target="_blank" rel="noopener noreferrer">Zillow Research</a> for current local market data.</p>
+
+      <h2>When Buying Makes Clear Sense</h2>
+      <p>Scenario 1: You plan to stay 7+ years. The break-even analysis above shows why timeline is the dominant factor. If you're confident you'll be in the same place for the better part of a decade — whether because of family, career stability, or roots — the financial case for buying is strong.</p>
+
+      <p>Scenario 2: Your local price-to-rent ratio is below 15. In markets like Detroit, Memphis, Cleveland, or parts of the Midwest and South, buying is genuinely cheaper per month than renting an equivalent property. In these markets the decision almost makes itself.</p>
+
+      <p>Scenario 3: You have a stable income and an adequate emergency fund. The worst time to buy a house is when you're financially stretched. If you have 3–6 months of expenses in savings after closing, a stable job, and a comfortable payment-to-income ratio, the long-term financial case is solid. See our guide on <a href="/blog/home-purchase-budgeting">home purchase budgeting</a> for more on this.</p>
+
+      <p>Scenario 4: You have or can save a meaningful down payment. Buying with 5–10% down is entirely workable — millions of people do it. But going in with at least 5% reduces your loan, keeps PMI manageable, and signals to lenders that you're a lower-risk borrower. Check our <a href="/blog/down-payment-guide">down payment guide</a> for strategies.</p>
+
+      <h2>When Renting Makes Clear Sense</h2>
+      <p>Scenario 1: You might move within 3 years. Job opportunity, relationship change, uncertainty about the city you're in — any of these can flip the math entirely. Buying a home you sell in 2 years almost always means losing money once you factor in closing costs, agent commissions, and the interest-heavy early mortgage payments.</p>
+
+      <p>Scenario 2: Your local market has a price-to-rent ratio above 20. In San Francisco, New York, Los Angeles, and parts of Boston and Seattle, you can rent a home for significantly less per month than it costs to own the equivalent property. In these markets, renting and investing the difference has historically been a competitive strategy.</p>
+
+      <p>Scenario 3: You're carrying significant high-interest debt. If you have credit card debt above 15% APR, paying that off before buying a home is almost always the right mathematical call. The guaranteed return of eliminating 20% interest debt beats the speculative return of home appreciation.</p>
+
+      <p>Scenario 4: Your debt-to-income ratio is already stretched. Lenders use DTI to evaluate mortgage applications — most want it below 43%. But qualifying for the maximum you're allowed and comfortably affording it are two different things. If buying would push your housing costs above 30% of your take-home pay, rent until your income grows or your debts shrink. Read more about the <a href="/blog/28-36-rule-explained">28/36 rule</a>.</p>
+
+      <h2>The Question Nobody Asks: What Would You Do With the Down Payment Instead?</h2>
+      <p>The down payment comparison is the part of the rent vs. buy debate that most articles skip. If you put $40,000 into a down payment, that money is no longer available for anything else. The question is: what would it have earned if you'd invested it instead?</p>
+
+      <p>The S&P 500 has historically returned roughly 10% annually before inflation. $40,000 invested over 7 years at 10% becomes approximately $78,000. Over the same 7 years, your $40,000 down payment on a $400,000 home might generate $84,000 in equity (assuming 3% annual appreciation and mortgage paydown). The numbers are closer than most people expect — and that's before factoring in the tax deductibility of mortgage interest or the non-financial value of owning your space. There is no universally correct answer here. You can reference the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve's data</a> on historical housing appreciation for context.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="space-y-8 mt-8">
+        <div>
+          <h3 class="text-xl font-bold mb-2">Is it better to rent or buy in 2026?</h3>
+          <p>Genuinely depends on your market and timeline. If you're in a city with a price-to-rent ratio below 15 and plan to stay 7+ years, buying probably makes more financial sense. If you're in San Francisco or New York planning to move in 3 years, renting is almost certainly cheaper. Run your specific numbers using our <a href="/rent-vs-buy">rent vs buy calculator</a>.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-2">How long do you need to stay for buying to make sense?</h3>
+          <p>In most US markets in 2026, the break-even point sits around 5–7 years. Before that, the upfront costs of buying (down payment, closing costs) haven't been recovered by equity gains and payment savings. The exact number varies significantly by city.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-2">Is renting really throwing money away?</h3>
+          <p>No — and this framing is worth pushing back on. Rent buys you housing, flexibility, and freedom from maintenance costs. What it doesn't do is build equity. Whether that trade-off is worth it depends entirely on your situation. A renter who invests their down payment and avoids a stressful mortgage can come out ahead of a buyer who stretched too far.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-2">Should I wait for mortgage rates to drop before buying?</h3>
+          <p>Maybe — but "waiting for rates to drop" has been the plan for a lot of people since 2022. Nobody knows exactly when or how much rates will fall. If you find the right home at a price you can comfortably afford, buying now and refinancing later when rates drop is a legitimate strategy. See our <a href="/blog/when-to-refinance">guide on refinancing</a>.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-2">What is the price-to-rent ratio and how do I use it?</h3>
+          <p>It's the home price divided by annual rent for a comparable property. Below 15 generally favors buying. Above 20 generally favors renting. It's a quick first filter — not a complete answer, but a useful starting point before you run deeper numbers.</p>
+        </div>
+      </div>
+
+      <div class="mt-16 bg-primary/5 rounded-3xl p-8 sm:p-12 border border-primary/20 shadow-lg text-center">
+        <h2 class="text-3xl font-bold text-primary mb-6">Run the Numbers for Your City</h2>
+        <p class="text-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+          The only way to know what's right for your situation is to put your actual numbers in. Our rent vs. buy calculator lets you enter your local home price, rent, down payment, and expected timeline — and shows you exactly where the break-even falls.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+          <a href="/rent-vs-buy" class="bg-primary text-white !no-underline px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-hover shadow-lg transition-all hover:scale-105">
+            Rent vs. Buy Calculator
+          </a>
+          <a href="/mortgage-calculator" class="bg-surface-container text-primary !no-underline px-10 py-4 rounded-full font-bold text-lg border border-primary/20 hover:bg-surface-container-high transition-all hover:scale-105">
+            Mortgage Calculator
+          </a>
+        </div>
+      </div>
     `
   },
   {
