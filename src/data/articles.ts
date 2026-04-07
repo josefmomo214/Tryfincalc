@@ -1648,19 +1648,154 @@ export const articles: Article[] = [
     `
   },
   {
-    title: "When Does Refinancing Make Sense?",
+    title: "When Does Refinancing Your Mortgage Actually Make Sense?",
     category: "Refinance",
-    readTime: "7 min read",
-    excerpt: "Refinancing isn't just about a lower rate. Discover the break-even math that makes a refinance truly profitable.",
+    readTime: "11 min read",
+    excerpt: "Refinancing can save you thousands — but only if the timing is right. Learn the break-even formula, the 1% rule, real savings examples, and exactly when refinancing costs more than it saves.",
     slug: "when-to-refinance",
     content: `
-      <p>Should you refinance? It's the multi-thousand dollar question. The answer lies in the 'break-even point' between your closing costs and monthly savings. Use our <a href="/loan-calculator">refinance tool</a> to find your numbers.</p>
-      <h2>The 1% Rule of Thumb</h2>
-      <p>Historically, if you can drop your interest rate by at least 1%, a refinance is almost always worth considering. Check your <a href="/amortization-schedule-explained">new amortization schedule</a> to see the long-term impact.</p>
-      <h2>Cash-Out Refinancing</h2>
-      <p>Beyond just lowering your rate, a refinance can also allow you to tap into your home's equity to pay off high-interest debt or fund improvements. Consult the <a href="https://www.federalreserve.gov/" target="_blank" rel="noopener noreferrer">Federal Reserve</a> for current rate context.</p>
-      <h3>How much are closing costs?</h3>
-      <p>Typically, refinance closing costs range from 2% to 6% of the loan amount. Make sure your monthly savings will cover these costs within 2-3 years.</p>
+      <p>Refinancing is one of those financial decisions that sounds straightforward until you actually sit down to do the math. The pitch is simple: rates went up, now they're coming down, so refinance and save money. The reality is that refinancing has upfront costs — typically $3,000 to $8,000 — and whether it actually saves you money depends entirely on one number most people never calculate: the break-even point. You can run these numbers yourself using our <a href="/refinancing-calculator">refinancing calculator</a>.</p>
+
+      <p>A lot of homeowners locked in rates between 6.5% and 8% over the past few years and have been watching rates closely ever since. If that's you, this article is written for your situation. We'll walk through the exact math, show you what a meaningful rate drop actually saves, and cover the situations where refinancing clearly makes sense — and the ones where it doesn't.</p>
+
+      <p>One thing upfront: there is no universal rule that makes refinancing right or wrong. The 1% rule of thumb is a starting point, not a verdict. The break-even calculation is what actually matters, and it takes about five minutes to run.</p>
+
+      <h2>The Break-Even Formula — The Only Number That Really Matters</h2>
+      <p>When you refinance, you pay closing costs upfront in exchange for a lower monthly payment going forward. The break-even point is the month when your cumulative monthly savings finally equal what you paid in closing costs. Before that point, you're still in the red. After it, every month is pure savings.</p>
+
+      <p>The formula is simple:<br/>
+      <strong>Break-even months = Total closing costs ÷ Monthly payment savings</strong></p>
+
+      <p>If it costs you $6,000 to refinance and you save $200/month, your break-even is 30 months — just under two and a half years. Stay beyond that, refinancing wins. Move or refinance again before that, and you've lost money.</p>
+
+      <p>The part most people miss is that "monthly savings" means the difference in your actual payment — not just the rate difference. If you refinance from a 30-year loan with 22 years remaining into a new 30-year loan, you've also extended your payoff date by 8 years. That changes the calculation significantly. More on this below. See our <a href="/blog/refinance-calculator-guide">how to use a refinance calculator</a> guide for more details.</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Metric</th>
+              <th class="py-4 px-4 font-bold">Current Loan</th>
+              <th class="py-4 px-4 font-bold">After Refi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Monthly P&I</td><td class="py-3 px-4">$2,086</td><td class="py-3 px-4">$1,871</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Monthly savings</td><td class="py-3 px-4">—</td><td class="py-3 px-4">$215</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold"><td class="py-3 px-4">Break-even point</td><td class="py-3 px-4">—</td><td class="py-3 px-4">27 months</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Total interest remaining</td><td class="py-3 px-4">$288,528</td><td class="py-3 px-4">$229,592</td></tr>
+            <tr class="bg-primary/5 font-bold"><td class="py-3 px-4">Interest saved (net)</td><td class="py-3 px-4">—</td><td class="py-3 px-4">~$52,936</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>If this homeowner plans to stay more than 27 months — highly likely for most homeowners — refinancing saves nearly $53,000 over the remaining loan life. That's a straightforward yes. Use our <a href="/refinancing-calculator">refinancing calculator</a> to run your own version of this calculation.</p>
+
+      <h2>The 1% Rule — Useful Starting Point, Not a Final Answer</h2>
+      <p>The traditional rule of thumb says refinancing is worth exploring when you can drop your rate by at least 1%. That's not bad advice — a 1% drop on a $300,000 loan saves roughly $170/month, and on a $500,000 loan it saves closer to $285/month. Those are real numbers.</p>
+
+      <p>But the 1% rule ignores closing costs entirely, which is a significant omission. A 0.6% rate drop on a large loan balance with low closing costs can be a better deal than a 1.2% drop with high fees on a smaller balance. Always run the break-even calculation. Use the 1% rule as a filter to decide whether it's worth spending 20 minutes doing the actual math — not as a substitute for it. Read more about <a href="/blog/interest-rate-impact">what a rate drop actually saves</a>.</p>
+
+      <h2>Five Situations Where Refinancing Clearly Makes Sense</h2>
+      <p><strong>Situation 1: Your rate is significantly above current market rates and you plan to stay.</strong> If you're sitting on a 7.5% mortgage and current 30-year rates are around 6.2%, that's a 1.3% difference. On a $350,000 balance, that's roughly $250/month. Over 10 years, it's $30,000 in savings minus closing costs. The math is compelling for anyone planning to stay put.</p>
+
+      <p><strong>Situation 2: You want to switch from an ARM to a fixed rate.</strong> If you took out a 5/1 ARM a few years ago and the fixed period is ending, refinancing into a fixed-rate mortgage locks in your payment permanently and eliminates the uncertainty of future adjustments. Switching from an <a href="/blog/fixed-vs-variable-mortgage">ARM to fixed rate</a> is worth doing even if the rate savings are modest.</p>
+
+      <p><strong>Situation 3: You want to shorten your loan term.</strong> Refinancing from a 30-year to a 15-year mortgage dramatically increases your monthly payment but cuts your total interest cost by well over $100,000 on most loan sizes. If your income has grown since you took out the original loan and you want to build equity faster, this is one of the most powerful financial moves available to a homeowner. Check out our <a href="/blog/15-vs-30-year-mortgage">15-year vs 30-year mortgage</a> comparison.</p>
+
+      <p><strong>Situation 4: Your credit score has improved significantly.</strong> If you bought your home when your credit score was in the 620–650 range and it's now above 720, you may qualify for a meaningfully better rate than you originally received — even if market rates haven't moved. Lenders price risk based on your score, and a 100-point improvement can translate into a 0.5–1.0% rate reduction on its own.</p>
+
+      <p><strong>Situation 5: You need to access home equity for a major expense.</strong> A cash-out refinance lets you borrow against the equity you've built — replacing your existing mortgage with a larger one and receiving the difference in cash. This makes sense when the mortgage rate is substantially lower than other borrowing options like personal loans or credit cards. It requires careful thought — more on this below.</p>
+
+      <h2>Four Situations Where Refinancing Probably Doesn't Make Sense</h2>
+      <p><strong>Situation 1: You're planning to move within two to three years.</strong> This is the most common refinancing mistake. If your break-even is 28 months and you're moving in 24, you've paid $5,000 in closing costs and recouped $4,800 in savings. Net loss: $200 and a lot of paperwork. Run the break-even first — always.</p>
+
+      <p><strong>Situation 2: You've already paid 15+ years on a 30-year mortgage.</strong> Here's something most people don't think about: when you refinance into a new 30-year loan after 15 years of payments, you're restarting the amortization clock. Your first few years of payments on the new loan are again mostly interest. The monthly payment goes down, but the total interest paid over the extended period can actually be higher than just finishing your original loan. If you're in this situation, either refinance into a shorter term or consider <a href="/blog/extra-payments-impact">making extra payments instead</a>.</p>
+
+      <p><strong>Situation 3: The rate drop is too small to justify the costs.</strong> A 0.25% rate reduction on a $250,000 balance saves about $40/month. With $5,000 in closing costs, your break-even is over 10 years. Unless you're absolutely certain you're staying that long, leave it.</p>
+
+      <p><strong>Situation 4: Your financial situation has deteriorated since you took out the original loan.</strong> Lower income, higher debt, or a drop in credit score can mean you won't qualify for a better rate — or won't qualify at all. Applying for a refinance triggers a credit inquiry and can temporarily lower your score. Check where you stand before you apply.</p>
+
+      <h2>Cash-Out Refinancing — When It Helps and When It Doesn't</h2>
+      <p>A cash-out refinance replaces your current mortgage with a larger one, and you receive the difference as cash. It's commonly used for home improvements, paying off high-interest debt, or covering a major life expense. The appeal is obvious — mortgage rates are typically far lower than credit card or personal loan rates.</p>
+
+      <p>But there is a real risk that often goes unmentioned. A cash-out refinance converts unsecured debt — which a lender can't take your house for — into secured debt backed by your home. If you use a cash-out refi to pay off $30,000 in credit card debt and then accumulate credit card debt again, you haven't solved the problem. You've just added it to your mortgage. This is genuinely worth pausing on before proceeding.</p>
+
+      <p>The situations where cash-out refinancing is most defensible: home improvements that increase the property's value (a new roof, HVAC, kitchen renovation), paying off debt you have a concrete plan to not rebuild, or covering an unavoidable major expense at a rate significantly lower than any alternative. The key question to ask yourself is whether the new, larger mortgage payment is still comfortably within your budget. Use the <a href="/mortgage-calculator">mortgage calculator</a> to check.</p>
+
+      <h2>The Term Reset Problem — Read This Before You Refinance</h2>
+      <p>One of the most underappreciated risks of refinancing is accidentally extending your loan term without realising it. It happens constantly. You're 8 years into a 30-year mortgage, your remaining balance is $260,000, and you refinance into a new 30-year loan. You've just given yourself 38 years of mortgage payments instead of 22.</p>
+
+      <p>The monthly payment is lower, which feels like a win. But the extra 8 years of payments can cost more in total interest than the rate reduction saves — especially if the rate difference is modest. This is one of the most important things to check before signing anything.</p>
+
+      <p>The solution: when you refinance, try to match your new loan term to your remaining term, not the standard 30 years. If you have 22 years left, ask about a 20-year refinance. If you have 17 years left, a 15-year. Most lenders offer non-standard terms if you ask. And if a shorter term isn't available, you can always take the 30-year but make the payment equivalent to a shorter-term loan. See our <a href="/amortization-schedule">amortization schedule</a> to model this.</p>
+
+      <h2>What Does Refinancing Actually Cost?</h2>
+      <p>Closing costs are the friction that makes or breaks a refinancing decision, and they are often higher than people expect. Here is a realistic breakdown of what you'll typically pay:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Fee</th>
+              <th class="py-4 px-4 font-bold">Typical Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Loan origination fee</td><td class="py-3 px-4">0.5–1% of loan</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Appraisal fee</td><td class="py-3 px-4">$400–$700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Title search</td><td class="py-3 px-4">$200–$400</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Title insurance</td><td class="py-3 px-4">$500–$1,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Credit report fee</td><td class="py-3 px-4">$25–$50</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Recording fees</td><td class="py-3 px-4">$25–$250</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Attorney fee (if req'd)</td><td class="py-3 px-4">$500–$1,000</td></tr>
+            <tr class="bg-primary/5 font-bold"><td class="py-3 px-4">Total typical range</td><td class="py-3 px-4">$3,000–$8,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Some lenders offer no-closing-cost refinancing by rolling the fees into the loan balance or charging a slightly higher rate. This can make sense if you're short on cash or plan to sell or refinance again within a few years. It doesn't eliminate the cost — it just changes when and how you pay it. The break-even math still applies.</p>
+
+      <p>Reference the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> — within 3 business days of applying for a refinance, your lender must provide a Loan Estimate showing all fees. Compare this carefully against your current loan terms before committing.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        <div>
+          <p><strong>Q: When should you refinance your mortgage?</strong><br/>
+          A: When your break-even point — closing costs divided by monthly savings — falls well within how long you plan to stay in the home. A break-even of 24 months with a 7-year staying horizon is a clear yes. A break-even of 48 months with a 3-year horizon is a clear no. Everything in between requires a judgment call. Run your numbers using our <a href="/refinancing-calculator">refinancing calculator</a>.</p>
+        </div>
+        <div>
+          <p><strong>Q: Does refinancing hurt your credit score?</strong><br/>
+          A: Yes, briefly. Applying for a refinance triggers a hard credit inquiry, which typically drops your score by 5–10 points for a few months. If you're shopping multiple lenders — which you should be — do it within a 14–45 day window. Credit bureaus treat multiple mortgage inquiries within that window as a single inquiry.</p>
+        </div>
+        <div>
+          <p><strong>Q: What is the break-even point for refinancing?</strong><br/>
+          A: It's the number of months it takes for your cumulative monthly savings to equal your upfront closing costs. Divide total closing costs by monthly payment savings to get the number. If your closing costs are $6,000 and you save $200/month, break-even is 30 months.</p>
+        </div>
+        <div>
+          <p><strong>Q: Should I refinance to a 30-year or 15-year mortgage?</strong><br/>
+          A: If you can comfortably afford the higher 15-year payment, the interest savings are substantial — often $100,000–$200,000 over the life of the loan. If the 15-year payment would stretch your budget, a 30-year with extra payments is more flexible. See our <a href="/blog/15-vs-30-year-mortgage">15-year vs 30-year mortgage</a> comparison.</p>
+        </div>
+        <div>
+          <p><strong>Q: Can I refinance if I have an ARM mortgage?</strong><br/>
+          A: Yes — and switching from an ARM to a fixed rate is one of the most common and defensible reasons to refinance. You trade payment uncertainty for stability. Whether it makes financial sense depends on how far your ARM rate could adjust versus the current fixed rate available to you.</p>
+        </div>
+      </div>
+
+      <div class="mt-16 bg-surface-container-highest rounded-3xl p-8 sm:p-12 border border-outline-variant shadow-sm text-center">
+        <h2 class="text-3xl font-manrope font-bold text-primary mb-6">Find Your Break-Even Point in Under 60 Seconds</h2>
+        <p class="text-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+          Grab your current loan balance, rate, and remaining term — and get a quote for a new rate from your lender. Enter both sets of numbers into the refinancing calculator and it will show you exactly when refinancing pays off.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+          <a href="/refinancing-calculator" class="bg-primary text-white !no-underline px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-hover shadow-lg transition-all hover:scale-105">
+            Refinancing Calculator
+          </a>
+          <a href="/mortgage-calculator" class="bg-surface-container text-primary !no-underline px-10 py-4 rounded-full font-bold text-lg border border-primary/20 hover:bg-surface-container-high transition-all hover:scale-105">
+            Mortgage Calculator
+          </a>
+        </div>
+      </div>
     `
   },
   {
