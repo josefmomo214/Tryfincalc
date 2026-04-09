@@ -5,6 +5,8 @@ export interface Article {
   excerpt: string;
   slug: string;
   content: string; // The full article content as an HTML string
+  seoTitle?: string;
+  seoDescription?: string;
   structuredData?: object;
 }
 
@@ -1091,17 +1093,210 @@ export const articles: Article[] = [
 </div>`
   },
   {
-    title: "$300,000 Mortgage Monthly Payment Example",
+    title: "$300,000 Mortgage Monthly Payment: The Complete 2026 Breakdown",
     category: "Mortgage Guides",
-    readTime: "4 min read",
-    excerpt: "See exactly what a $300k mortgage costs in 2026 with different interest rates and down payment scenarios.",
+    readTime: "9 min read",
+    excerpt: "What is the monthly payment on a $300,000 mortgage in 2026? See exact P&I payments for every interest rate and term, full PITI breakdown, income requirements, and how much total interest you'll pay over the life of the loan.",
     slug: "300k-mortgage-monthly-payment",
+    seoTitle: "$300,000 Mortgage Monthly Payment in 2026: Every Rate, Every Term",
+    seoDescription: "What is the monthly payment on a $300,000 mortgage in 2026? See exact P&I payments for every interest rate and term, full PITI breakdown, income requirements, and how much total interest you'll pay over the life of the loan.",
     content: `
-      <p>Navigating a $300,000 loan? Understand the monthly requirements for this common borrowing tier. Start by checking your <a href="/affordability-calculator">home affordability</a> stats.</p>
-      <h2>30-Year vs 15-Year</h2>
-      <p>On a $300k loan, a 15-year term will cost about $1,000 more per month but save you $150k in interest. Use our <a href="/mortgage-calculator">mortgage tool</a> to compare terms side-by-side.</p>
-      <h3>What income do I need for $300k?</h3>
-      <p>Generally, an income of $80k - $100k is recommended depending on your other debt obligations.</p>
+      <p>Start by acknowledging that $300,000 is one of the most common mortgage amounts in the United States — the kind of loan that buys a solid first home in the Midwest, a starter property in the South, or a smaller unit in a mid-tier metro area. If you're looking at a $300k mortgage, you want precise numbers before you commit to anything. This page gives you exactly that — every payment scenario, the full cost including taxes and insurance, and an honest look at what income you actually need to make this work comfortably. Check your numbers with our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+
+      <p>The short answer: at current 2026 rates around 6.8%, the monthly principal and interest payment on a $300,000 mortgage over 30 years is approximately $1,961. But that number alone is misleading — your actual monthly cost will be higher once you factor in property taxes, homeowners insurance, and possibly PMI. The full picture is what matters.</p>
+
+      <h2>Monthly Payment by Interest Rate — 30-Year Term</h2>
+      <p>Interest rates are the single biggest variable in your monthly payment. A 1% difference sounds small until you see what it means in dollars. Here is the exact monthly principal and interest payment on a $300,000 loan at every realistic rate for 2026:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Interest Rate</th>
+              <th class="py-3 font-bold text-on-surface">Monthly P&I</th>
+              <th class="py-3 font-bold text-on-surface">Total Interest</th>
+              <th class="py-3 font-bold text-on-surface">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$1,703</td><td>$313,080</td><td>$613,080</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.0%</td><td>$1,799</td><td>$347,640</td><td>$647,640</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.5%</td><td>$1,896</td><td>$382,560</td><td>$682,560</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>6.8%</td><td>$1,961</td><td>$405,960</td><td>$705,960</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>7.0%</td><td>$1,996</td><td>$418,560</td><td>$718,560</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>7.5%</td><td>$2,098</td><td>$455,280</td><td>$755,280</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>8.0%</td><td>$2,201</td><td>$492,360</td><td>$792,360</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The difference between 5.5% and 7.5% on this loan is $395/month — or $142,200 over 30 years. That is why shopping multiple lenders before locking a rate is one of the highest-return things you can do. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, getting quotes from at least three lenders can save borrowers thousands over the life of a loan. You can track current benchmarks via <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>.</p>
+
+      <h2>Monthly Payment by Loan Term</h2>
+      <p>The term you choose matters almost as much as the rate. A shorter term means a higher payment but dramatically less total interest — and you own your home outright years sooner. Here is the same $300,000 loan at 6.8% across every common term:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Loan Term</th>
+              <th class="py-3 font-bold text-on-surface">Monthly P&I</th>
+              <th class="py-3 font-bold text-on-surface">Total Interest</th>
+              <th class="py-3 font-bold text-on-surface">Interest Saved vs 30yr</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>10 years</td><td>$3,453</td><td>$114,360</td><td>$291,600</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>15 years</td><td>$2,660</td><td>$178,800</td><td>$227,160</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>20 years</td><td>$2,285</td><td>$248,400</td><td>$157,560</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>25 years</td><td>$2,087</td><td>$326,100</td><td>$79,860</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>30 years</td><td>$1,961</td><td>$405,960</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Choosing a <a href="/blog/15-vs-30-year-mortgage">15-year term instead of 30 years</a> costs $699 more per month but saves $227,160 in total interest — and your home is paid off 15 years sooner. Whether that trade-off makes sense depends on your income stability and what else you'd do with that extra $699 each month.</p>
+
+      <h2>The True Monthly Cost — Beyond Principal and Interest</h2>
+      <p>This is the section most mortgage calculators skip — and it is the one that catches buyers off guard. Your monthly mortgage payment is not just principal and interest. Most lenders collect property taxes and homeowners insurance through an <a href="/blog/escrow-accounts-explained">escrow account</a>, adding them to your monthly payment automatically. If your down payment is under 20%, PMI is added on top of that.</p>
+
+      <p>Here is what the true monthly cost looks like on a $334,000 home purchase with 10% down ($34,000), resulting in a $300,000 loan at 6.8% over 30 years. Property tax assumes 1.1% annually — adjust for your state, since this number varies enormously from under 0.5% in some Southern states to over 2% in New Jersey and Illinois. It's helpful to understand <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> in full.</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse bg-surface-container-low rounded-xl px-4">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-on-surface">Component</th>
+              <th class="py-3 px-4 font-bold text-on-surface">Monthly Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Principal and interest</td><td class="py-3 px-4">$1,961</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Property tax (1.1%/yr)</td><td class="py-3 px-4">$306</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">Homeowners insurance</td><td class="py-3 px-4">$110</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4">PMI (~0.5% of loan)</td><td class="py-3 px-4">$125</td></tr>
+            <tr class="bg-primary/10">
+              <td class="py-3 px-4 font-bold">Total monthly payment</td>
+              <td class="py-3 px-4 font-bold">$2,502</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Once your loan balance drops to 80% of the original purchase price you can request PMI cancellation — it drops off automatically at 78% under federal law. On this loan that saves $125/month. See our <a href="/blog/down-payment-guide">down payment guide</a> for more on this.</p>
+
+      <h2>What Income Do You Need for a $300,000 Mortgage?</h2>
+      <p>The income question is where a lot of buyers get an unwelcome surprise. Lenders use the <a href="/blog/28-36-rule-explained">28/36 rule</a> — your housing costs shouldn't exceed 28% of gross monthly income, and total debt payments shouldn't exceed 36%. These are based on your gross income (before taxes), which is always higher than what you actually take home.</p>
+
+      <p>Here is what income you need at different payment levels, using the full PITI payment of $2,502/month from the example above:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Scenario</th>
+              <th class="py-3 font-bold text-on-surface">Monthly Cost</th>
+              <th class="py-3 font-bold text-on-surface">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>P&I only (28% rule)</td><td>$1,961</td><td>~$84,043</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>Full PITI (28% rule)</td><td>$2,502</td><td>~$107,229</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>PITI + $400 existing debts</td><td>$2,502</td><td>~$124,114</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>PITI + $700 existing debts</td><td>$2,502</td><td>~$136,800</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The income requirement rises quickly when you add existing debts — a car payment and student loan can push the required income from $107,000 to $137,000 on the same house. If your debt load is significant, paying some of it down before applying can meaningfully improve what you qualify for. Check out our <a href="/blog/28-36-rule-explained">28/36 rule explainer</a> and <a href="/affordability-calculator">affordability calculator</a>.</p>
+
+      <h2>How Your Down Payment Changes the Picture</h2>
+      <p>A $300,000 mortgage represents the loan amount after your <a href="/blog/down-payment-guide">down payment</a> — not the home price. Here is what home price this corresponds to at different down payment levels, and how PMI changes the total cost:</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Down Payment</th>
+              <th class="py-3 font-bold text-on-surface">Home Price</th>
+              <th class="py-3 font-bold text-on-surface">PMI Required?</th>
+              <th class="py-3 font-bold text-on-surface">Monthly PMI</th>
+              <th class="py-3 font-bold text-on-surface">Total Monthly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>3%</td><td>~$309,300</td><td>Yes</td><td>~$188/mo</td><td>~$2,565</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>5%</td><td>~$315,800</td><td>Yes</td><td>~$156/mo</td><td>~$2,533</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>10%</td><td>~$333,300</td><td>Yes</td><td>~$125/mo</td><td>~$2,502</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>20%</td><td>~$375,000</td><td>No</td><td>$0</td><td>~$2,377</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>PMI disappears entirely at 20% down, saving $125/month on this loan size. But 20% on a $375,000 home is $75,000 in cash — which most first-time buyers don't have. The 10% option is a reasonable middle ground for most buyers in this price range. See our <a href="/blog/down-payment-guide">down payment guide</a> for more strategy.</p>
+
+      <h2>$300,000 vs Other Loan Amounts — How It Compares</h2>
+      <p>If you're weighing whether to stretch to a larger loan or scale back, here is a direct comparison at 6.8% over 30 years. This is useful as you consider whether a <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage</a> or a <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage</a> might better fit your budget.</p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant">
+              <th class="py-3 font-bold text-on-surface">Loan Amount</th>
+              <th class="py-3 font-bold text-on-surface">Monthly P&I</th>
+              <th class="py-3 font-bold text-on-surface">Total Interest</th>
+              <th class="py-3 font-bold text-on-surface">Difference vs $300k</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>$200,000</td><td>$1,307</td><td>$270,520</td><td>−$654/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$250,000</td><td>$1,634</td><td>$338,240</td><td>−$327/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>$300,000</td><td>$1,961</td><td>$405,960</td><td>—</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$350,000</td><td>$2,288</td><td>$523,680</td><td>+$327/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$400,000</td><td>$2,615</td><td>$541,400</td><td>+$654/mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Every $50,000 in additional loan amount adds approximately $327/month to your payment at 6.8%. That is a useful number to keep in mind as you evaluate different price points.</p>
+
+      <h2>Is a $300,000 Mortgage a Good Idea in 2026?</h2>
+      <p>That depends entirely on where you're buying and what you earn. In markets like Detroit, Indianapolis, Memphis, or most of the Midwest and South, $300,000 buys a solid family home and the payment is manageable on a $90,000–$100,000 household income. In Austin, Denver, or any coastal metro, $300,000 is a down payment on an entry-level condo, and the actual mortgage will be significantly larger.</p>
+
+      <p>At current rates, the true all-in monthly cost of a $300,000 mortgage is around $2,500 with typical taxes and insurance. For that to comfortably fit within the 28% housing ratio guideline, you need a household income of roughly $107,000. That is above the US median household income — which means a $300,000 mortgage is achievable for many buyers but does require a solid income base, especially when existing debts are factored in.</p>
+
+      <p>The honest assessment: if the total monthly payment — PITI plus maintenance reserve — comes in under 30% of your actual take-home pay, and you have 3–6 months of expenses in savings after closing, a $300,000 mortgage is very manageable. If it pushes beyond 35% of take-home pay, you are financially stretched and one unexpected expense away from real stress. Run the full numbers on our <a href="/affordability-calculator">affordability calculator</a> before deciding.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      
+      <h3>What is the monthly payment on a $300,000 mortgage?</h3>
+      <p>At current 2026 rates around 6.8%, the monthly principal and interest payment on a $300,000 30-year mortgage is approximately $1,961. Your actual total monthly payment will be higher — typically $2,400–$2,600 — once property taxes, homeowners insurance, and PMI are included. Use our <a href="/mortgage-calculator">mortgage calculator</a> for a precise figure.</p>
+
+      <h3>How much do I need to earn for a $300,000 mortgage?</h3>
+      <p>Using the <a href="/blog/28-36-rule-explained">28/36 rule</a>, you need a gross annual income of approximately $84,000–$107,000 depending on whether you use just P&I or the full PITI payment. If you have significant existing debts, the required income is higher.</p>
+
+      <h3>How much is a $300,000 mortgage over 30 years in total?</h3>
+      <p>At 6.8%, you will pay approximately $705,960 in total — $300,000 in principal and $405,960 in interest. Choosing a 15-year term instead reduces the total to around $478,800, saving over $227,000 in interest.</p>
+
+      <h3>What credit score do I need for a $300,000 mortgage?</h3>
+      <p>Most conventional lenders require a minimum credit score of 620. You'll get the best rates — typically 0.5–1% lower — with a score above 740. FHA loans allow scores as low as 580 with 3.5% down. Your credit score directly affects your interest rate, which affects your payment more than almost any other factor.</p>
+
+      <h3>How much down payment do I need for a $300,000 mortgage?</h3>
+      <p>The loan amount is $300,000 after your down payment. With 3% down, you're buying a home around $309,000. With 10% down, around $333,000. With 20% down — which eliminates PMI — around $375,000. Link to our <a href="/blog/down-payment-guide">down payment guide</a>.</p>
+
+      <div class="bg-primary p-8 sm:p-12 rounded-[2.5rem] my-16 text-white text-center shadow-2xl relative overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-hover opacity-95 transition-opacity duration-500 group-hover:opacity-100"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl sm:text-4xl font-manrope font-extrabold mb-6 text-white tracking-tight">Run Your Exact Numbers</h2>
+          <p class="mb-10 text-lg sm:text-xl opacity-90 max-w-2xl mx-auto font-medium leading-relaxed">The payment tables above give you a solid starting point — but your actual number depends on your local property tax rate, insurance cost, and exact interest rate. Enter your specific details into the mortgage calculator and see your personalised full breakdown in seconds.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="/mortgage-calculator" class="w-full sm:w-auto bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 block sm:inline-block">Mortgage Calculator →</a>
+            <a href="/affordability-calculator" class="w-full sm:w-auto bg-primary-container text-on-primary-container px-10 py-5 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all border border-white/20 shadow-xl hover:shadow-2xl hover:-translate-y-1 block sm:inline-block">Affordability Calculator →</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-on-surface-variant/60 text-sm italic mt-12 border-t border-outline-variant/30 pt-4">This article is for informational purposes only and does not constitute financial advice. Mortgage rates change daily — always confirm current rates with your lender before making a decision. You might also want to explore our <a href="/blog/interest-rate-impact">how rates affect your total cost</a> study or check our <a href="/total-interest-calculator">total interest calculator</a> to see your full life-of-loan cost. If you're considering a future change, we also have guides on <a href="/blog/when-to-refinance">refinancing</a> and detailed <a href="/amortization-schedule">amortization schedules</a>. For more fundamental concepts, see <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</p>
     `
   },
   {

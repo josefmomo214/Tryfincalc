@@ -92,8 +92,8 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
   return (
     <MainLayout>
       <SEOHandler 
-        title={article.title} 
-        description={article.excerpt} 
+        title={article.seoTitle || article.title} 
+        description={article.seoDescription || article.excerpt} 
         canonicalUrl={`https://tryfincalc.com/blog/${article.slug}`}
         structuredData={schemas}
       />
