@@ -5,9 +5,13 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
+    const isNumeric = type === "number";
+    
     return (
       <input
         type={type}
+        inputMode={isNumeric ? "decimal" : props.inputMode}
+        pattern={isNumeric ? "[0-9]*" : props.pattern}
         className={cn(
           "flex h-12 w-full rounded-md border border-outline-variant/50 bg-transparent px-3 py-1 text-sm shadow-sm transition-colors",
           "file:border-0 file:bg-transparent file:text-sm file:font-medium",

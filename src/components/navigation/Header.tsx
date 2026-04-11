@@ -58,9 +58,9 @@ export function Header({ onSearchOpen }: HeaderProps) {
             <button 
               onClick={onSearchOpen}
               aria-label="Search"
-              className="p-2 w-[36px] h-[36px] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-outline-variant/10 hover:bg-surface-container-low rounded-lg"
+              className="p-2 w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-outline-variant/10 hover:bg-surface-container-low rounded-lg"
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                 <circle cx="6.5" cy="6.5" r="4.5"/>
                 <line x1="10" y1="10" x2="14" y2="14"/>
               </svg>
@@ -70,7 +70,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
               <button
                 onClick={() => handleCurrencyChange('eur')}
                 className={cn(
-                  "px-3 py-1 text-xs font-bold rounded-md transition-all",
+                  "px-4 py-2 text-xs font-bold rounded-md transition-all min-w-[3rem]",
                   currency === 'EUR' ? "bg-primary text-white shadow-sm" : "text-on-surface-variant hover:text-primary"
                 )}
               >
@@ -79,14 +79,14 @@ export function Header({ onSearchOpen }: HeaderProps) {
               <button
                 onClick={() => handleCurrencyChange('usd')}
                 className={cn(
-                  "px-3 py-1 text-xs font-bold rounded-md transition-all",
+                  "px-4 py-2 text-xs font-bold rounded-md transition-all min-w-[3rem]",
                   currency === 'USD' ? "bg-primary text-white shadow-sm" : "text-on-surface-variant hover:text-primary"
                 )}
               >
                 USD $
               </button>
             </div>
-            <Link href="/contact" className="text-sm font-medium text-primary hover:underline underline-offset-4">
+            <Link href="/contact" className="text-sm font-medium text-primary hover:underline underline-offset-4 px-2 py-2">
               Contact us
             </Link>
           </div>
@@ -95,9 +95,9 @@ export function Header({ onSearchOpen }: HeaderProps) {
             <button
                onClick={onSearchOpen}
                aria-label="Search"
-               className="p-2 rounded-md text-on-surface-variant hover:bg-surface-container-low transition-colors"
+               className="p-3 w-11 h-11 flex items-center justify-center rounded-md text-on-surface-variant hover:bg-surface-container-low transition-colors"
             >
-              <Search size={20} />
+              <Search size={22} />
             </button>
             <ThemeToggle />
             <button

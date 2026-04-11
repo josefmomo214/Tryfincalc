@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script
         id="cookieyes"
         src="https://cdn-cookieyes.com/client_data/[YOUR-UNIQUE-ID]/script.js"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
       />
       <div className={`${manrope.variable} ${inter.variable} font-sans`}>
         <Component {...pageProps} />
