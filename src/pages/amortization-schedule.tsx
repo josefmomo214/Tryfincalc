@@ -33,9 +33,9 @@ export default function AmortizationSchedule() {
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Amortization Calculator",
+      "name": "Amortization Calculator | TryFinCalc",
       "url": "https://tryfincalc.com/amortization-schedule",
-      "description": "Generate a full loan amortization schedule. See how each payment is split between principal and interest over the life of your mortgage or personal loan.",
+      "description": "Professional-grade amortization schedule generator for 2026. See the exact split between principal and interest for every payment over the life of your loan.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {

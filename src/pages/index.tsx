@@ -21,6 +21,17 @@ export default function Home_Page() {
         title="Mortgage & Loan Calculator 2026 | TryFinCalc"
         description="Use our free mortgage and loan calculators to plan your home purchase. See your monthly payment in seconds with accurate 2026 rate estimates."
         canonicalUrl="https://tryfincalc.com"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "TryFinCalc",
+          "url": "https://tryfincalc.com",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://tryfincalc.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }}
       />
 
       {/* Hero Section */}

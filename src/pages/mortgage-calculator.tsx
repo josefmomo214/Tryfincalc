@@ -31,9 +31,9 @@ export default function MortgageCalculator() {
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Mortgage Calculator",
+      "name": "Mortgage Calculator | TryFinCalc",
       "url": "https://tryfincalc.com/mortgage-calculator",
-      "description": "Free mortgage calculator — estimate your monthly payment including principal, interest, taxes, and insurance. Supports USD and EUR.",
+      "description": "Premium mortgage calculator for 2026. Estimate monthly payments including PITI (Principal, Interest, Taxes, and Insurance) with real-time accuracy.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {
