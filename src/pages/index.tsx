@@ -18,8 +18,8 @@ export default function Home_Page() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Financial Calculators & Tools" 
-        description="Expert financial calculators for the modern professional. Fast, accurate, and completely free. Requires no sign-up. Try our tools at TryFinCalc.com today."
+        title="Mortgage & Loan Calculator 2026 | TryFinCalc"
+        description="Use our free mortgage and loan calculators to plan your home purchase. See your monthly payment in seconds with accurate 2026 rate estimates."
         canonicalUrl="https://tryfincalc.com"
       />
 

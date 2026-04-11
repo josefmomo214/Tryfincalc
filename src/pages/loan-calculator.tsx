@@ -110,8 +110,8 @@ export default function LoanCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Loan Calculator - Simple & Fast Personal Finance Tool"
-        description="Calculate monthly payments for any personal or auto loan. See your total interest and repayment plan. Free and requires no sign-up. Easy financial planning."
+        title="Personal Loan Calculator: Estimator & FAQ | TryFinCalc"
+        description="Estimate installments for any personal or auto loan. See your monthly payment in seconds and compare total interest costs across various 2026 terms."
         canonicalUrl="https://tryfincalc.com/loan-calculator"
         structuredData={loanSchema}
       />

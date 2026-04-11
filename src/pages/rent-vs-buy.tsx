@@ -145,8 +145,8 @@ export default function RentVsBuy() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Rent vs Buy Calculator" 
-        description="Compare renting versus buying a home to see which makes more financial sense. Use our realistic guide. It is free and requires no sign-up for your journey."
+        title="Rent vs Buy Calculator 2026: Financial Verdict | TryFinCalc"
+        description="Compare the total cost of renting versus buying a home. See your monthly payment in seconds and find the break-even point for your future home purchase."
         canonicalUrl="https://tryfincalc.com/rent-vs-buy"
         structuredData={rentVsBuySchema}
       />

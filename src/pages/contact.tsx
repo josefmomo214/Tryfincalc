@@ -6,8 +6,8 @@ export default function Contact() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Contact Us" 
-        description="Get in touch with the TryFinCalc team for any questions or feedback about our tools. Our support is free and requires no sign-up. We are here to help you."
+        title="Contact TryFinCalc: Get Expert Financial Advice | TryFinCalc"
+        description="Reach out to our team for questions, feedback, or calculator requests. We help you understand your finances and see your monthly payment in seconds."
         canonicalUrl="https://tryfincalc.com/contact"
         noindex={true}
       />

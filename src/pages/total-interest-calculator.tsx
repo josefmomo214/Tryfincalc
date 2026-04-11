@@ -42,8 +42,8 @@ export default function TotalInterestCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Total Interest Calculator" 
-        description="Calculate the total interest you will pay over the life of your loan. Understand your borrowing costs. Free and requires no sign-up. Use our accurate tool."
+        title="Total Interest Calculator: Lifetime Loan Cost | TryFinCalc"
+        description="Reveal the true cost of your debt beyond the principal amount. See your monthly payment in seconds and calculate total interest paid over any loan term."
         canonicalUrl="https://tryfincalc.com/total-interest-calculator"
       />
 

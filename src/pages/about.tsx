@@ -9,8 +9,8 @@ export default function About() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="About TryFinCalc | Free Financial Calculators for Smart Decisions" 
-        description="Learn about TryFinCalc — who we are, why we built free financial calculators, how we ensure accuracy, and our commitment to transparent, unbiased financial information."
+        title="About TryFinCalc: Free Transparent Financial Tools | TryFinCalc"
+        description="Discover why we build the most transparent financial tools on the web. Learn our history and see how we help you master your monthly payment in seconds."
         canonicalUrl="https://tryfincalc.com/about"
         noindex={false}
       />

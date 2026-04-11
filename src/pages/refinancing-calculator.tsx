@@ -121,8 +121,8 @@ export default function RefinancingCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Refinancing Calculator - Save on Your Monthly Payments"
-        description="Calculate how much you can save by refinancing your mortgage or loan. Find your break-even point today. Free and requires no sign-up. Compare rates now."
+        title="Mortgage Refinance Calculator: Break-Even Tool | TryFinCalc"
+        description="Compare your current loan with a new rate to see potential savings. Find your break-even point and see your monthly payment in seconds with our tool."
         canonicalUrl="https://tryfincalc.com/refinancing-calculator"
         structuredData={refinancingSchema}
       />

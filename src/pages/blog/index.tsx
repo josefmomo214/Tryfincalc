@@ -26,8 +26,8 @@ export default function BlogIndex() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Financial Guides & Articles" 
-        description="Read expert financial guides, mortgage tips, and loan strategies from TryFinCalc. Learn more about money. All content is free and requires no sign-up ever."
+        title="Mortgage Guides & Financial Market Insights 2026 | TryFinCalc"
+        description="Read expert articles on mortgages, personal finance, and loan strategies. Master your budget and see your monthly payment in seconds with our guides."
         canonicalUrl="https://tryfincalc.com/blog"
       />
 

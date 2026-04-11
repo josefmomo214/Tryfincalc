@@ -126,8 +126,8 @@ export default function AffordabilityCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Affordability Calculator - How Much House Can I Buy?"
-        description="Find out how much home you can afford based on your income and debts. Get a realistic estimate in seconds. Free tool, no sign-up. Start your home search."
+        title="Home Affordability Calculator: How Much House? | TryFinCalc"
+        description="Find out how much house you can afford based on income and debt. See your monthly payment in seconds and get a detailed budget breakdown for your search."
         canonicalUrl="https://tryfincalc.com/affordability-calculator"
         structuredData={affordabilitySchema}
       />

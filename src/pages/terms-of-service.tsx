@@ -6,8 +6,8 @@ export default function TermsOfService() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Terms of Service" 
-        description="Read our comprehensive Terms of Service for using TryFinCalc's financial calculators and educational content. Understand your rights and our limitations of liability."
+        title="Terms of Service: Usage Rules & Disclaimer | TryFinCalc" 
+        description="Review our terms of service and usage rules. Learn how to see your monthly payment in seconds safely using our free and transparent 2026 tools."
         canonicalUrl="https://tryfincalc.com/terms-of-service"
         noindex={true}
       />

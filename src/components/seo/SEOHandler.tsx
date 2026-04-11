@@ -20,7 +20,7 @@ export function SEOHandler({
   noindex = false
 }: SEOHandlerProps) {
   const siteName = "TryFinCalc";
-  const fullTitle = `${title} | ${siteName}`;
+  const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 
   return (
     <Head>

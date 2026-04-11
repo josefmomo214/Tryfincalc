@@ -6,8 +6,8 @@ export default function PrivacyPolicy() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Privacy Policy" 
-        description="Our comprehensive Privacy Policy details how TryFinCalc protects your data, our cookie usage, and your rights under GDPR and CCPA. Your privacy is our priority."
+        title="Privacy Policy: User Data & Security | TryFinCalc" 
+        description="Read our privacy policy to understand how we protect your data. See your monthly payment in seconds with peace of mind using our secure 2026 tools."
         canonicalUrl="https://tryfincalc.com/privacy-policy"
         noindex={true}
       />

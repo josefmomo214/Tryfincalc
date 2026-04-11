@@ -153,8 +153,8 @@ export default function MortgageCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Mortgage Calculator - Estimate Your Monthly House Payments"
-        description="Calculate your monthly mortgage payments with our easy-to-use tool. Factor in interest, term, and down payment. Free, no sign-up required. Plan your home purchase."
+        title="Mortgage Calculator 2026: Monthly Payment Tool | TryFinCalc"
+        description="Calculate your monthly mortgage payment with taxes and insurance. Compare rates and see your monthly payment in seconds with our free 2026 tool."
         canonicalUrl="https://tryfincalc.com/mortgage-calculator"
         structuredData={mortgageSchema}
       />

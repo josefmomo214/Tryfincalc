@@ -44,8 +44,8 @@ export default function MonthlyPaymentCalculator() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Monthly Payment Calculator - Loan & Mortgage Estimator"
-        description="Get a quick breakdown of your monthly payment for any loan type. See the total cost of borrowing. It is free and requires no sign-up. Calculate accurately."
+        title="Monthly Payment Calculator: Fast Loan Estimates | TryFinCalc"
+        description="Get an instant breakdown of your monthly obligation for any loan. See your monthly payment in seconds with our 2026 calculator. No sign-up required."
         canonicalUrl="https://tryfincalc.com/monthly-payment-calculator"
       />
 

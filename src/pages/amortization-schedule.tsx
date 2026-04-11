@@ -132,8 +132,8 @@ export default function AmortizationSchedule() {
   return (
     <MainLayout>
       <SEOHandler 
-        title="Amortization Schedule Calculator - Payoff Details"
-        description="View your full amortization schedule to see how payments are split between principal and interest. Free and requires no sign-up. Plan your payoff schedule."
+        title="Amortization Schedule 2026: Loan Payoff Details | TryFinCalc"
+        description="Track your loan progress with a full amortization schedule. See your monthly payment in seconds and understand how interest and principal change over time."
         canonicalUrl="https://tryfincalc.com/amortization-schedule"
         structuredData={amortizationSchema}
       />
