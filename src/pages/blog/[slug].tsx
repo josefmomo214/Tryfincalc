@@ -8,6 +8,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { FixedVsVariableWidget } from "@/components/blog/FixedVsVariableWidget";
+import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
 
 interface BlogPostProps {
   article: Article;
@@ -122,8 +123,19 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
 
           {/* Inject widget above the fold if it's the target article */}
           {article.slug === "fixed-vs-variable-mortgage" && (
-            <div className="not-prose">
+            <div className="not-prose mb-12">
               <FixedVsVariableWidget />
+            </div>
+          )}
+
+          {article.slug === "400k-mortgage-monthly-payment" && (
+            <div className="not-prose mb-12">
+              <MortgageCalculatorWidget 
+                initialHomePrice={500000} 
+                initialDownPaymentPercent={20}
+                title="Calculate Your $400k Mortgage"
+                description="Adjust the variables below to see how your specific terms (rate, insurance, taxes) affect your $400,000 loan."
+              />
             </div>
           )}
           
