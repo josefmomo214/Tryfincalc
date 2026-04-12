@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
+import { FixedVsVariableWidget } from "@/components/blog/FixedVsVariableWidget";
+
 interface BlogPostProps {
   article: Article;
   recentArticles: Article[];
@@ -117,6 +119,13 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
               {article.excerpt}
             </p>
           </header>
+
+          {/* Inject widget above the fold if it's the target article */}
+          {article.slug === "fixed-vs-variable-mortgage" && (
+            <div className="not-prose">
+              <FixedVsVariableWidget />
+            </div>
+          )}
           
           <div 
             className="mt-12 blog-content leading-relaxed text-on-surface"
