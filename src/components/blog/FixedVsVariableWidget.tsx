@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { Calculator, ArrowRightLeft, ShieldCheck, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -120,9 +121,11 @@ export function FixedVsVariableWidget() {
           <div className="text-sm text-on-surface-variant italic">
             *Based on standard 30-year amortization. Taxes and insurance not included.
           </div>
-          <Button variant="outline" className="rounded-full w-full sm:w-auto" asChild>
-            <a href="/mortgage-calculator">Full Calculator →</a>
-          </Button>
+          <Link href="/mortgage-calculator" className="w-full sm:w-auto">
+            <Button variant="outline" className="rounded-full w-full">
+              Full Calculator →
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
