@@ -9,6 +9,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { FixedVsVariableWidget } from "@/components/blog/FixedVsVariableWidget";
 import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
+import { BorrowingCalculatorWidget } from "@/components/blog/BorrowingCalculatorWidget";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 interface BlogPostProps {
@@ -140,6 +141,12 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
                 title="Calculate Your $400k Mortgage"
                 description="Adjust the variables below to see how your specific terms (rate, insurance, taxes) affect your $400,000 loan."
               />
+            </div>
+          )}
+
+          {article.slug === "how-much-can-i-borrow" && (
+            <div className="not-prose mb-12">
+              <BorrowingCalculatorWidget />
             </div>
           )}
           

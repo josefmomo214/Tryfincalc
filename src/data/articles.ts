@@ -4845,4 +4845,92 @@ export const articles: Article[] = [
       <p class="text-sm italic mt-12 border-t pt-4 text-on-surface-variant/60">This guide is for informational purposes only. Local mortgage regulations and rates vary by country and lender — always consult with a professional financial advisor or mortgage broker in your specific jurisdiction before committing to a loan.</p>
     `
   },
+  {
+    title: "How Much Can I Borrow? Mortgage Affordability Calculator (2026)",
+    category: "Home Buying",
+    readTime: "10 min read",
+    excerpt: "Determining 'how much can I borrow' is the first step in home buying. We explain the 28/36 rule, income requirements for 400k mortgages, and provide an interactive borrowing power calculator.",
+    slug: "how-much-can-i-borrow",
+    seoTitle: "How much can I borrow? Mortgage affordability calculator (2026)",
+    seoDescription: "Calculate your borrowing power with our 2026 mortgage affordability tool. Learn the 28/36 rule and what salary you need for a $400k loan.",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much can I borrow with $5,000 monthly income?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With a $5,000 monthly income, the 28% front-end rule allows for a $1,400 monthly housing payment. Depending on interest rates and other debts, this typically supports a loan amount between $200,000 and $230,000."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What salary do I need for a 400k mortgage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For a $400,000 mortgage at 6.5% interest, you'll need a gross annual income of approximately $108,000 to keep your housing payment within the recommended 28% threshold, assuming no other significant debts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I get a $400k mortgage on a $70k salary?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On a $70,000 salary, a $400,000 mortgage is generally considered 'house poor' or may not qualify. At 6.5% interest, the principal and interest alone would consume 43% of your gross income, well above the 28% standard."
+            }
+          }
+        ]
+      }
+    ],
+    content: `
+      <p>The question <strong>"how much can I borrow"</strong> is the most critical calculation any prospective homebuyer makes. In 2026, with interest rates still fluctuating, understanding your borrowing limit is not just about knowing your maximum loan—it's about knowing what you can actually afford to live with. This guide breaks down the industry-standard <strong>28/36 rule</strong>, provides a table of income requirements for common loan amounts, and features our interactive 2026 borrowing power calculator.</p>
+
+      <h2>The 28/36 Rule Explained Simply</h2>
+      <p>Lenders don't just pick a number when deciding your limit; they use a specific pair of ratios known as the <strong>28/36 rule mortgage qualification</strong> standard. This rule ensures you have enough breathing room for life's other expenses. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">CFPB</a>, these ratios help prevent "mortgage stress."</p>
+      <ul>
+        <li><strong>Front-End Ratio (28%):</strong> Your total monthly housing cost (Principal, Interest, Taxes, and Insurance) should not exceed 28% of your gross monthly income.</li>
+        <li><strong>Back-End Ratio (36%):</strong> Your total monthly debt payments (Mortgage + Auto loans + Student loans + Credit cards) should not exceed 36% of your gross monthly income.</li>
+      </ul>
+      <p>Lenders typically qualify you based on the <em>lower</em> of these two numbers. If you have significant student debt, your "how much can I borrow" result might be restricted by the 36% rule even if your income is high.</p>
+
+      <h2>Income Needed for Common Mortgage Amounts</h2>
+      <p>Wondering <strong>what salary do I need for a 400k mortgage</strong>? The following table assumes a 6.5% interest rate, a 30-year term, and approximately $250/mo for taxes and insurance. These figures represent the 28% front-end threshold.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-4 px-4 font-bold">Loan Amount</th>
+              <th class="py-4 px-4 font-bold">Monthly Payment (Est.)</th>
+              <th class="py-4 px-4 font-bold">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td>$100,000</td><td>$882</td><td>$38,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$200,000</td><td>$1,514</td><td>$65,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$300,000</td><td>$2,146</td><td>$92,000</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>$400,000</td><td>$2,778</td><td>$119,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>$500,000</td><td>$3,410</td><td>$146,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Note: These are estimates. Use our <a href="/mortgage-calculator">mortgage calculator</a> to refine these numbers with your specific interest rate and local tax data. If you are looking for specific breakdowns, see our guide on the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a>.</p>
+
+      <h2>How Lenders Actually Calculate Your Limit</h2>
+      <p>Beyond the 28/36 rule, banks look at three primary "Buckets":</p>
+      <ol>
+        <li><strong>Gross Income:</strong> Your income before taxes. <strong>How much can I borrow with $5,000 monthly income</strong>? On paper, this supports a $1,400 housing payment.</li>
+        <li><strong>Credit Score:</strong> A lower score doesn't just mean a higher rate; it can also lead to lower DTI (Debt-to-Income) caps. For example, a <strong>credit limit for 30000 salary</strong> on a credit card might be high, but for a mortgage, it is strictly capped by income.</li>
+        <li><strong>Down Payment:</strong> The more you put down, the less you borrow, which lowers your monthly payment and increases the total home price you can afford.</li>
+      </ol>
+
+      <h2>Can I get a $400k mortgage on a $70k salary?</h2>
+      <p>The short answer is: <strong>Unlikely in 2026.</strong> At a 6.5% interest rate, a $400k loan would cost roughly $2,528 in principal and interest alone. On a $70k salary ($5,833/mo), that is a 43% front-end ratio—well above the 28% limit. To qualify for 400k, you would typically need a larger down payment or a salary closer to $110,000. For deeper strategy on these ratios, read about <a href="/blog/28-36-rule-explained">how the 28/36 rule works in detail</a>.</p>
+
+      <h2>Summary of Borrowing Power</h2>
+      <p>Understanding your limit is about more than just qualifying—it's about financial health. Use our tool above to experiment with different income levels and debt scenarios. Remember that "how much the bank will give me" and "how much I should spend" are often two different numbers.</p>
+    `
+  },
 ];

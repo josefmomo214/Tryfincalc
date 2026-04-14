@@ -305,6 +305,7 @@ export default function AffordabilityCalculator() {
           { label: "Monthly Payment", href: "/monthly-payment-calculator" }
         ]}
         relatedBlogs={[
+          { title: "How Much Can I Borrow?", href: "/blog/how-much-can-i-borrow" },
           { title: "Understanding Limits", href: "/blog" },
           { title: "Managing Debt Ratios", href: "/blog" }
         ]}
