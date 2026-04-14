@@ -112,7 +112,7 @@ export function BorrowingCalculatorWidget() {
                 {[15, 20, 30].map((t) => (
                   <Button
                     key={t}
-                    variant={term === t ? "default" : "outline"}
+                    variant={term === t ? "primary" : "outline"}
                     className="flex-1 rounded-xl"
                     onClick={() => setTerm(t)}
                   >
