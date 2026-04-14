@@ -7,7 +7,7 @@ export interface Article {
   content: string; // The full article content as an HTML string
   seoTitle?: string;
   seoDescription?: string;
-  structuredData?: object;
+  structuredData?: any;
 }
 
 export const articles: Article[] = [

@@ -13,7 +13,7 @@ export function BorrowingCalculatorWidget() {
   
   const [frontEndLimit, setFrontEndLimit] = useState<number>(0);
   const [backEndLimit, setBackEndLimit] = useState<number>(0);
-  const [maxLoanAmout, setMaxLoanAmount] = useState<number>(0);
+  const [maxLoanAmount, setMaxLoanAmount] = useState<number>(0);
   const [limitingFactor, setLimitingFactor] = useState<"front" | "back">("front");
 
   const calculateMaxLoan = (monthlyBudget: number, annualRate: number, years: number) => {
@@ -130,7 +130,7 @@ export function BorrowingCalculatorWidget() {
             <h4 className="text-sm font-manrope font-black text-primary uppercase tracking-[0.2em] mb-4">Estimated Borrowing Capacity</h4>
             <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-6">
               <span className="text-5xl md:text-6xl font-manrope font-black text-primary">
-                {formatCurrency(maxLoanAmout, 0, "USD")}
+                {formatCurrency(maxLoanAmount, 0, "USD")}
               </span>
               <span className="text-on-surface-variant font-medium text-lg">Potential Mortgage</span>
             </div>
