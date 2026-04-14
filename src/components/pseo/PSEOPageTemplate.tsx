@@ -117,16 +117,16 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
                 ) : (
                   <>
                     <p>
-                      To find the monthly payment for a <strong>{formatCurrency(params.amount || totalCost, 0, currency)}</strong> commitment, we apply a mathematical formula known as amortization.
+                      To find the monthly payment for a <strong>{formatCurrency(params.amount || totalCost, 0, currency)}</strong> commitment, we apply a mathematical formula known as amortization. This ensures your debt is repaid in equal installments over the full {params.term}-year term. For a deeper look at the math, see our guide on <Link href="/blog/mortgage-payment-guide" className="text-primary hover:underline font-bold">how mortgage payments are calculated</Link>.
                     </p>
                     <p>
-                      For a <strong>{params.term}-year fixed-rate</strong> product at {params.rate}%, your payment is biased towards interest early in the life of the loan. As time passes, more of your {formatCurrency(monthlyPayment, 0, currency)} monthly payment goes toward the principal.
+                      For a <strong>{params.term}-year fixed-rate</strong> product at {params.rate}%, your payment is biased towards interest early in the life of the loan. As time passes, more of your {formatCurrency(monthlyPayment, 0, currency)} monthly payment goes toward the principal. You can see the full breakdown by using our <Link href="/amortization-schedule" className="text-primary hover:underline font-bold">amortization schedule tool</Link> or reading about <Link href="/blog/amortization-schedule-explained" className="text-primary hover:underline font-bold">how amortization works</Link>.
                     </p>
                     {params.type === 'mortgage' && (
                       <div className="mt-8 p-6 bg-secondary/5 rounded-2xl border border-secondary/10 flex items-start gap-4">
                         <TrendingDown className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
                         <p className="text-sm italic m-0">
-                          Pro Tip: Did you know that increasing your payment by just 10% each month could shave years off your mortgage and save you thousands in total interest?
+                          Pro Tip: Did you know that increasing your payment by just 10% each month could shave years off your mortgage and save you thousands in total interest? See our guide on <Link href="/blog/fixed-vs-variable-mortgage" className="text-primary hover:underline font-bold">fixed vs variable mortgages</Link> for more strategy.
                         </p>
                       </div>
                     )}

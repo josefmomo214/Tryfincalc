@@ -1,132 +1,279 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Static Pages -->
   <url>
     <loc>https://tryfincalc.com/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/mortgage-calculator</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/loan-calculator</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/monthly-payment-calculator</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/total-interest-calculator</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/refinancing-calculator</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/affordability-calculator</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/rent-vs-buy</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/amortization-schedule</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/blog</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/faq</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
+  </url>  <url>
+    <loc>https://tryfincalc.com/about</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>  <url>
     <loc>https://tryfincalc.com/contact</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/privacy-policy</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
+  </url>  <url>
     <loc>https://tryfincalc.com/terms-of-service</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/100k-mortgage-monthly-payment</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/15-vs-30-year-mortgage</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/200k-euro-mortgage</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/200k-mortgage-monthly-payment</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/2026-homebuyers-playbook</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/28-36-rule-explained</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/300k-euro-mortgage</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/300k-mortgage-monthly-payment</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/400k-mortgage-monthly-payment</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/amortization-schedule-explained</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/calculator-mistakes</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/closing-costs-breakdown</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/compare-loan-offers</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/down-payment-guide</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/early-mortgage-payoff</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/escrow-accounts-explained</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/extra-payments-impact</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/fixed-vs-variable-mortgage</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/home-purchase-budgeting</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/how-much-house-can-i-afford</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/interest-rate-impact</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/loan-calculator-explained</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/loan-eligibility-by-income</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/loan-eligibility-by-income-detail</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/monthly-payment-formula</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/mortgage-payment-guide</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/reduce-mortgage-payment</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/refinance-calculator-guide</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/rent-vs-buy-2026</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/total-interest-explained</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/va-loans-guide</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/blog/when-to-refinance</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/calculator/10k-personal-loan-repayment-10-percent</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/calculator/250k-mortgage-monthly-payment-3-5-percent</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/calculator/25k-personal-loan-repayment-8-percent</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/calculator/300k-mortgage-monthly-payment-6-percent</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/calculator/400k-mortgage-monthly-payment-4-percent</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/calculator/400k-mortgage-monthly-payment-6-5-percent</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/calculator/500k-mortgage-monthly-payment-7-percent</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>  <url>
+    <loc>https://tryfincalc.com/calculator/how-much-house-can-i-afford-100k-salary</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
-
-  <!-- Blog Articles -->
-  <url><loc>https://tryfincalc.com/blog/400k-mortgage-monthly-payment</loc><priority>0.7</priority><lastmod>2026-03-22</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/2026-homebuyers-playbook</loc><priority>0.6</priority><lastmod>2026-03-27</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/mortgage-payment-guide</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/how-much-house-can-i-afford</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/mortgage-monthly-payment-explained</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/100k-mortgage-monthly-payment</loc><priority>0.6</priority><lastmod>2026-03-27</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/200k-mortgage-monthly-payment</loc><priority>0.6</priority><lastmod>2026-03-27</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/300k-mortgage-monthly-payment</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/loan-calculator-explained</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/amortization-schedule-explained</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/200k-euro-mortgage</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/300k-euro-mortgage</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/loan-eligibility-by-income</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/total-interest-explained</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/monthly-payment-formula</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/15-vs-30-year-mortgage</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/fixed-vs-variable-mortgage</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/extra-payments-impact</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/refinance-calculator-guide</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/when-to-refinance</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/rent-vs-buy-2026</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/home-purchase-budgeting</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/down-payment-guide</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/calculator-mistakes</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/interest-rate-impact</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/compare-loan-offers</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/reduce-mortgage-payment</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/early-mortgage-payoff</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/escrow-accounts-explained</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/va-loans-guide</loc><priority>0.6</priority><lastmod>2026-03-26</lastmod></url>
-  <url><loc>https://tryfincalc.com/blog/closing-costs-breakdown</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/blog/28-36-rule-explained</loc><priority>0.6</priority></url>
-
-  <!-- PSEO Calculator Pages -->
-  <url><loc>https://tryfincalc.com/calculator/300k-mortgage-monthly-payment-6-percent</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/calculator/400k-mortgage-monthly-payment-6-5-percent</loc><priority>0.6</priority><lastmod>2026-03-27</lastmod></url>
-  <url><loc>https://tryfincalc.com/calculator/500k-mortgage-monthly-payment-7-percent</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/calculator/250k-mortgage-monthly-payment-3-5-percent</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/calculator/400k-mortgage-monthly-payment-4-percent</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/calculator/10k-personal-loan-repayment-10-percent</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/calculator/25k-personal-loan-repayment-8-percent</loc><priority>0.6</priority></url>
-  <url><loc>https://tryfincalc.com/calculator/how-much-house-can-i-afford-100k-salary</loc><priority>0.6</priority></url>
 </urlset>

@@ -399,7 +399,7 @@ export const articles: Article[] = [
       <ul>
         <li><strong>Principal:</strong> The amount that goes directly toward paying down your original loan balance.</li>
         <li><strong>Interest:</strong> The fee charged by the lender for borrowing the money, based on your annual percentage rate (APR).</li>
-        <li><strong>Taxes:</strong> Property taxes charged by your local government, often held in an escrow account by your lender.</li>
+        <li><strong>Taxes:</strong> Property taxes charged by your local government, often held in an escrow account by your lender. For international buyers, the math is similar but currency-specific. See our guide on the <a href="/blog/200k-euro-mortgage">200,000 Euro mortgage monthly payment</a> for an example of European lending calculations.</li>
         <li><strong>Insurance:</strong> This includes homeowners insurance and, if you put down less than 20%, Private Mortgage Insurance (PMI).</li>
       </ul>
 
@@ -475,7 +475,7 @@ export const articles: Article[] = [
         <li><strong>Buy Points:</strong> Pay upfront to lower your interest rate for the life of the loan.</li>
       </ol>
 
-      <p>Before committing, check the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> for updates on market trends that might influence when you should lock in your rate.</p>
+      <p>Before committing, check the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> for updates on market trends that might influence when you should lock in your rate. For a specific example of how these rates apply to common loan amounts, see our <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment breakdown</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -570,7 +570,7 @@ export const articles: Article[] = [
         <li><strong>Compare 30-Year vs. 15-Year Terms:</strong> While 15-year loans save on total interest, a 30-year mortgage provides the lowest possible monthly payment.</li>
       </ul>
 
-      <p>Finally, evaluate <a href="/blog/rent-vs-buy-2026">whether renting still makes sense</a> in your specific area, as market dynamics vary locally.</p>
+      <p>Finally, evaluate <a href="/blog/rent-vs-buy-2026">whether renting still makes sense</a> in your specific area, as market dynamics vary locally. If you're looking at a standard entry-level home price, see our specific analysis of the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a> requirement.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -878,7 +878,7 @@ export const articles: Article[] = [
 <p>Note: Buyers putting less than 20% down will typically pay Private Mortgage Insurance (PMI), adding $40–$80/month to the payment. For more, see our <a href="/blog/down-payment-guide">down payment guide</a> and check the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> for PMI cancellation rights under the Homeowners Protection Act.</p>
 
 <h2>Is a $100,000 Mortgage Worth It? When It Makes Sense</h2>
-      <p>A $100,000 mortgage is a strategic financial decision in several scenarios: (1) Buying in an affordable Midwest or Southern US market where median home prices are below $150,000. (2) Purchasing a second property or vacation home where you want a smaller, manageable loan balance. (3) Refinancing a nearly paid-off primary mortgage to access home equity at a low rate for renovations. (4) Financing a manufactured home or condo in a lower-cost area. For smaller loans like $100k, the choice between <a href="/blog/fixed-vs-variable-mortgage">fixed vs variable mortgage</a> options can still significantly affect long-term interest. Contrast this with larger loans; see our <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage payment breakdown</a> for comparison. Always run your numbers through the <a href="/total-interest-calculator">total interest calculator</a> before committing to any borrowing strategy.</p>
+      <p>A $100,000 mortgage is a strategic financial decision in several scenarios: (1) Buying in an affordable Midwest or Southern US market where median home prices are below $150,000. (2) Purchasing a second property or vacation home where you want a smaller, manageable loan balance. (3) Refinancing a nearly paid-off primary mortgage to access home equity at a low rate for renovations. (4) Financing a manufactured home or condo in a lower-cost area. For smaller loans like $100k, the choice between <a href="/blog/fixed-vs-variable-mortgage">fixed vs variable mortgage</a> options can still significantly affect long-term interest. Contrast this with larger loans; see our <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage payment breakdown</a> or even a <a href="/blog/400k-mortgage-monthly-payment">$400,000 mortgage guide</a> for comparison. Always run your numbers through the <a href="/total-interest-calculator">total interest calculator</a> before committing to any borrowing strategy.</p>
 
 <h2>Frequently Asked Questions</h2>
 <h3>What is the monthly payment on a $100,000 mortgage?</h3>
@@ -1032,7 +1032,7 @@ export const articles: Article[] = [
   </tbody>
 </table>
 
-<p>If you find that $200,000 is slightly above your comfortable limit, check out our <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage payment breakdown</a> for a lower-cost alternative. If you have a larger budget, our $300,000 mortgage analysis (coming soon) provides similar depth for larger properties.</p>
+<p>If you find that $200,000 is slightly above your comfortable limit, check out our <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage payment breakdown</a> for a lower-cost alternative. If you have a larger budget, our <a href="/blog/300k-mortgage-monthly-payment">$300,000 mortgage analysis</a> and <a href="/blog/400k-mortgage-monthly-payment">$400,000 mortgage payment breakdown</a> provide similar depth for larger properties.</p>
 
 <h2>Frequently Asked Questions</h2>
 <h3>What is the monthly payment on a $200,000 mortgage?</h3>
@@ -1204,7 +1204,7 @@ export const articles: Article[] = [
       <p>PMI disappears entirely at 20% down, saving $125/month on this loan size. But 20% on a $375,000 home is $75,000 in cash — which most first-time buyers don't have. The 10% option is a reasonable middle ground for most buyers in this price range. See our <a href="/blog/down-payment-guide">down payment guide</a> for more strategy.</p>
 
       <h2>$300,000 vs Other Loan Amounts — How It Compares</h2>
-      <p>If you're weighing whether to stretch to a larger loan or scale back, here is a direct comparison at 6.8% over 30 years. This is useful as you consider whether a <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage</a> or a <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage</a> might better fit your budget.</p>
+      <p>If you're weighing whether to stretch to a larger loan or scale back, here is a direct comparison at 6.8% over 30 years. This is useful as you consider whether a <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage</a>, a <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage</a>, or a <a href="/blog/400k-mortgage-monthly-payment">$400,000 mortgage</a> might better fit your budget.</p>
 
       <div class="overflow-x-auto my-6">
         <table class="w-full text-left border-collapse">
@@ -1332,7 +1332,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>Note: Every $100 in existing monthly debt reduces your eligible loan amount by approximately $15,000. It's helpful to see <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> after factoring in taxes and insurance. Use our <a href="/affordability-calculator">affordability calculator</a> to see your personalised limit instantly.</p>
+      <p>Note: Every $100 in existing monthly debt reduces your eligible loan amount by approximately $15,000. It's helpful to see <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> after factoring in taxes and insurance. For a specific example, see our breakdown of the <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100k salary housing limit</a>. Use our <a href="/affordability-calculator">affordability calculator</a> to see your personalised limit instantly.</p>
 
       <h2>How Existing Debt Reduces Your Borrowing Power</h2>
       <p>To see the direct impact of debt, let’s look at a borrower earning $75,000 annually. As debts increase, their mortgage capacity drops rapidly:</p>
@@ -1466,7 +1466,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>The 30-year mortgage accumulates 25x more interest than the auto loan—not primarily because of the rate, but because of the longer term. Time is the biggest driver of total interest. For broader looks, check our <a href="/mortgage-calculator">mortgage calculator</a> or <a href="/loan-calculator">loan calculator</a>.</p>
+      <p>The 30-year mortgage accumulates 25x more interest than the auto loan—not primarily because of the rate, but because of the longer term. Time is the biggest driver of total interest. For broader looks, check our <a href="/mortgage-calculator">mortgage calculator</a> or <a href="/loan-calculator">loan calculator</a>. You can also see a specific example of a <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 loan at 8%</a> to see the interest accumulation over 5 years.</p>
 
       <h2>The Two Factors That Drive Total Interest</h2>
       <ul>

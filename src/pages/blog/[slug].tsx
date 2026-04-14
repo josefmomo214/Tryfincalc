@@ -9,6 +9,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { FixedVsVariableWidget } from "@/components/blog/FixedVsVariableWidget";
 import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 interface BlogPostProps {
   article: Article;
@@ -102,9 +103,12 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
       />
       
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
-        <Link href="/blog" className="inline-flex items-center text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 mb-8 font-medium transition-colors">
-          <ArrowLeft className="mr-2 w-4 h-4" /> Back to Guides
-        </Link>
+        <Breadcrumbs 
+          items={[
+            { label: "Financial Guides", href: "/blog" },
+            { label: article.title, href: `/blog/${article.slug}` }
+          ]} 
+        />
         
         <article className="prose prose-lg prose-primary dark:prose-invert max-w-none prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline">
           <header className="mb-12 border-b border-outline-variant pb-12">
