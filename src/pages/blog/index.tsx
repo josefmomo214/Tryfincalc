@@ -10,6 +10,10 @@ import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
 import SearchBar from "@/components/navigation/SearchBar";
 import { articles } from "@/data/articles";
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default function BlogIndex() {
   const featuredArticle = articles[0];
   const remainingArticles = articles.slice(1);
