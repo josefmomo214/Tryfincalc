@@ -40,6 +40,11 @@ export default function MyDocument(props: MyDocumentProps) {
             `,
           }}
         />
+        <script
+          id="cookieyes"
+          type="text/javascript"
+          src="https://cdn-cookieyes.com/client_data/983467/script.js"
+        />
       </Head>
       <body className="antialiased">
         <Main />
