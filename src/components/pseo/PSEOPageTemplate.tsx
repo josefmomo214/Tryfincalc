@@ -77,7 +77,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
              <ChevronRight className="w-4 h-4 rotate-180" /> Back to Tools
           </Link>
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-manrope font-extrabold text-primary leading-[1.1] mb-8 tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-primary leading-[1.1] mb-8 tracking-tight">
               {content.h1}
             </h1>
             <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed font-medium opacity-90">
@@ -92,7 +92,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
            <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12">
               <div className="space-y-4">
                  <span className="text-xs font-bold text-primary uppercase tracking-widest">Calculated Result</span>
-                 <h2 className="text-5xl md:text-6xl font-manrope font-black text-primary" suppressHydrationWarning>
+                 <h2 className="text-5xl md:text-6xl font-display font-black text-primary" suppressHydrationWarning>
                    {formatCurrency(monthlyPayment, 0, currency)}
                  </h2>
                  <p className="text-xl text-on-surface-variant max-w-md">
@@ -118,7 +118,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
           {/* Detailed Explanation */}
           <div className="space-y-12">
             <section className="bg-surface-container-lowest rounded-3xl p-8 md:p-12 border border-outline-variant/10">
-              <h3 className="text-3xl font-manrope font-bold text-primary mb-6 flex items-center gap-3">
+              <h3 className="text-3xl font-display font-bold text-primary mb-6 flex items-center gap-3">
                 <Info className="w-8 h-8 text-secondary" /> {content.body ? "Detailed Breakdown" : "How it breaks down"}
               </h3>
               <div className="prose prose-lg prose-teal max-w-none text-on-surface-variant leading-relaxed">
@@ -147,7 +147,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
 
             {/* Expert Tips Section */}
             <section>
-              <h3 className="text-3xl font-manrope font-bold text-primary mb-8 flex items-center gap-3">
+              <h3 className="text-3xl font-display font-bold text-primary mb-8 flex items-center gap-3">
                 <Lightbulb className="w-8 h-8 text-secondary" /> Key Considerations
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -167,7 +167,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
           {scenarios.length > 0 && !content.body && (
             <div className="space-y-12">
               <section className="bg-surface-container-high rounded-[2rem] p-8 md:p-12 border border-outline-variant/10 shadow-sm">
-                <h3 className="text-3xl font-manrope font-bold text-primary mb-8 flex items-center gap-3">
+                <h3 className="text-3xl font-display font-bold text-primary mb-8 flex items-center gap-3">
                   <PieChart className="w-8 h-8 text-secondary" /> Rate Sensitivity Analysis
                 </h3>
                 <p className="text-on-surface-variant mb-10 text-lg">
@@ -206,7 +206,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
 
         {/* Dynamic FAQ */}
         <section className="mt-32 pt-20 border-t border-outline-variant/10">
-          <h2 className="text-4xl md:text-5xl font-manrope font-extrabold text-primary mb-16 text-center tabular-nums">Frequently Asked Questions</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-extrabold text-primary mb-16 text-center tabular-nums">Frequently Asked Questions</h2>
           <div className="grid md:grid-cols-2 gap-16">
             {content.faqs.map((faq, idx) => (
               <div key={idx} className="relative pl-12">
@@ -226,7 +226,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
         <section className="mt-32 bg-primary text-white rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/30 opacity-50 transition-transform duration-1000 group-hover:scale-110"></div>
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-manrope font-black mb-8">Ready to lock in your rate?</h2>
+            <h2 className="text-4xl md:text-6xl font-display font-black mb-8">Ready to lock in your rate?</h2>
             <p className="text-xl md:text-2xl text-primary-fixed-dim/80 mb-12 max-w-2xl mx-auto font-medium">
               Join thousands of smart borrowers who used our calculators to plan their future with 100% mathematical certainty.
             </p>

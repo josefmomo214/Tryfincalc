@@ -23,6 +23,8 @@
 
   --font-manrope: var(--font-manrope);
   --font-inter: var(--font-inter);
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
 }
 
 .dark {
@@ -51,7 +53,7 @@
   body {
     background-color: var(--color-surface);
     color: var(--color-on-surface);
-    font-family: var(--font-inter), sans-serif;
+    font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
