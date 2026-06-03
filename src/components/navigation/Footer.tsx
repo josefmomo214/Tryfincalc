@@ -50,13 +50,15 @@ export function Footer() {
               <li><Link href="/privacy-policy" className="text-sm text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms-of-service" className="text-sm text-on-surface-variant hover:text-primary transition-colors">Terms of Service</Link></li>
               <li>
-                <button 
+                <button
+                  type="button"
                   onClick={() => {
-                    if (typeof window !== 'undefined' && (window as any).revisitCkyConsent) {
+                    if (typeof window !== 'undefined' &&
+                        typeof (window as any).revisitCkyConsent === 'function') {
                       (window as any).revisitCkyConsent();
                     }
                   }}
-                  className="text-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4 decoration-dotted"
+                  className="hover:underline cursor-pointer bg-transparent border-none text-inherit p-0 font-inherit text-sm"
                 >
                   Cookie Settings
                 </button>
