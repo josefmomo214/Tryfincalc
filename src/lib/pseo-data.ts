@@ -1810,6 +1810,657 @@ export const pseoData: PSEOParams[] = [
       }
     ]
   },
+  // Wave 2 Salary Affordability Pages
+  {
+    slug: 'how-much-house-can-i-afford-50k-salary',
+    type: 'affordability',
+    amount: 0,
+    rate: 6.8,
+    term: 30,
+    currency: 'USD',
+    salary: 50000,
+    customTitle: "How Much House Can I Afford on a $50,000 Salary in 2026?",
+    customDescription: "How much house can you afford on a $50,000 salary in 2026? Exact max loan, monthly PITI, DTI breakdown, and debt impact tables for entry-level buyers.",
+    customH1: "How Much House Can I Afford on a $50,000 Salary in 2026?",
+    customIntro: "On a $50,000 salary, homeownership requires careful market selection and debt management — most buyers at this income are entry-level workers, recent graduates, or single-income households targeting affordable markets in the Midwest, South, and rural areas where median home prices remain below $175,000. The 28% housing rule leaves a tight monthly budget of just $1,167, and a single car payment meaningfully shrinks your maximum loan amount. This page gives you the exact affordability numbers based on the DTI rules lenders actually use, a full debt-impact breakdown, and guidance for making homeownership work on a $50,000 income. Use the <a href='/affordability-calculator'>affordability calculator</a> above to personalise every figure.",
+    customContent: `
+      <h2>How Much House Can You Afford on $50k? The Core Numbers</h2>
+      <p>Lenders apply two key ratios: the 28% front-end limit (housing only) and the 36% back-end limit (all debts combined). Here is how those thresholds apply to a $50,000 income at 6.8% in 2026:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">DTI Limit</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">Taxes + Insurance Est.</th>
+              <th class="py-3 px-4 font-bold text-sm">Max P&amp;I</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">28% rule</td><td class="py-3 px-4 text-sm">$1,167</td><td class="py-3 px-4 text-sm">~$280</td><td class="py-3 px-4 text-sm">~$887</td><td class="py-3 px-4 text-sm">~$136,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">36% rule</td><td class="py-3 px-4 text-sm">$1,500</td><td class="py-3 px-4 text-sm">~$352</td><td class="py-3 px-4 text-sm">~$1,148</td><td class="py-3 px-4 text-sm">~$176,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The 28% rule is the conservative guideline most financial advisors recommend. The 36% back-end rule from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> is the maximum most lenders will approve with zero other debts. The gap between these two scenarios is about $40,000 in loan amount — meaningful at this income level. For most $50,000 earners, the realistic comfort zone is a $120,000–$145,000 loan. See the <a href="/blog/28-36-rule-explained">28/36 rule explained</a> for more detail.</p>
+
+      <h2>How Existing Debts Reduce Your Buying Power</h2>
+      <p>At $50,000/year, debt management is critical. Here is how common debt loads affect your maximum mortgage at 6.8%:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Monthly Debt Load</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price (10% down)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">$0 (debt free)</td><td class="py-3 px-4 text-sm">$1,167</td><td class="py-3 px-4 text-sm">~$136,000</td><td class="py-3 px-4 text-sm">~$150,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$300 (one car)</td><td class="py-3 px-4 text-sm">$867</td><td class="py-3 px-4 text-sm">~$98,000</td><td class="py-3 px-4 text-sm">~$110,000</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 text-sm">$600 (car + student)</td><td class="py-3 px-4 text-sm">$567</td><td class="py-3 px-4 text-sm">~$61,000</td><td class="py-3 px-4 text-sm">~$70,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$900 (multiple debts)</td><td class="py-3 px-4 text-sm">$267</td><td class="py-3 px-4 text-sm">~$23,000</td><td class="py-3 px-4 text-sm">Not practical</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A single car payment of $300/month cuts your maximum loan by $38,000. At $600 in monthly debts, you are limited to manufactured housing or extremely distressed properties. Use our <a href="/loan-calculator">loan calculator</a> to model how paying off specific debts before closing could unlock dramatically more buying power. A <a href="/calculator/100k-mortgage-monthly-payment-6-5-percent">$100,000 mortgage</a> is attainable debt-free at $50k — but requires eliminating other obligations first.</p>
+
+      <h2>How Your Down Payment Changes the Picture</h2>
+      <p>For a $50,000 earner, keeping the loan at or near $136,000, different down payments buy different home prices while keeping the monthly payment roughly stable:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Down Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Cash Needed</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">PMI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3%</td><td class="py-3 px-4 text-sm">~$4,200</td><td class="py-3 px-4 text-sm">~$140,000</td><td class="py-3 px-4 text-sm">~$1,157</td><td class="py-3 px-4 text-sm">~$57/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5%</td><td class="py-3 px-4 text-sm">~$7,150</td><td class="py-3 px-4 text-sm">~$143,000</td><td class="py-3 px-4 text-sm">~$1,159</td><td class="py-3 px-4 text-sm">~$57/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">~$15,100</td><td class="py-3 px-4 text-sm">~$151,000</td><td class="py-3 px-4 text-sm">~$1,167</td><td class="py-3 px-4 text-sm">~$57/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">~$34,000</td><td class="py-3 px-4 text-sm">~$170,000</td><td class="py-3 px-4 text-sm">~$1,127</td><td class="py-3 px-4 text-sm">$0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A 20% down payment eliminates PMI and lets you buy a $170,000 home versus $140,000 with 3% down — using the same loan amount. Check our <a href="/blog/down-payment-guide">down payment guide</a> and <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD first-time buyer programs</a> for down payment assistance options.</p>
+
+      <h2>Your Full Monthly Budget on a $50,000 Salary</h2>
+      <p>What does a $150,000 home actually cost per month on a $50,000 salary at 6.8%?</p>
+      <ul>
+        <li><strong>Principal and Interest ($136,000 loan):</strong> $887</li>
+        <li><strong>Property Tax (1.1%/yr on $150k):</strong> $138</li>
+        <li><strong>Homeowners Insurance:</strong> $85</li>
+        <li><strong>PMI (~0.5%/yr):</strong> $57</li>
+        <li><strong>Total Housing Cost:</strong> $1,167</li>
+        <li><strong>As % of $50k Gross Income:</strong> 28.0%</li>
+      </ul>
+      <p>This is right at the 28% boundary — leaving very little margin for home repairs, HOA fees, or unexpected costs. Financial advisors typically recommend a 20–25% housing ratio so you have breathing room. You can also compare this scenario to a <a href="/calculator/150k-mortgage-monthly-payment-6-5-percent">$150,000 mortgage at 6.5%</a> to see how a rate difference affects the payment.</p>
+
+      <h2>Get Your Personalised Home Budget</h2>
+      <p>Ready to see your exact numbers? Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your specific income, debts, and down payment. Also read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand all the variables lenders evaluate. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> will help you compare loan options confidently.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Affordability Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm">Find your exact max price.</p>
+          <a href="/affordability-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-70 text-sm">Model your monthly PITI.</p>
+          <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Calculator →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "How much house can I afford on a $50,000 salary?",
+        answer: "On a $50,000 salary with no other debts, you can afford approximately $136,000 using the 28% front-end rule at 6.8% interest with 10% down — enough for a home priced around $150,000 in affordable US markets."
+      },
+      {
+        question: "Can I buy a home on $50,000 a year in 2026?",
+        answer: "Yes, but you need to target markets where median prices are below $175,000 — rural areas of the South, Midwest, and Appalachia. FHA financing with 3.5% down helps entry-level buyers on a $50,000 income enter the market sooner."
+      },
+      {
+        question: "What monthly mortgage payment can I afford on $50,000 a year?",
+        answer: "Using the 28% rule, your maximum monthly PITI is $1,167. Carrying $300/month in existing debts reduces that housing budget to $867, which limits your loan to roughly $98,000."
+      },
+      {
+        question: "How much do I need for a down payment on a $50k salary?",
+        answer: "With a $136,000 max loan, you need roughly $7,150 with 5% down or $15,100 with 10% down on a $150,000 home. Saving a 20% down payment of $34,000 eliminates PMI and lets you buy a $170,000 home."
+      }
+    ]
+  },
+  {
+    slug: 'how-much-house-can-i-afford-60k-salary',
+    type: 'affordability',
+    amount: 0,
+    rate: 6.8,
+    term: 30,
+    currency: 'USD',
+    salary: 60000,
+    customTitle: "How Much House Can I Afford on a $60,000 Salary in 2026?",
+    customDescription: "How much house can you afford on a $60,000 salary in 2026? Get your max loan at 6.8%, monthly PITI limits, FHA eligibility, and debt impact tables.",
+    customH1: "How Much House Can I Afford on a $60,000 Salary in 2026?",
+    customIntro: "A $60,000 salary sits near the US median household income, which means lenders view you as a qualified borrower — but high home prices in major metros may still push you toward FHA-backed financing, secondary markets, or co-borrowing with a partner. Your 28% monthly housing budget of $1,400 comfortably supports a mortgage in the $155,000–$170,000 range, covering starter homes across the South, rural Midwest, and secondary metros such as Memphis, Dayton, and Huntsville. This page shows your precise affordability numbers using the same 28/36 DTI rules that FHA and conventional lenders apply, along with a full breakdown of how existing debts shift the picture. Use the <a href='/affordability-calculator'>affordability calculator</a> to model your specific loan scenario.",
+    customContent: `
+      <h2>How Much House Can You Afford on $60k? The Core Numbers</h2>
+      <p>The two standard thresholds lenders use — 28% front-end (housing) and 36% back-end (all debts) — give different answers depending on whether you carry existing debt. Here is the base case at 6.8% for a $60,000 income:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">DTI Limit</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">Taxes + Insurance Est.</th>
+              <th class="py-3 px-4 font-bold text-sm">Max P&amp;I</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">28% rule</td><td class="py-3 px-4 text-sm">$1,400</td><td class="py-3 px-4 text-sm">~$330</td><td class="py-3 px-4 text-sm">~$1,070</td><td class="py-3 px-4 text-sm">~$165,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">36% rule</td><td class="py-3 px-4 text-sm">$1,800</td><td class="py-3 px-4 text-sm">~$415</td><td class="py-3 px-4 text-sm">~$1,385</td><td class="py-3 px-4 text-sm">~$213,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The 28% rule gives a comfortable budget; the 36% upper limit from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> is the technical maximum most lenders allow with zero existing debts. Most $60,000 earners find their realistic buying range sits between $155,000 and $185,000. Read our <a href="/blog/28-36-rule-explained">28/36 rule explained</a> guide for the full framework.</p>
+
+      <h2>How Existing Debts Reduce Your Buying Power</h2>
+      <p>Debt management is especially important at the median income level. Here is how common monthly debt loads cut into your maximum mortgage at 6.8%:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Monthly Debt Load</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price (10% down)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">$0 (debt free)</td><td class="py-3 px-4 text-sm">$1,400</td><td class="py-3 px-4 text-sm">~$165,000</td><td class="py-3 px-4 text-sm">~$185,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$300 (one car)</td><td class="py-3 px-4 text-sm">$1,100</td><td class="py-3 px-4 text-sm">~$127,000</td><td class="py-3 px-4 text-sm">~$140,000</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 text-sm">$600 (car + student)</td><td class="py-3 px-4 text-sm">$800</td><td class="py-3 px-4 text-sm">~$89,000</td><td class="py-3 px-4 text-sm">~$100,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$900 (multiple debts)</td><td class="py-3 px-4 text-sm">$500</td><td class="py-3 px-4 text-sm">~$52,000</td><td class="py-3 px-4 text-sm">~$60,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A single car payment of $300/month cuts your maximum loan by $38,000 — the difference between a starter home and something barely livable. Use our <a href="/loan-calculator">loan calculator</a> to see how aggressively paying down debt before applying can meaningfully open up your options. Compare to a <a href="/calculator/150k-mortgage-monthly-payment-6-5-percent">$150,000 mortgage at 6.5%</a> to benchmark monthly costs.</p>
+
+      <h2>How Your Down Payment Changes the Picture</h2>
+      <p>With a fixed loan near $165,000, the down payment determines how expensive a home you can buy — not how much you borrow:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Down Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Cash Needed</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">PMI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3%</td><td class="py-3 px-4 text-sm">~$5,100</td><td class="py-3 px-4 text-sm">~$170,000</td><td class="py-3 px-4 text-sm">~$1,390</td><td class="py-3 px-4 text-sm">~$69/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5%</td><td class="py-3 px-4 text-sm">~$8,700</td><td class="py-3 px-4 text-sm">~$174,000</td><td class="py-3 px-4 text-sm">~$1,394</td><td class="py-3 px-4 text-sm">~$69/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">~$18,300</td><td class="py-3 px-4 text-sm">~$183,000</td><td class="py-3 px-4 text-sm">~$1,402</td><td class="py-3 px-4 text-sm">~$69/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">~$41,200</td><td class="py-3 px-4 text-sm">~$206,000</td><td class="py-3 px-4 text-sm">~$1,355</td><td class="py-3 px-4 text-sm">$0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Going from 3% to 20% down on the same $165,000 loan lets you buy a $206,000 home instead of $170,000 — a $36,000 upgrade at the same loan amount. Check <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD's first-time buyer programs</a> for down payment assistance, and see our <a href="/blog/down-payment-guide">down payment guide</a> for savings strategies.</p>
+
+      <h2>Your Full Monthly Budget on a $60,000 Salary</h2>
+      <p>What does a $183,000 home actually cost per month on a $60,000 salary at 6.8%?</p>
+      <ul>
+        <li><strong>Principal and Interest ($165,000 loan):</strong> $1,076</li>
+        <li><strong>Property Tax (1.1%/yr on $183k):</strong> $168</li>
+        <li><strong>Homeowners Insurance:</strong> $90</li>
+        <li><strong>PMI (~0.5%/yr):</strong> $69</li>
+        <li><strong>Total Housing Cost:</strong> $1,403</li>
+        <li><strong>As % of $60k Gross Income:</strong> 28.1%</li>
+      </ul>
+      <p>This scenario sits just at the 28% boundary. FHA loans are a popular route for $60k earners since they allow debt-to-income ratios up to 43% with mortgage insurance — potentially unlocking a higher price range. Compare this to a <a href="/calculator/100k-mortgage-monthly-payment-6-5-percent">$100,000 mortgage at 6.5%</a> to understand how even a smaller loan size might fit your budget better if you have existing debts.</p>
+
+      <h2>Get Your Personalised Home Budget</h2>
+      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your exact income, debts, and down payment. You can also read our full guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> or compare this scenario to a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary affordability analysis</a>.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Affordability Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm">Find your exact max price.</p>
+          <a href="/affordability-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-70 text-sm">Model your monthly PITI.</p>
+          <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Calculator →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "How much house can I afford on a $60,000 salary?",
+        answer: "On a $60,000 salary with no existing debts, you can afford approximately $165,000 at 6.8% using the 28% rule — enough for a home priced around $183,000 with 10% down in affordable US markets."
+      },
+      {
+        question: "Does a $60k salary qualify me for an FHA loan in 2026?",
+        answer: "Yes. FHA loans are available to most income levels that meet the credit and DTI requirements. On $60,000, you qualify for an FHA loan up to approximately $165,000 under the 28/36 rule, and FHA's 43% DTI allowance may let you stretch further with compensating factors."
+      },
+      {
+        question: "What is my maximum monthly mortgage payment at $60,000 income?",
+        answer: "Using the 28% front-end DTI rule, your maximum monthly PITI is $1,400. Carrying $300/month in existing debts reduces your available housing budget to $1,100, which limits your loan to roughly $127,000."
+      },
+      {
+        question: "Can I afford a $200,000 home on a $60k salary?",
+        answer: "A $200,000 home requires roughly an $180,000 loan with 10% down. Monthly PITI would be approximately $1,520 — above the 28% guideline of $1,400 for a $60k salary. It is possible under the 36% rule if you have minimal other debts and good credit."
+      }
+    ]
+  },
+  {
+    slug: 'how-much-house-can-i-afford-70k-salary',
+    type: 'affordability',
+    amount: 0,
+    rate: 6.8,
+    term: 30,
+    currency: 'USD',
+    salary: 70000,
+    customTitle: "How Much House Can I Afford on a $70,000 Salary in 2026?",
+    customDescription: "How much house can you afford on a $70,000 salary in 2026? See your max loan amount, full PITI breakdown, debt impact tables, and best markets to buy.",
+    customH1: "How Much House Can I Afford on a $70,000 Salary in 2026?",
+    customIntro: "Earning $70,000 puts you above the US median income and opens the door to moderate-priced markets — secondary suburbs, smaller cities in the South and Mountain West, and towns within commuting range of larger metros where home prices sit in the $200,000–$250,000 range. Your 28% housing budget of $1,633/month supports a loan around $193,000 with no other debts, giving you genuine buying flexibility in markets that strain lower income brackets. Unlike entry-level buyers, $70k earners often qualify for conventional financing with a 10% down payment without needing FHA. This page works through your exact DTI math, shows how car loans and student debt compress your options, and identifies the down payment approach that maximises your buying power. Use the <a href='/affordability-calculator'>affordability calculator</a> above for your exact scenario.",
+    customContent: `
+      <h2>How Much House Can You Afford on $70k? The Core Numbers</h2>
+      <p>At $70,000 income, the 28% front-end and 36% back-end rules produce meaningfully different affordability ceilings. Here is the base case at 6.8% for 30 years:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">DTI Limit</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">Taxes + Insurance Est.</th>
+              <th class="py-3 px-4 font-bold text-sm">Max P&amp;I</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">28% rule</td><td class="py-3 px-4 text-sm">$1,633</td><td class="py-3 px-4 text-sm">~$375</td><td class="py-3 px-4 text-sm">~$1,258</td><td class="py-3 px-4 text-sm">~$193,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">36% rule</td><td class="py-3 px-4 text-sm">$2,100</td><td class="py-3 px-4 text-sm">~$480</td><td class="py-3 px-4 text-sm">~$1,620</td><td class="py-3 px-4 text-sm">~$250,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The 28% rule is where most financial advisors recommend you stay. The 36% ceiling defined by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> is the technical maximum lenders allow, requiring zero existing debts to reach. The $57,000 gap between these scenarios represents the difference between a comfortable $215,000 home and an $280,000 stretch purchase. See our <a href="/blog/28-36-rule-explained">28/36 rule explained</a> guide for more context.</p>
+
+      <h2>How Existing Debts Reduce Your Buying Power</h2>
+      <p>Student loans and car payments are the most common obstacles at the $70k income level. Here is the impact at 6.8%:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Monthly Debt Load</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price (10% down)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">$0 (debt free)</td><td class="py-3 px-4 text-sm">$1,633</td><td class="py-3 px-4 text-sm">~$193,000</td><td class="py-3 px-4 text-sm">~$215,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$300 (one car)</td><td class="py-3 px-4 text-sm">$1,333</td><td class="py-3 px-4 text-sm">~$155,000</td><td class="py-3 px-4 text-sm">~$170,000</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 text-sm">$600 (car + student)</td><td class="py-3 px-4 text-sm">$1,033</td><td class="py-3 px-4 text-sm">~$117,000</td><td class="py-3 px-4 text-sm">~$130,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$900 (multiple debts)</td><td class="py-3 px-4 text-sm">$733</td><td class="py-3 px-4 text-sm">~$80,000</td><td class="py-3 px-4 text-sm">~$90,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A $300 car payment cuts $38,000 from your maximum loan — dropping you from a $215,000 home to a $170,000 home. Carrying $600 in monthly debts nearly halves your buying power. Use our <a href="/loan-calculator">loan calculator</a> to see how payoff scenarios shift your budget, and compare to a <a href="/calculator/200k-mortgage-monthly-payment-6-5-percent">$200,000 mortgage at 6.5%</a> to set realistic expectations.</p>
+
+      <h2>How Your Down Payment Changes the Picture</h2>
+      <p>With a fixed $193,000 loan, your down payment determines your total home price and whether PMI applies:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Down Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Cash Needed</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">PMI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3%</td><td class="py-3 px-4 text-sm">~$5,970</td><td class="py-3 px-4 text-sm">~$199,000</td><td class="py-3 px-4 text-sm">~$1,621</td><td class="py-3 px-4 text-sm">~$80/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5%</td><td class="py-3 px-4 text-sm">~$10,150</td><td class="py-3 px-4 text-sm">~$203,000</td><td class="py-3 px-4 text-sm">~$1,625</td><td class="py-3 px-4 text-sm">~$80/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">~$21,400</td><td class="py-3 px-4 text-sm">~$214,000</td><td class="py-3 px-4 text-sm">~$1,635</td><td class="py-3 px-4 text-sm">~$80/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">~$48,200</td><td class="py-3 px-4 text-sm">~$241,000</td><td class="py-3 px-4 text-sm">~$1,579</td><td class="py-3 px-4 text-sm">$0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A 20% down payment eliminates PMI and lets you buy a $241,000 home versus $199,000 with 3% down — while actually lowering your monthly payment by $42. Review our <a href="/blog/down-payment-guide">down payment guide</a> for strategies to reach 20% faster, and check <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> for state-level DPA programs.</p>
+
+      <h2>Your Full Monthly Budget on a $70,000 Salary</h2>
+      <p>What does a $214,000 home actually cost per month on a $70,000 salary at 6.8%?</p>
+      <ul>
+        <li><strong>Principal and Interest ($193,000 loan):</strong> $1,258</li>
+        <li><strong>Property Tax (1.1%/yr on $214k):</strong> $196</li>
+        <li><strong>Homeowners Insurance:</strong> $100</li>
+        <li><strong>PMI (~0.5%/yr):</strong> $80</li>
+        <li><strong>Total Housing Cost:</strong> $1,634</li>
+        <li><strong>As % of $70k Gross Income:</strong> 28.0%</li>
+      </ul>
+      <p>This scenario hits the 28% boundary precisely. Markets like Huntsville AL, Knoxville TN, and smaller metros in the Carolinas offer $200,000–$225,000 homes that fit this budget. Compare to a <a href="/calculator/150k-mortgage-monthly-payment-6-5-percent">$150,000 mortgage at 6.5%</a> to understand lower loan options.</p>
+
+      <h2>Get Your Personalised Home Budget</h2>
+      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your exact income, debts, and down payment. Read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand all the factors lenders weigh — and compare to a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary affordability</a> page to see how income growth expands your options.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Affordability Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm">Find your exact max price.</p>
+          <a href="/affordability-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-70 text-sm">Model your monthly PITI.</p>
+          <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Calculator →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "How much house can I afford on a $70,000 salary?",
+        answer: "On a $70,000 salary with no existing debts, you can afford approximately $193,000 at 6.8% using the 28% rule — enough for a home priced around $214,000 with 10% down in moderate-cost US markets."
+      },
+      {
+        question: "What loan amount can I qualify for on $70,000 income?",
+        answer: "Under the 28% front-end rule, you can qualify for roughly $193,000. Under the 36% back-end rule (with no other debts), that ceiling rises to approximately $250,000. Most lenders land somewhere between these two figures depending on your credit score and debt profile."
+      },
+      {
+        question: "How does a $400/month car payment affect my mortgage on $70,000?",
+        answer: "A $400/month car payment reduces your available housing budget from $1,633 to $1,233, dropping your maximum loan from $193,000 to approximately $142,000 — a $51,000 reduction in buying power."
+      },
+      {
+        question: "What markets are realistic for a $70k buyer in 2026?",
+        answer: "On a $70,000 salary, you can realistically purchase in secondary markets across the South and Midwest — including Knoxville TN, Huntsville AL, Dayton OH, and Kansas City suburbs — where median prices sit in the $200,000–$240,000 range."
+      }
+    ]
+  },
+  {
+    slug: 'how-much-house-can-i-afford-80k-salary',
+    type: 'affordability',
+    amount: 0,
+    rate: 6.8,
+    term: 30,
+    currency: 'USD',
+    salary: 80000,
+    customTitle: "How Much House Can I Afford on an $80,000 Salary in 2026?",
+    customDescription: "How much house can you afford on an $80,000 salary in 2026? Get your max home price, monthly PITI breakdown, debt tables, and down payment analysis.",
+    customH1: "How Much House Can I Afford on an $80,000 Salary in 2026?",
+    customIntro: "An $80,000 salary gives you solid buying power across most mid-size US cities — you can comfortably qualify for a $221,000+ loan with no other debts, putting homes in growing suburbs of Columbus, Indianapolis, Raleigh, and comparable markets within reach. Your 28% housing budget of $1,867/month creates a meaningful buffer between what you can technically borrow and what leaves you financially comfortable, which is a hallmark of the $80k income tier. Unlike buyers at lower income levels who are constrained to a single market type, $80k earners can often choose between a smaller home with aggressive payoff or a larger one on a 30-year term. This page gives you the precise numbers using lender DTI rules so you walk into a pre-approval with confidence. Use the <a href='/affordability-calculator'>affordability calculator</a> above to dial in your scenario.",
+    customContent: `
+      <h2>How Much House Can You Afford on $80k? The Core Numbers</h2>
+      <p>At $80,000, the spread between the conservative 28% rule and the lender-maximum 36% rule is substantial — nearly $65,000 in loan amount. Here is the base case at 6.8%:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">DTI Limit</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">Taxes + Insurance Est.</th>
+              <th class="py-3 px-4 font-bold text-sm">Max P&amp;I</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">28% rule</td><td class="py-3 px-4 text-sm">$1,867</td><td class="py-3 px-4 text-sm">~$425</td><td class="py-3 px-4 text-sm">~$1,442</td><td class="py-3 px-4 text-sm">~$221,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">36% rule</td><td class="py-3 px-4 text-sm">$2,400</td><td class="py-3 px-4 text-sm">~$540</td><td class="py-3 px-4 text-sm">~$1,860</td><td class="py-3 px-4 text-sm">~$286,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The 28% front-end limit is where financial advisors recommend staying. The 36% ceiling from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> requires zero existing monthly debts to reach and represents a $65,000 gap in loan amount. Most $80k buyers target the $220,000–$265,000 loan range depending on their debt load. See our <a href="/blog/28-36-rule-explained">28/36 rule guide</a> for the full framework lenders use.</p>
+
+      <h2>How Existing Debts Reduce Your Buying Power</h2>
+      <p>At $80,000 income, moderate debts are manageable but still cost tens of thousands in buying power. Here is the impact:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Monthly Debt Load</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price (10% down)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">$0 (debt free)</td><td class="py-3 px-4 text-sm">$1,867</td><td class="py-3 px-4 text-sm">~$221,000</td><td class="py-3 px-4 text-sm">~$245,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$300 (one car)</td><td class="py-3 px-4 text-sm">$1,567</td><td class="py-3 px-4 text-sm">~$183,000</td><td class="py-3 px-4 text-sm">~$205,000</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 text-sm">$600 (car + student)</td><td class="py-3 px-4 text-sm">$1,267</td><td class="py-3 px-4 text-sm">~$145,000</td><td class="py-3 px-4 text-sm">~$160,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$900 (multiple debts)</td><td class="py-3 px-4 text-sm">$967</td><td class="py-3 px-4 text-sm">~$108,000</td><td class="py-3 px-4 text-sm">~$120,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Carrying $600 in monthly debts drops your maximum loan from $221,000 to $145,000 — a $76,000 reduction in buying power. At $900/month in debts, your loan barely reaches $108,000. Use our <a href="/loan-calculator">loan calculator</a> to evaluate payoff scenarios before applying for a mortgage. Compare to a <a href="/calculator/200k-mortgage-monthly-payment-6-5-percent">$200,000 mortgage at 6.5%</a> to understand the monthly commitment at your target loan size.</p>
+
+      <h2>How Your Down Payment Changes the Picture</h2>
+      <p>For an $80k earner with a $221,000 loan, higher down payments buy more expensive homes while eliminating PMI costs:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Down Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Cash Needed</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">PMI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3%</td><td class="py-3 px-4 text-sm">~$6,840</td><td class="py-3 px-4 text-sm">~$228,000</td><td class="py-3 px-4 text-sm">~$1,852</td><td class="py-3 px-4 text-sm">~$92/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5%</td><td class="py-3 px-4 text-sm">~$11,650</td><td class="py-3 px-4 text-sm">~$233,000</td><td class="py-3 px-4 text-sm">~$1,856</td><td class="py-3 px-4 text-sm">~$92/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">~$24,600</td><td class="py-3 px-4 text-sm">~$246,000</td><td class="py-3 px-4 text-sm">~$1,868</td><td class="py-3 px-4 text-sm">~$92/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">~$55,200</td><td class="py-3 px-4 text-sm">~$276,000</td><td class="py-3 px-4 text-sm">~$1,804</td><td class="py-3 px-4 text-sm">$0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Putting 20% down on the same loan allows you to purchase a $276,000 home instead of $228,000 with 3% down — and lowers your monthly cost by $48 by eliminating PMI. See our <a href="/blog/down-payment-guide">down payment guide</a> for the fastest path to 20%. Also compare to a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a> to understand what the move-up tier looks like.</p>
+
+      <h2>Your Full Monthly Budget on an $80,000 Salary</h2>
+      <p>What does a $245,000 home actually cost per month on an $80,000 salary at 6.8%?</p>
+      <ul>
+        <li><strong>Principal and Interest ($221,000 loan):</strong> $1,441</li>
+        <li><strong>Property Tax (1.1%/yr on $245k):</strong> $225</li>
+        <li><strong>Homeowners Insurance:</strong> $110</li>
+        <li><strong>PMI (~0.5%/yr):</strong> $92</li>
+        <li><strong>Total Housing Cost:</strong> $1,868</li>
+        <li><strong>As % of $80k Gross Income:</strong> 28.0%</li>
+      </ul>
+      <p>This scenario hits the 28% target precisely. Markets like Raleigh exurbs, Columbus OH, Indianapolis suburbs, and larger Tennessee cities offer $230,000–$260,000 starter homes that fit this budget comfortably. If you are comparing scenarios, see what a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100k salary can afford</a> to understand how income growth shifts your range.</p>
+
+      <h2>Get Your Personalised Home Budget</h2>
+      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your exact income, debts, and down payment. Also read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> and the <a href="/blog/mortgage-payment-guide">mortgage payment guide</a> for all the variables lenders review.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Affordability Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm">Find your exact max price.</p>
+          <a href="/affordability-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-70 text-sm">Model your monthly PITI.</p>
+          <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Calculator →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "How much house can I afford on an $80,000 salary?",
+        answer: "On an $80,000 salary with no existing debts, you can afford approximately $221,000 at 6.8% using the 28% rule — enough for a home priced around $245,000 with 10% down in mid-size US markets."
+      },
+      {
+        question: "Can I afford a $300,000 home on an $80,000 salary?",
+        answer: "A $300,000 home requires roughly $270,000 in financing with 10% down. Monthly PITI would be approximately $2,260 — above the 28% guideline of $1,867 for an $80k salary. It is achievable under the 36% rule if you have minimal existing debts and a strong credit score."
+      },
+      {
+        question: "How does student loan debt affect my buying power at $80k?",
+        answer: "A $400/month student loan payment reduces your available housing budget from $1,867 to $1,467, dropping your maximum loan from $221,000 to roughly $170,000 — a $51,000 reduction in buying power that can shift you to a different market tier entirely."
+      },
+      {
+        question: "What is the best down payment strategy on an $80,000 salary?",
+        answer: "For most $80k earners, 10% down is the practical sweet spot — it keeps PMI manageable while preserving cash for closing costs and an emergency fund. Reaching 20% allows you to buy a $276,000 home (vs $228,000 with 3% down) while saving $92/month in PMI."
+      }
+    ]
+  },
+  {
+    slug: 'how-much-house-can-i-afford-90k-salary',
+    type: 'affordability',
+    amount: 0,
+    rate: 6.8,
+    term: 30,
+    currency: 'USD',
+    salary: 90000,
+    customTitle: "How Much House Can I Afford on a $90,000 Salary in 2026?",
+    customDescription: "How much house can you afford on a $90,000 salary in 2026? Discover your max loan amount, monthly budget, debt impact tables, and best buying markets.",
+    customH1: "How Much House Can I Afford on a $90,000 Salary in 2026?",
+    customIntro: "At $90,000 per year, you are firmly in the upper tier of American buyers — your 28% housing budget of $2,100/month supports a loan approaching $249,000 with zero existing debts, which covers median-priced homes in many growing metros and first-ring suburbs of major cities. Buyers at this income level are often repeat purchasers, dual-income couples at the lower end of a combined income, or single professionals in moderate-cost markets where $300,000 homes represent the entry to the move-up tier. The key question at $90k is not whether you qualify, but how to balance loan size, down payment, and market to maximise long-term equity. This page lays out your exact affordability ceiling using the 28/36 rule, plus debt and down payment scenario tables. Use the <a href='/affordability-calculator'>affordability calculator</a> above.",
+    customContent: `
+      <h2>How Much House Can You Afford on $90k? The Core Numbers</h2>
+      <p>At $90,000, the 28% and 36% DTI rules produce a meaningful range of loan amounts. Here is the full picture at 6.8% for 30 years:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">DTI Limit</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">Taxes + Insurance Est.</th>
+              <th class="py-3 px-4 font-bold text-sm">Max P&amp;I</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">28% rule</td><td class="py-3 px-4 text-sm">$2,100</td><td class="py-3 px-4 text-sm">~$475</td><td class="py-3 px-4 text-sm">~$1,625</td><td class="py-3 px-4 text-sm">~$249,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">36% rule</td><td class="py-3 px-4 text-sm">$2,700</td><td class="py-3 px-4 text-sm">~$600</td><td class="py-3 px-4 text-sm">~$2,100</td><td class="py-3 px-4 text-sm">~$322,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The $73,000 gap between the 28% and 36% scenarios is the widest it has been at this income level, offering real strategic flexibility. The 28% rule keeps you well within budget; the 36% ceiling from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> is the maximum lenders allow with no other debts. Most $90k buyers find their practical range is $240,000–$290,000 in loan size. See our <a href="/blog/28-36-rule-explained">28/36 rule explained</a> for the full lender framework.</p>
+
+      <h2>How Existing Debts Reduce Your Buying Power</h2>
+      <p>At $90,000, even modest debts are absorbed more gracefully than at lower income levels — but the impact remains significant in absolute dollar terms:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Monthly Debt Load</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
+              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price (10% down)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">$0 (debt free)</td><td class="py-3 px-4 text-sm">$2,100</td><td class="py-3 px-4 text-sm">~$249,000</td><td class="py-3 px-4 text-sm">~$275,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$300 (one car)</td><td class="py-3 px-4 text-sm">$1,800</td><td class="py-3 px-4 text-sm">~$211,000</td><td class="py-3 px-4 text-sm">~$235,000</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 text-sm">$600 (car + student)</td><td class="py-3 px-4 text-sm">$1,500</td><td class="py-3 px-4 text-sm">~$173,000</td><td class="py-3 px-4 text-sm">~$190,000</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$900 (multiple debts)</td><td class="py-3 px-4 text-sm">$1,200</td><td class="py-3 px-4 text-sm">~$136,000</td><td class="py-3 px-4 text-sm">~$150,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Even at $90k, $900 in monthly debts drops your buying power from $275,000 to $150,000 — the same home price available to a debt-free $50k earner. Use our <a href="/loan-calculator">loan calculator</a> to model payoff scenarios, and compare to a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a> to see what the next home size tier actually costs monthly.</p>
+
+      <h2>How Your Down Payment Changes the Picture</h2>
+      <p>With a $249,000 loan, the down payment determines your total home price and PMI status:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Down Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Cash Needed</th>
+              <th class="py-3 px-4 font-bold text-sm">Home Price</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly PITI</th>
+              <th class="py-3 px-4 font-bold text-sm">PMI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3%</td><td class="py-3 px-4 text-sm">~$7,710</td><td class="py-3 px-4 text-sm">~$257,000</td><td class="py-3 px-4 text-sm">~$2,083</td><td class="py-3 px-4 text-sm">~$104/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5%</td><td class="py-3 px-4 text-sm">~$13,100</td><td class="py-3 px-4 text-sm">~$262,000</td><td class="py-3 px-4 text-sm">~$2,087</td><td class="py-3 px-4 text-sm">~$104/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">~$27,700</td><td class="py-3 px-4 text-sm">~$277,000</td><td class="py-3 px-4 text-sm">~$2,101</td><td class="py-3 px-4 text-sm">~$104/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">~$62,200</td><td class="py-3 px-4 text-sm">~$311,000</td><td class="py-3 px-4 text-sm">~$2,028</td><td class="py-3 px-4 text-sm">$0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A 20% down payment lets you buy a $311,000 home versus $257,000 with 3% down — a $54,000 upgrade while eliminating PMI and reducing your monthly payment by $73. Read our <a href="/blog/down-payment-guide">down payment guide</a> and <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD programs</a> for assistance options. Also compare to a <a href="/calculator/200k-mortgage-monthly-payment-6-5-percent">$200,000 mortgage at 6.5%</a> to see what a more conservative loan looks like monthly.</p>
+
+      <h2>Your Full Monthly Budget on a $90,000 Salary</h2>
+      <p>What does a $275,000 home actually cost per month on a $90,000 salary at 6.8%?</p>
+      <ul>
+        <li><strong>Principal and Interest ($249,000 loan):</strong> $1,623</li>
+        <li><strong>Property Tax (1.1%/yr on $275k):</strong> $252</li>
+        <li><strong>Homeowners Insurance:</strong> $120</li>
+        <li><strong>PMI (~0.5%/yr):</strong> $104</li>
+        <li><strong>Total Housing Cost:</strong> $2,099</li>
+        <li><strong>As % of $90k Gross Income:</strong> 28.0%</li>
+      </ul>
+      <p>This scenario sits right at 28%, which is comfortable but not abundant. For reference, a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary</a> pushes the same calculation to roughly $313,000 in home price — showing how $10,000 more in income meaningfully shifts your market options at current rates.</p>
+
+      <h2>Get Your Personalised Home Budget</h2>
+      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to model your exact income, debts, and down payment. Read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand every variable lenders scrutinise — and the <a href="/blog/mortgage-payment-guide">mortgage payment guide</a> to calculate your full cost from first payment to payoff.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Affordability Calculator</h3>
+          <p class="mb-6 opacity-90 text-sm">Find your exact max price.</p>
+          <a href="/affordability-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
+          <p class="mb-6 opacity-70 text-sm">Model your monthly PITI.</p>
+          <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Calculator →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "How much house can I afford on a $90,000 salary?",
+        answer: "On a $90,000 salary with no existing debts, you can afford approximately $249,000 at 6.8% using the 28% rule — enough for a home priced around $275,000 with 10% down in most mid-size US markets."
+      },
+      {
+        question: "Can I afford a $350,000 home on a $90,000 salary?",
+        answer: "A $350,000 home requires roughly $315,000 in financing with 10% down. Monthly PITI would be approximately $2,600 — above the 28% guideline of $2,100 but within reach under the 36% rule if you carry minimal existing monthly debts."
+      },
+      {
+        question: "What is the monthly payment on a $249,000 mortgage at 6.8%?",
+        answer: "The monthly principal and interest payment on a $249,000 mortgage at 6.8% over 30 years is $1,623. Including property tax (1.1%), homeowners insurance, and PMI, the total PITI is approximately $2,099 for a buyer purchasing a $275,000 home with 10% down."
+      },
+      {
+        question: "Is $90,000 enough to buy a home in most US metro areas in 2026?",
+        answer: "A $90,000 salary comfortably qualifies you in most secondary and mid-tier markets — including Charlotte suburbs, Columbus, Nashville exurbs, and similar cities where median prices sit in the $250,000–$320,000 range. In high-cost metros like San Francisco, Seattle, or New York, $90k is insufficient without a large down payment or a co-borrower."
+      }
+    ]
+  },
 ];
 
 function getSimpleHash(str: string) {
