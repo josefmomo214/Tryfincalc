@@ -6,14 +6,14 @@ interface SEOHandlerProps {
   keywords?: string;
   canonicalUrl?: string;
   ogImage?: string;
-  structuredData?: object;
+  structuredData?: object | object[];
   noindex?: boolean;
 }
 
 export function SEOHandler({
   title,
   description,
-  keywords = "calculator, loan, mortgage, finance, amortization",
+  keywords,
   canonicalUrl,
   ogImage = "/og-image.jpg", // Placeholder for an actual OG image
   structuredData,

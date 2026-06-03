@@ -3,6 +3,7 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
 import { PSEOParams, getPSEOContent } from "@/lib/pseo-data";
+import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { calculateAmortizedPayment, formatCurrency } from "@/lib/finance";
 import { ArrowRight, ChevronRight, Calculator, Info, Lightbulb, PieChart, TrendingDown } from "lucide-react";
 import Link from "next/link";
@@ -52,12 +53,21 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
     payment: calculateAmortizedPayment(params.amount, s.rate, params.term),
   })) : [];
 
+  const schemas = [
+    generateFAQSchema(content.faqs),
+    generateBreadcrumbSchema([
+      { name: "Home", item: "https://tryfincalc.com" },
+      { name: content.title, item: `https://tryfincalc.com/calculator/${params.slug}` },
+    ]),
+  ];
+
   return (
     <MainLayout>
-      <SEOHandler 
-        title={content.title} 
-        description={content.description} 
+      <SEOHandler
+        title={content.title}
+        description={content.description}
         canonicalUrl={`https://tryfincalc.com/calculator/${params.slug}`}
+        structuredData={schemas}
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
@@ -280,9 +290,9 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
               <h4 className="text-sm font-bold text-outline-variant uppercase tracking-widest mb-8">Full Interactive Calculators</h4>
               <div className="flex flex-wrap justify-center gap-4">
                 {['mortgage', 'loan', 'affordability', 'refinancing', 'rent-vs-buy'].map((type) => (
-                  <Link 
-                    key={type} 
-                    href={`/${type}-calculator`}
+                  <Link
+                    key={type}
+                    href={type === 'rent-vs-buy' ? '/rent-vs-buy' : `/${type}-calculator`}
                     className="px-6 py-3 rounded-full bg-surface-container-high hover:bg-primary-fixed transition-colors text-primary font-semibold text-xs border border-outline-variant/30"
                   >
                     {type.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
