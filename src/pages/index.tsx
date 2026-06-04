@@ -118,7 +118,7 @@ export default function HomePage() {
       />
 
       {/* SECTION 1: HERO */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-surface overflow-hidden">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-16 pb-8 lg:pt-24 lg:pb-10 bg-surface overflow-hidden">
         {/* Dot texture */}
         <div
           aria-hidden="true"
@@ -196,7 +196,7 @@ export default function HomePage() {
       {/* ADSENSE SLOT 1: below hero */}
 
       {/* SECTION 2: CALCULATOR DIRECTORY */}
-      <section id="tools" className="bg-surface-container-low px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <section id="tools" className="bg-surface-container-low px-4 sm:px-6 lg:px-8 pt-6 pb-16 lg:pt-8 lg:pb-20">
         <div className="max-w-7xl mx-auto">
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-on-surface mb-10">
             Which calculator do you need?
