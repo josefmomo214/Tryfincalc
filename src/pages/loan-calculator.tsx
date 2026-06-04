@@ -206,6 +206,7 @@ export default function LoanCalculator() {
           <>
             <p>Borrowing money effectively requires a clear understanding of the long-term impact on your financial health. Whether you are funding a major purchase, consolidating debt, or covering an emergency expense, our Personal Loan Calculator provides the clarity you need to make an informed decision.</p>
             <p>Calculate your monthly installments, total interest paid, and the overall cost of your loan with mathematical precision across both Dollars and Euros.</p>
+            <p>See specific scenarios: <a href="/calculator/25k-personal-loan-repayment-8-percent" className="text-primary underline">$25k loan at 8%</a> · <a href="/calculator/30k-loan-monthly-payment-9-percent" className="text-primary underline">$30k loan at 9%</a></p>
           </>
         }
         howItWorks={
@@ -266,11 +267,12 @@ export default function LoanCalculator() {
           { label: "Affordability", href: "/affordability-calculator" }
         ]}
         relatedBlogs={[
-          { title: "Compound Interest Guide", href: "/blog/compound-interest-explained" },
-          { title: "DTI Ratio Standards", href: "/blog/debt-to-income-ratio" }
+          { title: "Loan Calculator Explained", href: "/blog/loan-calculator-explained" },
+          { title: "Compare Loan Offers", href: "/blog/compare-loan-offers" }
         ]}
         ctaText="Plan your budget with confidence"
         ctaHref="/contact"
+        ctaButtonText="Open Loan Calculator"
       />
     </MainLayout>
   );

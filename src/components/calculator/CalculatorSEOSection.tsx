@@ -27,6 +27,7 @@ interface SEOSectionProps {
   relatedCalculators: { label: string; href: string }[];
   ctaText: string;
   ctaHref: string;
+  ctaButtonText?: string;
   relatedBlogs?: { title: string; href: string }[];
 }
 
@@ -40,6 +41,7 @@ export function CalculatorSEOSection({
   relatedCalculators,
   ctaText,
   ctaHref,
+  ctaButtonText = "Check Official Rates",
   relatedBlogs = []
 }: SEOSectionProps) {
   return (
@@ -170,7 +172,7 @@ export function CalculatorSEOSection({
           href={ctaHref}
           className="inline-flex items-center gap-2 bg-primary text-white px-10 py-5 rounded-2xl font-bold text-xl hover:scale-105 transition-transform"
         >
-          Check Official Rates <ChevronRight className="w-6 h-6" />
+          {ctaButtonText} <ChevronRight className="w-6 h-6" />
         </Link>
       </section>
     </div>

@@ -136,6 +136,7 @@ export default function MortgageCalculator() {
               <>
                 <p>Navigating the real estate market requires more than just finding the perfect home. It requires a clear understanding of your long-term financial commitment. Our Mortgage Calculator is designed to help you estimate the true cost of homeownership beyond the sticker price, providing clarity across various currencies and markets.</p>
                 <p>From initial purchase price to long-term interest costs, we provide the data you need to sign your contract with absolute confidence.</p>
+                <p>See specific scenarios: <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent" className="text-primary underline">$400k mortgage at 6.5%</a> · <a href="/calculator/300k-mortgage-monthly-payment-6-percent" className="text-primary underline">$300k mortgage at 6%</a></p>
               </>
             }
             howItWorks={
@@ -196,11 +197,12 @@ export default function MortgageCalculator() {
               { label: "Refinancing", href: "/refinancing-calculator" }
             ]}
             relatedBlogs={[
-              { title: "Understanding Rates", href: "/blog" },
-              { title: "Payment Calculation Guide", href: "/blog" }
+              { title: "Mortgage Payment Guide", href: "/blog/mortgage-payment-guide" },
+              { title: "Amortization Schedule Explained", href: "/blog/amortization-schedule-explained" }
             ]}
             ctaText="Ready to take the next step?"
             ctaHref="/contact"
+            ctaButtonText="Open Mortgage Calculator"
           />
         </div>
       </div>

@@ -146,7 +146,7 @@ export default function RentVsBuy() {
     <MainLayout>
       <SEOHandler 
         title="Rent vs Buy Calculator 2026: Financial Verdict | TryFinCalc"
-        description="Compare the total cost of renting versus buying a home. See your monthly payment in seconds and find the break-even point for your future home purchase."
+        description="Compare the true 10-year cost of renting versus buying a home. See your financial break-even point and get a clear verdict based on your numbers."
         canonicalUrl="https://tryfincalc.com/rent-vs-buy"
         structuredData={rentVsBuySchema}
       />
@@ -275,6 +275,7 @@ export default function RentVsBuy() {
           <>
             <p>The decision to rent or buy a home is one of the biggest financial choices you will ever make. While homeownership is often touted as the ultimate goal, it comes with significant upfront costs and ongoing maintenance responsibilities that can affect your long-term wealth.</p>
             <p>Our Rent vs. Buy Calculator compares the total cost of renting with the net cost of owning, factoring in appreciation, taxes, and interest to help you decide which path is right for your financial timeline across any market.</p>
+            <p>See specific scenarios: <a href="/calculator/how-much-house-can-i-afford-80k-salary" className="text-primary underline">$80k salary affordability</a> · <a href="/calculator/income-required-for-300k-house" className="text-primary underline">Income required for $300k house</a></p>
           </>
         }
         howItWorks={
@@ -334,10 +335,12 @@ export default function RentVsBuy() {
           { label: "Mortgage Calculator", href: "/mortgage-calculator" }
         ]}
         relatedBlogs={[
-          { title: "Smart Home Buying", href: "/blog" }
+          { title: "Rent vs Buy 2026", href: "/blog/rent-vs-buy-2026" },
+          { title: "Home Purchase Budgeting", href: "/blog/home-purchase-budgeting" }
         ]}
         ctaText="Is it time to own?"
         ctaHref="/affordability-calculator"
+        ctaButtonText="Compare Rent vs Buy"
       />
     </MainLayout>
   );

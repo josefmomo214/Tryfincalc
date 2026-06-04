@@ -249,6 +249,7 @@ export default function AffordabilityCalculator() {
           <>
             <p>Determining your borrowing capacity is the crucial first step in your home-buying journey. Lenders look closely at your monthly disposable income and your ability to maintain a comfortable standard of living after the mortgage is paid.</p>
             <p>Our Affordability Calculator applies standard industry estimates used by global lenders to give you a realistic target price for your next home search.</p>
+            <p>See specific scenarios: <a href="/calculator/how-much-house-can-i-afford-80k-salary" className="text-primary underline">$80k salary affordability</a> · <a href="/calculator/how-much-house-can-i-afford-70k-salary" className="text-primary underline">$70k salary affordability</a></p>
           </>
         }
         howItWorks={
@@ -275,12 +276,13 @@ export default function AffordabilityCalculator() {
           {
             title: "Dual-Income Household",
             items: [
-              { label: "Loan Amount", value: currency === 'USD' ? "$250,000" : "€250,000" },
-              { label: "Interest Rate", value: "4.0%" },
-              { label: "Month 1 Interest", value: currency === 'USD' ? "$833" : "€833" },
-              { label: "Month 1 Principal", value: currency === 'USD' ? "$681" : "€681" }
+              { label: "Combined Gross Income", value: "$120,000/yr" },
+              { label: "Monthly Gross Income", value: "$10,000" },
+              { label: "28% Housing Budget", value: "$2,800/mo" },
+              { label: "Estimated Max Loan", value: "~$417,000 at 6.8%" },
+              { label: "Recommended Home Price", value: "~$463,000 (10% down)" }
             ],
-            description: "A strong dual-income scenario for a family-sized residence."
+            description: "Combined household income of $120,000/yr"
           }
         ]}
         tips={[
@@ -306,11 +308,11 @@ export default function AffordabilityCalculator() {
         ]}
         relatedBlogs={[
           { title: "How Much Can I Borrow?", href: "/blog/how-much-can-i-borrow" },
-          { title: "Understanding Limits", href: "/blog" },
-          { title: "Managing Debt Ratios", href: "/blog" }
+          { title: "How Much House Can I Afford?", href: "/blog/how-much-house-can-i-afford" }
         ]}
         ctaText="Find your price range today"
         ctaHref="/contact"
+        ctaButtonText="Check Your Affordability"
       />
     </MainLayout>
   );

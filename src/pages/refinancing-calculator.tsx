@@ -249,6 +249,7 @@ export default function RefinancingCalculator() {
           <>
             <p>Refinancing your mortgage can be a powerful financial move to lower your monthly payments, shorten your loan term, or access cash from your home's equity. Determining if the numbers work in your favor requires a clear-eyed look at the current interest rates versus your original loan terms.</p>
             <p>Use our Refinancing Calculator to see your potential monthly savings, total lifetime savings, and most importantly, how many months it will take to break even on the closing costs.</p>
+            <p>See specific scenarios: <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent" className="text-primary underline">$400k mortgage at 6.5%</a> · <a href="/calculator/income-required-for-400k-house" className="text-primary underline">Income required for $400k house</a></p>
           </>
         }
         howItWorks={
@@ -274,13 +275,15 @@ export default function RefinancingCalculator() {
           },
           {
             title: "Term Reduction Strategy",
-                items: [
-                  { label: "Home Price", value: currency === 'USD' ? "$500,000" : "€500,000" },
-                  { label: "Down Payment (20%)", value: currency === 'USD' ? "$100,000" : "€100,000" },
-                  { label: "Interest Rate", value: "6.5%" },
-                  { label: "PITI Payment", value: currency === 'USD' ? "$3,850" : "€3,850" }
-                ],
-            description: "Prioritizing debt freedom and long-term interest savings."
+            items: [
+              { label: "Remaining Balance", value: currency === 'USD' ? "$280,000" : "€280,000" },
+              { label: "Current Rate (30yr)", value: "7.0%" },
+              { label: "New Rate (15yr)", value: "6.2%" },
+              { label: "Monthly Payment Increase", value: "+$412" },
+              { label: "Total Interest Saved", value: "$143,600" },
+              { label: "Break-Even Point", value: "14 months" }
+            ],
+            description: "Refinancing from 30yr to 15yr"
           }
         ]}
         tips={[
@@ -305,11 +308,12 @@ export default function RefinancingCalculator() {
           { label: "Amortization", href: "/amortization-schedule" }
         ]}
         relatedBlogs={[
-          { title: "Refinancing Strategy", href: "/blog" },
-          { title: "Understanding Market Rates", href: "/blog" }
+          { title: "When to Refinance", href: "/blog/when-to-refinance" },
+          { title: "Refinance Calculator Guide", href: "/blog/refinance-calculator-guide" }
         ]}
         ctaText="See your potential savings"
-        ctaHref="/amortization-schedule"
+        ctaHref="/refinancing-calculator"
+        ctaButtonText="Calculate Break-Even Point"
       />
     </MainLayout>
   );
