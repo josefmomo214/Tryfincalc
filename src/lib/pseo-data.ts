@@ -1677,6 +1677,614 @@ export const pseoData: PSEOParams[] = [
     ]
   },
 
+  // Wave 4 Personal Loans USD
+  {
+    slug: '5k-loan-monthly-payment-12-percent',
+    type: 'loan',
+    amount: 5000,
+    rate: 12,
+    term: 3,
+    currency: 'USD',
+    customTitle: "$5,000 Personal Loan at 12%: Payments, Costs & Timeline",
+    customDescription: "Monthly payment on a $5,000 personal loan at 12% is $166 over 3 years — $976 total interest. Full term table, APR sensitivity, and qualification guide.",
+    customH1: "How Much Does a $5,000 Personal Loan at 12% Really Cost?",
+    customIntro: "A $5,000 personal loan at 12% APR is a practical option for first-time borrowers covering emergency expenses, replacing a broken appliance, or consolidating a small credit card balance. At this loan size, lenders are generally more flexible on credit requirements — 12% is accessible to borrowers with fair-to-good credit who may not yet qualify for the best rates. This page gives you the exact monthly payment at every common term, a full APR sensitivity table, and the income and credit requirements to qualify. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customContent: `
+      <h2>Monthly Payments on a $5,000 Loan at 12%</h2>
+      <p>Choosing your repayment term controls how much you pay each month and how much you pay overall. Here is the full breakdown for a $5,000 loan at 12% fixed APR:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">1 year</td><td class="py-3 px-4 text-sm">$444</td><td class="py-3 px-4 text-sm">$328</td><td class="py-3 px-4 text-sm">$5,328</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2 years</td><td class="py-3 px-4 text-sm">$235</td><td class="py-3 px-4 text-sm">$640</td><td class="py-3 px-4 text-sm">$5,640</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">3 years</td><td class="py-3 px-4 text-sm">$166</td><td class="py-3 px-4 text-sm">$976</td><td class="py-3 px-4 text-sm">$5,976</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5 years</td><td class="py-3 px-4 text-sm">$111</td><td class="py-3 px-4 text-sm">$1,660</td><td class="py-3 px-4 text-sm">$6,660</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">7 years</td><td class="py-3 px-4 text-sm">$88</td><td class="py-3 px-4 text-sm">$2,392</td><td class="py-3 px-4 text-sm">$7,392</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 12% over 3 years — the most common personal loan term — the monthly payment is $166 and total interest is $976. Stretching to 5 years cuts the payment by $55 per month but adds $684 in total interest. For most borrowers with a $5,000 balance, the 3-year term is the better financial choice if the payment fits the budget. Use our <a href="/total-interest-calculator">total interest calculator</a> to model early payoff scenarios.</p>
+
+      <h2>How Your Rate Affects the Cost of a $5,000 Loan</h2>
+      <p>Your credit score determines the rate you are offered. Here is what a 3-year term costs across the full range of personal loan APRs:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">APR</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6%</td><td class="py-3 px-4 text-sm">$152</td><td class="py-3 px-4 text-sm">$472</td><td class="py-3 px-4 text-sm">$5,472</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">8%</td><td class="py-3 px-4 text-sm">$157</td><td class="py-3 px-4 text-sm">$652</td><td class="py-3 px-4 text-sm">$5,652</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">$161</td><td class="py-3 px-4 text-sm">$796</td><td class="py-3 px-4 text-sm">$5,796</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">12%</td><td class="py-3 px-4 text-sm">$166</td><td class="py-3 px-4 text-sm">$976</td><td class="py-3 px-4 text-sm">$5,976</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15%</td><td class="py-3 px-4 text-sm">$173</td><td class="py-3 px-4 text-sm">$1,228</td><td class="py-3 px-4 text-sm">$6,228</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">$186</td><td class="py-3 px-4 text-sm">$1,696</td><td class="py-3 px-4 text-sm">$6,696</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25%</td><td class="py-3 px-4 text-sm">$202</td><td class="py-3 px-4 text-sm">$2,272</td><td class="py-3 px-4 text-sm">$7,272</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The difference between a 10% and 20% APR on a $5,000 loan over 3 years is $900 in total interest — nearly a fifth of what you borrowed. Check your credit at <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">AnnualCreditReport.com</a> before applying to know where you stand on this table.</p>
+
+      <h2>What You Need to Qualify for a 12% Rate on a $5,000 Loan</h2>
+      <p>At $5,000, lenders have more flexibility than with larger amounts. Here are the typical thresholds for approval and for securing the 12% rate shown on this page:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Factor</th>
+              <th class="py-3 px-4 font-bold text-sm">Minimum for Approval</th>
+              <th class="py-3 px-4 font-bold text-sm">For 12% Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Credit score</td><td class="py-3 px-4 text-sm">580</td><td class="py-3 px-4 text-sm">620+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Annual income</td><td class="py-3 px-4 text-sm">~$15,000</td><td class="py-3 px-4 text-sm">~$20,000+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">DTI ratio</td><td class="py-3 px-4 text-sm">Below 40%</td><td class="py-3 px-4 text-sm">Below 30%</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Employment</td><td class="py-3 px-4 text-sm">Employed</td><td class="py-3 px-4 text-sm">Stable income</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>$5,000 Personal Loan vs. Credit Card at 24%</h2>
+      <p>The most direct comparison for a $5,000 balance is carrying it on a credit card at a typical 24% APR and paying it off over 3 years. At 24% over 36 months, the monthly payment is $196 and you pay $2,056 in total interest. A personal loan at 12% cuts the monthly payment to $166 and total interest to $976 — saving you $30 per month and $1,080 over the life of the balance. That is a meaningful saving on a $5,000 amount. For a deeper comparison, see our <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at 10%</a> breakdown or our <a href="/calculator/15k-loan-monthly-payment-10-percent">$15,000 loan at 10%</a> page.</p>
+
+      <p>Use the <a href="/loan-calculator">loan calculator</a> to run your exact numbers, or check the <a href="/total-interest-calculator">total interest calculator</a> to see the full lifetime cost of any rate and term combination.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Calculate Your Loan</h3>
+          <p class="mb-6 opacity-90 text-sm">Enter your amount, rate, and term.</p>
+          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">See Total Interest</h3>
+          <p class="mb-6 opacity-70 text-sm">Find your exact lifetime interest cost.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $5,000 loan at 12%?",
+        answer: "On a 3-year term, your monthly payment is $166. Over 5 years it drops to $111 per month. The shorter term saves $684 in total interest."
+      },
+      {
+        question: "How much total interest do I pay on a $5,000 personal loan at 12%?",
+        answer: "On the standard 3-year term, total interest is $976. Extending to 5 years raises that to $1,660. Use the total interest calculator to model any term."
+      },
+      {
+        question: "Is a personal loan better than a credit card for a $5,000 balance?",
+        answer: "Usually yes. A credit card at 24% APR costs $2,056 in interest over 3 years on a $5,000 balance. A personal loan at 12% costs $976 — a saving of $1,080 and $30 per month."
+      },
+      {
+        question: "What credit score do I need for a $5,000 personal loan at 12%?",
+        answer: "A credit score of 620 or higher is typically sufficient for a 12% rate on a $5,000 loan. Borrowers with scores below 620 may still qualify but will likely face higher rates."
+      }
+    ]
+  },
+  {
+    slug: '15k-loan-monthly-payment-10-percent',
+    type: 'loan',
+    amount: 15000,
+    rate: 10,
+    term: 3,
+    currency: 'USD',
+    customTitle: "$15,000 Personal Loan at 10%: Full Repayment Breakdown",
+    customDescription: "$15,000 personal loan at 10%: $484/month over 3 years, $2,424 total interest. Full term comparison, APR sensitivity table, and qualification requirements.",
+    customH1: "$15,000 Personal Loan at 10%: What You Will Actually Pay",
+    customIntro: "A $15,000 personal loan at 10% APR fits borrowers financing a car repair gap, consolidating moderate credit card balances, or covering unexpected medical expenses. At this loan amount, lenders expect a solid credit profile — a 640+ score and stable income put you in range for a 10% rate. This page gives you the exact monthly payment at every common term, a rate comparison table showing what better or worse credit costs you, and the qualification thresholds for a 10% offer. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customContent: `
+      <h2>Monthly Payments on a $15,000 Loan at 10%</h2>
+      <p>The repayment term you choose directly trades monthly payment against total interest cost. Here is the full breakdown for a $15,000 balance at 10% fixed APR:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">1 year</td><td class="py-3 px-4 text-sm">$1,319</td><td class="py-3 px-4 text-sm">$828</td><td class="py-3 px-4 text-sm">$15,828</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2 years</td><td class="py-3 px-4 text-sm">$692</td><td class="py-3 px-4 text-sm">$1,608</td><td class="py-3 px-4 text-sm">$16,608</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">3 years</td><td class="py-3 px-4 text-sm">$484</td><td class="py-3 px-4 text-sm">$2,424</td><td class="py-3 px-4 text-sm">$17,424</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5 years</td><td class="py-3 px-4 text-sm">$319</td><td class="py-3 px-4 text-sm">$4,140</td><td class="py-3 px-4 text-sm">$19,140</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">7 years</td><td class="py-3 px-4 text-sm">$249</td><td class="py-3 px-4 text-sm">$5,916</td><td class="py-3 px-4 text-sm">$20,916</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 10% over 3 years, the monthly payment is $484 and total interest is $2,424. Choosing a 5-year term instead saves $165 per month but adds $1,716 in interest over the life of the loan. If the budget can absorb $484 a month, the 3-year term wins. Use our <a href="/total-interest-calculator">total interest calculator</a> to see savings from paying extra each month.</p>
+
+      <h2>How Your Rate Affects the Cost of a $15,000 Loan</h2>
+      <p>Small APR differences compound quickly on a $15,000 balance. Here is what the full rate spectrum looks like over a 3-year term:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">APR</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6%</td><td class="py-3 px-4 text-sm">$456</td><td class="py-3 px-4 text-sm">$1,416</td><td class="py-3 px-4 text-sm">$16,416</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">8%</td><td class="py-3 px-4 text-sm">$470</td><td class="py-3 px-4 text-sm">$1,920</td><td class="py-3 px-4 text-sm">$16,920</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">$484</td><td class="py-3 px-4 text-sm">$2,424</td><td class="py-3 px-4 text-sm">$17,424</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">12%</td><td class="py-3 px-4 text-sm">$498</td><td class="py-3 px-4 text-sm">$2,928</td><td class="py-3 px-4 text-sm">$17,928</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15%</td><td class="py-3 px-4 text-sm">$520</td><td class="py-3 px-4 text-sm">$3,720</td><td class="py-3 px-4 text-sm">$18,720</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">$557</td><td class="py-3 px-4 text-sm">$5,052</td><td class="py-3 px-4 text-sm">$20,052</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25%</td><td class="py-3 px-4 text-sm">$605</td><td class="py-3 px-4 text-sm">$6,780</td><td class="py-3 px-4 text-sm">$21,780</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Moving from 10% to 20% APR on a $15,000 loan over 3 years adds $2,628 in total interest — the difference between qualifying with decent credit and applying with poor credit is material at this loan size.</p>
+
+      <h2>What You Need to Qualify for 10% on a $15,000 Loan</h2>
+      <p>Lenders treat $15,000 as a mid-range personal loan. Here are the typical thresholds:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Factor</th>
+              <th class="py-3 px-4 font-bold text-sm">Minimum for Approval</th>
+              <th class="py-3 px-4 font-bold text-sm">For 10% Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Credit score</td><td class="py-3 px-4 text-sm">580–620</td><td class="py-3 px-4 text-sm">640+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Annual income</td><td class="py-3 px-4 text-sm">~$20,000</td><td class="py-3 px-4 text-sm">~$30,000+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">DTI ratio</td><td class="py-3 px-4 text-sm">Below 40%</td><td class="py-3 px-4 text-sm">Below 30%</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Employment</td><td class="py-3 px-4 text-sm">Employed</td><td class="py-3 px-4 text-sm">2+ years stable</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Using a $15,000 Loan to Consolidate Credit Card Debt</h2>
+      <p>Carrying $15,000 across credit cards at a typical 22% APR and paying it off in 3 years would cost $573 per month and $5,628 in total interest. A personal loan at 10% for the same term costs $484 per month and $2,424 in interest — saving $89 per month and $3,204 over three years. That is a real number worth running before you accept a card minimum payment schedule. For comparison, see our breakdowns of a <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at 10%</a>, a <a href="/calculator/5k-loan-monthly-payment-12-percent">$5,000 loan at 12%</a>, and a <a href="/calculator/20k-loan-monthly-payment-10-percent">$20,000 loan at 10%</a>.</p>
+
+      <p>Enter your numbers into the <a href="/loan-calculator">loan calculator</a> to verify your offer, or use the <a href="/total-interest-calculator">total interest calculator</a> to see your exact lifetime cost.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Calculate Your Loan</h3>
+          <p class="mb-6 opacity-90 text-sm">Adjust rate, term, and amount.</p>
+          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">See Total Interest</h3>
+          <p class="mb-6 opacity-70 text-sm">Find your exact lifetime interest cost.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $15,000 loan at 10%?",
+        answer: "On a 3-year term, your monthly payment is $484. Over 5 years it drops to $319. The 3-year term saves $1,716 in total interest compared to the 5-year option."
+      },
+      {
+        question: "How much total interest do I pay on a $15,000 personal loan at 10%?",
+        answer: "Over the standard 3-year term, total interest is $2,424. Choosing a 5-year term raises that to $4,140. The difference is $1,716 in exchange for $165 less per month."
+      },
+      {
+        question: "Can I use a $15,000 personal loan to consolidate credit card debt?",
+        answer: "Yes. If your cards carry a 22% APR, a personal loan at 10% saves roughly $3,204 in interest over 3 years and reduces your monthly obligation by about $89 compared to paying the cards directly."
+      },
+      {
+        question: "What credit score do I need for a $15,000 personal loan at 10%?",
+        answer: "Most lenders require a credit score of 640 or higher to qualify for a 10% rate on a $15,000 loan, along with an annual income of at least $30,000 and a DTI below 30%."
+      }
+    ]
+  },
+  {
+    slug: '20k-loan-monthly-payment-10-percent',
+    type: 'loan',
+    amount: 20000,
+    rate: 10,
+    term: 5,
+    currency: 'USD',
+    customTitle: "$20,000 Personal Loan at 10%: Payment & Total Cost Guide",
+    customDescription: "$20,000 personal loan at 10%: $425/month over 5 years, $5,500 total interest. See all terms, APR sensitivity table, and what you need to qualify.",
+    customH1: "What Does a $20,000 Personal Loan at 10% Cost Over 5 Years?",
+    customIntro: "A $20,000 personal loan at 10% APR is a common choice for home improvement projects, wedding costs, mid-range debt consolidation, or financing a significant purchase where you want a fixed payment and no collateral requirement. At this amount, lenders look for a 660+ credit score and sufficient income to cover the new payment alongside existing obligations. This page gives you the exact monthly payment at every common term, a full rate sensitivity analysis, and an honest comparison of when a personal loan beats secured alternatives. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customContent: `
+      <h2>Monthly Payments on a $20,000 Loan at 10%</h2>
+      <p>A $20,000 loan balance is large enough that the choice of term has a real impact on both your monthly budget and your total cost. Here is the full picture at 10% fixed APR:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">1 year</td><td class="py-3 px-4 text-sm">$1,758</td><td class="py-3 px-4 text-sm">$1,096</td><td class="py-3 px-4 text-sm">$21,096</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2 years</td><td class="py-3 px-4 text-sm">$923</td><td class="py-3 px-4 text-sm">$2,152</td><td class="py-3 px-4 text-sm">$22,152</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3 years</td><td class="py-3 px-4 text-sm">$645</td><td class="py-3 px-4 text-sm">$3,220</td><td class="py-3 px-4 text-sm">$23,220</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">5 years</td><td class="py-3 px-4 text-sm">$425</td><td class="py-3 px-4 text-sm">$5,500</td><td class="py-3 px-4 text-sm">$25,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">7 years</td><td class="py-3 px-4 text-sm">$332</td><td class="py-3 px-4 text-sm">$7,888</td><td class="py-3 px-4 text-sm">$27,888</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 10% over 5 years — a common term for this loan size — the monthly payment is $425 and total interest is $5,500. Choosing the 3-year term raises the monthly payment by $220 but saves $2,280 in interest. If your budget can handle $645 per month, the 3-year term is the better financial outcome. Use the <a href="/total-interest-calculator">total interest calculator</a> to see how much extra payments save you.</p>
+
+      <h2>How Your Rate Affects the Cost of a $20,000 Loan</h2>
+      <p>Your credit profile sets the rate ceiling you can reach. Here is what a 5-year repayment looks like across the full APR range for a $20,000 balance:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">APR</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6%</td><td class="py-3 px-4 text-sm">$387</td><td class="py-3 px-4 text-sm">$3,220</td><td class="py-3 px-4 text-sm">$23,220</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">8%</td><td class="py-3 px-4 text-sm">$406</td><td class="py-3 px-4 text-sm">$4,360</td><td class="py-3 px-4 text-sm">$24,360</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">$425</td><td class="py-3 px-4 text-sm">$5,500</td><td class="py-3 px-4 text-sm">$25,500</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">12%</td><td class="py-3 px-4 text-sm">$445</td><td class="py-3 px-4 text-sm">$6,700</td><td class="py-3 px-4 text-sm">$26,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15%</td><td class="py-3 px-4 text-sm">$476</td><td class="py-3 px-4 text-sm">$8,560</td><td class="py-3 px-4 text-sm">$28,560</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">$530</td><td class="py-3 px-4 text-sm">$11,800</td><td class="py-3 px-4 text-sm">$31,800</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25%</td><td class="py-3 px-4 text-sm">$593</td><td class="py-3 px-4 text-sm">$15,580</td><td class="py-3 px-4 text-sm">$35,580</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Moving from a 10% to a 20% APR on a $20,000 loan over 5 years adds $6,300 in total interest — more than 30% of the original loan amount. Improving your credit score before applying is the highest-leverage step a borrower can take at this loan size.</p>
+
+      <h2>What You Need to Qualify for 10% on a $20,000 Loan</h2>
+      <p>At $20,000, lenders require more documentation than for smaller loans. Here are the typical thresholds:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Factor</th>
+              <th class="py-3 px-4 font-bold text-sm">Minimum for Approval</th>
+              <th class="py-3 px-4 font-bold text-sm">For 10% Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Credit score</td><td class="py-3 px-4 text-sm">580–620</td><td class="py-3 px-4 text-sm">660+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Annual income</td><td class="py-3 px-4 text-sm">~$25,000</td><td class="py-3 px-4 text-sm">~$35,000+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">DTI ratio</td><td class="py-3 px-4 text-sm">Below 40%</td><td class="py-3 px-4 text-sm">Below 30%</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Employment</td><td class="py-3 px-4 text-sm">Employed</td><td class="py-3 px-4 text-sm">2+ years stable</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Personal Loan vs. Home Equity Loan for $20,000</h2>
+      <p>For home improvement projects, homeowners often consider a home equity loan or HELOC as an alternative. A home equity loan at 7% over 5 years on a $20,000 balance costs roughly $396 per month and $3,760 in interest — saving about $1,740 compared to a 10% personal loan. However, that saving comes with an appraisal fee ($400–600), 2–4 weeks to close, and the loan secured against your home. A personal loan at 10% has a fixed rate, closes in days, and carries no collateral risk. For renovations where speed and simplicity matter, or for borrowers without significant home equity, the personal loan is the practical choice despite the higher rate. Compare sizes: <a href="/calculator/15k-loan-monthly-payment-10-percent">$15,000 at 10%</a>, <a href="/calculator/30k-loan-monthly-payment-9-percent">$30,000 at 9%</a>, and <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a>.</p>
+
+      <p>Use the <a href="/loan-calculator">loan calculator</a> to model your exact terms, or check the <a href="/total-interest-calculator">total interest calculator</a> to see your lifetime cost.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Calculate Your Loan</h3>
+          <p class="mb-6 opacity-90 text-sm">Enter your rate, term, and amount.</p>
+          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">See Total Interest</h3>
+          <p class="mb-6 opacity-70 text-sm">Find your exact lifetime interest cost.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $20,000 loan at 10%?",
+        answer: "On a 5-year term, your monthly payment is $425. For a 3-year term it rises to $645 per month, but you save $2,280 in total interest."
+      },
+      {
+        question: "How much total interest do I pay on a $20,000 personal loan at 10%?",
+        answer: "Over a 5-year term, total interest is $5,500. Choosing a 3-year term reduces that to $3,220 — a saving of $2,280 in exchange for $220 more per month."
+      },
+      {
+        question: "Should I use a personal loan or a home equity loan for a $20,000 home improvement?",
+        answer: "A home equity loan typically offers a lower rate (around 7%) but requires home equity, an appraisal, 2–4 weeks to close, and ties the debt to your home. A personal loan at 10% closes in days with no collateral risk — the rate difference is roughly $1,740 in interest over 5 years."
+      },
+      {
+        question: "What credit score do I need for a $20,000 personal loan at 10%?",
+        answer: "Most lenders require a 660+ credit score and annual income of at least $35,000 to qualify for a 10% rate on a $20,000 loan, along with a DTI ratio below 30%."
+      }
+    ]
+  },
+  {
+    slug: '30k-loan-monthly-payment-9-percent',
+    type: 'loan',
+    amount: 30000,
+    rate: 9,
+    term: 5,
+    currency: 'USD',
+    customTitle: "$30,000 Personal Loan at 9%: Payments, Costs & Savings",
+    customDescription: "$30,000 personal loan at 9%: $623/month for 5 years, $7,380 total interest. Full term table, rate sensitivity, consolidation math, and qualification guide.",
+    customH1: "$30,000 Personal Loan at 9%: Monthly Payment & Repayment Options",
+    customIntro: "A $30,000 personal loan at 9% APR is a substantial commitment — the kind of financing used for major home renovations, consolidating multiple credit card balances, or covering significant planned expenses. A 9% rate requires a strong credit profile: most lenders expect a 680+ score, a debt-to-income ratio below 30%, and at least two years of stable employment. This page gives you the exact monthly payment at every common term, a full rate sensitivity table, a debt consolidation comparison with real numbers, and what income and credit score you need to secure this rate. Use the <a href='/loan-calculator'>loan calculator</a> above to run your specific scenario.",
+    customContent: `
+      <h2>Monthly Payments on a $30,000 Loan at 9%</h2>
+      <p>At $30,000, every point of difference in your term has a meaningful impact on your monthly obligation. Here is the full breakdown at a 9% fixed APR:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">1 year</td><td class="py-3 px-4 text-sm">$2,623</td><td class="py-3 px-4 text-sm">$1,476</td><td class="py-3 px-4 text-sm">$31,476</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2 years</td><td class="py-3 px-4 text-sm">$1,370</td><td class="py-3 px-4 text-sm">$2,880</td><td class="py-3 px-4 text-sm">$32,880</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3 years</td><td class="py-3 px-4 text-sm">$954</td><td class="py-3 px-4 text-sm">$4,344</td><td class="py-3 px-4 text-sm">$34,344</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">5 years</td><td class="py-3 px-4 text-sm">$623</td><td class="py-3 px-4 text-sm">$7,380</td><td class="py-3 px-4 text-sm">$37,380</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">7 years</td><td class="py-3 px-4 text-sm">$483</td><td class="py-3 px-4 text-sm">$10,572</td><td class="py-3 px-4 text-sm">$40,572</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 9% over 5 years, the monthly payment is $623 and total interest is $7,380. Moving to a 3-year term adds $331 per month but saves $3,036 in interest. If you can absorb the higher payment, the 3-year term eliminates the loan two years sooner at significantly lower total cost. Use the <a href="/total-interest-calculator">total interest calculator</a> to model any extra payment strategy.</p>
+
+      <h2>How Your Rate Affects the Cost of a $30,000 Loan</h2>
+      <p>Rate differences matter more at $30,000 than at smaller loan sizes. Here is what a 5-year term costs across the rate spectrum — with the base 9% rate highlighted:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">APR</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6%</td><td class="py-3 px-4 text-sm">$580</td><td class="py-3 px-4 text-sm">$4,800</td><td class="py-3 px-4 text-sm">$34,800</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">8%</td><td class="py-3 px-4 text-sm">$608</td><td class="py-3 px-4 text-sm">$6,480</td><td class="py-3 px-4 text-sm">$36,480</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">9%</td><td class="py-3 px-4 text-sm">$623</td><td class="py-3 px-4 text-sm">$7,380</td><td class="py-3 px-4 text-sm">$37,380</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">$638</td><td class="py-3 px-4 text-sm">$8,280</td><td class="py-3 px-4 text-sm">$38,280</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">12%</td><td class="py-3 px-4 text-sm">$667</td><td class="py-3 px-4 text-sm">$10,020</td><td class="py-3 px-4 text-sm">$40,020</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15%</td><td class="py-3 px-4 text-sm">$714</td><td class="py-3 px-4 text-sm">$12,840</td><td class="py-3 px-4 text-sm">$42,840</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">$795</td><td class="py-3 px-4 text-sm">$17,700</td><td class="py-3 px-4 text-sm">$47,700</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25%</td><td class="py-3 px-4 text-sm">$890</td><td class="py-3 px-4 text-sm">$23,400</td><td class="py-3 px-4 text-sm">$53,400</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Moving from a 10% to a 20% APR on a $30,000 loan over 5 years adds $9,420 in total interest — nearly a third of the original principal. Your credit score is the primary variable you control before applying.</p>
+
+      <h2>What You Need to Qualify for 9% on a $30,000 Loan</h2>
+      <p>At $30,000, lenders are more selective. Here are the typical approval and rate thresholds:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Factor</th>
+              <th class="py-3 px-4 font-bold text-sm">Minimum for Approval</th>
+              <th class="py-3 px-4 font-bold text-sm">For 9% Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Credit score</td><td class="py-3 px-4 text-sm">580–620</td><td class="py-3 px-4 text-sm">680+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Annual income</td><td class="py-3 px-4 text-sm">~$30,000</td><td class="py-3 px-4 text-sm">~$45,000+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">DTI ratio</td><td class="py-3 px-4 text-sm">Below 40%</td><td class="py-3 px-4 text-sm">Below 30%</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Employment</td><td class="py-3 px-4 text-sm">Employed</td><td class="py-3 px-4 text-sm">2+ years stable</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>$30,000 Personal Loan vs. Carrying Debt Across Credit Cards</h2>
+      <p>Consider a borrower carrying $30,000 across three credit cards at an average 22% APR, aiming to pay off the full balance in 5 years. At 22% over 60 months, the monthly payment would be $828 and total interest $19,680. A personal loan at 9% for the same term costs $623 per month and $7,380 in total interest — saving $205 per month and $12,300 over five years. At $30,000, consolidating credit card debt with a personal loan is one of the highest-return financial moves available to borrowers who qualify. For related breakdowns see <a href="/calculator/20k-loan-monthly-payment-10-percent">$20,000 at 10%</a>, <a href="/calculator/50k-loan-monthly-payment-8-percent">$50,000 at 8%</a>, and the existing <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a> analysis.</p>
+
+      <p>Run your numbers in the <a href="/loan-calculator">loan calculator</a>, or find your exact lifetime interest with the <a href="/total-interest-calculator">total interest calculator</a>.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Calculate Your Loan</h3>
+          <p class="mb-6 opacity-90 text-sm">Enter your rate, term, and amount.</p>
+          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">See Total Interest</h3>
+          <p class="mb-6 opacity-70 text-sm">Find your exact lifetime interest cost.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $30,000 loan at 9%?",
+        answer: "On a 5-year term, the monthly payment is $623. On a 3-year term it rises to $954 per month but saves $3,036 in total interest."
+      },
+      {
+        question: "How much total interest do I pay on a $30,000 personal loan at 9%?",
+        answer: "Over the standard 5-year term, total interest is $7,380. Choosing the 3-year term reduces that to $4,344 — saving $3,036 in exchange for $331 more per month."
+      },
+      {
+        question: "Can a $30,000 personal loan replace credit card debt at 22% APR?",
+        answer: "Yes. Paying off $30,000 in credit card debt at 22% over 5 years costs $828 per month and $19,680 in interest. A personal loan at 9% costs $623 per month and $7,380 in interest — saving $205 per month and $12,300 total."
+      },
+      {
+        question: "What credit score and income do I need for a $30,000 loan at 9%?",
+        answer: "Most lenders require a 680+ credit score, annual income of at least $45,000, and a DTI ratio below 30% to qualify for a 9% rate on a $30,000 personal loan."
+      }
+    ]
+  },
+  {
+    slug: '50k-loan-monthly-payment-8-percent',
+    type: 'loan',
+    amount: 50000,
+    rate: 8,
+    term: 7,
+    currency: 'USD',
+    customTitle: "$50,000 Personal Loan at 8%: Payment, Costs & HELOC Guide",
+    customDescription: "$50,000 personal loan at 8%: $780/month for 7 years, $15,520 total interest. Full term table, APR sensitivity, HELOC comparison, and credit profile needed.",
+    customH1: "Everything You Need to Know About a $50,000 Personal Loan at 8%",
+    customIntro: "A $50,000 personal loan is at the top end of what unsecured lenders typically offer, and an 8% rate at this size requires a strong credit profile — a 700+ score, a stable income of at least $60,000, and a low debt-to-income ratio. This loan size is used for significant home improvements, large debt consolidation across multiple accounts, or major life expenses where putting up collateral is not an option. This page gives you the exact monthly payment at every common term, an honest comparison with a HELOC, and the qualification thresholds that separate a 8% approval from a 15%+ outcome. Use the <a href='/loan-calculator'>loan calculator</a> above to model your specific scenario.",
+    customContent: `
+      <h2>Monthly Payments on a $50,000 Loan at 8%</h2>
+      <p>At $50,000, the choice of term has a large impact on monthly cash flow. Here is the full breakdown at 8% fixed APR:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">1 year</td><td class="py-3 px-4 text-sm">$4,350</td><td class="py-3 px-4 text-sm">$2,200</td><td class="py-3 px-4 text-sm">$52,200</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2 years</td><td class="py-3 px-4 text-sm">$2,261</td><td class="py-3 px-4 text-sm">$4,264</td><td class="py-3 px-4 text-sm">$54,264</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3 years</td><td class="py-3 px-4 text-sm">$1,567</td><td class="py-3 px-4 text-sm">$6,412</td><td class="py-3 px-4 text-sm">$56,412</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5 years</td><td class="py-3 px-4 text-sm">$1,014</td><td class="py-3 px-4 text-sm">$10,840</td><td class="py-3 px-4 text-sm">$60,840</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">7 years</td><td class="py-3 px-4 text-sm">$780</td><td class="py-3 px-4 text-sm">$15,520</td><td class="py-3 px-4 text-sm">$65,520</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 8% over 7 years, the monthly payment is $780 and total interest is $15,520. Choosing the 5-year term raises the payment by $234 per month but saves $4,680 in total interest. At $50,000, the difference between terms is large enough that borrowers with capacity to pay more should seriously consider the shorter option. Use our <a href="/total-interest-calculator">total interest calculator</a> to see what additional monthly payments save you.</p>
+
+      <h2>How Your Rate Affects the Cost of a $50,000 Loan</h2>
+      <p>At this loan size, every percentage point of APR has a significant dollar impact. Here is the full range across a 7-year term:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">APR</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6%</td><td class="py-3 px-4 text-sm">$730</td><td class="py-3 px-4 text-sm">$11,320</td><td class="py-3 px-4 text-sm">$61,320</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">8%</td><td class="py-3 px-4 text-sm">$780</td><td class="py-3 px-4 text-sm">$15,520</td><td class="py-3 px-4 text-sm">$65,520</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">$830</td><td class="py-3 px-4 text-sm">$19,720</td><td class="py-3 px-4 text-sm">$69,720</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">12%</td><td class="py-3 px-4 text-sm">$883</td><td class="py-3 px-4 text-sm">$24,172</td><td class="py-3 px-4 text-sm">$74,172</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15%</td><td class="py-3 px-4 text-sm">$965</td><td class="py-3 px-4 text-sm">$31,060</td><td class="py-3 px-4 text-sm">$81,060</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">$1,110</td><td class="py-3 px-4 text-sm">$43,240</td><td class="py-3 px-4 text-sm">$93,240</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25%</td><td class="py-3 px-4 text-sm">$1,275</td><td class="py-3 px-4 text-sm">$57,100</td><td class="py-3 px-4 text-sm">$107,100</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Moving from a 10% to a 20% APR on a $50,000 loan over 7 years adds $23,520 in total interest — nearly half the original loan amount. At this scale, the difference between a 700+ and a 620 credit score is not cosmetic; it is tens of thousands of dollars.</p>
+
+      <h2>What You Need to Qualify for 8% on a $50,000 Loan</h2>
+      <p>$50,000 is at the top of the unsecured personal loan market. Many lenders cap at $40,000–$45,000; those offering $50,000 apply strict criteria:</p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Factor</th>
+              <th class="py-3 px-4 font-bold text-sm">Minimum for Approval</th>
+              <th class="py-3 px-4 font-bold text-sm">For 8% Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Credit score</td><td class="py-3 px-4 text-sm">580–620</td><td class="py-3 px-4 text-sm">700+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Annual income</td><td class="py-3 px-4 text-sm">~$40,000</td><td class="py-3 px-4 text-sm">~$60,000+</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">DTI ratio</td><td class="py-3 px-4 text-sm">Below 40%</td><td class="py-3 px-4 text-sm">Below 30%</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">Employment</td><td class="py-3 px-4 text-sm">Employed</td><td class="py-3 px-4 text-sm">2+ years stable</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>$50,000 Personal Loan vs. HELOC: When Each Makes Sense</h2>
+      <p>At $50,000, a HELOC (home equity line of credit) is a genuine alternative for homeowners. A HELOC at a typical 7% rate over 7 years costs roughly $755 per month and $13,420 in total interest — saving about $25 per month and $2,100 compared to an 8% personal loan. That is a real but modest saving. What a HELOC gives up: it is a variable rate tied to the prime rate (rising rates mean rising payments), it requires an appraisal and 3–6 weeks to close, and it is secured against your home — missed payments put your equity at risk. A personal loan at 8% has a fixed rate, closes in days, requires no collateral, and carries no home equity risk. For borrowers who own a home with equity and want the lowest possible rate, the HELOC wins on cost. For everyone else — renters, borrowers with limited equity, or those who want certainty on payments — the personal loan is the right instrument despite the slightly higher rate. For adjacent sizes, see <a href="/calculator/30k-loan-monthly-payment-9-percent">$30,000 at 9%</a> and <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a>.</p>
+
+      <p>Enter your offer into the <a href="/loan-calculator">loan calculator</a> to verify, or find your exact lifetime cost with the <a href="/total-interest-calculator">total interest calculator</a>.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Calculate Your Loan</h3>
+          <p class="mb-6 opacity-90 text-sm">Enter your rate, term, and amount.</p>
+          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
+          <h3 class="text-xl font-bold mb-4">See Total Interest</h3>
+          <p class="mb-6 opacity-70 text-sm">Find your exact lifetime interest cost.</p>
+          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a $50,000 loan at 8%?",
+        answer: "On a 7-year term, the monthly payment is $780. Over 5 years it rises to $1,014 per month, but you save $4,680 in total interest."
+      },
+      {
+        question: "How much total interest do I pay on a $50,000 personal loan at 8%?",
+        answer: "Over a 7-year term, total interest is $15,520. Choosing a 5-year term reduces that to $10,840 — saving $4,680 in exchange for $234 more per month."
+      },
+      {
+        question: "Should I use a $50,000 personal loan or a HELOC?",
+        answer: "A HELOC at 7% over 7 years saves roughly $2,100 in interest compared to a personal loan at 8%, but it requires home equity, an appraisal, weeks to close, and ties the debt to your home with a variable rate. The personal loan wins on speed, certainty, and no collateral risk."
+      },
+      {
+        question: "What credit score and income do I need for a $50,000 personal loan at 8%?",
+        answer: "Most lenders require a 700+ credit score, annual income of at least $60,000, and a DTI ratio below 30% to qualify for an 8% rate on a $50,000 personal loan. Some lenders cap unsecured loans at $40,000–$45,000, so verify the lender's maximum before applying."
+      }
+    ]
+  },
+
   // Affordability
   { 
     slug: 'how-much-house-can-i-afford-100k-salary', 
