@@ -149,7 +149,7 @@ export const articles: Article[] = [
       </div>
 
       <h2>Total interest paid over 30 years on a $400k mortgage</h2>
-      <p>One of the most surprising aspects of a <strong>400k mortgage monthly payment</strong> is the total cost over three decades. At a 6.5% interest rate, the "true" cost of your home is nearly double the original loan amount:</p>
+      <p>One of the most surprising aspects of a <strong>400k mortgage monthly payment</strong> is the total cost over three decades. At a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">6.5% interest rate</a>, the "true" cost of your home is nearly double the original loan amount:</p>
       <ul>
         <li><strong>Principal Borrowed:</strong> $400,000</li>
         <li><strong>Total Interest Paid:</strong> $510,234</li>
@@ -239,7 +239,7 @@ export const articles: Article[] = [
         <li>Your <a href="/mortgage-calculator">monthly mortgage payment</a> (principal, interest, taxes, insurance) should not exceed 28% of your gross monthly income</li>
         <li>Your total monthly debt payments should not exceed 36% of your gross monthly income</li>
       </ul>
-      <p>Here's what that means in practice for a $400,000 home with 10% down at 6.5% interest over 30 years:</p>
+      <p>Here's what that means in practice for a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 home with 10% down at 6.5%</a> interest over 30 years:</p>
 
       <div class="overflow-x-auto my-6">
         <table class="w-full text-left border-collapse">
@@ -475,7 +475,7 @@ export const articles: Article[] = [
         <li><strong>Buy Points:</strong> Pay upfront to lower your interest rate for the life of the loan.</li>
       </ol>
 
-      <p>Before committing, check the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> for updates on market trends that might influence when you should lock in your rate. For a specific example of how these rates apply to common loan amounts, see our <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment breakdown</a>.</p>
+      <p>Before committing, check the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> for updates on market trends that might influence when you should lock in your rate. For a specific example of how these rates apply to common loan amounts, see our <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment breakdown</a>, including the exact costs for <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">a $400,000 mortgage at 6.5%</a> and <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -570,7 +570,7 @@ export const articles: Article[] = [
         <li><strong>Compare 30-Year vs. 15-Year Terms:</strong> While 15-year loans save on total interest, a 30-year mortgage provides the lowest possible monthly payment.</li>
       </ul>
 
-      <p>Finally, evaluate <a href="/blog/rent-vs-buy-2026">whether renting still makes sense</a> in your specific area, as market dynamics vary locally. If you're looking at a standard entry-level home price, see our specific analysis of the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a> requirement.</p>
+      <p>Finally, evaluate <a href="/blog/rent-vs-buy-2026">whether renting still makes sense</a> in your specific area, as market dynamics vary locally. If you're looking at a standard entry-level home price, see our specific analysis of the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a> requirement. For a personalized estimate, check <a href="/calculator/income-required-for-400k-house">what income you need for a $400k house</a> or model your budget <a href="/calculator/how-much-house-can-i-afford-80k-salary">on an $80,000 salary</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -726,7 +726,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>By the end of the loan, you will have paid over $405,000 in interest alone. You can see how this total interest compares to other rates in our study on <a href="/blog/interest-rate-impact">how interest rates affect your total cost</a>.</p>
+      <p>By the end of the loan, you will have paid over $405,000 in interest alone. You can see how this total interest compares to other rates in our study on <a href="/blog/interest-rate-impact">how interest rates affect your total cost</a>, or explore the full breakdown for <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">a $400,000 mortgage at 6.5%</a> and <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
 
       <h2>How Extra Payments Change the Schedule</h2>
       <p>An <strong>amortization schedule</strong> is not set in stone. Because interest is calculated based on the current balance, every extra dollar you pay toward the principal *today* eliminates all future interest on that dollar. For instance, paying an extra $200 per month on this loan cuts roughly 4.5 years off your term and saves approximately $47,000 in interest. We highly recommend <a href="/blog/early-mortgage-payoff">paying off your mortgage early</a> if your budget allows. Use our <a href="/amortization-schedule">amortization schedule tool</a> or core <a href="/mortgage-calculator">mortgage calculator</a> to test your numbers.</p>
@@ -772,7 +772,7 @@ export const articles: Article[] = [
     readTime: "9 min read",
     title: "$100,000 Mortgage Monthly Payment: Full Breakdown for 2026",
     excerpt: "What is the monthly payment on a $100,000 mortgage in 2026? See exact payments for every interest rate and term, total interest costs, income requirements, and a full PITI breakdown.",
-    content: `<p>A $100,000 mortgage remains a highly effective tool for buyers in affordable U.S. markets, those purchasing a secondary residence, or homeowners refinancing a small equity balance into more favorable terms. While it is lower than the national average mortgage balance, understanding the exact **$100000 mortgage monthly payment** is fundamental for precise financial planning in 2026. This guide provides a comprehensive breakdown of monthly costs at various interest rates, comparisons across loan terms, income requirements, and the total cost of borrowing. For an instant, personalized figure based on your specific situation, use our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+    content: `<p>A $100,000 mortgage remains a highly effective tool for buyers in affordable U.S. markets, those purchasing a secondary residence, or homeowners refinancing a small equity balance into more favorable terms. While it is lower than the national average mortgage balance, understanding the exact **$100000 mortgage monthly payment** is fundamental for precise financial planning in 2026. This guide provides a comprehensive breakdown of monthly costs at various interest rates, comparisons across loan terms, income requirements, and the total cost of borrowing. For an instant, personalized figure based on your specific situation, use our <a href="/mortgage-calculator">mortgage calculator</a> or <a href="/calculator/100k-mortgage-monthly-payment-6-5-percent">see the exact $100k payment breakdown at 6.5%</a>.</p>
 
 <h2>Monthly Payment on a $100,000 Mortgage by Interest Rate</h2>
 <p>The interest rate is the most significant factor in determining your monthly commitment. Even a fractional difference in the rate can translate into tens of thousands of dollars saved over the life of the loan. The table below illustrates the monthly principal and interest (P&I) for a $100,000 mortgage on a standard 30-year fixed term across realistic 2026 scenarios:</p>
@@ -940,7 +940,7 @@ export const articles: Article[] = [
   </tbody>
 </table>
 
-<p>As of 2026, with average rates around 6.8% according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, a $200,000 mortgage costs approximately $1,307 per month in principal and interest. Over 30 years, that results in $270,520 in total interest—meaning you pay back $470,520 on a $200,000 loan, which is 135% of the original amount in interest alone. To find <a href="/blog/interest-rate-impact">how your interest rate affects total cost</a> more deeply, run your own scenarios through our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+<p>As of 2026, with average rates around 6.8% according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, a $200,000 mortgage costs approximately $1,307 per month in principal and interest. Over 30 years, that results in $270,520 in total interest—meaning you pay back $470,520 on a $200,000 loan, which is 135% of the original amount in interest alone. To find <a href="/blog/interest-rate-impact">how your interest rate affects total cost</a> more deeply, run your own scenarios through our <a href="/mortgage-calculator">mortgage calculator</a> or use our specific calculator for a <a href="/calculator/200k-mortgage-monthly-payment-6-5-percent">$200,000 mortgage at 6.5%</a> to see a detailed breakdown.</p>
 
 <h2>Monthly Payment by Loan Term</h2>
 <p>While the 30-year term offers the lowest monthly payment, shorter terms allow you to own your home outright much faster while saving a fortune in interest. Here is how that same $200,000 loan at 6.8% breaks down by term:</p>
@@ -1098,7 +1098,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>The difference between 5.5% and 7.5% on this loan is $395/month — or $142,200 over 30 years. That is why shopping multiple lenders before locking a rate is one of the highest-return things you can do. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, getting quotes from at least three lenders can save borrowers thousands over the life of a loan. You can track current benchmarks via <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>.</p>
+      <p>The difference between 5.5% and 7.5% on this loan is $395/month — or $142,200 over 30 years. That is why shopping multiple lenders before locking a rate is one of the highest-return things you can do. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, getting quotes from at least three lenders can save borrowers thousands over the life of a loan. You can track current benchmarks via <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>. For a specific rate scenario, see our <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6% breakdown</a> to understand what a lower rate looks like for this loan size.</p>
 
       <h2>Monthly Payment by Loan Term</h2>
       <p>The term you choose matters almost as much as the rate. A shorter term means a higher payment but dramatically less total interest — and you own your home outright years sooner. Here is the same $300,000 loan at 6.8% across every common term:</p>
@@ -1276,7 +1276,7 @@ export const articles: Article[] = [
     seoTitle: "Amortization Schedule: 2026 Payoff Details | TryFinCalc",
     seoDescription: "Track your loan progress with our amortization schedule guide. See your monthly payment in seconds and understand how interest and principal change over time.",
     content: `
-      <p>The amortization schedule is your roadmap to ownership. See how every dollar is allocated using our <a href="/mortgage-calculator">amortization tool</a> over 360 payments.</p>
+      <p>The amortization schedule is your roadmap to ownership. See how every dollar is allocated using our <a href="/mortgage-calculator">amortization tool</a> over 360 payments. For example, see how the schedule breaks down for <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">a $400,000 mortgage at 6.5%</a> or <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
       <h2>The Interest-Heavy Start</h2>
       <p>In the first few years, up to 80% of your payment may go toward interest. This is perfectly normal in fixed-rate loans. Understand the <a href="/monthly-payment-formula">math behind these calculations</a>.</p>
       <h3>Can I print my schedule?</h3>
@@ -1332,7 +1332,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>Note: Every $100 in existing monthly debt reduces your eligible loan amount by approximately $15,000. It's helpful to see <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> after factoring in taxes and insurance. For a specific example, see our breakdown of the <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100k salary housing limit</a>. Use our <a href="/affordability-calculator">affordability calculator</a> to see your personalised limit instantly.</p>
+      <p>Note: Every $100 in existing monthly debt reduces your eligible loan amount by approximately $15,000. It's helpful to see <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> after factoring in taxes and insurance. For a specific example, see our breakdowns for the <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100k salary housing limit</a> or the <a href="/calculator/how-much-house-can-i-afford-80k-salary">$80k salary housing limit</a>. Use our <a href="/affordability-calculator">affordability calculator</a> to see your personalised limit instantly.</p>
 
       <h2>How Existing Debt Reduces Your Borrowing Power</h2>
       <p>To see the direct impact of debt, let’s look at a borrower earning $75,000 annually. As debts increase, their mortgage capacity drops rapidly:</p>
@@ -1466,7 +1466,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>The 30-year mortgage accumulates 25x more interest than the auto loan—not primarily because of the rate, but because of the longer term. Time is the biggest driver of total interest. For broader looks, check our <a href="/mortgage-calculator">mortgage calculator</a> or <a href="/loan-calculator">loan calculator</a>. You can also see a specific example of a <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 loan at 8%</a> to see the interest accumulation over 5 years.</p>
+      <p>The 30-year mortgage accumulates 25x more interest than the auto loan—not primarily because of the rate, but because of the longer term. Time is the biggest driver of total interest. For broader looks, check our <a href="/mortgage-calculator">mortgage calculator</a> or <a href="/loan-calculator">loan calculator</a>. You can also see a specific example of a <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 loan at 8%</a> or a <a href="/calculator/50k-loan-monthly-payment-8-percent">$50,000 loan at 8%</a> to see the interest accumulation, and compare with <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a> for the lifetime cost of a home loan.</p>
 
       <h2>The Two Factors That Drive Total Interest</h2>
       <ul>
@@ -1571,7 +1571,7 @@ export const articles: Article[] = [
       <p>This formula is the industry standard. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, lenders must show you how these components form your APR before you sign.</p>
 
       <h2>Step-by-Step Example 1: Personal Loan</h2>
-      <p>Let’s look at a $10,000 personal loan at a 10% APR over 3 years, common for well-qualified borrowers according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>.</p>
+      <p>Let’s look at a <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at a 10% APR</a> over 3 years, common for well-qualified borrowers according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>.</p>
       <ul>
         <li>P = $10,000</li>
         <li>Annual rate = 10% → r = 0.10 ÷ 12 = 0.008333</li>
@@ -1766,7 +1766,7 @@ export const articles: Article[] = [
           </tbody>
         </table>
       </div>
-      <p>Run these calculations for your exact home price using our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
+      <p>Run these calculations for your exact home price using our <a href="/mortgage-calculator">mortgage calculator</a>, or see detailed breakdowns for a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400k mortgage at 6.5%</a> and a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300k mortgage at 6%</a>.</p>
 
       <h2>When the 15-Year Mortgage Wins</h2>
       <p>There are four clear scenarios where the 15-year is the superior choice for your financial future:</p>
@@ -1869,7 +1869,7 @@ export const articles: Article[] = [
       <h2>The 1% Rule — Useful Starting Point, Not a Final Answer</h2>
       <p>The traditional rule of thumb says refinancing is worth exploring when you can drop your rate by at least 1%. That's not bad advice — a 1% drop on a $300,000 loan saves roughly $170/month, and on a $500,000 loan it saves closer to $285/month. Those are real numbers.</p>
 
-      <p>But the 1% rule ignores closing costs entirely, which is a significant omission. A 0.6% rate drop on a large loan balance with low closing costs can be a better deal than a 1.2% drop with high fees on a smaller balance. Always run the break-even calculation. Use the 1% rule as a filter to decide whether it's worth spending 20 minutes doing the actual math — not as a substitute for it. Read more about <a href="/blog/interest-rate-impact">what a rate drop actually saves</a>.</p>
+      <p>But the 1% rule ignores closing costs entirely, which is a significant omission. A 0.6% rate drop on a large loan balance with low closing costs can be a better deal than a 1.2% drop with high fees on a smaller balance. Always run the break-even calculation. Use the 1% rule as a filter to decide whether it's worth spending 20 minutes doing the actual math — not as a substitute for it. Read more about <a href="/blog/interest-rate-impact">what a rate drop actually saves</a>, or compare <a href="/calculator/400k-mortgage-monthly-payment-4-percent">what a $400k mortgage at 4% costs</a> against today's rates.</p>
 
       <h2>Five Situations Where Refinancing Clearly Makes Sense</h2>
       <p><strong>Situation 1: Your rate is significantly above current market rates and you plan to stay.</strong> If you're sitting on a 7.5% mortgage and current 30-year rates are around 6.2%, that's a 1.3% difference. On a $350,000 balance, that's roughly $250/month. Over 10 years, it's $30,000 in savings minus closing costs. The math is compelling for anyone planning to stay put.</p>
@@ -3264,7 +3264,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>Note that putting less than 20% down triggers Private Mortgage Insurance (PMI) — adding $100–$400/month to your ongoing costs. Check our full <a href="/blog/down-payment-guide">down payment guide</a> for an analysis of which down payment percentage makes sense for different financial situations.</p>
+      <p>Note that putting less than 20% down triggers Private Mortgage Insurance (PMI) — adding $100–$400/month to your ongoing costs. Check our full <a href="/blog/down-payment-guide">down payment guide</a> for an analysis of which down payment percentage makes sense for different financial situations. You can also check <a href="/calculator/income-required-for-300k-house">the income required for a $300k house</a> or <a href="/calculator/income-required-for-400k-house">for a $400k house</a> to understand your qualification threshold.</p>
 
       <h2>Category 2 — Closing Costs</h2>
       <p>Closing costs are paid on top of the down payment and typically run 2–5% of the purchase price. For a $350,000 home, that means $7,000–$17,500 in additional cash due at closing. The major components include lender fees, title insurance, appraisal, attorney fees, prepaid taxes, and upfront insurance premiums. Stress that these are non-negotiable minimums — you cannot close without paying them. In some cases, sellers can be negotiated to cover a portion as a concession. See our comprehensive <a href="/blog/closing-costs-breakdown">closing costs breakdown</a> for the full itemised list.</p>
@@ -3534,7 +3534,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>The difference between a 5.0% and a 7.5% rate is over $204,000 in total interest—enough to buy another small home. You can visualize this debt path using our <a href="/amortization-schedule">amortization schedule</a> or the <a href="/total-interest-calculator">total interest calculator</a>.</p>
+      <p>The difference between a 5.0% and a 7.5% rate is over $204,000 in total interest—enough to buy another small home. You can visualize this debt path using our <a href="/amortization-schedule">amortization schedule</a> or the <a href="/total-interest-calculator">total interest calculator</a>. For a concrete example, compare <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">a $400,000 mortgage at 6.5%</a> against <a href="/calculator/400k-mortgage-monthly-payment-4-percent">the same loan at 4%</a>.</p>
 
       <h2>How Rates Affect Your Buying Power</h2>
       <p>Lenders care about your monthly Debt-to-Income (DTI) ratio. If your budget is capped at $2,000 per month for Principal and Interest, a rise in rates literally pushes homes out of your reach:</p>
@@ -3937,7 +3937,7 @@ export const articles: Article[] = [
         </table>
       </div>
 
-      <p>The mortgage costs 40x more in total interest than the personal loan — not because the interest rate is necessarily higher, but because the term is 10x longer. Term length is the most underestimated factor in total borrowing cost. You can run these specific scenarios for any amount using our <a href="/total-interest-calculator">total interest calculator</a> to see your own lifetime cost projections.</p>
+      <p>The mortgage costs 40x more in total interest than the personal loan — not because the interest rate is necessarily higher, but because the term is 10x longer. Term length is the most underestimated factor in total borrowing cost. You can run these specific scenarios for any amount using our <a href="/total-interest-calculator">total interest calculator</a> to see your own lifetime cost projections, or explore specific examples like a <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at 10%</a> or a <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 loan at 8%</a>.</p>
 
       <h2>How to Use a Loan Calculator to Compare Offers</h2>
       <p>When comparing two loan offers, most borrowers make the mistake of only looking at the monthly payment. Lenders often use this to their advantage by extending the term length to make a high-interest loan seem "affordable." You should always use a <strong>loan calculator</strong> to check the <a href="/blog/total-interest-explained">total interest explained</a> by the different offers. Consider this example:</p>
@@ -4162,7 +4162,7 @@ export const articles: Article[] = [
 <h3>Is 2026 a good time to buy a house?</h3>
 <p>Market timing is less critical than personal financial readiness. If you have stable income and plan to stay for 7+ years, **buying a home in 2026** is a solid path to building equity. Resources from <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> can help first-time buyers find assistance programs.</p>
 <h3>How much do I need to earn to buy a home in 2026?</h3>
-<p>It depends on your local market and debt levels, but the 28% rule is a safe benchmark. Use our tools to determine <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> based on your specific 2026 salary.</p>
+<p>It depends on your local market and debt levels, but the 28% rule is a safe benchmark. Use our tools to determine <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> based on your specific 2026 salary. For example, see what you can afford <a href="/calculator/how-much-house-can-i-afford-80k-salary">on an $80,000 salary</a>.</p>
 <h3>What is the difference between pre-qualification and pre-approval?</h3>
 <p>Pre-qualification is an informal estimate based on your words. Pre-approval is a verified commitment from a lender after a thorough audit of your finances.</p>
 <h3>How long does it take to buy a house from start to finish?</h3>
@@ -4556,7 +4556,7 @@ export const articles: Article[] = [
           </tbody>
         </table>
       </div>
-      <p>For a more detailed breakdown beyond these estimates, check out our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility tables</a> or run a personalized calculation with the <a href="/affordability-calculator">affordability calculator</a>.</p>
+      <p>For a more detailed breakdown beyond these estimates, check out our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility tables</a> or run a personalized calculation with the <a href="/affordability-calculator">affordability calculator</a>. For specific salary breakdowns, try our tools for <a href="/calculator/how-much-house-can-i-afford-80k-salary">affordability on an $80,000 salary</a> or <a href="/calculator/income-required-for-400k-house">income required for a $400k house</a>.</p>
 
       <h2>The 28/36 Rule vs. What Lenders Actually Allow</h2>
       <p>While the 28/36 rule is the benchmark for "financial health," modern underwriting is more flexible. Conventional loans backed by Fannie Mae and Freddie Mac may allow back-end DTIs up to 45–50% with "compensating factors" like an 800+ credit score or substantial cash reserves. FHA loans often allow front-end DTIs up to 31% and back-end DTIs up to 50% or higher. However, just because a lender approves you for a $450,000 loan doesn't mean you can comfortably afford it. The 28/36 rule exists to keep your housing costs from "crowding out" other goals like retirement or travel. Review our <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> guide for a balanced perspective on lending vs. living.</p>
@@ -4927,7 +4927,7 @@ export const articles: Article[] = [
       </ol>
 
       <h2>Can I get a $400k mortgage on a $70k salary?</h2>
-      <p>The short answer is: <strong>Unlikely in 2026.</strong> At a 6.5% interest rate, a $400k loan would cost roughly $2,528 in principal and interest alone. On a $70k salary ($5,833/mo), that is a 43% front-end ratio—well above the 28% limit. To qualify for 400k, you would typically need a larger down payment or a salary closer to $110,000. For deeper strategy on these ratios, read about <a href="/blog/28-36-rule-explained">how the 28/36 rule works in detail</a>.</p>
+      <p>The short answer is: <strong>Unlikely in 2026.</strong> At a 6.5% interest rate, a $400k loan would cost roughly $2,528 in principal and interest alone. On a <a href="/calculator/how-much-house-can-i-afford-70k-salary">$70k salary</a> ($5,833/mo), that is a 43% front-end ratio—well above the 28% limit. To qualify for 400k, you would typically need a larger down payment or a salary closer to $110,000. See what is realistically affordable <a href="/calculator/how-much-house-can-i-afford-90k-salary">on a $90,000 salary</a>, or read about <a href="/blog/28-36-rule-explained">how the 28/36 rule works in detail</a>.</p>
 
       <h2>Summary of Borrowing Power</h2>
       <p>Understanding your limit is about more than just qualifying—it's about financial health. Use our tool above to experiment with different income levels and debt scenarios. Remember that "how much the bank will give me" and "how much I should spend" are often two different numbers.</p>
