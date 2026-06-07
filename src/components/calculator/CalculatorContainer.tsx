@@ -97,11 +97,6 @@ export function CalculatorResultsArea({
       <div className="pt-12 border-t border-outline-variant/10">
         <div className="flex flex-col items-center">
           <AdPlaceholder format="horizontal" className="w-full mb-8" label="Exclusive Offers" />
-          
-          <Link href="/contact" className="group flex items-center gap-3 text-primary font-manrope font-extrabold hover:text-secondary transition-all text-base underline-offset-8 hover:underline">
-            Compare options / Learn more 
-            <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
         </div>
       </div>
     </div>

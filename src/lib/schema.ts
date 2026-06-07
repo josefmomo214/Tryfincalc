@@ -1,3 +1,17 @@
+export function generateWebSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TryFinCalc",
+    "url": "https://tryfincalc.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://tryfincalc.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
 export function generateFAQSchema(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",
