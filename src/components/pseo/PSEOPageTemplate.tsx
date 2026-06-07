@@ -61,7 +61,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
     generateFAQSchema(content.faqs),
     generateBreadcrumbSchema([
       { name: "Home", item: "https://tryfincalc.com" },
-      { name: content.title, item: `https://tryfincalc.com/calculator/${params.slug}` },
+      { name: content.title, item: canonicalUrl },
     ]),
   ];
 
