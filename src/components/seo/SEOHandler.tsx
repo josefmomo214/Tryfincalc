@@ -45,6 +45,12 @@ export function SEOHandler({
       <meta property="twitter:image" content={ogImage} />
 
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      {canonicalUrl && canonicalUrl.includes('/eur/') && (
+        <>
+          <link rel="alternate" hrefLang="en" href={canonicalUrl} />
+          <link rel="alternate" hrefLang="x-default" href={canonicalUrl.replace('/eur/', '/')} />
+        </>
+      )}
 
       {structuredData && (
         <script

@@ -53,6 +53,10 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
     payment: calculateAmortizedPayment(params.amount, s.rate, params.term),
   })) : [];
 
+  const canonicalUrl = params.currency === 'EUR'
+    ? `https://tryfincalc.com/eur/calculator/${params.slug}`
+    : `https://tryfincalc.com/calculator/${params.slug}`;
+
   const schemas = [
     generateFAQSchema(content.faqs),
     generateBreadcrumbSchema([
@@ -66,7 +70,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
       <SEOHandler
         title={content.title}
         description={content.description}
-        canonicalUrl={`https://tryfincalc.com/calculator/${params.slug}`}
+        canonicalUrl={canonicalUrl}
         structuredData={schemas}
       />
       
