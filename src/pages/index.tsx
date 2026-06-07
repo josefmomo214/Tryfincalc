@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { Button } from "@/components/ui/Button";
+import { generateWebSiteSchema } from "@/lib/schema";
 
 const CALCULATORS = [
   {
@@ -97,6 +98,8 @@ const USE_CASES = [
   },
 ];
 
+const homeSchemas = [generateWebSiteSchema()];
+
 export default function HomePage() {
   return (
     <MainLayout>
@@ -104,17 +107,7 @@ export default function HomePage() {
         title="Free Mortgage & Loan Calculators | TryFinCalc"
         description="Calculate your exact monthly payment, total interest, and home affordability in seconds. Free calculators for the US and Europe. No sign-up required."
         canonicalUrl="https://tryfincalc.com"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "TryFinCalc",
-          "url": "https://tryfincalc.com",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://tryfincalc.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
-        }}
+        structuredData={homeSchemas}
       />
 
       {/* SECTION 1: HERO */}
