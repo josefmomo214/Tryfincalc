@@ -4491,6 +4491,370 @@ export const pseoData: PSEOParams[] = [
       }
     ]
   },
+
+  // Mortgages EUR — Wave 5B
+  {
+    slug: '300k-mortgage-monthly-payment-3-5-percent-eur',
+    type: 'mortgage',
+    amount: 300000,
+    rate: 3.5,
+    term: 25,
+    currency: 'EUR',
+    customTitle: "€300,000 Mortgage at 3.5% Europe 2026: Monthly Payment & Income Guide",
+    customDescription: "€300,000 mortgage at 3.5% over 25 years in Europe 2026: exact monthly payment, full rate table, income needed at 33% DTI, and country notes for buyers.",
+    customH1: "€300,000 Mortgage at 3.5%: What European Buyers Pay Each Month",
+    customIntro: "A €300,000 mortgage at 3.5% suits established buyers in the Brussels suburbs, the outer rings of Amsterdam, secondary French hubs such as Lyon, and the fringes of Munich where prices ease outside the core. At this level, lenders typically expect a stable dual income, a clean credit history, and often a renovation budget if the property sits in an older district. The monthly payment over 25 years comes out to €1,502 — a commitment that calls for a combined gross income comfortably above €50,000. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to test your own deposit and term combination.",
+    customContent: `
+      <h2>Monthly Payment on a €300,000 Mortgage at 3.5%</h2>
+      <p>At this loan size, term length has a real effect on monthly cash flow and lifetime cost. Here is the breakdown for a €300,000 loan at a 3.5% fixed rate across every common term:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">€2,967</td><td class="py-3 px-4 text-sm">€56,040</td><td class="py-3 px-4 text-sm">€356,040</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€2,145</td><td class="py-3 px-4 text-sm">€86,100</td><td class="py-3 px-4 text-sm">€386,100</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€1,740</td><td class="py-3 px-4 text-sm">€117,600</td><td class="py-3 px-4 text-sm">€417,600</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€1,502</td><td class="py-3 px-4 text-sm">€150,600</td><td class="py-3 px-4 text-sm">€450,600</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€1,347</td><td class="py-3 px-4 text-sm">€184,920</td><td class="py-3 px-4 text-sm">€484,920</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 3.5% over 25 years the monthly principal and interest payment is €1,502. Shortening to 20 years adds €238 per month but saves €33,000 in total interest — worth considering if your income has room. Stretching to 30 years lowers the payment by €155 but adds €34,320 in interest over the life of the loan. For a closer look at this exact loan size, see our <a href="/blog/300k-euro-mortgage">€300,000 euro mortgage guide</a>, or <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">compare to a $400k USD mortgage</a> for a transatlantic perspective.</p>
+
+      <h2>Euribor vs. Fixed Rate: Context for a €300,000 Loan</h2>
+      <p>At €300,000, the gap between a fixed and a Euribor-linked rate becomes significant. Fixed rates — standard in France and Germany — lock your payment for the full 25 years, while variable Euribor-plus-margin products, common in Belgium, Spain, and Portugal, track ECB policy and can shift. A 3.5% fixed rate remains realistic for solid-credit borrowers in 2026. Check current benchmarks at the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a>. A 1% rate move changes this loan's monthly payment by roughly €155.</p>
+
+      <h2>Rate Sensitivity: €300,000 Mortgage at 25 Years</h2>
+      <p>Here is what different rates cost on a €300,000 loan over the standard 25-year European term:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Rate</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">vs 3.5%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€1,346</td><td class="py-3 px-4 text-sm">€103,800</td><td class="py-3 px-4 text-sm">-€156/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€1,423</td><td class="py-3 px-4 text-sm">€126,900</td><td class="py-3 px-4 text-sm">-€79/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€1,502</td><td class="py-3 px-4 text-sm">€150,600</td><td class="py-3 px-4 text-sm">—</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€1,584</td><td class="py-3 px-4 text-sm">€175,200</td><td class="py-3 px-4 text-sm">+€82/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€1,667</td><td class="py-3 px-4 text-sm">€200,100</td><td class="py-3 px-4 text-sm">+€165/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€1,754</td><td class="py-3 px-4 text-sm">€226,200</td><td class="py-3 px-4 text-sm">+€252/mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Income Required for a €300,000 Mortgage at 3.5%</h2>
+      <p>Most Eurozone lenders cap housing debt at 33% of gross monthly income. Private Mortgage Insurance does not exist in most EU markets — lenders manage risk through LTV limits and credit assessments instead. Here is the income picture for a 25-year fixed term at 3.5%:</p>
+      <p><em>Assumptions: home value ~€333,000 (90% LTV), property tax 0.3% of home value (~€83/mo), insurance ~€100/mo. No PMI — most EU lenders do not charge it.</em></p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Scenario</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
+              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€1,502</td><td class="py-3 px-4 text-sm">~€54,600</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€1,685</td><td class="py-3 px-4 text-sm">~€61,300</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €400 other debts</td><td class="py-3 px-4 text-sm">€2,085</td><td class="py-3 px-4 text-sm">~€75,800</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Country Notes for European Buyers</h2>
+      <p><strong>Belgium:</strong> A €300,000 loan implies a property near or above the national average price; expect notary and registration costs of 12–15% on top of the purchase price, and lenders will scrutinise income stability closely at this level. <strong>Netherlands:</strong> The NHG guarantee covers purchases up to €435,000, so a €300,000 loan on a property near €333,000 still qualifies — a meaningful advantage on the rate offered. <strong>France:</strong> Fixed-rate products dominate, and 3.5% is a realistic target for borrowers with steady employment contracts (CDI); the PTZ scheme can help in qualifying zones for first purchases. <strong>Germany:</strong> Lenders generally require 20–30% equity, so a €300,000 loan typically implies a property in the €375,000–€430,000 range with a sizeable deposit — common for buyers upgrading into a larger home or renovating an older property on Munich's outer fringe. Always confirm current terms with a local mortgage adviser.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Calculate Your Euro Mortgage</h3>
+          <p class="mb-6 opacity-90 text-sm">Model any rate, term, and deposit for a European property.</p>
+          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Go to Calculator →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Check Affordability</h3>
+          <p class="mb-6 opacity-70 text-sm">Find the price range that fits your income and savings.</p>
+          <a href="/affordability-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Check Affordability →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a €300,000 mortgage at 3.5% over 25 years?",
+        answer: "The monthly principal and interest payment is €1,502. Adding property tax (0.3% of home value) and building insurance brings the typical all-in monthly cost to around €1,685. EU mortgages generally do not include PMI — lenders rely on LTV limits instead."
+      },
+      {
+        question: "What income do I need for a €300,000 mortgage in Europe?",
+        answer: "At the 33% DTI limit applied by most Belgian, French, and Dutch lenders, the full PITI of €1,685 requires a gross annual income of approximately €61,300. With €400 in other monthly debts, that climbs to around €75,800 — typically a dual-income requirement at this loan size."
+      },
+      {
+        question: "Should I choose a fixed or Euribor-linked rate for a €300,000 mortgage?",
+        answer: "It depends on where you're buying and your appetite for payment variability. Fixed rates are the default in France and Germany and lock in your €1,502 payment for the full term. Euribor-linked products, common in Belgium, Spain, and Portugal, can start lower but move with ECB policy — a 1% increase adds roughly €156 per month on this loan size, so stress-test any variable offer before signing."
+      },
+      {
+        question: "Where does a €300,000 mortgage go furthest in Europe?",
+        answer: "At this level, established buyers find good options in the Brussels suburbs, the outer rings of Amsterdam, secondary French hubs such as Lyon, and the fringes of Munich where prices ease outside the city core. Many properties at this price point are older builds that may need renovation — factor an additional budget into your overall financing plan."
+      }
+    ]
+  },
+
+  {
+    slug: '350k-mortgage-monthly-payment-3-5-percent-eur',
+    type: 'mortgage',
+    amount: 350000,
+    rate: 3.5,
+    term: 25,
+    currency: 'EUR',
+    customTitle: "€350,000 Mortgage at 3.5% Europe 2026: Payments, Income & Rate Guide",
+    customDescription: "€350,000 mortgage at 3.5% for 25 years in Europe 2026 — monthly payment €1,752, income required at 33% DTI, full rate sensitivity table, and country tips.",
+    customH1: "€350,000 Mortgage at 3.5%: Monthly Costs for Established European Buyers",
+    customIntro: "A €350,000 mortgage at 3.5% reaches into inner-city Brussels and the mid-range family-home segment of the Dutch market — properties that typically demand a strong, stable income profile from the outset. Lenders at this level look for a clean credit history, a deposit of at least 10%, and a debt-to-income ratio with real headroom. The monthly payment over 25 years comes to €1,752, which usually calls for a combined gross household income above €70,000. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to test your own deposit, term, and rate combination.",
+    customContent: `
+      <h2>Monthly Payment on a €350,000 Mortgage at 3.5%</h2>
+      <p>At this loan size, the choice of term materially shapes both monthly affordability and lifetime cost. Here is the full breakdown for a €350,000 loan at a 3.5% fixed rate:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">€3,461</td><td class="py-3 px-4 text-sm">€65,320</td><td class="py-3 px-4 text-sm">€415,320</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€2,502</td><td class="py-3 px-4 text-sm">€100,360</td><td class="py-3 px-4 text-sm">€450,360</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€2,030</td><td class="py-3 px-4 text-sm">€137,200</td><td class="py-3 px-4 text-sm">€487,200</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€1,752</td><td class="py-3 px-4 text-sm">€175,600</td><td class="py-3 px-4 text-sm">€525,600</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€1,572</td><td class="py-3 px-4 text-sm">€215,920</td><td class="py-3 px-4 text-sm">€565,920</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 3.5% over 25 years the monthly principal and interest payment is €1,752. Moving to a 20-year term adds €278 per month but saves €38,400 in total interest, while stretching to 30 years trims €180 off the monthly payment at the cost of an extra €40,320 in interest. Use the <a href="/mortgage-calculator">mortgage calculator</a> above to test your own scenario, or <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">compare to a $400k USD mortgage</a> for a transatlantic view of a similarly sized loan.</p>
+
+      <h2>Euribor vs. Fixed Rate: Context for a €350,000 Loan</h2>
+      <p>A €350,000 loan sits well above the Eurozone median, so the choice between fixed and Euribor-linked pricing carries real weight. France and Germany default to fixed-rate products that lock in the payment for the full term, while Belgian, Spanish, and Portuguese lenders typically price variable mortgages as Euribor plus a margin that tracks ECB policy. A 3.5% fixed rate is achievable for borrowers with strong documentation in 2026 — track live benchmarks at the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a>. At this size, each 1% shift moves the monthly payment by close to €182.</p>
+
+      <h2>Rate Sensitivity: €350,000 Mortgage at 25 Years</h2>
+      <p>Here is what different rates cost on a €350,000 loan over the standard 25-year European term:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Rate</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">vs 3.5%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€1,570</td><td class="py-3 px-4 text-sm">€121,000</td><td class="py-3 px-4 text-sm">-€182/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€1,660</td><td class="py-3 px-4 text-sm">€148,000</td><td class="py-3 px-4 text-sm">-€92/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€1,752</td><td class="py-3 px-4 text-sm">€175,600</td><td class="py-3 px-4 text-sm">—</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€1,847</td><td class="py-3 px-4 text-sm">€204,100</td><td class="py-3 px-4 text-sm">+€95/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€1,945</td><td class="py-3 px-4 text-sm">€233,500</td><td class="py-3 px-4 text-sm">+€193/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€2,046</td><td class="py-3 px-4 text-sm">€263,800</td><td class="py-3 px-4 text-sm">+€294/mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Income Required for a €350,000 Mortgage at 3.5%</h2>
+      <p>Most Eurozone lenders cap housing debt at 33% of gross monthly income, and Private Mortgage Insurance does not exist in most EU markets — lenders manage risk through LTV limits and thorough credit assessments instead. Here is the income picture for a 25-year fixed term at 3.5%:</p>
+      <p><em>Assumptions: home value ~€389,000 (90% LTV), property tax 0.3% of home value (~€97/mo), insurance ~€115/mo. No PMI charged.</em></p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Scenario</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
+              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€1,752</td><td class="py-3 px-4 text-sm">~€63,700</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€1,964</td><td class="py-3 px-4 text-sm">~€71,400</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €400 other debts</td><td class="py-3 px-4 text-sm">€2,364</td><td class="py-3 px-4 text-sm">~€86,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Country Notes for European Buyers</h2>
+      <p><strong>Belgium:</strong> At this loan size, expect lenders to require strong proof of stable dual income; notary and registration costs of 12–15% add roughly €42,000–€52,000 to the upfront bill on an inner-city Brussels purchase. <strong>Netherlands:</strong> A €350,000 loan still sits comfortably under the €435,000 NHG ceiling, which can shave a meaningful margin off the offered rate for a mid-range Dutch family home. <strong>France:</strong> Fixed-rate mortgages remain standard, and inner-ring areas around Lyon or Bordeaux see plenty of activity at this level; lenders will want to see a debt ratio comfortably below 35% including the new payment. <strong>Germany:</strong> With typical equity requirements of 20–30%, a €350,000 loan generally implies a property near €440,000–€500,000 — a strong income profile and substantial savings are prerequisites. Always confirm current criteria with a local mortgage broker before committing.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Calculate Your Euro Mortgage</h3>
+          <p class="mb-6 opacity-90 text-sm">Model any rate, term, and deposit for a European property.</p>
+          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Go to Calculator →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Check Affordability</h3>
+          <p class="mb-6 opacity-70 text-sm">Find the price range that fits your income and savings.</p>
+          <a href="/affordability-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Check Affordability →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a €350,000 mortgage at 3.5% over 25 years?",
+        answer: "The monthly principal and interest payment is €1,752. Adding property tax and building insurance brings the typical all-in monthly cost to around €1,964. As with most EU mortgages, no PMI applies — lenders rely on LTV limits instead."
+      },
+      {
+        question: "What income is required for a €350,000 mortgage in Europe?",
+        answer: "At the standard 33% DTI ceiling used by most Belgian, French, and Dutch lenders, the full PITI of €1,964 requires a gross annual income near €71,400. Add €400 in other monthly debts and that rises to roughly €86,000 — a level that typically calls for two solid incomes or one exceptionally strong one."
+      },
+      {
+        question: "Is a Euribor-linked rate worth the risk on a €350,000 mortgage?",
+        answer: "A Euribor-linked rate can undercut a fixed offer when the benchmark is low, which has made it popular in Belgium and the Netherlands. But on a €350,000 loan, each 1% increase adds about €182 to the monthly payment. If your budget has little slack, a fixed rate — standard in France and Germany — offers steadier footing for a loan this size."
+      },
+      {
+        question: "Who typically takes out a €350,000 mortgage in Europe?",
+        answer: "This loan size is common among inner-city Brussels buyers and mid-range Dutch families upgrading from a starter home. Lenders expect a strong, stable income profile — often two incomes — plus a clean credit record and a deposit of at least 10% of the purchase price."
+      }
+    ]
+  },
+
+  {
+    slug: '400k-mortgage-monthly-payment-3-5-percent-eur',
+    type: 'mortgage',
+    amount: 400000,
+    rate: 3.5,
+    term: 25,
+    currency: 'EUR',
+    customTitle: "€400,000 Mortgage at 3.5% Europe 2026: Jumbo Loan Payment & Income Guide",
+    customDescription: "€400,000 mortgage at 3.5% over 25 years in Europe 2026: monthly payment €2,002, income needed at 33% DTI, jumbo-loan notes, and full rate sensitivity table.",
+    customH1: "€400,000 Mortgage at 3.5%: Payments and Qualifying Income for Premium Buyers",
+    customIntro: "A €400,000 mortgage at 3.5% sits firmly in premium territory — central Brussels, Amsterdam, and the well-connected suburbs of Paris are typical markets at this price point. Borrowers here are usually top-tier earners with substantial savings, since lenders apply extra scrutiny and often expect a 20–25% down payment on loans of this size. The monthly payment over 25 years works out to €2,002, a figure that implies a gross household income comfortably above €80,000. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to model your own deposit and term.",
+    customContent: `
+      <h2>Monthly Payment on a €400,000 Mortgage at 3.5%</h2>
+      <p>At this loan size, term selection has a substantial impact on both monthly cash flow and total cost. Here is the full breakdown for a €400,000 loan at a 3.5% fixed rate:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Term</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">€3,955</td><td class="py-3 px-4 text-sm">€74,600</td><td class="py-3 px-4 text-sm">€474,600</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€2,860</td><td class="py-3 px-4 text-sm">€114,800</td><td class="py-3 px-4 text-sm">€514,800</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€2,320</td><td class="py-3 px-4 text-sm">€156,800</td><td class="py-3 px-4 text-sm">€556,800</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€2,002</td><td class="py-3 px-4 text-sm">€200,600</td><td class="py-3 px-4 text-sm">€600,600</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€1,796</td><td class="py-3 px-4 text-sm">€246,560</td><td class="py-3 px-4 text-sm">€646,560</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>At 3.5% over 25 years the monthly principal and interest payment is €2,002. Choosing a 20-year term instead adds €318 per month but saves €43,800 in total interest — a meaningful sum at this loan size. Stretching to 30 years reduces the payment by €206 but adds €45,960 in interest over the full term. Run your own numbers with the <a href="/mortgage-calculator">mortgage calculator</a> above, or <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">compare to a $400k USD mortgage</a> to see how this stacks up against a similarly sized US loan.</p>
+
+      <h2>Euribor vs. Fixed Rate: Context for a €400,000 Loan</h2>
+      <p>On a €400,000 mortgage, the spread between a fixed and a Euribor-linked rate can swing the household budget by hundreds of euros a month. Fixed pricing dominates in France and Germany, guaranteeing the payment for the full 25 years, while Belgian, Spanish, and Portuguese banks commonly price variable loans as Euribor plus a margin tied to ECB decisions. A 3.5% fixed rate is within reach for well-documented borrowers in 2026 — the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a> publishes current benchmark levels. Here, a 1% move changes the monthly payment by around €208.</p>
+
+      <h2>Rate Sensitivity: €400,000 Mortgage at 25 Years</h2>
+      <p>Here is what different rates cost on a €400,000 loan over the standard 25-year European term:</p>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Rate</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
+              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
+              <th class="py-3 px-4 font-bold text-sm">vs 3.5%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€1,794</td><td class="py-3 px-4 text-sm">€138,200</td><td class="py-3 px-4 text-sm">-€208/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€1,897</td><td class="py-3 px-4 text-sm">€169,100</td><td class="py-3 px-4 text-sm">-€105/mo</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€2,002</td><td class="py-3 px-4 text-sm">€200,600</td><td class="py-3 px-4 text-sm">—</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€2,111</td><td class="py-3 px-4 text-sm">€233,300</td><td class="py-3 px-4 text-sm">+€109/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€2,223</td><td class="py-3 px-4 text-sm">€266,900</td><td class="py-3 px-4 text-sm">+€221/mo</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€2,338</td><td class="py-3 px-4 text-sm">€301,400</td><td class="py-3 px-4 text-sm">+€336/mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Income Required for a €400,000 Mortgage at 3.5%</h2>
+      <p>Most Eurozone lenders cap housing debt at 33% of gross monthly income. Private Mortgage Insurance does not exist in most EU markets — lenders manage risk through LTV limits, larger deposits, and detailed income verification instead. Here is the income picture for a 25-year fixed term at 3.5%:</p>
+      <p><em>Assumptions: home value ~€444,000 (90% LTV), property tax 0.3% of home value (~€111/mo), insurance ~€130/mo. No PMI — EU lenders rely on LTV limits instead.</em></p>
+
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-surface-container-low border-b border-outline-variant">
+              <th class="py-3 px-4 font-bold text-sm">Scenario</th>
+              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
+              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€2,002</td><td class="py-3 px-4 text-sm">~€72,800</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€2,243</td><td class="py-3 px-4 text-sm">~€81,600</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €400 other debts</td><td class="py-3 px-4 text-sm">€2,643</td><td class="py-3 px-4 text-sm">~€96,100</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Country Notes for European Buyers</h2>
+      <p><strong>Belgium:</strong> A €400,000 loan places you among the larger mortgages written in the market; central Brussels properties at this price point often carry notary and registration costs of €48,000–€60,000 on top of the deposit. <strong>Netherlands:</strong> This loan size approaches the €435,000 NHG ceiling — qualifying preserves the guarantee's rate advantage, but a property near €444,000 may sit just above it, so confirm eligibility early in the process. <strong>France:</strong> Fixed-rate products dominate, and Paris-suburb buyers at this level typically need a strong permanent employment contract (CDI) and a debt ratio comfortably under 35%. <strong>Germany:</strong> Expect lenders to require 20–30% equity, implying a property near €500,000–€570,000 — a premium-market purchase that calls for a well-documented, top-tier income profile. <strong>Jumbo loan note:</strong> In most EU markets, €400,000 is treated as a jumbo loan; lenders often require a 20–25% down payment and apply additional scrutiny to income, employment history, and existing debts. Always work with a local mortgage adviser to confirm current requirements.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 my-12">
+        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Calculate Your Euro Mortgage</h3>
+          <p class="mb-6 opacity-90 text-sm">Model any rate, term, and deposit for a European property.</p>
+          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Go to Calculator →</a>
+        </div>
+        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
+          <h3 class="text-xl font-bold mb-4">Check Affordability</h3>
+          <p class="mb-6 opacity-70 text-sm">Find the price range that fits your income and savings.</p>
+          <a href="/affordability-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Check Affordability →</a>
+        </div>
+      </div>
+    `,
+    customFaqs: [
+      {
+        question: "What is the monthly payment on a €400,000 mortgage at 3.5% over 25 years?",
+        answer: "The monthly principal and interest payment is €2,002. Including property tax and building insurance, the typical all-in monthly cost comes to around €2,243. EU lenders do not generally charge PMI, relying instead on lower LTV ceilings and larger deposits."
+      },
+      {
+        question: "What income do I need for a €400,000 mortgage at 3.5%?",
+        answer: "Under the common 33% DTI rule, the full PITI of €2,243 requires a gross annual income near €81,600. Add €400 in other monthly debts and the requirement rises to roughly €96,100 — a threshold that usually means a top-tier dual income or a single high earner."
+      },
+      {
+        question: "Should I pick a fixed or Euribor-linked rate on a €400,000 mortgage?",
+        answer: "At this loan size the stakes are higher: a 1% Euribor increase adds around €208 to the monthly payment. Fixed rates — the norm in France and Germany — remove that uncertainty entirely. Belgian, Spanish, and Portuguese buyers considering a variable product should stress-test their budget at Euribor +1.5% before committing to a loan this large."
+      },
+      {
+        question: "Is €400,000 a jumbo mortgage in Europe?",
+        answer: "Yes — in most EU markets, €400,000 sits at or above the threshold lenders treat as a jumbo loan. Expect to be asked for a larger down payment (often 20–25%), more thorough income verification, and a lower maximum LTV than on a typical mid-range mortgage. Central Brussels, Amsterdam, and Paris-suburb buyers are the most common borrowers at this level."
+      }
+    ]
+  },
 ];
 
 function getSimpleHash(str: string) {
