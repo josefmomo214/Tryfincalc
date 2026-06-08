@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { Button } from "@/components/ui/Button";
-import { Shield, Target, Calculator, BookOpen, Users, Lock, Mail, ArrowRight } from "lucide-react";
+import { Shield, Target, Calculator, BookOpen, Users, Lock, Mail, ArrowRight, Linkedin } from "lucide-react";
 
 export default function About() {
   return (
@@ -16,6 +16,35 @@ export default function About() {
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-32">
+        {/* Founder section */}
+        <section className="mb-16 bg-surface-container-low p-8 sm:p-12 rounded-3xl border border-outline-variant/10 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-6">
+            <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+              <Users className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-manrope font-bold text-primary mb-1">Youssef Aaouam</h2>
+              <p className="text-sm font-medium text-on-surface-variant uppercase tracking-wider mb-4">
+                Founder, TryFinCalc
+              </p>
+              <div className="prose prose-teal max-w-none text-on-surface-variant">
+                <p>
+                  TryFinCalc was created by Youssef Aaouam, a web designer and independent investor based in Belgium. With a background in web development and years of personal experience in stock market investing and economic research, Youssef built TryFinCalc to give individuals the same transparent financial calculation tools that professionals use — without paywalls or sales pressure. All calculators use verified financial formulas validated against CFPB and Federal Reserve standards.
+                </p>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/youssef-aaouam-51207064/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-4 font-semibold text-primary hover:underline"
+              >
+                <Linkedin className="w-4 h-4" />
+                LinkedIn Profile
+              </a>
+            </div>
+          </div>
+        </section>
+
         <header className="mb-16 text-center">
           <h1 className="text-display-lg font-manrope font-bold text-primary tracking-tight mb-8">
             About TryFinCalc

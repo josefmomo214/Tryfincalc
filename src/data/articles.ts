@@ -8,9 +8,20 @@ export interface Article {
   seoTitle?: string;
   seoDescription?: string;
   structuredData?: any;
+  author?: {
+    name: string;
+    href: string;
+    linkedin?: string;
+  };
 }
 
-export const articles: Article[] = [
+const defaultAuthor = {
+  name: "Youssef Aaouam",
+  href: "/about",
+  linkedin: "https://www.linkedin.com/in/youssef-aaouam-51207064/",
+};
+
+const rawArticles: Omit<Article, "author">[] = [
   {
     title: "$400k Mortgage Monthly Payment (2026)",
     category: "Mortgage Guides",
@@ -4934,3 +4945,8 @@ export const articles: Article[] = [
     `
   },
 ];
+
+export const articles: Article[] = rawArticles.map((article) => ({
+  ...article,
+  author: defaultAuthor,
+}));

@@ -5,7 +5,7 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
 
 import { FixedVsVariableWidget } from "@/components/blog/FixedVsVariableWidget";
 import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
@@ -118,6 +118,27 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
               <span>•</span>
               <span>{article.readTime}</span>
             </div>
+            {article.author?.name && (
+              <div className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-4 not-prose">
+                <span>
+                  By{" "}
+                  <Link href={article.author.href} className="font-semibold text-on-surface-variant hover:text-primary hover:underline">
+                    {article.author.name}
+                  </Link>
+                </span>
+                {article.author.linkedin && (
+                  <a
+                    href={article.author.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${article.author.name} on LinkedIn`}
+                    className="text-on-surface-variant hover:text-primary transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
+            )}
             <h1 className="text-4xl sm:text-5xl font-manrope font-extrabold text-primary leading-tight mb-6">
               {article.title}
             </h1>
