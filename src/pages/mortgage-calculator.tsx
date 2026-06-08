@@ -5,7 +5,7 @@ import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
 import { Input } from "@/components/ui/Input";
 import { ResultCard } from "@/components/calculator/ResultCard";
-import { Star, BarChart3 } from "lucide-react";
+import { BarChart3 } from "lucide-react";
 import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
 import { formatCurrency, calculateAmortizedPayment, calculatePMI, EXCHANGE_RATE, convertCurrency } from "@/lib/finance";
 import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
@@ -113,19 +113,6 @@ export default function MortgageCalculator() {
                 <p className="text-xl text-on-surface-variant leading-relaxed">
                   Planning your mortgage requires a full picture of your out-of-pocket expenses. Our advanced calculator helps you factor in the often-forgotten costs like property taxes and insurance fees across any market.
                 </p>
-              </div>
-              <div className="bg-primary shadow-2xl p-12 rounded-[3rem] text-white">
-                <div className="flex gap-1 mb-8">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-6 h-6 fill-primary-fixed text-primary-fixed" />
-                  ))}
-                </div>
-                <blockquote className="text-2xl font-medium leading-relaxed mb-8">
-                  "The most transparent calculator I've used. Seeing the impact of various down payment levels really helped me decide on my financing strategy with confidence."
-                </blockquote>
-                <cite className="not-italic font-bold text-primary-fixed">
-                  — Sarah J., Homeowner
-                </cite>
               </div>
             </div>
           </section>
