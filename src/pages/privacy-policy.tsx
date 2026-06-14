@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
             actually understand it.
           </p>
           <p>
-            Questions? Email us at <a href="mailto:[contact@tryfincalc.com]" className="text-primary hover:underline">[contact@tryfincalc.com]</a>.
+            Questions? Email us at <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a>.
           </p>
 
           <hr className="my-12 border-outline-variant/30" />
@@ -196,7 +196,7 @@ export default function PrivacyPolicy() {
           </div>
           <p className="mt-8">
             To exercise any of these rights, email us at{" "}
-            <a href="mailto:[contact@tryfincalc.com]" className="text-primary hover:underline">[contact@tryfincalc.com]</a>.
+            <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a>.
             We will respond within 30 days. You also have the right to lodge a complaint with your
             national data protection supervisory authority — for example, the ICO in the UK or the
             relevant DPA in your EU member state.
@@ -216,7 +216,7 @@ export default function PrivacyPolicy() {
           </ul>
           <p>
             To exercise these rights, email{" "}
-            <a href="mailto:[contact@tryfincalc.com]" className="text-primary hover:underline">[contact@tryfincalc.com]</a>.
+            <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a>.
           </p>
 
           {/* 6. Third-Party Services and Advertising Disclosure */}
@@ -273,7 +273,7 @@ export default function PrivacyPolicy() {
           <p>
             No internet service can guarantee 100% security. If you have a security concern,
             contact us at{" "}
-            <a href="mailto:[contact@tryfincalc.com]" className="text-primary hover:underline">[contact@tryfincalc.com]</a>.
+            <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a>.
           </p>
 
           {/* 9. Children's Privacy */}
@@ -282,7 +282,7 @@ export default function PrivacyPolicy() {
             TryFinCalc is not directed at children under 13. We do not knowingly collect
             personal information from anyone under 13. If you believe a child has sent us
             personal information, email{" "}
-            <a href="mailto:[contact@tryfincalc.com]" className="text-primary hover:underline">[contact@tryfincalc.com]</a>{" "}
+            <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a>{" "}
             and we will delete it promptly.
           </p>
 
@@ -304,7 +304,7 @@ export default function PrivacyPolicy() {
           </p>
           <p className="font-medium text-on-surface">
             TryFinCalc<br />
-            Email: <a href="mailto:[contact@tryfincalc.com]" className="text-primary hover:underline">[contact@tryfincalc.com]</a><br />
+            Email: <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a><br />
             Website: <a href="https://tryfincalc.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">tryfincalc.com</a>
           </p>
           <p>
