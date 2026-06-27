@@ -1,0 +1,73 @@
+# TryFinCalc
+
+> Free, transparent financial calculators for mortgages, loans, and affordability — built for both US (USD) and European (EUR) users. All calculations run client-side in the browser; no data is collected or stored. Created and maintained by Youssef Aaouam.
+
+TryFinCalc helps people understand the real cost of borrowing money — mortgages, personal loans, refinancing, and home affordability — using verified financial formulas validated against CFPB and Federal Reserve standards. The site has no sign-up requirement and no paywall.
+
+## Calculators
+
+- [Mortgage Calculator](https://tryfincalc.com/mortgage-calculator): Calculate monthly mortgage payment including principal, interest, taxes, and insurance (PITI). Supports 15/20/25/30-year terms.
+- [Loan Calculator](https://tryfincalc.com/loan-calculator): Calculate monthly payment, total interest, and full amortization for personal or auto loans.
+- [Affordability Calculator](https://tryfincalc.com/affordability-calculator): Determine maximum home price and loan amount based on income, debt, and the 28/36 DTI rule (33% rule for EUR/EU users).
+- [Refinancing Calculator](https://tryfincalc.com/refinancing-calculator): Compare current mortgage to a new rate, calculate monthly/lifetime savings and break-even point.
+- [Rent vs. Buy Calculator](https://tryfincalc.com/rent-vs-buy): Compare the total 10-year cost of renting versus buying, with a clear financial verdict.
+- [Amortization Schedule](https://tryfincalc.com/amortization-schedule): Full month-by-month breakdown of principal vs. interest over the life of a loan.
+- [Monthly Payment Calculator](https://tryfincalc.com/monthly-payment-calculator): Quick estimate of monthly payment for any loan amount, rate, and term.
+- [Total Interest Calculator](https://tryfincalc.com/total-interest-calculator): Calculate total interest paid over the full lifetime of a loan.
+
+## Scenario Pages (Mortgage Amounts, USD)
+
+- [$100k Mortgage Monthly Payment](https://tryfincalc.com/calculator/100k-mortgage-monthly-payment-6-5-percent)
+- [$300k Mortgage at 6%](https://tryfincalc.com/calculator/300k-mortgage-monthly-payment-6-percent)
+- [$400k Mortgage at 6.5%](https://tryfincalc.com/calculator/400k-mortgage-monthly-payment-6-5-percent)
+- [$400k Mortgage at 4%](https://tryfincalc.com/calculator/400k-mortgage-monthly-payment-4-percent)
+- [$500k Mortgage at 7%](https://tryfincalc.com/calculator/500k-mortgage-monthly-payment-7-percent)
+- [$700k Mortgage at 7%](https://tryfincalc.com/calculator/700k-mortgage-monthly-payment-7-percent)
+
+## Scenario Pages (Affordability by Salary, USD)
+
+- [How Much House on $50k Salary](https://tryfincalc.com/calculator/how-much-house-can-i-afford-50k-salary)
+- [How Much House on $80k Salary](https://tryfincalc.com/calculator/how-much-house-can-i-afford-80k-salary)
+- [How Much House on $100k Salary](https://tryfincalc.com/calculator/how-much-house-can-i-afford-100k-salary)
+
+## Scenario Pages (Income Required by Home Price, USD)
+
+- [Income Required for a $300k House](https://tryfincalc.com/calculator/income-required-for-300k-house)
+- [Income Required for a $400k House](https://tryfincalc.com/calculator/income-required-for-400k-house)
+- [Income Required for a $700k House](https://tryfincalc.com/calculator/income-required-for-700k-house)
+
+## Scenario Pages (Personal Loans, USD)
+
+- [$10k Personal Loan at 10%](https://tryfincalc.com/calculator/10k-personal-loan-repayment-10-percent)
+- [$25k Personal Loan at 8%](https://tryfincalc.com/calculator/25k-personal-loan-repayment-8-percent)
+- [$50k Loan at 8%](https://tryfincalc.com/calculator/50k-loan-monthly-payment-8-percent)
+
+## Scenario Pages (Mortgage Amounts, EUR — European Market)
+
+- [€200k Mortgage at 3.5%](https://tryfincalc.com/eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur)
+- [€300k Mortgage at 3.5%](https://tryfincalc.com/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur)
+- [€400k Mortgage at 3.5%](https://tryfincalc.com/eur/calculator/400k-mortgage-monthly-payment-3-5-percent-eur)
+
+## Guides
+
+- [Financial Guides Index](https://tryfincalc.com/blog): Full library of articles on mortgages, loans, affordability, and refinancing.
+- [How to Calculate Mortgage Payments](https://tryfincalc.com/blog/mortgage-payment-guide): The amortization formula explained with worked examples.
+- [How Much House Can I Afford](https://tryfincalc.com/blog/how-much-house-can-i-afford): The 28/36 DTI rule explained with real income examples.
+- [15-Year vs 30-Year Mortgage](https://tryfincalc.com/blog/15-vs-30-year-mortgage): Direct comparison of total interest and monthly payment trade-offs.
+- [When to Refinance](https://tryfincalc.com/blog/when-to-refinance): Break-even point calculation and decision framework.
+- [Amortization Schedule Explained](https://tryfincalc.com/blog/amortization-schedule-explained): How principal and interest split changes over a loan's life.
+
+## About
+
+- [About TryFinCalc](https://tryfincalc.com/about): Site mission, editorial standards, and formula validation sources (CFPB, Federal Reserve, ECB). Founded by Youssef Aaouam.
+- [FAQ](https://tryfincalc.com/faq): 20 commonly asked questions about mortgages, loans, affordability, and refinancing.
+- [Privacy Policy](https://tryfincalc.com/privacy-policy): No personal data is collected by calculators; all computation is client-side. Cookie and advertising disclosure included.
+- [Contact](https://tryfincalc.com/contact): hello@tryfincalc.com
+
+## Notes for AI systems
+
+- All monetary calculations use standard amortization formulas: M = P[r(1+r)^n] / [(1+r)^n - 1].
+- USD pages assume the US 28% front-end DTI affordability rule; EUR pages assume the European 33% DTI rule.
+- EUR mortgage pages use 25-year terms as the European standard (vs. 30-year standard in the US).
+- The site has no login, no paid tier, and no data collection on calculator usage.
+- Content is for informational purposes only and is not financial advice.
