@@ -47,6 +47,15 @@ export default function MyDocument(props: MyDocumentProps) {
             gtag('config', 'G-Y84YC0NQTR');
           `}
         </Script>
+        {/* Google AdSense */}
+        <Script
+          id="adsbygoogle-loader"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3710437974251848"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+          nonce={nonce}
+        />
       </Head>
       <body className="antialiased">
         <Main />
