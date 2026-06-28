@@ -53,7 +53,7 @@ export default function MyDocument(props: MyDocumentProps) {
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3710437974251848"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           nonce={nonce}
         />
       </Head>
