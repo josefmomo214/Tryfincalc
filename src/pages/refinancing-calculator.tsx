@@ -249,7 +249,7 @@ export default function RefinancingCalculator() {
           <>
             <p>Refinancing your mortgage can be a powerful financial move to lower your monthly payments, shorten your loan term, or access cash from your home's equity. Determining if the numbers work in your favor requires a clear-eyed look at the current interest rates versus your original loan terms.</p>
             <p>Use our Refinancing Calculator to see your potential monthly savings, total lifetime savings, and most importantly, how many months it will take to break even on the closing costs.</p>
-            <p>See specific scenarios: <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent" className="text-primary underline">$400k mortgage at 6.5%</a> · <a href="/calculator/income-required-for-400k-house" className="text-primary underline">Income required for $400k house</a></p>
+            <p>See specific scenarios: <a href="/calculator/400k-mortgage-monthly-payment-4-percent" className="text-primary underline">$400k mortgage at 4%</a> · <a href="/calculator/income-required-for-400k-house" className="text-primary underline">Income required for $400k house</a></p>
           </>
         }
         howItWorks={

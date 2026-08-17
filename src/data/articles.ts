@@ -160,7 +160,7 @@ const rawArticles: Omit<Article, "author">[] = [
       </div>
 
       <h2>Total interest paid over 30 years on a $400k mortgage</h2>
-      <p>One of the most surprising aspects of a <strong>400k mortgage monthly payment</strong> is the total cost over three decades. At a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">6.5% interest rate</a>, the "true" cost of your home is nearly double the original loan amount:</p>
+      <p>One of the most surprising aspects of a <strong>400k mortgage monthly payment</strong> is the total cost over three decades. At a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">6.5% interest rate</a>, the "true" cost of your home is nearly double the original loan amount:</p>
       <ul>
         <li><strong>Principal Borrowed:</strong> $400,000</li>
         <li><strong>Total Interest Paid:</strong> $510,234</li>
@@ -250,7 +250,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li>Your <a href="/mortgage-calculator">monthly mortgage payment</a> (principal, interest, taxes, insurance) should not exceed 28% of your gross monthly income</li>
         <li>Your total monthly debt payments should not exceed 36% of your gross monthly income</li>
       </ul>
-      <p>Here's what that means in practice for a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 home with 10% down at 6.5%</a> interest over 30 years:</p>
+      <p>Here's what that means in practice for a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 home with 10% down at 6.5%</a> interest over 30 years:</p>
 
       <div class="overflow-x-auto my-6">
         <table class="w-full text-left border-collapse">
@@ -486,7 +486,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li><strong>Buy Points:</strong> Pay upfront to lower your interest rate for the life of the loan.</li>
       </ol>
 
-      <p>Before committing, check the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> for updates on market trends that might influence when you should lock in your rate. For a specific example of how these rates apply to common loan amounts, see our <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment breakdown</a>, including the exact costs for <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">a $400,000 mortgage at 6.5%</a> and <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
+      <p>Before committing, check the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> for updates on market trends that might influence when you should lock in your rate. For a specific example of how these rates apply to common loan amounts, see our <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment breakdown</a>, including the exact costs for <a href="/calculator/400k-mortgage-monthly-payment-4-percent">a $400,000 mortgage at 4%</a> and <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -737,7 +737,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>By the end of the loan, you will have paid over $405,000 in interest alone. You can see how this total interest compares to other rates in our study on <a href="/blog/interest-rate-impact">how interest rates affect your total cost</a>, or explore the full breakdown for <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">a $400,000 mortgage at 6.5%</a> and <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
+      <p>By the end of the loan, you will have paid over $405,000 in interest alone. You can see how this total interest compares to other rates in our study on <a href="/blog/interest-rate-impact">how interest rates affect your total cost</a>, or explore the full breakdown for <a href="/calculator/400k-mortgage-monthly-payment-4-percent">a $400,000 mortgage at 4%</a> and <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
 
       <h2>How Extra Payments Change the Schedule</h2>
       <p>An <strong>amortization schedule</strong> is not set in stone. Because interest is calculated based on the current balance, every extra dollar you pay toward the principal *today* eliminates all future interest on that dollar. For instance, paying an extra $200 per month on this loan cuts roughly 4.5 years off your term and saves approximately $47,000 in interest. We highly recommend <a href="/blog/early-mortgage-payoff">paying off your mortgage early</a> if your budget allows. Use our <a href="/amortization-schedule">amortization schedule tool</a> or core <a href="/mortgage-calculator">mortgage calculator</a> to test your numbers.</p>
@@ -783,7 +783,7 @@ const rawArticles: Omit<Article, "author">[] = [
     readTime: "9 min read",
     title: "$100,000 Mortgage Monthly Payment: Full Breakdown for 2026",
     excerpt: "What is the monthly payment on a $100,000 mortgage in 2026? See exact payments for every interest rate and term, total interest costs, income requirements, and a full PITI breakdown.",
-    content: `<p>A $100,000 mortgage remains a highly effective tool for buyers in affordable U.S. markets, those purchasing a secondary residence, or homeowners refinancing a small equity balance into more favorable terms. While it is lower than the national average mortgage balance, understanding the exact **$100000 mortgage monthly payment** is fundamental for precise financial planning in 2026. This guide provides a comprehensive breakdown of monthly costs at various interest rates, comparisons across loan terms, income requirements, and the total cost of borrowing. For an instant, personalized figure based on your specific situation, use our <a href="/mortgage-calculator">mortgage calculator</a> or <a href="/calculator/100k-mortgage-monthly-payment-6-5-percent">see the exact $100k payment breakdown at 6.5%</a>.</p>
+    content: `<p>A $100,000 mortgage remains a highly effective tool for buyers in affordable U.S. markets, those purchasing a secondary residence, or homeowners refinancing a small equity balance into more favorable terms. While it is lower than the national average mortgage balance, understanding the exact **$100000 mortgage monthly payment** is fundamental for precise financial planning in 2026. This guide provides a comprehensive breakdown of monthly costs at various interest rates, comparisons across loan terms, income requirements, and the total cost of borrowing. For an instant, personalized figure based on your specific situation, use our <a href="/mortgage-calculator">mortgage calculator</a> or <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">see a comparable payment breakdown for a $250k loan at 3.5%</a>.</p>
 
 <h2>Monthly Payment on a $100,000 Mortgage by Interest Rate</h2>
 <p>The interest rate is the most significant factor in determining your monthly commitment. Even a fractional difference in the rate can translate into tens of thousands of dollars saved over the life of the loan. The table below illustrates the monthly principal and interest (P&I) for a $100,000 mortgage on a standard 30-year fixed term across realistic 2026 scenarios:</p>
@@ -951,7 +951,7 @@ const rawArticles: Omit<Article, "author">[] = [
   </tbody>
 </table>
 
-<p>As of 2026, with average rates around 6.8% according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, a $200,000 mortgage costs approximately $1,307 per month in principal and interest. Over 30 years, that results in $270,520 in total interest—meaning you pay back $470,520 on a $200,000 loan, which is 135% of the original amount in interest alone. To find <a href="/blog/interest-rate-impact">how your interest rate affects total cost</a> more deeply, run your own scenarios through our <a href="/mortgage-calculator">mortgage calculator</a> or use our specific calculator for a <a href="/calculator/200k-mortgage-monthly-payment-6-5-percent">$200,000 mortgage at 6.5%</a> to see a detailed breakdown.</p>
+<p>As of 2026, with average rates around 6.8% according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, a $200,000 mortgage costs approximately $1,307 per month in principal and interest. Over 30 years, that results in $270,520 in total interest—meaning you pay back $470,520 on a $200,000 loan, which is 135% of the original amount in interest alone. To find <a href="/blog/interest-rate-impact">how your interest rate affects total cost</a> more deeply, run your own scenarios through our <a href="/mortgage-calculator">mortgage calculator</a> or use our specific calculator for a <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at 3.5%</a> to see a detailed breakdown.</p>
 
 <h2>Monthly Payment by Loan Term</h2>
 <p>While the 30-year term offers the lowest monthly payment, shorter terms allow you to own your home outright much faster while saving a fortune in interest. Here is how that same $200,000 loan at 6.8% breaks down by term:</p>
@@ -1287,7 +1287,7 @@ const rawArticles: Omit<Article, "author">[] = [
     seoTitle: "Amortization Schedule: 2026 Payoff Details | TryFinCalc",
     seoDescription: "Track your loan progress with our amortization schedule guide. See your monthly payment in seconds and understand how interest and principal change over time.",
     content: `
-      <p>The amortization schedule is your roadmap to ownership. See how every dollar is allocated using our <a href="/mortgage-calculator">amortization tool</a> over 360 payments. For example, see how the schedule breaks down for <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">a $400,000 mortgage at 6.5%</a> or <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
+      <p>The amortization schedule is your roadmap to ownership. See how every dollar is allocated using our <a href="/mortgage-calculator">amortization tool</a> over 360 payments. For example, see how the schedule breaks down for <a href="/calculator/400k-mortgage-monthly-payment-4-percent">a $400,000 mortgage at 4%</a> or <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a>.</p>
       <h2>The Interest-Heavy Start</h2>
       <p>In the first few years, up to 80% of your payment may go toward interest. This is perfectly normal in fixed-rate loans. Understand the <a href="/monthly-payment-formula">math behind these calculations</a>.</p>
       <h3>Can I print my schedule?</h3>
@@ -1777,7 +1777,7 @@ const rawArticles: Omit<Article, "author">[] = [
           </tbody>
         </table>
       </div>
-      <p>Run these calculations for your exact home price using our <a href="/mortgage-calculator">mortgage calculator</a>, or see detailed breakdowns for a <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400k mortgage at 6.5%</a> and a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300k mortgage at 6%</a>.</p>
+      <p>Run these calculations for your exact home price using our <a href="/mortgage-calculator">mortgage calculator</a>, or see detailed breakdowns for a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400k mortgage at 4%</a> and a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300k mortgage at 6%</a>.</p>
 
       <h2>When the 15-Year Mortgage Wins</h2>
       <p>There are four clear scenarios where the 15-year is the superior choice for your financial future:</p>
@@ -3545,7 +3545,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>The difference between a 5.0% and a 7.5% rate is over $204,000 in total interest—enough to buy another small home. You can visualize this debt path using our <a href="/amortization-schedule">amortization schedule</a> or the <a href="/total-interest-calculator">total interest calculator</a>. For a concrete example, compare <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">a $400,000 mortgage at 6.5%</a> against <a href="/calculator/400k-mortgage-monthly-payment-4-percent">the same loan at 4%</a>.</p>
+      <p>The difference between a 5.0% and a 7.5% rate is over $204,000 in total interest—enough to buy another small home. You can visualize this debt path using our <a href="/amortization-schedule">amortization schedule</a> or the <a href="/total-interest-calculator">total interest calculator</a>. For a concrete example, compare <a href="/calculator/300k-mortgage-monthly-payment-6-percent">a $300,000 mortgage at 6%</a> against <a href="/calculator/400k-mortgage-monthly-payment-4-percent">a $400,000 mortgage at 4%</a>.</p>
 
       <h2>How Rates Affect Your Buying Power</h2>
       <p>Lenders care about your monthly Debt-to-Income (DTI) ratio. If your budget is capped at $2,000 per month for Principal and Interest, a rise in rates literally pushes homes out of your reach:</p>

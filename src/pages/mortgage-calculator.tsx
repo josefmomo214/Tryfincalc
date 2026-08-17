@@ -123,7 +123,7 @@ export default function MortgageCalculator() {
               <>
                 <p>Navigating the real estate market requires more than just finding the perfect home. It requires a clear understanding of your long-term financial commitment. Our Mortgage Calculator is designed to help you estimate the true cost of homeownership beyond the sticker price, providing clarity across various currencies and markets.</p>
                 <p>From initial purchase price to long-term interest costs, we provide the data you need to sign your contract with absolute confidence.</p>
-                <p>See specific scenarios: <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent" className="text-primary underline">$400k mortgage at 6.5%</a> · <a href="/calculator/300k-mortgage-monthly-payment-6-percent" className="text-primary underline">$300k mortgage at 6%</a></p>
+                <p>See specific scenarios: <a href="/calculator/400k-mortgage-monthly-payment-4-percent" className="text-primary underline">$400k mortgage at 4%</a> · <a href="/calculator/300k-mortgage-monthly-payment-6-percent" className="text-primary underline">$300k mortgage at 6%</a></p>
               </>
             }
             howItWorks={
