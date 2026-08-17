@@ -428,7 +428,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Is a $700,000 mortgage considered a jumbo loan in 2026?",
-        answer: "In 2026, the conforming loan limit for most of the US is $766,550, so a $700,000 mortgage falls just below jumbo territory in standard markets. In high-cost areas like San Francisco and New York where the limit is higher, it remains conforming. Jumbo loans often carry different rates and qualifying criteria, so always confirm the current limit with your lender."
+        answer: "In 2026, the conforming loan limit for most of the US is $832,750, so a $700,000 mortgage stays comfortably within conforming territory in standard markets. In high-cost areas like San Francisco and New York, where the limit is even higher, it remains conforming as well. Jumbo loans often carry different rates and qualifying criteria, so always confirm the current limit with your lender."
       }
     ]
   },
@@ -3370,7 +3370,7 @@ export const pseoData: PSEOParams[] = [
 <p>At 20% down, the full PITI (P&I $3,651 + tax $642 + insurance $160 = $4,453, no PMI) requires approximately $191,000 annually — more achievable for executive-level dual-income households than the $222,000 threshold at 10% down.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
-<p>Mortgages above $766,550 (the 2024 conforming loan limit, adjusted annually) enter "jumbo" territory and face stricter underwriting: typically 720–740+ credit scores, 12 months of cash reserves after closing, and full documentation of all income sources including RSUs, deferred compensation, and rental income. At 10% down, some lenders require private mortgage insurance with jumbo premiums that exceed the standard 0.5% estimate used here — 20% down often eliminates both PMI and the jumbo premium concern simultaneously.</p>
+<p>Mortgages above $832,750 (the 2026 conforming loan limit, adjusted annually) enter "jumbo" territory and face stricter underwriting: typically 720–740+ credit scores, 12 months of cash reserves after closing, and full documentation of all income sources including RSUs, deferred compensation, and rental income. At 10% down, some lenders require private mortgage insurance with jumbo premiums that exceed the standard 0.5% estimate used here — 20% down often eliminates both PMI and the jumbo premium concern simultaneously.</p>
 
 <h2>Related Calculators</h2>
 <ul>
