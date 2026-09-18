@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
 import { Input } from "@/components/ui/Input";
 import { ResultCard } from "@/components/calculator/ResultCard";
-import { Star, BarChart3, Search, PieChart, TrendingDown } from "lucide-react";
-import { formatCurrency, calculateAmortizedPayment, calculatePMI, convertCurrency } from "@/lib/finance";
+import { BarChart3, Search, PieChart, TrendingDown } from "lucide-react";
+import { formatCurrency, calculateAmortizedPayment, calculatePMI, convertCurrency, validateLoan } from "@/lib/finance";
 
 interface MortgageCalculatorWidgetProps {
   initialHomePrice?: number;
@@ -40,7 +40,25 @@ export function MortgageCalculatorWidget({
     loanAmount: 0
   });
 
+  const previousCurrency = useRef(currency);
   useEffect(() => {
+    const from = previousCurrency.current;
+    if (from === currency) return;
+    previousCurrency.current = currency;
+    const convert = (value: number) => Math.round(convertCurrency(value, from, currency) * 100) / 100;
+    setHomePrice(convert);
+    setDownPayment(convert);
+    setPropertyTax(convert);
+    setInsurance(convert);
+    setHoa(convert);
+  }, [currency]);
+
+  const validationError = downPayment > homePrice ? 'Down payment must not exceed the home price.' :
+    validateLoan(homePrice, interestRate, loanTerm) ||
+    (![homePrice, downPayment, downPaymentPercent, propertyTax, insurance, hoa].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
+
+  useEffect(() => {
+    if (validationError) return;
     const loanAmount = homePrice - downPayment;
     const monthlyPI = calculateAmortizedPayment(loanAmount, interestRate, loanTerm);
     
@@ -57,7 +75,7 @@ export function MortgageCalculatorWidget({
       hoa: hoa,
       loanAmount: loanAmount
     });
-  }, [homePrice, downPayment, interestRate, loanTerm, propertyTax, insurance, hoa]);
+  }, [homePrice, downPayment, interestRate, loanTerm, propertyTax, insurance, hoa, validationError]);
 
   const handlePriceChange = (value: number) => {
     setIsCalculated(true);
@@ -69,7 +87,7 @@ export function MortgageCalculatorWidget({
   const handleDownPaymentChange = (value: number) => {
     setIsCalculated(true);
     setDownPayment(value);
-    setDownPaymentPercent((value / homePrice) * 100);
+    setDownPaymentPercent(homePrice > 0 ? (value / homePrice) * 100 : 0);
   };
 
   const handleDownPercentChange = (value: number) => {
@@ -84,32 +102,33 @@ export function MortgageCalculatorWidget({
       description={description}
     >
       <CalculatorInputArea>
+        {validationError && <p id="mortgage-error" role="alert" className="mb-4 text-red-700 dark:text-red-300">{validationError}</p>}
         <div className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <label className="block text-sm font-semibold text-on-surface">Home Price ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={homePrice} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handlePriceChange(Number(e.target.value))} />
+              <label htmlFor="homePrice" className="block text-sm font-semibold text-on-surface">Home Price ({currency === 'EUR' ? '€' : '$'})</label>
+              <Input id="homePrice" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={homePrice} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handlePriceChange(e.target.valueAsNumber)} />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <label className="block text-sm font-semibold text-on-surface">Down ({currency === 'EUR' ? '€' : '$'})</label>
-                <Input type="number" value={downPayment} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleDownPaymentChange(Number(e.target.value))} />
+                <label htmlFor="downPayment" className="block text-sm font-semibold text-on-surface">Down ({currency === 'EUR' ? '€' : '$'})</label>
+                <Input id="downPayment" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={downPayment} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleDownPaymentChange(e.target.valueAsNumber)} />
               </div>
               <div className="space-y-4">
-                <label className="block text-sm font-semibold text-on-surface">Down (%)</label>
-                <Input type="number" value={downPaymentPercent} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleDownPercentChange(Number(e.target.value))} />
+                <label htmlFor="downPaymentPercent" className="block text-sm font-semibold text-on-surface">Down (%)</label>
+                <Input max={100} id="downPaymentPercent" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={downPaymentPercent} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleDownPercentChange(e.target.valueAsNumber)} />
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <label className="block text-sm font-semibold text-on-surface">Interest Rate (%)</label>
-              <Input type="number" step="0.1" value={interestRate} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setInterestRate(Number(e.target.value)); }} />
+              <label htmlFor="interestRate" className="block text-sm font-semibold text-on-surface">Interest Rate (%)</label>
+              <Input max={100} id="interestRate" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" step="0.1" value={interestRate} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setInterestRate(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-4">
-              <label className="block text-sm font-semibold text-on-surface">Loan Term (Years)</label>
-              <select 
+              <label htmlFor="loanTerm" className="block text-sm font-semibold text-on-surface">Loan Term (Years)</label>
+              <select id="loanTerm"
                 className="w-full h-12 px-4 rounded-xl border border-outline-variant/30 bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium text-on-surface"
                 value={loanTerm} 
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) => { setIsCalculated(true); setLoanTerm(Number(e.target.value)); }}
@@ -125,16 +144,16 @@ export function MortgageCalculatorWidget({
             <h3 className="text-lg font-bold text-primary mb-6">Out-of-Pocket monthly costs</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tax / yr</label>
-                <Input type="number" value={propertyTax} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setPropertyTax(Number(e.target.value)); }} />
+                <label htmlFor="propertyTax" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tax / yr</label>
+                <Input id="propertyTax" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={propertyTax} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setPropertyTax(e.target.valueAsNumber); }} />
               </div>
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">Insurance / yr</label>
-                <Input type="number" value={insurance} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setInsurance(Number(e.target.value)); }} />
+                <label htmlFor="insurance" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">Insurance / yr</label>
+                <Input id="insurance" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={insurance} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setInsurance(e.target.valueAsNumber); }} />
               </div>
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">HOA / mo</label>
-                <Input type="number" value={hoa} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setHoa(Number(e.target.value)); }} />
+                <label htmlFor="hoa" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">HOA / mo</label>
+                <Input id="hoa" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={hoa} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setHoa(e.target.valueAsNumber); }} />
               </div>
             </div>
           </div>
@@ -144,10 +163,10 @@ export function MortgageCalculatorWidget({
       <CalculatorResultsArea 
         nextSteps={[
           {
-            title: "Compare Lenders",
-            description: "Find the best mortgage rates for your profile from top providers.",
+            title: "Read the mortgage payment guide",
+            description: "Understand principal, interest, taxes and insurance.",
             icon: Search,
-            href: "/blog"
+            href: "/blog/mortgage-payment-guide"
           },
           {
             title: "Down Payment",
@@ -157,18 +176,18 @@ export function MortgageCalculatorWidget({
           },
           {
             title: "Reduce Costs",
-            description: "Strategies to minimize monthly insurance and taxes.",
+            description: "Read strategies to reduce your mortgage payment.",
             icon: TrendingDown,
-            href: "/blog"
+            href: "/blog/reduce-mortgage-payment"
           }
         ]}
       >
         <div className="space-y-12">
           <div className="text-center">
             <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-4">Estimated Monthly Payment</h3>
-            {isCalculated ? (
+            {(isCalculated && !validationError) ? (
               <div className="text-6xl md:text-7xl font-manrope font-extrabold text-primary mb-2 animate-in fade-in duration-700">
-                {formatCurrency(results.monthlyPayment, 0, currency)}
+                {formatCurrency(results.monthlyPayment, 2, currency)}
                 <span className="text-2xl font-medium text-on-surface-variant ml-2">/ mo</span>
               </div>
             ) : (
@@ -181,20 +200,20 @@ export function MortgageCalculatorWidget({
           <div className="bg-surface rounded-3xl p-8 border border-outline-variant/10">
             <h4 className="text-xs font-semibold tracking-widest text-on-surface-variant uppercase mb-6">Monthly Breakdown</h4>
             <div className="space-y-4">
-              <ResultCard title="Principal & Interest" value={isCalculated ? formatCurrency(results.principalInterest, 0, currency) : "—"} />
-              <ResultCard title="Property Taxes" value={isCalculated ? formatCurrency(results.tax, 0, currency) : "—"} />
-              <ResultCard title="Homeowners Insurance" value={isCalculated ? formatCurrency(results.insurance, 0, currency) : "—"} />
-              {results.pmi > 0 && <ResultCard title="PMI" value={isCalculated ? formatCurrency(results.pmi, 0, currency) : "—"} />}
-              {results.hoa > 0 && <ResultCard title="HOA Fees" value={isCalculated ? formatCurrency(results.hoa, 0, currency) : "—"} />}
+              <ResultCard title="Principal & Interest" value={(isCalculated && !validationError) ? formatCurrency(results.principalInterest, 2, currency) : "—"} />
+              <ResultCard title="Property Taxes" value={(isCalculated && !validationError) ? formatCurrency(results.tax, 0, currency) : "—"} />
+              <ResultCard title="Homeowners Insurance" value={(isCalculated && !validationError) ? formatCurrency(results.insurance, 0, currency) : "—"} />
+              {results.pmi > 0 && <ResultCard title="PMI" value={(isCalculated && !validationError) ? formatCurrency(results.pmi, 0, currency) : "—"} />}
+              {results.hoa > 0 && <ResultCard title="HOA Fees" value={(isCalculated && !validationError) ? formatCurrency(results.hoa, 0, currency) : "—"} />}
               <div className="pt-4 border-t border-outline-variant/10">
-                <ResultCard title="Total Loan Amount" value={isCalculated ? formatCurrency(results.loanAmount, 0, currency) : "—"} highlighted={true} />
+                <ResultCard title="Total Loan Amount" value={(isCalculated && !validationError) ? formatCurrency(results.loanAmount, 0, currency) : "—"} highlighted={true} />
               </div>
             </div>
           </div>
 
           <div className="bg-surface-container-low rounded-3xl p-8 flex items-center justify-center min-h-[200px] border border-outline-variant/10">
             <div className="text-center text-on-surface-variant">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+              <div className="w-12 h-12 bg-white dark:bg-surface-container-lowest rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <BarChart3 className="w-6 h-6 text-primary" />
               </div>
               <p className="font-medium">Detailed breakdown and PITI analysis</p>

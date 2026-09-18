@@ -7,7 +7,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { calculateAmortizedPayment, formatCurrency } from "@/lib/finance";
 import { ArrowRight, ChevronRight, Calculator, Info, Lightbulb, PieChart, TrendingDown } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 
 import { useRouter } from "next/router";
 
@@ -106,9 +106,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
                  </p>
               </div>
               <div className="w-full md:w-auto flex flex-col gap-4">
-                 <Link href={`/${params.type}-calculator`} className="w-full">
-                    <Button size="xl" className="w-full shadow-lg">Adjust Parameters <ArrowRight className="ml-2 w-5 h-5" /></Button>
-                 </Link>
+                 <ButtonLink href={`/${params.type}-calculator`} size="xl" className="w-full shadow-lg">Adjust Parameters <ArrowRight className="ml-2 w-5 h-5" /></ButtonLink>
                  <p className="text-center text-sm text-on-surface-variant/60 italic">Updated as of {new Date().toLocaleDateString()}</p>
               </div>
            </div>
@@ -235,16 +233,12 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
               Join thousands of smart borrowers who used our calculators to plan their future with 100% mathematical certainty.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-               <Link href={`/${params.type}-calculator`}>
-                 <Button size="xl" className="bg-white text-primary hover:bg-primary-fixed-dim rounded-2xl px-12 h-16 text-xl shadow-2xl">
+               <ButtonLink href={`/${params.type}-calculator`} size="xl" className="bg-white text-primary hover:bg-primary-fixed-dim rounded-2xl px-12 h-16 text-xl shadow-2xl">
                     Free Calculation <ArrowRight className="ml-2" />
-                 </Button>
-               </Link>
-               <Link href="/blog">
-                 <Button variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10 rounded-2xl px-12 h-16 text-xl">
+                 </ButtonLink>
+               <ButtonLink href="/blog" variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10 rounded-2xl px-12 h-16 text-xl">
                     Read More Guides
-                 </Button>
-               </Link>
+                 </ButtonLink>
             </div>
           </div>
         </section>

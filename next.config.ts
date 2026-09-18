@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: '/blog/debt-to-income-ratio', destination: '/blog/28-36-rule-explained', permanent: true },
+      { source: '/blog/reduce-personal-loan-costs', destination: '/blog/compare-loan-offers', permanent: true },
       {
         source: '/calculator/100k-mortgage-monthly-payment-6-5-percent',
         destination: '/mortgage-calculator',

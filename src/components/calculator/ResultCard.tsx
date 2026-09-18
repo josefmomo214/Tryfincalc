@@ -26,7 +26,7 @@ export function ResultCard({ title, value, subtitle, highlighted = false, classN
       </h3>
       <div className="flex items-baseline gap-2">
         <span className={cn(
-          "text-6xl md:text-7xl font-manrope font-extrabold tracking-tight",
+          "text-3xl sm:text-4xl xl:text-5xl break-all font-manrope font-extrabold tracking-tight",
           highlighted ? "text-on-primary-fixed" : "text-primary"
         )}>
           {value}

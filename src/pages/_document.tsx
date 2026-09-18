@@ -30,27 +30,27 @@ export default function MyDocument(props: MyDocumentProps) {
             })
           }}
         />
-        {/* Google tag (gtag.js) */}
+        {/* Defaults must precede both the CMP and Google scripts. CookieYes owns updates. */}
+        <script id="consent-defaults" nonce={nonce} dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            ad_storage: 'denied', analytics_storage: 'denied',
+            ad_user_data: 'denied', ad_personalization: 'denied',
+            functionality_storage: 'denied', personalization_storage: 'denied',
+            security_storage: 'granted', wait_for_update: 500
+          });
+          window.gtag = gtag;
+        ` }} />
         <Script
-          id="gtag-loader"
-          src="https://www.googletagmanager.com/gtag/js?id=G-Y84YC0NQTR"
-          strategy="afterInteractive"
-          integrity="sha384-yJkU5G6Bvwy14KtEHtjKQSO5cA2XqMvPnNd45qzw1JrSc2MmXxDDYRq3vz0UFKjs"
-          crossOrigin="anonymous"
+          id="cookieyes"
+          src="https://cdn-cookieyes.com/client_data/29532702d975c18a1902941805a6ae6d/script.js"
+          strategy="beforeInteractive"
           nonce={nonce}
         />
-        <Script id="gtag-init" strategy="afterInteractive" nonce={nonce}>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-Y84YC0NQTR');
-          `}
-        </Script>
         {/* Google AdSense */}
         <Script
           id="adsbygoogle-loader"
-          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3710437974251848"
           crossOrigin="anonymous"
           strategy="beforeInteractive"

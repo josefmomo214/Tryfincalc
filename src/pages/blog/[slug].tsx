@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { articles, Article } from "@/data/articles";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
-import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
 
@@ -24,9 +24,7 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
         <div className="min-h-screen flex flex-col items-center justify-center p-4 text-center text-on-surface">
           <h1 className="text-4xl font-bold mb-4">Guide Not Found</h1>
           <p className="mb-8">The financial guide you&apos;re looking for doesn&apos;t exist.</p>
-          <Link href="/blog">
-            <Button><ArrowLeft className="mr-2 w-4 h-4" /> Back to Guides</Button>
-          </Link>
+          <ButtonLink href="/blog"><ArrowLeft className="mr-2 w-4 h-4" /> Back to Guides</ButtonLink>
         </div>
       </MainLayout>
     );

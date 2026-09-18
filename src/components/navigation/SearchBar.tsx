@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useId } from 'react';
 import { useRouter } from 'next/router';
 import Fuse from 'fuse.js';
 import { searchIndex } from '@/lib/searchIndex';
@@ -25,6 +25,7 @@ export default function SearchBar({ className, isLarge = false }: { className?: 
   const [activeIndex, setActiveIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const listId = useId();
   const router = useRouter();
 
   useEffect(() => {
@@ -107,6 +108,8 @@ export default function SearchBar({ className, isLarge = false }: { className?: 
           aria-label="Search TryFinCalc"
           aria-expanded={isOpen}
           aria-haspopup="listbox"
+          aria-controls={isOpen ? listId : undefined}
+          aria-activedescendant={isOpen && activeIndex >= 0 ? `${listId}-${activeIndex}` : undefined}
           role="combobox"
           className={cn(
             "w-full rounded-xl border border-outline-variant/30 bg-surface-container-low text-on-surface outline-none transition-all placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/10",
@@ -114,7 +117,7 @@ export default function SearchBar({ className, isLarge = false }: { className?: 
           )}
         />
         {query && (
-          <button 
+          <button aria-label="Clear search"
             onClick={() => { setQuery(''); setIsOpen(false); }}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant/50 hover:text-on-surface p-1 rounded-full hover:bg-surface-container transition-colors"
           >
@@ -125,12 +128,14 @@ export default function SearchBar({ className, isLarge = false }: { className?: 
 
       {isOpen && (
         <div
+          id={listId}
           role="listbox"
           className="absolute top-full mt-2 left-0 right-0 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl shadow-2xl z-[1000] overflow-hidden animate-in fade-in zoom-in-95 duration-200"
         >
           {results.map((result, index) => (
             <div
               key={result.item.url}
+              id={`${listId}-${index}`}
               role="option"
               aria-selected={index === activeIndex}
               onClick={() => handleSelect(result.item.url)}
@@ -172,9 +177,9 @@ export default function SearchBar({ className, isLarge = false }: { className?: 
               <span>↵ Select</span>
               <span>Esc Close</span>
             </div>
-            <div className="text-[10px] text-primary/60 font-bold uppercase tracking-widest cursor-pointer hover:text-primary transition-colors" onClick={() => router.push(`/search?q=${encodeURIComponent(query)}`)}>
+            <button type="button" className="text-[10px] text-primary/60 font-bold uppercase tracking-widest cursor-pointer hover:text-primary transition-colors" onClick={() => router.push(`/search?q=${encodeURIComponent(query)}`)}>
               View All Results
-            </div>
+            </button>
           </div>
         </div>
       )}

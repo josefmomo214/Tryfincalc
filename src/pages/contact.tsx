@@ -7,7 +7,7 @@ export default function Contact() {
     <MainLayout>
       <SEOHandler 
         title="Contact TryFinCalc: Get Expert Financial Advice | TryFinCalc"
-        description="Reach out to our team for questions, feedback, or calculator requests. We help you understand your finances and see your monthly payment in seconds."
+        description="Contact TryFinCalc with questions, feedback or calculator requests."
         canonicalUrl="https://tryfincalc.com/contact"
         noindex={true}
       />

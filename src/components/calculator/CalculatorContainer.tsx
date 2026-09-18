@@ -13,7 +13,7 @@ interface CalculatorContainerProps {
 
 export function CalculatorContainer({ title, description, children, className }: CalculatorContainerProps) {
   return (
-    <div className={cn("w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12", className)}>
+    <div id="calculator-top" className={cn("w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12", className)}>
       <div className="mb-10 max-w-3xl">
         <h2 className="text-display-lg font-manrope font-bold text-primary tracking-tight mb-4">
           {title}
@@ -59,7 +59,7 @@ export function CalculatorResultsArea({
   nextSteps?: NextStep[];
 }) {
   return (
-    <div className={cn("w-full lg:w-[55%] flex flex-col gap-10", className)}>
+    <div className={cn("w-full min-w-0 lg:w-[55%] flex flex-col gap-10", className)}>
       {children}
 
       {/* Next Steps Section */}
@@ -96,7 +96,7 @@ export function CalculatorResultsArea({
       {/* AdSense Placement: Directly Below Results */}
       <div className="pt-12 border-t border-outline-variant/10">
         <div className="flex flex-col items-center">
-          <AdPlaceholder format="horizontal" className="w-full mb-8" label="Exclusive Offers" />
+          <AdPlaceholder format="horizontal" className="w-full mb-8" label="Advertisement" />
         </div>
       </div>
     </div>

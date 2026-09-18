@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
 import { Logo } from "@/components/navigation/Logo";
 
 export function Footer() {
+  const [consentUnavailable, setConsentUnavailable] = useState(false);
   return (
     <footer className="bg-surface-container pt-16 pb-8 border-t border-outline-variant/20 mt-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -56,12 +57,16 @@ export function Footer() {
                     if (typeof window !== 'undefined' &&
                         typeof (window as any).revisitCkyConsent === 'function') {
                       (window as any).revisitCkyConsent();
+                      setConsentUnavailable(false);
+                    } else {
+                      setConsentUnavailable(true);
                     }
                   }}
                   className="hover:underline cursor-pointer bg-transparent border-none text-inherit p-0 font-inherit text-sm"
                 >
                   Cookie Settings
                 </button>
+                {consentUnavailable && <p role="status" className="mt-2 text-sm">Cookie settings are unavailable. Please reload the page and check whether a content blocker is preventing the consent interface from loading.</p>}
               </li>
             </ul>
           </div>

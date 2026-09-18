@@ -29,7 +29,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "What is the monthly payment on a $400,000 mortgage in 2026? See payment tables for every rate and term, total interest costs, income requirements, and a full breakdown including taxes and insurance.",
     slug: "400k-mortgage-monthly-payment",
     seoTitle: "400k Mortgage Monthly Payment: 2026 Cost Guide | TryFinCalc",
-    seoDescription: "Calculate the payments for a 400,000 mortgage across various terms. See your monthly payment in seconds and review income requirements for a new home.",
+    seoDescription: "Calculate the payments for a 400,000 mortgage across various terms. Review income requirements for a new home.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -191,7 +191,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "A complete guide to buying a home in 2026 — affordability calculations, mortgage pre-approval, offer tactics, home inspection strategy, and rate lock advice. With real numbers and free calculators.",
     slug: "2026-homebuyers-playbook",
     seoTitle: "2026 Homebuyer's Playbook: Strategy & Guide | TryFinCalc",
-    seoDescription: "Master the 2026 housing market with our expert playbook. See your monthly payment in seconds and learn exact strategies to buy your first home smart.",
+    seoDescription: "Master the 2026 housing market with our expert playbook. Learn exact strategies to buy your first home smart.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -400,7 +400,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Learn exactly how mortgage payments are calculated — principal, interest, taxes, and insurance — with real examples, a step-by-step formula, and tips to lower your monthly bill.",
     slug: "mortgage-payment-guide",
     seoTitle: "How to Calculate Mortgage Payments: 2026 Formula | TryFinCalc",
-    seoDescription: "Learn the exact formula for calculating mortgage payments in 2026. See your monthly payment in seconds and understand PITI, taxes, and interest costs.",
+    seoDescription: "Learn the exact formula for calculating mortgage payments in 2026. Understand PITI, taxes, and interest costs.",
     content: `
       <p>Understanding <strong>how to calculate mortgage payments</strong> is an essential skill for any US first-time homebuyer. While most rely on a <a href="/mortgage-calculator">mortgage calculator</a> for quick answers, knowing the math behind your monthly bill helps you make better financial decisions. In this guide, we break down what makes up your payment, show you the step-by-step formula, and provide real-world examples to guide your purchase.</p>
 
@@ -524,7 +524,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Find out how much house you can afford in 2026 using the 28/36 rule, real income examples from $50k to $200k, and a free affordability calculator.",
     slug: "how-much-house-can-i-afford",
     seoTitle: "Home Affordability Guide: How Much House? | TryFinCalc",
-    seoDescription: "Find out how much house you can afford based on your 2026 income. See your monthly payment in seconds and get a detailed budget breakdown for your search.",
+    seoDescription: "Find out how much house you can afford based on your 2026 income. Get a detailed budget breakdown for your search.",
     content: `
       <p>Deciding <strong>how much house can I afford</strong> is the most critical step in the homebuying process, especially in 2026. With mortgage rates above 6% and home prices remaining elevated, your true budget—not just the listing price—dictates your purchasing power. To avoid financial strain, you must look beyond the sticker price and understand how your income, debts, and current economic conditions interact. Using an <a href="/affordability-calculator">affordability calculator</a> is the best way to start your search with realistic expectations.</p>
 
@@ -619,7 +619,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Learn what an amortization schedule is, how to read one, and how it shows the exact split between principal and interest for every payment over the life of your loan — with real examples.",
     slug: "amortization-schedule-explained",
     seoTitle: "Amortization Schedule Explained: 2026 Guide | TryFinCalc",
-    seoDescription: "Discover how amortization works and see your payoff details. See your monthly payment in seconds and track how your principal and interest change.",
+    seoDescription: "Discover how amortization works and see your payoff details. Track how your principal and interest change.",
     structuredData: [
       {
         "@context": "https://schema.org",
@@ -778,7 +778,7 @@ const rawArticles: Omit<Article, "author">[] = [
   {
     slug: "100k-mortgage-monthly-payment",
     seoTitle: "100k Mortgage Monthly Payment: 2026 Cost Guide | TryFinCalc",
-    seoDescription: "Calculate the monthly payment for a 100,000 mortgage in 2026. See your monthly payment in seconds and review total interest over different terms.",
+    seoDescription: "Calculate the monthly payment for a 100,000 mortgage in 2026. Review total interest over different terms.",
     category: "Mortgage Guides",
     readTime: "9 min read",
     title: "$100,000 Mortgage Monthly Payment: Full Breakdown for 2026",
@@ -920,7 +920,7 @@ const rawArticles: Omit<Article, "author">[] = [
   {
     slug: "200k-mortgage-monthly-payment",
     seoTitle: "200k Mortgage Monthly Payment: 2026 Cost Guide | TryFinCalc",
-    seoDescription: "Find the monthly payment for a 200,000 mortgage today. See your monthly payment in seconds and learn income requirements for your 2026 home loan.",
+    seoDescription: "Find the monthly payment for a 200,000 mortgage today. Learn income requirements for your 2026 home loan.",
     category: "Mortgage Guides",
     readTime: "9 min read",
     title: "$200,000 Mortgage Monthly Payment: Full Breakdown for 2026",
@@ -1078,7 +1078,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "What is the monthly payment on a $300,000 mortgage in 2026? See exact P&I payments for every interest rate and term, full PITI breakdown, income requirements, and how much total interest you'll pay over the life of the loan.",
     slug: "300k-mortgage-monthly-payment",
     seoTitle: "300k Mortgage Monthly Payment: 2026 Cost Guide | TryFinCalc",
-    seoDescription: "Calculate the payments for a 300,000 mortgage across various terms. See your monthly payment in seconds and review income requirements for a new home.",
+    seoDescription: "Calculate the payments for a 300,000 mortgage across various terms. Review income requirements for a new home.",
     content: `
       <p>Start by acknowledging that $300,000 is one of the most common mortgage amounts in the United States — the kind of loan that buys a solid first home in the Midwest, a starter property in the South, or a smaller unit in a mid-tier metro area. If you're looking at a $300k mortgage, you want precise numbers before you commit to anything. This page gives you exactly that — every payment scenario, the full cost including taxes and insurance, and an honest look at what income you actually need to make this work comfortably. Check your numbers with our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
 
@@ -1285,7 +1285,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Find out how much you can borrow based on your income in 2026 — with loan eligibility tables from $30k to $200k salary, DTI ratio explained, and tips to qualify for more.",
     slug: "loan-eligibility-by-income",
     seoTitle: "Loan Eligibility by Income: 2026 Borrowing Guide | TryFinCalc",
-    seoDescription: "Calculate how much you can borrow based on your 2026 income. See your monthly payment in seconds and understand DTI ratios and loan limits.",
+    seoDescription: "Calculate how much you can borrow based on your 2026 income. Understand DTI ratios and loan limits.",
     content: `
       <p>One of the first questions anyone asks before applying for a loan is whether their income is high enough to qualify. It's a source of significant anxiety for many, but the reality is more structured than you might think. Your eligibility doesn't just rest on your salary; it depends on a trio of factors: your gross income, your existing monthly debt obligations, and the specific debt-to-income (DTI) ratio requirements of your chosen lender. This guide breaks down exactly <strong>how much can I borrow based on my income</strong> in 2026, providing real numbers and clear examples so you know exactly where you stand before you apply. Start by getting a preliminary estimate with our <a href="/affordability-calculator">affordability calculator</a>.</p>
 
@@ -1428,7 +1428,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Discover how much total interest you will pay on your mortgage, auto loan, or personal loan — with real examples, comparison tables, and proven strategies to reduce your total interest cost significantly.",
     slug: "total-interest-explained",
     seoTitle: "Total Interest Paid 2026: Lifetime Loan Cost | TryFinCalc",
-    seoDescription: "Discover the true cost of your debt across different loan terms. See your monthly payment in seconds and learn how to reduce total interest significantly.",
+    seoDescription: "Discover the true cost of your debt across different loan terms. Learn how to reduce total interest significantly.",
     content: `
       <p>Most borrowers focus entirely on the monthly payment—the number that affects their budget today. But there is another, often much larger number that determines your wealth tomorrow: the <strong>total interest paid on a loan</strong>. On a typical $300,000 mortgage at a 6.8% interest rate, the total interest paid over 30 years exceeds $400,000. This means you end up paying for the house more than twice. Understanding what drives this cost is the first step toward reclaiming your financial future. This guide explains exactly how interest accumulates and provides proven strategies to reduce your total cost significantly. Start by calculating your own numbers with our <a href="/total-interest-calculator">total interest calculator</a>.</p>
 
@@ -1822,7 +1822,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Refinancing can save you thousands — but only if the timing is right. Learn the break-even formula, the 1% rule, real savings examples, and exactly when refinancing costs more than it saves.",
     slug: "when-to-refinance",
     seoTitle: "When to Refinance Mortgage: 2026 Break-Even Guide | TryFinCalc",
-    seoDescription: "Find out when refinancing your mortgage makes sense in 2026. See your monthly payment in seconds and calculate your exact break-even point today.",
+    seoDescription: "Find out when refinancing your mortgage makes sense in 2026. Calculate your exact break-even point today.",
     content: `
       <p>Refinancing is one of those financial decisions that sounds straightforward until you actually sit down to do the math. The pitch is simple: rates went up, now they're coming down, so refinance and save money. The reality is that refinancing has upfront costs — typically $3,000 to $8,000 — and whether it actually saves you money depends entirely on one number most people never calculate: the break-even point. You can run these numbers yourself using our <a href="/refinancing-calculator">refinancing calculator</a>.</p>
 
@@ -1975,7 +1975,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Is it better to rent or buy a home in 2026? We break down the real costs, the break-even timeline, the price-to-rent ratio, and how to decide based on your market and life situation — not generic rules.",
     slug: "rent-vs-buy-2026",
     seoTitle: "Rent vs Buy 2026: Real Cost & Break-Even Analysis | TryFinCalc",
-    seoDescription: "Evaluate the real cost of renting vs buying in 2026. See your monthly payment in seconds and use our data-driven breakdown to decide.",
+    seoDescription: "Evaluate the real cost of renting vs buying in 2026. Use our data-driven breakdown to decide.",
     content: `
       <p>The idea that "renting is throwing money away" is one of the most repeated — and most misleading — pieces of financial advice in existence. The reality is more complicated. In some markets and some life situations, renting is genuinely the smarter financial move. In others, buying wins decisively. The answer depends almost entirely on three things: where you live, how long you plan to stay, and what you would do with the money you don't put into a down payment.</p>
 
@@ -2193,7 +2193,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "The 20% down payment rule is outdated for most buyers. Here is how much you actually need in 2026, what PMI really costs, how long it takes to save, and the programs that can help you get there faster.",
     slug: "down-payment-guide",
     seoTitle: "Down Payment Guide: How Much Do You Need in 2026? | TryFinCalc",
-    seoDescription: "Learn how much down payment you really need in 2026. See your monthly payment in seconds and explore low down payment mortgage options today.",
+    seoDescription: "Learn how much down payment you really need in 2026. Explore low down payment mortgage options today.",
     content: `
       <p>Most people grew up hearing they need 20% down to buy a house. But for most buyers today, waiting to save 20% would mean waiting a decade. The median home price in the US is now over $400,000 — that's $80,000 before you even get to closing costs. The reality is that millions of Americans buy homes every year with far less than 20% down, and most of them are just fine.</p>
 
@@ -2295,7 +2295,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "What is the monthly payment on a €300,000 mortgage in 2026? See exact payments for European mortgage rates, full cost breakdown in euros, income requirements, and how rates differ across Belgium, France, Germany, and the Netherlands.",
     slug: "300k-euro-mortgage",
     seoTitle: "300k Euro Mortgage: 2026 Monthly Payment Guide | TryFinCalc",
-    seoDescription: "Calculate the monthly payment for a 300,000 euro mortgage. See your monthly payment in seconds and compare rates across Europe.",
+    seoDescription: "Calculate the monthly payment for a 300,000 euro mortgage. Explore payment scenarios for European mortgages.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -2483,7 +2483,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "How much can you borrow based on your income in 2026? Detailed loan eligibility tables for salaries from $30k to $250k — covering mortgages, personal loans, and auto loans with DTI calculations included.",
     slug: "loan-eligibility-by-income-detail",
     seoTitle: "Loan Eligibility by Income: 2026 Salary Tables | TryFinCalc",
-    seoDescription: "Calculate your loan eligibility by income level for 2026. See your monthly payment in seconds and use our detailed salary-to-borrowing tables.",
+    seoDescription: "Calculate your loan eligibility by income level for 2026. Use our detailed salary-to-borrowing tables.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -2697,7 +2697,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Fixed or variable rate mortgage — which is better in 2026? We compare costs, risks, break-even points, and the exact scenarios where each type wins — with real payment examples for a $350,000 loan.",
     slug: "fixed-vs-variable-mortgage",
     seoTitle: "Fixed vs Variable Mortgage: 2026 Comparison | TryFinCalc",
-    seoDescription: "Deciding between a fixed vs variable mortgage? See your monthly payment in seconds and compare the risk and savings of each loan type for 2026.",
+    seoDescription: "Deciding between a fixed vs variable mortgage? Compare the risk and savings of each loan type for 2026.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -2855,7 +2855,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <div class="flex flex-col md:flex-row gap-6 my-10">
         <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center transition-transform hover:scale-105">
           <h3 class="text-xl font-bold mb-4">Mortgage Tool</h3>
-          <a href="/mortgage-calculator" class="text-primary font-bold hover:underline">Compare Rates Now →</a>
+          <a href="/mortgage-calculator" class="text-primary font-bold hover:underline">See how rates affect your payment →</a>
         </div>
         <div class="flex-1 bg-primary/5 p-8 rounded-3xl border border-primary/20 text-center shadow-md transition-transform hover:scale-105">
           <h3 class="text-xl font-bold mb-4">Refinance Tool</h3>
@@ -2871,7 +2871,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "What happens when you make extra mortgage payments? See the exact impact on your loan term, total interest, and monthly payment — with real numbers for every extra payment amount from $50 to $1,000 per month.",
     slug: "extra-payments-impact",
     seoTitle: "Extra Mortgage Payments Impact: 2026 Math Guide | TryFinCalc",
-    seoDescription: "Discover the compounding impact of extra mortgage payments in 2026. See your monthly payment in seconds and calculate your interest savings today.",
+    seoDescription: "Discover the compounding impact of extra mortgage payments in 2026. Calculate your interest savings today.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -3025,7 +3025,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Learn how to use a refinance calculator to find your break-even point, calculate monthly savings, and decide whether refinancing your mortgage makes financial sense in 2026 — with real examples.",
     slug: "refinance-calculator-guide",
     seoTitle: "How to Use Refinance Calculator: 2026 Step-by-Step | TryFinCalc",
-    seoDescription: "Master our refinance calculator with this 2026 step-by-step guide. See your monthly payment in seconds and find your break-even point instantly.",
+    seoDescription: "Master our refinance calculator with this 2026 step-by-step guide. Find your break-even point instantly.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -3177,7 +3177,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Planning to buy a home in 2026? Here is exactly how much you need to save — down payment, closing costs, reserves, moving costs, and the hidden expenses most buyers forget until it is too late.",
     slug: "home-purchase-budgeting",
     seoTitle: "Home Purchase Budget: 2026 Savings & Cost Guide | TryFinCalc",
-    seoDescription: "Build a complete home purchase budget for the 2026 housing market. See your monthly payment in seconds and account for every hidden closing cost.",
+    seoDescription: "Build a complete home purchase budget for the 2026 housing market. Account for every hidden closing cost.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -3380,7 +3380,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Are you using a mortgage calculator correctly? Discover the 7 most common mistakes people make — from ignoring taxes and insurance to using the wrong rate.",
     slug: "calculator-mistakes",
     seoTitle: "7 Mortgage Calculator Mistakes to Avoid in 2026 | TryFinCalc",
-    seoDescription: "Avoid the 7 most common mortgage calculator mistakes in 2026. See your monthly payment in seconds and build a bulletproof housing budget today.",
+    seoDescription: "Avoid the 7 most common mortgage calculator mistakes in 2026. Build a bulletproof housing budget today.",
     content: `
       <p>Mortgage calculators are among the most useful tools a homebuyer has at their disposal, but they are only as good as the data you feed them. A small input error or a missing field can make a $2,800 monthly payment look like an affordable $1,900, leading buyers to overextend their budget and face genuine financial strain after they move in. If you have ever used an online tool and wondered whether the result was accurate or dangerously optimistic, you are right to be cautious. This guide covers the seven most common <strong>mortgage calculator mistakes</strong> buyers make and shows you exactly how to avoid every one of them. For a reliable starting point, our <a href="/mortgage-calculator">mortgage calculator</a> includes many of these essential fields by default to help you build a safer budget.</p>
 
@@ -3478,7 +3478,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "See exactly how a 1% change in interest rates affects your mortgage payment, total interest paid, and buying power — with real examples for loan amounts from $150k to $600k.",
     slug: "interest-rate-impact",
     seoTitle: "How Interest Rates Affect Your Mortgage: 2026 Study | TryFinCalc",
-    seoDescription: "Discover how even a 1% rate change affects your lifetime costs. See your monthly payment in seconds and learn 2026 interest saving strategies.",
+    seoDescription: "Discover how even a 1% rate change affects your lifetime costs. Learn 2026 interest saving strategies.",
     content: `
       <p>In real estate, a single percentage point is often the difference between a comfortable lifestyle and being "house poor." A jump from 6% to 7% sounds like a minor adjustment, but for a 30-year loan, that change translates into hundreds of extra dollars every month. Understanding exactly <strong>how interest rates affect mortgage payments</strong> is the first step toward making a data-driven decision. Before you commit to a mortgage rate lock, use a <a href="/mortgage-calculator">mortgage calculator</a> to see how today's market conditions translate into your actual monthly bill.</p>
 
@@ -3591,7 +3591,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Comparing loan offers? Don't just look at the monthly payment. Learn the 6 numbers that actually matter — APR, total interest, fees, term, prepayment penalties, and break-even point — with real side-by-side examples.",
     slug: "compare-loan-offers",
     seoTitle: "How to Compare Loan Offers: 2026 Checklist | TryFinCalc",
-    seoDescription: "Master the art of comparing loan estimates and terms. See your monthly payment in seconds and avoid overpaying on your next 2026 loan.",
+    seoDescription: "Master the art of comparing loan estimates and terms. Avoid overpaying on your next 2026 loan.",
     content: `
       <p>Comparing loan offers is a major financial decision, yet many borrowers rush through it. Lenders know that most people focus only on the monthly payment—and they structure their offers accordingly. This guide gives you the exact framework to <strong>compare loan offers</strong> fairly and choose the one that actually costs less. Before you commit, run each offer through a <a href="/loan-calculator">loan calculator</a> to see the true breakdown.</p>
 
@@ -3690,7 +3690,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Struggling with your mortgage payment? Here are 8 proven ways to reduce it in 2026 — refinancing, PMI removal, loan modification, tax appeals, and more — with real savings examples for each.",
     slug: "reduce-mortgage-payment",
     seoTitle: "How to Reduce Mortgage Payment: 8 Proven 2026 Tips | TryFinCalc",
-    seoDescription: "Learn 8 proven strategies to reduce your mortgage payment in 2026. See your monthly payment in seconds and lower your monthly housing costs fast.",
+    seoDescription: "Learn 8 proven strategies to reduce your mortgage payment in 2026. Lower your monthly housing costs fast.",
     content: `
       <p>For millions of homeowners, the mortgage payment is the single largest monthly expense. When family finances get tight, it is often the first place people look for budget relief. There are more options than most realize, ranging from quick administrative wins like removing PMI to longer-term structural changes like refinancing. This guide covers the most effective ways to lower your burden. If you are wondering <strong>how to reduce mortgage payment</strong> costs, here are eight proven strategies. Start by checking potential savings with our <a href="/refinancing-calculator">refinancing calculator</a>.</p>
 
@@ -3835,7 +3835,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Learn how to use a loan calculator to estimate monthly payments, compare loan offers, and understand the true cost of borrowing — with real examples for personal loans, auto loans, and mortgages.",
     slug: "loan-calculator-explained",
     seoTitle: "How to Use a Loan Calculator: 2026 Complete Guide | TryFinCalc",
-    seoDescription: "Master our loan calculator with the complete 2026 guide. See your monthly payment in seconds and understand the true cost of borrowing today.",
+    seoDescription: "Master our loan calculator with the complete 2026 guide. Understand the true cost of borrowing today.",
     structuredData: [
       {
         "@context": "https://schema.org",
@@ -4014,7 +4014,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "What is an escrow account on a mortgage? Learn how escrow works, what goes into it, why your payment changes each year, and how to manage your escrow account effectively.",
     slug: "escrow-accounts-explained",
     seoTitle: "Escrow Accounts Explained: 2026 Homeowner Guide | TryFinCalc",
-    seoDescription: "Understand exactly how escrow accounts handle your taxes and insurance. See your monthly payment in seconds and manage your 2026 housing costs.",
+    seoDescription: "Understand exactly how escrow accounts handle your taxes and insurance. Manage your 2026 housing costs.",
     content: `
       <p>Escrow is one of those mortgage terms that confuses nearly everyone at first. You see it on your monthly statement, your payment changes unexpectedly each year, and often, nobody fully explained it at the closing table. If you feel like your mortgage payment is a "black box" where money disappears and changes without rhyme or reason, you aren't alone. This guide provides an <strong>escrow account explained</strong> in plain English—what it is, what goes into it, why it changes, and what to do if your account runs short. Before you dive into the details, you can see how escrow fits into your overall PITI (Principal, Interest, Taxes, and Insurance) by using our <a href="/mortgage-calculator">mortgage calculator</a> to model your specific scenario.</p>
 
@@ -4118,7 +4118,7 @@ const rawArticles: Omit<Article, "author">[] = [
   {
     slug: "2026-homebuyers-playbook-step-by-step",
     seoTitle: "2026 Homebuyer's Playbook: Step-by-Step Strategy | TryFinCalc",
-    seoDescription: "Navigate the 2026 housing market with our comprehensive playbook. See your monthly payment in seconds and master every step of the home buying process.",
+    seoDescription: "Navigate the 2026 housing market with our comprehensive playbook. Master every step of the home buying process.",
     category: "Home Buying",
     readTime: "9 min read",
     title: "The 2026 Homebuyer's Playbook: How to Buy Smart in Today's Market",
@@ -4238,7 +4238,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "Everything veterans and active military need to know about VA loans in 2026 — no down payment, no PMI, lower rates, eligibility requirements, and how to apply step by step.",
     slug: "va-loans-guide",
     seoTitle: "VA Loans Guide 2026: Requirements & Benefits | TryFinCalc",
-    seoDescription: "Get the full guide to VA loan eligibility and zero-down benefits. See your monthly payment in seconds and secure your 2026 military home loan.",
+    seoDescription: "Get the full guide to VA loan eligibility and zero-down benefits. Secure your 2026 military home loan.",
     content: `
       <p>A VA loan is one of the most powerful financial benefits available to those who have served in the US military. With advantages like no down payment, no private mortgage insurance (PMI), and consistently lower interest rates than conventional loans, it represents a significant opportunity for homeownership. Yet, millions of eligible veterans never utilize this benefit—often because they do not know they qualify or do not understand how the process works. Whether you are currently serving or have long since hung up the uniform, this <strong>VA loan guide</strong> covers everything from initial eligibility to the final closing table. Start by exploring your potential payments with our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
 
@@ -4334,7 +4334,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "What are closing costs when buying a home? See the full breakdown of every fee, typical amounts for a $300k–$500k home, who pays what, and how to reduce your closing costs legally.",
     slug: "closing-costs-breakdown",
     seoTitle: "Closing Costs Breakdown: 2026 Homebuyer Guide | TryFinCalc",
-    seoDescription: "Get a complete closing costs breakdown for 2026. See your monthly payment in seconds and discover how to save on origination and title fees.",
+    seoDescription: "Get a complete closing costs breakdown for 2026. Discover how to save on origination and title fees.",
     content: `
       <p>Discovering that you owe an additional 2–5% of your home's purchase price on closing day is a genuine shock for most first-time buyers. After years of disciplined saving for a down payment, the realization that a $400,000 home requires another $12,000 to $20,000 in cash-to-close can feel like a setback. However, understanding the <strong>closing costs breakdown</strong> is the first step toward managing these expenses effectively. This guide breaks down every typical fee, explains who is responsible for each cost, and shows exactly how much you should budget when purchasing a home in the $300,000 to $500,000 range. Before you commit to a loan, always run your numbers through a <a href="/mortgage-calculator">mortgage calculator</a> to see how these costs impact your overall financial picture.</p>
 
@@ -4508,7 +4508,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "What is the 28/36 rule in mortgage lending? Learn how lenders use this ratio to determine affordability, see real income examples from $40k to $200k, and find out what to do if your numbers exceed the limits.",
     slug: "28-36-rule-explained",
     seoTitle: "28/36 Rule Explained: 2026 Mortgage Qualifier | TryFinCalc",
-    seoDescription: "Understand the 28/36 rule and how lenders use it in 2026. See your monthly payment in seconds and qualify for the best mortgage loan possible.",
+    seoDescription: "Understand the 28/36 rule and how lenders use it in 2026. Qualify for the best mortgage loan possible.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -4654,7 +4654,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "What is the monthly payment on a €200,000 mortgage in 2026? See exact payments for European mortgage rates, full cost breakdown in euros, income requirements, and how rates differ across Belgium, France, Germany, and the Netherlands.",
     slug: "200k-euro-mortgage",
     seoTitle: "200k Euro Mortgage: 2026 Monthly Payment Guide | TryFinCalc",
-    seoDescription: "Calculate the monthly payment for a 200,000 euro mortgage. See your monthly payment in seconds and compare rates across France, Belgium, and more.",
+    seoDescription: "Calculate the monthly payment for a 200,000 euro mortgage. Explore payment scenarios for France, Belgium, and more.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -4788,7 +4788,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Note that Belgian lenders typically require life insurance (Schuldsaldoverzekering) as a condition of the mortgage — a mandatory cost that many first-time buyers overlook. To ensure you have included all these "extras" in your calculation, use the <a href="/mortgage-calculator">mortgage calculator</a> for a personalised EUR estimate.</p>
 
       <h2>What Income Do You Need for a €200,000 Mortgage in Europe?</h2>
-      <p>European lenders typically apply a debt-to-income (DTI) ratio of 33% to 35%. This means your total monthly debt obligations should not exceed roughly one-third of your net net monthly household income. Here is the minimum income required based on different mortgage rate scenarios:</p>
+      <p>European lenders typically apply a debt-to-income (DTI) ratio of 33% to 35%. This means your total monthly debt obligations should not exceed roughly one-third of your net monthly household income. Here is the minimum income required based on different mortgage rate scenarios:</p>
 
       <div class="overflow-x-auto my-6">
         <table class="w-full text-left border-collapse">

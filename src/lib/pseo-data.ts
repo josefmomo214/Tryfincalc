@@ -1,4 +1,4 @@
-import { EXCHANGE_RATE, convertCurrency } from "./finance";
+import { convertCurrency } from "./finance";
 
 export interface PSEOParams {
   slug: string;
@@ -789,7 +789,7 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>Personal loan interest rates vary significantly between lenders. Before you commit, learn <a href="/blog/compare-loan-offers">how to compare loan offers</a> and use our <a href="/blog/loan-calculator-explained">loan calculator guide</a> to understand the math. For larger needs, you can also see our analysis of a <a href="/calculator/250k-personal-loan-repayment-8-percent">$25,000 personal loan at 8%</a>.</p>
+      <p>Personal loan interest rates vary significantly between lenders. Before you commit, learn <a href="/blog/compare-loan-offers">how to compare loan offers</a> and use our <a href="/blog/loan-calculator-explained">loan calculator guide</a> to understand the math. For larger needs, you can also see our analysis of a <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 personal loan at 8%</a>.</p>
 
       <h2>10% APR vs. Nominal Rate: An Important Distinction</h2>
       <p>Under the Truth in Lending Act enforced by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, lenders must disclose the APR. This includes not just the interest rate, but any origination fees. A 10% APR gives you a true cost comparison. For example, on a $10,000 loan, a 1% APR difference over 3 years costs approximately $160 extra in total interest — small but worth knowing when comparing offers using a <a href="/monthly-payment-calculator">monthly payment calculator</a>.</p>
@@ -4235,8 +4235,8 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
 
   const relatedBlog = {
     mortgage: { title: "How to Calculate Mortgage Payments", href: "/blog/mortgage-payment-guide" },
-    loan: { title: "The Power of Compound Interest", href: "/blog/compound-interest-explained" },
-    affordability: { title: "Understanding Debt-to-Income Ratio", href: "/blog/debt-to-income-ratio" }
+    loan: { title: "Understanding Total Loan Interest", href: "/blog/total-interest-explained" },
+    affordability: { title: "Understanding Debt-to-Income Ratio", href: "/blog/28-36-rule-explained" }
   }[params.type];
 
   const similarPages = pseoData

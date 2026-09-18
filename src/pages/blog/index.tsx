@@ -31,7 +31,7 @@ export default function BlogIndex() {
     <MainLayout>
       <SEOHandler 
         title="Mortgage Guides & Financial Market Insights 2026 | TryFinCalc"
-        description="Read expert articles on mortgages, personal finance, and loan strategies. Master your budget and see your monthly payment in seconds with our guides."
+        description="Read guides to mortgage payments, loan costs, refinancing and home purchase budgeting."
         canonicalUrl="https://tryfincalc.com/blog"
       />
 
@@ -50,10 +50,10 @@ export default function BlogIndex() {
             </div>
           </div>
           <div className="md:w-1/3 flex flex-wrap gap-2 text-sm">
-            <span className="px-4 py-2 rounded-full border border-primary text-primary font-medium hover:bg-primary-fixed transition-colors cursor-pointer">All</span>
-            <span className="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant hover:border-primary transition-colors cursor-pointer">Mortgages</span>
-            <span className="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant hover:border-primary transition-colors cursor-pointer">Personal Finance</span>
-            <span className="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant hover:border-primary transition-colors cursor-pointer">Home Buying</span>
+            <span className="px-4 py-2 rounded-full border border-primary text-primary font-medium hover:bg-primary-fixed transition-colors">All</span>
+            <span className="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant hover:border-primary transition-colors">Mortgages</span>
+            <span className="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant hover:border-primary transition-colors">Personal Finance</span>
+            <span className="px-4 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant hover:border-primary transition-colors">Home Buying</span>
           </div>
         </div>
       </section>

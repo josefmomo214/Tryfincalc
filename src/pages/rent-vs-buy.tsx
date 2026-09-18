@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
-import { ResultCard } from "@/components/calculator/ResultCard";
+
 import { Input } from "@/components/ui/Input";
-import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
-import { formatCurrency, calculateAmortizedPayment, convertCurrency } from "@/lib/finance";
+
+import { formatCurrency, convertCurrency, validateLoan, calculateRentVsBuy } from "@/lib/finance";
 import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
 import { Home, Search, TrendingUp } from "lucide-react";
 
@@ -41,36 +42,6 @@ export default function RentVsBuy() {
     },
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is it better to rent or buy a home in 2026?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The answer depends on your 'break-even' point — the number of years you must stay in the home for the benefits of equity and appreciation to outweigh the closing costs of buying. In many European and US markets, the break-even point currently ranges from 3 to 6 years."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are 'sunk costs' when comparing renting and buying?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sunk costs are expenses that do not build equity. For renters, the entire rent payment is a sunk cost. For buyers, sunk costs include mortgage interest, property taxes, home insurance, maintenance, and initial closing costs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does inflation affect the rent vs buy decision?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Inflation typically favors buyers. While rent often increases every year with inflation, a fixed-rate mortgage payment stays constant. Over time, the 'real' cost of a fixed mortgage payment decreases compared to rising rental prices."
-          }
-        }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -95,58 +66,30 @@ export default function RentVsBuy() {
     difference: 0
   });
 
+  const validationError = validateLoan(homePrice, interestRate, years) || (![rent, rentIncrease, homePrice, downPercent, interestRate, years, closingCosts].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '') || (downPercent > 100 || closingCosts > 100 || rentIncrease > 100 ? 'Percentages must not exceed 100%.' : '');
+
+  const previousCurrency = useRef(currency);
+
   // Sync state when currency changes
   useEffect(() => {
-    const prevCurrency = currency === 'USD' ? 'EUR' : 'USD';
-    setRent(prev => Math.round(convertCurrency(prev, prevCurrency, currency)));
-    setHomePrice(prev => Math.round(convertCurrency(prev, prevCurrency, currency)));
+    const prevCurrency = previousCurrency.current;
+    if (prevCurrency === currency) return;
+    previousCurrency.current = currency;
+    setRent(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
+    setHomePrice(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
   }, [currency]);
 
   useEffect(() => {
-    // Rent calculation
-    let currentRent = rent;
-    let rentSum = 0;
-    for (let i = 0; i < years; i++) {
-      rentSum += currentRent * 12;
-      currentRent *= (1 + rentIncrease / 100);
-    }
+    if (validationError) return;
+    setResults(calculateRentVsBuy(rent, rentIncrease, homePrice, downPercent, interestRate, years, closingCosts));
+  }, [validationError, rent, rentIncrease, homePrice, downPercent, interestRate, years, closingCosts, currency]);
 
-    // Buy calculation
-    const upfrontCosts = (homePrice * (closingCosts / 100)) + (currency === 'EUR' ? 3000 : 3000);
-    const downPayment = homePrice * (downPercent / 100);
-    const loan = homePrice - downPayment;
-    const monthlyM = calculateAmortizedPayment(loan, interestRate, 25);
-    
-    // Sunk costs of buying: Interest + Maintenance + Taxes + Upfront
-    const totalPayments = monthlyM * years * 12;
-    
-    // Estimate principal remaining after 'years'
-    const r = interestRate / 100 / 12;
-    const n = 25 * 12;
-    const p = years * 12;
-    const remainingBalance = r === 0 ? loan * (1 - p/n) : loan * (Math.pow(1 + r, n) - Math.pow(1 + r, p)) / (Math.pow(1 + r, n) - 1);
-    const principalPaid = loan - remainingBalance;
-    const interestPaid = totalPayments - principalPaid;
-
-    const taxesInsurance = (homePrice * 0.01) * years; // 1% per year for tax/insurance
-    const maintenance = (homePrice * 0.01) * years; // 1% for maintenance
-    const appreciation = homePrice * (Math.pow(1.02, years) - 1); // 2% annual appreciation
-
-    const buySum = interestPaid + taxesInsurance + maintenance + upfrontCosts - appreciation;
-    
-    setResults({
-      totalRent: rentSum,
-      totalBuy: buySum,
-      verdict: buySum < rentSum ? "Buying is better" : "Renting is better",
-      difference: Math.abs(buySum - rentSum)
-    });
-  }, [rent, rentIncrease, homePrice, downPercent, interestRate, years, closingCosts, currency]);
 
   return (
     <MainLayout>
       <SEOHandler 
         title="Rent vs Buy Calculator 2026: Financial Verdict | TryFinCalc"
-        description="Compare the true 10-year cost of renting versus buying a home. See your financial break-even point and get a clear verdict based on your numbers."
+        description="Compare estimated rent and net ownership costs over your chosen time horizon, including mortgage interest, upkeep and assumed appreciation."
         canonicalUrl="https://tryfincalc.com/rent-vs-buy"
         structuredData={rentVsBuySchema}
       />
@@ -165,52 +108,53 @@ export default function RentVsBuy() {
         description="Compare the financial costs of renting and buying over time."
       >
         <CalculatorInputArea>
+          {validationError && <p id="calculator-error" role="alert" className="mb-4 text-red-700 dark:text-red-300">{validationError}</p>}
           <div className="space-y-8">
             <div className="border-l-4 border-primary pl-6 py-2">
-              <h4 className="text-xs font-bold text-primary mb-4 uppercase tracking-widest">Scenario: Renting</h4>
+              <h3 className="text-xs font-bold text-primary mb-4 uppercase tracking-widest">Scenario: Renting</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-sm font-semibold text-on-surface">Monthly Rent ({currency === 'EUR' ? '€' : '$'})</label>
-                  <Input type="number" value={rent} onChange={(e) => { setIsCalculated(true); setRent(Number(e.target.value)); }} />
+                  <label htmlFor="rent" className="text-sm font-semibold text-on-surface">Monthly Rent ({currency === 'EUR' ? '€' : '$'})</label>
+                  <Input id="rent" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={rent} onChange={(e) => { setIsCalculated(true); setRent(e.target.valueAsNumber); }} />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-sm font-semibold text-on-surface">Annual Increase (%)</label>
-                  <Input type="number" step="0.1" value={rentIncrease} onChange={(e) => { setIsCalculated(true); setRentIncrease(Number(e.target.value)); }} />
+                  <label htmlFor="rentIncrease" className="text-sm font-semibold text-on-surface">Annual Increase (%)</label>
+                  <Input max={100} id="rentIncrease" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={rentIncrease} onChange={(e) => { setIsCalculated(true); setRentIncrease(e.target.valueAsNumber); }} />
                 </div>
               </div>
             </div>
 
             <div className="border-l-4 border-accent pl-6 py-2">
-              <h4 className="text-xs font-bold text-accent mb-4 uppercase tracking-widest">Scenario: Buying</h4>
+              <h3 className="text-xs font-bold text-accent mb-4 uppercase tracking-widest">Scenario: Buying</h3>
               <div className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-sm font-semibold text-on-surface">Home Price ({currency === 'EUR' ? '€' : '$'})</label>
-                    <Input type="number" value={homePrice} onChange={(e) => { setIsCalculated(true); setHomePrice(Number(e.target.value)); }} />
+                    <label htmlFor="homePrice" className="text-sm font-semibold text-on-surface">Home Price ({currency === 'EUR' ? '€' : '$'})</label>
+                    <Input id="homePrice" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={homePrice} onChange={(e) => { setIsCalculated(true); setHomePrice(e.target.valueAsNumber); }} />
                   </div>
                     <div className="space-y-1">
-                      <label className="text-sm font-semibold text-on-surface">Closing Costs (%)</label>
-                      <Input type="number" step="0.1" value={closingCosts} onChange={(e) => { setIsCalculated(true); setClosingCosts(Number(e.target.value)); }} />
+                      <label htmlFor="closingCosts" className="text-sm font-semibold text-on-surface">Closing Costs (%)</label>
+                      <Input max={100} id="closingCosts" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={closingCosts} onChange={(e) => { setIsCalculated(true); setClosingCosts(e.target.valueAsNumber); }} />
                       <p className="text-[10px] text-on-surface-variant">Estimated taxes, notary, and administrative fees.</p>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-sm font-semibold text-on-surface">Down Pmt (%)</label>
-                    <Input type="number" value={downPercent} onChange={(e) => { setIsCalculated(true); setDownPercent(Number(e.target.value)); }} />
+                    <label htmlFor="downPercent" className="text-sm font-semibold text-on-surface">Down Pmt (%)</label>
+                    <Input max={100} id="downPercent" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={downPercent} onChange={(e) => { setIsCalculated(true); setDownPercent(e.target.valueAsNumber); }} />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-sm font-semibold text-on-surface">Mortgage Rate (%)</label>
-                    <Input type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(Number(e.target.value)); }} />
+                    <label htmlFor="interestRate" className="text-sm font-semibold text-on-surface">Mortgage Rate (%)</label>
+                    <Input max={100} id="interestRate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(e.target.valueAsNumber); }} />
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="space-y-1 pt-4 border-t border-outline-variant/20">
-              <label className="text-sm font-semibold text-on-surface">Time Horizon (Years)</label>
-              <Input type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(Number(e.target.value)); }} />
-              <p className="text-xs text-on-surface-variant italic">How long will you live in this property?</p>
+              <label htmlFor="years" className="text-sm font-semibold text-on-surface">Time Horizon (Years)</label>
+              <Input min={1/12} max={100} step="any" id="years" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(e.target.valueAsNumber); }} />
+              <p className="text-xs text-on-surface-variant italic">How long will you live in this property? Assumptions: 25-year mortgage, 2% annual appreciation, 1% annual tax/insurance, 1% maintenance, and 3,000 additional upfront costs in the selected currency. Excludes selling costs and the opportunity cost of your deposit.</p>
             </div>
           </div>
         </CalculatorInputArea>
@@ -218,22 +162,22 @@ export default function RentVsBuy() {
         <CalculatorResultsArea 
           nextSteps={[
             {
-              title: "Market Search",
-              description: "Find available properties in your budget.",
+              title: "Plan a home purchase budget",
+              description: "Read about upfront and ongoing homeownership costs.",
               icon: Search,
-              href: "/contact"
+              href: "/blog/home-purchase-budgeting"
             },
             {
               title: "Home Value",
               description: "Learn how to project future home appreciation.",
               icon: TrendingUp,
-              href: "/blog"
+              href: "/blog/rent-vs-buy-2026"
             },
             {
               title: "Buyer's Guide",
               description: "Everything you need to know about starting your home search.",
               icon: Home,
-              href: "/blog"
+              href: "/blog/rent-vs-buy-2026"
             }
           ]}
         >
@@ -241,27 +185,27 @@ export default function RentVsBuy() {
             <div className={`text-center p-8 rounded-[2.5rem] border transition-all ${results.verdict.includes("Buying") ? 'bg-primary text-white border-primary shadow-xl' : 'bg-surface border-primary/20 text-primary'}`}>
               <h3 className="text-sm font-semibold tracking-widest uppercase mb-4 opacity-80">The Financial Verdict</h3>
               <div className="text-4xl md:text-5xl font-manrope font-extrabold mb-2">
-                {results.verdict}
+                {validationError ? 'Enter valid inputs' : results.verdict}
               </div>
               <p className="text-lg opacity-90">
-                Potential savings over {years} years: <span className="font-bold">{formatCurrency(results.difference, 0, currency)}</span>
+                Potential savings over {Number.isFinite(years) ? years : '—'} years: <span className="font-bold">{!validationError && formatCurrency(results.difference, 0, currency)}</span>
               </p>
             </div>
             
             <div className="grid grid-cols-1 gap-4">
-              <div className="bg-white rounded-3xl p-6 border border-outline-variant/10 flex justify-between items-center">
+              <div className="bg-white dark:bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/10 flex justify-between items-center">
                 <div>
-                  <h4 className="text-xs font-bold text-on-surface-variant uppercase mb-1">Total Rent Paid</h4>
+                  <h3 className="text-xs font-bold text-on-surface-variant uppercase mb-1">Total Rent Paid</h3>
                   <p className="text-sm text-on-surface-variant italic leading-tight">Sunk costs of leasing.</p>
                 </div>
-                <span className="text-2xl font-bold text-primary">{formatCurrency(results.totalRent, 0, currency)}</span>
+                <span className="text-2xl font-bold text-primary">{!validationError && formatCurrency(results.totalRent, 0, currency)}</span>
               </div>
-              <div className="bg-white rounded-3xl p-6 border border-outline-variant/10 flex justify-between items-center">
+              <div className="bg-white dark:bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/10 flex justify-between items-center">
                 <div>
-                  <h4 className="text-xs font-bold text-on-surface-variant uppercase mb-1">Total Ownership Cost</h4>
+                  <h3 className="text-xs font-bold text-on-surface-variant uppercase mb-1">Total Ownership Cost</h3>
                   <p className="text-sm text-on-surface-variant italic leading-tight">Sunk costs (Interest, Tax) - Appreciation.</p>
                 </div>
-                <span className="text-2xl font-bold text-primary">{formatCurrency(results.totalBuy, 0, currency)}</span>
+                <span className="text-2xl font-bold text-primary">{!validationError && formatCurrency(results.totalBuy, 0, currency)}</span>
               </div>
             </div>
           </div>
@@ -275,7 +219,7 @@ export default function RentVsBuy() {
           <>
             <p>The decision to rent or buy a home is one of the biggest financial choices you will ever make. While homeownership is often touted as the ultimate goal, it comes with significant upfront costs and ongoing maintenance responsibilities that can affect your long-term wealth.</p>
             <p>Our Rent vs. Buy Calculator compares the total cost of renting with the net cost of owning, factoring in appreciation, taxes, and interest to help you decide which path is right for your financial timeline across any market.</p>
-            <p>See specific scenarios: <a href="/calculator/how-much-house-can-i-afford-80k-salary" className="text-primary underline">$80k salary affordability</a> · <a href="/calculator/income-required-for-300k-house" className="text-primary underline">Income required for $300k house</a></p>
+            <p>See specific scenarios: <Link href="/calculator/how-much-house-can-i-afford-80k-salary" className="text-primary underline">$80k salary affordability</Link> · <Link href="/calculator/income-required-for-300k-house" className="text-primary underline">Income required for $300k house</Link></p>
           </>
         }
         howItWorks={
@@ -340,7 +284,7 @@ export default function RentVsBuy() {
         ]}
         ctaText="Is it time to own?"
         ctaHref="/affordability-calculator"
-        ctaButtonText="Compare Rent vs Buy"
+        ctaButtonText="Estimate home affordability"
       />
     </MainLayout>
   );
