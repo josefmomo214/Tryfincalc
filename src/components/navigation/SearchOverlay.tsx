@@ -32,14 +32,19 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (isOpen) {
-      inputRef.current?.focus();
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+    if (!isOpen) {
       setQuery('');
       setResults([]);
+      return;
     }
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    inputRef.current?.focus();
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
+    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -93,12 +98,25 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   return (
     <div 
       ref={overlayRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Search articles and calculators"
+      onKeyDown={(event) => {
+        if (event.key === 'Escape') onClose();
+        if (event.key !== 'Tab') return;
+        const focusable = overlayRef.current?.querySelectorAll<HTMLElement>('button, input, a[href]');
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }}
       className="fixed inset-0 bg-black/50 z-[9999] flex flex-col items-center pt-20 px-4 animate-in fade-in duration-200"
       onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}
     >
       <div className="w-full max-w-2xl relative animate-in zoom-in-95 slide-in-from-top-4 duration-300">
         {/* Close Button */}
-        <button 
+        <button aria-label="Close search"
           onClick={onClose}
           className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors bg-white/10 hover:bg-white/20 p-2 rounded-full"
         >
@@ -112,6 +130,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
             </div>
             <input
               ref={inputRef}
+              aria-label="Search articles and calculators"
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -124,12 +143,12 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
           <div className={cn("max-h-[60vh] overflow-y-auto transition-all", results.length === 0 && query.length > 0 ? "h-32" : "")}>
             {results.length > 0 ? (
               results.map((result, index) => (
-                <div
+                <button type="button"
                   key={result.item.url}
                   onClick={() => handleSelect(result.item.url)}
                   onMouseEnter={() => setActiveIndex(index)}
                   className={cn(
-                    "px-6 py-4 cursor-pointer flex items-center justify-between gap-4 transition-colors",
+                    "w-full text-left px-6 py-4 cursor-pointer flex items-center justify-between gap-4 transition-colors",
                     index === activeIndex ? "bg-primary/5" : "hover:bg-surface-container-low",
                     index < results.length - 1 && "border-b border-outline-variant/10"
                   )}
@@ -156,7 +175,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                       <CornerDownLeft size={16} className="text-primary animate-pulse" />
                     )}
                   </div>
-                </div>
+                </button>
               ))
             ) : query.length >= 2 ? (
               <div className="p-10 text-center text-on-surface-variant/60 italic">

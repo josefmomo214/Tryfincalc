@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/navigation/Logo";
 import { ThemeToggle } from "@/components/navigation/ThemeToggle";
@@ -16,6 +16,19 @@ export function Header({ onSearchOpen }: HeaderProps) {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const menuButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [mobileMenuOpen]);
 
   const currency = locale?.toUpperCase() || 'USD';
 
@@ -42,7 +55,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
             </Link>
           </div>
           
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="hidden xl:flex space-x-8 items-center">
             {links.map((link) => (
               <Link
                 key={link.name}
@@ -54,7 +67,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
             ))}
           </nav>
           
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-4">
             <button 
               onClick={onSearchOpen}
               aria-label="Search"
@@ -91,7 +104,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
             </Link>
           </div>
 
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-4 xl:hidden">
             <button
                onClick={onSearchOpen}
                aria-label="Search"
@@ -102,10 +115,13 @@ export function Header({ onSearchOpen }: HeaderProps) {
             <ThemeToggle />
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-on-surface-variant hover:bg-surface-container-low hover:text-primary focus:outline-none"
+              ref={menuButton}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+              className="inline-flex items-center justify-center rounded-md p-2 text-on-surface-variant hover:bg-surface-container-low hover:text-primary focus-visible:outline-2 focus-visible:outline-primary"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">{mobileMenuOpen ? 'Close main menu' : 'Open main menu'}</span>
               {mobileMenuOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
               ) : (
@@ -117,7 +133,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
       </div>
 
       {/* Mobile menu */}
-      <div className={cn("md:hidden", mobileMenuOpen ? "block" : "hidden")}>
+      <div id="mobile-navigation" className={cn("xl:hidden", mobileMenuOpen ? "block" : "hidden")}>
         <div className="space-y-1 px-4 pb-6 pt-2 bg-surface-container-lowest border-b border-outline-variant/20 shadow-ambient">
           {links.map((link) => (
             <Link

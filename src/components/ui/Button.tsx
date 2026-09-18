@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -8,6 +9,21 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", ...props }, ref) => {
+
+    return (
+      <button
+        ref={ref}
+        className={buttonStyles({ variant, size, className })}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";
+
+export { Button };
+
+function buttonStyles({ variant = 'primary', size = 'md', className }: Pick<ButtonProps, 'variant' | 'size' | 'className'>) {
     const baseStyles = "inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50";
     
     const variants = {
@@ -27,15 +43,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     // If secondary, don't use standard height, let it be natural for text with underline
     const finalSizeClass = variant === "secondary" ? "text-lg pt-2" : sizes[size];
 
-    return (
-      <button
-        ref={ref}
-        className={cn(baseStyles, variants[variant], finalSizeClass, className)}
-        {...props}
-      />
-    );
-  }
-);
-Button.displayName = "Button";
+  return cn(baseStyles, variants[variant], finalSizeClass, className);
+}
 
-export { Button };
+export function ButtonLink({ variant, size, className, ...props }: React.ComponentProps<typeof Link> & Pick<ButtonProps, 'variant' | 'size'>) {
+  return <Link className={buttonStyles({ variant, size, className })} {...props} />;
+}

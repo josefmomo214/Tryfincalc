@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
-import { ResultCard } from "@/components/calculator/ResultCard";
+
 import { Input } from "@/components/ui/Input";
-import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
-import { formatCurrency, calculateAmortizedPayment, convertCurrency } from "@/lib/finance";
+
+import { formatCurrency, calculateAmortizedPayment, convertCurrency, validateLoan } from "@/lib/finance";
 import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
 
 export default function MonthlyPaymentCalculator() {
@@ -25,13 +25,20 @@ export default function MonthlyPaymentCalculator() {
     totalPaid: 0
   });
 
+  const validationError = validateLoan(amount, rate, years) || (![amount, rate, years].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
+
+  const previousCurrency = useRef(currency);
+
   // Sync state when currency changes
   useEffect(() => {
-    const prevCurrency = currency === 'USD' ? 'EUR' : 'USD';
-    setAmount(prev => Math.round(convertCurrency(prev, prevCurrency, currency)));
+    const prevCurrency = previousCurrency.current;
+    if (prevCurrency === currency) return;
+    previousCurrency.current = currency;
+    setAmount(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
   }, [currency]);
 
   useEffect(() => {
+    if (validationError) return;
     const monthly = calculateAmortizedPayment(amount, rate, years);
     const totalPaid = monthly * (years * 12);
     setResults({
@@ -39,7 +46,8 @@ export default function MonthlyPaymentCalculator() {
       totalPaid,
       totalInterest: totalPaid - amount
     });
-  }, [amount, rate, years]);
+  }, [validationError, amount, rate, years]);
+
 
   return (
     <MainLayout>
@@ -63,18 +71,19 @@ export default function MonthlyPaymentCalculator() {
         description="A streamlined tool to quickly find out your monthly repayment obligation."
       >
         <CalculatorInputArea>
+          {validationError && <p id="calculator-error" role="alert" className="mb-4 text-red-700 dark:text-red-300">{validationError}</p>}
           <div className="space-y-6">
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-on-surface">Total Loan Amount ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={amount} onChange={(e) => { setIsCalculated(true); setAmount(Number(e.target.value)); }} />
+              <label htmlFor="amount" className="block text-sm font-semibold text-on-surface">Total Loan Amount ({currency === 'EUR' ? '€' : '$'})</label>
+              <Input id="amount" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={amount} onChange={(e) => { setIsCalculated(true); setAmount(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-on-surface">Interest Rate (%)</label>
-              <Input type="number" step="0.1" value={rate} onChange={(e) => { setIsCalculated(true); setRate(Number(e.target.value)); }} />
+              <label htmlFor="rate" className="block text-sm font-semibold text-on-surface">Interest Rate (%)</label>
+              <Input max={100} id="rate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={rate} onChange={(e) => { setIsCalculated(true); setRate(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-on-surface">Term (Years)</label>
-              <Input type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(Number(e.target.value)); }} />
+              <label htmlFor="years" className="block text-sm font-semibold text-on-surface">Term (Years)</label>
+              <Input min={1/12} max={100} step="any" id="years" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(e.target.valueAsNumber); }} />
             </div>
           </div>
         </CalculatorInputArea>
@@ -83,7 +92,7 @@ export default function MonthlyPaymentCalculator() {
           <div className="space-y-8">
             <div className="text-center p-8 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Estimated Monthly Payment</h3>
-              {isCalculated ? (
+              {(isCalculated && !validationError) ? (
                 <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
                   {formatCurrency(results.monthly, 2, currency)}
                 </div>
@@ -93,20 +102,20 @@ export default function MonthlyPaymentCalculator() {
                 </div>
               )}
             </div>
-            <div className="bg-white rounded-3xl p-6 border border-outline-variant/10">
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-4">Summary</h4>
+            <div className="bg-white dark:bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/10">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-4">Summary</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-on-surface-variant">Principal</span>
-                  <span className="font-bold text-primary">{isCalculated ? formatCurrency(amount, 0, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(isCalculated && !validationError) ? formatCurrency(amount, 0, currency) : "—"}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-on-surface-variant">Total Interest</span>
-                  <span className="font-bold text-primary">{isCalculated ? formatCurrency(results.totalInterest, 2, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(isCalculated && !validationError) ? formatCurrency(results.totalInterest, 2, currency) : "—"}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm pt-2 border-t border-outline-variant/10">
                   <span className="text-on-surface font-bold">Total Cost</span>
-                  <span className="font-bold text-primary">{isCalculated ? formatCurrency(results.totalPaid, 2, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(isCalculated && !validationError) ? formatCurrency(results.totalPaid, 2, currency) : "—"}</span>
                 </div>
               </div>
             </div>
@@ -177,10 +186,11 @@ export default function MonthlyPaymentCalculator() {
           { label: "Total Interest", href: "/total-interest-calculator" }
         ]}
         relatedBlogs={[
-          { title: "Interest Rates Guide", href: "/blog" }
+          { title: "Interest Rates Guide", href: "/blog/interest-rate-impact" }
         ]}
         ctaText="See your total lifetime costs"
         ctaHref="/total-interest-calculator"
+        ctaButtonText="Calculate total loan interest"
       />
     </MainLayout>
   );

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
-import { ResultCard } from "@/components/calculator/ResultCard";
+
 import { Input } from "@/components/ui/Input";
-import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
-import { formatCurrency, calculateAmortizedPayment, convertCurrency } from "@/lib/finance";
+
+import { formatCurrency, convertCurrency, validateLoan, calculateRefinancing } from "@/lib/finance";
 import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
 import { ArrowLeftRight, TrendingDown, RefreshCw } from "lucide-react";
 
@@ -40,36 +41,6 @@ export default function RefinancingCalculator() {
     },
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "When does it make sense to refinance a mortgage?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Refinancing generally makes sense when you can lower your interest rate by at least 0.75% to 1%, or if you want to switch from an adjustable-rate to a fixed-rate mortgage for stability. The key is ensuring you will stay in the home long enough to reach the 'break-even' point where your monthly savings cover the closing costs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How is the refinancing break-even point calculated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The break-even point is calculated by dividing the total closing costs of the new loan by your monthly savings. For example, if refinancing costs $5,000 and saves you $200 per month, your break-even point is 25 months ($5,000 / $200)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are typical closing costs for refinancing in 2026?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Closing costs for refinancing typically range from 2% to 5% of the loan principal. These costs often include application fees, home appraisal fees, title search and insurance, and lender attorney fees."
-          }
-        }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -95,34 +66,30 @@ export default function RefinancingCalculator() {
     newMonthly: 0
   });
 
+  const validationError = validateLoan(balance, currentRate, yearsRemaining) || validateLoan(balance, newRate, newTerm) || (![balance, currentRate, yearsRemaining, newRate, newTerm, fees].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
+
+  const previousCurrency = useRef(currency);
+
   // Sync state when currency changes
   useEffect(() => {
-    const prevCurrency = currency === 'USD' ? 'EUR' : 'USD';
-    setBalance(prev => Math.round(convertCurrency(prev, prevCurrency, currency)));
-    setFees(prev => Math.round(convertCurrency(prev, prevCurrency, currency)));
+    const prevCurrency = previousCurrency.current;
+    if (prevCurrency === currency) return;
+    previousCurrency.current = currency;
+    setBalance(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
+    setFees(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
   }, [currency]);
 
   useEffect(() => {
-    const currentMonthly = calculateAmortizedPayment(balance, currentRate, yearsRemaining);
-    const newMonthly = calculateAmortizedPayment(balance, newRate, newTerm);
-    const mSavings = currentMonthly - newMonthly;
-    
-    const totalCurrentRemaining = currentMonthly * (yearsRemaining * 12);
-    const totalNew = (newMonthly * (newTerm * 12)) + fees;
-    
-    setResults({
-      monthlySavings: mSavings,
-      lifetimeSavings: totalCurrentRemaining - totalNew,
-      breakEven: mSavings > 0 ? fees / mSavings : 0,
-      newMonthly: newMonthly
-    });
-  }, [balance, currentRate, yearsRemaining, newRate, newTerm, fees]);
+    if (validationError) return;
+    setResults(calculateRefinancing(balance, currentRate, yearsRemaining, newRate, newTerm, fees));
+  }, [validationError, balance, currentRate, yearsRemaining, newRate, newTerm, fees]);
+
 
   return (
     <MainLayout>
       <SEOHandler 
         title="Mortgage Refinance Calculator: Break-Even Tool | TryFinCalc"
-        description="Compare your current loan with a new rate to see potential savings. Find your break-even point and see your monthly payment in seconds with our tool."
+        description="Compare current and proposed loan payments, estimated lifetime savings and the time needed to recover refinancing costs."
         canonicalUrl="https://tryfincalc.com/refinancing-calculator"
         structuredData={refinancingSchema}
       />
@@ -141,41 +108,42 @@ export default function RefinancingCalculator() {
         description="Compare your current mortgage with a new offer to see if refinancing is right for you."
       >
         <CalculatorInputArea>
+          {validationError && <p id="calculator-error" role="alert" className="mb-4 text-red-700 dark:text-red-300">{validationError}</p>}
           <div className="space-y-6">
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-on-surface">Remaining Loan Balance ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input type="number" value={balance} onChange={(e) => { setIsCalculated(true); setBalance(Number(e.target.value)); }} />
+              <label htmlFor="balance" className="block text-sm font-semibold text-on-surface">Remaining Loan Balance ({currency === 'EUR' ? '€' : '$'})</label>
+              <Input id="balance" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={balance} onChange={(e) => { setIsCalculated(true); setBalance(e.target.valueAsNumber); }} />
             </div>
 
             <div className="border border-outline-variant/30 rounded-xl p-4 bg-surface-container-low">
-              <h4 className="text-sm font-bold text-primary mb-3">Current Mortgage</h4>
+              <h3 className="text-sm font-bold text-primary mb-3">Current Mortgage</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="block text-xs font-semibold text-on-surface">Current Rate (%)</label>
-                  <Input type="number" step="0.1" value={currentRate} onChange={(e) => { setIsCalculated(true); setCurrentRate(Number(e.target.value)); }} />
+                  <label htmlFor="currentRate" className="block text-xs font-semibold text-on-surface">Current Rate (%)</label>
+                  <Input max={100} id="currentRate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={currentRate} onChange={(e) => { setIsCalculated(true); setCurrentRate(e.target.valueAsNumber); }} />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-xs font-semibold text-on-surface">Years Remaining</label>
-                  <Input type="number" value={yearsRemaining} onChange={(e) => { setIsCalculated(true); setYearsRemaining(Number(e.target.value)); }} />
+                  <label htmlFor="yearsRemaining" className="block text-xs font-semibold text-on-surface">Years Remaining</label>
+                  <Input min={1/12} max={100} step="any" id="yearsRemaining" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={yearsRemaining} onChange={(e) => { setIsCalculated(true); setYearsRemaining(e.target.valueAsNumber); }} />
                 </div>
               </div>
             </div>
 
             <div className="border border-primary/20 rounded-xl p-4 bg-primary-fixed/10">
-              <h4 className="text-sm font-bold text-primary mb-3">New Offer</h4>
+              <h3 className="text-sm font-bold text-primary mb-3">New Offer</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="block text-xs font-semibold text-on-surface">New Rate (%)</label>
-                  <Input type="number" step="0.1" value={newRate} onChange={(e) => { setIsCalculated(true); setNewRate(Number(e.target.value)); }} />
+                  <label htmlFor="newRate" className="block text-xs font-semibold text-on-surface">New Rate (%)</label>
+                  <Input max={100} id="newRate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={newRate} onChange={(e) => { setIsCalculated(true); setNewRate(e.target.valueAsNumber); }} />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-xs font-semibold text-on-surface">New Term (Years)</label>
-                  <Input type="number" value={newTerm} onChange={(e) => { setIsCalculated(true); setNewTerm(Number(e.target.value)); }} />
+                  <label htmlFor="newTerm" className="block text-xs font-semibold text-on-surface">New Term (Years)</label>
+                  <Input min={1/12} max={100} step="any" id="newTerm" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={newTerm} onChange={(e) => { setIsCalculated(true); setNewTerm(e.target.valueAsNumber); }} />
                 </div>
               </div>
               <div className="space-y-2 mt-4">
-                <label className="block text-xs font-semibold text-on-surface text-primary font-bold">Total Closing / Refi Costs ({currency === 'EUR' ? '€' : '$'})</label>
-                <Input type="number" value={fees} onChange={(e) => { setIsCalculated(true); setFees(Number(e.target.value)); }} />
+                <label htmlFor="fees" className="block text-xs font-semibold text-on-surface text-primary font-bold">Total Closing / Refi Costs ({currency === 'EUR' ? '€' : '$'})</label>
+                <Input id="fees" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={fees} onChange={(e) => { setIsCalculated(true); setFees(e.target.valueAsNumber); }} />
                 <p className="text-[10px] text-on-surface-variant italic">
                   Include bank fees, appraisal, and typical closing costs.
                 </p>
@@ -187,31 +155,31 @@ export default function RefinancingCalculator() {
         <CalculatorResultsArea 
           nextSteps={[
             {
-              title: "Refi Rates",
-              description: "Compare today's best refinancing rates.",
+              title: "Explore the refinancing guide",
+              description: "Understand refinancing costs and the break-even calculation.",
               icon: RefreshCw,
-              href: "/contact"
+              href: "/blog/refinance-calculator-guide"
             },
             {
               title: "Closing Costs",
               description: "Learn how to estimate and reduce refi fees.",
               icon: ArrowLeftRight,
-              href: "/blog"
+              href: "/blog/closing-costs-breakdown"
             },
             {
               title: "Save Monthly",
               description: "Strategies to maximize your refinancing savings.",
               icon: TrendingDown,
-              href: "/blog/reduce-personal-loan-costs"
+              href: "/blog/compare-loan-offers"
             }
           ]}
         >
           <div className="space-y-8">
             <div className="text-center p-6 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Monthly Savings</h3>
-              {isCalculated ? (
+              {(isCalculated && !validationError) ? (
                 <div className="text-5xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
-                  {formatCurrency(Math.max(0, results.monthlySavings), 0, currency)}
+                  {formatCurrency(results.monthlySavings, 0, currency)}
                 </div>
               ) : (
                 <div className="py-4 text-lg font-medium text-on-surface-variant/40 italic">
@@ -221,18 +189,18 @@ export default function RefinancingCalculator() {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
-                <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Lifetime Savings</h4>
+              <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
+                <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Lifetime Savings</h3>
                 <div className="text-2xl font-bold text-primary">
-                  {isCalculated ? formatCurrency(results.lifetimeSavings, 0, currency) : "—"}
+                  {(isCalculated && !validationError) ? formatCurrency(results.lifetimeSavings, 0, currency) : "—"}
                 </div>
               </div>
               <div className="p-6 bg-surface-container-lowest border-t-4 border-tertiary rounded-3xl text-center shadow-sm">
-                <h4 className="text-xs font-semibold text-tertiary uppercase mb-1">Break-even Point</h4>
+                <h3 className="text-xs font-semibold text-tertiary uppercase mb-1">Break-even Point</h3>
                 <div className="text-3xl font-bold text-primary">
-                  {isCalculated ? (
+                  {(isCalculated && !validationError) ? (
                     <>
-                      {Math.max(0, Math.ceil(results.breakEven))} <span className="text-sm font-normal">Mo.</span>
+                      {results.monthlySavings > 0 && Number.isFinite(results.breakEven) ? `${Math.ceil(results.breakEven)} Mo.` : 'No measurable monthly savings'}
                     </>
                   ) : "—"}
                 </div>
@@ -249,7 +217,7 @@ export default function RefinancingCalculator() {
           <>
             <p>Refinancing your mortgage can be a powerful financial move to lower your monthly payments, shorten your loan term, or access cash from your home's equity. Determining if the numbers work in your favor requires a clear-eyed look at the current interest rates versus your original loan terms.</p>
             <p>Use our Refinancing Calculator to see your potential monthly savings, total lifetime savings, and most importantly, how many months it will take to break even on the closing costs.</p>
-            <p>See specific scenarios: <a href="/calculator/400k-mortgage-monthly-payment-4-percent" className="text-primary underline">$400k mortgage at 4%</a> · <a href="/calculator/income-required-for-400k-house" className="text-primary underline">Income required for $400k house</a></p>
+            <p>See specific scenarios: <Link href="/calculator/400k-mortgage-monthly-payment-4-percent" className="text-primary underline">$400k mortgage at 4%</Link> · <Link href="/calculator/income-required-for-400k-house" className="text-primary underline">Income required for $400k house</Link></p>
           </>
         }
         howItWorks={
@@ -312,7 +280,7 @@ export default function RefinancingCalculator() {
           { title: "Refinance Calculator Guide", href: "/blog/refinance-calculator-guide" }
         ]}
         ctaText="See your potential savings"
-        ctaHref="/refinancing-calculator"
+        ctaHref="#calculator-top"
         ctaButtonText="Calculate Break-Even Point"
       />
     </MainLayout>

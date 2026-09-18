@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
-import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { generateWebSiteSchema } from "@/lib/schema";
 
 const CALCULATORS = [
@@ -16,7 +16,7 @@ const CALCULATORS = [
     name: "Loan Calculator",
     href: "/loan-calculator",
     problem: "See the real cost of a personal or auto loan before you sign.",
-    output: "Monthly payment, total interest, full amortization",
+    output: "Monthly payment, total interest and total repayment",
   },
   {
     name: "Affordability Calculator",
@@ -40,7 +40,7 @@ const CALCULATORS = [
     name: "Amortization Schedule",
     href: "/amortization-schedule",
     problem: "See exactly how every payment splits between principal and interest.",
-    output: "Full month-by-month schedule, year summaries",
+    output: "Full month-by-month principal, interest and balance",
   },
   {
     name: "Monthly Payment Calculator",
@@ -137,16 +137,12 @@ export default function HomePage() {
                 break-even point in seconds. No sign-up. No paywall.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/mortgage-calculator">
-                  <Button size="lg" className="w-full sm:w-auto">
+                <ButtonLink href="/mortgage-calculator" size="lg" className="w-full sm:w-auto">
                     Calculate Your Mortgage
-                  </Button>
-                </Link>
-                <Link href="#tools">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  </ButtonLink>
+                <ButtonLink href="#tools" variant="outline" size="lg" className="w-full sm:w-auto">
                     See All Calculators
-                  </Button>
-                </Link>
+                  </ButtonLink>
               </div>
             </div>
 

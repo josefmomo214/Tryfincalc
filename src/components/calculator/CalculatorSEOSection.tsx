@@ -41,16 +41,20 @@ export function CalculatorSEOSection({
   relatedCalculators,
   ctaText,
   ctaHref,
-  ctaButtonText = "Check Official Rates",
+  ctaButtonText,
   relatedBlogs = []
 }: SEOSectionProps) {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 space-y-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'FAQPage',
+        mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
+      }).replace(/</g, '\\u003c') }} />
       {/* Intro Section */}
       <section>
-        <h1 className="text-4xl md:text-5xl font-manrope font-extrabold text-primary mb-8 tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-manrope font-extrabold text-primary mb-8 tracking-tight">
           {title}
-        </h1>
+        </h2>
         <div className="prose prose-lg prose-teal max-w-none text-on-surface-variant leading-relaxed">
           {intro}
         </div>
@@ -75,7 +79,7 @@ export function CalculatorSEOSection({
         <h2 className="text-3xl font-manrope font-bold text-primary mb-10">Practical Examples</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {examples.map((example, idx) => (
-            <div key={idx} className="bg-white rounded-3xl p-8 border border-outline-variant/20 shadow-sm hover:shadow-md transition-shadow">
+            <div key={idx} className="bg-white dark:bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/20 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-bold text-primary mb-6">{example.title}</h3>
               <div className="space-y-4 mb-6">
                 {example.items.map((item, i) => (
@@ -129,7 +133,7 @@ export function CalculatorSEOSection({
       </section>
 
       {/* AdSense Placement 3: After FAQ */}
-      <AdPlaceholder className="my-12" label="Featured Offers" />
+      <AdPlaceholder className="my-12" label="Advertisement" />
 
       {/* Related Calculators & CTA */}
       <section className="bg-surface-container-high rounded-3xl p-8 md:p-16 border border-outline-variant/10 text-center">
@@ -162,7 +166,7 @@ export function CalculatorSEOSection({
             <Link 
               key={idx} 
               href={calc.href}
-              className="px-6 py-3 rounded-xl bg-white border border-outline-variant/50 text-primary font-semibold hover:border-primary transition-all flex items-center gap-2"
+              className="px-6 py-3 rounded-xl bg-white dark:bg-surface-container-lowest border border-outline-variant/50 text-primary font-semibold hover:border-primary transition-all flex items-center gap-2"
             >
               {calc.label} <ArrowRight className="w-4 h-4" />
             </Link>
@@ -172,7 +176,7 @@ export function CalculatorSEOSection({
           href={ctaHref}
           className="inline-flex items-center gap-2 bg-primary text-white px-10 py-5 rounded-2xl font-bold text-xl hover:scale-105 transition-transform"
         >
-          {ctaButtonText} <ChevronRight className="w-6 h-6" />
+          {ctaButtonText || ctaText} <ChevronRight className="w-6 h-6" />
         </Link>
       </section>
     </div>

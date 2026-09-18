@@ -11,9 +11,15 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
+      <Script id="gtag-init" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-Y84YC0NQTR');
+      `}</Script>
       <Script
-        id="cookieyes"
-        src="https://cdn-cookieyes.com/client_data/29532702d975c18a1902941805a6ae6d/script.js"
+        id="gtag-loader"
+        src="https://www.googletagmanager.com/gtag/js?id=G-Y84YC0NQTR"
         strategy="afterInteractive"
       />
       <div

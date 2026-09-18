@@ -1,15 +1,16 @@
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
-import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
-import { Input } from "@/components/ui/Input";
-import { ResultCard } from "@/components/calculator/ResultCard";
-import { BarChart3 } from "lucide-react";
-import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
-import { formatCurrency, calculateAmortizedPayment, calculatePMI, EXCHANGE_RATE, convertCurrency } from "@/lib/finance";
+
+
+
+
+
+
 import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
-import { Search, PieChart, TrendingDown } from "lucide-react";
+
 
 import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
 
@@ -35,36 +36,6 @@ export default function MortgageCalculator() {
     },
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much should I save for a down payment?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "While 20% is the gold standard to avoid mortgage insurance, many programs allow as little as 3-10% down. A larger down payment always lowers your monthly obligation and reduces total interest paid."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is an Agreement in Principle?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "An Agreement in Principle is an initial assessment from a lender indicating how much they might be willing to lend you. It strengthens your position when making an offer to sellers."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I pay off my mortgage early?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most modern mortgages allow for extra payments or early payoff, but some may have prepayment penalties. Check your agreement for specifics on overpayments."
-          }
-        }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -87,7 +58,7 @@ export default function MortgageCalculator() {
     <MainLayout>
       <SEOHandler 
         title="Mortgage Calculator 2026: Monthly Payment Tool | TryFinCalc"
-        description="Calculate your monthly mortgage payment with taxes and insurance. Compare rates and see your monthly payment in seconds with our free 2026 tool."
+        description="Calculate your monthly mortgage payment with taxes and insurance. Compare rate scenarios and see your estimated monthly payment with our free 2026 tool."
         canonicalUrl="https://tryfincalc.com/mortgage-calculator"
         structuredData={mortgageSchema}
       />
@@ -123,7 +94,7 @@ export default function MortgageCalculator() {
               <>
                 <p>Navigating the real estate market requires more than just finding the perfect home. It requires a clear understanding of your long-term financial commitment. Our Mortgage Calculator is designed to help you estimate the true cost of homeownership beyond the sticker price, providing clarity across various currencies and markets.</p>
                 <p>From initial purchase price to long-term interest costs, we provide the data you need to sign your contract with absolute confidence.</p>
-                <p>See specific scenarios: <a href="/calculator/400k-mortgage-monthly-payment-4-percent" className="text-primary underline">$400k mortgage at 4%</a> · <a href="/calculator/300k-mortgage-monthly-payment-6-percent" className="text-primary underline">$300k mortgage at 6%</a></p>
+                <p>See specific scenarios: <Link href="/calculator/400k-mortgage-monthly-payment-4-percent" className="text-primary underline">$400k mortgage at 4%</Link> · <Link href="/calculator/300k-mortgage-monthly-payment-6-percent" className="text-primary underline">$300k mortgage at 6%</Link></p>
               </>
             }
             howItWorks={
@@ -188,7 +159,7 @@ export default function MortgageCalculator() {
               { title: "Amortization Schedule Explained", href: "/blog/amortization-schedule-explained" }
             ]}
             ctaText="Ready to take the next step?"
-            ctaHref="/contact"
+            ctaHref="#calculator-top"
             ctaButtonText="Open Mortgage Calculator"
           />
         </div>

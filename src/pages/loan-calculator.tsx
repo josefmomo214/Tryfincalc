@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
-import { ResultCard } from "@/components/calculator/ResultCard";
+
 import { Input } from "@/components/ui/Input";
-import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
-import { formatCurrency, calculateAmortizedPayment, convertCurrency } from "@/lib/finance";
+
+import { formatCurrency, calculateAmortizedPayment, convertCurrency, validateLoan } from "@/lib/finance";
 import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
 import { ArrowLeftRight, BarChart3, TrendingDown } from "lucide-react";
 
@@ -26,7 +27,7 @@ export default function LoanCalculator() {
       "@type": "WebApplication",
       "name": "Loan Calculator",
       "url": "https://tryfincalc.com/loan-calculator",
-      "description": "Free loan calculator — calculate monthly payments, total interest, and full amortization schedule for any personal loan, auto loan, or mortgage.",
+      "description": "Free loan calculator — calculate monthly payments, total interest, and total repayment for fixed-rate personal or auto loans.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {
@@ -34,36 +35,6 @@ export default function LoanCalculator() {
         "price": "0",
         "priceCurrency": "USD"
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How does a loan calculator work?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A loan calculator uses the standard amortization formula M = P[r(1+r)^n]/[(1+r)^n-1] to calculate your monthly payment based on the loan amount, interest rate, and term. It then shows the total interest paid and full repayment schedule over the life of the loan."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the difference between APR and interest rate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The interest rate is the base cost of borrowing the principal. The APR (Annual Percentage Rate) includes the interest rate plus all lender fees and charges, expressed as a yearly rate. Always compare APRs — not nominal rates — when evaluating loan offers from different lenders."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is it better to take a shorter or longer loan term?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A shorter loan term means higher monthly payments but significantly less total interest paid. A longer term lowers your monthly payment but costs more overall. For example, a $25,000 loan at 8% over 3 years costs $3,188 in interest. The same loan over 7 years costs $7,676 — more than double."
-          }
-        }
-      ]
     },
     {
       "@context": "https://schema.org",
@@ -91,13 +62,20 @@ export default function LoanCalculator() {
     totalPaid: 0
   });
 
+  const validationError = validateLoan(loanAmount, interestRate, loanTerm) || (![loanAmount, interestRate, loanTerm].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
+
+  const previousCurrency = useRef(currency);
+
   // Sync state when currency changes
   useEffect(() => {
-    const prevCurrency = currency === 'USD' ? 'EUR' : 'USD';
-    setLoanAmount(prev => Math.round(convertCurrency(prev, prevCurrency, currency)));
+    const prevCurrency = previousCurrency.current;
+    if (prevCurrency === currency) return;
+    previousCurrency.current = currency;
+    setLoanAmount(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
   }, [currency]);
 
   useEffect(() => {
+    if (validationError) return;
     const monthly = calculateAmortizedPayment(loanAmount, interestRate, loanTerm);
     const totalPaid = monthly * (loanTerm * 12);
     setResults({
@@ -105,7 +83,8 @@ export default function LoanCalculator() {
       totalPaid,
       totalInterest: totalPaid - loanAmount
     });
-  }, [loanAmount, interestRate, loanTerm]);
+  }, [validationError, loanAmount, interestRate, loanTerm]);
+
 
   return (
     <MainLayout>
@@ -130,18 +109,19 @@ export default function LoanCalculator() {
         description="Find out your monthly payments and the total cost of your personal loan over time."
       >
         <CalculatorInputArea>
+          {validationError && <p id="calculator-error" role="alert" className="mb-4 text-red-700 dark:text-red-300">{validationError}</p>}
           <div className="space-y-6">
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-on-surface">Loan Amount ({currency === 'EUR' ? '€' : '$'})</label>
-               <Input type="number" value={loanAmount} onChange={(e) => { setIsCalculated(true); setLoanAmount(Number(e.target.value)); }} />
+              <label htmlFor="loanAmount" className="block text-sm font-semibold text-on-surface">Loan Amount ({currency === 'EUR' ? '€' : '$'})</label>
+               <Input id="loanAmount" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={loanAmount} onChange={(e) => { setIsCalculated(true); setLoanAmount(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-on-surface">Interest Rate (APR %)</label>
-               <Input type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(Number(e.target.value)); }} />
+              <label htmlFor="interestRate" className="block text-sm font-semibold text-on-surface">Interest Rate (APR %)</label>
+               <Input max={100} id="interestRate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-on-surface">Loan Term (Years)</label>
-               <Input type="number" value={loanTerm} onChange={(e) => { setIsCalculated(true); setLoanTerm(Number(e.target.value)); }} />
+              <label htmlFor="loanTerm" className="block text-sm font-semibold text-on-surface">Loan Term (Years)</label>
+               <Input min={1/12} max={100} step="any" id="loanTerm" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={loanTerm} onChange={(e) => { setIsCalculated(true); setLoanTerm(e.target.valueAsNumber); }} />
             </div>
           </div>
         </CalculatorInputArea>
@@ -149,10 +129,10 @@ export default function LoanCalculator() {
         <CalculatorResultsArea 
           nextSteps={[
             {
-              title: "Compare Rates",
-              description: "See the latest personal loan offers from top lenders.",
+              title: "Learn how to compare loan offers",
+              description: "Learn how to compare APR, fees and repayment terms.",
               icon: ArrowLeftRight,
-              href: "/blog"
+              href: "/blog/compare-loan-offers"
             },
             {
               title: "Explore Scenarios",
@@ -164,14 +144,14 @@ export default function LoanCalculator() {
               title: "Reduce Costs",
               description: "Tips to lower your APR and total interest paid.",
               icon: TrendingDown,
-              href: "/blog/reduce-personal-loan-costs"
+              href: "/blog/compare-loan-offers"
             }
           ]}
         >
           <div className="space-y-8">
              <div className="text-center p-6 bg-primary/5 rounded-3xl border border-primary/10">
                <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Estimated Monthly Payment</h3>
-               {isCalculated ? (
+               {(isCalculated && !validationError) ? (
                  <div className="text-5xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
                    {formatCurrency(results.monthly, 2, currency)}
                  </div>
@@ -182,16 +162,16 @@ export default function LoanCalculator() {
                )}
              </div>
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-               <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
-                 <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Interest</h4>
+               <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
+                 <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Interest</h3>
                  <div className="text-2xl font-bold text-primary">
-                   {isCalculated ? formatCurrency(results.totalInterest, 2, currency) : "—"}
+                   {(isCalculated && !validationError) ? formatCurrency(results.totalInterest, 2, currency) : "—"}
                  </div>
                </div>
-               <div className="p-6 bg-white rounded-3xl border border-outline-variant/10 text-center sm:text-left">
-                 <h4 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Paid</h4>
+               <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
+                 <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Paid</h3>
                  <div className="text-2xl font-bold text-primary">
-                   {isCalculated ? formatCurrency(results.totalPaid, 2, currency) : "—"}
+                   {(isCalculated && !validationError) ? formatCurrency(results.totalPaid, 2, currency) : "—"}
                  </div>
                </div>
              </div>
@@ -206,7 +186,7 @@ export default function LoanCalculator() {
           <>
             <p>Borrowing money effectively requires a clear understanding of the long-term impact on your financial health. Whether you are funding a major purchase, consolidating debt, or covering an emergency expense, our Personal Loan Calculator provides the clarity you need to make an informed decision.</p>
             <p>Calculate your monthly installments, total interest paid, and the overall cost of your loan with mathematical precision across both Dollars and Euros.</p>
-            <p>See specific scenarios: <a href="/calculator/25k-personal-loan-repayment-8-percent" className="text-primary underline">$25k loan at 8%</a> · <a href="/calculator/30k-loan-monthly-payment-9-percent" className="text-primary underline">$30k loan at 9%</a></p>
+            <p>See specific scenarios: <Link href="/calculator/25k-personal-loan-repayment-8-percent" className="text-primary underline">$25k loan at 8%</Link> · <Link href="/calculator/30k-loan-monthly-payment-9-percent" className="text-primary underline">$30k loan at 9%</Link></p>
           </>
         }
         howItWorks={
@@ -271,7 +251,7 @@ export default function LoanCalculator() {
           { title: "Compare Loan Offers", href: "/blog/compare-loan-offers" }
         ]}
         ctaText="Plan your budget with confidence"
-        ctaHref="/contact"
+        ctaHref="#calculator-top"
         ctaButtonText="Open Loan Calculator"
       />
     </MainLayout>

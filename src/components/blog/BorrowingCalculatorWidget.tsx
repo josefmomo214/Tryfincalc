@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import Link from "next/link";
 import { Calculator, Wallet, Receipt, CreditCard, Info, AlertTriangle } from "lucide-react";
 import { formatCurrency } from "@/lib/finance";
@@ -184,11 +184,9 @@ export function BorrowingCalculatorWidget() {
         </div>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-6 pt-8 border-t border-outline-variant/10">
-          <Link href="/affordability-calculator" className="w-full sm:w-auto">
-            <Button variant="outline" className="rounded-full w-full">
+          <ButtonLink href="/affordability-calculator" variant="outline" className="rounded-full w-full">
               Detailed Affordability App →
-            </Button>
-          </Link>
+            </ButtonLink>
           <p className="text-[10px] text-on-surface-variant">© 2026 TryFinCalc Borrowing Logic v2.4</p>
         </div>
       </div>

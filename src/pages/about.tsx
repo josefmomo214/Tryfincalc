@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
-import { Button } from "@/components/ui/Button";
-import { Shield, Target, Calculator, BookOpen, Users, Lock, Mail, ArrowRight, Linkedin } from "lucide-react";
+import { ButtonLink } from "@/components/ui/Button";
+import { Target, Calculator, BookOpen, Users, Lock, Mail, ArrowRight, Linkedin } from "lucide-react";
 
 export default function About() {
   return (
@@ -228,21 +228,15 @@ export default function About() {
             Everything on TryFinCalc is free, instant, and requires no sign-up. Pick the tool that matches your next financial decision.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link href="/mortgage-calculator">
-              <Button size="xl" className="w-full sm:w-auto">
+            <ButtonLink href="/mortgage-calculator" size="xl" className="w-full sm:w-auto">
                 Mortgage Calculator <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
-            <Link href="/affordability-calculator">
-              <Button size="xl" variant="outline" className="w-full sm:w-auto">
+              </ButtonLink>
+            <ButtonLink href="/affordability-calculator" size="xl" variant="outline" className="w-full sm:w-auto">
                 Affordability Calculator <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
-            <Link href="/loan-calculator">
-              <Button size="xl" variant="outline" className="w-full sm:w-auto">
+              </ButtonLink>
+            <ButtonLink href="/loan-calculator" size="xl" variant="outline" className="w-full sm:w-auto">
                 Loan Calculator <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
+              </ButtonLink>
           </div>
         </section>
       </div>
