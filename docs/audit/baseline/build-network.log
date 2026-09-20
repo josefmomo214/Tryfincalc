@@ -1,0 +1,87 @@
+
+> next-app@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/josef214/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/josef214/My Apps/Tryfincalc/package-lock.json
+
+▲ Next.js 16.2.7 (Turbopack)
+
+  Running TypeScript ...
+  Finished TypeScript in 10.9s ...
+  Creating an optimized production build ...
+✓ Compiled successfully in 29.5min
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/181) ...
+  Generating static pages using 3 workers (45/181) 
+  Generating static pages using 3 workers (90/181) 
+  Generating static pages using 3 workers (135/181) 
+✓ Generating static pages using 3 workers (181/181) in 2.8s
+  Finalizing page optimization ...
+
+Route (pages)                                                               Revalidate  Expire
+┌ ○ / (633 ms)
+├   /_app
+├ ○ /404
+├ ○ /about (636 ms)
+├ ○ /affordability-calculator (634 ms)
+├ ○ /amortization-schedule (372 ms)
+├ ƒ /api/hello
+├ ● /blog
+├ ● /blog/[slug] (21665 ms)                                                         1h      1y
+│ ├ /eur/blog/reduce-mortgage-payment (554 ms)
+│ ├ /usd/blog/early-mortgage-payoff (554 ms)
+│ ├ /usd/blog/loan-calculator-explained (554 ms)
+│ ├ /eur/blog/loan-calculator-explained (553 ms)
+│ ├ /usd/blog/escrow-accounts-explained (553 ms)
+│ ├ /eur/blog/early-mortgage-payoff (552 ms)
+│ ├ /usd/blog/reduce-mortgage-payment (546 ms)
+│ └ [+61 more paths]
+├ ● /calculator/[slug] (20277 ms)
+│ ├ /usd/calculator/income-required-for-700k-house (818 ms)
+│ ├ /usd/calculator/150k-mortgage-monthly-payment-3-5-percent-eur (818 ms)
+│ ├ /eur/calculator/150k-mortgage-monthly-payment-3-5-percent-eur (817 ms)
+│ ├ /usd/calculator/200k-mortgage-monthly-payment-3-5-percent-eur (817 ms)
+│ ├ /eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur (817 ms)
+│ ├ /usd/calculator/250k-mortgage-monthly-payment-3-5-percent-eur (817 ms)
+│ ├ /eur/calculator/250k-mortgage-monthly-payment-3-5-percent-eur (816 ms)
+│ └ [+53 more paths]
+├ ○ /contact (633 ms)
+├ ○ /faq (632 ms)
+├ ○ /loan-calculator (633 ms)
+├ ○ /monthly-payment-calculator (633 ms)
+├ ○ /mortgage-calculator (632 ms)
+├ ○ /privacy-policy (449 ms)
+├ ○ /refinancing-calculator (448 ms)
+├ ○ /rent-vs-buy (375 ms)
+├ ○ /search (373 ms)
+├ ○ /terms-of-service (373 ms)
+└ ○ /total-interest-calculator (372 ms)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses getStaticProps)
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> next-app@0.1.0 postbuild
+> next-sitemap
+
+✨ [next-sitemap] Loading next-sitemap config: file:///Users/josef214/My%20Apps/Tryfincalc/next-sitemap.config.js
+✅ [next-sitemap] Generation completed
+┌───────────────┬────────┐
+│ (index)       │ Values │
+├───────────────┼────────┤
+│ indexSitemaps │ 0      │
+│ sitemaps      │ 1      │
+└───────────────┴────────┘
+-----------------------------------------------------
+ SITEMAPS 
+-----------------------------------------------------
+
+   ○ https://tryfincalc.com/sitemap.xml
+
+

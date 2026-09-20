@@ -1,0 +1,29 @@
+{
+  "base": "http://localhost:3100",
+  "responses": 254,
+  "sitemap_urls": 79,
+  "statuses": {
+    "200": 242,
+    "308": 9,
+    "404": 3
+  },
+  "sitemap_non200": [],
+  "sitemap_noindex": [
+    "/privacy-policy",
+    "/contact",
+    "/terms-of-service"
+  ],
+  "missing_assets": [
+    "/logo.png",
+    "/og-image.jpg"
+  ],
+  "broken_anchor_destinations": [],
+  "placeholder_routes": [
+    "/eur/loan-calculator",
+    "/eur/refinancing-calculator",
+    "/loan-calculator",
+    "/refinancing-calculator",
+    "/usd/loan-calculator",
+    "/usd/refinancing-calculator"
+  ]
+}

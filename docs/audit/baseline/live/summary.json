@@ -1,0 +1,29 @@
+{
+  "base": "https://tryfincalc.com",
+  "responses": 254,
+  "sitemap_urls": 79,
+  "statuses": {
+    "200": 242,
+    "308": 9,
+    "404": 3
+  },
+  "sitemap_non200": [],
+  "sitemap_noindex": [
+    "/contact",
+    "/privacy-policy",
+    "/terms-of-service"
+  ],
+  "missing_assets": [
+    "/og-image.jpg",
+    "/logo.png"
+  ],
+  "broken_anchor_destinations": [],
+  "placeholder_routes": [
+    "/eur/loan-calculator",
+    "/eur/refinancing-calculator",
+    "/loan-calculator",
+    "/refinancing-calculator",
+    "/usd/loan-calculator",
+    "/usd/refinancing-calculator"
+  ]
+}
