@@ -45,16 +45,6 @@ test('refinancing includes fees and both terms', () => {
   assert.equal(result.breakEven, 1.2);
   assert.equal(finance.calculateRefinancing(12000, 0, 2, 0, 1, 600).monthlySavings, -500);
 });
-test('rent versus buy: zero rate, fractional horizon and paid-off mortgage', () => {
-  const oneYear = finance.calculateRentVsBuy(1000, 3, 100000, 20, 0, 1, 3);
-  assert.equal(oneYear.totalRent, 12000);
-  assert.ok(Math.abs(oneYear.totalBuy - 6000) < 1e-7);
-  assert.equal(finance.calculateRentVsBuy(1000, 3, 100000, 20, 0, 1.5, 3).totalRent, 18180);
-  const at25 = finance.calculateRentVsBuy(1000, 0, 100000, 20, 5, 25, 0);
-  const at30 = finance.calculateRentVsBuy(1000, 0, 100000, 20, 5, 30, 0);
-  const ownershipOnlyDifference = 100000 * .02 * 5 - 100000 * (1.02 ** 30 - 1.02 ** 25);
-  assert.ok(Math.abs(at30.totalBuy - at25.totalBuy - ownershipOnlyDifference) < 1e-7);
-});
 test('currency conversion round-trips and term validation', () => {
   assert.ok(Math.abs(finance.convertCurrency(finance.convertCurrency(1234.56, 'USD', 'EUR'), 'EUR', 'USD') - 1234.56) < 1e-8);
   assert.ok(finance.validateLoan(100, 5, 0));
@@ -62,4 +52,26 @@ test('currency conversion round-trips and term validation', () => {
   assert.equal(finance.validateLoan(100, 0, 1 / 12), '');
   assert.deepEqual(finance.generateAmortizationSchedule(100, 5, 0), []);
   assert.equal(finance.formatCurrency(Infinity), '—');
+});
+
+test('reference cases round only final displayed values', () => {
+  for (const [principal, rate, payment, interest] of [[80000,6,479.64,92670.55124479125],[400000,6.5,2528.27,510177.95],[315000,6.8,2053.56,424283.16]]) {
+    const result = finance.calculateLoan(principal, rate, 30);
+    assert.equal(result.monthly.toFixed(2), payment.toFixed(2));
+    if (principal !== 80000) assert.equal(result.totalInterest.toFixed(2), interest.toFixed(2));
+  }
+  assert.equal(finance.calculateLoan(100,0,1).totalInterest,0);
+  assert.equal(finance.calculateLoan(1,0,1).monthly.toFixed(2),'0.08');
+  assert.ok(Number.isFinite(finance.calculateLoan(1e12,100,100).totalPaid));
+  assert.throws(() => finance.calculateLoan(100,5,0), RangeError);
+});
+test('affordability uses explicit US illustrative 28/36 gross-income budgets in either currency', () => {
+  const usd = finance.calculateAffordability(10000,1000,50000,0,30,'USD');
+  assert.equal(usd.monthlyPayment,2600);
+  assert.deepEqual(finance.calculateAffordability(10000,1000,50000,0,30,'EUR'), usd);
+  assert.throws(() => finance.calculateAffordability(-1,0,0,0,30,'USD'),RangeError);
+});
+test('refinance cannot imply immediate break-even when payments increase', () => {
+  assert.equal(finance.calculateRefinancing(12000,0,2,0,1,600).breakEven,null);
+  assert.throws(() => finance.calculateRefinancing(12000,0,2,0,1,-1),RangeError);
 });

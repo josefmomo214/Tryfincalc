@@ -13,13 +13,13 @@ export function AmortizationTable({ schedule, currency, showFullSchedule, valida
   return (
     <>
       {/* Table section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-surface rounded-3xl overflow-hidden border border-outline-variant/20 shadow-xl">
+      <section className="w-full min-w-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="w-full min-w-0 bg-surface rounded-3xl overflow-hidden border border-outline-variant/20 shadow-xl">
           <div className="px-8 py-6 border-b border-outline-variant/20 bg-surface-container-low flex items-center justify-between">
             <h2 className="text-xl font-manrope font-bold text-primary">Detailed Amortization Table</h2>
             <span className="text-xs font-bold text-on-surface-variant uppercase bg-white dark:bg-surface-container-lowest px-3 py-1 rounded-full border border-outline-variant/20">{schedule.length} Payments</span>
           </div>
-          <div id="amortization-table" role="region" aria-label="Monthly amortization payments" tabIndex={0} className="overflow-x-auto max-h-[500px] scrollbar-thin scrollbar-thumb-primary/20">
+          <div id="amortization-table" role="region" aria-label="Monthly amortization payments" tabIndex={0} className="w-full min-w-0 overflow-x-auto max-h-[500px] scrollbar-thin scrollbar-thumb-primary/20">
             {!validationError ? (
               <table className="min-w-full divide-y divide-outline-variant/10">
                 <caption className="sr-only">Monthly payments showing principal, interest and remaining balance</caption>

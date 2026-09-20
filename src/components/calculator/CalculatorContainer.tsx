@@ -13,7 +13,12 @@ interface CalculatorContainerProps {
 
 export function CalculatorContainer({ title, description, children, className }: CalculatorContainerProps) {
   return (
-    <div id="calculator-top" className={cn("w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12", className)}>
+    <form id="calculator-top" noValidate onSubmit={(event) => {
+      event.preventDefault();
+      const invalid = event.currentTarget.querySelector<HTMLElement>('[aria-invalid="true"]');
+      const result = event.currentTarget.querySelector<HTMLElement>('[data-calculator-results]');
+      (invalid ?? result)?.focus();
+    }} className={cn("w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12", className)}>
       <div className="mb-10 max-w-3xl">
         <h2 className="text-display-lg font-manrope font-bold text-primary tracking-tight mb-4">
           {title}
@@ -28,7 +33,7 @@ export function CalculatorContainer({ title, description, children, className }:
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
         {children}
       </div>
-    </div>
+    </form>
   );
 }
 
@@ -37,6 +42,8 @@ export function CalculatorInputArea({ children, className }: { children: React.R
   return (
     <div className={cn("w-full lg:w-[45%] bg-surface-container-highest rounded-2xl p-6 sm:p-8 shadow-sm", className)}>
       {children}
+      <button type="submit" className="mt-6 rounded-xl bg-primary px-6 py-3 font-bold text-white dark:text-[#003434] focus-visible:outline-2 focus-visible:outline-offset-4">Calculate</button>
+      <p className="mt-3 text-sm">Estimates update as you edit. <Link href="/methodology" className="underline">Calculation assumptions</Link></p>
     </div>
   );
 }
@@ -59,7 +66,7 @@ export function CalculatorResultsArea({
   nextSteps?: NextStep[];
 }) {
   return (
-    <div className={cn("w-full min-w-0 lg:w-[55%] flex flex-col gap-10", className)}>
+    <div data-calculator-results="true" role="region" aria-label="Estimated calculation results" tabIndex={-1} className={cn("w-full min-w-0 scroll-mt-24 lg:w-[55%] flex flex-col gap-10", className)}>
       {children}
 
       {/* Next Steps Section */}

@@ -1,29 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { calculateAmortizedPayment } from '@/lib/finance';
+import React, { useState } from "react";
 import { Input } from "@/components/ui/Input";
 import { ButtonLink } from "@/components/ui/Button";
-import Link from "next/link";
 import { Calculator, ArrowRightLeft, ShieldCheck, AlertCircle } from "lucide-react";
 
 
 export function FixedVsVariableWidget() {
   const [loanAmount, setLoanAmount] = useState<number>(350000);
-  const [fixedRate, setFixedRate] = useState<number>(6.5);
-  const [variableRate, setVariableRate] = useState<number>(5.5);
-  const [fixedPayment, setFixedPayment] = useState<number>(0);
-  const [variablePayment, setVariablePayment] = useState<number>(0);
-
-  const calculateMonthlyPayment = (principal: number, annualRate: number, years: number) => {
-    if (!principal || !annualRate) return 0;
-    const monthlyRate = annualRate / 100 / 12;
-    const numberOfPayments = years * 12;
-    const payment = (principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
-    return payment;
-  };
-
-  useEffect(() => {
-    setFixedPayment(calculateMonthlyPayment(loanAmount, fixedRate, 30));
-    setVariablePayment(calculateMonthlyPayment(loanAmount, variableRate, 30));
-  }, [loanAmount, fixedRate, variableRate]);
+  const fixedRate = 6.5;
+  const variableRate = 5.5;
+  const fixedPayment = calculateAmortizedPayment(loanAmount, fixedRate, 30);
+  const variablePayment = calculateAmortizedPayment(loanAmount, variableRate, 30);
 
   const savings = fixedPayment - variablePayment;
 

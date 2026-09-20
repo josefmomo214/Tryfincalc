@@ -65,36 +65,112 @@ export function generateAmortizationSchedule(principal: number, annualRate: numb
   });
 }
 
-export function calculateAffordability(income: number, debts: number, downPayment: number, rate: number, years: number, currency: 'USD' | 'EUR') {
-  const monthlyPayment = Math.max(0, income * (currency === 'EUR' ? .33 : .28) - debts);
-  const unitPayment = calculateAmortizedPayment(1, rate, years);
-  const loanAmount = unitPayment > 0 ? monthlyPayment / unitPayment : 0;
+/** Rates are nominal annual percentage points; terms are years in whole months.
+ * End-of-month payments, full precision internally, currency rounding at display only.
+ * Legacy payment/schedule helpers return 0/[] on invalid input; composite models throw.
+ */
+export function calculateLoan(principal: number, annualRate: number, years: number) {
+  const error = validateLoan(principal, annualRate, years);
+  if (error) throw new RangeError(error);
+  const monthly = calculateAmortizedPayment(principal, annualRate, years);
+  const totalPaid = monthly * Math.round(years * 12);
+  return { monthly, totalPaid, totalInterest: Math.max(0, totalPaid - principal) };
+}
+
+function requireAmounts(...values: number[]) {
+  if (!values.every(v => Number.isFinite(v) && v >= 0 && v <= 1e12))
+    throw new RangeError('Enter finite non-negative amounts up to 1 trillion.');
+}
+
+export function loanFromPayment(payment: number, rate: number, years: number) {
+  requireAmounts(payment);
+  const unit = calculateLoan(1, rate, years).monthly;
+  return payment / unit;
+}
+
+// Illustrative US gross-income budget; currency never selects underwriting rules.
+export function calculateAffordability(income: number, debts: number, downPayment: number, rate: number, years: number, currency: 'USD' | 'EUR', monthlyOwnershipCosts = 0) {
+  requireAmounts(income, debts, downPayment, monthlyOwnershipCosts);
+  const housingBudget = Math.max(0, Math.min(income * .28, income * .36 - debts));
+  const monthlyPayment = Math.max(0, housingBudget - monthlyOwnershipCosts);
+  const loanAmount = loanFromPayment(monthlyPayment, rate, years);
   return { monthlyPayment, loanAmount, maxPrice: loanAmount + downPayment };
 }
 
 export function calculateRefinancing(balance: number, currentRate: number, yearsRemaining: number, newRate: number, newTerm: number, fees: number) {
-  const currentMonthly = calculateAmortizedPayment(balance, currentRate, yearsRemaining);
-  const newMonthly = calculateAmortizedPayment(balance, newRate, newTerm);
-  const monthlySavings = currentMonthly - newMonthly;
+  requireAmounts(fees);
+  const current = calculateLoan(balance, currentRate, yearsRemaining);
+  const proposed = calculateLoan(balance, newRate, newTerm);
+  const monthlySavings = current.monthly - proposed.monthly;
+  const recoveryMonths = monthlySavings > 0 ? fees / monthlySavings : null;
   return {
-    monthlySavings, newMonthly,
-    lifetimeSavings: currentMonthly * Math.round(yearsRemaining * 12) - newMonthly * Math.round(newTerm * 12) - fees,
-    breakEven: monthlySavings > 0 ? fees / monthlySavings : 0,
+    currentMonthly: current.monthly, monthlySavings, newMonthly: proposed.monthly,
+    currentTotal: current.totalPaid, newTotal: proposed.totalPaid + fees,
+    lifetimeSavings: current.totalPaid - proposed.totalPaid - fees,
+    // Simple payment savings only; do not extrapolate beyond either loan term.
+    breakEven: recoveryMonths !== null && recoveryMonths <= Math.min(yearsRemaining, newTerm) * 12 ? recoveryMonths : null,
   };
 }
 
-export function calculateRentVsBuy(rent: number, rentIncrease: number, homePrice: number, downPercent: number, rate: number, years: number, closingCosts: number) {
-  let currentRent = rent;
-  let totalRent = 0;
-  for (let month = 0; month < Math.min(1200, Math.round(years * 12)); month++) {
-    if (month > 0 && month % 12 === 0) currentRent *= 1 + rentIncrease / 100;
-    totalRent += currentRent;
+export interface RentBuyInputs {
+  rent: number; rentGrowth: number; homePrice: number; downPercent: number;
+  rate: number; term: number; years: number; purchaseCostPercent: number;
+  saleCostPercent: number; appreciation: number; maintenancePercent: number;
+  propertyTaxPercent: number; annualInsurance: number; investmentReturn: number;
+}
+
+export const RENT_BUY_DEFAULTS: RentBuyInputs = {
+  rent: 2000, rentGrowth: 3, homePrice: 350000, downPercent: 20,
+  rate: 6.5, term: 30, years: 10, purchaseCostPercent: 3,
+  saleCostPercent: 6, appreciation: 2, maintenancePercent: 1,
+  propertyTaxPercent: 1.1, annualInsurance: 1500, investmentReturn: 4,
+};
+
+export function validateRentBuy(i: RentBuyInputs): string {
+  if (!Object.values(i).every(Number.isFinite)) return 'Enter a number in every field.';
+  const loanError = validateLoan(i.homePrice, i.rate, i.term) || validateLoan(0, 0, i.years);
+  if (loanError) return loanError;
+  if ([i.rent, i.annualInsurance].some(v => v < 0 || v > 1e12)) return 'Rent and insurance must be non-negative amounts up to 1 trillion.';
+  if ([i.downPercent,i.purchaseCostPercent,i.saleCostPercent,i.maintenancePercent,i.propertyTaxPercent].some(v=>v<0 || v>100)) return 'Cost and down-payment percentages must be between 0 and 100.';
+  if ([i.rentGrowth,i.appreciation,i.investmentReturn].some(v=>v < -50 || v > 50)) return 'Growth and return assumptions must be between -50% and 50% per year.';
+  return '';
+}
+
+/** Compare present values of monthly cash costs, with net sale equity at horizon.
+ * Discounting both alternatives by the assumed after-tax investment return accounts
+ * for opportunity cost of down payment AND differences in monthly spending.
+ * Tax benefits, HOA, moving costs and rent deposits are excluded.
+ */
+export function compareRentBuy(i: RentBuyInputs) {
+  const error = validateRentBuy(i); if (error) throw new RangeError(error);
+  const months = Math.round(i.years * 12);
+  const loan = i.homePrice * (1 - i.downPercent / 100);
+  const schedule = generateAmortizationSchedule(loan, i.rate, i.term);
+  const discount = (month: number) => Math.pow(1 + i.investmentReturn / 100, month / 12);
+  let rentPV = 0;
+  let buyPV = i.homePrice * (i.downPercent + i.purchaseCostPercent) / 100;
+  for (let month=1; month<=months; month++) {
+    const year = Math.floor((month-1)/12);
+    rentPV += i.rent * Math.pow(1 + i.rentGrowth/100,year) / discount(month);
+    const value = i.homePrice * Math.pow(1+i.appreciation/100,year);
+    const costs = value * (i.maintenancePercent+i.propertyTaxPercent)/1200 + i.annualInsurance/12;
+    buyPV += ((schedule[month-1]?.payment ?? 0) + costs) / discount(month);
   }
-  const loan = homePrice * (1 - downPercent / 100);
-  const interestPaid = generateAmortizationSchedule(loan, rate, 25)
-    .slice(0, Math.round(years * 12)).reduce((sum, row) => sum + row.interest, 0);
-  const totalBuy = interestPaid + homePrice * .02 * years + homePrice * closingCosts / 100 + 3000
-    - homePrice * (Math.pow(1.02, years) - 1);
-  return { totalRent, totalBuy, difference: Math.abs(totalBuy - totalRent),
-    verdict: totalBuy < totalRent ? 'Buying costs less in this model' : totalBuy > totalRent ? 'Renting costs less in this model' : 'Costs are equal in this model' };
+  const homeValue = i.homePrice * Math.pow(1+i.appreciation/100,i.years);
+  const balance = months >= schedule.length ? 0 : schedule[months-1].balance;
+  const saleEquity = homeValue * (1-i.saleCostPercent/100) - balance;
+  const totalBuy = buyPV - saleEquity / discount(months);
+  return { totalRent: rentPV, totalBuy, saleEquity, balance, difference: totalBuy-rentPV };
+}
+
+export function rentBuySensitivity(i: RentBuyInputs) {
+  return [-1,0,1].map(change => {
+    const scenario = {...i, appreciation: Math.min(50,Math.max(-50,i.appreciation+change)), investmentReturn: Math.min(50,Math.max(-50,i.investmentReturn-change))};
+    let crossing: number | null = null;
+    for (let year=1; year<=Math.ceil(i.years); year++) {
+      const horizon=Math.min(year,i.years);
+      if (compareRentBuy({...scenario,years:horizon}).difference<=0) { crossing=horizon; break; }
+    }
+    return { change, appreciation:scenario.appreciation, investmentReturn:scenario.investmentReturn, crossing, ...compareRentBuy(scenario) };
+  });
 }

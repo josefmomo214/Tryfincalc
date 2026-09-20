@@ -6,8 +6,8 @@ import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from 
 
 import { Input } from "@/components/ui/Input";
 
-import { formatCurrency, calculateAmortizedPayment, convertCurrency, validateLoan } from "@/lib/finance";
-import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
+import { formatCurrency, calculateLoan, convertCurrency, validateLoan } from "@/lib/finance";
+import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 
 export default function TotalInterestCalculator() {
   const router = useRouter();
@@ -17,12 +17,8 @@ export default function TotalInterestCalculator() {
   const [principal, setPrincipal] = useState(50000);
   const [rate, setRate] = useState(5.0);
   const [years, setYears] = useState(10);
-  const [isCalculated, setIsCalculated] = useState(false);
 
-  const [results, setResults] = useState({
-    totalInterest: 0,
-    totalPaid: 0
-  });
+
 
   const validationError = validateLoan(principal, rate, years) || (![principal, rate, years].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
 
@@ -36,15 +32,7 @@ export default function TotalInterestCalculator() {
     setPrincipal(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
   }, [currency]);
 
-  useEffect(() => {
-    if (validationError) return;
-    const monthly = calculateAmortizedPayment(principal, rate, years);
-    const total = monthly * (years * 12);
-    setResults({
-      totalPaid: total,
-      totalInterest: total - principal
-    });
-  }, [validationError, principal, rate, years]);
+  const results = validationError ? calculateLoan(0, 0, 1) : calculateLoan(principal, rate, years);
 
 
   return (
@@ -73,15 +61,15 @@ export default function TotalInterestCalculator() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label htmlFor="principal" className="block text-sm font-semibold text-on-surface">Principal Amount ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input id="principal" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={principal} onChange={(e) => { setIsCalculated(true); setPrincipal(e.target.valueAsNumber); }} />
+              <Input id="principal" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={principal} onChange={(e) => { setPrincipal(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-2">
-              <label htmlFor="rate" className="block text-sm font-semibold text-on-surface">Interest Rate (APR %)</label>
-              <Input max={100} id="rate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={rate} onChange={(e) => { setIsCalculated(true); setRate(e.target.valueAsNumber); }} />
+              <label htmlFor="rate" className="block text-sm font-semibold text-on-surface">Annual interest rate (%)</label>
+              <Input max={100} id="rate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={rate} onChange={(e) => { setRate(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-2">
               <label htmlFor="years" className="block text-sm font-semibold text-on-surface">Time Period (Years)</label>
-              <Input min={1/12} max={100} step="any" id="years" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(e.target.valueAsNumber); }} />
+              <Input min={1/12} max={100} step="any" id="years" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={years} onChange={(e) => { setYears(e.target.valueAsNumber); }} />
             </div>
           </div>
         </CalculatorInputArea>
@@ -90,7 +78,7 @@ export default function TotalInterestCalculator() {
           <div className="space-y-8">
             <div className="text-center p-8 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Total Interest Paid</h3>
-              {(isCalculated && !validationError) ? (
+              {(!validationError) ? (
                 <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
                   {formatCurrency(results.totalInterest, 0, currency)}
                 </div>
@@ -103,80 +91,13 @@ export default function TotalInterestCalculator() {
             <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-1">Total Amount (Principal + Interest)</h3>
               <div className="text-3xl font-bold text-primary">
-                {(isCalculated && !validationError) ? formatCurrency(results.totalPaid, 0, currency) : "—"}
+                {(!validationError) ? formatCurrency(results.totalPaid, 0, currency) : "—"}
               </div>
             </div>
           </div>
         </CalculatorResultsArea>
       </CalculatorContainer>
-      <CalculatorSEOSection 
-        title="Total Interest Calculator: The True Cost of Debt"
-        intro={
-          <>
-            <p>When taking out a loan, it's easy to fixate on the monthly payment. While that's important, it doesn't tell the whole story. The <strong>Total Interest</strong> is the actual price you are paying for the privilege of borrowing money. Over long terms, this amount can equal or even exceed the amount you originally borrowed.</p>
-            <p>Our Total Interest Calculator reveals exactly how much of your hard-earned money is going toward interest and how small changes in your term or rate can save you tens of thousands in lifetime costs.</p>
-          </>
-        }
-        howItWorks={
-          <>
-            <p>Total interest is calculated as the sum of all monthly payments minus the original principal borrowed. In a standard amortized loan, you pay more interest at the beginning and more principal at the end.</p>
-            <ul>
-              <li><strong>The Rule of Costs:</strong> The higher the interest rate and the longer the term, the more total interest you pay over the life of the debt.</li>
-              <li><strong>Term Sensitivity:</strong> Extending a mortgage from 15 to 30 years can nearly double your total interest cost, even though it lowers your monthly payment.</li>
-              <li><strong>Rate Impact:</strong> On a large loan, even a quarter-point difference in interest rate can add or subtract thousands from your lifetime financial obligations.</li>
-            </ul>
-          </>
-        }
-        examples={[
-          {
-            title: "The $300,000 Mortgage Lesson",
-            items: [
-              { label: "Interest Rate", value: "7.0%" },
-              { label: "30 Year Total Interest", value: currency === 'USD' ? "$418,527" : "€418,527" },
-              { label: "15 Year Total Interest", value: currency === 'USD' ? "$185,426" : "€185,426" },
-              { label: "Total Savings", value: currency === 'USD' ? "$233,101" : "€233,101" }
-            ],
-            description: "A stark look at how loan term length affects long-term sustainability."
-          },
-          {
-            title: "Auto Loan Term Comparison",
-            items: [
-              { label: "Loan Amount", value: currency === 'USD' ? "$35,000" : "€35,000" },
-              { label: "Interest Rate", value: "8.0%" },
-              { label: "60 Month Interest", value: currency === 'USD' ? "$7,575" : "€7,575" },
-              { label: "72 Month Interest", value: currency === 'USD' ? "$9,228" : "€9,228" }
-            ],
-            description: "Choosing a shorter term often saves thousands in interest alone."
-          }
-        ]}
-        tips={[
-          "Always compare loan offers based on total interest, not just monthly payments.",
-          "Consider bi-weekly payments to reduce interest faster if your lender allows it.",
-          "Shorten your loan term whenever your monthly budget and savings allow.",
-          "Check for prepayment penalties before making extra principal payments."
-        ]}
-        faqs={[
-          {
-            question: "How can I pay less total interest?",
-            answer: "By securing a lower interest rate, choosing a shorter term, or making extra principal payments consistently during the life of the loan."
-          },
-          {
-            question: "Is total interest tax-deductible?",
-            answer: "In many regions, mortgage interest is partially deductible, but personal loan interest usually is not. Check your local tax regulations for details."
-          }
-        ]}
-        relatedCalculators={[
-          { label: "Monthly Payment", href: "/monthly-payment-calculator" },
-          { label: "Refinancing", href: "/refinancing-calculator" },
-          { label: "Amortization", href: "/amortization-schedule" }
-        ]}
-        relatedBlogs={[
-          { title: "Understanding Total Interest", href: "/blog/total-interest-explained" }
-        ]}
-        ctaText="Ready to lower your costs?"
-        ctaHref="/refinancing-calculator"
-        ctaButtonText="Compare refinancing scenarios"
-      />
+      <CalculationGuide tool="total-interest" currency={currency} />
     </MainLayout>
   );
 }

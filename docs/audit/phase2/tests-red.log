@@ -1,0 +1,377 @@
+
+> next-app@0.1.0 test
+> node --import tsx --test tests/*.test.ts tests/*.test.tsx
+
+TAP version 13
+# Subtest: known monthly payments
+ok 1 - known monthly payments
+  ---
+  duration_ms: 5.958615
+  ...
+# Subtest: invalid loans cannot return nonfinite or negative payments
+ok 2 - invalid loans cannot return nonfinite or negative payments
+  ---
+  duration_ms: 0.49999
+  ...
+# Subtest: currency formatting suppresses negative zero
+ok 3 - currency formatting suppresses negative zero
+  ---
+  duration_ms: 157.234633
+  ...
+# Subtest: complete schedules reconcile principal, interest and final balance
+ok 4 - complete schedules reconcile principal, interest and final balance
+  ---
+  duration_ms: 11.269805
+  ...
+# Subtest: affordability is the inverse of amortization, including zero interest
+ok 5 - affordability is the inverse of amortization, including zero interest
+  ---
+  duration_ms: 0.928754
+  ...
+# Subtest: refinancing includes fees and both terms
+ok 6 - refinancing includes fees and both terms
+  ---
+  duration_ms: 0.561093
+  ...
+# Subtest: rent versus buy: zero rate, fractional horizon and paid-off mortgage
+ok 7 - rent versus buy: zero rate, fractional horizon and paid-off mortgage
+  ---
+  duration_ms: 2.059466
+  ...
+# Subtest: currency conversion round-trips and term validation
+ok 8 - currency conversion round-trips and term validation
+  ---
+  duration_ms: 2.582692
+  ...
+# Subtest: reference cases round only final displayed values
+not ok 9 - reference cases round only final displayed values
+  ---
+  duration_ms: 9.825768
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/finance.test.ts:2:4443'
+  failureType: 'testCodeFailure'
+  error: 'finance.calculateLoan is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/finance.test.ts:69:28)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: affordability uses explicit US illustrative 28/36 gross-income budgets in either currency
+not ok 10 - affordability uses explicit US illustrative 28/36 gross-income budgets in either currency
+  ---
+  duration_ms: 9.305497
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/finance.test.ts:2:5219'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 1800.0000000000005
+    - 2600
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2600
+  actual: 1800.0000000000005
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/finance.test.ts:80:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: refinance cannot imply immediate break-even when payments increase
+not ok 11 - refinance cannot imply immediate break-even when payments increase
+  ---
+  duration_ms: 1.4138
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/finance.test.ts:2:5649'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== null
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: ~
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/finance.test.ts:85:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: Mortgage has nonzero result and Calculate action without hydration
+not ok 12 - Mortgage has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 213.854225
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:2:2601'
+  failureType: 'testCodeFailure'
+  error: 'results region exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:21:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    node:internal/test_runner/harness:255:12
+    node:internal/process/task_queues:140:7
+    AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:137:8)
+  ...
+# Subtest: Loan has nonzero result and Calculate action without hydration
+not ok 13 - Loan has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 55.20268
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:2:2601'
+  failureType: 'testCodeFailure'
+  error: 'results region exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:21:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: Monthly has nonzero result and Calculate action without hydration
+not ok 14 - Monthly has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 39.475126
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:2:2601'
+  failureType: 'testCodeFailure'
+  error: 'results region exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:21:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: Interest has nonzero result and Calculate action without hydration
+not ok 15 - Interest has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 50.270084
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:2:2601'
+  failureType: 'testCodeFailure'
+  error: 'results region exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:21:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: Refinance has nonzero result and Calculate action without hydration
+not ok 16 - Refinance has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 63.355329
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:2:2601'
+  failureType: 'testCodeFailure'
+  error: 'results region exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:21:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: Affordability has nonzero result and Calculate action without hydration
+not ok 17 - Affordability has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 56.620725
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:2:2601'
+  failureType: 'testCodeFailure'
+  error: 'results region exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:21:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: RentBuy has nonzero result and Calculate action without hydration
+not ok 18 - RentBuy has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 58.755405
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:2:2601'
+  failureType: 'testCodeFailure'
+  error: 'results region exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:21:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: Amortization has nonzero result and Calculate action without hydration
+not ok 19 - Amortization has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 72.199927
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:2:2601'
+  failureType: 'testCodeFailure'
+  error: 'results region exists'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/initial-results.test.tsx:21:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: invalid mortgage renders a field-associated message and no negative principal
+ok 20 - invalid mortgage renders a field-associated message and no negative principal
+  ---
+  duration_ms: 122.053797
+  ...
+# Subtest: empty numeric field remains empty with an accessible error
+ok 21 - empty numeric field remains empty with an accessible error
+  ---
+  duration_ms: 8.46357
+  ...
+# Subtest: amortization preview and expanded table render complete, numbered payments
+ok 22 - amortization preview and expanded table render complete, numbered payments
+  ---
+  duration_ms: 1297.187042
+  ...
+# Subtest: zero-cost ownership returns all equity and costs no net money
+not ok 23 - zero-cost ownership returns all equity and costs no net money
+  ---
+  duration_ms: 2.652315
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/rent-buy.test.ts:2:1158'
+  failureType: 'testCodeFailure'
+  error: '(0 , import_finance.compareRentBuy) is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/rent-buy.test.ts:6:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    node:internal/test_runner/harness:255:12
+    node:internal/process/task_queues:140:7
+    AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    AsyncResource.runMicrotask (node:internal/process/task_queues:137:8)
+  ...
+# Subtest: costs, growth and opportunity return change outcomes in expected direction
+not ok 24 - costs, growth and opportunity return change outcomes in expected direction
+  ---
+  duration_ms: 0.54046
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/rent-buy.test.ts:2:1470'
+  failureType: 'testCodeFailure'
+  error: '(0 , import_finance.compareRentBuy) is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/rent-buy.test.ts:10:13)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: paid-off mortgage and fractional horizons reconcile
+not ok 25 - paid-off mortgage and fractional horizons reconcile
+  ---
+  duration_ms: 0.338678
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/rent-buy.test.ts:2:2373'
+  failureType: 'testCodeFailure'
+  error: '(0 , import_finance.compareRentBuy) is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/rent-buy.test.ts:19:21)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: invalid model inputs reject rather than silently produce estimates
+not ok 26 - invalid model inputs reject rather than silently produce estimates
+  ---
+  duration_ms: 3.349543
+  location: '/Users/josef214/My Apps/Tryfincalc/tests/rent-buy.test.ts:2:2673'
+  failureType: 'testCodeFailure'
+  error: |-
+    The error is expected to be an instance of "RangeError". Received "TypeError"
+    
+    Error message:
+    
+    (0 , import_finance.compareRentBuy) is not a function
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    TestContext.<anonymous> (/Users/josef214/My Apps/Tryfincalc/tests/rent-buy.test.ts:23:143)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 11
+# fail 15
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2819.068358

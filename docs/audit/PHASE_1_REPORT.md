@@ -17,7 +17,7 @@ Audit date: 2026-09-20. Baseline commit: 3701579. Working tree was clean. Branch
 ## Baseline commands
 
 - npm ci: passed on single network-enabled retry. Sandbox network failure and interrupted overlapping retries are environment/setup failures, recorded in install*.log. Lockfile unchanged. npm reported dependency audit findings; no automatic upgrades made.
-- npm run lint: FAILED, 2 errors / 57 warnings; CommonJS require imports in audit_seo.js; warnings also include effect-derived calculator result state. Full pre-existing output: baseline/lint.log.
+- npm run lint: FAILED, 2 errors / 57 warnings; CommonJS require imports in scratch/audit_links.js; warnings also include effect-derived calculator result state. Full pre-existing output: baseline/lint.log.
 - npx tsc --noEmit: passed (no dedicated typecheck package script exists).
 - npm test: passed 11/11, zero skipped/failed.
 - npm run build: sandbox run failed fetching Google Fonts. Network-enabled build passed including postbuild. Workspace-root warning from parent lockfile. Build logs retained. Generated sitemap date-only mutation restored to baseline.

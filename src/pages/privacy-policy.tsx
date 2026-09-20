@@ -1,3 +1,4 @@
+import { FUNDING } from '@/lib/trust';
 import React from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
@@ -111,16 +112,15 @@ export default function PrivacyPolicy() {
           </p>
 
           <h3 className="text-lg font-bold text-on-surface mt-8 mb-3 font-manrope">Advertising Cookies (Google AdSense)</h3>
+          <p>{FUNDING}</p>
           <p>
-            TryFinCalc displays advertisements provided by <strong>Google AdSense</strong>.
-            Google uses cookies to serve ads on our site. These cookies allow Google and its
+            Advertising approval is pending. TryFinCalc does not currently claim to serve approved Google AdSense advertisements. If advertising is enabled, ads may be provided by <strong>Google AdSense</strong>.
+            If enabled, Google may use cookies to serve ads, subject to applicable consent choices. These cookies may allow Google and its
             advertising partners to show you ads based on your visits to TryFinCalc and other
             websites you have previously visited.
           </p>
           <p>
-            Google&apos;s use of advertising cookies is governed by its own privacy policy. By using
-            TryFinCalc you acknowledge that Google may use these cookies to personalise the ads
-            you see. You can review and adjust how Google uses your data for advertising at any
+            Google&apos;s use of advertising cookies is governed by its own privacy policy. Advertising cookies, if enabled, are subject to applicable consent requirements and your choices; use of the site alone does not constitute consent where consent is required. You can review and adjust how Google uses your data for advertising at any
             time:
           </p>
           <div className="space-y-2 ml-4">
@@ -166,7 +166,7 @@ export default function PrivacyPolicy() {
           <ul>
             <li>Run and improve TryFinCalc and its calculators</li>
             <li>Understand how visitors use the site so we can build better tools and content</li>
-            <li>Display advertisements through Google AdSense to keep the site free</li>
+            <li>If approved and enabled, display advertisements through Google AdSense subject to applicable consent choices</li>
             <li>Reply to messages you send us</li>
             <li>Detect and fix technical errors</li>
             <li>Meet our legal obligations</li>
@@ -227,7 +227,7 @@ export default function PrivacyPolicy() {
           </p>
           <ul>
             <li>
-              <strong>Google AdSense</strong> — displays ads on our site. Google and its partners
+              <strong>Google AdSense</strong> — may provide ads if approval is obtained and advertising is enabled. Google and its partners
               use cookies and similar technologies to serve ads based on your browsing history
               across TryFinCalc and other websites. Google is an independent controller of this
               data.{" "}

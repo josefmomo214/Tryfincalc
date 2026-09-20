@@ -3,7 +3,7 @@ import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from 
 import { Input } from "@/components/ui/Input";
 import { ResultCard } from "@/components/calculator/ResultCard";
 import { BarChart3, Search, PieChart, TrendingDown } from "lucide-react";
-import { formatCurrency, calculateAmortizedPayment, calculatePMI, convertCurrency, validateLoan } from "@/lib/finance";
+import { formatCurrency, calculateAmortizedPayment, convertCurrency, validateLoan } from "@/lib/finance";
 
 interface MortgageCalculatorWidgetProps {
   initialHomePrice?: number;
@@ -23,22 +23,13 @@ export function MortgageCalculatorWidget({
   const [homePrice, setHomePrice] = useState<number>(initialHomePrice);
   const [downPaymentPercent, setDownPaymentPercent] = useState<number>(initialDownPaymentPercent);
   const [downPayment, setDownPayment] = useState<number>((initialHomePrice * initialDownPaymentPercent) / 100);
-  const [interestRate, setInterestRate] = useState<number>(6.5); // Updated to 2026 average
+  const [interestRate, setInterestRate] = useState<number>(6.5); // Illustrative fixed-rate input
   const [loanTerm, setLoanTerm] = useState<number>(30); // Standard term
-  const [propertyTax, setPropertyTax] = useState<number>(Math.round(initialHomePrice * 0.011)); // 1.1% avg
-  const [insurance, setInsurance] = useState<number>(Math.round(initialHomePrice * 0.0035)); // 0.35% avg
+  const [propertyTax, setPropertyTax] = useState<number>(Math.round(initialHomePrice * 0.011)); // Illustrative annual tax assumption
+  const [insurance, setInsurance] = useState<number>(Math.round(initialHomePrice * 0.0035)); // Illustrative annual insurance assumption
   const [hoa, setHoa] = useState<number>(0);
   const [isCalculated, setIsCalculated] = useState(true);
 
-  const [results, setResults] = useState({
-    monthlyPayment: 0,
-    principalInterest: 0,
-    tax: 0,
-    insurance: 0,
-    pmi: 0,
-    hoa: 0,
-    loanAmount: 0
-  });
 
   const previousCurrency = useRef(currency);
   useEffect(() => {
@@ -57,16 +48,15 @@ export function MortgageCalculatorWidget({
     validateLoan(homePrice, interestRate, loanTerm) ||
     (![homePrice, downPayment, downPaymentPercent, propertyTax, insurance, hoa].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
 
-  useEffect(() => {
-    if (validationError) return;
-    const loanAmount = homePrice - downPayment;
+  const results = (() => {
+    const loanAmount = validationError ? 0 : homePrice - downPayment;
     const monthlyPI = calculateAmortizedPayment(loanAmount, interestRate, loanTerm);
     
     const monthlyTax = propertyTax / 12;
     const monthlyInsurance = insurance / 12;
-    const monthlyPMI = calculatePMI(loanAmount, downPayment, homePrice);
+    const monthlyPMI = 0; // PMI is excluded; no hidden default premium.
     
-    setResults({
+    return {
       monthlyPayment: monthlyPI + monthlyTax + monthlyInsurance + monthlyPMI + hoa,
       principalInterest: monthlyPI,
       tax: monthlyTax,
@@ -74,8 +64,8 @@ export function MortgageCalculatorWidget({
       pmi: monthlyPMI,
       hoa: hoa,
       loanAmount: loanAmount
-    });
-  }, [homePrice, downPayment, interestRate, loanTerm, propertyTax, insurance, hoa, validationError]);
+    };
+  })();
 
   const handlePriceChange = (value: number) => {
     setIsCalculated(true);
@@ -102,6 +92,7 @@ export function MortgageCalculatorWidget({
       description={description}
     >
       <CalculatorInputArea>
+        <p className="mb-4 text-sm">US-style fixed-rate estimate. PMI, closing costs and maintenance are excluded. Tax, insurance and HOA inputs are included; defaults are examples, not quotes.</p>
         {validationError && <p id="mortgage-error" role="alert" className="mb-4 text-red-700 dark:text-red-300">{validationError}</p>}
         <div className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

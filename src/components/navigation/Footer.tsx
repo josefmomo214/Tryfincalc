@@ -118,6 +118,7 @@ export function Footer() {
           <p className="mt-4 md:mt-0 text-xs text-outline">For illustrative purposes only.</p>
         </div>
       </div>
-    </footer>
+    <div className="max-w-7xl mx-auto px-6 py-4 text-sm"><Link href="/methodology" className="underline">Methodology</Link> · <Link href="/editorial-policy" className="underline">Editorial policy and corrections</Link></div>
+      </footer>
   );
 }

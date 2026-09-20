@@ -1,4 +1,5 @@
-import { convertCurrency } from "./finance";
+import { loanValue } from './content-calculations';
+import { calculateLoan, convertCurrency, formatCurrency } from "./finance";
 
 export interface PSEOParams {
   slug: string;
@@ -23,6 +24,29 @@ export interface ComparisonScenario {
   difference: number;
 }
 
+function euroScenarioFaqs(amount: number) {
+  const formattedAmount = formatCurrency(amount, 0, 'EUR');
+  const monthlyPayment = formatCurrency(calculateLoan(amount, 3.5, 25).monthly, 2, 'EUR');
+  return [
+    {
+      question: `What is the monthly payment on a ${formattedAmount} mortgage at 3.5% over 25 years?`,
+      answer: `The estimated principal-and-interest payment is ${monthlyPayment} per month. The 3.5% rate and 25-year term are editable scenario assumptions.`,
+    },
+    {
+      question: 'Does this estimate include local property costs?',
+      answer: 'No. Taxes, registration or notary fees, insurance, subsidies, and other costs vary by jurisdiction and are excluded unless entered separately.',
+    },
+    {
+      question: 'Does this page estimate mortgage approval?',
+      answer: 'No. Any income ratio shown is an illustrative stress-test assumption. Approval and affordability rules vary by country, lender, loan product, and borrower.',
+    },
+    {
+      question: 'What market does this euro scenario cover?',
+      answer: 'It is a euro-denominated mathematical example rather than country-specific mortgage guidance. Use a local quote and local cost inputs for a real decision.',
+    },
+  ];
+}
+
 export const pseoData: PSEOParams[] = [
   // Mortgages USD
   { 
@@ -35,7 +59,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "$300,000 Mortgage at 6%: Your Complete Payment Breakdown",
     customDescription: "What is the monthly payment on a $300,000 mortgage at 6% interest? See your exact P&I payment, full PITI breakdown, total interest cost, income requirements, and amortization schedule.",
     customH1: "$300,000 Mortgage at 6%: Your Complete Payment Breakdown",
-    customIntro: "A $300,000 mortgage at 6% is one of the most common loan scenarios in the US — typical for first-time buyers in affordable to mid-range markets across the Midwest, South, and Mountain West in 2026. This page gives you the exact monthly payment at every term, a full PITI breakdown including taxes and insurance, the income you need to qualify, and a rate sensitivity table showing exactly what a better or worse rate would cost. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust for your specific down payment and term.",
+    customIntro: "This illustrative scenario models a $300,000 U.S. mortgage at a 6% example annual interest rate. It shows the principal-and-interest payment at several terms, an editable cost estimate for taxes and insurance, and a rate sensitivity table. The rate is a selected calculator assumption, not a claim about today's market. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust the rate, down payment, term, taxes, and insurance for your situation.",
     customContent: `
       <h2>Monthly Payment on a $300,000 Mortgage at 6%</h2>
       <p>The term of your loan is the biggest factor in determining your monthly cash flow versus your total interest savings. Here is the breakdown for a $300,000 balance at a 6% fixed rate:</p>
@@ -73,10 +97,10 @@ export const pseoData: PSEOParams[] = [
         <li><strong>Total Monthly Payment:</strong> $2,340</li>
       </ul>
 
-      <p>Note that PMI typically cancels once you reach 20% equity (as defined by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>), dropping your total monthly cost to approximately $2,215. Property taxes vary significantly by state — please use our <a href="/mortgage-calculator">mortgage calculator</a> for a personalised PITI breakdown based on your local rates. Also, check our <a href="/blog/down-payment-guide">down payment guide</a> for more on avoiding PMI.</p>
+      <p>The $125 mortgage-insurance amount is an editable example assumption. Actual insurance terms and cancellation rules depend on the loan and lender. Property taxes and homeowners insurance also vary by property and location; use our <a href="/mortgage-calculator">mortgage calculator</a> to replace every estimate with your own inputs. See our <a href="/blog/down-payment-guide">down payment guide</a> for more context.</p>
 
       <h2>What Income Do You Need for a $300,000 Mortgage at 6%?</h2>
-      <p>Most lenders follow the 28% rule, which states your housing costs shouldn't exceed 28% of your gross monthly income. Here is the income required for a <strong>$300000 mortgage monthly payment 6 percent</strong> scenario:</p>
+      <p>The table below is an illustrative affordability check that limits housing costs to 28% of gross income. It is a planning assumption, not an approval rule; lender requirements vary with the loan program and borrower profile.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -84,7 +108,7 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
@@ -94,10 +118,10 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>Most buyers will need a household income between $77,000 and $117,000 to comfortably qualify depending on existing debts and local property taxes. You can get a personalized requirement using our <a href="/affordability-calculator">affordability calculator</a> or read about <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
+      <p>The $77,000–$117,000 range follows only the assumptions shown in this table. It is not a lender approval estimate. Use the <a href="/affordability-calculator">affordability calculator</a> to change debts and housing costs, or read about <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
 
       <h2>How 6% Compares to Other Rates on a $300,000 Loan</h2>
-      <p>How does 6% sit relative to current benchmarks? According to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, small rate movements have big consequences. Here is the sensitivity for a 30-year term:</p>
+      <p>This sensitivity table compares the selected 6% example rate with other illustrative inputs for a 30-year term. It does not represent today's available rates.</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -127,7 +151,7 @@ export const pseoData: PSEOParams[] = [
       <div class="flex flex-col md:flex-row gap-6 my-12">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
           <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
-          <p class="mb-6 opacity-90 text-sm">Get an instant 2026 breakdown.</p>
+          <p class="mb-6 opacity-90 text-sm">Get an instant estimate using your assumptions.</p>
           <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
         </div>
         <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
@@ -138,7 +162,7 @@ export const pseoData: PSEOParams[] = [
       </div>
 
       <h2>Is $300,000 the Right Loan Amount for You?</h2>
-      <p>$300,000 sits in a comfortable middle ground for U.S. buyers, but the right number depends on what you're financing and how much monthly cushion you want. Using the same 6% rate as this page, a $350,000 loan runs $2,098/month in principal and interest — $299 more than the $300,000 payment above, and it requires roughly $12,800 more in annual income to qualify under the standard 28% rule. See the full <a href="/calculator/350k-mortgage-monthly-payment-6-5-percent">$350,000 mortgage breakdown</a>. Drop to $250,000 instead and the payment falls to $1,499/month, a $300 cushion that matters if savings are tight or you're carrying other debt — compare it on the <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage page</a>.</p>
+      <p>The right loan amount depends on what you are financing and how much monthly cushion you want. Using the same 6% example rate, a $350,000 loan runs $2,098/month in principal and interest — $299 more than the $300,000 payment above. See the full <a href="/calculator/350k-mortgage-monthly-payment-6-5-percent">$350,000 mortgage breakdown</a>. Drop to $250,000 instead and the payment falls to $1,499/month; compare it on the <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage page</a>.</p>
       <p>A $300,000 loan amount also sits well under the national conforming loan limit for 2026. The <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener noreferrer">Federal Housing Finance Agency</a> set the baseline one-unit conforming loan limit at $832,750 for most of the U.S. for 2026, with higher ceilings in designated high-cost areas. Staying under that limit keeps you eligible for standard conforming financing, which typically means simpler underwriting and better pricing than a jumbo loan requires once a loan amount crosses it.</p>
     `,
     customFaqs: [
@@ -148,15 +172,15 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What income do I need for a $300,000 mortgage?",
-        answer: "To qualify for a $300,000 mortgage at 6%, most lenders look for a household income between $77,000 and $100,000 depending on your other monthly debts."
+        answer: "Using the page's illustrative 28% housing-cost assumption, the table produces an annual-income range of about $77,000–$100,000 before other debts. This is not an approval estimate; lender requirements vary."
       },
       {
         question: "How much total interest do I pay on a $300,000 mortgage at 6%?",
         answer: "Over 30 years, you will pay a total of $347,640 in interest. If you choose a 15-year term, that interest cost drops to $155,760."
       },
       {
-        question: "Is 6% a good mortgage rate in 2026?",
-        answer: "In the 2026 market, 6% is considered a solid, mid-range rate for a 30-year fixed mortgage. Always check **Federal Reserve Economic Data** for the most current national benchmarks."
+        question: "What does a 6% example rate show?",
+        answer: "The 6% rate is an editable scenario assumption used to calculate payment and interest sensitivity. It is not a statement about available mortgage rates."
       }
     ]
   },
@@ -168,9 +192,9 @@ export const pseoData: PSEOParams[] = [
     term: 30,
     currency: 'USD',
     customTitle: "$350,000 Mortgage at 6.5%: Your Complete Payment Breakdown",
-    customDescription: "What is the monthly payment on a $350,000 mortgage at 6.5%? P&I, full PITI, income requirements, and rate sensitivity for move-up buyers in 2026.",
+    customDescription: "What is the monthly payment on a $350,000 mortgage at a 6.5% example rate? See P&I, editable housing-cost assumptions, and rate sensitivity.",
     customH1: "$350,000 Mortgage at 6.5%: Your Complete Payment Breakdown",
-    customIntro: "A $350,000 mortgage at 6.5% is one of the most common move-up buyer scenarios in 2026 — typical for families upgrading to a larger home in growing suburbs of Dallas, Phoenix, Charlotte, and similar mid-major metros where median prices sit in the $380,000–$420,000 range. At this loan size, a 0.5% rate improvement saves meaningful money monthly and tens of thousands over the life of the loan. This page gives you the exact payment at every term, a full PITI estimate, income requirements, and a rate sensitivity table. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to model your specific down payment and term.",
+    customIntro: "This illustrative scenario models a $350,000 mortgage at a 6.5% example annual interest rate. It shows payments by term, editable estimates for taxes and insurance, and rate sensitivity. The rate and added costs are calculator assumptions rather than market averages. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to model your own rate, down payment, term, taxes, and insurance.",
     customContent: `
       <h2>Monthly Payment on a $350,000 Mortgage at 6.5%</h2>
       <p>Here is how a $350,000 loan at a fixed 6.5% rate breaks down across every common repayment term:</p>
@@ -206,7 +230,7 @@ export const pseoData: PSEOParams[] = [
         <li><strong>PMI (~0.5%):</strong> $146</li>
         <li><strong>Total Monthly Payment:</strong> $2,842</li>
       </ul>
-      <p>PMI cancels once you reach 20% equity per <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">CFPB</a> guidelines, reducing the total to approximately $2,696. Property taxes vary widely by state — use the <a href="/mortgage-calculator">mortgage calculator</a> for a personalised PITI. Read our <a href="/blog/down-payment-guide">down payment guide</a> for strategies to avoid PMI entirely.</p>
+      <p>The $146 mortgage-insurance amount is an editable example assumption. Actual premiums and cancellation rules depend on the loan and lender. Property taxes and homeowners insurance vary by property and location; use the <a href="/mortgage-calculator">mortgage calculator</a> to replace these estimates. Read our <a href="/blog/down-payment-guide">down payment guide</a> for more context.</p>
 
       <h2>What Income Do You Need for a $350,000 Mortgage at 6.5%?</h2>
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
@@ -215,7 +239,7 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
@@ -225,7 +249,7 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>Most buyers will need a household income between $95,000 and $139,000 depending on debts and local taxes. Dial in your personalised number with our <a href="/affordability-calculator">affordability calculator</a>.</p>
+      <p>The $95,000–$139,000 range follows the illustrative ratios and costs shown here. It is not an approval estimate, and lender requirements vary. Dial in your own assumptions with our <a href="/affordability-calculator">affordability calculator</a>.</p>
 
       <h2>Rate Sensitivity: $350,000 Mortgage Over 30 Years</h2>
       <div class="overflow-x-auto my-8">
@@ -249,7 +273,7 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>A 1.5% rate improvement on a $350,000 loan saves $119,520 in lifetime interest. Track current national benchmarks at <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>. Use the <a href="/refinancing-calculator">refinancing calculator</a> if rates drop after you close. Compare to a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage at 4%</a>.</p>
+      <p>Within the displayed scenarios, changing the rate by 1.5 percentage points changes lifetime interest by $119,520. Use the <a href="/refinancing-calculator">refinancing calculator</a> to test a quoted rate and closing costs. Compare to a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage at a 4% example rate</a>.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
@@ -279,12 +303,12 @@ export const pseoData: PSEOParams[] = [
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$300,000</td><td class="py-3 px-4 text-sm">$1,896</td><td class="py-3 px-4 text-sm">$382,633</td></tr>
             <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">$350,000</td><td class="py-3 px-4 text-sm">$2,212</td><td class="py-3 px-4 text-sm">$446,406</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$400,000</td><td class="py-3 px-4 text-sm">$2,528</td><td class="py-3 px-4 text-sm">$510,178</td></tr>
+            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$400,000</td><td class="py-3 px-4 text-sm">${loanValue(400000,6.5,30,'monthly')}</td><td class="py-3 px-4 text-sm">${loanValue(400000,6.5,30,'totalInterest')}</td></tr>
           </tbody>
         </table>
       </div>
 
-      <p>Each additional $50,000 borrowed adds roughly $316/month and about $64,000 in lifetime interest at this rate. Whether it's worth stretching from $350,000 to $400,000 comes down to debt-to-income math more than desire. Under the standard 28% housing-ratio guideline, lenders want to see about $94,810 in annual income to support the $350,000 payment (P&I only) versus $108,355 for the $400,000 payment — a gap of roughly $13,545. If existing debts already push your DTI close to the 36–43% ceiling most lenders enforce, staying at $350,000 preserves headroom; if your income clears the higher bar comfortably, the extra $50,000 in home may be worth the higher payment. Compare the full breakdown for a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage</a> or a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage</a>.</p>
+      <p>Each additional $50,000 borrowed adds roughly $316/month and about $64,000 in lifetime interest at this example rate. An illustrative 28% housing-cost assumption produces annual-income figures of about $94,810 for the $350,000 payment and $108,355 for the $400,000 payment. These are planning comparisons rather than lender limits; actual underwriting varies. Compare the full breakdown for a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage</a> or a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage</a>.</p>
     `,
     customFaqs: [
       {
@@ -300,7 +324,7 @@ export const pseoData: PSEOParams[] = [
         answer: "Over 30 years you will pay $446,320 in total interest. Choosing a 15-year term reduces that to $198,820 — a saving of $247,500 — but the monthly payment rises by $837."
       },
       {
-        question: "Is $350,000 a typical mortgage for move-up buyers in 2026?",
+        question: "What does the $350,000 example represent?",
         answer: "Yes. In growing suburbs of Dallas, Phoenix, Charlotte, and other mid-major metros where median home prices sit in the $380,000–$430,000 range, a $350,000 mortgage is very common for families upgrading from a starter home with existing equity."
       }
     ]
@@ -315,7 +339,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "$700,000 Mortgage at 7%: Your Complete Payment Breakdown",
     customDescription: "What is the monthly payment on a $700,000 mortgage at 7.0%? P&I, full PITI, income requirements, and rate sensitivity for buyers in high-cost metro areas.",
     customH1: "$700,000 Mortgage at 7%: Your Complete Payment Breakdown",
-    customIntro: "A $700,000 mortgage at 7% is the standard borrowing range for move-up buyers in high-cost metros — San Francisco Bay Area suburbs, Greater Boston, coastal Southern California, and metro New York markets where a $750,000–$850,000 home is firmly mid-market. At this loan size, buyers are often in jumbo or near-jumbo territory and should know that rates can diverge from conforming loan benchmarks. Income requirements are substantial and typically require two professional incomes or a single very high earner. This page gives you the exact payment at every term, full PITI breakdown, income requirements, and a rate sensitivity table. Use the <a href='/mortgage-calculator'>mortgage calculator</a> to model your scenario.",
+    customIntro: "This illustrative scenario models a $700,000 mortgage at a 7% example annual interest rate. It shows payments by term, editable estimates for taxes and insurance, and rate sensitivity. It does not estimate approval or describe a universal borrower profile. Use the <a href='/mortgage-calculator'>mortgage calculator</a> to model your own rate, down payment, term, taxes, and insurance.",
     customContent: `
       <h2>Monthly Payment on a $700,000 Mortgage at 7%</h2>
       <p>Here is how a $700,000 loan at a fixed 7% rate breaks down across every common repayment term:</p>
@@ -351,7 +375,7 @@ export const pseoData: PSEOParams[] = [
         <li><strong>PMI (~0.5%):</strong> $292</li>
         <li><strong>Total Monthly Payment:</strong> $5,902</li>
       </ul>
-      <p>PMI cancels at 20% equity per <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">CFPB</a> guidelines, reducing the total to approximately $5,610. Note that property taxes in high-cost metros often exceed 1.1% — use the <a href="/mortgage-calculator">mortgage calculator</a> for a personalised PITI. A 20% down payment ($172,000 on a ~$875,000 home) eliminates PMI entirely.</p>
+      <p>The mortgage-insurance, tax, and insurance amounts are editable example assumptions. Actual premiums, cancellation rules, and local costs depend on the property, loan, and lender. Use the <a href="/mortgage-calculator">mortgage calculator</a> to replace them with quoted values.</p>
 
       <h2>What Income Do You Need for a $700,000 Mortgage at 7%?</h2>
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
@@ -360,7 +384,7 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
@@ -370,7 +394,7 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>Most buyers will need a household income of $200,000–$270,000. At this level, lenders scrutinise the full debt picture carefully. Confirm your qualification threshold with our <a href="/affordability-calculator">affordability calculator</a>.</p>
+      <p>The $200,000–$270,000 range follows only the illustrative ratios and costs shown here. It is not an approval estimate, and lender requirements vary. Change the assumptions in our <a href="/affordability-calculator">affordability calculator</a>.</p>
 
       <h2>Rate Sensitivity: $700,000 Mortgage Over 30 Years</h2>
       <div class="overflow-x-auto my-8">
@@ -411,7 +435,7 @@ export const pseoData: PSEOParams[] = [
 
       <h2>Jumbo Loan Considerations at $700k</h2>
       <p>A $700,000 loan sits just under the 2026 national baseline conforming loan limit of $832,750, set by the <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener noreferrer">Federal Housing Finance Agency</a>. In most U.S. counties, a $700,000 loan on its own still qualifies for standard conforming financing rather than a jumbo loan — the baseline applies everywhere, with higher ceilings up to $1,249,125 in designated high-cost areas. Buyers more commonly cross into jumbo territory when the total loan amount itself climbs past the local limit, which can happen fast with a thin down payment on a $750,000+ home.</p>
-      <p>If your financing does end up needing a jumbo loan — because your down payment is small or you're borrowing more than the local limit — expect stricter underwriting than a conforming loan. Lenders typically require a higher credit score (often 700+), a larger down payment (10–20% is common versus as little as 3–5% for conforming loans), significant cash reserves, and a tighter debt-to-income ratio. Jumbo rates can run higher or lower than conforming rates depending on the lender, so it's worth shopping multiple lenders. See what <a href="/calculator/income-required-for-700k-house">income you'd need for a $700,000 house</a> to plan the full budget, not just the loan.</p>
+      <p>If a quoted loan exceeds the applicable conforming limit, its pricing and underwriting may differ. Credit, down-payment, reserve, and debt-to-income requirements vary by lender and loan program, so compare written loan estimates. See the <a href="/calculator/income-required-for-700k-house">$700,000 house planning scenario</a> to model the broader budget.</p>
     `,
     customFaqs: [
       {
@@ -420,7 +444,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What income do I need for a $700,000 mortgage at 7%?",
-        answer: "Using the 28% front-end rule, you need approximately $200,000–$253,000 in gross annual household income. With $400 in other monthly debts the requirement rises to roughly $270,000 — typically requiring two high-earning professionals."
+        answer: "Using the page's illustrative 28% housing-cost assumption produces about $200,000–$253,000 in annual income. Adding $400 in other monthly debts raises the example to roughly $270,000. These are scenario outputs, not approval requirements."
       },
       {
         question: "How much total interest do I pay on a $700,000 mortgage at 7%?",
@@ -428,7 +452,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Is a $700,000 mortgage considered a jumbo loan in 2026?",
-        answer: "In 2026, the conforming loan limit for most of the US is $832,750, so a $700,000 mortgage stays comfortably within conforming territory in standard markets. In high-cost areas like San Francisco and New York, where the limit is even higher, it remains conforming as well. Jumbo loans often carry different rates and qualifying criteria, so always confirm the current limit with your lender."
+        answer: "The page links to the FHFA's 2026 conforming-loan-limit release. Whether a loan is conforming depends on the property location, unit count, loan amount, and applicable rules, so verify the limit for the specific transaction."
       }
     ]
   },
@@ -442,9 +466,9 @@ export const pseoData: PSEOParams[] = [
     term: 30, 
     currency: 'USD',
     customTitle: "$250,000 Mortgage at 3.5%: Your Complete Payment Breakdown",
-    customDescription: "What is the monthly payment on a $250,000 mortgage at 3.5% interest? See your exact P&I payment, full PITI breakdown, total interest cost, income requirements, and how this compares to current 2026 rates.",
+    customDescription: "What is the monthly payment on a $250,000 mortgage at a 3.5% example rate? See P&I, total interest, editable cost assumptions, and rate sensitivity.",
     customH1: "$250,000 Mortgage at 3.5%: Your Complete Payment Breakdown",
-    customIntro: "A $250,000 mortgage at 3.5% is a scenario most relevant to two groups of buyers in 2026: homeowners who locked in this rate during the low-rate period of 2020–2021 and want to understand their remaining loan cost, and first-time buyers exploring FHA loans — which sometimes carry rates closer to 3.5% with the right credit profile and market conditions. This page gives you the exact monthly payment at every term, a full PITI breakdown, the income needed to qualify, and a direct comparison to what the same loan costs at current 2026 market rates. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust for your specific situation.",
+    customIntro: "This illustrative scenario models a $250,000 mortgage at a 3.5% example annual interest rate. It shows payments by term, editable estimates for taxes and insurance, and comparisons with other selected rates. The rates are inputs, not claims about available offers. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust every assumption.",
     customContent: `
       <h2>Monthly Payment on a $250,000 Mortgage at 3.5%</h2>
       <p>The interest rate is the single most powerful lever in your mortgage budget. Here is how a $250,000 loan at a 3.5% fixed rate breaks down across common repayment terms:</p>
@@ -482,10 +506,10 @@ export const pseoData: PSEOParams[] = [
         <li><strong>Total Monthly Payment:</strong> $1,577</li>
       </ul>
 
-      <p>Note that Private Mortgage Insurance (PMI) cancels once you reach 20% equity. At a 3.5% interest rate, your monthly payment is low, making homeownership unusually accessible. To get your own specific numbers, check our <a href="/mortgage-calculator">mortgage calculator</a> for a personalised PITI breakdown. Also, see our <a href="/blog/down-payment-guide">down payment guide</a> for more on cost management.</p>
+      <p>The mortgage-insurance amount is an editable example assumption. Actual premiums and cancellation rules depend on the loan and lender. Use our <a href="/mortgage-calculator">mortgage calculator</a> to replace the tax, insurance, and rate assumptions, and see our <a href="/blog/down-payment-guide">down payment guide</a> for more context.</p>
 
       <h2>What Income Do You Need for a $250,000 Mortgage at 3.5%?</h2>
-      <p>Lenders use the DTI (Debt-to-Income) ratio to ensure you aren't overleveraged. Here is the income required for a <strong>$250000 mortgage monthly payment 3.5 percent</strong> scenario:</p>
+      <p>This illustrative affordability check uses a selected debt-to-income assumption. It is a planning scenario rather than a lender approval rule.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -493,7 +517,7 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
@@ -503,9 +527,9 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>A $250,000 mortgage at 3.5% is highly accessible — requiring significantly less income than at current 2026 rates of 6.8%, which requires $83,000–$115,000. You can confirm your buying power with our <a href="/affordability-calculator">affordability calculator</a> or read about <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
+      <p>Within these assumptions, a 3.5% input produces a lower payment than the 6.8% comparison input. The displayed income figures are illustrative and do not predict approval. Change the inputs in our <a href="/affordability-calculator">affordability calculator</a> or read about <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
 
-      <h2>3.5% vs. Current Rates: The Full Cost Comparison</h2>
+      <h2>3.5% vs. Other Example Rates</h2>
       <p>How does 3.5% compare to recent benchmarks? Historical data from <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> highlights the advantage of low rates. Here is the comparison for a $250,000 loan over 30 years:</p>
 
       <div class="overflow-x-auto my-8">
@@ -531,7 +555,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>Homeowners with a 3.5% rate save over $500 per month compared to those entering the market at 2026 rates. If you target a lower rate through an <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">FHA loan</a> or future refinance, use the <a href="/refinancing-calculator">refinancing calculator</a> to find when it becomes worthwhile. See our <a href="/blog/when-to-refinance">when refinancing makes sense</a> and <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guides for more. Also compare this to a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a> or a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage at 4%</a>. For those torn between payment plans, see the <a href="/blog/15-vs-30-year-mortgage">15-year vs 30-year mortgage comparison</a>.</p>
+      <p>Within the table, the 3.5% input produces a payment more than $500 below the 6.8% example. Use the <a href="/refinancing-calculator">refinancing calculator</a> to test an actual quote and closing costs. See our <a href="/blog/when-to-refinance">when refinancing makes sense</a> and <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guides for more. Also compare this to a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a> or a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage at 4%</a>.</p>
 
       <h2>Run Your Personalised Scenario</h2>
       <p>Model your exact situation using the mortgage calculator above to see your full lifetime cost breakdown instantly. If you are comparing future possibilities, the <a href="/refinancing-calculator">refinancing calculator</a> can help you see exactly how much you would save by dropping to 3.5% today. To learn more about the components of your bill, read <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</p>
@@ -560,11 +584,11 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What income do I need for a $250,000 mortgage at 3.5%?",
-        answer: "To qualify comfortably, you typically need a gross annual household income between $48,000 and $68,000, assuming a moderate down payment and minimal existing debts."
+        answer: "The page's illustrative affordability assumptions produce a gross annual-income range of about $48,000–$68,000. This is not an approval estimate; lender requirements vary."
       },
       {
-        question: "Can I still get a 3.5% mortgage rate in 2026?",
-        answer: "In 2026, 3.5% is significantly below market averages, though it remains a common target for refinancing if rates drop. Some specialized **HUD** FHA loan programs may offer rates closer to this for eligible buyers."
+        question: "What does the 3.5% rate represent?",
+        answer: "The 3.5% rate is an editable mathematical assumption. It does not represent an available offer or market average."
       }
     ]
   },
@@ -576,9 +600,9 @@ export const pseoData: PSEOParams[] = [
     term: 30, 
     currency: 'USD',
     customTitle: "$400,000 Mortgage at 4%: Your Complete Payment Breakdown",
-    customDescription: "What is the monthly payment on a $400,000 mortgage at 4% interest? See your exact P&I payment, full PITI breakdown, total interest cost, income requirements, and how this compares to current 2026 rates.",
+    customDescription: "What is the monthly payment on a $400,000 mortgage at a 4% example rate? See P&I, total interest, editable cost assumptions, and rate sensitivity.",
     customH1: "$400,000 Mortgage at 4%: Your Complete Payment Breakdown",
-    customIntro: "A $400,000 mortgage at 4% represents one of the most financially favorable loan scenarios available — either locked in during the low-rate era of 2020–2021 or a potential future scenario if rates fall significantly from their 2026 levels. This page gives you the exact monthly payment at every term, a full PITI breakdown, the income needed to qualify, and a direct comparison to what the same loan costs at current 2026 rates — showing exactly how much the rate environment affects your total cost. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust for your specific situation.",
+    customIntro: "This illustrative scenario models a $400,000 mortgage at a 4% example annual interest rate. It shows payments by term, editable estimates for taxes and insurance, and comparisons with other selected rates. The rates are inputs, not claims about available offers. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust every assumption.",
     customContent: `
       <h2>Monthly Payment on a $400,000 Mortgage at 4%</h2>
       <p>A lower interest rate dramatically reduces your monthly commitment. Here is how a $400,000 loan at a 4% fixed rate breaks down across different common terms:</p>
@@ -616,10 +640,10 @@ export const pseoData: PSEOParams[] = [
         <li><strong>Total Monthly Payment:</strong> $2,624</li>
       </ul>
 
-      <p>Private Mortgage Insurance (PMI) typically cancels once you reach 20% equity under the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB) rules. Once cancelled, your total cost drops to approximately $2,457. Because interest costs are lower at 4%, your equity builds significantly faster than it would at higher rates. To see your specific scenario, check our <a href="/mortgage-calculator">mortgage calculator</a> for a personalised PITI breakdown.</p>
+      <p>The mortgage-insurance amount is an editable example assumption. Actual premiums and cancellation rules depend on the loan and lender. Use our <a href="/mortgage-calculator">mortgage calculator</a> to replace the tax, insurance, and rate assumptions.</p>
 
       <h2>What Income Do You Need for a $400,000 Mortgage at 4%?</h2>
-      <p>Using the gold-standard 28% rule, here is the annual income required to qualify for a <strong>$400000 mortgage monthly payment 4 percent</strong> scenario:</p>
+      <p>This illustrative affordability check limits housing costs to 28% of gross income. It is a selected planning assumption, not an approval rule; lender requirements vary.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -627,7 +651,7 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
@@ -637,9 +661,9 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>A $400,000 mortgage at 4% is significantly more accessible than the same loan at current 2026 rates of 6.8%, which requires a household income of $108,000–$160,000. You can confirm your own buying power with our <a href="/affordability-calculator">affordability calculator</a>.</p>
+      <p>Within these assumptions, a 4% input produces a lower payment than the 6.8% comparison input. The income figures are illustrative and do not predict approval. Change the inputs in our <a href="/affordability-calculator">affordability calculator</a>.</p>
 
-      <h2>4% vs. Current Rates: The Full Cost Comparison</h2>
+      <h2>4% vs. Other Example Rates</h2>
       <p>This comparison shows exactly why the low-rate environment of previous years was so powerful. Here is the cost difference on a $400,000 loan over 30 years compared to recent benchmarks:</p>
 
       <div class="overflow-x-auto my-8">
@@ -658,14 +682,14 @@ export const pseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td>5.0%</td><td>$2,147</td><td>+$237/month</td><td>$372,920</td><td>+$85,440</td></tr>
             <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$2,271</td><td>+$361/month</td><td>$417,560</td><td>+$130,080</td></tr>
             <tr class="border-b border-outline-variant/30"><td>6.0%</td><td>$2,398</td><td>+$488/month</td><td>$463,280</td><td>+$175,800</td></tr>
-            <tr class="border-b border-outline-variant/30"><td>6.5%</td><td>$2,528</td><td>+$618/month</td><td>$510,080</td><td>+$222,600</td></tr>
+            <tr class="border-b border-outline-variant/30"><td>6.5%</td><td>${loanValue(400000,6.5,30,'monthly')}</td><td>+$618/month</td><td>${loanValue(400000,6.5,30,'totalInterest')}</td><td>+$222,600</td></tr>
             <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td>6.8%</td><td>$2,615</td><td>+$705/month</td><td>$541,400</td><td>+$253,920</td></tr>
             <tr class="border-b border-outline-variant/30"><td>7.0%</td><td>$2,661</td><td>+$751/month</td><td>$557,960</td><td>+$270,480</td></tr>
           </tbody>
         </table>
       </div>
 
-      <p>Borrowers with a 4% rate are paying significantly less than current market participants. For buyers today, this data reinforces the importance of using a <a href="/refinancing-calculator">refinancing calculator</a> to identify exactly when a future rate drop makes a refinance profitable. Read more on <a href="/blog/when-to-refinance">when refinancing makes sense</a> and <a href="/blog/interest-rate-impact">how your rate affects total cost</a>.</p>
+      <p>The table shows how the 4% assumption compares with the other displayed rates. Use a <a href="/refinancing-calculator">refinancing calculator</a> with an actual quote and closing costs to estimate a break-even point. Read more on <a href="/blog/when-to-refinance">when refinancing makes sense</a> and <a href="/blog/interest-rate-impact">how your rate affects total cost</a>.</p>
 
       <h2>Run Your Personalised Scenario</h2>
       <p>Whether you are comparing a historical rate or planning for the future, use the mortgage calculator above to run your specific numbers. Also, compare this scenario to a <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a> or a <a href="/calculator/700k-mortgage-monthly-payment-7-percent">$700,000 mortgage at 7%</a>. For those torn between terms, see our <a href="/blog/15-vs-30-year-mortgage">15-year vs 30-year mortgage comparison</a>.</p>
@@ -694,11 +718,11 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What income do I need for a $400,000 mortgage at 4%?",
-        answer: "To qualify comfortably, you typically need a gross annual household income between $82,000 and $112,000, assuming you have moderate down payment and minimal other monthly debts."
+        answer: "The page's illustrative affordability assumptions produce a gross annual-income range of about $82,000–$112,000. This is not an approval estimate; lender requirements vary."
       },
       {
-        question: "Can I still get a 4% mortgage rate in 2026?",
-        answer: "While 4% is significantly lower than current 2026 market benchmarks, it remains a common target for refinancing if the economy shifts. Review **Federal Reserve Economic Data** (FRED) to see where today's national averages sit."
+        question: "What does the 4% rate represent?",
+        answer: "The 4% rate is an editable mathematical assumption. It does not represent an available offer or market average."
       }
     ]
   },
@@ -714,7 +738,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "$10,000 Personal Loan at 10%: Full Repayment Breakdown",
     customDescription: "What are the monthly payments on a $10,000 personal loan at 10% interest? See exact payments for every term, total interest cost, how to compare lenders, and tips to qualify for a lower rate.",
     customH1: "$10,000 Personal Loan at 10%: Full Repayment Breakdown",
-    customIntro: "A $10,000 personal loan at 10% APR is one of the most common borrowing scenarios in the US — used for debt consolidation, home improvements, medical expenses, and major purchases. The monthly payment and total interest cost vary significantly depending on the loan term you choose. This page gives you the exact repayment figures at every common term, a comparison of how term length affects total cost, and the income and credit requirements to qualify at 10% APR. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customIntro: "This illustrative scenario models a $10,000 personal loan at a 10% example annual interest rate. It compares payments and total interest across terms. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
       <h2>Monthly Payments on a $10,000 Loan at 10%</h2>
       <p>The repayment term you choose is the biggest factor in your monthly budget. A shorter term saves you money on interest, while a longer term provides a more manageable monthly payment. Here is the breakdown for a $10,000 loan at a 10% fixed rate:</p>
@@ -768,8 +792,8 @@ export const pseoData: PSEOParams[] = [
       </div>
       <p>The difference between a 6% and 25% rate is $3,384 in total interest. This is why checking your credit score at <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">AnnualCreditReport.com</a> and improving it before you apply is critical. Read more in our <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guide.</p>
 
-      <h2>What You Need to Qualify for a 10% Personal Loan Rate</h2>
-      <p>Securing a 10% rate generally requires a "good" credit profile. Here are the typical thresholds lenders look for:</p>
+      <h2>Illustrative Borrower Inputs for a 10% Scenario</h2>
+      <p>The table contains example borrower profiles for comparison only. It does not predict eligibility or pricing; each lender applies its own criteria.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -821,7 +845,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What credit score do I need for a 10% personal loan rate?",
-        answer: "Typically, a credit score of 680–720 or higher is required to qualify for personal loan rates in the 10% range from major online and traditional lenders."
+        answer: "The 10% rate is an editable scenario assumption, not an approval prediction. Credit, income, debt, fees, and pricing criteria vary by lender."
       },
       {
         question: "Is a 3-year or 5-year term better for a $10,000 loan?",
@@ -839,7 +863,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "$25,000 Personal Loan at 8%: Full Repayment Breakdown",
     customDescription: "What are the monthly payments on a $25,000 personal loan at 8% interest? See exact payments for every term, total interest cost, income requirements, and how to qualify for the best rate on a $25k loan.",
     customH1: "$25,000 Personal Loan at 8%: Full Repayment Breakdown",
-    customIntro: "A $25,000 personal loan at 8% APR is a common scenario for borrowers financing home improvements, consolidating credit card debt, covering medical expenses, or funding a major life event. At 8%, this is a competitive rate that typically requires a credit score above 700 and stable income. This page gives you the exact monthly payment at every common term, the total interest cost of each option, what income and credit you need to qualify at 8%, and a rate comparison showing exactly what a higher or lower rate would cost. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customIntro: "This illustrative scenario models a $25,000 personal loan at an 8% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
       <h2>Monthly Payments on a $25,000 Loan at 8%</h2>
       <p>The repayment term you choose balances your monthly lifestyle costs against the total lifetime cost of the loan. A $25,000 loan balance carries a significant monthly weight, making it critical to find your target payment-to-income ratio:</p>
@@ -893,8 +917,8 @@ export const pseoData: PSEOParams[] = [
       </div>
       <p>The difference between an 8% and 20% rate over 5 years is $9,360 in total interest — more than a third of the original loan amount. Check your credit score at <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">AnnualCreditReport.com</a> before applying to understand where you land on this table. Read more in our <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guide.</p>
 
-      <h2>What You Need to Qualify for 8% on a $25,000 Loan</h2>
-      <p>Lenders consider $25,000 a major personal loan, often requiring more rigorous income verification than smaller loans. Here is the typical profile needed to secure an 8% APR:</p>
+      <h2>Illustrative Borrower Inputs for an 8% Scenario</h2>
+      <p>The following borrower profiles are illustrative inputs for comparing a $25,000 loan. They do not predict approval or an 8% offer; lender criteria vary.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -973,7 +997,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "$5,000 Personal Loan at 12%: Payments, Costs & Timeline",
     customDescription: "Monthly payment on a $5,000 personal loan at 12% is $166 over 3 years — $976 total interest. Full term table, APR sensitivity, and qualification guide.",
     customH1: "How Much Does a $5,000 Personal Loan at 12% Really Cost?",
-    customIntro: "A $5,000 personal loan at 12% APR is a practical option for first-time borrowers covering emergency expenses, replacing a broken appliance, or consolidating a small credit card balance. At this loan size, lenders are generally more flexible on credit requirements — 12% is accessible to borrowers with fair-to-good credit who may not yet qualify for the best rates. This page gives you the exact monthly payment at every common term, a full APR sensitivity table, and the income and credit requirements to qualify. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customIntro: "This illustrative scenario models a $5,000 personal loan at a 12% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
       <h2>Monthly Payments on a $5,000 Loan at 12%</h2>
       <p>Choosing your repayment term controls how much you pay each month and how much you pay overall. Here is the full breakdown for a $5,000 loan at 12% fixed APR:</p>
@@ -1026,8 +1050,8 @@ export const pseoData: PSEOParams[] = [
       </div>
       <p>The difference between a 10% and 20% APR on a $5,000 loan over 3 years is $900 in total interest — nearly a fifth of what you borrowed. Check your credit at <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">AnnualCreditReport.com</a> before applying to know where you stand on this table.</p>
 
-      <h2>What You Need to Qualify for a 12% Rate on a $5,000 Loan</h2>
-      <p>At $5,000, lenders have more flexibility than with larger amounts. Here are the typical thresholds for approval and for securing the 12% rate shown on this page:</p>
+      <h2>Illustrative Borrower Inputs for a 12% Scenario</h2>
+      <p>The following borrower profiles are illustrative inputs for comparing a $5,000 loan. They do not predict approval or a 12% offer; lender criteria vary.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -1048,7 +1072,7 @@ export const pseoData: PSEOParams[] = [
       </div>
 
       <h2>$5,000 Personal Loan vs. Credit Card at 24%</h2>
-      <p>The most direct comparison for a $5,000 balance is carrying it on a credit card at a typical 24% APR and paying it off over 3 years. At 24% over 36 months, the monthly payment is $196 and you pay $2,056 in total interest. A personal loan at 12% cuts the monthly payment to $166 and total interest to $976 — saving you $30 per month and $1,080 over the life of the balance. That is a meaningful saving on a $5,000 amount. For a deeper comparison, see our <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at 10%</a> breakdown or our <a href="/calculator/15k-loan-monthly-payment-10-percent">$15,000 loan at 10%</a> page.</p>
+      <p>The table compares a $5,000 balance using a 24% example credit-card APR with a 12% example personal-loan rate. At 24% over 36 months, the monthly payment is $196 and total interest is $2,056. At 12%, the payment is $166 and total interest is $976. These rates are assumptions rather than market averages. For another comparison, see our <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at 10%</a> breakdown or our <a href="/calculator/15k-loan-monthly-payment-10-percent">$15,000 loan at 10%</a> page.</p>
 
       <p>Use the <a href="/loan-calculator">loan calculator</a> to run your exact numbers, or check the <a href="/total-interest-calculator">total interest calculator</a> to see the full lifetime cost of any rate and term combination.</p>
 
@@ -1080,7 +1104,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What credit score do I need for a $5,000 personal loan at 12%?",
-        answer: "A credit score of 620 or higher is typically sufficient for a 12% rate on a $5,000 loan. Borrowers with scores below 620 may still qualify but will likely face higher rates."
+        answer: "The 12% rate is an editable scenario assumption, not an approval prediction. Credit, income, debt, fees, and pricing criteria vary by lender."
       }
     ]
   },
@@ -1094,7 +1118,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "$15,000 Personal Loan at 10%: Full Repayment Breakdown",
     customDescription: "$15,000 personal loan at 10%: $484/month over 3 years, $2,424 total interest. Full term comparison, APR sensitivity table, and qualification requirements.",
     customH1: "$15,000 Personal Loan at 10%: What You Will Actually Pay",
-    customIntro: "A $15,000 personal loan at 10% APR fits borrowers financing a car repair gap, consolidating moderate credit card balances, or covering unexpected medical expenses. At this loan amount, lenders expect a solid credit profile — a 640+ score and stable income put you in range for a 10% rate. This page gives you the exact monthly payment at every common term, a rate comparison table showing what better or worse credit costs you, and the qualification thresholds for a 10% offer. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customIntro: "This illustrative scenario models a $15,000 personal loan at a 10% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
       <h2>Monthly Payments on a $15,000 Loan at 10%</h2>
       <p>The repayment term you choose directly trades monthly payment against total interest cost. Here is the full breakdown for a $15,000 balance at 10% fixed APR:</p>
@@ -1147,8 +1171,8 @@ export const pseoData: PSEOParams[] = [
       </div>
       <p>Moving from 10% to 20% APR on a $15,000 loan over 3 years adds $2,628 in total interest — the difference between qualifying with decent credit and applying with poor credit is material at this loan size.</p>
 
-      <h2>What You Need to Qualify for 10% on a $15,000 Loan</h2>
-      <p>Lenders treat $15,000 as a mid-range personal loan. Here are the typical thresholds:</p>
+      <h2>Illustrative Borrower Inputs for a 10% Scenario</h2>
+      <p>The following borrower profiles are illustrative inputs for comparing a $15,000 loan. They do not predict approval or a 10% offer; lender criteria vary.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -1169,7 +1193,7 @@ export const pseoData: PSEOParams[] = [
       </div>
 
       <h2>Using a $15,000 Loan to Consolidate Credit Card Debt</h2>
-      <p>Carrying $15,000 across credit cards at a typical 22% APR and paying it off in 3 years would cost $573 per month and $5,628 in total interest. A personal loan at 10% for the same term costs $484 per month and $2,424 in interest — saving $89 per month and $3,204 over three years. That is a real number worth running before you accept a card minimum payment schedule. For comparison, see our breakdowns of a <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at 10%</a>, a <a href="/calculator/5k-loan-monthly-payment-12-percent">$5,000 loan at 12%</a>, and a <a href="/calculator/20k-loan-monthly-payment-10-percent">$20,000 loan at 10%</a>.</p>
+      <p>Using a 22% example credit-card APR, paying $15,000 over 3 years would cost $573 per month and $5,628 in total interest. A 10% example personal-loan rate for the same term costs $484 per month and $2,424 in interest. These are mathematical assumptions rather than available offers. For comparison, see our breakdowns of a <a href="/calculator/10k-personal-loan-repayment-10-percent">$10,000 personal loan at 10%</a>, a <a href="/calculator/5k-loan-monthly-payment-12-percent">$5,000 loan at 12%</a>, and a <a href="/calculator/20k-loan-monthly-payment-10-percent">$20,000 loan at 10%</a>.</p>
 
       <p>Enter your numbers into the <a href="/loan-calculator">loan calculator</a> to verify your offer, or use the <a href="/total-interest-calculator">total interest calculator</a> to see your exact lifetime cost.</p>
 
@@ -1201,7 +1225,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What credit score do I need for a $15,000 personal loan at 10%?",
-        answer: "Most lenders require a credit score of 640 or higher to qualify for a 10% rate on a $15,000 loan, along with an annual income of at least $30,000 and a DTI below 30%."
+        answer: "The 10% rate is an editable scenario assumption, not an approval prediction. Credit, income, debt, fees, and pricing criteria vary by lender."
       }
     ]
   },
@@ -1213,9 +1237,9 @@ export const pseoData: PSEOParams[] = [
     term: 5,
     currency: 'USD',
     customTitle: "$20,000 Personal Loan at 10%: Payment & Total Cost Guide",
-    customDescription: "$20,000 personal loan at 10%: $425/month over 5 years, $5,500 total interest. See all terms, APR sensitivity table, and what you need to qualify.",
+    customDescription: "$20,000 personal loan at a 10% example rate: compare monthly payments, total interest, terms, and editable borrower assumptions.",
     customH1: "What Does a $20,000 Personal Loan at 10% Cost Over 5 Years?",
-    customIntro: "A $20,000 personal loan at 10% APR is a common choice for home improvement projects, wedding costs, mid-range debt consolidation, or financing a significant purchase where you want a fixed payment and no collateral requirement. At this amount, lenders look for a 660+ credit score and sufficient income to cover the new payment alongside existing obligations. This page gives you the exact monthly payment at every common term, a full rate sensitivity analysis, and an honest comparison of when a personal loan beats secured alternatives. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust for your specific rate and term.",
+    customIntro: "This illustrative scenario models a $20,000 personal loan at a 10% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
       <h2>Monthly Payments on a $20,000 Loan at 10%</h2>
       <p>A $20,000 loan balance is large enough that the choice of term has a real impact on both your monthly budget and your total cost. Here is the full picture at 10% fixed APR:</p>
@@ -1268,8 +1292,8 @@ export const pseoData: PSEOParams[] = [
       </div>
       <p>Moving from a 10% to a 20% APR on a $20,000 loan over 5 years adds $6,300 in total interest — more than 30% of the original loan amount. Improving your credit score before applying is the highest-leverage step a borrower can take at this loan size.</p>
 
-      <h2>What You Need to Qualify for 10% on a $20,000 Loan</h2>
-      <p>At $20,000, lenders require more documentation than for smaller loans. Here are the typical thresholds:</p>
+      <h2>Illustrative Borrower Inputs for a 10% Scenario</h2>
+      <p>The table contains example borrower inputs for comparison only. Documentation, approval, and pricing criteria vary by lender.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -1318,11 +1342,11 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Should I use a personal loan or a home equity loan for a $20,000 home improvement?",
-        answer: "A home equity loan typically offers a lower rate (around 7%) but requires home equity, an appraisal, 2–4 weeks to close, and ties the debt to your home. A personal loan at 10% closes in days with no collateral risk — the rate difference is roughly $1,740 in interest over 5 years."
+        answer: "The comparison uses a 7% example home-equity-loan rate and a 10% example personal-loan rate. Actual rates, fees, timelines, collateral terms, and eligibility vary by lender."
       },
       {
         question: "What credit score do I need for a $20,000 personal loan at 10%?",
-        answer: "Most lenders require a 660+ credit score and annual income of at least $35,000 to qualify for a 10% rate on a $20,000 loan, along with a DTI ratio below 30%."
+        answer: "The 10% rate is an editable scenario assumption, not an approval prediction. Credit, income, debt, fees, and pricing criteria vary by lender."
       }
     ]
   },
@@ -1336,7 +1360,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "$30,000 Personal Loan at 9%: Payments, Costs & Savings",
     customDescription: "$30,000 personal loan at 9%: $623/month for 5 years, $7,380 total interest. Full term table, rate sensitivity, consolidation math, and qualification guide.",
     customH1: "$30,000 Personal Loan at 9%: Monthly Payment & Repayment Options",
-    customIntro: "A $30,000 personal loan at 9% APR is a substantial commitment — the kind of financing used for major home renovations, consolidating multiple credit card balances, or covering significant planned expenses. A 9% rate requires a strong credit profile: most lenders expect a 680+ score, a debt-to-income ratio below 30%, and at least two years of stable employment. This page gives you the exact monthly payment at every common term, a full rate sensitivity table, a debt consolidation comparison with real numbers, and what income and credit score you need to secure this rate. Use the <a href='/loan-calculator'>loan calculator</a> above to run your specific scenario.",
+    customIntro: "This illustrative scenario models a $30,000 personal loan at a 9% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to run your scenario.",
     customContent: `
       <h2>Monthly Payments on a $30,000 Loan at 9%</h2>
       <p>At $30,000, every point of difference in your term has a meaningful impact on your monthly obligation. Here is the full breakdown at a 9% fixed APR:</p>
@@ -1390,8 +1414,8 @@ export const pseoData: PSEOParams[] = [
       </div>
       <p>Moving from a 10% to a 20% APR on a $30,000 loan over 5 years adds $9,420 in total interest — nearly a third of the original principal. Your credit score is the primary variable you control before applying.</p>
 
-      <h2>What You Need to Qualify for 9% on a $30,000 Loan</h2>
-      <p>At $30,000, lenders are more selective. Here are the typical approval and rate thresholds:</p>
+      <h2>Illustrative Borrower Inputs for a 9% Scenario</h2>
+      <p>The following borrower profiles are illustrative inputs for comparing a $30,000 loan. They do not predict approval or a 9% offer; lender criteria vary.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -1412,7 +1436,7 @@ export const pseoData: PSEOParams[] = [
       </div>
 
       <h2>$30,000 Personal Loan vs. Carrying Debt Across Credit Cards</h2>
-      <p>Consider a borrower carrying $30,000 across three credit cards at an average 22% APR, aiming to pay off the full balance in 5 years. At 22% over 60 months, the monthly payment would be $828 and total interest $19,680. A personal loan at 9% for the same term costs $623 per month and $7,380 in total interest — saving $205 per month and $12,300 over five years. At $30,000, consolidating credit card debt with a personal loan is one of the highest-return financial moves available to borrowers who qualify. For related breakdowns see <a href="/calculator/20k-loan-monthly-payment-10-percent">$20,000 at 10%</a>, <a href="/calculator/50k-loan-monthly-payment-8-percent">$50,000 at 8%</a>, and the existing <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a> analysis.</p>
+      <p>Consider a $30,000 balance at a 22% example credit-card APR over 5 years. The monthly payment would be $828 and total interest $19,680. A 9% example personal-loan rate for the same term costs $623 per month and $7,380 in total interest. These are scenario inputs rather than market averages or offers. For related breakdowns see <a href="/calculator/20k-loan-monthly-payment-10-percent">$20,000 at 10%</a>, <a href="/calculator/50k-loan-monthly-payment-8-percent">$50,000 at 8%</a>, and the existing <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a> analysis.</p>
 
       <p>Run your numbers in the <a href="/loan-calculator">loan calculator</a>, or find your exact lifetime interest with the <a href="/total-interest-calculator">total interest calculator</a>.</p>
 
@@ -1444,7 +1468,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What credit score and income do I need for a $30,000 loan at 9%?",
-        answer: "Most lenders require a 680+ credit score, annual income of at least $45,000, and a DTI ratio below 30% to qualify for a 9% rate on a $30,000 personal loan."
+        answer: "The 9% rate is an editable scenario assumption, not an approval prediction. Credit, income, debt, fees, and pricing criteria vary by lender."
       }
     ]
   },
@@ -1458,7 +1482,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "$50,000 Personal Loan at 8%: Payment, Costs & HELOC Guide",
     customDescription: "$50,000 personal loan at 8%: $780/month for 7 years, $15,520 total interest. Full term table, APR sensitivity, HELOC comparison, and credit profile needed.",
     customH1: "Everything You Need to Know About a $50,000 Personal Loan at 8%",
-    customIntro: "A $50,000 personal loan is at the top end of what unsecured lenders typically offer, and an 8% rate at this size requires a strong credit profile — a 700+ score, a stable income of at least $60,000, and a low debt-to-income ratio. This loan size is used for significant home improvements, large debt consolidation across multiple accounts, or major life expenses where putting up collateral is not an option. This page gives you the exact monthly payment at every common term, an honest comparison with a HELOC, and the qualification thresholds that separate a 8% approval from a 15%+ outcome. Use the <a href='/loan-calculator'>loan calculator</a> above to model your specific scenario.",
+    customIntro: "This illustrative scenario models a $50,000 personal loan at an 8% example annual interest rate. It compares payments and total interest with other selected inputs. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to model your scenario.",
     customContent: `
       <h2>Monthly Payments on a $50,000 Loan at 8%</h2>
       <p>At $50,000, the choice of term has a large impact on monthly cash flow. Here is the full breakdown at 8% fixed APR:</p>
@@ -1511,8 +1535,8 @@ export const pseoData: PSEOParams[] = [
       </div>
       <p>Moving from a 10% to a 20% APR on a $50,000 loan over 7 years adds $23,520 in total interest — nearly half the original loan amount. At this scale, the difference between a 700+ and a 620 credit score is not cosmetic; it is tens of thousands of dollars.</p>
 
-      <h2>What You Need to Qualify for 8% on a $50,000 Loan</h2>
-      <p>$50,000 is at the top of the unsecured personal loan market. Many lenders cap at $40,000–$45,000; those offering $50,000 apply strict criteria:</p>
+      <h2>Illustrative Borrower Inputs for an 8% Scenario</h2>
+      <p>The following profiles are illustrative inputs for comparing a $50,000 unsecured loan. Maximum loan size, documentation, approval, and pricing criteria vary by lender.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -1533,7 +1557,7 @@ export const pseoData: PSEOParams[] = [
       </div>
 
       <h2>$50,000 Personal Loan vs. HELOC: When Each Makes Sense</h2>
-      <p>At $50,000, a HELOC (home equity line of credit) is a genuine alternative for homeowners. A HELOC at a typical 7% rate over 7 years costs roughly $755 per month and $13,420 in total interest — saving about $25 per month and $2,100 compared to an 8% personal loan. That is a real but modest saving. What a HELOC gives up: it is a variable rate tied to the prime rate (rising rates mean rising payments), it requires an appraisal and 3–6 weeks to close, and it is secured against your home — missed payments put your equity at risk. A personal loan at 8% has a fixed rate, closes in days, requires no collateral, and carries no home equity risk. For borrowers who own a home with equity and want the lowest possible rate, the HELOC wins on cost. For everyone else — renters, borrowers with limited equity, or those who want certainty on payments — the personal loan is the right instrument despite the slightly higher rate. For adjacent sizes, see <a href="/calculator/30k-loan-monthly-payment-9-percent">$30,000 at 9%</a> and <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a>.</p>
+      <p>For comparison, a $50,000 HELOC at a 7% example rate over 7 years costs roughly $755 per month and $13,420 in total interest, while an 8% example personal-loan rate produces a different cost. These rates are assumptions rather than offers. HELOC pricing can vary, the debt is secured by the home, and fees and terms depend on the lender. For adjacent sizes, see <a href="/calculator/30k-loan-monthly-payment-9-percent">$30,000 at 9%</a> and <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a>.</p>
 
       <p>Enter your offer into the <a href="/loan-calculator">loan calculator</a> to verify, or find your exact lifetime cost with the <a href="/total-interest-calculator">total interest calculator</a>.</p>
 
@@ -1565,7 +1589,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What credit score and income do I need for a $50,000 personal loan at 8%?",
-        answer: "Most lenders require a 700+ credit score, annual income of at least $60,000, and a DTI ratio below 30% to qualify for an 8% rate on a $50,000 personal loan. Some lenders cap unsecured loans at $40,000–$45,000, so verify the lender's maximum before applying."
+        answer: "The 8% rate is an editable scenario assumption, not an approval prediction. Credit, income, debt, maximum loan size, fees, and pricing criteria vary by lender."
       }
     ]
   },
@@ -1582,10 +1606,10 @@ export const pseoData: PSEOParams[] = [
     customTitle: "How Much House Can I Afford on a $100k Salary in 2026?",
     customDescription: "How much house can you afford on a $100,000 salary? See your exact maximum loan amount, monthly payment, down payment requirements, and how existing debts affect your buying power in 2026.",
     customH1: "How Much House Can I Afford on a $100k Salary in 2026?",
-    customIntro: "Earning $100,000 per year puts you in a strong position to buy a home in most US markets in 2026 — but the exact number depends on four variables: your existing monthly debts, your down payment, current interest rates, and local property taxes. This page gives you the precise answer based on the 28/36 rule that lenders actually use, a full breakdown of your maximum comfortable payment, and a table showing how debts and down payments shift your budget. Use the <a href='/affordability-calculator'>affordability calculator</a> above to personalise every number for your exact situation.",
+    customIntro: "Earning $100,000 per year puts you in a strong position to buy a home in most US markets in 2026 — but the exact number depends on four variables: your existing monthly debts, your down payment, the selected example interest rate, and local property taxes. This page gives you the precise answer based on the 28/36 rule that lenders actually use, a full breakdown of your maximum comfortable payment, and a table showing how debts and down payments shift your budget. Use the <a href='/affordability-calculator'>affordability calculator</a> above to personalise every number for your exact situation.",
     customContent: `
       <h2>How Much House Can You Afford on $100k? The Core Numbers</h2>
-      <p>Lenders evaluate your buying power using two primary ratios: the 28% front-end ratio and the 36% back-end ratio. Here is how those guidelines apply to a $100,000 annual income at current 2026 rates (6.8%):</p>
+      <p>Lenders evaluate your buying power using two primary ratios: the 28% front-end ratio and the 36% back-end ratio. Here is how those guidelines apply to a $100,000 annual income at the 6.8% example rate (6.8%):</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -1605,7 +1629,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>The 28% rule is the conservative guideline most financial advisors recommend to ensure you remain "house-rich." The 36% rule (defined by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>) is the technical maximum most lenders will approve. This represents a $100,000 gap in buying power. Most buyers earning $100,000 find their comfort zone in the $280,000–$350,000 loan range. For more detail, see our guide on the <a href="/blog/28-36-rule-explained">28/36 rule explained</a>.</p>
+      <p>This page compares a 28% housing-cost assumption with a 36% total-debt assumption. They are planning scenarios rather than approval limits. The gap illustrates how a selected ratio changes the estimate; lender requirements and personal comfort levels vary. For more detail, see our guide on the <a href="/blog/28-36-rule-explained">28/36 rule explained</a>.</p>
 
       <h2>How Existing Debts Reduce Your Buying Power</h2>
       <p>Your debt-to-income ratio (DTI) is the biggest variable in your affordability. Here is how common debt loads impact a $100,000 salary at a 6.8% interest rate:</p>
@@ -1691,7 +1715,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What mortgage payment can I afford on $100k a year?",
-        answer: "A conservative target for a $100,000 salary is a $2,333 monthly PITI payment (28% of gross income). Most lenders will allow up to $3,000 if you have minimal other debts."
+        answer: "This page uses $2,333 per month as a 28% housing-cost example and $3,000 as a 36% total-debt example with no other debts. Neither is an approval estimate; lender requirements vary."
       },
       {
         question: "Can I afford a $400,000 house on $100k salary?",
@@ -1738,7 +1762,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>The 28% rule is the conservative guideline most financial advisors recommend. The 36% back-end rule from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> is the maximum most lenders will approve with zero other debts. The gap between these two scenarios is about $40,000 in loan amount — meaningful at this income level. For most $50,000 earners, the realistic comfort zone is a $120,000–$145,000 loan. See the <a href="/blog/28-36-rule-explained">28/36 rule explained</a> for more detail.</p>
+      <p>This page compares a 28% housing-cost assumption with a 36% total-debt assumption and zero other debts. They are illustrative planning inputs rather than lender limits. The gap between these scenarios is about $40,000 in estimated loan amount. See the <a href="/blog/28-36-rule-explained">28/36 rule explained</a> for more detail.</p>
 
       <h2>How Existing Debts Reduce Your Buying Power</h2>
       <p>At $50,000/year, debt management is critical. Here is how common debt loads affect your maximum mortgage at 6.8%:</p>
@@ -1868,7 +1892,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>The 28% rule gives a comfortable budget; the 36% upper limit from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> is the technical maximum most lenders allow with zero existing debts. Most $60,000 earners find their realistic buying range sits between $155,000 and $185,000. Read our <a href="/blog/28-36-rule-explained">28/36 rule explained</a> guide for the full framework.</p>
+      <p>This page compares a 28% housing-cost assumption with a 36% total-debt assumption and zero existing debts. They are illustrative planning inputs rather than lender limits. The calculator produces a $155,000–$185,000 example range under the displayed assumptions. Read our <a href="/blog/28-36-rule-explained">28/36 rule explained</a> guide for the framework.</p>
 
       <h2>How Existing Debts Reduce Your Buying Power</h2>
       <p>Debt management is especially important at the median income level. Here is how common monthly debt loads cut into your maximum mortgage at 6.8%:</p>
@@ -2082,7 +2106,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What loan amount can I qualify for on $70,000 income?",
-        answer: "Under the 28% front-end rule, you can qualify for roughly $193,000. Under the 36% back-end rule (with no other debts), that ceiling rises to approximately $250,000. Most lenders land somewhere between these two figures depending on your credit score and debt profile."
+        answer: "Using a 28% housing-cost assumption produces roughly $193,000, while a 36% total-debt assumption with no other debts produces about $250,000. These are calculator scenarios, not approval limits; lender requirements vary."
       },
       {
         question: "How does a $400/month car payment affect my mortgage on $70,000?",
@@ -2317,7 +2341,7 @@ export const pseoData: PSEOParams[] = [
         <li><strong>Total Housing Cost:</strong> $2,099</li>
         <li><strong>As % of $90k Gross Income:</strong> 28.0%</li>
       </ul>
-      <p>This scenario sits right at 28%, which is comfortable but not abundant. For reference, a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary</a> pushes the same calculation to roughly $313,000 in home price — showing how $10,000 more in income meaningfully shifts your market options at current rates.</p>
+      <p>This scenario sits right at 28%, which is comfortable but not abundant. For reference, a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary</a> pushes the same calculation to roughly $313,000 in home price — showing how $10,000 more in income meaningfully shifts your market options at selected example rates.</p>
 
       <h2>Get Your Personalised Home Budget</h2>
       <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to model your exact income, debts, and down payment. Read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand every variable lenders scrutinise — and the <a href="/blog/mortgage-payment-guide">mortgage payment guide</a> to calculate your full cost from first payment to payoff.</p>
@@ -2370,7 +2394,7 @@ export const pseoData: PSEOParams[] = [
     customIntro: "A $200,000 home is still achievable in many rural and Midwest markets — think small Indiana cities, rural Tennessee, or South Texas towns where median prices sit below the national average. For a first-time buyer on a modest salary, this price point is often the entry to homeownership, and FHA loans with 3.5% down are the most common route. At 6.8%, the monthly principal and interest on a $180,000 loan (10% down) is $1,173 — manageable on a single income around $50,000–$65,000 depending on your debts.",
     customContent: `
 <h2>Minimum Income Required for a $200,000 House in 2026</h2>
-<p>Using the standard 28% front-end rule, housing costs should not exceed 28% of gross monthly income. Below are the three key income scenarios for a $200,000 home with 10% down ($20,000), resulting in a $180,000 loan at 6.8% over 30 years:</p>
+<p>The following illustrative scenarios use a 28% housing-cost assumption for a $200,000 home with 10% down ($20,000), resulting in a $180,000 loan at a 6.8% example rate over 30 years. This ratio is a planning input rather than an approval rule.</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2441,7 +2465,7 @@ export const pseoData: PSEOParams[] = [
 </div>
 
 <h2>How Down Payment Size Changes Required Income</h2>
-<p>A larger down payment reduces the loan amount and monthly P&I, which lowers the income required to qualify. At 20% down, PMI also disappears entirely — saving an additional $75/mo on a $200,000 purchase:</p>
+<p>A larger down payment reduces the loan amount and monthly principal-and-interest estimate. In this example, the mortgage-insurance assumption is removed at 20% down, reducing the displayed cost by $75 per month. Actual insurance terms vary by loan and lender.</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2490,7 +2514,7 @@ export const pseoData: PSEOParams[] = [
 <p>Putting 20% down eliminates the $75/mo PMI and reduces P&I by $130/mo — a combined monthly saving of $205 that compounds significantly over 30 years.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
-<p>Income qualifies you on paper, but lenders also require a minimum credit score of 620 for conventional loans (580 for FHA), and your total debt-to-income ratio — both front-end housing costs at 28% and back-end total debts at 36% — must fit within their guidelines. Most lenders also want two years of stable employment in the same field; job changes or gaps can delay approval even when income is sufficient.</p>
+<p>This page does not estimate approval. Credit, income history, debt-to-income limits, documentation, down payment, and other criteria vary by lender and loan program. Treat the 28% and 36% ratios as editable planning assumptions.</p>
 
 <h2>Related Calculators</h2>
 <ul>
@@ -2516,11 +2540,11 @@ export const pseoData: PSEOParams[] = [
     customFaqs: [
       {
         question: "What income do I need for a $200,000 house?",
-        answer: "With 10% down and a $180,000 loan at 6.8%, the minimum income is approximately $50,000 (P&I only at the 28% rule) or $65,000 when property tax, homeowners insurance, and PMI are included. If you carry existing monthly debts, you will need $67,000 or more to meet the 36% back-end ratio lenders require."
+        answer: "With 10% down and a $180,000 loan at a 6.8% example rate, the displayed 28% assumption produces about $50,000 using principal and interest only, or $65,000 with the example local costs. Existing debts raise the scenario result. These are planning outputs, not lender requirements."
       },
       {
         question: "Can I buy a $200,000 house on a $50,000 salary?",
-        answer: "Technically yes — a $50,000 salary covers the P&I payment of $1,173 at the 28% front-end threshold. However, your full PITI including taxes, insurance, and PMI reaches $1,511, which requires approximately $65,000 to qualify comfortably. If you have no existing debt, some lenders may stretch the guidelines slightly."
+        answer: "A $50,000 salary covers the $1,173 principal-and-interest estimate under the displayed 28% assumption. Adding the page's example taxes, insurance, and mortgage insurance raises the cost to $1,511 and the illustrative income to about $65,000. This is not an approval estimate."
       },
       {
         question: "What is the monthly payment on a $180,000 mortgage at 6.8%?",
@@ -2839,7 +2863,7 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Going from 10% to 20% down reduces P&I by $261/mo and eliminates $150/mo in PMI — a total monthly saving of $411 that materially lowers both the payment and the income required to qualify.</p>
+<p>In this scenario, moving from 10% to 20% down reduces principal and interest by $261 per month and removes the $150 monthly mortgage-insurance assumption. The resulting $411 difference lowers the illustrative income figure; actual insurance terms vary.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
 <p>At the $400,000 price point, lenders scrutinize the full picture: credit score (generally 680+ preferred for conventional loans at these amounts), total debt-to-income across housing and all other obligations, and the source of the down payment funds (lenders verify that gift funds are documented and that the down payment is not itself borrowed). Employment history of two years in the same industry is standard; recent promotions are fine, but a switch to a new field can raise questions.</p>
@@ -2895,7 +2919,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "What Income Is Required to Buy a $500,000 House in 2026?",
     customDescription: "Buying a $500,000 home takes strong income. See the salary to qualify, full PITI including taxes and PMI, and a down payment impact analysis for 2026.",
     customH1: "What Income Do You Need for a $500,000 House?",
-    customIntro: "A $500,000 home sits at the lower end of mid-tier coastal and Sun Belt markets — within reach in Denver exurbs, Austin suburbs, and secondary cities on the East Coast like Raleigh or Richmond. Buyers at this price point typically have strong dual incomes, 700+ credit scores, and have been saving seriously for several years. With 10% down ($50,000), the resulting $450,000 loan at 6.8% carries a monthly P&I of $2,934 — and most lenders want to see a household income of at least $150,000 to cover the full PITI comfortably.",
+    customIntro: "This illustrative scenario models a $500,000 home with 10% down ($50,000), producing a $450,000 loan at a 6.8% example annual interest rate. The principal-and-interest estimate is $2,934 per month. Income figures on this page follow displayed planning assumptions and do not predict lender approval.",
     customContent: `
 <h2>Minimum Income Required for a $500,000 House in 2026</h2>
 <p>These figures assume 10% down ($50,000) on a $500,000 purchase, creating a $450,000 loan at 6.8% over 30 years. Income requirements follow the 28% front-end and 36% back-end qualifying ratios:</p>
@@ -3018,7 +3042,7 @@ export const pseoData: PSEOParams[] = [
 <p>Buyers who can put 20% down reduce the required income from $159,000 (full PITI with PMI) to approximately $138,000 (full PITI without PMI) — a meaningful difference in how many households qualify.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
-<p>At the $500,000 price point, underwriting standards tighten slightly: most lenders prefer a 700+ credit score for conventional loans at this amount, and the full debt-to-income picture is examined closely, including student loans at their full monthly payment even if on income-based repayment plans. Self-employed buyers should expect to provide two years of tax returns, as variable income is averaged rather than taken at face value, which can meaningfully reduce the qualifying income used in the calculation.</p>
+<p>This page does not model underwriting. Credit, debt treatment, income documentation, down payment, and approval criteria vary by lender, borrower, and loan program. Use the displayed ratios only as editable planning assumptions.</p>
 
 <h2>Related Calculators</h2>
 <ul>
@@ -3048,7 +3072,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Is $150,000 enough to qualify for a $500,000 house?",
-        answer: "At $150,000 income, your 28% housing budget is $3,500/mo — slightly below the full PITI of $3,720 with 10% down. You would likely need a larger down payment, lower debts, or a co-borrower to qualify comfortably. With 20% down ($100,000), the payment drops to approximately $3,370 including taxes and insurance (no PMI), which fits more cleanly within a $150,000 income."
+        answer: "At $150,000 income, the page's 28% assumption gives a $3,500 monthly housing budget, compared with $3,720 under the 10%-down cost assumptions. At 20% down, the displayed estimate falls to about $3,370. These are planning scenarios, not approval predictions."
       },
       {
         question: "What is the monthly payment on a $450,000 mortgage at 6.8%?",
@@ -3056,7 +3080,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "How much down payment do I need for a $500k home?",
-        answer: "Conventional financing allows as little as 3% down ($15,000), though at that level PMI adds $202/mo and the loan amount of $485,000 pushes the income requirement to ~$136,000 for P&I alone. The standard assumption here is 10% ($50,000). A 20% down payment ($100,000) eliminates PMI and substantially lowers both the monthly payment and the required income to qualify."
+        answer: "The page compares 3%, 10%, and 20% down-payment assumptions. At 3%, it includes a $202 monthly mortgage-insurance estimate; at 20%, it removes that assumption. Actual down-payment and insurance terms vary by loan and lender."
       }
     ]
   },
@@ -3074,7 +3098,7 @@ export const pseoData: PSEOParams[] = [
     customIntro: "Six hundred thousand dollars puts you squarely in coastal secondary city territory — Portland, San Diego suburbs, Salt Lake City, or the outer ring of the Seattle metro. Buyers here are typically high earners: software engineers, physicians, senior managers, or dual-income households with each partner earning $80,000–$100,000. At this price point, many buyers aim for 20% or more down to avoid PMI and keep the monthly cost manageable — the 10% down scenario shown here requires a household income approaching $190,000.",
     customContent: `
 <h2>Minimum Income Required for a $600,000 House in 2026</h2>
-<p>The calculations below assume 10% down ($60,000) on a $600,000 purchase, producing a $540,000 loan at 6.8% over 30 years. Income thresholds use the 28% front-end and 36% back-end qualifying ratios used by most conventional lenders:</p>
+<p>The calculations below assume 10% down ($60,000) on a $600,000 purchase, producing a $540,000 loan at a 6.8% example rate over 30 years. The 28% housing-cost and 36% total-debt ratios are illustrative planning inputs rather than approval rules.</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -3194,7 +3218,7 @@ export const pseoData: PSEOParams[] = [
 <p>With 20% down, the full PITI (P&I $3,129 + tax $550 + insurance $150 = $3,829, no PMI) requires approximately $164,000 annually — meaningfully lower than the $191,000 needed at 10% down.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
-<p>At this price point, lenders closely examine the source and history of the down payment — large deposits must be documented with paper trails going back at least 60–90 days. Credit score expectations rise, with most lenders preferring 720+ for the best rates on a loan of this size. Lenders also look beyond W-2 income: bonuses, commissions, and investment income may count, but only if they have been received consistently for two or more years and are likely to continue.</p>
+<p>This page does not model underwriting. Credit, income sources, asset documentation, down-payment history, and pricing criteria vary by lender, borrower, and loan program.</p>
 
 <h2>Related Calculators</h2>
 <ul>
@@ -3244,7 +3268,7 @@ export const pseoData: PSEOParams[] = [
     rate: 6.8,
     term: 30,
     currency: 'USD',
-    customTitle: "What Income Do Lenders Require for a $700,000 House in 2026?",
+    customTitle: "Illustrative Income for a $700,000 House",
     customDescription: "Buying a $700,000 home puts you in a top income bracket. See the salary needed to qualify, full PITI with PMI, debt impact table, and down payment scenarios.",
     customH1: "What Income Does a $700,000 House Actually Require?",
     customIntro: "Seven hundred thousand dollars is executive-buyer territory — this price range covers larger homes in premium suburbs of Boston, Washington DC, or the Chicago North Shore, and entry-level properties in coastal California or Seattle proper. Buyers typically come from the top 10–15% of household incomes, often with stock compensation, bonuses, or business income supplementing base salary. With 10% down ($70,000), the $630,000 loan at 6.8% carries a monthly P&I of $4,107, and the full PITI approaches $5,172 — putting the income threshold at $222,000.",
@@ -3370,7 +3394,7 @@ export const pseoData: PSEOParams[] = [
 <p>At 20% down, the full PITI (P&I $3,651 + tax $642 + insurance $160 = $4,453, no PMI) requires approximately $191,000 annually — more achievable for executive-level dual-income households than the $222,000 threshold at 10% down.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
-<p>Mortgages above $832,750 (the 2026 conforming loan limit, adjusted annually) enter "jumbo" territory and face stricter underwriting: typically 720–740+ credit scores, 12 months of cash reserves after closing, and full documentation of all income sources including RSUs, deferred compensation, and rental income. At 10% down, some lenders require private mortgage insurance with jumbo premiums that exceed the standard 0.5% estimate used here — 20% down often eliminates both PMI and the jumbo premium concern simultaneously.</p>
+<p>The page links to the FHFA's 2026 conforming-loan-limit release. Whether a loan is conforming and what documentation, reserves, insurance, or down payment it requires depend on the property and loan program. The 0.5% mortgage-insurance figure shown here is only an editable cost assumption.</p>
 
 <h2>Related Calculators</h2>
 <ul>
@@ -3421,13 +3445,13 @@ export const pseoData: PSEOParams[] = [
     rate: 3.5,
     term: 25,
     currency: 'EUR',
-    customTitle: "€150,000 Mortgage at 3.5% Europe 2026: Monthly Payment & Affordability Guide",
-    customDescription: "€150,000 mortgage at 3.5% over 25 years in Europe 2026. Exact monthly payment, rate table, income needed at 33% DTI, and Euribor vs fixed rate guidance.",
+    customTitle: "€150,000 Mortgage at 3.5%: Monthly Payment & Affordability Guide",
+    customDescription: "€150,000 mortgage at 3.5% over 25 years in. Exact monthly payment, rate table, illustrative affordability check, and Euribor vs fixed rate guidance.",
     customH1: "€150,000 Mortgage at 3.5%: Monthly Payments for European First-Time Buyers",
-    customIntro: "A €150,000 mortgage at 3.5% is a realistic scenario for first-time buyers in Portugal's interior cities, smaller Spanish regional capitals such as Valladolid or Salamanca, and more affordable parts of Belgium and the Netherlands. In Portugal and Spain, first-time buyer support schemes — including government-backed guarantees and reduced transfer taxes — can bring the total acquisition cost within reach of a single modest income. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to model your deposit size and compare terms.",
+    customIntro: "This illustrative scenario models a €150,000 euro-denominated mortgage at a 3.5% example annual interest rate over 25 years. The rate is an editable input rather than a claim about available offers. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly entered.",
     customContent: `
       <h2>Monthly Payment on a €150,000 Mortgage at 3.5%</h2>
-      <p>In most Eurozone countries, 20- and 25-year terms are the norm. Here is the full breakdown for a €150,000 loan at a 3.5% fixed rate across every common term:</p>
+      <p>Here is the full breakdown for a €150,000 loan at a 3.5% fixed rate across every common term:</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -3444,18 +3468,18 @@ export const pseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€1,072</td><td class="py-3 px-4 text-sm">€42,960</td><td class="py-3 px-4 text-sm">€192,960</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€870</td><td class="py-3 px-4 text-sm">€58,800</td><td class="py-3 px-4 text-sm">€208,800</td></tr>
             <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€751</td><td class="py-3 px-4 text-sm">€75,300</td><td class="py-3 px-4 text-sm">€225,300</td></tr>
-            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€674</td><td class="py-3 px-4 text-sm">€92,640</td><td class="py-3 px-4 text-sm">€242,640</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (comparison term)</td><td class="py-3 px-4 text-sm">€674</td><td class="py-3 px-4 text-sm">€92,640</td><td class="py-3 px-4 text-sm">€242,640</td></tr>
           </tbody>
         </table>
       </div>
 
       <p>At 3.5% over 25 years the monthly principal and interest payment is €751 — and the total interest over the life of the loan is €75,300. Choosing the 20-year term instead adds €119 to the monthly payment but saves €16,500 in total interest. Use the <a href="/mortgage-calculator">mortgage calculator</a> above to run your exact scenario, or check our <a href="/affordability-calculator">affordability calculator</a> to confirm your buying power.</p>
 
-      <h2>Euribor vs. Fixed Rate: What European Buyers Should Know</h2>
-      <p>European mortgages generally fall into two categories: fixed-rate and Euribor-linked variable rates. Fixed rates — standard in France and Germany — offer payment certainty for the full term. Variable rates, common in Belgium, Spain, and Portugal, are priced as Euribor plus a bank margin; they can start lower but move with the market. In 2026, a 3.5% fixed rate is realistic for most Eurozone borrowers with solid credit. The <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a> publishes current Euribor benchmarks. For a €150,000 loan, the monthly difference between a 3.0% and a 4.0% fixed rate is roughly €81 — significant over 25 years.</p>
+      <h2>Fixed and Variable Rate Scenarios</h2>
+      <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
 
       <h2>Rate Sensitivity: €150,000 Mortgage at 25 Years</h2>
-      <p>How much does the rate actually matter? Here is the full picture for a €150,000 loan over 25 years across the realistic 2026 range:</p>
+      <p>How much does the rate actually matter? Here is the full picture for a €150,000 loan over 25 years across the displayed example range:</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -3478,9 +3502,9 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <h2>Income Required for a €150,000 Mortgage at 3.5%</h2>
-      <p>Most Eurozone lenders apply a 33% debt-to-income (DTI) limit — stricter than the US 28% rule. European mortgages typically do not include Private Mortgage Insurance (PMI); instead, lenders manage risk through stricter LTV caps and higher equity requirements. Here is what you need to earn for a 25-year term at 3.5%:</p>
-      <p><em>Assumptions: home value ~€167,000 (90% LTV), property tax 0.3% of home value, insurance €50/mo. No PMI — most EU lenders do not charge it.</em></p>
+      <h2>Illustrative Affordability Check for a €150,000 Mortgage at 3.5%</h2>
+      <p>The table uses a selected 33% payment-to-income assumption for stress testing. It is not a European or lender qualification rule. Approval criteria vary by jurisdiction, lender, loan product, and borrower.</p>
+      <p><em>Local taxes, insurance, transaction costs, and loan-specific charges are editable example inputs and may be excluded. Replace them with documented local figures before using the estimate.</em></p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -3488,19 +3512,19 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€751</td><td class="py-3 px-4 text-sm">~€27,300</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€843</td><td class="py-3 px-4 text-sm">~€30,700</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Payment plus example local costs</td><td class="py-3 px-4 text-sm">€843</td><td class="py-3 px-4 text-sm">~€30,700</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €300 other debts</td><td class="py-3 px-4 text-sm">€1,143</td><td class="py-3 px-4 text-sm">~€41,600</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2>Country Notes for European Buyers</h2>
-      <p><strong>Belgium:</strong> Lenders typically cap LTV at 90% for first-time buyers; notary fees and registration duties add 12–15% to acquisition costs — budget for this on top of the deposit. <strong>Netherlands:</strong> The Nationale Hypotheek Garantie (NHG) guarantee applies to purchases up to €435,000, lowering lender risk and often the interest rate offered. <strong>France:</strong> The Prêt à Taux Zéro (PTZ) interest-free loan can supplement a €150,000 mortgage for eligible first-time buyers in qualifying zones. <strong>Germany:</strong> Most German lenders require 20–30% equity; a €150,000 loan at this level implies a relatively modest property or a substantial deposit. Always consult a local mortgage adviser for the most current regional conditions.</p>
+      <h2>Jurisdiction and Cost Scope</h2>
+      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. It does not estimate local eligibility, taxes, registration or notary fees, insurance, subsidies, or lender rules. Use a written local quote and local cost inputs for a real decision.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
@@ -3515,24 +3539,7 @@ export const pseoData: PSEOParams[] = [
         </div>
       </div>
     `,
-    customFaqs: [
-      {
-        question: "What is the monthly payment on a €150,000 mortgage at 3.5% over 25 years?",
-        answer: "The monthly principal and interest payment is €751. Adding estimated property tax (0.3% of home value) and building insurance brings the typical total monthly cost to around €843. European mortgages generally do not include PMI."
-      },
-      {
-        question: "What income do I need to qualify for a €150,000 mortgage in Europe?",
-        answer: "At a 33% DTI limit — the standard applied by most Belgian, French, and Dutch lenders — you need a gross annual income of approximately €30,700 to cover the full monthly cost including tax and insurance. With €300 in other monthly debts, that rises to around €41,600."
-      },
-      {
-        question: "Should I choose a Euribor-linked or fixed rate for my European mortgage?",
-        answer: "It depends on your country and risk tolerance. Fixed rates offer payment certainty and are standard in France and Germany. Euribor-linked rates are common in Belgium, Spain, and Portugal; they can be cheaper initially but rise when the ECB raises rates. At €150,000, a 1% rate increase adds roughly €40 per month on a 25-year term."
-      },
-      {
-        question: "Is a €150,000 mortgage realistic for first-time buyers in Portugal or Spain?",
-        answer: "Yes — in Portugal's interior cities and smaller Spanish regional capitals, €150,000 covers a range of two-bedroom properties. Government first-buyer programmes in both countries can reduce upfront costs. You will typically need a 10% deposit plus legal fees of 8–12% of the purchase price."
-      }
-    ]
+    customFaqs: euroScenarioFaqs(150000)
   },
 
   {
@@ -3542,10 +3549,10 @@ export const pseoData: PSEOParams[] = [
     rate: 3.5,
     term: 25,
     currency: 'EUR',
-    customTitle: "€200,000 Mortgage at 3.5% Europe 2026: Monthly Payment, Income & Rate Guide",
-    customDescription: "€200,000 mortgage at 3.5% over 25 years in Europe 2026. Monthly payment €1,001, income at 33% DTI, rate table, and country notes for Belgium and France.",
+    customTitle: "€200,000 Mortgage at 3.5%: Monthly Payment, Payments & Rate Guide",
+    customDescription: "€200,000 mortgage at 3.5% over 25 years in. Monthly payment €1,001, income at 33% DTI, rate table, and country notes for Belgium and France.",
     customH1: "€200,000 Mortgage at 3.5%: Monthly Payments and Affordability for European Buyers",
-    customIntro: "A €200,000 mortgage at 3.5% sits in the mid-range of European first purchases — within reach for buyers in suburban Belgium, secondary French cities such as Rennes, Nantes, or Strasbourg, and smaller Dutch cities outside the Randstad. At this level, a dual income typically qualifies comfortably under the 33% DTI limit that most Belgian, French, and Dutch lenders apply. The monthly payment over 25 years comes out to €1,001 — a figure that fits a combined net income in the €3,000–€4,000 range without excessive strain. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to model different deposit sizes and term lengths.",
+    customIntro: "This illustrative scenario models a €200,000 euro-denominated mortgage at a 3.5% example annual interest rate over 25 years. The rate is an editable input rather than a claim about available offers. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly entered.",
     customContent: `
       <h2>Monthly Payment on a €200,000 Mortgage at 3.5%</h2>
       <p>Term length has a large effect on monthly cash flow and total interest cost. Here is the full breakdown for a €200,000 loan at 3.5% fixed:</p>
@@ -3565,15 +3572,15 @@ export const pseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€1,430</td><td class="py-3 px-4 text-sm">€57,400</td><td class="py-3 px-4 text-sm">€257,400</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€1,160</td><td class="py-3 px-4 text-sm">€78,400</td><td class="py-3 px-4 text-sm">€278,400</td></tr>
             <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€1,001</td><td class="py-3 px-4 text-sm">€100,300</td><td class="py-3 px-4 text-sm">€300,300</td></tr>
-            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€898</td><td class="py-3 px-4 text-sm">€123,280</td><td class="py-3 px-4 text-sm">€323,280</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (comparison term)</td><td class="py-3 px-4 text-sm">€898</td><td class="py-3 px-4 text-sm">€123,280</td><td class="py-3 px-4 text-sm">€323,280</td></tr>
           </tbody>
         </table>
       </div>
 
       <p>At 3.5% over 25 years the monthly principal and interest payment is €1,001 — crossing the symbolic four-figure mark. Shortening to 20 years adds €159 per month but saves €21,900 in total interest. The 15-year term costs €429 more per month than 25 years but cuts total interest paid by €42,900. See the <a href="/blog/200k-euro-mortgage">full €200,000 euro mortgage guide</a> for a deeper analysis of term and rate trade-offs for European buyers.</p>
 
-      <h2>Euribor vs. Fixed Rate: Context for a €200,000 Loan</h2>
-      <p>At €200,000, the choice between a fixed and a Euribor-linked rate has meaningful cash-flow consequences. Fixed rates — dominant in France and Germany — guarantee your payment for the full 25 years. Variable Euribor-plus-margin rates, common in Belgium, Spain, and Portugal, start below fixed rates during periods of low Euribor but track ECB policy decisions. In 2026, a 3.5% fixed rate is achievable for creditworthy borrowers across most of the Eurozone. For live benchmark data, see the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a>. On a €200,000 loan over 25 years, a 1% rate increase adds around €105 to the monthly payment — worth planning for if choosing a variable product.</p>
+      <h2>Fixed and Variable Rate Scenarios</h2>
+      <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
 
       <h2>Rate Sensitivity: €200,000 Mortgage at 25 Years</h2>
       <p>Here is what different rates cost on a €200,000 loan over the standard 25-year European term:</p>
@@ -3599,9 +3606,9 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <h2>Income Required for a €200,000 Mortgage at 3.5%</h2>
-      <p>European lenders commonly use a 33% DTI threshold — meaning total monthly debt payments should not exceed one third of gross monthly income. Unlike in the US, Private Mortgage Insurance does not exist in most EU markets; lenders protect themselves through LTV limits instead. Here is the income picture for a 25-year fixed term at 3.5%:</p>
-      <p><em>Assumptions: home value ~€222,000 (90% LTV), property tax 0.3% of home value, insurance €65/mo. No PMI charged.</em></p>
+      <h2>Illustrative Affordability Check for a €200,000 Mortgage at 3.5%</h2>
+      <p>The table uses a selected 33% payment-to-income assumption for stress testing. It is not a European or lender qualification rule. Approval criteria vary by jurisdiction, lender, loan product, and borrower.</p>
+      <p><em>Local taxes, insurance, transaction costs, and loan-specific charges are editable example inputs and may be excluded. Replace them with documented local figures before using the estimate.</em></p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -3609,19 +3616,19 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€1,001</td><td class="py-3 px-4 text-sm">~€36,400</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€1,122</td><td class="py-3 px-4 text-sm">~€40,800</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Payment plus example local costs</td><td class="py-3 px-4 text-sm">€1,122</td><td class="py-3 px-4 text-sm">~€40,800</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €300 other debts</td><td class="py-3 px-4 text-sm">€1,422</td><td class="py-3 px-4 text-sm">~€51,700</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2>Country Notes for European Buyers</h2>
-      <p><strong>Belgium:</strong> Maximum LTV is typically 90% for first purchases; add 12–15% on top for notary fees and registration duties. A combined income of around €40,000–€45,000 generally qualifies. <strong>Netherlands:</strong> The NHG guarantee covers loans up to €435,000, reducing lender risk and often improving the rate offered — well worth pursuing at this loan size. <strong>France:</strong> The PTZ zero-interest loan can supplement a €200,000 mortgage for qualifying first-time buyers in zones B2 and C. Fixed rates are the norm in France, making 3.5% a realistic target for 2026. <strong>Germany:</strong> German lenders typically require 20–30% equity; a €200,000 loan implies a purchase price of around €250,000–€285,000 with a significant deposit. Consult a local mortgage broker (Hypothekenmakler) for current lender offers. Always work with a local adviser for up-to-date regional guidance.</p>
+      <h2>Jurisdiction and Cost Scope</h2>
+      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. It does not estimate local eligibility, taxes, registration or notary fees, insurance, subsidies, or lender rules. Use a written local quote and local cost inputs for a real decision.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
@@ -3636,24 +3643,7 @@ export const pseoData: PSEOParams[] = [
         </div>
       </div>
     `,
-    customFaqs: [
-      {
-        question: "What is the monthly payment on a €200,000 mortgage at 3.5% over 25 years?",
-        answer: "The monthly principal and interest payment is €1,001. Including estimated property tax and building insurance, the typical all-in monthly cost is around €1,122. EU mortgages do not include PMI — lenders use LTV limits instead."
-      },
-      {
-        question: "What income do I need for a €200,000 mortgage in Europe?",
-        answer: "At the 33% DTI threshold used by most Belgian, French, and Dutch lenders, you need a gross annual income of approximately €40,800 to cover the full monthly cost including taxes and insurance. A combined household income of €45,000–€55,000 provides comfortable headroom."
-      },
-      {
-        question: "What is the difference between a Euribor rate and a fixed rate on a €200,000 mortgage?",
-        answer: "A fixed rate locks your payment for the full term — standard in France and Germany. A Euribor-linked rate moves with ECB decisions; it may start lower but can increase. On €200,000 over 25 years, a 1% rate rise adds approximately €105 per month, so stress-testing your budget at 4.5% before choosing a variable product is sensible."
-      },
-      {
-        question: "Can I get a €200,000 mortgage in Belgium or France as a first-time buyer?",
-        answer: "Yes. In Belgium, you typically need a 10% deposit plus notary costs of 12–15%. In France, the PTZ interest-free loan can reduce the amount you need to borrow. Dutch buyers benefit from the NHG guarantee, which often lowers the interest rate offered by the bank. Each country has its own qualification criteria, so local advice is essential."
-      }
-    ]
+    customFaqs: euroScenarioFaqs(200000)
   },
 
   {
@@ -3663,10 +3653,10 @@ export const pseoData: PSEOParams[] = [
     rate: 3.5,
     term: 25,
     currency: 'EUR',
-    customTitle: "€250,000 Mortgage at 3.5% Europe 2026: Monthly Payment & Affordability Guide",
-    customDescription: "€250,000 mortgage at 3.5% for 25 years, Europe 2026: monthly payment €1,252, income required, rate sensitivity, and country tips for Belgian and Dutch buyers.",
+    customTitle: "€250,000 Mortgage at 3.5%: Monthly Payment & Affordability Guide",
+    customDescription: "€250,000 mortgage at 3.5% for 25 years,: monthly payment €1,252, income required, rate sensitivity, and country tips for Belgian and Dutch buyers.",
     customH1: "€250,000 Mortgage at 3.5%: European Payment Breakdown and Affordability",
-    customIntro: "A €250,000 mortgage at 3.5% is a common dual-income scenario for buyers in suburban Belgium and the Netherlands, secondary French cities such as Lyon's satellite towns or Bordeaux's peri-urban fringe, and starter properties in mid-tier German markets. At this loan size, most lenders expect a combined gross income above €45,000 and a deposit of at least 10% — plus notary fees that can add another 10–15% to upfront costs in Belgium and France. The monthly payment over 25 years comes out to €1,252. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust for your deposit size and term.",
+    customIntro: "This illustrative scenario models a €250,000 euro-denominated mortgage at a 3.5% example annual interest rate over 25 years. The rate is an editable input rather than a claim about available offers. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly entered.",
     customContent: `
       <h2>Monthly Payment on a €250,000 Mortgage at 3.5%</h2>
       <p>At €250,000, term selection makes a significant difference to monthly affordability. Here is the breakdown for a 3.5% fixed rate across every common term:</p>
@@ -3686,15 +3676,15 @@ export const pseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€1,787</td><td class="py-3 px-4 text-sm">€71,660</td><td class="py-3 px-4 text-sm">€321,660</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€1,450</td><td class="py-3 px-4 text-sm">€98,000</td><td class="py-3 px-4 text-sm">€348,000</td></tr>
             <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€1,252</td><td class="py-3 px-4 text-sm">€125,600</td><td class="py-3 px-4 text-sm">€375,600</td></tr>
-            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€1,123</td><td class="py-3 px-4 text-sm">€154,280</td><td class="py-3 px-4 text-sm">€404,280</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (comparison term)</td><td class="py-3 px-4 text-sm">€1,123</td><td class="py-3 px-4 text-sm">€154,280</td><td class="py-3 px-4 text-sm">€404,280</td></tr>
           </tbody>
         </table>
       </div>
 
       <p>At 3.5% over 25 years the monthly principal and interest payment is €1,252. Shortening the term to 20 years adds €198 per month but saves €27,600 in total interest. The difference between a 25-year and a 15-year term is €535 per month but saves €53,940 in interest over the life of the loan — a decision that depends heavily on monthly cash flow and income stability. Use the <a href="/mortgage-calculator">mortgage calculator</a> to compare scenarios, and verify your buying power with our <a href="/affordability-calculator">affordability calculator</a>.</p>
 
-      <h2>Euribor vs. Fixed Rate on a €250,000 Mortgage</h2>
-      <p>At this loan size, the annual cost difference between a fixed and a variable Euribor-linked rate can reach several thousand euros. Fixed rates — the default in France and Germany — provide complete payment certainty. Variable rates, standard in Belgium, Spain, and Portugal, are set as Euribor plus a bank spread; they have historically been lower at origination but follow ECB policy. In 2026, 3.5% is a realistic fixed rate for solid-credit borrowers across the Eurozone. Monitor current Euribor benchmarks at the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a>. On €250,000 over 25 years, a 1% rate movement shifts the monthly payment by around €130 — meaningful at this loan size, so stress-test any variable offer at +1.5% before committing.</p>
+      <h2>Fixed and Variable Rate Scenarios</h2>
+      <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
 
       <h2>Rate Sensitivity: €250,000 Mortgage at 25 Years</h2>
       <p>Here is what different rates cost on a €250,000 loan over the standard 25-year European term:</p>
@@ -3720,9 +3710,9 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <h2>Income Required for a €250,000 Mortgage at 3.5%</h2>
-      <p>Most Eurozone lenders cap housing debt at 33% of gross monthly income. Private Mortgage Insurance does not exist in most EU markets — lenders manage risk through LTV limits and credit assessments. Here is the income picture for a 25-year fixed term at 3.5%:</p>
-      <p><em>Assumptions: home value ~€278,000 (90% LTV), property tax 0.3% of home value, insurance €75/mo. No PMI charged.</em></p>
+      <h2>Illustrative Affordability Check for a €250,000 Mortgage at 3.5%</h2>
+      <p>The table uses a selected 33% payment-to-income assumption for stress testing. It is not a European or lender qualification rule. Approval criteria vary by jurisdiction, lender, loan product, and borrower.</p>
+      <p><em>Local taxes, insurance, transaction costs, and loan-specific charges are editable example inputs and may be excluded. Replace them with documented local figures before using the estimate.</em></p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -3730,19 +3720,19 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€1,252</td><td class="py-3 px-4 text-sm">~€45,500</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€1,397</td><td class="py-3 px-4 text-sm">~€50,800</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Payment plus example local costs</td><td class="py-3 px-4 text-sm">€1,397</td><td class="py-3 px-4 text-sm">~€50,800</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €300 other debts</td><td class="py-3 px-4 text-sm">€1,697</td><td class="py-3 px-4 text-sm">~€61,700</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2>Country Notes for European Buyers</h2>
-      <p><strong>Belgium:</strong> Lenders cap LTV at 90% for first purchases; notary and registration costs run 12–15% of the purchase price, adding €30,000–€40,000 to upfront costs at this level. Budget carefully. <strong>Netherlands:</strong> The NHG guarantee applies to purchases up to €435,000, often securing a lower interest rate margin. A €250,000 loan on a property under €278,000 falls comfortably within NHG scope. <strong>France:</strong> Fixed rates dominate; 3.5% is achievable for qualifying borrowers in 2026. The PTZ programme provides an interest-free supplemental loan for eligible first-time buyers in zones outside major cities — worth checking before finalising your financing. <strong>Germany:</strong> German lenders typically require 20–30% equity and strong documentation; a €250,000 loan implies a property around €310,000–€350,000 with a meaningful deposit. A local Hypothekenmakler can compare lenders efficiently. Always consult a qualified mortgage adviser in your country before committing.</p>
+      <h2>Jurisdiction and Cost Scope</h2>
+      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. It does not estimate local eligibility, taxes, registration or notary fees, insurance, subsidies, or lender rules. Use a written local quote and local cost inputs for a real decision.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
@@ -3757,24 +3747,7 @@ export const pseoData: PSEOParams[] = [
         </div>
       </div>
     `,
-    customFaqs: [
-      {
-        question: "What is the monthly payment on a €250,000 mortgage at 3.5% over 25 years?",
-        answer: "The monthly principal and interest payment is €1,252. Adding property tax (0.3% of home value) and building insurance brings the typical all-in monthly cost to around €1,397. EU mortgages do not include PMI — lenders use LTV limits and credit assessments instead."
-      },
-      {
-        question: "What household income is needed for a €250,000 European mortgage at 3.5%?",
-        answer: "At the 33% DTI limit used by most Belgian, French, and Dutch lenders, a full PITI monthly cost of €1,397 requires a gross annual income of approximately €50,800. With €300 in other monthly debts, that rises to around €61,700. Most buyers at this level are dual-income households."
-      },
-      {
-        question: "Is a fixed rate better than a Euribor-linked rate for a €250,000 mortgage in 2026?",
-        answer: "For a €250,000 mortgage, fixed rates are worth serious consideration. A 1% Euribor increase on a variable product adds around €130 per month — meaningful over 25 years. If you are in France or Germany, fixed rates are the standard market product. Belgian and Dutch buyers should stress-test any variable offer at Euribor +1.5% to ensure the payments remain manageable."
-      },
-      {
-        question: "How much deposit do I need for a €250,000 mortgage property in the Netherlands?",
-        answer: "Dutch lenders typically require a minimum 10% deposit, plus transfer tax (2% for properties under the first-buyer exemption threshold in 2026) and legal fees. For a property at ~€278,000 with 10% down, you would need approximately €28,000 deposit plus €5,000–€8,000 in closing costs. The NHG guarantee applies at this loan size, which may reduce the rate offered."
-      }
-    ]
+    customFaqs: euroScenarioFaqs(250000)
   },
 
   // Mortgages EUR — Wave 5B
@@ -3785,10 +3758,10 @@ export const pseoData: PSEOParams[] = [
     rate: 3.5,
     term: 25,
     currency: 'EUR',
-    customTitle: "€300,000 Mortgage at 3.5% Europe 2026: Monthly Payment & Income Guide",
-    customDescription: "€300,000 mortgage at 3.5% over 25 years in Europe 2026: exact monthly payment, full rate table, income needed at 33% DTI, and country notes for buyers.",
+    customTitle: "€300,000 Mortgage at 3.5%: Monthly Payment & Income Guide",
+    customDescription: "€300,000 mortgage at 3.5% over 25 years in: exact monthly payment, full rate table, illustrative affordability check, and country notes for buyers.",
     customH1: "€300,000 Mortgage at 3.5%: What European Buyers Pay Each Month",
-    customIntro: "A €300,000 mortgage at 3.5% suits established buyers in the Brussels suburbs, the outer rings of Amsterdam, secondary French hubs such as Lyon, and the fringes of Munich where prices ease outside the core. At this level, lenders typically expect a stable dual income, a clean credit history, and often a renovation budget if the property sits in an older district. The monthly payment over 25 years comes out to €1,502 — a commitment that calls for a combined gross income comfortably above €50,000. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to test your own deposit and term combination.",
+    customIntro: "This illustrative scenario models a €300,000 euro-denominated mortgage at a 3.5% example annual interest rate over 25 years. The rate is an editable input rather than a claim about available offers. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly entered.",
     customContent: `
       <h2>Monthly Payment on a €300,000 Mortgage at 3.5%</h2>
       <p>At this loan size, term length has a real effect on monthly cash flow and lifetime cost. Here is the breakdown for a €300,000 loan at a 3.5% fixed rate across every common term:</p>
@@ -3808,15 +3781,15 @@ export const pseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€2,145</td><td class="py-3 px-4 text-sm">€86,100</td><td class="py-3 px-4 text-sm">€386,100</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€1,740</td><td class="py-3 px-4 text-sm">€117,600</td><td class="py-3 px-4 text-sm">€417,600</td></tr>
             <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€1,502</td><td class="py-3 px-4 text-sm">€150,600</td><td class="py-3 px-4 text-sm">€450,600</td></tr>
-            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€1,347</td><td class="py-3 px-4 text-sm">€184,920</td><td class="py-3 px-4 text-sm">€484,920</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (comparison term)</td><td class="py-3 px-4 text-sm">€1,347</td><td class="py-3 px-4 text-sm">€184,920</td><td class="py-3 px-4 text-sm">€484,920</td></tr>
           </tbody>
         </table>
       </div>
 
       <p>At 3.5% over 25 years the monthly principal and interest payment is €1,502. Shortening to 20 years adds €238 per month but saves €33,000 in total interest — worth considering if your income has room. Stretching to 30 years lowers the payment by €155 but adds €34,320 in interest over the life of the loan. For a closer look at this exact loan size, see our <a href="/blog/300k-euro-mortgage">€300,000 euro mortgage guide</a>, or <a href="/calculator/400k-mortgage-monthly-payment-4-percent">compare to a $400k USD mortgage</a> for a transatlantic perspective.</p>
 
-      <h2>Euribor vs. Fixed Rate: Context for a €300,000 Loan</h2>
-      <p>At €300,000, the gap between a fixed and a Euribor-linked rate becomes significant. Fixed rates — standard in France and Germany — lock your payment for the full 25 years, while variable Euribor-plus-margin products, common in Belgium, Spain, and Portugal, track ECB policy and can shift. A 3.5% fixed rate remains realistic for solid-credit borrowers in 2026. Check current benchmarks at the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a>. A 1% rate move changes this loan's monthly payment by roughly €155.</p>
+      <h2>Fixed and Variable Rate Scenarios</h2>
+      <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
 
       <h2>Rate Sensitivity: €300,000 Mortgage at 25 Years</h2>
       <p>Here is what different rates cost on a €300,000 loan over the standard 25-year European term:</p>
@@ -3842,9 +3815,9 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <h2>Income Required for a €300,000 Mortgage at 3.5%</h2>
-      <p>Most Eurozone lenders cap housing debt at 33% of gross monthly income. Private Mortgage Insurance does not exist in most EU markets — lenders manage risk through LTV limits and credit assessments instead. Here is the income picture for a 25-year fixed term at 3.5%:</p>
-      <p><em>Assumptions: home value ~€333,000 (90% LTV), property tax 0.3% of home value (~€83/mo), insurance ~€100/mo. No PMI — most EU lenders do not charge it.</em></p>
+      <h2>Illustrative Affordability Check for a €300,000 Mortgage at 3.5%</h2>
+      <p>The table uses a selected 33% payment-to-income assumption for stress testing. It is not a European or lender qualification rule. Approval criteria vary by jurisdiction, lender, loan product, and borrower.</p>
+      <p><em>Local taxes, insurance, transaction costs, and loan-specific charges are editable example inputs and may be excluded. Replace them with documented local figures before using the estimate.</em></p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -3852,19 +3825,19 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€1,502</td><td class="py-3 px-4 text-sm">~€54,600</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€1,685</td><td class="py-3 px-4 text-sm">~€61,300</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Payment plus example local costs</td><td class="py-3 px-4 text-sm">€1,685</td><td class="py-3 px-4 text-sm">~€61,300</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €400 other debts</td><td class="py-3 px-4 text-sm">€2,085</td><td class="py-3 px-4 text-sm">~€75,800</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2>Country Notes for European Buyers</h2>
-      <p><strong>Belgium:</strong> A €300,000 loan implies a property near or above the national average price; expect notary and registration costs of 12–15% on top of the purchase price, and lenders will scrutinise income stability closely at this level. <strong>Netherlands:</strong> The NHG guarantee covers purchases up to €435,000, so a €300,000 loan on a property near €333,000 still qualifies — a meaningful advantage on the rate offered. <strong>France:</strong> Fixed-rate products dominate, and 3.5% is a realistic target for borrowers with steady employment contracts (CDI); the PTZ scheme can help in qualifying zones for first purchases. <strong>Germany:</strong> Lenders generally require 20–30% equity, so a €300,000 loan typically implies a property in the €375,000–€430,000 range with a sizeable deposit — common for buyers upgrading into a larger home or renovating an older property on Munich's outer fringe. Always confirm current terms with a local mortgage adviser.</p>
+      <h2>Jurisdiction and Cost Scope</h2>
+      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. It does not estimate local eligibility, taxes, registration or notary fees, insurance, subsidies, or lender rules. Use a written local quote and local cost inputs for a real decision.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
@@ -3879,24 +3852,7 @@ export const pseoData: PSEOParams[] = [
         </div>
       </div>
     `,
-    customFaqs: [
-      {
-        question: "What is the monthly payment on a €300,000 mortgage at 3.5% over 25 years?",
-        answer: "The monthly principal and interest payment is €1,502. Adding property tax (0.3% of home value) and building insurance brings the typical all-in monthly cost to around €1,685. EU mortgages generally do not include PMI — lenders rely on LTV limits instead."
-      },
-      {
-        question: "What income do I need for a €300,000 mortgage in Europe?",
-        answer: "At the 33% DTI limit applied by most Belgian, French, and Dutch lenders, the full PITI of €1,685 requires a gross annual income of approximately €61,300. With €400 in other monthly debts, that climbs to around €75,800 — typically a dual-income requirement at this loan size."
-      },
-      {
-        question: "Should I choose a fixed or Euribor-linked rate for a €300,000 mortgage?",
-        answer: "It depends on where you're buying and your appetite for payment variability. Fixed rates are the default in France and Germany and lock in your €1,502 payment for the full term. Euribor-linked products, common in Belgium, Spain, and Portugal, can start lower but move with ECB policy — a 1% increase adds roughly €156 per month on this loan size, so stress-test any variable offer before signing."
-      },
-      {
-        question: "Where does a €300,000 mortgage go furthest in Europe?",
-        answer: "At this level, established buyers find good options in the Brussels suburbs, the outer rings of Amsterdam, secondary French hubs such as Lyon, and the fringes of Munich where prices ease outside the city core. Many properties at this price point are older builds that may need renovation — factor an additional budget into your overall financing plan."
-      }
-    ]
+    customFaqs: euroScenarioFaqs(300000)
   },
 
   {
@@ -3906,10 +3862,10 @@ export const pseoData: PSEOParams[] = [
     rate: 3.5,
     term: 25,
     currency: 'EUR',
-    customTitle: "€350,000 Mortgage at 3.5% Europe 2026: Payments, Income & Rate Guide",
-    customDescription: "€350,000 mortgage at 3.5% for 25 years in Europe 2026 — monthly payment €1,752, income required at 33% DTI, full rate sensitivity table, and country tips.",
+    customTitle: "€350,000 Mortgage at 3.5%: Payments, Payments & Rate Guide",
+    customDescription: "€350,000 mortgage at 3.5% for 25 years in — monthly payment €1,752, illustrative affordability check, full rate sensitivity table, and country tips.",
     customH1: "€350,000 Mortgage at 3.5%: Monthly Costs for Established European Buyers",
-    customIntro: "A €350,000 mortgage at 3.5% reaches into inner-city Brussels and the mid-range family-home segment of the Dutch market — properties that typically demand a strong, stable income profile from the outset. Lenders at this level look for a clean credit history, a deposit of at least 10%, and a debt-to-income ratio with real headroom. The monthly payment over 25 years comes to €1,752, which usually calls for a combined gross household income above €70,000. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to test your own deposit, term, and rate combination.",
+    customIntro: "This illustrative scenario models a €350,000 euro-denominated mortgage at a 3.5% example annual interest rate over 25 years. The rate is an editable input rather than a claim about available offers. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly entered.",
     customContent: `
       <h2>Monthly Payment on a €350,000 Mortgage at 3.5%</h2>
       <p>At this loan size, the choice of term materially shapes both monthly affordability and lifetime cost. Here is the full breakdown for a €350,000 loan at a 3.5% fixed rate:</p>
@@ -3929,15 +3885,15 @@ export const pseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€2,502</td><td class="py-3 px-4 text-sm">€100,360</td><td class="py-3 px-4 text-sm">€450,360</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€2,030</td><td class="py-3 px-4 text-sm">€137,200</td><td class="py-3 px-4 text-sm">€487,200</td></tr>
             <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€1,752</td><td class="py-3 px-4 text-sm">€175,600</td><td class="py-3 px-4 text-sm">€525,600</td></tr>
-            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€1,572</td><td class="py-3 px-4 text-sm">€215,920</td><td class="py-3 px-4 text-sm">€565,920</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (comparison term)</td><td class="py-3 px-4 text-sm">€1,572</td><td class="py-3 px-4 text-sm">€215,920</td><td class="py-3 px-4 text-sm">€565,920</td></tr>
           </tbody>
         </table>
       </div>
 
       <p>At 3.5% over 25 years the monthly principal and interest payment is €1,752. Moving to a 20-year term adds €278 per month but saves €38,400 in total interest, while stretching to 30 years trims €180 off the monthly payment at the cost of an extra €40,320 in interest. Use the <a href="/mortgage-calculator">mortgage calculator</a> above to test your own scenario, or <a href="/calculator/400k-mortgage-monthly-payment-4-percent">compare to a $400k USD mortgage</a> for a transatlantic view of a similarly sized loan.</p>
 
-      <h2>Euribor vs. Fixed Rate: Context for a €350,000 Loan</h2>
-      <p>A €350,000 loan sits well above the Eurozone median, so the choice between fixed and Euribor-linked pricing carries real weight. France and Germany default to fixed-rate products that lock in the payment for the full term, while Belgian, Spanish, and Portuguese lenders typically price variable mortgages as Euribor plus a margin that tracks ECB policy. A 3.5% fixed rate is achievable for borrowers with strong documentation in 2026 — track live benchmarks at the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a>. At this size, each 1% shift moves the monthly payment by close to €182.</p>
+      <h2>Fixed and Variable Rate Scenarios</h2>
+      <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
 
       <h2>Rate Sensitivity: €350,000 Mortgage at 25 Years</h2>
       <p>Here is what different rates cost on a €350,000 loan over the standard 25-year European term:</p>
@@ -3963,9 +3919,9 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <h2>Income Required for a €350,000 Mortgage at 3.5%</h2>
-      <p>Most Eurozone lenders cap housing debt at 33% of gross monthly income, and Private Mortgage Insurance does not exist in most EU markets — lenders manage risk through LTV limits and thorough credit assessments instead. Here is the income picture for a 25-year fixed term at 3.5%:</p>
-      <p><em>Assumptions: home value ~€389,000 (90% LTV), property tax 0.3% of home value (~€97/mo), insurance ~€115/mo. No PMI charged.</em></p>
+      <h2>Illustrative Affordability Check for a €350,000 Mortgage at 3.5%</h2>
+      <p>The table uses a selected 33% payment-to-income assumption for stress testing. It is not a European or lender qualification rule. Approval criteria vary by jurisdiction, lender, loan product, and borrower.</p>
+      <p><em>Local taxes, insurance, transaction costs, and loan-specific charges are editable example inputs and may be excluded. Replace them with documented local figures before using the estimate.</em></p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -3973,19 +3929,19 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€1,752</td><td class="py-3 px-4 text-sm">~€63,700</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€1,964</td><td class="py-3 px-4 text-sm">~€71,400</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Payment plus example local costs</td><td class="py-3 px-4 text-sm">€1,964</td><td class="py-3 px-4 text-sm">~€71,400</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €400 other debts</td><td class="py-3 px-4 text-sm">€2,364</td><td class="py-3 px-4 text-sm">~€86,000</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2>Country Notes for European Buyers</h2>
-      <p><strong>Belgium:</strong> At this loan size, expect lenders to require strong proof of stable dual income; notary and registration costs of 12–15% add roughly €42,000–€52,000 to the upfront bill on an inner-city Brussels purchase. <strong>Netherlands:</strong> A €350,000 loan still sits comfortably under the €435,000 NHG ceiling, which can shave a meaningful margin off the offered rate for a mid-range Dutch family home. <strong>France:</strong> Fixed-rate mortgages remain standard, and inner-ring areas around Lyon or Bordeaux see plenty of activity at this level; lenders will want to see a debt ratio comfortably below 35% including the new payment. <strong>Germany:</strong> With typical equity requirements of 20–30%, a €350,000 loan generally implies a property near €440,000–€500,000 — a strong income profile and substantial savings are prerequisites. Always confirm current criteria with a local mortgage broker before committing.</p>
+      <h2>Jurisdiction and Cost Scope</h2>
+      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. It does not estimate local eligibility, taxes, registration or notary fees, insurance, subsidies, or lender rules. Use a written local quote and local cost inputs for a real decision.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
@@ -4000,24 +3956,7 @@ export const pseoData: PSEOParams[] = [
         </div>
       </div>
     `,
-    customFaqs: [
-      {
-        question: "What is the monthly payment on a €350,000 mortgage at 3.5% over 25 years?",
-        answer: "The monthly principal and interest payment is €1,752. Adding property tax and building insurance brings the typical all-in monthly cost to around €1,964. As with most EU mortgages, no PMI applies — lenders rely on LTV limits instead."
-      },
-      {
-        question: "What income is required for a €350,000 mortgage in Europe?",
-        answer: "At the standard 33% DTI ceiling used by most Belgian, French, and Dutch lenders, the full PITI of €1,964 requires a gross annual income near €71,400. Add €400 in other monthly debts and that rises to roughly €86,000 — a level that typically calls for two solid incomes or one exceptionally strong one."
-      },
-      {
-        question: "Is a Euribor-linked rate worth the risk on a €350,000 mortgage?",
-        answer: "A Euribor-linked rate can undercut a fixed offer when the benchmark is low, which has made it popular in Belgium and the Netherlands. But on a €350,000 loan, each 1% increase adds about €182 to the monthly payment. If your budget has little slack, a fixed rate — standard in France and Germany — offers steadier footing for a loan this size."
-      },
-      {
-        question: "Who typically takes out a €350,000 mortgage in Europe?",
-        answer: "This loan size is common among inner-city Brussels buyers and mid-range Dutch families upgrading from a starter home. Lenders expect a strong, stable income profile — often two incomes — plus a clean credit record and a deposit of at least 10% of the purchase price."
-      }
-    ]
+    customFaqs: euroScenarioFaqs(350000)
   },
 
   {
@@ -4027,10 +3966,10 @@ export const pseoData: PSEOParams[] = [
     rate: 3.5,
     term: 25,
     currency: 'EUR',
-    customTitle: "€400,000 Mortgage at 3.5% Europe 2026: Jumbo Loan Payment & Income Guide",
-    customDescription: "€400,000 mortgage at 3.5% over 25 years in Europe 2026: monthly payment €2,002, income needed at 33% DTI, jumbo-loan notes, and full rate sensitivity table.",
-    customH1: "€400,000 Mortgage at 3.5%: Payments and Qualifying Income for Premium Buyers",
-    customIntro: "A €400,000 mortgage at 3.5% sits firmly in premium territory — central Brussels, Amsterdam, and the well-connected suburbs of Paris are typical markets at this price point. Borrowers here are usually top-tier earners with substantial savings, since lenders apply extra scrutiny and often expect a 20–25% down payment on loans of this size. The monthly payment over 25 years works out to €2,002, a figure that implies a gross household income comfortably above €80,000. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to model your own deposit and term.",
+    customTitle: "€400,000 Mortgage at 3.5%: Jumbo Loan Payment & Income Guide",
+    customDescription: "€400,000 mortgage at 3.5% over 25 years in: monthly payment €2,002, illustrative affordability check, jumbo-loan notes, and full rate sensitivity table.",
+    customH1: "€400,000 Mortgage at 3.5%: Payments and Illustrative Income for Premium Buyers",
+    customIntro: "This illustrative scenario models a €400,000 euro-denominated mortgage at a 3.5% example annual interest rate over 25 years. The rate is an editable input rather than a claim about available offers. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly entered.",
     customContent: `
       <h2>Monthly Payment on a €400,000 Mortgage at 3.5%</h2>
       <p>At this loan size, term selection has a substantial impact on both monthly cash flow and total cost. Here is the full breakdown for a €400,000 loan at a 3.5% fixed rate:</p>
@@ -4050,15 +3989,15 @@ export const pseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€2,860</td><td class="py-3 px-4 text-sm">€114,800</td><td class="py-3 px-4 text-sm">€514,800</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€2,320</td><td class="py-3 px-4 text-sm">€156,800</td><td class="py-3 px-4 text-sm">€556,800</td></tr>
             <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€2,002</td><td class="py-3 px-4 text-sm">€200,600</td><td class="py-3 px-4 text-sm">€600,600</td></tr>
-            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (less common in EU)</td><td class="py-3 px-4 text-sm">€1,796</td><td class="py-3 px-4 text-sm">€246,560</td><td class="py-3 px-4 text-sm">€646,560</td></tr>
+            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (comparison term)</td><td class="py-3 px-4 text-sm">€1,796</td><td class="py-3 px-4 text-sm">€246,560</td><td class="py-3 px-4 text-sm">€646,560</td></tr>
           </tbody>
         </table>
       </div>
 
       <p>At 3.5% over 25 years the monthly principal and interest payment is €2,002. Choosing a 20-year term instead adds €318 per month but saves €43,800 in total interest — a meaningful sum at this loan size. Stretching to 30 years reduces the payment by €206 but adds €45,960 in interest over the full term. Run your own numbers with the <a href="/mortgage-calculator">mortgage calculator</a> above, or <a href="/calculator/400k-mortgage-monthly-payment-4-percent">compare to a $400k USD mortgage</a> to see how this stacks up against a similarly sized US loan.</p>
 
-      <h2>Euribor vs. Fixed Rate: Context for a €400,000 Loan</h2>
-      <p>On a €400,000 mortgage, the spread between a fixed and a Euribor-linked rate can swing the household budget by hundreds of euros a month. Fixed pricing dominates in France and Germany, guaranteeing the payment for the full 25 years, while Belgian, Spanish, and Portuguese banks commonly price variable loans as Euribor plus a margin tied to ECB decisions. A 3.5% fixed rate is within reach for well-documented borrowers in 2026 — the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a> publishes current benchmark levels. Here, a 1% move changes the monthly payment by around €208.</p>
+      <h2>Fixed and Variable Rate Scenarios</h2>
+      <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
 
       <h2>Rate Sensitivity: €400,000 Mortgage at 25 Years</h2>
       <p>Here is what different rates cost on a €400,000 loan over the standard 25-year European term:</p>
@@ -4084,9 +4023,9 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <h2>Income Required for a €400,000 Mortgage at 3.5%</h2>
-      <p>Most Eurozone lenders cap housing debt at 33% of gross monthly income. Private Mortgage Insurance does not exist in most EU markets — lenders manage risk through LTV limits, larger deposits, and detailed income verification instead. Here is the income picture for a 25-year fixed term at 3.5%:</p>
-      <p><em>Assumptions: home value ~€444,000 (90% LTV), property tax 0.3% of home value (~€111/mo), insurance ~€130/mo. No PMI — EU lenders rely on LTV limits instead.</em></p>
+      <h2>Illustrative Affordability Check for a €400,000 Mortgage at 3.5%</h2>
+      <p>The table uses a selected 33% payment-to-income assumption for stress testing. It is not a European or lender qualification rule. Approval criteria vary by jurisdiction, lender, loan product, and borrower.</p>
+      <p><em>Local taxes, insurance, transaction costs, and loan-specific charges are editable example inputs and may be excluded. Replace them with documented local figures before using the estimate.</em></p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
         <table class="w-full text-left border-collapse">
@@ -4094,19 +4033,19 @@ export const pseoData: PSEOParams[] = [
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-3 px-4 font-bold text-sm">Scenario</th>
               <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€2,002</td><td class="py-3 px-4 text-sm">~€72,800</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Full PITI</td><td class="py-3 px-4 text-sm">€2,243</td><td class="py-3 px-4 text-sm">~€81,600</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Payment plus example local costs</td><td class="py-3 px-4 text-sm">€2,243</td><td class="py-3 px-4 text-sm">~€81,600</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €400 other debts</td><td class="py-3 px-4 text-sm">€2,643</td><td class="py-3 px-4 text-sm">~€96,100</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2>Country Notes for European Buyers</h2>
-      <p><strong>Belgium:</strong> A €400,000 loan places you among the larger mortgages written in the market; central Brussels properties at this price point often carry notary and registration costs of €48,000–€60,000 on top of the deposit. <strong>Netherlands:</strong> This loan size approaches the €435,000 NHG ceiling — qualifying preserves the guarantee's rate advantage, but a property near €444,000 may sit just above it, so confirm eligibility early in the process. <strong>France:</strong> Fixed-rate products dominate, and Paris-suburb buyers at this level typically need a strong permanent employment contract (CDI) and a debt ratio comfortably under 35%. <strong>Germany:</strong> Expect lenders to require 20–30% equity, implying a property near €500,000–€570,000 — a premium-market purchase that calls for a well-documented, top-tier income profile. <strong>Jumbo loan note:</strong> In most EU markets, €400,000 is treated as a jumbo loan; lenders often require a 20–25% down payment and apply additional scrutiny to income, employment history, and existing debts. Always work with a local mortgage adviser to confirm current requirements.</p>
+      <h2>Jurisdiction and Cost Scope</h2>
+      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. It does not estimate local eligibility, taxes, registration or notary fees, insurance, subsidies, or lender rules. Use a written local quote and local cost inputs for a real decision.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
@@ -4121,24 +4060,7 @@ export const pseoData: PSEOParams[] = [
         </div>
       </div>
     `,
-    customFaqs: [
-      {
-        question: "What is the monthly payment on a €400,000 mortgage at 3.5% over 25 years?",
-        answer: "The monthly principal and interest payment is €2,002. Including property tax and building insurance, the typical all-in monthly cost comes to around €2,243. EU lenders do not generally charge PMI, relying instead on lower LTV ceilings and larger deposits."
-      },
-      {
-        question: "What income do I need for a €400,000 mortgage at 3.5%?",
-        answer: "Under the common 33% DTI rule, the full PITI of €2,243 requires a gross annual income near €81,600. Add €400 in other monthly debts and the requirement rises to roughly €96,100 — a threshold that usually means a top-tier dual income or a single high earner."
-      },
-      {
-        question: "Should I pick a fixed or Euribor-linked rate on a €400,000 mortgage?",
-        answer: "At this loan size the stakes are higher: a 1% Euribor increase adds around €208 to the monthly payment. Fixed rates — the norm in France and Germany — remove that uncertainty entirely. Belgian, Spanish, and Portuguese buyers considering a variable product should stress-test their budget at Euribor +1.5% before committing to a loan this large."
-      },
-      {
-        question: "Is €400,000 a jumbo mortgage in Europe?",
-        answer: "Yes — in most EU markets, €400,000 sits at or above the threshold lenders treat as a jumbo loan. Expect to be asked for a larger down payment (often 20–25%), more thorough income verification, and a lower maximum LTV than on a typical mid-range mortgage. Central Brussels, Amsterdam, and Paris-suburb buyers are the most common borrowers at this level."
-      }
-    ]
+    customFaqs: euroScenarioFaqs(400000)
   },
 ];
 

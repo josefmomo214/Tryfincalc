@@ -4,7 +4,7 @@ import { SEOHandler } from "@/components/seo/SEOHandler";
 import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
 import { PSEOParams, getPSEOContent } from "@/lib/pseo-data";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
-import { calculateAmortizedPayment, formatCurrency } from "@/lib/finance";
+import { calculateAmortizedPayment, calculateAffordability, calculateLoan, formatCurrency } from "@/lib/finance";
 import { ArrowRight, ChevronRight, Calculator, Info, Lightbulb, PieChart, TrendingDown } from "lucide-react";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
@@ -24,21 +24,16 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
   
   // Base Calculation
   let monthlyPayment = 0;
-  let totalInterest = 0;
   let totalCost = 0;
 
   if (params.type !== 'affordability') {
-    monthlyPayment = calculateAmortizedPayment(params.amount, params.rate, params.term);
-    totalCost = monthlyPayment * (params.term * 12);
-    totalInterest = totalCost - params.amount;
+    const loan = calculateLoan(params.amount, params.rate, params.term);
+    monthlyPayment = loan.monthly;
+    totalCost = loan.totalPaid;
   } else {
-    // Affordability Calculation (approximate)
-    const monthlyGross = (params.salary || 0) / 12;
-    monthlyPayment = monthlyGross * 0.28; // Standard 28% housing rule
-    const monthlyRate = (params.rate / 100) / 12;
-    const n = params.term * 12;
-    const estimatedLoan = monthlyPayment * (Math.pow(1 + monthlyRate, n) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, n));
-    totalCost = estimatedLoan;
+    const budget = calculateAffordability((params.salary || 0) / 12, 0, 0, params.rate, params.term, currency);
+    monthlyPayment = budget.monthlyPayment;
+    totalCost = budget.loanAmount;
   }
 
   // Comparison Scenarios (Dynamic table Data)
@@ -230,7 +225,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-display font-black mb-8">Ready to lock in your rate?</h2>
             <p className="text-xl md:text-2xl text-primary-fixed-dim/80 mb-12 max-w-2xl mx-auto font-medium">
-              Join thousands of smart borrowers who used our calculators to plan their future with 100% mathematical certainty.
+              Explore estimated payments and compare assumptions using the calculators. Actual lender terms and local costs can differ.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
                <ButtonLink href={`/${params.type}-calculator`} size="xl" className="bg-white text-primary hover:bg-primary-fixed-dim rounded-2xl px-12 h-16 text-xl shadow-2xl">

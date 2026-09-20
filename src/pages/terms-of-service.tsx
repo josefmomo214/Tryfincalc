@@ -1,3 +1,4 @@
+import { FUNDING } from '@/lib/trust';
 import React from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
@@ -168,7 +169,7 @@ export default function TermsOfService() {
           </p>
           <p>
             If you believe any content on TryFinCalc infringes your intellectual property rights, 
-            please contact us at <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a> 
+            please contact us at <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a>{" "}
             with details of your claim.
           </p>
 
@@ -203,6 +204,7 @@ export default function TermsOfService() {
 
           {/* 8. Advertising */}
           <h2 id="advertising" className="text-2xl font-manrope font-bold text-primary mt-12 mb-4 scroll-mt-24">8. Advertising</h2>
+          <p>{FUNDING}</p>
           <p>
             TryFinCalc may display advertisements served by Google AdSense and potentially other 
             advertising partners. These advertisements are served by third parties and are not 
@@ -214,7 +216,7 @@ export default function TermsOfService() {
             of the advertised product or service by TryFinCalc.
           </p>
           <p>
-            Where TryFinCalc includes affiliate links to financial products or services, this 
+            If TryFinCalc adds affiliate links in the future, the relationship
             will be clearly disclosed in accordance with applicable advertising standards and 
             FTC guidelines. Clicking affiliate links may result in TryFinCalc receiving 
             compensation. This does not affect the editorial independence of our content or 

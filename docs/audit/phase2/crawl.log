@@ -1,0 +1,22 @@
+{
+  "base": "http://localhost:3101",
+  "responses": 260,
+  "sitemap_urls": 79,
+  "statuses": {
+    "200": 248,
+    "308": 9,
+    "404": 3
+  },
+  "sitemap_non200": [],
+  "sitemap_noindex": [
+    "/privacy-policy",
+    "/contact",
+    "/terms-of-service"
+  ],
+  "missing_assets": [
+    "/logo.png",
+    "/og-image.jpg"
+  ],
+  "broken_anchor_destinations": [],
+  "placeholder_routes": []
+}

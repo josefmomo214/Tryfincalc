@@ -1,5 +1,4 @@
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
@@ -9,7 +8,7 @@ import { SEOHandler } from "@/components/seo/SEOHandler";
 
 
 
-import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
+import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 
 
 import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
@@ -88,80 +87,7 @@ export default function MortgageCalculator() {
             </div>
           </section>
 
-          <CalculatorSEOSection 
-            title="Mortgage Calculator: Plan Your Home Purchase"
-            intro={
-              <>
-                <p>Navigating the real estate market requires more than just finding the perfect home. It requires a clear understanding of your long-term financial commitment. Our Mortgage Calculator is designed to help you estimate the true cost of homeownership beyond the sticker price, providing clarity across various currencies and markets.</p>
-                <p>From initial purchase price to long-term interest costs, we provide the data you need to sign your contract with absolute confidence.</p>
-                <p>See specific scenarios: <Link href="/calculator/400k-mortgage-monthly-payment-4-percent" className="text-primary underline">$400k mortgage at 4%</Link> · <Link href="/calculator/300k-mortgage-monthly-payment-6-percent" className="text-primary underline">$300k mortgage at 6%</Link></p>
-              </>
-            }
-            howItWorks={
-              <>
-                <p>Lenders typically evaluate your application based on established Debt-to-Income (DTI) ratios. This ensures that your total monthly housing costs and other debt obligations are sustainable relative to your income.</p>
-                <ul>
-                  <li><strong>Loan-to-Value (LTV):</strong> Most financial institutions require a 10% to 20% down payment to secure the best possible interest rates.</li>
-                  <li><strong>Taxes & Fees:</strong> Closing costs, registration duties, and notary fees vary by region but are a critical part of your upfront cash requirement.</li>
-                  <li><strong>Insurance:</strong> Property insurance and, in many cases, mortgage insurance (PMI) are standard requirements for loans with lower down payments.</li>
-                </ul>
-              </>
-            }
-            examples={[
-              {
-                title: "Family Residence",
-                items: [
-                  { label: "Home Price", value: currency === 'USD' ? "$500,000" : "€500,000" },
-                  { label: "Down Payment (20%)", value: currency === 'USD' ? "$100,000" : "€100,000" },
-                  { label: "Interest Rate", value: "6.5%" },
-                  { label: "PITI Payment", value: currency === 'USD' ? "$3,850" : "€3,850" }
-                ],
-                description: "A long-term scenario reflecting the benefits of higher equity and larger contributions."
-              },
-              {
-                title: "Starter Home",
-                items: [
-                  { label: "Home Price", value: currency === 'USD' ? "$250,000" : "€250,000" },
-                  { label: "Down Payment (10%)", value: currency === 'USD' ? "$25,000" : "€25,000" },
-                  { label: "Interest Rate", value: "7.0%" },
-                  { label: "PITI Payment", value: currency === 'USD' ? "$1,700" : "€1,700" }
-                ],
-                description: "Typical scenario for first-time buyers entering the market with a moderate down payment."
-              }
-            ]}
-            tips={[
-              "Shop around for the best rates from multiple providers.",
-              "Look for energy-efficient home discounts from lenders.",
-              "Consider how a 15-year term could save you thousands in interest.",
-              "Always keep an emergency fund for unexpected maintenance."
-            ]}
-            faqs={[
-              {
-                question: "How much should I save for a down payment?",
-                answer: "While 20% is the gold standard to avoid mortgage insurance, many programs allow as little as 3-10%. However, a larger contribution always lowers your monthly obligation."
-              },
-              {
-                question: "What is an 'Agreement in Principle'?",
-                answer: "It is an initial assessment from a lender indicating how much they might be willing to lend you. It strengthens your position when making an offer to sellers."
-              },
-              {
-                question: "Can I pay off my mortgage early?",
-                answer: "Most modern mortgages allow for extra payments or early payoff, but some may have prepayment penalties. Check your agreement for specifics on 'overpayments'."
-              }
-            ]}
-            relatedCalculators={[
-              { label: "Affordability", href: "/affordability-calculator" },
-              { label: "Rent vs Buy", href: "/rent-vs-buy" },
-              { label: "Refinancing", href: "/refinancing-calculator" }
-            ]}
-            relatedBlogs={[
-              { title: "Mortgage Payment Guide", href: "/blog/mortgage-payment-guide" },
-              { title: "Amortization Schedule Explained", href: "/blog/amortization-schedule-explained" }
-            ]}
-            ctaText="Ready to take the next step?"
-            ctaHref="#calculator-top"
-            ctaButtonText="Open Mortgage Calculator"
-          />
+          <CalculationGuide tool="mortgage" currency={currency} />
         </div>
       </div>
     </MainLayout>
