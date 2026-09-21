@@ -71,7 +71,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <ul class="mb-0">
           <li><strong>Principal & Interest:</strong> ${loanValue(400000,6.5,30,'monthly')}</li>
           <li><strong>Estimated Taxes & Insurance:</strong> $550–$750</li>
-          <li><strong>Typical All-in Payment (PITI):</strong> $3,100–$3,300</li>
+          <li><strong>Illustrative all-in payment:</strong> $3,100–$3,300 using the displayed cost inputs</li>
         </ul>
       </div>
 
@@ -83,7 +83,7 @@ const rawArticles: Omit<Article, "author">[] = [
       </div>
 
       <h2>How much income do you need for a $400k mortgage?</h2>
-      <p>Lenders use the <strong>28% DTI rule</strong> to determine affordability. This rule suggests your total housing cost should not exceed 28% of your gross monthly income. For a $400k loan, that math works out as follows:</p>
+      <p>This illustrative budget limits housing costs to 28% of gross monthly income. It is an editable planning assumption rather than a lender approval rule. For a $400k loan, that math works out as follows:</p>
       <ul>
         <li><strong>Estimated Total Payment (PITI):</strong> ~$3,200</li>
         <li><strong>Required Monthly Gross Income:</strong> $3,200 ÷ 0.28 = <strong>$11,428</strong></li>
@@ -92,7 +92,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Existing debts reduce the room available for a housing payment in this illustrative budget. The page's 36% total-debt ratio is a planning assumption rather than a lender approval rule.</p>
 
       <h2>How much is the down payment on a 400k house?</h2>
-      <p>While the "20% down" goal is standard for avoiding Private Mortgage Insurance (PMI), many 2026 mortgage programs allow for much lower entry points. Here is how your upfront cash affects your loan balance:</p>
+      <p>The table compares selected 3%, 5%, 10%, and 20% down-payment inputs. Minimum down payments and mortgage-insurance terms vary by loan program and lender.</p>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
         <div class="p-5 border border-outline-variant rounded-xl text-center">
@@ -110,7 +110,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <div class="p-5 border-2 border-primary bg-primary/5 rounded-xl text-center">
           <span class="block text-primary font-bold text-xl mb-1">20% Down</span>
           <span class="text-on-surface-variant font-extrabold">$80,000 Upfront</span>
-          <span class="block text-xs uppercase font-bold text-teal-600 mt-1">No PMI Required</span>
+          <span class="block text-xs uppercase font-bold text-teal-600 mt-1">Insurance input set to $0</span>
         </div>
       </div>
 
@@ -146,7 +146,7 @@ const rawArticles: Omit<Article, "author">[] = [
     excerpt: "A complete homebuying guide covering affordability calculations, mortgage pre-approval, offer tactics, home inspection strategy, and rate-lock questions.",
     slug: "2026-homebuyers-playbook",
     seoTitle: "2026 Homebuyer's Playbook: Strategy & Guide | TryFinCalc",
-    seoDescription: "Master the 2026 housing market with our expert playbook. Learn exact strategies to buy your first home smart.",
+    seoDescription: "Plan a home purchase with an affordability budget, written loan estimates, inspection questions, and closing documents.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -164,7 +164,7 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "How much do I need saved to buy a home in 2026?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For a $400,000 home, budget for $55,000–$75,000 in total cash: a 10–20% down payment ($40,000–$80,000), closing costs of 2–5% ($8,000–$20,000), and an emergency reserve of 1–2% ($4,000–$8,000). Having less than this is not disqualifying but significantly increases financial stress in the first years of ownership."
+            "text": "Add the selected down payment, charges from the Loan Estimate and closing documents, moving costs, immediate repairs, and a personal emergency reserve. The total depends on the property, loan, jurisdiction, and household."
           }
         },
         {
@@ -172,7 +172,7 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "How long does the homebuying process take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "From starting your search to getting keys, the typical timeline is 3–6 months. Pre-approval takes 1–2 weeks, finding the right home takes 1–3 months in most markets, and the period from accepted offer to closing is typically 30–45 days. In very competitive markets with limited inventory, the search phase can extend to 6–12 months."
+            "text": "The timeline depends on financing, property search, contract, inspection, appraisal, title work, and the local closing process. Ask the lender and settlement professionals for dates tied to your transaction."
           }
         },
         {
@@ -194,7 +194,7 @@ const rawArticles: Omit<Article, "author">[] = [
       ]
     },
     content: `
-      <p>Buying a home in 2026 is harder than it was five years ago, but it is far from impossible. Mortgage rates have stabilised after years of volatility, inventory in many markets is slowly recovering, and buyers who come prepared with a clear financial strategy are winning deals that unprepared buyers are losing. This guide gives you the exact playbook — from calculating what you can genuinely afford, to making an offer that stands out, to understanding every cost before you sign.</p>
+      <p>A home purchase combines a personal budget, local property conditions, a written loan offer, inspections, and a legally binding contract. This guide organizes the questions and calculations to review before signing and avoids market-wide rate or inventory assumptions.</p>
       <p>If you want to run your own numbers at any point, the TryFinCalc <a href="/mortgage-calculator">mortgage calculator</a> gives you an instant breakdown of your monthly payment, total interest, and full <a href="/amortization-schedule">amortization schedule</a> — no signup required.</p>
 
       <h2>Step 1: Calculate your true affordability — not what the bank will lend you</h2>
@@ -240,24 +240,24 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>At the 28% threshold, you would need a gross monthly income of at least $10,614 ($127,368/year) to comfortably afford this payment. At the more relaxed 36% threshold, the minimum drops to $8,256/month ($99,072/year).</p>
+      <p>Dividing the displayed payment by the selected 28% ratio produces $10,614 per month ($127,368 per year). The selected 36% scenario produces $8,256 per month ($99,072 per year). These are illustrative results, not minimum income or approval thresholds.</p>
       <p>Use the TryFinCalc <a href="/affordability-calculator">affordability calculator</a> to work backwards from your actual income, existing debts, and savings to find the home price range that fits your life — not just your lender's spreadsheet.</p>
 
       <h3>Beyond the monthly payment: the costs buyers forget</h3>
       <p>The down payment and monthly mortgage are the costs buyers focus on, but they are not the only significant upfront expenses. Before you make an offer, budget for:</p>
 
       <ul>
-        <li><strong>Closing costs</strong> — typically 2–5% of the purchase price. On a $400,000 home, that is $8,000–$20,000 paid at closing on top of your down payment.</li>
+        <li><strong>Closing costs</strong> — use the amount from a written Loan Estimate and local transaction-cost estimate. These charges vary by loan, provider, and jurisdiction and are paid on top of the down payment.</li>
         <li><strong>Home inspection</strong> — $300–$600, paid out of pocket before closing. Never skip this.</li>
         <li><strong>Moving costs</strong> — $1,000–$5,000 depending on distance and volume.</li>
-        <li><strong>Immediate repairs and updates</strong> — even a move-in-ready home typically requires $3,000–$10,000 in the first year for things the previous owner deferred.</li>
-        <li><strong>Emergency fund</strong> — financial advisors typically recommend keeping 1–3% of the home's value in reserve for unexpected repairs. On a $400,000 home, that is $4,000–$12,000 you should not touch for the mortgage.</li>
+        <li><strong>Immediate repairs and updates</strong> — obtain inspection findings and contractor estimates for the property.</li>
+        <li><strong>Emergency reserve</strong> — choose an amount based on the home's condition, deductibles, income stability, and household expenses.</li>
       </ul>
 
-      <p>A buyer purchasing a $400,000 home with 10% down should budget for a total cash outlay of $55,000–$75,000, not just the $40,000 down payment.</p>
+      <p>For a $400,000 home, add the selected down payment to written closing-cost estimates, moving costs, immediate repairs, and a personal reserve.</p>
 
       <h2>Step 2: Get mortgage pre-approval — and understand what it really means</h2>
-      <p>A mortgage pre-approval letter is your entry ticket to serious house hunting in 2026. In competitive markets, sellers and their agents will not consider an offer without one. But there is an important distinction that most buyers miss.</p>
+      <p>A mortgage pre-approval can document a lender's conditional assessment, but seller expectations and the meaning of the letter vary. Confirm what the lender reviewed and what conditions remain.</p>
       <p><strong>Pre-qualification</strong> is an informal estimate based on self-reported income and assets. It takes minutes and means very little to sellers.</p>
       <p><strong>Pre-approval</strong> is a formal assessment where the lender verifies your income, employment, credit history, and assets. It results in a conditional commitment for a specific loan amount and is what sellers actually care about.</p>
 
@@ -270,7 +270,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li>Employment contact information for the past two years</li>
       </ul>
 
-      <p>Shop multiple lenders before committing. The <a href="https://www.consumerfinance.gov/owning-a-home/explore-rates/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> found that borrowers who get at least three mortgage quotes save an average of $1,500 over the life of their loan compared to borrowers who accept the first quote. Getting multiple pre-approvals within a 45-day window counts as a single inquiry on your credit report, so there is no penalty for comparing.</p>
+      <p>Compare written Loan Estimates from multiple lenders using the same loan amount, term, lock period, and points. The <a href="https://www.consumerfinance.gov/owning-a-home/explore-rates/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> provides a worksheet for comparing rates and costs. Ask how credit inquiries will be treated before authorizing them.</p>
 
       <p>Once pre-approved, understand two limitations. First, pre-approval is conditional — it can be revoked if your financial situation changes before closing. Do not change jobs, open new credit accounts, or make large purchases between pre-approval and closing. Second, the pre-approved amount is a ceiling, not a target. Being pre-approved for $500,000 does not mean buying a $500,000 home is financially wise.</p>
 
@@ -281,7 +281,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <ul>
         <li><strong>Days on market (DOM)</strong> — how long homes are sitting before going under contract. Under 30 days is a competitive market where you will likely face multiple offers. Over 60 days is a buyer's market where you have more negotiating room.</li>
         <li><strong>List-to-sale price ratio</strong> — the percentage of asking price that homes are actually selling for. If homes are selling at 98–102% of list price, expect to offer at or above asking. If homes are selling at 93–95%, there is room to negotiate.</li>
-        <li><strong>Months of inventory</strong> — how long it would take to sell all currently listed homes at the current rate of sales. Under 3 months is a seller's market. Over 6 months is a buyer's market. Most markets in 2026 sit between 3–5 months.</li>
+        <li><strong>Months of inventory</strong> — how long it would take to sell currently listed homes at the current rate of sales. Interpret the local figure alongside recent listing and sale data rather than a universal cutoff.</li>
         <li><strong>Price per square foot</strong> — useful for comparing properties that differ in size and quickly identifying whether a specific home is priced fairly relative to comparable recent sales.</li>
         <li><strong>Foreclosure and distressed sale rates</strong> — a rising rate of distressed sales in a market can signal softening prices ahead, which matters for your long-term equity position.</li>
       </ul>
@@ -289,12 +289,12 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Your real estate agent should be able to provide all of this data for any specific market. The <a href="https://www.nar.realtor/research-and-statistics" target="_blank" rel="noopener noreferrer">National Association of Realtors</a> publishes monthly market statistics by region as a free reference point.</p>
 
       <h2>Step 4: Making a competitive offer — the exact tactics</h2>
-      <p>Once you have found the right home, the offer strategy determines whether you get it. Here are the specific tactics that work in 2026's market conditions:</p>
+      <p>Once you find a property, review the price, contingencies, deposit, financing terms, and deadlines with the professionals advising on that transaction:</p>
       <ul>
         <li><strong>Know your ceiling before you start.</strong> Decide in advance the absolute maximum you will pay for a specific home and do not let emotion push you past it. Use the TryFinCalc <a href="/mortgage-calculator">mortgage calculator</a> to model what different purchase prices do to your monthly payment before you are in the heat of a negotiation.</li>
         <li><strong>Escalation clauses.</strong> In a multiple-offer situation, an escalation clause automatically increases your offer in set increments above any competing offer, up to a maximum you specify. For example: "I offer $420,000, and will beat any competing offer by $2,500 up to a maximum of $440,000." This can be effective but also signals to the seller exactly how much you are willing to pay.</li>
         <li><strong>Contingency strategy.</strong> Every contingency in an offer — financing, inspection, appraisal — protects you but makes your offer less attractive to sellers. In highly competitive markets, buyers sometimes waive contingencies to win. This carries real risk: waiving an inspection contingency means accepting the property as-is, including any defects; waiving a financing contingency means losing your earnest money if your loan falls through. Only waive contingencies if you fully understand and accept the risk.</li>
-        <li><strong>Earnest money.</strong> A higher earnest money deposit — typically 1–3% of the purchase price, so $4,000–$12,000 on a $400,000 home — signals serious commitment to the seller and can differentiate your offer when the price is similar to competing bids.</li>
+        <li><strong>Earnest money.</strong> The amount and treatment of an earnest-money deposit depend on the contract and local practice. Confirm when it is refundable, when it is at risk, and whether it is credited at closing.</li>
         <li><strong>Personal letters.</strong> Some sellers respond to a personal letter from buyers explaining why they love the home. This is not universally effective and is discouraged in some markets for fair housing reasons, but in the right situation with the right seller it can tip a close decision.</li>
         <li><strong>Flexible closing timeline.</strong> Offering to close on the seller's preferred timeline — whether that is fast (21 days) or slow (60–90 days while they find their next home) — can be as valuable as a higher price to a motivated seller.</li>
       </ul>
@@ -314,7 +314,7 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <h2>Step 6: Locking your rate and navigating closing</h2>
       <p>Once your offer is accepted, you have a mortgage to finalise and a closing to get through. Two decisions in this phase have significant financial implications.</p>
-      <p><strong>Rate lock.</strong> When you apply for your mortgage, your lender will offer you the option to lock your interest rate for a set period — typically 30, 45, or 60 days. Locking protects you if rates rise before closing; floating (not locking) could save you money if rates fall. In a stable or rising rate environment, locking is almost always the right call. The cost of a half-point rate increase in the 30–45 days between offer acceptance and closing can add tens of thousands of dollars to your total interest cost.</p>
+      <p><strong>Rate lock.</strong> A written rate-lock agreement states its duration, cost, expiration terms, and whether a float-down option applies. Compare the locked quote with the lender's unlocked terms and test a half-percentage-point change in the calculator before deciding.</p>
       <p>Use the TryFinCalc <a href="/refinancing-calculator">refinancing calculator</a> to model what a rate change of 0.25% or 0.5% would mean for your <a href="/loan-calculator">total loan cost</a> — the numbers are more dramatic than most buyers expect.</p>
       <p><strong>The Closing Disclosure.</strong> Three business days before closing, your lender is required to send you a Closing Disclosure — a detailed breakdown of every cost associated with the transaction. Review it line by line and compare it to the Loan Estimate you received when you applied. Any significant differences should be questioned before you sit down at the closing table. The <a href="https://www.consumerfinance.gov/owning-a-home/closing-disclosure/" target="_blank" rel="noopener noreferrer">CFPB's closing disclosure explainer</a> walks through every line item.</p>
 
@@ -329,10 +329,10 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Start with your finances before you start looking at homes. <a href="/affordability-calculator">Calculate your true affordability</a> using the 28/36 rule, check your credit score, and get mortgage pre-approval from at least two lenders. Knowing your real budget before you fall in love with a home prevents the most common and costly buyer mistake.</p>
       
       <h3>How much do I need saved to buy a home in 2026?</h3>
-      <p>For a $400,000 home, budget for $55,000–$75,000 in total cash: a 10–20% down payment ($40,000–$80,000), closing costs of 2–5% ($8,000–$20,000), and an emergency reserve of 1–2% ($4,000–$8,000). Having less than this is not disqualifying but significantly increases financial stress in the first years of ownership.</p>
+      <p>Add the selected down payment, charges from the Loan Estimate and closing documents, moving costs, immediate repairs, and a personal emergency reserve. The total depends on the property, loan, jurisdiction, and household.</p>
       
       <h3>How long does the homebuying process take?</h3>
-      <p>From starting your search to getting keys, the typical timeline is 3–6 months. Pre-approval takes 1–2 weeks, finding the right home takes 1–3 months in most markets, and the period from accepted offer to closing is typically 30–45 days. In very competitive markets with limited inventory, the search phase can extend to 6–12 months.</p>
+      <p>The timeline depends on financing, property search, contract, inspection, appraisal, title work, and the local closing process. Ask the lender and settlement professionals for dates tied to your transaction.</p>
       
       <h3>What credit score do I need to buy a house in 2026?</h3>
       <p>Credit-score, down-payment, approval, and pricing criteria vary by lender and loan program. Check your report for errors at <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">AnnualCreditReport.com</a> and compare written loan estimates.</p>
@@ -341,7 +341,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Rarely, and only if you fully understand the risk. A home inspection protects you from buying a property with serious undisclosed defects. Waiving it to win a bidding war means accepting the home exactly as-is. If a major issue surfaces after closing, the cost falls entirely on you. If you are in a situation where waiving is being considered, at minimum commission a pre-offer inspection — a shorter walkthrough before making the offer — so you have some visibility into the property's condition.</p>
 
       <h2>The bottom line</h2>
-      <p>Buying a home in 2026 rewards preparation and penalises impulsiveness. The buyers winning deals are the ones who know their numbers cold, have their financing ready before they need it, understand their local market deeply, and make clean, credible offers. The buyers getting outbid or overpaying are the ones reacting to the market rather than planning for it.</p>
+      <p>Preparation means knowing your budget, comparing financing documents, researching local transactions, reviewing inspection findings, and understanding the contract before signing.</p>
       <p>Use the tools, do the math, and make your decision based on your specific financial reality — not on market headlines or the pressure of a competitive offer. For a shorter, step-focused version of this guide with different real-world examples, see our <a href="/blog/2026-homebuyers-playbook-step-by-step">2026 Homebuyer's Playbook: Step-by-Step</a>.</p>
       <p>Start with your numbers: Try the <a href="/mortgage-calculator">TryFinCalc mortgage calculator</a> →</p>
 
@@ -366,7 +366,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li><strong>Principal:</strong> The amount that goes directly toward paying down your original loan balance.</li>
         <li><strong>Interest:</strong> The fee charged by the lender for borrowing the money, based on your annual percentage rate (APR).</li>
         <li><strong>Taxes:</strong> Property taxes charged by your local government, often held in an escrow account by your lender. For international buyers, the math is similar but currency-specific. See our guide on the <a href="/blog/200k-euro-mortgage">200,000 Euro mortgage monthly payment</a> for an example of European lending calculations.</li>
-        <li><strong>Insurance:</strong> This includes homeowners insurance and, if you put down less than 20%, Private Mortgage Insurance (PMI).</li>
+        <li><strong>Insurance:</strong> This can include homeowners insurance and any mortgage-insurance premium shown in the loan quote.</li>
       </ul>
 
       <p>Understanding these components helps when comparing <a href="/blog/fixed-vs-variable-mortgage">fixed vs. variable mortgages</a>, as each affects your PITI breakdown differently.</p>
@@ -420,8 +420,8 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <h2>5 Ways to Lower Your Monthly Mortgage Payment</h2>
       <ol>
-        <li><strong>Increase Your Down Payment:</strong> Reduces your loan balance and can eliminate PMI.</li>
-        <li><strong>Improve Your Credit Score:</strong> Qualifies you for lower interest rates.</li>
+        <li><strong>Increase Your Down Payment:</strong> Reduces your loan balance and may change quoted mortgage-insurance terms.</li>
+        <li><strong>Review Your Credit:</strong> Correct errors and compare written rates and fees; pricing criteria vary by lender.</li>
         <li><strong>Shop Multiple Lenders:</strong> Compare quotes to find the narrowest margins.</li>
         <li><strong>Extend the Loan Term:</strong> Moving from a 15-year to a 30-year term lowers the monthly requirement.</li>
         <li><strong>Buy Points:</strong> Pay upfront to lower your interest rate for the life of the loan.</li>
@@ -432,13 +432,13 @@ const rawArticles: Omit<Article, "author">[] = [
       <h2>Frequently Asked Questions</h2>
 
       <h3>How is a mortgage payment calculated?</h3>
-      <p>To understand <strong>how to calculate mortgage payments</strong>, you must use the amortization formula to find your base principal and interest, then add your local property taxes and homeowners insurance premiums. Most experts suggest using an <a href="/affordability-calculator">affordability calculator</a> to see the total impact on your monthly budget.</p>
+      <p>To understand <strong>how to calculate mortgage payments</strong>, use the amortization formula for principal and interest, then add the taxes, insurance, and other costs that apply to the property and loan. Use the <a href="/affordability-calculator">affordability calculator</a> to compare the result with your budget.</p>
 
       <h3>What is a good monthly mortgage payment?</h3>
-      <p>A good payment is one that doesn't exceed 28% of your gross monthly income. This "28% rule" is a standard used by many lenders to ensure you aren't overextended financially.</p>
+      <p>This guide uses 28% of gross monthly income as one editable planning assumption. A suitable payment also depends on take-home pay, recurring expenses, savings goals, and risk tolerance; the ratio does not predict lender approval.</p>
 
       <h3>Does a higher down payment lower my monthly payment?</h3>
-      <p>Yes. A higher down payment reduces your total loan amount, meaning you pay less in interest and principal each month. It also helps you avoid PMI costs if you reach 20% equity.</p>
+      <p>Yes. A higher down payment reduces the loan amount and principal-and-interest payment. It may also change the mortgage-insurance premium or requirement shown in a written quote.</p>
 
       <h3>What happens if I pay extra each month?</h3>
       <p>Paying extra reduces your principal balance faster, which drastically cuts the total interest you pay over the life of the loan. Knowing <strong>how to calculate mortgage payments</strong> with extra principal can help you pay off your home years early.</p>
@@ -469,8 +469,8 @@ const rawArticles: Omit<Article, "author">[] = [
     content: `
       <p>Deciding <strong>how much house can I afford</strong> starts with the payment your budget can support, not only the listing price. Income, existing debts, down payment, quoted interest rate, taxes, insurance, maintenance, and cash reserves all affect the result. Use the <a href="/affordability-calculator">affordability calculator</a> to test those assumptions.</p>
 
-      <h2>The 28/36 Rule: The Industry Standard</h2>
-      <p>Lenders use specific ratios to determine your borrowing limit, most notably the 28/36 rule. This standard suggests that your total housing costs should not exceed 28% of your gross monthly income, while your total debt payments (including the new mortgage, car loans, and student loans) should stay below 36%.</p>
+      <h2>The 28/36 Planning Scenario</h2>
+      <p>This guide uses 28% of gross monthly income for housing and 36% for total debt as editable planning assumptions. They illustrate how debts change the estimate and do not represent universal lender limits.</p>
 
       <p><strong>Worked Example: $75,000 Salary</strong></p>
       <p>If you earn $75,000 per year ($6,250/month gross), the 28% rule sets your maximum monthly housing payment at approximately <strong>$1,750</strong>. If you have significant monthly debt, the 36% rule may lower this ceiling further. Understanding these thresholds is vital in learning <strong>how much house can I afford</strong>. You can model your own debt scenarios using our <a href="/loan-calculator">loan calculator</a>.</p>
@@ -499,26 +499,26 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <p>For a detailed look at where these numbers come from, read our guide on <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</p>
 
-      <h2>What Lenders Actually Look At</h2>
-      <p>Beyond the surface-level math, mortgage lenders evaluate four key pillars of your financial health:</p>
+      <h2>Inputs That Can Affect Underwriting</h2>
+      <p>Criteria vary by lender and loan program, but an application may consider:</p>
 
       <ol>
-        <li><strong>Debt-to-Income (DTI) Ratio:</strong> Lenders compare total monthly debt to gross income. The <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB) notes a 43% DTI is often the maximum for conventional loans.</li>
-        <li><strong>Credit Score:</strong> A higher score unlocks lower interest rates. In 2026, a score above 740 is generally needed to qualify for the most competitive mortgage offers.</li>
-        <li><strong>Down Payment Size:</strong> Higher down payments reduce risk. While <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> sets FHA minimums at 3.5%, a 20% down payment eliminates PMI costs.</li>
+        <li><strong>Debt-to-Income (DTI) Ratio:</strong> The lender defines which income and obligations enter its calculation.</li>
+        <li><strong>Credit:</strong> Credit and pricing criteria vary by lender and product; compare written offers.</li>
+        <li><strong>Down Payment:</strong> The entered amount changes the loan balance, payment, and any quoted mortgage-insurance cost.</li>
         <li><strong>Income Documentation:</strong> Documentation and income-history requirements vary by lender, borrower, and loan program.</li>
       </ol>
 
       <h2>The Hidden Costs Most Buyers Forget</h2>
-      <p>When asking <strong>how much house can I afford</strong>, don't just focus on principal and interest. Property taxes, homeowners insurance, PMI, and HOA fees can add $400 to $800 to your monthly bill. Additionally, the <strong>1% Rule</strong> suggests budgeting 1% of your home's value annually for maintenance. On a $370,000 home, that's over $300 a month for upkeep. Use our <a href="/mortgage-calculator">mortgage calculator</a> to ensure these "extras" are included in your budget.</p>
+      <p>When asking <strong>how much house can I afford</strong>, add property taxes, homeowners insurance, any quoted mortgage insurance, association charges, maintenance, and utilities. These amounts vary by property and location, so replace placeholders with documented figures in the <a href="/mortgage-calculator">mortgage calculator</a>.</p>
 
       <h2>How to Stretch Your Budget Without Overextending</h2>
-      <p>To safely increase your purchasing power in today's market, consider these four strategies:</p>
+      <p>To test how inputs change the estimate, consider these four steps:</p>
 
       <ul>
-        <li><strong>Improve Your Credit Score:</strong> Moving to a higher "rate tier" can save hundreds per month.</li>
+        <li><strong>Review Your Credit:</strong> Correct errors and compare written rate-and-fee quotes.</li>
         <li><strong>Save a Larger Down Payment:</strong> Refer to our <a href="/blog/down-payment-guide">down payment guide</a> for strategic saving tips.</li>
-        <li><strong>Buy in a Lower-Tax Area:</strong> Shifting your search to neighboring towns with lower property taxes can significantly boost your qualification limit.</li>
+        <li><strong>Compare Local Taxes:</strong> Enter the actual property-tax estimate for each property.</li>
         <li><strong>Compare 30-Year vs. 15-Year Terms:</strong> While 15-year loans save on total interest, a 30-year mortgage provides the lowest possible monthly payment.</li>
       </ul>
 
@@ -527,19 +527,19 @@ const rawArticles: Omit<Article, "author">[] = [
       <h2>Frequently Asked Questions</h2>
 
       <h3>How much house can I afford on a $75,000 salary?</h3>
-      <p>On a $75,000 salary, your gross income is approximately $6,250 per month. Under the 28% rule, a safe monthly payment is around $1,750, which usually allows for a home price of about $275,000 at the selected example interest rate.</p>
+      <p>On a $75,000 salary, gross income is approximately $6,250 per month. Applying the selected 28% planning assumption produces a $1,750 monthly housing budget and an illustrative home price of about $275,000 at the example interest rate. This is not an approval or safety threshold.</p>
 
       <h3>What is the 28/36 rule?</h3>
-      <p>The 28/36 rule is a standard formula used by lenders to decide <strong>how much house can I afford</strong>. It caps housing costs at 28% and total debt payments at 36% of your gross monthly income.</p>
+      <p>The 28/36 rule is a planning formula that applies 28% of gross income to housing and 36% to total debt. It does not cap what a lender may approve or determine what a household can comfortably afford.</p>
 
       <h3>How much do I need for a down payment in 2026?</h3>
-      <p>Depending on the loan, you may need as little as 3.5% (FHA) or up to 20% for a conventional loan without mortgage insurance. However, the more you put down, the lower your monthly payment and total interest cost.</p>
+      <p>Minimum down-payment and mortgage-insurance terms vary by loan program, lender, borrower, and property. A larger down payment reduces the loan balance and principal-and-interest payment.</p>
 
       <h3>Does my debt affect how much house I can afford?</h3>
       <p>Yes. Any recurring monthly debt, such as car loans or credit cards, reduces the amount a lender will approve for a mortgage by increasing your overall DTI ratio.</p>
 
       <h3>What credit score do I need to buy a house?</h3>
-      <p>Most buyers need a minimum score of 620 for conventional loans. However, to truly optimize <strong>how much house can I afford</strong>, aim for a score of 740 or above to secure the lowest interest rates.</p>
+      <p>Credit-score, approval, and pricing criteria vary by lender and loan program. Review your credit reports for errors and compare written Loan Estimates rather than assuming one score guarantees a rate.</p>
 
       <h2>Get Your Personal Number</h2>
       <p>Ready to move from estimates to exact numbers? Don't guess your budget—model it. Use our interactive tool to see exactly where your line is for monthly payments and total home price.</p>
@@ -750,7 +750,7 @@ const rawArticles: Omit<Article, "author">[] = [
   </tbody>
 </table>
 
-<p>At the comparison rate inputs of approximately 6.8% (see the <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> for live updates), a $100,000 mortgage costs roughly $654 per month in principal and interest. Over 30 years, this results in $135,320 in total interest—meaning you pay back significantly more than the original loan amount. Use our <a href="/mortgage-calculator">mortgage calculator</a> to adjust for your exact credit-qualified rate.</p>
+<p>At the selected 6.8% example annual interest rate, a $100,000 mortgage costs roughly $654 per month in principal and interest. Over 30 years, the scenario produces $135,320 in total interest. Replace the rate with a written quote in our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
 
 <h2>Monthly Payment by Loan Term</h2>
 <p>While the 30-year term is the most popular due to its lower monthly payment, shorter terms offer massive savings for those who can afford the higher monthly bills. Here is how a $100,000 loan at a 6.8% interest rate compares across different timelines:</p>
@@ -776,7 +776,7 @@ const rawArticles: Omit<Article, "author">[] = [
 <p>Conclusively, choosing a 15-year term instead of a 30-year term costs $233 more per month but saves you $75,660 in total interest—nearly the entire value of the original loan. Review our <a href="/blog/amortization-schedule-explained">how amortization works</a> guide and use the <a href="/amortization-schedule">amortization schedule</a> tool for a full year-by-year breakdown.</p>
 
 <h2>Full Monthly Cost Breakdown: Beyond Principal and Interest</h2>
-<p>The actual monthly payment you write a check for—known as PITI—includes more than just principal and interest. It encompasses property taxes, homeowners insurance, and potentially private mortgage insurance (PMI). Here is a realistic breakdown for a $125,000 home purchase with a 20% down payment ($25,000), resulting in a $100,000 loan at 6.8% over 30 years:</p>
+<p>The total monthly cost can include more than principal and interest. This illustrative breakdown applies selected tax and insurance inputs to a $125,000 home purchase with 20% down, resulting in a $100,000 loan at a 6.8% example rate over 30 years:</p>
 
 <table>
   <thead>
@@ -794,7 +794,7 @@ const rawArticles: Omit<Article, "author">[] = [
 <p>Property tax and insurance vary significantly by location and ZIP code. For a personalized PITI estimate, visit our <a href="/mortgage-calculator">mortgage calculator</a> and see <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> including local variations.</p>
 
 <h2>What Income Do You Need for a $100,000 Mortgage?</h2>
-<p>Lenders use Debt-to-Income (DTI) ratios to determine if you can afford a loan. The most common standard is the "28% rule," which suggests housing costs shouldn't exceed 28% of your gross monthly income. For our 6.8% interest rate example:</p>
+<p>This example applies a selected 28% housing-cost ratio to gross monthly income. It is a planning assumption rather than a lender qualification standard. For the 6.8% example interest rate:</p>
 
 <table>
   <thead>
@@ -810,7 +810,7 @@ const rawArticles: Omit<Article, "author">[] = [
   </tbody>
 </table>
 
-<p>A $100,000 mortgage is accessible to a wide range of income levels, making it a realistic goal for buyers in affordable US markets or those with significant savings. However, lenders also factor in your existing debts—use our <a href="/affordability-calculator">affordability calculator</a> to see <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> based on your full financial profile.</p>
+<p>The table shows only what the selected 28% ratio implies. Use our <a href="/affordability-calculator">affordability calculator</a> to add existing debts and change the planning ratio; lender criteria vary.</p>
 
 <h2>How a Down Payment Affects Your $100,000 Mortgage</h2>
 <p>Remember that a "$100,000 mortgage" is the loan amount after your down payment is applied. The total home purchase price will differ based on how much cash you put down:</p>
@@ -827,20 +827,20 @@ const rawArticles: Omit<Article, "author">[] = [
   </tbody>
 </table>
 
-<p>Note: Buyers putting less than 20% down will typically pay Private Mortgage Insurance (PMI), adding $40–$80/month to the payment. For more, see our <a href="/blog/down-payment-guide">down payment guide</a> and check the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> for PMI cancellation rights under the Homeowners Protection Act.</p>
+<p>A loan quote may include mortgage insurance. Enter the quoted premium instead of assuming a generic amount, and review the <a href="https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau's PMI guidance</a> for the cancellation conditions that may apply.</p>
 
 <h2>Is a $100,000 Mortgage Worth It? When It Makes Sense</h2>
       <p>A $100,000 mortgage is a strategic financial decision in several scenarios: (1) Buying in an affordable Midwest or Southern US market where median home prices are below $150,000. (2) Purchasing a second property or vacation home where you want a smaller, manageable loan balance. (3) Refinancing a nearly paid-off primary mortgage to access home equity at a low rate for renovations. (4) Financing a manufactured home or condo in a lower-cost area. For smaller loans like $100k, the choice between <a href="/blog/fixed-vs-variable-mortgage">fixed vs variable mortgage</a> options can still significantly affect long-term interest. Contrast this with larger loans; see our <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage payment breakdown</a> or even a <a href="/blog/400k-mortgage-monthly-payment">$400,000 mortgage guide</a> for comparison. Always run your numbers through the <a href="/total-interest-calculator">total interest calculator</a> before committing to any borrowing strategy.</p>
 
 <h2>Frequently Asked Questions</h2>
 <h3>What is the monthly payment on a $100,000 mortgage?</h3>
-<p>At a 6.8% interest rate on a 30-year term, the **$100000 mortgage monthly payment** is approximately $654 for P&amp;I. With taxes and insurance, the total PITI typically lands between $800 and $850.</p>
+<p>At the selected 6.8% example rate on a 30-year term, the **$100000 mortgage monthly payment** is approximately $654 for principal and interest. Using the page's selected tax and insurance inputs, the modeled total is $829.</p>
 <h3>How much income do I need for a $100,000 mortgage?</h3>
-<p>A gross annual income of $35,000 to $40,000 is typically sufficient to qualify for a $100,000 loan, assuming moderate existing debts and a decent credit score.</p>
+<p>The selected 28% planning ratio produces about $35,571 in illustrative annual income for the displayed full-cost scenario. It is not a qualification threshold; lender criteria and local costs vary.</p>
 <h3>How much is a $100,000 mortgage over 30 years?</h3>
 <p>At 6.8%, you will pay a total of $235,320 over 30 years, which includes $135,320 in cumulative interest costs.</p>
 <h3>Can I get a $100,000 mortgage with a low credit score?</h3>
-<p>Yes, programs like FHA or VA loans allow for lower credit scores (down to 580), though your interest rate will be higher, increasing your monthly bill.</p>
+<p>Possibly. Credit-score, eligibility, and pricing criteria vary by program and lender. Check current primary program guidance and compare written offers for your application.</p>
 <h3>What is the total cost of a $100,000 mortgage?</h3>
 <p>Including interest at 6.8%, the total cost to borrow $100,000 over three decades is approximately $135,320 in interest alone.</p>
 
@@ -869,7 +869,7 @@ const rawArticles: Omit<Article, "author">[] = [
     content: `<p>This guide models a $200,000 U.S. mortgage across selected example rates and terms. It shows principal and interest, total interest, and editable estimates for taxes and insurance. The rates are mathematical inputs rather than market claims. For a personalized calculation, use our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
 
 <h2>Monthly Payment on a $200,000 Mortgage by Interest Rate</h2>
-<p>The interest rate is the primary driver of your monthly housing cost. In today's market, even a 0.5% difference in your rate can change your payment by nearly $100 and your total interest by tens of thousands of dollars. The following table shows the monthly principal and interest (P&I) for a $200,000 mortgage on a standard 30-year fixed term:</p>
+<p>The interest-rate input materially changes the monthly and lifetime cost. The table compares selected example rates for a $200,000 mortgage over a 30-year term; it does not describe today's market or available offers.</p>
 
 <table>
   <thead>
@@ -918,7 +918,7 @@ const rawArticles: Omit<Article, "author">[] = [
 <p>Choosing a 15-year term instead of a 30-year term costs $467 more per month but saves $151,200 in total interest—more than 75% of the original loan amount. Use our <a href="/amortization-schedule">amortization schedule</a> for a full year-by-year breakdown of either option and see <a href="/blog/amortization-schedule-explained">how amortization works</a> over time.</p>
 
 <h2>Full Monthly Cost Breakdown: Beyond Principal and Interest</h2>
-<p>In reality, your total **$200000 mortgage monthly payment** includes property taxes, homeowners insurance, and private mortgage insurance (PMI). Below is a realistic PITI breakdown for a $225,000 home purchase with 11% down ($25,000), resulting in a $200,000 loan at 6.8% over 30 years:</p>
+<p>The total **$200000 mortgage monthly payment** may include taxes, homeowners insurance, and quoted mortgage insurance. The breakdown applies selected example costs to a $225,000 home with $25,000 down, resulting in a $200,000 loan at a 6.8% example rate over 30 years:</p>
 
 <table>
   <thead>
@@ -933,7 +933,7 @@ const rawArticles: Omit<Article, "author">[] = [
   </tbody>
 </table>
 
-<p>Note: Property taxes vary significantly by state and county—from under 0.5% in Hawaii and Alabama to over 2% in New Jersey and Illinois. Use our <a href="/mortgage-calculator">mortgage calculator</a> for a personalized PITI estimate based on your location and down payment, and learn <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> including these extra costs.</p>
+<p>Property taxes and insurance vary by property and jurisdiction. Replace the selected inputs with documented local figures in our <a href="/mortgage-calculator">mortgage calculator</a>, and learn <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</p>
 
 <h2>What Income Do You Need for a $200,000 Mortgage?</h2>
       <p>The following table applies a selected 28% housing-cost assumption to several payments. It is an illustrative budget check rather than an approval rule.</p>
@@ -949,7 +949,7 @@ const rawArticles: Omit<Article, "author">[] = [
   </tbody>
 </table>
 
-<p>Most buyers will need a household income between $56,000 and $90,000 to comfortably qualify for a $200,000 mortgage depending on their existing debts and local taxes. Use our <a href="/affordability-calculator">affordability calculator</a> to get a personalized figure based on your full financial picture and find out <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
+<p>The selected 28% planning ratio produces illustrative annual-income figures from about $56,000 to $90,000 as the modeled costs and debts change. These are not comfort or qualification thresholds. Use our <a href="/affordability-calculator">affordability calculator</a> to change the assumptions.</p>
 
 <h2>How a Down Payment Affects Your $200,000 Mortgage</h2>
 <p>A $200,000 mortgage refers to the loan amount *after* your down payment. Here is how that loan maps to home purchase prices:</p>
@@ -966,7 +966,7 @@ const rawArticles: Omit<Article, "author">[] = [
   </tbody>
 </table>
 
-<p>Putting 20% down on a $250,000 home eliminates PMI entirely—saving $83/month on this loan and removing a cost that never builds equity. Check our <a href="/blog/down-payment-guide">down payment guide</a> for strategies to reach 20% faster and understand your rights under the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB) guidelines.</p>
+<p>The 20% down scenario removes the selected $83 monthly mortgage-insurance input. Actual premiums and cancellation rules vary by loan; review our <a href="/blog/down-payment-guide">down payment guide</a> and the <a href="https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau's PMI guidance</a>.</p>
 
 <h2>How a $200,000 Mortgage Compares to Other Loan Amounts</h2>
 <p>When shopping for a home, it's helpful to see how much your payment shifts if you adjust your budget by $50,000 to $100,000. Here is a comparison at 6.8% over 30 years:</p>
@@ -988,7 +988,7 @@ const rawArticles: Omit<Article, "author">[] = [
 
 <h2>Frequently Asked Questions</h2>
 <h3>What is the monthly payment on a $200,000 mortgage?</h3>
-<p>At a 6.8% interest rate on a 30-year term, the **$200000 mortgage monthly payment** is approximately $1,307 for P&I. With taxes, insurance, and PMI, the total payment (PITI) is likely between $1,650 and $1,750.</p>
+<p>At the selected 6.8% example rate on a 30-year term, the **$200000 mortgage monthly payment** is approximately $1,307 for principal and interest. Using the page's selected tax, insurance, and mortgage-insurance inputs, the modeled total is $1,696.</p>
 <h3>How much income do I need for a $200,000 mortgage?</h3>
       <p>Under the assumptions shown, the illustrative annual-income range is $65,000–$85,000. It is not an approval estimate; actual costs and lender requirements vary.</p>
 <h3>How much is a $200,000 mortgage over 30 years?</h3>
@@ -996,7 +996,7 @@ const rawArticles: Omit<Article, "author">[] = [
 <h3>What is the total cost of a $200,000 mortgage at 7% interest?</h3>
 <p>At a 7% interest rate over 30 years, you will pay $1,331 per month in P&I, and a total of $279,016 in interest, totaling $479,016 overall.</p>
 <h3>How much do I need to put down on a $200,000 mortgage?</h3>
-<p>The minimum down payment for conventional loans is typically 3% ($6,186), but putting down 20% ($50,000) is recommended to avoid PMI and lower your monthly cost.</p>
+<p>The table compares 3%, 5%, 10%, and 20% down-payment inputs. Actual minimums and mortgage-insurance terms vary by loan and lender; a larger down payment reduces the loan balance.</p>
 
 <h2>Calculate Your Exact Payment</h2>
 <p>Ready to see your own numbers? Enter $200,000 as the loan amount into our mortgage calculator, set your interest rate and term, and see your personalized monthly breakdown including taxes, insurance, and PMI in seconds. Don't leave your largest financial decision to guesswork—get the exact data you need today.</p>
@@ -1103,12 +1103,12 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>Once your loan balance drops to 80% of the original purchase price you can request PMI cancellation — it drops off automatically at 78% under federal law. On this loan that saves $125/month. See our <a href="/blog/down-payment-guide">down payment guide</a> for more on this.</p>
+      <p>The model uses a selected $125 monthly mortgage-insurance input. The <a href="https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> explains the conditions for borrower-requested cancellation and automatic termination under the U.S. Homeowners Protection Act; confirm which conditions apply to your loan.</p>
 
       <h2>What Income Do You Need for a $300,000 Mortgage?</h2>
-      <p>The income question is where a lot of buyers get an unwelcome surprise. Lenders use the <a href="/blog/28-36-rule-explained">28/36 rule</a> — your housing costs shouldn't exceed 28% of gross monthly income, and total debt payments shouldn't exceed 36%. These are based on your gross income (before taxes), which is always higher than what you actually take home.</p>
+      <p>The income table uses the <a href="/blog/28-36-rule-explained">28/36 rule</a> as two editable planning assumptions: 28% of gross income for housing and 36% for total debt. Actual underwriting methods and limits vary by lender and loan program.</p>
 
-      <p>Here is what income you need at different payment levels, using the full PITI payment of $2,502/month from the example above:</p>
+      <p>Here is the illustrative income produced by the selected planning ratios at different payment levels, using the $2,502 monthly example above:</p>
 
       <div class="overflow-x-auto my-6">
         <table class="w-full text-left border-collapse">
@@ -1116,7 +1116,7 @@ const rawArticles: Omit<Article, "author">[] = [
             <tr class="border-b border-outline-variant">
               <th class="py-3 font-bold text-on-surface">Scenario</th>
               <th class="py-3 font-bold text-on-surface">Monthly Cost</th>
-              <th class="py-3 font-bold text-on-surface">Required Annual Income</th>
+              <th class="py-3 font-bold text-on-surface">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
@@ -1128,7 +1128,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>The income requirement rises quickly when you add existing debts — a car payment and student loan can push the required income from $107,000 to $137,000 on the same house. If your debt load is significant, paying some of it down before applying can meaningfully improve what you qualify for. Check out our <a href="/blog/28-36-rule-explained">28/36 rule explainer</a> and <a href="/affordability-calculator">affordability calculator</a>.</p>
+      <p>Under the selected ratios, adding the example car and student-loan payments changes the illustrative income from about $107,000 to $137,000. This demonstrates debt sensitivity and does not predict approval. See the <a href="/blog/28-36-rule-explained">28/36 rule explainer</a> and <a href="/affordability-calculator">affordability calculator</a>.</p>
 
       <h2>How Your Down Payment Changes the Picture</h2>
       <p>A $300,000 mortgage represents the loan amount after your <a href="/blog/down-payment-guide">down payment</a> — not the home price. Here is what home price this corresponds to at different down payment levels, and how PMI changes the total cost:</p>
@@ -1153,7 +1153,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>PMI disappears entirely at 20% down, saving $125/month on this loan size. But 20% on a $375,000 home is $75,000 in cash — which most first-time buyers don't have. The 10% option is a reasonable middle ground for most buyers in this price range. See our <a href="/blog/down-payment-guide">down payment guide</a> for more strategy.</p>
+      <p>The 20% down scenario removes the selected $125 monthly mortgage-insurance input and uses $75,000 in cash on a $375,000 home. Compare that with the 10% scenario and your required reserves; actual insurance terms vary. See our <a href="/blog/down-payment-guide">down payment guide</a>.</p>
 
       <h2>$300,000 vs Other Loan Amounts — How It Compares</h2>
       <p>If you're weighing whether to stretch to a larger loan or scale back, here is a direct comparison at 6.8% over 30 years. This is useful as you consider whether a <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage</a>, a <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage</a>, or a <a href="/blog/400k-mortgage-monthly-payment">$400,000 mortgage</a> might better fit your budget.</p>
@@ -1180,20 +1180,20 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <p>Every $50,000 in additional loan amount adds approximately $327/month to your payment at 6.8%. That is a useful number to keep in mind as you evaluate different price points.</p>
 
-      <h2>Is a $300,000 Mortgage a Good Idea in 2026?</h2>
+      <h2>How to Evaluate a $300,000 Mortgage</h2>
       <p>That depends entirely on where you're buying and what you earn. In markets like Detroit, Indianapolis, Memphis, or most of the Midwest and South, $300,000 buys a solid family home and the payment is manageable on a $90,000–$100,000 household income. In Austin, Denver, or any coastal metro, $300,000 is a down payment on an entry-level condo, and the actual mortgage will be significantly larger.</p>
 
-      <p>At selected example rates, the true all-in monthly cost of a $300,000 mortgage is around $2,500 with typical taxes and insurance. For that to comfortably fit within the 28% housing ratio guideline, you need a household income of roughly $107,000. That is above the US median household income — which means a $300,000 mortgage is achievable for many buyers but does require a solid income base, especially when existing debts are factored in.</p>
+      <p>With the selected example rate, taxes, insurance, and mortgage-insurance inputs, this $300,000 mortgage scenario totals about $2,500 per month. Dividing that amount by the illustrative 28% housing ratio produces roughly $107,000 in annual income. Replace every cost input and ratio before using the estimate for a real decision.</p>
 
-      <p>The honest assessment: if the total monthly payment — PITI plus maintenance reserve — comes in under 30% of your actual take-home pay, and you have 3–6 months of expenses in savings after closing, a $300,000 mortgage is very manageable. If it pushes beyond 35% of take-home pay, you are financially stretched and one unexpected expense away from real stress. Run the full numbers on our <a href="/affordability-calculator">affordability calculator</a> before deciding.</p>
+      <p>Compare the total monthly payment, maintenance allowance, emergency reserve, recurring expenses, and savings goals with take-home pay. Test several ratios and cost assumptions in our <a href="/affordability-calculator">affordability calculator</a>; no single percentage determines whether the loan is manageable for every household.</p>
 
       <h2>Frequently Asked Questions</h2>
       
       <h3>What is the monthly payment on a $300,000 mortgage?</h3>
-      <p>At the 6.8% example rate around 6.8%, the monthly principal and interest payment on a $300,000 30-year mortgage is approximately $1,961. Your actual total monthly payment will be higher — typically $2,400–$2,600 — once property taxes, homeowners insurance, and PMI are included. Use our <a href="/mortgage-calculator">mortgage calculator</a> for a precise figure.</p>
+      <p>At the selected 6.8% example rate, the monthly principal and interest payment on a $300,000 30-year mortgage is approximately $1,961. Using the page's selected tax, insurance, and mortgage-insurance inputs, the modeled total is $2,502. Replace those inputs in the <a href="/mortgage-calculator">mortgage calculator</a>.</p>
 
       <h3>How much do I need to earn for a $300,000 mortgage?</h3>
-      <p>Using the <a href="/blog/28-36-rule-explained">28/36 rule</a>, you need a gross annual income of approximately $84,000–$107,000 depending on whether you use just P&I or the full PITI payment. If you have significant existing debts, the required income is higher.</p>
+      <p>The selected <a href="/blog/28-36-rule-explained">28% planning ratio</a> produces illustrative annual-income figures of about $84,000 for principal and interest or $107,000 with the page's added costs. Existing debts change the result; these are not qualification thresholds.</p>
 
       <h3>How much is a $300,000 mortgage over 30 years in total?</h3>
       <p>At 6.8%, you will pay approximately $705,960 in total — $300,000 in principal and $405,960 in interest. Choosing a 15-year term instead reduces the total to around $478,800, saving over $227,000 in interest.</p>
@@ -1202,7 +1202,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Credit-score, down-payment, approval, and pricing criteria vary by lender and loan program. Use the rate from a written quote in the calculator rather than assuming a score guarantees a particular rate.</p>
 
       <h3>How much down payment do I need for a $300,000 mortgage?</h3>
-      <p>The loan amount is $300,000 after your down payment. With 3% down, you're buying a home around $309,000. With 10% down, around $333,000. With 20% down — which eliminates PMI — around $375,000. Link to our <a href="/blog/down-payment-guide">down payment guide</a>.</p>
+      <p>The loan amount is $300,000 after the down payment. The table shows home prices around $309,000 at 3% down, $333,000 at 10%, and $375,000 at 20%. The 20% scenario removes its mortgage-insurance input; actual terms vary. See our <a href="/blog/down-payment-guide">down payment guide</a>.</p>
 
       <div class="bg-primary p-8 sm:p-12 rounded-[2.5rem] my-16 text-white text-center shadow-2xl relative overflow-hidden group">
         <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-hover opacity-95 transition-opacity duration-500 group-hover:opacity-100"></div>
@@ -1223,17 +1223,17 @@ const rawArticles: Omit<Article, "author">[] = [
     title: "How Much Can I Borrow Based on My Income? A 2026 Guide",
     category: "Affordability",
     readTime: "8 min read",
-    excerpt: "Find out how much you can borrow based on your income in 2026 — with loan eligibility tables from $30k to $200k salary, DTI ratio explained, and tips to qualify for more.",
+    excerpt: "Explore how income and existing debts change an illustrative borrowing estimate, with editable ratio scenarios from $30k to $200k salary.",
     slug: "loan-eligibility-by-income",
     seoTitle: "Loan Eligibility by Income: 2026 Borrowing Guide | TryFinCalc",
     seoDescription: "Calculate how much you can borrow based on your 2026 income. Understand DTI ratios and loan limits.",
     content: `
-      <p>One of the first questions anyone asks before applying for a loan is whether their income is high enough to qualify. It's a source of significant anxiety for many, but the reality is more structured than you might think. Your eligibility doesn't just rest on your salary; it depends on a trio of factors: your gross income, your existing monthly debt obligations, and the specific debt-to-income (DTI) ratio requirements of your chosen lender. This guide breaks down exactly <strong>how much can I borrow based on my income</strong> in 2026, providing real numbers and clear examples so you know exactly where you stand before you apply. Start by getting a preliminary estimate with our <a href="/affordability-calculator">affordability calculator</a>.</p>
+      <p>The question <strong>how much can I borrow based on my income</strong> depends on income, existing debts, term, rate, costs, and lender-specific criteria. This guide provides mathematical planning scenarios rather than eligibility or approval estimates. Change the assumptions in our <a href="/affordability-calculator">affordability calculator</a>.</p>
 
-      <h2>The Debt-to-Income Ratio: The Number Lenders Care About Most</h2>
-      <p>Lenders don't just look at how much you make; they look at how much of that income is already "spoken for" by other creditors. This is measured by your Debt-to-Income (DTI) ratio. The formula is: <strong>(Total Monthly Debt Payments ÷ Gross Monthly Income) × 100</strong>.</p>
+      <h2>Debt-to-Income Ratio as a Planning Input</h2>
+      <p>Debt-to-income (DTI) divides entered monthly debt payments by gross monthly income. Lenders may define both parts differently by program. The general formula is: <strong>(Total Monthly Debt Payments ÷ Gross Monthly Income) × 100</strong>.</p>
       
-      <p>According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, a "Qualified Mortgage" typically requires a back-end DTI of 43% or less. However, <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> notes that FHA loans can sometimes allow for a DTI as high as 50% for borrowers with strong compensating factors. For personal loans and auto loans, expect lenders to look for a DTI below 35–40%.</p>
+      <p>This page uses a selected 43% total-debt ratio for one sensitivity example. It does not claim that the ratio applies to a particular mortgage, personal loan, or auto loan. Check current primary program guidance and the lender's written criteria.</p>
 
       <p><strong>DTI Calculation Example:</strong></p>
       <ul>
@@ -1245,7 +1245,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Use our <a href="/mortgage-calculator">mortgage calculator</a> to see what loan amount that $1,780 monthly payment can support at selected example rates.</p>
 
       <h2>Mortgage Eligibility by Income: How Much Can You Borrow?</h2>
-      <p>The table below shows estimated maximum mortgage loan amounts assuming a 43% DTI, <strong>zero existing monthly debt</strong>, a 6.8% rate, and a 30-year term.</p>
+      <p>The table shows mathematical loan estimates using a selected 43% total-debt assumption, <strong>zero existing monthly debt</strong>, a 6.8% example annual interest rate, and a 30-year term. It does not predict approval.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -1294,14 +1294,14 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Carrying $900/month in debt reduces your mortgage eligibility by $135,000 on a $75k salary. Paying down debt is the single most effective way to increase your loan capacity.</p>
 
       <h2>Personal Loan Eligibility by Income</h2>
-      <p>Personal loan lenders focus more on credit history and DTI (often looking for < 35%). Minimum income requirements are usually around $20k-$25k.</p>
+      <p>Personal-loan credit, income, debt, maximum amount, fee, and pricing criteria vary by lender. Use the table only as a payment-capacity illustration.</p>
 
       <div class="max-w-md mx-auto my-8 border border-outline-variant rounded-xl shadow-sm">
         <table class="w-full text-left border-collapse">
           <thead>
             <tr class="bg-surface-container-low border-b border-outline-variant">
               <th class="py-4 px-4 font-bold">Annual Income</th>
-              <th class="py-4 px-4 font-bold">Typical Max Personal Loan</th>
+              <th class="py-4 px-4 font-bold">Illustrative Personal Loan</th>
             </tr>
           </thead>
           <tbody>
@@ -1319,16 +1319,16 @@ const rawArticles: Omit<Article, "author">[] = [
       <ul>
         <li><strong>Pay down debts:</strong> Every $100 freed up adds ~$15,000 to your capacity.</li>
         <li><strong>Add a co-borrower:</strong> Combining incomes with a spouse or partner immediately lowers your combined DTI.</li>
-        <li><strong>Improve your credit score:</strong> A higher score wins lower interest rates, allowing for a larger loan for the same payment. See <a href="/blog/interest-rate-impact">how your rate affects your payment</a> for the math.</li>
+        <li><strong>Review your credit:</strong> Correct errors and compare written rates and fees. See <a href="/blog/interest-rate-impact">how a quoted rate affects your payment</a> for the math.</li>
         <li><strong>Larger down payment:</strong> Reduces the loan amount needed and keeps payments within eligibility limits. Learn more about <a href="/blog/down-payment-guide">saving for a down payment</a>.</li>
         <li><strong>Choose a longer term:</strong> A 30-year mortgage has a lower payment than a 15-year for the same amount. The tradeoff is more interest overall.</li>
       </ul>
 
-      <h2>What Else Do Lenders Look At?</h2>
+      <h2>Other Inputs That May Affect an Application</h2>
       <ul>
-        <li><strong>Credit Score:</strong> 620 minimum for conventional, 740+ for best rates.</li>
+        <li><strong>Credit:</strong> Score, history, approval, and pricing criteria vary by lender and loan program.</li>
         <li><strong>Employment History:</strong> Usually 2 years of stable employment in the same field.</li>
-        <li><strong>Assets and Reserves:</strong> Lenders want to see 2–6 months of payments in savings after closing.</li>
+        <li><strong>Assets and Reserves:</strong> Any documentation or reserve requirement varies by loan program and borrower.</li>
       </ul>
       <p>Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> including escrow and PMI will help you prepare for these "hidden" factors. Be sure you are <a href="/blog/compare-loan-offers">comparing loan offers</a> carefully to get the best deal.</p>
 
@@ -1341,7 +1341,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>The 43% ratio in this example includes the assumed housing payment and other monthly debts. Actual underwriting ratios and included obligations vary by lender and loan program.</p>
 
       <h3>Can I get a mortgage with a high debt-to-income ratio?</h3>
-      <p>Yes, FHA loans often allow a higher DTI, sometimes up to 50% or more, provided you have a decent credit score or a larger down payment.</p>
+      <p>Possibly. DTI calculation and limits vary by lender, program, borrower, and current program rules. Ask the lender which criteria apply to the application.</p>
 
       <h3>Does my income alone determine how much I can borrow?</h3>
       <p>No. Your credit score, debt levels, employment history, and down payment size are equally critical to a lender’s decision.</p>
@@ -1726,7 +1726,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>One of the best-kept secrets in home finance is taking a 30-year mortgage but paying it like a 15-year loan. This gives you the best of both worlds: the interest savings of a faster payoff, with the contractual flexibility to drop back to the lower 30-year minimum payment if you hit a financial rough patch. Paying $2,993/month on a 30-year $350,000 loan at 6.8% pays it off in approximately 16.5 years and saves roughly $210,000 in interest — an outcome nearly as good as the 15-year loan but with significantly less risk. You can model this specific "what-if" scenario on our <a href="/amortization-schedule">amortization schedule</a> tool. Check out more <a href="/blog/early-mortgage-payoff">strategies for paying off your mortgage early</a>.</p>
 
       <h2>Rate Difference: Why 15-Year Rates Are Lower</h2>
-      <p>15-year mortgages consistently carry lower interest rates than 30-year loans — typically 0.5%–0.75% lower. This is because a shorter loan represents less time-based risk to the lender. According to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a>, this spread is a historical constant. On a $350,000 loan, the rate difference alone saves approximately $40,000 in interest before even considering the shorter term. Understanding <a href="/blog/interest-rate-impact">how your rate affects total cost</a> is vital before you sign. If you already have a 30-year loan, consider <a href="/blog/when-to-refinance">refinancing from a 30-year to a 15-year</a> if rates have dropped.</p>
+      <p>A 15-year quote and a 30-year quote can carry different rates and fees. Compare the actual written offers rather than assuming a fixed spread. The table on this page uses selected example rates to show how both the rate and shorter repayment period change total interest. Understanding <a href="/blog/interest-rate-impact">how your rate affects total cost</a> is useful before you sign. If you already have a 30-year loan, use the <a href="/blog/when-to-refinance">refinance break-even method</a> to compare a proposed 15-year offer.</p>
 
       <h2>Frequently Asked Questions</h2>
       <h3>Is a 15-year or 30-year mortgage better?</h3>
@@ -1765,7 +1765,7 @@ const rawArticles: Omit<Article, "author">[] = [
     seoTitle: "When to Refinance Mortgage: 2026 Break-Even Guide | TryFinCalc",
     seoDescription: "Find out when refinancing your mortgage makes sense in 2026. Calculate your exact break-even point today.",
     content: `
-      <p>Refinancing is one of those financial decisions that sounds straightforward until you actually sit down to do the math. The pitch is simple: rates went up, now they're coming down, so refinance and save money. The reality is that refinancing has upfront costs — typically $3,000 to $8,000 — and whether it actually saves you money depends entirely on one number most people never calculate: the break-even point. You can run these numbers yourself using our <a href="/refinancing-calculator">refinancing calculator</a>.</p>
+      <p>Refinancing is only useful when a new written quote improves the costs that matter for your time horizon. Enter the quoted closing costs, remaining balance and term, new rate, and new term to calculate the break-even point with our <a href="/refinancing-calculator">refinancing calculator</a>.</p>
 
       <p>A lot of homeowners locked in rates between 6.5% and 8% over the past few years and have been watching rates closely ever since. If that's you, this article is written for your situation. We'll walk through the exact math, show you what a meaningful rate drop actually saves, and cover the situations where refinancing clearly makes sense — and the ones where it doesn't.</p>
 
@@ -1828,7 +1828,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p><strong>Situation 4: Your financial situation has deteriorated since you took out the original loan.</strong> Lower income, higher debt, or a drop in credit score can mean you won't qualify for a better rate — or won't qualify at all. Applying for a refinance triggers a credit inquiry and can temporarily lower your score. Check where you stand before you apply.</p>
 
       <h2>Cash-Out Refinancing — When It Helps and When It Doesn't</h2>
-      <p>A cash-out refinance replaces your current mortgage with a larger one, and you receive the difference as cash. It's commonly used for home improvements, paying off high-interest debt, or covering a major life expense. The appeal is obvious — mortgage rates are typically far lower than credit card or personal loan rates.</p>
+      <p>A cash-out refinance replaces your current mortgage with a larger one, and you receive the difference as cash. Compare the new mortgage's rate, fees, term, and secured-debt risk with written alternatives such as a personal-loan or credit-card offer; do not assume one product is cheaper.</p>
 
       <p>But there is a real risk that often goes unmentioned. A cash-out refinance converts unsecured debt — which a lender can't take your house for — into secured debt backed by your home. If you use a cash-out refi to pay off $30,000 in credit card debt and then accumulate credit card debt again, you haven't solved the problem. You've just added it to your mortgage. This is genuinely worth pausing on before proceeding.</p>
 
@@ -1925,7 +1925,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>This article does exactly that. Real numbers, real comparisons, and a framework for making the decision based on your life — not a generic rule someone invented in a different interest rate environment.</p>
 
       <h2>What Renting Actually Costs — The Full Picture</h2>
-      <p>Most people calculate the cost of renting as just their monthly rent. That's mostly right — renting is financially simpler than owning. But the complete picture includes: monthly rent (obviously), renter's insurance (typically $15–$30/month, surprisingly often skipped), and the opportunity cost of not building equity.</p>
+      <p>The cost of renting includes the monthly rent, any renter's-insurance quote, fees, expected rent growth, and the opportunity cost of invested cash. Enter the actual amounts for the lease and jurisdiction instead of relying on a generic insurance estimate.</p>
 
       <p>That last one is the crux of the whole debate. Every month you rent, your landlord's equity grows and yours doesn't. But here's what that argument misses: if you had put $40,000 into a down payment instead of keeping it invested, you'd also be missing whatever that $40,000 earned in the market. Equity isn't free money — it's money you chose to put into real estate instead of somewhere else.</p>
 
@@ -2001,7 +2001,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <h2>The Break-Even Timeline — The One Number That Should Drive Your Decision</h2>
       <p>The break-even point is the year at which the total cost of buying becomes less than the total cost of renting the equivalent property. Before that point, renting is cheaper. After it, buying wins. And the break-even point varies enormously by market.</p>
 
-      <p>The calculation accounts for: upfront costs of buying (down payment, closing costs typically 2–5% of purchase price), monthly payment difference between buying and renting, equity built through mortgage payments and appreciation, and the investment return you could have earned on the down payment instead.</p>
+      <p>The calculation accounts for the entered down payment and purchase costs, the monthly cost difference between buying and renting, equity built through mortgage payments and appreciation, selling costs, and the investment return you could have earned on cash used for the purchase.</p>
 
       <p>Break-even timing changes with rent, purchase costs, financing, maintenance, taxes, insurance, appreciation, investment return, and time horizon. Use the calculator's sensitivity inputs instead of relying on a market-wide range.</p>
 
@@ -2032,7 +2032,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>The honest answer is that if you're planning to move in 3 years, this table says renting is almost certainly the right call financially. If you're planning to stay 10+ years, buying builds significantly more wealth. The 5–7 year zone is genuinely uncertain — it depends on your specific market and what home prices do. You can <a href="/rent-vs-buy">model your specific numbers here</a>.</p>
 
       <h2>The Price-to-Rent Ratio — A Quick Market Test</h2>
-      <p>There's a quick calculation that tells you whether your local market favors buyers or renters. It's called the price-to-rent ratio: take the purchase price of a home and divide it by the annual rent for a comparable property. A ratio below 15 generally means buying is the better financial choice. Between 15 and 20 is neutral — it really depends on your timeline and the specifics. Above 20, renting is typically the more cost-effective option in the short to medium term.</p>
+      <p>The price-to-rent ratio divides a home's purchase price by the annual rent for a comparable property. It can help compare local prices, but no cutoff determines whether renting or buying wins. The result also depends on time horizon, financing, taxes, insurance, maintenance, transaction costs, appreciation, rent growth, and investment return.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -2074,7 +2074,7 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <p>Scenario 3: You're carrying significant high-interest debt. If you have credit card debt above 15% APR, paying that off before buying a home is almost always the right mathematical call. The guaranteed return of eliminating 20% interest debt beats the speculative return of home appreciation.</p>
 
-      <p>Scenario 4: Your debt-to-income ratio is already stretched. Lenders use DTI to evaluate mortgage applications — most want it below 43%. But qualifying for the maximum you're allowed and comfortably affording it are two different things. If buying would push your housing costs above 30% of your take-home pay, rent until your income grows or your debts shrink. Read more about the <a href="/blog/28-36-rule-explained">28/36 rule</a>.</p>
+      <p>Scenario 4: Your debt-to-income ratio is already stretched. Lenders may calculate and limit DTI differently by product and borrower. Compare the lender's actual calculation with your take-home budget and emergency savings rather than treating approval as a comfort threshold. Read more about the <a href="/blog/28-36-rule-explained">28/36 planning scenario</a>.</p>
 
       <h2>The Question Nobody Asks: What Would You Do With the Down Payment Instead?</h2>
       <p>The down payment comparison is the part of the rent vs. buy debate that most articles skip. If you put $40,000 into a down payment, that money is no longer available for anything else. The question is: what would it have earned if you'd invested it instead?</p>
@@ -2170,7 +2170,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <h2>The PMI Question — Is It Really That Bad?</h2>
       <p>PMI, or Private Mortgage Insurance, often gets a bad reputation in the homebuying world. Yes, it's essentially a fee you pay that doesn't build any equity in your home. However, it's also the very thing that enables you to buy a home three to seven years earlier than if you were forced to wait and save up a full 20% down payment. In a rising market, the math can actually work in your favor—getting into a home sooner often beats waiting for a "perfect" down payment while prices climb.</p>
 
-      <p>Typically, PMI costs between 0.5% and 1.5% of the loan amount per year, which is split into your monthly payments. On a $350,000 loan at an average 0.8% rate, you’re looking at about $233 per month. It isn't a small amount, but it’s also not permanent. Under the Homeowners Protection Act, which you can read about in detail at the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, lenders are required to automatically cancel your PMI once your loan balance reaches 78% of the original purchase price. You can even request early cancellation once you hit 80% equity, or get there faster by making <a href="/blog/extra-payments-impact">extra payments</a> toward your principal.</p>
+      <p>For illustration, applying a selected 0.8% annual mortgage-insurance assumption to a $350,000 loan produces about $233 per month. Your premium and cancellation terms depend on the loan. The <a href="https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> explains the conditions for borrower-requested cancellation and automatic termination under the U.S. Homeowners Protection Act; confirm which conditions apply to your mortgage.</p>
 
       <p>There is one important exception to keep in mind: FHA mortgage insurance. If you put down less than 10% on an FHA loan, that insurance stays for the entire life of the loan. If you put down 10% or more, it drops off after 11 years. This is a big reason why many buyers prefer conventional loans even when FHA rates seem slightly lower—over the long haul, the persistent cost of FHA insurance can easily erase any benefit from a lower interest rate.</p>
 
@@ -2927,7 +2927,7 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "Should I refinance to a 30-year or 15-year mortgage?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Refinancing to a 15-year mortgage typically offers a lower interest rate and massive lifetime interest savings, but results in a higher monthly payment. Refinancing to a 30-year mortgage provides the lowest possible monthly payment but may cost more in total interest if it resets your timeline. Choose the term that aligns with your monthly cash flow needs and long-term equity goals."
+            "text": "Compare written 15-year and 30-year refinance quotes, including rates, fees, monthly payments, and total remaining cost. A shorter term can reduce total interest but raise the payment; resetting to a longer term can lower the payment while increasing total cost."
           }
         },
         {
@@ -2958,7 +2958,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li><strong>(2) Current interest rate:</strong> This is located on your original loan documents or your monthly statement. If you have an adjustable-rate mortgage, use your current adjusted rate.</li>
         <li><strong>(3) Remaining loan term:</strong> This is the number of years and months left on your current loan. For example, a 30-year loan taken out 7 years ago has 23 years remaining.</li>
         <li><strong>(4) New interest rate:</strong> Get a real personalised quote from at least two lenders before entering this. Do not use advertised rates found online; according to <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> benchmarks, advertised rates are often best-case scenarios that include points you might not want to pay.</li>
-        <li><strong>(5) Closing costs:</strong> These typically run $3,000–$8,000 for a refinance. Ask your lender for a Loan Estimate (a requirement enforced by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>) before running your calculation. If you do not have a quote yet, use $5,500 as a conservative estimate for a $250,000–$350,000 loan.</li>
+        <li><strong>(5) Closing costs:</strong> Enter the charges from the lender's written Loan Estimate. If you do not have a quote yet, any placeholder is only a selected calculator assumption and should be replaced before making a decision.</li>
       </ul>
 
       <h2>Step-by-Step Example: Should This Homeowner Refinance?</h2>
@@ -3018,7 +3018,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>A cash-out refinance replaces your existing mortgage with a larger one and gives you the difference in cash. The calculator inputs change slightly: the new loan amount is your remaining balance plus the cash you want to take out. For instance, if you have a $240,000 balance and want $30,000 cash out, your new loan amount is $270,000. You must calculate the new payment on $270,000 and compare it to the current payment on $240,000. The difference is the true monthly cost of accessing that $30,000. Be cautious: cash-out refinancing converts unsecured equity into secured debt. Only use this strategy when the cash-out rate is significantly lower than alternatives, which is often <a href="/blog/when-to-refinance">when refinancing makes sense</a> for debt consolidation.</p>
 
       <h2>No-Closing-Cost Refinance: How to Calculate the True Cost</h2>
-      <p>Some lenders offer refinancing with zero upfront closing costs by rolling the costs into a slightly higher rate. For example, you might compare a standard refinance at 6.3% with $5,800 closing costs vs. a no-closing-cost refinance at 6.55% with $0 upfront. Run both through the calculator. The no-closing-cost option has a higher monthly payment but requires no upfront cash. This is often an excellent choice if you plan to refinance again or sell within 3–4 years. However, if you plan to keep the loan long-term, <a href="/blog/compare-loan-offers">comparing lender quotes</a> will usually show that paying closing costs upfront leads to a lower total cost. Seeing <a href="/blog/interest-rate-impact">how your rate affects total cost</a> over 30 years illustrates the long-term impact of even a 0.25% difference.</p>
+      <p>A lender may quote a refinance with no upfront closing costs by charging a different rate or adding costs to the balance. For illustration, compare 6.3% with $5,800 in costs against 6.55% with $0 upfront, then replace both examples with written offers. The lower-cost choice depends on the resulting balance, payment, fees, and how long you keep the loan. See <a href="/blog/compare-loan-offers">how to compare lender quotes</a> and <a href="/blog/interest-rate-impact">how rate changes affect total cost</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
       <h3>How do I use a refinance calculator?</h3>
@@ -3028,7 +3028,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>The break-even point is the number of months it takes for your cumulative monthly savings to equal the upfront closing costs paid for the refinance. For example, if your closing costs are $5,000 and you save $200 per month, your break-even point is 25 months. You should generally only refinance if you plan to stay in the home longer than this period.</p>
 
       <h3>Should I refinance to a 30-year or 15-year mortgage?</h3>
-      <p>Refinancing to a 15-year mortgage typically offers a lower interest rate and massive lifetime interest savings, but results in a higher monthly payment. Refinancing to a 30-year mortgage provides the lowest possible monthly payment but may cost more in total interest if it resets your timeline. Choose the term that aligns with your monthly cash flow needs and long-term equity goals.</p>
+      <p>Compare written 15-year and 30-year refinance quotes, including rates, fees, monthly payments, and total remaining cost. A shorter term can reduce total interest but raise the payment; resetting to a longer term can lower the payment while increasing total cost.</p>
 
       <h3>Does refinancing reset my mortgage term?</h3>
       <p>Yes, unless you specifically choose a shorter term. If you are 10 years into a 30-year mortgage and refinance into a new 30-year loan, you have 'reset' your clock, extending your total debt period to 40 years. To avoid this, look for 15, 20, or 25-year options that match your remaining schedule.</p>
@@ -3071,7 +3071,7 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "What are the upfront costs of buying a home?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The main upfront costs include your down payment (typically 3% to 20%), closing costs (2% to 5% of the purchase price), upfront home inspection and appraisal fees, plus moving expenses and any immediate home repairs needed before you settle in."
+            "text": "Upfront costs can include a down payment, lender and settlement charges, inspection and appraisal fees, moving expenses, and immediate repairs. Use written estimates for the loan and jurisdiction rather than a universal percentage."
           }
         },
         {
@@ -3095,7 +3095,7 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "What costs are due at closing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "At closing, you will pay your remaining down payment balance plus closing costs, which typically include lender origination fees, title insurance, appraisal fees, attorney fees, prepaid property taxes, and the first year of homeowners insurance."
+            "text": "At closing, you may pay the remaining down payment plus the charges itemized in your closing documents. Items vary by loan and jurisdiction and can include lender, title, appraisal, legal, tax, and insurance amounts."
           }
         }
       ]
@@ -3138,7 +3138,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Note that putting less than 20% down triggers Private Mortgage Insurance (PMI) — adding $100–$400/month to your ongoing costs. Check our full <a href="/blog/down-payment-guide">down payment guide</a> for an analysis of which down payment percentage makes sense for different financial situations. You can also check <a href="/calculator/income-required-for-300k-house">the income required for a $300k house</a> or <a href="/calculator/income-required-for-400k-house">for a $400k house</a> to understand your qualification threshold.</p>
 
       <h2>Category 2 — Closing Costs</h2>
-      <p>Closing costs are paid on top of the down payment and typically run 2–5% of the purchase price. For a $350,000 home, that means $7,000–$17,500 in additional cash due at closing. The major components include lender fees, title insurance, appraisal, attorney fees, prepaid taxes, and upfront insurance premiums. Stress that these are non-negotiable minimums — you cannot close without paying them. In some cases, sellers can be negotiated to cover a portion as a concession. See our comprehensive <a href="/blog/closing-costs-breakdown">closing costs breakdown</a> for the full itemised list.</p>
+      <p>Closing costs are paid in addition to the down payment. The amount and components vary by loan, provider, transaction, and jurisdiction, so use the written Loan Estimate and local settlement documents. See our <a href="/blog/closing-costs-breakdown">closing costs breakdown</a> for the categories to check.</p>
 
       <h2>Category 3 — Cash Reserves</h2>
       <p>Reserve requirements vary by lender and loan program. As an illustration, three months of reserves for a $2,500 payment equals $7,500, but that example is not a universal requirement.</p>
@@ -3197,7 +3197,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>Conclude: the true monthly cost of homeownership is typically $500–$1,000 higher than the mortgage payment alone. Plan your budget around the full number. Find out exactly <a href="/blog/mortgage-payment-guide">how your mortgage payment is calculated</a> and get <a href="/blog/escrow-accounts-explained">escrow accounts explained</a> to avoid surprises. First-time buyers can also check with <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> for assistance programs.</p>
+      <p>The monthly cost of homeownership can exceed principal and interest once taxes, insurance, association charges, maintenance, and other local costs are included. Build the budget from property-specific figures. See <a href="/blog/mortgage-payment-guide">how a mortgage payment is calculated</a> and get <a href="/blog/escrow-accounts-explained">escrow accounts explained</a>. First-time buyers can also check <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> for program information.</p>
 
       <h2>Your Complete Home Purchase Budget: A Summary</h2>
       <p>Let's pull it all together in one table for a $350,000 home with 10% down:</p>
@@ -3228,7 +3228,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>For a complete home purchase budget on a $350,000 home with a 10% down payment, you generally need between $55,000 and $85,000 in accessible savings. This covers the down payment, closing costs, required cash reserves, and immediate moving expenses.</p>
 
       <h3>What are the upfront costs of buying a home?</h3>
-      <p>The main upfront costs include your down payment (typically 3% to 20%), closing costs (2% to 5% of the purchase price), upfront home inspection and appraisal fees, plus moving expenses and any immediate home repairs needed before you settle in.</p>
+      <p>Upfront costs can include the selected down payment, lender and settlement charges, inspection and appraisal fees, moving expenses, and immediate repairs. Replace all placeholders with written estimates for the transaction.</p>
 
       <h3>How much should I save before buying a house?</h3>
       <p>Your ideal home purchase budget should cover your targeted down payment, another 2% to 5% for closing costs, plus 2 to 6 months of mortgage payments in reserves to ensure you can safely afford homeownership without financial panic.</p>
@@ -3237,7 +3237,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Cash reserves are liquid funds kept after closing for payments and unexpected expenses. Any lender-required amount varies by loan program and borrower.</p>
 
       <h3>What costs are due at closing?</h3>
-      <p>At closing, you will pay your remaining down payment balance plus closing costs, which typically include lender origination fees, title insurance, appraisal fees, attorney fees, prepaid property taxes, and the first year of homeowners insurance.</p>
+      <p>At closing, you may pay the remaining down payment plus charges itemized in the closing documents. The applicable lender, title, appraisal, legal, tax, and insurance items vary by loan and jurisdiction.</p>
 
       <div class="bg-primary/5 border border-primary/20 rounded-2xl p-8 my-10 text-center">
         <h3 class="text-2xl font-bold text-primary mb-4">Build Your Personal Home Purchase Budget</h3>
@@ -3265,11 +3265,11 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>For a $350,000 home with a 6.8% interest rate, the P&I portion alone is approximately $2,059 per month. However, once you add local property taxes (averaging 1.1% nationally) and homeowners insurance, your true all-in monthly payment is closer to $2,700—a $641 difference. Failing to account for this is a primary driver of <strong>mortgage calculator mistakes</strong>. Always use a tool that provides a full PITI breakdown so you aren't surprised by the escrow bill later. You can see how these "extra" costs are calculated in our guide on <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</p>
 
       <h2>Mistake 2 — Using a Rate You Saw in an Advertisement</h2>
-      <p>Advertised mortgage rates are almost always a "best-case scenario" designed to grab your attention. These rates are typically offered only to borrowers with 760+ credit scores, at least a 20% down payment, and very specific loan types. For the average buyer, the actual interest rate they qualify for is often 0.25% to 0.75% higher than the headline rate.</p>
+      <p>An advertised mortgage rate may depend on assumptions about credit, points, down payment, occupancy, property, and loan type. Read the disclosure and compare written Loan Estimates using the same inputs; do not infer your quoted rate from a headline offer.</p>
       <p>On a $350,000 loan, a 0.5 percentage-point change in the assumed rate adds roughly $110 to the monthly payment and changes lifetime interest. Before relying on the estimate, replace the assumption with a personalized written quote. Understanding <a href="/blog/interest-rate-impact">how interest rates affect your payment</a> helps you stress-test the budget.</p>
 
       <h2>Mistake 3 — Forgetting PMI</h2>
-      <p>If your down payment is less than 20% of the home's purchase price, your lender will require Private Mortgage Insurance (PMI). This is an insurance policy that protects the lender if you default, but you are the one who pays the premium. PMI typically costs between 0.5% and 1.5% of the total loan amount per year. On a $315,000 loan, that can add between $131 and $394 to your monthly bill.</p>
+      <p>A conventional mortgage quote may include private mortgage insurance (PMI), depending on the down payment, loan, property, and borrower. Enter the premium from the quote rather than assuming a universal rate. The mortgage calculator exposes PMI as an optional cost input.</p>
       <p>Many basic calculators do not include PMI in their default output, which is why buyers with smaller down payments frequently underestimate their total costs. Here is the typical impact of PMI based on your down payment size:</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
@@ -3293,11 +3293,11 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>If you are planning a smaller down payment, refer to our <a href="/blog/down-payment-guide">down payment guide</a> for strategies to eliminate these insurance costs faster through accelerated equity growth.</p>
 
       <h2>Mistake 4 — Ignoring Closing Costs in the Upfront Budget</h2>
-      <p>Your down payment is not the only cash you need at the closing table. Closing costs are the collection of fees paid to lenders, title companies, and government agencies to finalize the sale. They typically range from 2% to 5% of the home's purchase price. A buyer who has saved exactly $35,000 for a 10% down payment on a $350,000 home might be shocked to learn they also need an additional $7,000 to $17,500 in closing costs.</p>
+      <p>Your down payment is not the only cash you may need at closing. Lender, title, appraisal, legal, tax, insurance, and other settlement charges depend on the loan and jurisdiction. Use the written Loan Estimate and closing documents to budget the amount.</p>
       <p>When you use an <a href="/affordability-calculator">affordability calculator</a>, always consider your total upfront cash requirement. A safe formula is: <strong>Total Cash Needed = Down Payment + Closing Costs + 2 Month Buffer</strong>. For a full list of what these fees cover, read our <a href="/blog/closing-costs-breakdown">closing costs breakdown</a>.</p>
 
       <h2>Mistake 5 — Calculating Based on Gross Income Instead of Net</h2>
-      <p>Most mortgage calculators and lenders use your <strong>gross monthly income</strong> (your salary before taxes and deductions) to apply the "28% rule." While this is the industry standard for qualification, it can be misleading for your personal budget. Your actual take-home pay is what you use to buy groceries, pay for childcare, and save for retirement.</p>
+      <p>This guide applies its illustrative 28% ratio to <strong>gross monthly income</strong> before taxes and deductions. It is not a qualification standard. For personal budgeting, compare the result with take-home pay and recurring expenses.</p>
       <p>For example, a buyer earning $90,000 a year has a gross monthly income of $7,500. By the 28% rule, their maximum mortgage payment is $2,100. However, after taxes, health insurance, and 401(k) contributions, their net take-home pay might only be $5,800. Spending $2,100 on housing out of $5,800 is 36% of their actual cash flow—much tighter than it looked on the calculator. Always stress-test your payment against your "spendable" money to find out <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> in the real world.</p>
 
       <h2>Mistake 6 — Not Testing Different Rate Scenarios</h2>
@@ -3332,10 +3332,10 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>They are mathematically perfect for principal and interest but only as accurate as the estimates you provide for the variable costs like taxes, insurance, and interest rates. Always verify your inputs with real-world quotes.</p>
 
       <h3>Should I use gross or net income for mortgage calculations?</h3>
-      <p>Lenders use gross income to see if you qualify. However, for personal budgeting, you should always check the monthly payment against your net take-home pay to ensure you aren't "house poor."</p>
+      <p>A lender's income definition and qualification method vary by program. For personal budgeting, compare the monthly payment with net take-home pay and recurring expenses.</p>
 
       <h3>What is not included in a basic mortgage calculator?</h3>
-      <p>The average basic tool misses PMI, closing costs, HOA fees, and the cost of monthly utilities. To get the full picture, you must investigate these costs for the specific property you are considering.</p>
+      <p>A principal-and-interest-only result excludes items such as mortgage insurance, closing costs, association fees, and utilities. Add the costs that apply to the property and loan you are considering.</p>
 
       <div class="bg-primary/5 p-8 rounded-3xl my-10 border border-primary/20 text-center shadow-lg">
         <h2 class="text-2xl font-bold text-primary mb-4">Get an Accurate Estimate Right Now</h2>
@@ -3425,10 +3425,10 @@ const rawArticles: Omit<Article, "author">[] = [
       Many buyers who buy at high rates plan to refi as soon as <a href="/blog/when-to-refinance">when to refinance</a> makes sense down the road.</p>
 
       <h2>What Drives Mortgage Rates Up and Down?</h2>
-      <p>While the <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> is frequently mentioned, they don't directly set mortgage rates. Instead, rates are more closely tied to the 10-year Treasury yield, which you can track on <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> (FRED). When inflation is high, investors demand higher yields, pushing rates up. When the economy cools, rates typically fall as investors seek safety in bonds.</p>
+      <p>The <a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer">Federal Reserve</a> does not quote a borrower's mortgage rate. Mortgage pricing reflects market conditions plus the loan, property, lender, and borrower. Use <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">Federal Reserve Economic Data</a> for historical series and a written Loan Estimate for a decision.</p>
 
       <h2>The Rate Lock: What It Is and How Long It Lasts</h2>
-      <p>A rate lock guarantees your interest rate won't change while your loan is being processed, typically for 30–60 days. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, you have a right to know the exact terms of your lock. If rates drop *after* you lock, you usually don't get the lower rate unless your lender offers a "float-down" option.</p>
+      <p>A written rate-lock agreement states how long the rate is locked, what it costs, when it expires, and whether a float-down option applies. Review those exact terms with the lender rather than assuming a duration or repricing rule.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -3475,7 +3475,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <ol>
         <li><strong>APR (Annual Percentage Rate):</strong> Includes interest plus all fees. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, lenders must disclose the APR for an apples-to-apples comparison.</li>
         <li><strong>Total Interest Paid:</strong> The full cost of borrowing over the term. Run this in a <a href="/total-interest-calculator">total interest calculator</a> for every offer.</li>
-        <li><strong>Origination Fees:</strong> Typically 1–5% of the loan, deducted upfront. A lower rate with high fees can often be worse than a higher rate with no fees.</li>
+        <li><strong>Origination Fees:</strong> Use the amount disclosed in the written offer. Compare both rate and fees because a lower rate with higher upfront charges can cost more over your holding period.</li>
         <li><strong>Loan Term:</strong> Longer terms = lower payments but significantly more total interest. Never extend your term just to lower the payment.</li>
         <li><strong>Prepayment Penalty:</strong> Fees charged for paying off early. This matters if you plan to refinance or make extra payments later.</li>
         <li><strong>Monthly Payment:</strong> Important for cash flow, but it should be the last thing you look at, not the first, when using a <a href="/monthly-payment-calculator">monthly payment calculator</a>.</li>
@@ -3574,7 +3574,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>If you put less than 20% down, you likely pay Private Mortgage Insurance (PMI). Under the Homeowners Protection Act, overseen by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>, lenders must cancel PMI once your balance hits 78% of the <em>original</em> value. You can request cancellation at 80%, or even earlier if home appreciation has lowered your LTV ratio. Removing PMI on a $300k loan saves $125–$200/month. Use our <a href="/mortgage-calculator">mortgage calculator</a> to estimate your current LTV.</p>
 
       <h2>Strategy 2 — Refinance to a Lower Rate</h2>
-      <p>Refinancing is a permanent way to reduce payments. Even a 0.75% drop saves hundreds. For a $280k balance at 7.5% (25 yrs left), refinancing to 6.4% saves ~$197/month ($2,364/year). Closing costs average $5,500, meaning a 28-month break-even. Learning <a href="/blog/when-to-refinance">when refinancing makes sense</a> is key—run your numbers now with our <a href="/refinancing-calculator">refinancing calculator</a>.</p>
+      <p>Refinancing can change the payment and total remaining cost. In an illustrative scenario with a $280,000 balance, 25 years remaining, a 7.5% existing rate, a 6.4% proposed rate, and $5,500 in selected closing costs, the payment falls by about $197 per month and the simple break-even is about 28 months. Replace every input with a written quote in our <a href="/refinancing-calculator">refinancing calculator</a> and review <a href="/blog/when-to-refinance">when refinancing makes sense</a>.</p>
 
       <h2>Strategy 3 — Recast Your Mortgage</h2>
       <p>A recast (re-amortization) involves a large lump-sum payment toward principal. The lender recalculates your payment based on the new balance, keeping the same rate and term. Costs are low ($150–$500 fee). A $20k recast on a $280k loan at 6.8% reduces the monthly payment by ~$130.</p>
@@ -3948,7 +3948,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>Every 12 months, your loan servicer is required to review your escrow account to make sure it has enough funds to cover the upcoming year's bills. Because property taxes and insurance premiums are not fixed—they rise and fall based on local government budgets and insurance market conditions—your monthly escrow contribution must adjust to keep pace. If your property taxes increased from $4,200 to $4,500, that $300 annual increase means your escrow contribution must rise by $25 per month. Consequently, your total monthly payment rises by $25, even though your principal and interest portion stayed exactly the same. This is part of the <a href="/blog/2026-homebuyers-playbook">2026 homebuyer's playbook</a> knowledge: your "fixed" payment is rarely truly fixed due to escrow.</p>
 
       <h2>What Is an Escrow Shortage?</h2>
-      <p>An escrow shortage occurs when your servicer paid out more in taxes or insurance than was actually collected in the account during the year. This usually happens because your tax assessment or insurance premium rose unexpectedly mid-year. When your annual analysis is complete, your servicer will send a statement showing the shortage amount.</p>
+      <p>An escrow shortage occurs when the servicer paid out more in taxes or insurance than the account collected during the year. A changed tax assessment or insurance premium can cause the difference. The annual escrow statement shows the actual shortage and repayment options.</p>
       <p>Under the rules monitored by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB), you typically have two options to resolve a shortage:</p>
       <ol>
         <li><strong>Pay the shortage in a lump sum:</strong> You pay the full deficit immediately. Your monthly payment will still increase slightly to cover the higher bills for the next year, but you won't be paying back the "debt" from the previous year.</li>
@@ -3963,7 +3963,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <h2>Can You Opt Out of Escrow?</h2>
       <p>If you prefer to have absolute control over your money, you might wonder about an <strong>escrow waiver</strong>. Some lenders allow borrowers with 20% or more equity and a strong payment history to manage their own property taxes and insurance. This is common for those <a href="/blog/down-payment-guide">reaching 20% equity to waive escrow</a>.</p>
       <p><strong>The Benefits:</strong> You keep the money in your own high-yield savings account earning interest until the bills are due, rather than letting the bank hold it for $0 interest. It also prevents "payment shock" from annual servicer adjustments.</p>
-      <p><strong>The Drawbacks:</strong> You are 100% responsible for making massive lump-sum payments on time. Missing a property tax payment is a serious default that can result in heavy penalties and even a tax lien on your home. Furthermore, lenders often charge a small "escrow waiver fee" (typically 0.125% to 0.25% of the loan amount) to allow you to opt out. Weigh the 1–2% interest you might earn against this upfront fee and the administrative effort before deciding. If your goal is simply to lower your bill, check out other <a href="/blog/reduce-mortgage-payment">ways to reduce your monthly mortgage payment</a>.</p>
+      <p><strong>The Drawbacks:</strong> Without escrow, you must reserve cash and pay tax and insurance bills on time. A loan may include an escrow-waiver fee or pricing adjustment; use the amount in the written offer. Compare that cost and the administrative burden before deciding. If your goal is simply to lower your bill, check out other <a href="/blog/reduce-mortgage-payment">ways to reduce your monthly mortgage payment</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
       <h3>What is an escrow account on a mortgage?</h3>
@@ -4049,7 +4049,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>A home purchase starts with a budget that includes the payment, transaction costs, reserves, maintenance, and local costs. This playbook begins with an <a href="/affordability-calculator">affordability calculator</a> check and then covers quotes, inspections, offers, and closing steps without forecasting the market.</p>
 
       <h2>Step 1 — Know Your Numbers Before You Search</h2>
-      <p>The biggest mistake modern buyers make is starting with Zillow instead of a calculator. Before looking at a single listing, you must define your financial guardrails. First, determine your maximum comfortable monthly payment using the 28% rule: multiply your gross monthly income by 0.28. Second, calculate your maximum loan amount based on that payment at selected example rates. Third, identify your total cash needed upfront, including a down payment and closing costs (typically 2–5% of the purchase price).</p>
+      <p>Before looking at listings, define a monthly budget that leaves room for recurring expenses and savings. You can test 28% of gross income as one planning assumption, calculate a loan amount at selected example rates, and add the down payment plus closing costs from written estimates. None of these inputs predicts lender approval.</p>
       <p>For example, if you earn $95,000 annually ($7,916/month), your housing ceiling is roughly $2,216 per month. Under a 6.8% rate environment, this supports a home price of approximately $315,000 with 10% down, accounting for taxes and insurance. Use our <a href="/affordability-calculator">affordability calculator</a> and <a href="/mortgage-calculator">mortgage calculator</a> to find <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> before approaching a lender.</p>
 
       <h2>Step 2 — Get Pre-Approved, Not Just Pre-Qualified</h2>
@@ -4125,7 +4125,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <ul>
         <li><strong>No down payment required:</strong> Finance 100% of the home's purchase price. This removes the single biggest barrier to homeownership. Check our <a href="/blog/down-payment-guide">down payment guide</a> for comparisons.</li>
         <li><strong>No private mortgage insurance (PMI):</strong> Conventional buyers with less than 20% down pay PMI ($100–$300/month). VA loans never require PMI. See <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a>.</li>
-        <li><strong>Lower interest rates:</strong> VA loans consistently average 0.25–0.50% lower than conventional rates.</li>
+        <li><strong>Rate and fee terms:</strong> Compare written VA and conventional Loan Estimates for the same borrower and property; pricing differences change over time and by lender.</li>
         <li><strong>Limited closing costs:</strong> The VA regulates fees lenders can charge veterans.</li>
         <li><strong>No prepayment penalty:</strong> Pay off your loan early anytime without being penalized. Model this with an <a href="/amortization-schedule">amortization schedule</a>.</li>
         <li><strong>Reusable benefit:</strong> Use your entitlement multiple times throughout your life.</li>
@@ -4188,7 +4188,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <h3>What is the VA funding fee?</h3>
       <p>A one-time payment to the VA that helps lower program costs. It is waived for many disabled veterans.</p>
       <h3>What credit score do I need for a VA loan?</h3>
-      <p>Lenders usually look for a 580–620 range, though higher scores secure better interest rates.</p>
+      <p>Credit-score and pricing requirements vary by lender and loan program. Check the applicable program rules and compare written offers rather than assuming one score range guarantees approval or a rate.</p>
 
       <h2>See Your VA Loan Payment</h2>
       <div class="flex flex-col md:flex-row gap-6 my-10 text-center">
@@ -4207,7 +4207,7 @@ const rawArticles: Omit<Article, "author">[] = [
     title: "Closing Costs Explained: What You Will Pay and When in 2026",
     category: "Home Buying",
     readTime: "9 min read",
-    excerpt: "What are closing costs when buying a home? See the full breakdown of every fee, typical amounts for a $300k–$500k home, who pays what, and how to reduce your closing costs legally.",
+    excerpt: "What are closing costs when buying a home? Review common fee categories, editable planning examples for a $300k–$500k home, and the written documents to compare.",
     slug: "closing-costs-breakdown",
     seoTitle: "Closing Costs Breakdown: 2026 Homebuyer Guide | TryFinCalc",
     seoDescription: "Get a complete closing costs breakdown for 2026. Discover how to save on origination and title fees.",
@@ -4311,7 +4311,7 @@ const rawArticles: Omit<Article, "author">[] = [
       </div>
 
       <h2>How Much Are Closing Costs? Real Examples by Home Price</h2>
-      <p>While the percentage range is typically 2% to 5%, the raw dollar amount can feel quite different depending on your home's list price. Understanding <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> requires looking at the total cash needed at once, not just the monthly payment. Here is what a typical <strong>closing costs breakdown</strong> looks like at various price points:</p>
+      <p>The table applies selected percentage assumptions to several home prices so you can see how the arithmetic scales. These are planning examples rather than market averages. Understanding <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> requires replacing them with the charges disclosed for your transaction.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -4334,8 +4334,8 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>For a standard $350,000 home purchase, you should budget approximately $7,000 to $17,500 in closing costs on top of your down payment. We recommend running these numbers through an <a href="/affordability-calculator">affordability calculator</a> to factor this initial cash requirement into your overall savings plan. If you are still in the early planning stages, our <a href="/blog/down-payment-guide">down payment guide</a> can help you strategize how to save for both the equity and the fees.</p>
 
       <h2>Who Pays Closing Costs — Buyer or Seller?</h2>
-      <p>A common misconception among first-time buyers is that they are responsible for every single fee. In reality, both parties typically pay certain closing costs, though the buyer usually shoulders the majority of lender and title-specific fees. Sellers, on the other hand, are typically responsible for real estate agent commissions—which can range from 5–6% of the sale price—and often cover state or local transfer taxes.</p>
-      <p>However, everything in a real estate contract is negotiable. In what is known as a "buyer's market," it is very common to negotiate seller concessions as part of your offer. This involves asking the seller to cover a portion (typically 2–3%) of your closing costs to reduce your upfront cash burden. In a highly competitive "seller's market," asking for concessions can make your offer less attractive, so strategy is key. Understanding the <a href="/blog/2026-homebuyers-playbook">2026 homebuyer's playbook</a> strategies will help you decide when to push for these credits.</p>
+      <p>Which party pays each charge depends on the contract, local law, service provider, and loan. Review the purchase agreement, Loan Estimate, and closing disclosure rather than assuming that the buyer or seller always pays a particular category.</p>
+      <p>A purchase contract may include seller concessions, subject to the negotiated agreement and any loan-program limits. Ask the lender and settlement professional how a proposed credit affects cash to close and pricing. The <a href="/blog/2026-homebuyers-playbook">homebuyer's playbook</a> lists other questions to review before making an offer.</p>
 
       <h2>5 Ways to Reduce Your Closing Costs</h2>
       <p>If the total on your Loan Estimate is higher than expected, don't panic. There are several legal ways to bring that number down:</p>
@@ -4353,16 +4353,16 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <h2>Frequently Asked Questions</h2>
       <h3>How much are closing costs on a $300,000 home?</h3>
-      <p>For a $300,000 home, a typical <strong>closing costs breakdown</strong> usually totals between $6,000 and $15,000. The exact amount depends on your state's tax laws, your lender's fees, and whether you choose to pay "discount points" to lower your interest rate. You can calculate the impact of these variables using a <a href="/loan-calculator">loan calculator</a>.</p>
+      <p>For a $300,000 home, the page's selected 2%–5% planning range produces $6,000–$15,000. It is not a market average. Replace it with lender fees, taxes, settlement charges, and any discount points disclosed for your transaction.</p>
 
       <h3>Can closing costs be rolled into the mortgage?</h3>
       <p>Technically, most conventional purchase loans do not allow you to "roll" closing costs into the loan balance in the same way you can with a refinance. However, you can achieve the same result through lender credits (accepting a higher interest rate) or by negotiating seller concessions. This effectively "finances" those costs over the life of the loan.</p>
 
       <h3>Who pays closing costs — buyer or seller?</h3>
-      <p>Both parties pay, but they pay for different things. The buyer typically pays for loan-related and title-related fees. The seller usually pays for real estate commissions and transfer taxes. A clear <strong>closing costs breakdown</strong> in your contract will specify if either party has agreed to pay expenses typically handled by the other side.</p>
+      <p>The buyer and seller pay the charges assigned by the contract and applicable law. The purchase agreement and closing documents should identify each party's amounts; do not rely on a general allocation.</p>
 
       <h3>What are the biggest closing cost fees?</h3>
-      <p>The largest individual fees typically include the loan origination fee (often 1% of the loan amount), the homeowners insurance premium (usually 12 months paid upfront), and prepaid property taxes. Transfer taxes can also be a major expense in certain states like New York or Florida. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> will help you see how these prepaids build your escrow account.</p>
+      <p>Possible charges include origination, title or legal services, insurance, prepaid interest, property taxes, and transfer taxes. The applicable items and amounts appear in the transaction documents and vary by jurisdiction and loan. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> will help distinguish recurring payment items from cash due at closing.</p>
 
       <h3>Can I negotiate closing costs?</h3>
       <p>Yes. You can negotiate with the lender to lower or waive certain origination fees, shop for your own title insurance to find a lower rate, and negotiate with the seller for a "closing cost credit." Your goal should be to minimize the out-of-pocket cash required while maintaining a competitive interest rate.</p>
@@ -4381,10 +4381,10 @@ const rawArticles: Omit<Article, "author">[] = [
     title: "The 28/36 Rule Explained: How to Know If You Can Afford a Home",
     category: "Affordability",
     readTime: "9 min read",
-    excerpt: "What is the 28/36 rule in mortgage lending? Learn how lenders use this ratio to determine affordability, see real income examples from $40k to $200k, and find out what to do if your numbers exceed the limits.",
+    excerpt: "What is the 28/36 rule? Use 28% housing-cost and 36% total-debt ratios as editable planning assumptions, with worked income examples from $40k to $200k.",
     slug: "28-36-rule-explained",
     seoTitle: "28/36 Rule Explained: 2026 Mortgage Qualifier | TryFinCalc",
-    seoDescription: "Understand the 28/36 rule and how lenders use it in 2026. Qualify for the best mortgage loan possible.",
+    seoDescription: "Understand the 28/36 planning rule, calculate both ratios, and compare the result with your budget and a lender's actual criteria.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -4394,7 +4394,7 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "What is the 28/36 rule for mortgages?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The 28/36 rule is a debt-to-income (DTI) guideline used by mortgage lenders. It suggests that your housing costs (PITI) should not exceed 28% of your gross monthly income (front-end ratio), and your total debt payments including the mortgage should not exceed 36% of your gross monthly income (back-end ratio)."
+            "text": "The 28/36 rule is a planning guideline that allocates 28% of gross monthly income to housing and 36% to total debt. It is not a universal underwriting rule or approval threshold."
           }
         },
         {
@@ -4402,7 +4402,7 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "How do I calculate the 28/36 rule for my income?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "To calculate the 28/36 rule, multiply your gross monthly income by 0.28 to find your maximum housing payment. Then, multiply your gross monthly income by 0.36 and subtract your current monthly debt payments (car loans, student loans, etc.) to see how much mortgage you can afford under the total debt limit."
+            "text": "Multiply gross monthly income by 0.28 for the example housing budget. Multiply it by 0.36 and subtract current monthly debt payments for the example total-debt budget. Treat both as planning assumptions."
           }
         },
         {
@@ -4410,7 +4410,7 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "Can I get a mortgage if I exceed the 28/36 rule?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. While the 28/36 rule is a standard guideline, many modern loan programs allow for higher ratios. Fannie Mae and Freddie Mac often approve back-end DTIs up to 45% or 50% for borrowers with high credit scores and substantial down payments."
+            "text": "Possibly. Actual debt-to-income limits and calculations vary by lender, loan program, borrower, and jurisdiction. Ask the lender which rules apply to a specific application."
           }
         },
         {
@@ -4418,15 +4418,15 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "What counts toward the 36% debt ratio?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The 36% back-end ratio includes your prospective housing payment (PITI) plus all other recurring monthly debts like car loans, student loans, minimum credit card payments, child support, and personal loans. It does not include variable expenses like groceries or utilities."
+            "text": "For this planning example, the 36% total includes the prospective housing payment plus entered recurring debt payments. A lender may define and treat debts differently, and a personal budget must also account for living expenses omitted from DTI."
           }
         },
         {
           "@type": "Question",
-          "name": "Is the 28/36 rule still used by lenders in 2026?",
+          "name": "Does the 28/36 rule predict mortgage approval?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, the 28/36 rule remains the 'gold standard' for traditional underwriting and financial health despite more flexible limits available in specific loan products. Lenders consistently check these ratios as part of the <strong>Consumer Financial Protection Bureau</strong>'s Ability-to-Repay requirements."
+            "text": "No. It is a planning framework. Approval criteria, income definitions, debt treatment, and limits vary by lender and loan program."
           }
         }
       ]
@@ -4435,12 +4435,12 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>The <strong>28/36 rule</strong> is a planning framework that compares housing costs and total debts with gross income. This guide uses it for worked examples, not as a universal underwriting rule or approval prediction. Start with our <a href="/affordability-calculator">affordability calculator</a> and change the ratios to match your own planning assumptions.</p>
 
       <h2>What Is the 28/36 Rule?</h2>
-      <p>Lenders split the 28/36 rule into two distinct calculations, and both must usually be satisfied simultaneously:</p>
+      <p>The planning framework contains two calculations:</p>
       <ul>
-        <li><strong>The 28% Rule (Front-End Ratio):</strong> Your total monthly housing costs — including Principal, Interest, Property Taxes, and Homeowners Insurance (PITI) — should not exceed 28% of your gross monthly income. This is also called the housing ratio.</li>
-        <li><strong>The 36% Rule (Back-End Ratio):</strong> Your total monthly debt payments — including housing costs plus all other installments or revolving debts like car loans, student loans, credit cards, and personal loans — should not exceed 36% of your gross monthly income. This is also called the total debt-to-income (DTI) ratio.</li>
+        <li><strong>28% housing-cost assumption:</strong> Multiply gross monthly income by 0.28 for an illustrative housing budget.</li>
+        <li><strong>36% total-debt assumption:</strong> Multiply gross monthly income by 0.36 and subtract entered recurring debts for an illustrative housing budget.</li>
       </ul>
-      <p>A borrower who passes the 28% test but fails the 36% test due to $800/month in car payments will still face obstacles during underwriting unless they increase their down payment or find a less expensive home.</p>
+      <p>The lower result becomes the constraint in this model. It does not determine how a lender will underwrite an application.</p>
 
       <h2>How to Calculate Your 28/36 Ratios</h2>
       <p>Let's walk through a step-by-step calculation for a household earning $85,000 per year in 2026:</p>
@@ -4449,7 +4449,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li><strong>Calculate 28% Front-End Limit:</strong> $7,083 × 0.28 = <strong>$1,983/month</strong> maximum PITI.</li>
         <li><strong>Calculate 36% Back-End Limit:</strong> $7,083 × 0.36 = <strong>$2,550/month</strong> maximum total debt.</li>
         <li><strong>Subtract Existing Debts:</strong> If you have a $450/month car and student loan payment, your available credit for housing is $2,550 − $450 = <strong>$2,100/month</strong>.</li>
-        <li><strong>Determine the Binding Constraint:</strong> The lender takes the <em>lower</em> of the two figures ($1,983 vs $2,100). In this case, your maximum payment is $1,983.</li>
+        <li><strong>Determine the Model Constraint:</strong> This example takes the <em>lower</em> of the two figures ($1,983 vs $2,100). In this case, the planning payment is $1,983.</li>
         <li><strong>Convert to Loan Amount:</strong> Subtracting ~$450 for taxes and insurance leaves ~$1,533 for Principal and Interest. At a 6.8% rate over 30 years, this supports estimated max loan amount of ~$229,000.</li>
       </ol>
       <p>You can convert your own maximum payment into a specific loan figure using our <a href="/mortgage-calculator">mortgage calculator</a>.</p>
@@ -4481,8 +4481,8 @@ const rawArticles: Omit<Article, "author">[] = [
       </div>
       <p>For a more detailed breakdown beyond these estimates, check out our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility tables</a> or run a personalized calculation with the <a href="/affordability-calculator">affordability calculator</a>. For specific salary breakdowns, try our tools for <a href="/calculator/how-much-house-can-i-afford-80k-salary">affordability on an $80,000 salary</a> or <a href="/calculator/income-required-for-400k-house">income required for a $400k house</a>.</p>
 
-      <h2>The 28/36 Rule vs. What Lenders Actually Allow</h2>
-      <p>While the 28/36 rule is the benchmark for "financial health," modern underwriting is more flexible. Conventional loans backed by Fannie Mae and Freddie Mac may allow back-end DTIs up to 45–50% with "compensating factors" like an 800+ credit score or substantial cash reserves. FHA loans often allow front-end DTIs up to 31% and back-end DTIs up to 50% or higher. However, just because a lender approves you for a $450,000 loan doesn't mean you can comfortably afford it. The 28/36 rule exists to keep your housing costs from "crowding out" other goals like retirement or travel. Review our <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> guide for a balanced perspective on lending vs. living.</p>
+      <h2>The 28/36 Scenario vs. Actual Underwriting</h2>
+      <p>Actual underwriting can use different income definitions, debt treatment, limits, and automated findings depending on the lender and loan program. A lender's approval also does not measure whether the payment fits personal spending, savings, and risk tolerance. Use the 28/36 figures as comparison points and review our <a href="/blog/how-much-house-can-i-afford">home-affordability guide</a> for the other costs to include.</p>
 
       <h2>What Happens If You Exceed the 28/36 Limits?</h2>
       <p>If your current ratios are over the goal, you have five clear levers to pull:</p>
@@ -4499,23 +4499,23 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <h2>Frequently Asked Questions</h2>
       <h3>What is the 28/36 rule for mortgages?</h3>
-      <p>The 28/36 rule is a debt-to-income (DTI) guideline used by mortgage lenders. It suggests that your housing costs (PITI) should not exceed 28% of your gross monthly income (front-end ratio), and your total debt payments including the mortgage should not exceed 36% of your gross monthly income (back-end ratio).</p>
+      <p>The 28/36 rule is a planning guideline that allocates 28% of gross monthly income to housing and 36% to total debt. It is not a universal underwriting rule.</p>
 
       <h3>How do I calculate the 28/36 rule for my income?</h3>
-      <p>To calculate the 28/36 rule, multiply your gross monthly income by 0.28 to find your maximum housing payment. Then, multiply your gross monthly income by 0.36 and subtract your current monthly debt payments (car loans, student loans, etc.) to see how much mortgage you can afford under the total debt limit.</p>
+      <p>Multiply gross monthly income by 0.28 for the example housing budget. Multiply it by 0.36 and subtract current monthly debt payments for the example total-debt budget. Compare the lower result with your actual expenses.</p>
 
       <h3>Can I get a mortgage if I exceed the 28/36 rule?</h3>
-      <p>Yes. While the 28/36 rule is a standard guideline, many modern loan programs allow for higher ratios. Fannie Mae and Freddie Mac often approve back-end DTIs up to 45% or 50% for borrowers with high credit scores and substantial down payments. See our guide on <a href="/blog/loan-eligibility-by-income">loan eligibility by income</a> for more details.</p>
+      <p>Possibly. Actual debt-to-income limits and calculations vary by lender, loan program, borrower, and jurisdiction. Ask the lender which rules apply and see our <a href="/blog/loan-eligibility-by-income">loan eligibility by income</a> guide for the inputs to gather.</p>
 
       <h3>What counts toward the 36% debt ratio?</h3>
-      <p>The 36% back-end ratio includes your prospective housing payment (PITI) plus all other recurring monthly debts like car loans, student loans, minimum credit card payments, child support, and personal loans. It does not include variable expenses like groceries or utilities. Use our <a href="/loan-calculator">loan calculator</a> to model your monthly debt obligations.</p>
+      <p>For this planning example, the 36% total includes the prospective housing payment plus entered recurring debts. Lenders may define and treat obligations differently, while a personal budget must also cover living expenses omitted from DTI. Use our <a href="/loan-calculator">loan calculator</a> to model debts.</p>
 
-      <h3>Is the 28/36 rule still used by lenders in 2026?</h3>
-      <p>Yes, the 28/36 rule remains the 'gold standard' for traditional underwriting and financial health despite more flexible limits available in specific loan products. Lenders consistently check these ratios as part of the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a>'s Ability-to-Repay requirements. Check out the <a href="/blog/2026-homebuyers-playbook">2026 homebuyer's playbook</a> for more strategic advice.</p>
+      <h3>Does the 28/36 rule predict mortgage approval?</h3>
+      <p>No. It is a planning framework. Approval criteria, income definitions, debt treatment, and limits vary by lender and loan program. Check the <a href="/blog/2026-homebuyers-playbook">homebuyer's playbook</a> for the documents and quotes to compare.</p>
 
       <div class="bg-primary p-12 rounded-3xl mt-16 text-white text-center shadow-2xl">
-        <h2 class="text-4xl font-bold mb-4">Find Out If You Pass the 28/36 Rule</h2>
-        <p class="mb-10 opacity-90 max-w-2xl mx-auto text-xl italic font-serif">Enter your annual income and debts to instantly see your maximum comfortable loan amount based on the gold standard for home purchase budgeting.</p>
+        <h2 class="text-4xl font-bold mb-4">Test the 28/36 Planning Scenario</h2>
+        <p class="mb-10 opacity-90 max-w-2xl mx-auto text-xl italic font-serif">Enter annual income and debts to see what the selected ratios imply, then compare the result with your full budget and actual lender criteria.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-6">
           <a href="/affordability-calculator" class="bg-white text-primary px-10 py-5 rounded-full font-bold text-xl no-underline hover:bg-opacity-90 transition-all shadow-lg transform hover:-translate-y-1">Affordability Calculator →</a>
           <a href="/mortgage-calculator" class="bg-primary-hover text-white border-2 border-white/30 px-10 py-5 rounded-full font-bold text-xl no-underline hover:bg-white/10 transition-all shadow-lg transform hover:-translate-y-1">Calculate Payment →</a>
@@ -4524,13 +4524,13 @@ const rawArticles: Omit<Article, "author">[] = [
     `
   },
   {
-    title: "€200,000 Mortgage: Monthly Payments, Rates, and Full Cost Breakdown for 2026",
+    title: "€200,000 Mortgage: Monthly Payments and Cost Scenarios",
     category: "Mortgage Guides",
     readTime: "10 min read",
-    excerpt: "What is the monthly payment on a €200,000 mortgage in 2026? See exact payments for European mortgage rates, full cost breakdown in euros, income requirements, and how rates differ across Belgium, France, Germany, and the Netherlands.",
+    excerpt: "What is the monthly payment on a €200,000 mortgage? Compare editable rate and term scenarios, total interest, and an illustrative income stress test in euros.",
     slug: "200k-euro-mortgage",
-    seoTitle: "200k Euro Mortgage: 2026 Monthly Payment Guide | TryFinCalc",
-    seoDescription: "Calculate the monthly payment for a 200,000 euro mortgage. Explore payment scenarios for France, Belgium, and more.",
+    seoTitle: "200k Euro Mortgage Monthly Payment Guide | TryFinCalc",
+    seoDescription: "Calculate a 200,000 euro mortgage payment and compare editable interest-rate, term, and income-planning scenarios.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -4540,32 +4540,32 @@ const rawArticles: Omit<Article, "author">[] = [
           "name": "What is the monthly payment on a €200,000 mortgage?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "At a 4.0% interest rate over 25 years, the monthly principal and interest payment is €1,055."
+            "text": "Using a 4.0% example annual interest rate over 25 years, the estimated monthly principal and interest payment is €1,055. The rate is an editable scenario input, not a current market quote."
           }
         },
         {
           "@type": "Question",
-          "name": "What income do I need for a €200,000 mortgage in Belgium?",
+          "name": "What income does a 33% planning ratio imply for a €200,000 mortgage?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You typically need a net monthly household income of at least €3,200, assuming a 33% debt-to-income (DTI) ratio."
+            "text": "Dividing the €1,055 example payment by a selected 33% payment-to-income assumption gives about €3,197 per month. This is an illustrative stress test, not a lender qualification rule."
           }
         },
         {
           "@type": "Question",
-          "name": "What are the upfront costs of buying a home in Europe?",
+          "name": "Does this euro mortgage example include local purchase costs?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Costs vary by country: 2-4% in the Netherlands and Ireland, and up to 10-15% in Belgium and Germany due to registration taxes and notary fees."
+            "text": "No. The payment examples cover principal and interest. Taxes, insurance, registration or notary fees, and other transaction costs vary by jurisdiction and must be added from a documented local estimate."
           }
         }
       ]
     },
     content: `
-      <p>Taking out a <strong>€200,000 mortgage</strong> is one of the most common and accessible entry points for homebuyers across Western Europe in 2026. Whether you are a first-time buyer in a smaller Belgian city like Ghent or Liège, a professional looking for a mid-range property in regional France, or a savvy investor in the growing suburbs of Germany, this loan amount represents a balanced commitment for many households. With property prices and interest rates stabilising after years of fluctuation, having a precise understanding of your monthly repayment is the foundational step of your home-buying journey. This guide provides an exact breakdown of the monthly payment on a <strong>200k euro mortgage</strong> at current European rates, including specific income requirements, hidden costs, and a direct country-by-country comparison. Before you finalize your budget, you can use our <a href="/mortgage-calculator">mortgage calculator — supports EUR currency</a> to run your own numbers instantly; simply use the currency toggle to switch from dollars to euros for full accuracy.</p>
+      <p>This guide models a <strong>€200,000 mortgage</strong> using editable mathematical scenarios. It compares principal-and-interest payments across selected example rates and terms; those inputs are not claims about available offers or today's market. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly shown. Use our <a href="/mortgage-calculator">mortgage calculator — supports EUR currency</a> to replace the examples with a written quote and the terms for your jurisdiction.</p>
 
       <h2>Monthly Payment on a €200,000 Mortgage by Interest Rate</h2>
-      <p>Your interest rate is the single most important factor in determining your monthly out-of-pocket cost. In 2026, most European lenders are offering fixed rates between 3.0% and 6.0%, depending on your credit profile and down payment. Below is the monthly principal and interest (P&I) breakdown for a €200,000 loan over a standard 25-year term:</p>
+      <p>The table compares selected annual interest-rate assumptions from 3.0% to 6.0% for a €200,000 loan over 25 years. Each rate is an editable scenario input and does not represent a market average, available offer, or lender recommendation.</p>
 
       <div class="overflow-x-auto my-6">
         <table class="w-full text-left border-collapse">
@@ -4614,65 +4614,19 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <p>At 4.0% over 25 years, the monthly principal and interest on a €200,000 mortgage is €1,055. Choosing a 20-year term adds €157 per month to your repayment but saves you a massive <strong>€25,620</strong> in total interest. You can view the full yearly breakdown of your equity growth using our <a href="/amortization-schedule">amortization schedule</a> tool.</p>
 
-      <h2>Mortgage Rates Across Europe in 2026</h2>
-      <p>National housing markets in Europe are influenced by the policies of the <a href="https://www.ecb.europa.eu" target="_blank" rel="noopener noreferrer">European Central Bank</a> (ECB). While the base rate is set centrally, local market competition and banking regulations mean that a buyer in Dublin will likely face a different rate than a buyer in Brussels or Paris. Here are the indicative benchmarks for 2026:</p>
+      <h2>Jurisdiction and Cost Scope</h2>
+      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. Local taxes, insurance, registration or notary fees, contract terms, and eligibility rules vary by jurisdiction and provider. Add figures from local primary sources and written quotes before making a decision.</p>
 
-      <div class="overflow-x-auto my-6">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="border-b border-outline-variant bg-surface-container-low">
-              <th class="py-3 px-4 font-bold">Country</th>
-              <th class="py-3 px-4 font-bold">Example Fixed Rate</th>
-              <th class="py-3 px-4 font-bold">Common Term</th>
-              <th class="py-3 px-4 font-bold">Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Belgium</td><td class="px-4 py-3">3.2–4.1%</td><td class="px-4 py-3">20–25 years</td><td class="px-4 py-3">Fixed rate very common</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">France</td><td class="px-4 py-3">3.4–4.3%</td><td class="px-4 py-3">20–25 years</td><td class="px-4 py-3">Fixed rate standard</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Germany</td><td class="px-4 py-3">3.6–4.5%</td><td class="px-4 py-3">15–20 years</td><td class="px-4 py-3">Short fixed periods common</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Netherlands</td><td class="px-4 py-3">3.8–4.6%</td><td class="px-4 py-3">30 years</td><td class="px-4 py-3">NHG guarantee available</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Ireland</td><td class="px-4 py-3">4.0–5.0%</td><td class="px-4 py-3">25–30 years</td><td class="px-4 py-3">Variable rate still common</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Spain</td><td class="px-4 py-3">3.5–4.5%</td><td class="px-4 py-3">25–30 years</td><td class="px-4 py-3">Mixed fixed/variable market</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>Unlike the US market, where 30-year fixed rates are the gold standard — a structure tracked by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> (CFPB) — many European markets prefer shorter fixed periods (Germany) or even variable rates (Ireland). It is essential to get a personalised quote from your bank or mortgage broker before committing to a specific property.</p>
-
-      <h2>Full Monthly Cost Breakdown for a €200,000 Mortgage in Belgium</h2>
-      <p>When planning your <strong>200k euro mortgage</strong> budget, the principal and interest are just the start. Let's look at a realistic scenario for a €250,000 property with a 20% down payment (€50,000), resulting in a €200,000 loan at a 3.8% rate over 25 years:</p>
-
-      <div class="overflow-x-auto my-6">
-        <table class="w-full text-left border-collapse bg-primary/5 rounded-xl border border-primary/10">
-          <thead>
-            <tr class="border-b border-primary/20">
-              <th class="py-3 px-6 font-bold text-primary">Component</th>
-              <th class="py-3 px-6 font-bold text-primary">Monthly Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-primary/10"><td class="px-6 py-3">Principal and Interest</td><td class="px-6 py-3">€1,038</td></tr>
-            <tr class="border-b border-primary/10"><td class="px-6 py-3">Property Insurance (Brandverzekering)</td><td class="px-6 py-3">~€60</td></tr>
-            <tr class="border-b border-primary/10"><td class="px-6 py-3">Life Insurance (Schuldsaldoverzekering)</td><td class="px-6 py-3">~€45</td></tr>
-            <tr class="border-b border-primary/10"><td class="px-6 py-3">Municipal Taxes (Estimate)</td><td class="px-6 py-3">~€100</td></tr>
-            <tr class="bg-primary/10 font-bold"><td class="px-6 py-3 text-primary">Total Monthly Cost</td><td class="px-6 py-3 text-primary">~€1,243</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>Note that Belgian lenders typically require life insurance (Schuldsaldoverzekering) as a condition of the mortgage — a mandatory cost that many first-time buyers overlook. To ensure you have included all these "extras" in your calculation, use the <a href="/mortgage-calculator">mortgage calculator</a> for a personalised EUR estimate.</p>
-
-      <h2>What Income Do You Need for a €200,000 Mortgage in Europe?</h2>
-      <p>European lenders typically apply a debt-to-income (DTI) ratio of 33% to 35%. This means your total monthly debt obligations should not exceed roughly one-third of your net monthly household income. Here is the minimum income required based on different mortgage rate scenarios:</p>
+      <h2>Illustrative Income Stress Test for a €200,000 Mortgage</h2>
+      <p>The table divides each example payment by a selected 33% payment-to-income assumption. It is a planning stress test, not a European underwriting standard or prediction of lender approval.</p>
 
       <div class="overflow-x-auto my-6">
         <table class="w-full text-left border-collapse">
           <thead>
             <tr class="border-b border-outline-variant bg-surface-container-low">
               <th class="py-3 px-4 font-bold">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold">Required Monthly Income (33%)</th>
-              <th class="py-3 px-4 font-bold">Required Annual Income</th>
+              <th class="py-3 px-4 font-bold">Illustrative Monthly Income (33%)</th>
+              <th class="py-3 px-4 font-bold">Illustrative Annual Income</th>
             </tr>
           </thead>
           <tbody>
@@ -4684,31 +4638,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>In conclusion, a €200,000 mortgage is accessible to a wide range of European buyers, typically requiring a net household income between approximately €35,000 and €47,000 per year. For double-income households, meeting these requirements is often straightforward. You can use our <a href="/affordability-calculator">affordability calculator</a> to see how your specific income affects your borrowing power and <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> given your current debts.</p>
-
-      <h2>Upfront Costs: What You Need Beyond the Down Payment</h2>
-      <p>Unlike some other markets, property purchases in Europe involve significant transaction costs that are usually paid out-of-pocket and cannot be financed. When you are planning your <a href="/blog/down-payment-guide">down payment guide</a> budget, remember to set aside separate funds for the "notary costs" and taxes:</p>
-
-      <div class="overflow-x-auto my-6">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="border-b border-outline-variant bg-surface-container-low">
-              <th class="py-3 px-4 font-bold">Country</th>
-              <th class="py-3 px-4 font-bold">Typical Purchase Costs</th>
-              <th class="py-3 px-4 font-bold">On €250,000 Home</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Belgium</td><td class="px-4 py-3">10–15%</td><td class="px-4 py-3">€25,000–€37,500</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">France</td><td class="px-4 py-3">7–8%</td><td class="px-4 py-3">€17,500–€20,000</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Germany</td><td class="px-4 py-3">9–12%</td><td class="px-4 py-3">€22,500–€30,000</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Netherlands</td><td class="px-4 py-3">2–4%</td><td class="px-4 py-3">€5,000–€10,000</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="px-4 py-3">Ireland</td><td class="px-4 py-3">2–4%</td><td class="px-4 py-3">€5,000–€10,000</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>For a buyer in Belgium, purchasing a €250,000 home might require €50,000 for the 20% deposit plus up to €37,500 in purchase costs — meaning a total upfront cash requirement of up to €87,500. For a more detailed look at these expenses, read our <a href="/blog/closing-costs-breakdown">closing costs breakdown</a> and building a <a href="/blog/home-purchase-budgeting">full home purchase budget</a>.</p>
+      <p>The figures above show only what the selected ratio implies. They do not estimate qualification or affordability in a particular country. Use our <a href="/affordability-calculator">affordability calculator</a> to test your income and current debts, then add locally documented purchase costs when <a href="/blog/home-purchase-budgeting">building your full home purchase budget</a>.</p>
 
       <h2>€200,000 vs €300,000 Mortgage: How the Payments Compare</h2>
       <p>If you're debating whether to push your budget further, it helps to see how the numbers change at a standard 4.0% rate over 25 years:</p>
@@ -4738,20 +4668,20 @@ const rawArticles: Omit<Article, "author">[] = [
       <h3>What is the monthly payment on a €200,000 mortgage?</h3>
       <p>At a 4.0% interest rate over 25 years, the monthly principal and interest payment is €1,055. This number will vary depending on your specific loan term and interest rate; for example, at 3.0%, the payment drops to €949, while at 5.0%, it rises to €1,169.</p>
 
-      <h3>What income do I need for a €200,000 mortgage in Belgium?</h3>
-      <p>To qualify for a <strong>200k euro mortgage</strong> in Belgium, you typically need a net monthly household income of at least €3,200 (assuming a 33% DTI ratio). This ensures you can comfortably cover the €1,055 repayment along with other living expenses.</p>
+      <h3>What income does the example ratio imply for a €200,000 mortgage?</h3>
+      <p>Dividing the €1,055 example payment by the selected 33% ratio gives about €3,197 per month. This is an illustrative stress test, not a qualification threshold. A lender may use different income definitions, ratios, expenses, or product rules.</p>
 
-      <h3>How do European mortgage rates compare in 2026?</h3>
-      <p>European rates are currently stabilised but vary by country. Belgium and France offer some of the most competitive fixed rates (3.2–4.3%), while Ireland and the Netherlands tend to be slightly higher (3.8–5.0%). Always compare multiple lenders to find the best deal for your profile.</p>
+      <h3>Do the example rates represent European mortgage offers?</h3>
+      <p>No. The rates in the tables are selected calculator assumptions for comparing payment sensitivity. Use a written quote for the relevant country, product, and borrower before relying on a rate.</p>
 
       <h3>Is a fixed or variable rate better for a European mortgage?</h3>
-      <p>A <a href="/blog/fixed-vs-variable-mortgage">fixed vs. variable rate mortgage</a> depends on your appetite for risk. Fixed rates provide certainty in your monthly budget, which is currently popular in France and Belgium. Variable rates may start lower but can increase if the European Central Bank raises rates in the future.</p>
+      <p>A <a href="/blog/fixed-vs-variable-mortgage">fixed vs. variable rate mortgage</a> depends on the written contract, repricing rules, fees, and your tolerance for payment changes. Compare the payment at the quoted rate and at the contract's allowed adjustment limits.</p>
 
-      <h3>What are the upfront costs of buying a home in Europe?</h3>
-      <p>Upfront costs, or "purchasing costs," vary significantly. In the Netherlands and Ireland, they are low (2–4%), but in Belgium and Germany, they can reach 10–15% due to high registration taxes and notary fees. These costs must be paid in cash alongside your down payment.</p>
+      <h3>What local costs are excluded from this example?</h3>
+      <p>The example excludes taxes, insurance, registration or notary fees, valuation costs, and other jurisdiction-specific charges. Obtain current figures from official local sources and written provider estimates.</p>
 
       <h2>The Bottom Line</h2>
-      <p>Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> is the key to a stress-free home purchase. Whether you are buying in Brussels, Paris, or Berlin, the math of a €200,000 loan is the anchor for your financial planning. Ready to see your own specific monthly breakdown?</p>
+      <p>Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> helps separate the loan math from jurisdiction-specific costs and approval rules. Use the €200,000 examples as a starting point, then replace every assumption with terms that apply to your situation.</p>
 
       <div class="bg-primary p-12 rounded-3xl mt-16 text-white text-center shadow-2xl overflow-hidden relative">
         <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-50"></div>
@@ -4765,7 +4695,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </div>
       </div>
 
-      <p class="text-sm italic mt-12 border-t pt-4 text-on-surface-variant/60">This guide is for informational purposes only. Local mortgage regulations and rates vary by country and lender — always consult with a professional financial advisor or mortgage broker in your specific jurisdiction before committing to a loan.</p>
+      <p class="text-sm italic mt-12 border-t pt-4 text-on-surface-variant/60">This guide is for informational purposes only. Local mortgage regulations, costs, and rates vary by country, product, and lender. Confirm the applicable rules and obtain written quotes in your jurisdiction before committing to a loan.</p>
     `
   },
   {
@@ -4786,7 +4716,7 @@ const rawArticles: Omit<Article, "author">[] = [
             "name": "How much can I borrow with $5,000 monthly income?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "With a $5,000 monthly income, the 28% front-end rule allows for a $1,400 monthly housing payment. Depending on interest rates and other debts, this typically supports a loan amount between $200,000 and $230,000."
+              "text": "With a $5,000 monthly income, the selected 28% housing-cost assumption produces a $1,400 monthly budget. The loan amount depends on the entered rate, term, debts, and local costs; this is not an approval estimate."
             }
           },
           {
@@ -4794,7 +4724,7 @@ const rawArticles: Omit<Article, "author">[] = [
             "name": "What salary do I need for a 400k mortgage?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For a $400,000 mortgage at 6.5% interest, you'll need a gross annual income of approximately $108,000 to keep your housing payment within the recommended 28% threshold, assuming no other significant debts."
+              "text": "For a $400,000 mortgage at the 6.5% example rate, dividing the principal-and-interest payment by the selected 28% ratio produces an illustrative income figure. Add local costs and debts and replace the ratio before using it for planning."
             }
           },
           {
@@ -4802,7 +4732,7 @@ const rawArticles: Omit<Article, "author">[] = [
             "name": "Can I get a $400k mortgage on a $70k salary?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "On a $70,000 salary, a $400,000 mortgage is generally considered 'house poor' or may not qualify. At 6.5% interest, the principal and interest alone would consume 43% of your gross income, well above the 28% standard."
+              "text": "At the 6.5% example rate, principal and interest on $400,000 is about 43% of a $70,000 gross salary. Compare that calculated share with your full budget and lender-specific criteria; the page does not predict approval."
             }
           }
         ]
@@ -4812,7 +4742,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>The question <strong>"how much can I borrow"</strong> begins with income, existing debts, down payment, local ownership costs, and a quoted rate. This guide uses 28% and 36% ratios as editable planning assumptions and provides examples for several loan amounts. It does not predict lender approval.</p>
 
       <h2>The 28/36 Rule Explained Simply</h2>
-      <p>Lenders don't just pick a number when deciding your limit; they use a specific pair of ratios known as the <strong>28/36 rule mortgage qualification</strong> standard. This rule ensures you have enough breathing room for life's other expenses. According to the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">CFPB</a>, these ratios help prevent "mortgage stress."</p>
+      <p>This guide uses the <strong>28/36 rule</strong> as two editable planning assumptions. It allocates 28% of gross income to housing and 36% to total debt, but it does not represent universal lender criteria or guarantee room for other expenses.</p>
       <ul>
         <li><strong>Front-End Ratio (28%):</strong> Your total monthly housing cost (Principal, Interest, Taxes, and Insurance) should not exceed 28% of your gross monthly income.</li>
         <li><strong>Back-End Ratio (36%):</strong> Your total monthly debt payments (Mortgage + Auto loans + Student loans + Credit cards) should not exceed 36% of your gross monthly income.</li>
@@ -4841,16 +4771,16 @@ const rawArticles: Omit<Article, "author">[] = [
       </div>
       <p>Note: These are estimates. Use our <a href="/mortgage-calculator">mortgage calculator</a> to refine these numbers with your specific interest rate and local tax data. If you are looking for specific breakdowns, see our guide on the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a>.</p>
 
-      <h2>How Lenders Actually Calculate Your Limit</h2>
-      <p>Beyond the 28/36 rule, banks look at three primary "Buckets":</p>
+      <h2>Inputs That Can Change a Lender's Calculation</h2>
+      <p>Actual underwriting varies by lender and program. Common inputs include:</p>
       <ol>
-        <li><strong>Gross Income:</strong> Your income before taxes. <strong>How much can I borrow with $5,000 monthly income</strong>? On paper, this supports a $1,400 housing payment.</li>
-        <li><strong>Credit Score:</strong> A lower score doesn't just mean a higher rate; it can also lead to lower DTI (Debt-to-Income) caps. For example, a <strong>credit limit for 30000 salary</strong> on a credit card might be high, but for a mortgage, it is strictly capped by income.</li>
+        <li><strong>Income:</strong> The income a lender accepts and how it documents that income depend on the program. This page uses gross income only for its illustrative ratios.</li>
+        <li><strong>Credit and debts:</strong> Credit, recurring obligations, and pricing criteria vary by lender and product. Compare written terms rather than assuming a cutoff.</li>
         <li><strong>Down Payment:</strong> The more you put down, the less you borrow, which lowers your monthly payment and increases the total home price you can afford.</li>
       </ol>
 
       <h2>Can I get a $400k mortgage on a $70k salary?</h2>
-      <p>The short answer is: <strong>Unlikely in 2026.</strong> At a 6.5% interest rate, a $400k loan would cost roughly $2,528 in principal and interest alone. On a <a href="/calculator/how-much-house-can-i-afford-70k-salary">$70k salary</a> ($5,833/mo), that is a 43% front-end ratio—well above the 28% limit. To qualify for 400k, you would typically need a larger down payment or a salary closer to $110,000. See what is realistically affordable <a href="/calculator/how-much-house-can-i-afford-90k-salary">on a $90,000 salary</a>, or read about <a href="/blog/28-36-rule-explained">how the 28/36 rule works in detail</a>.</p>
+      <p>At the selected 6.5% example rate, a $400,000 loan costs about $2,528 in principal and interest. On a <a href="/calculator/how-much-house-can-i-afford-70k-salary">$70,000 salary</a> ($5,833 per month), that is about 43% of gross income before taxes, insurance, maintenance, and other costs. Use that calculation as a stress test, then compare it with your full budget and lender-specific criteria. See the <a href="/calculator/how-much-house-can-i-afford-90k-salary">$90,000 salary scenario</a> or read <a href="/blog/28-36-rule-explained">how the 28/36 planning rule works</a>.</p>
 
       <h2>Summary of Borrowing Power</h2>
       <p>Understanding your limit is about more than just qualifying—it's about financial health. Use our tool above to experiment with different income levels and debt scenarios. Remember that "how much the bank will give me" and "how much I should spend" are often two different numbers.</p>

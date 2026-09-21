@@ -163,7 +163,7 @@ export const pseoData: PSEOParams[] = [
 
       <h2>Is $300,000 the Right Loan Amount for You?</h2>
       <p>The right loan amount depends on what you are financing and how much monthly cushion you want. Using the same 6% example rate, a $350,000 loan runs $2,098/month in principal and interest — $299 more than the $300,000 payment above. See the full <a href="/calculator/350k-mortgage-monthly-payment-6-5-percent">$350,000 mortgage breakdown</a>. Drop to $250,000 instead and the payment falls to $1,499/month; compare it on the <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage page</a>.</p>
-      <p>A $300,000 loan amount also sits well under the national conforming loan limit for 2026. The <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener noreferrer">Federal Housing Finance Agency</a> set the baseline one-unit conforming loan limit at $832,750 for most of the U.S. for 2026, with higher ceilings in designated high-cost areas. Staying under that limit keeps you eligible for standard conforming financing, which typically means simpler underwriting and better pricing than a jumbo loan requires once a loan amount crosses it.</p>
+      <p>The <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener noreferrer">Federal Housing Finance Agency's 2026 release</a> lists a $832,750 baseline one-unit conforming loan limit for most of the U.S. and higher ceilings in designated high-cost areas. Whether a specific loan is conforming and how it is priced depend on the property, location, lender, and loan program.</p>
     `,
     customFaqs: [
       {
@@ -325,7 +325,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What does the $350,000 example represent?",
-        answer: "Yes. In growing suburbs of Dallas, Phoenix, Charlotte, and other mid-major metros where median home prices sit in the $380,000–$430,000 range, a $350,000 mortgage is very common for families upgrading from a starter home with existing equity."
+        answer: "The page models a $350,000 loan amount without claiming that it is common in a particular market. Compare the payment with current property prices, local costs, and a written loan quote for the area you are considering."
       }
     ]
   },
@@ -434,7 +434,7 @@ export const pseoData: PSEOParams[] = [
       </div>
 
       <h2>Jumbo Loan Considerations at $700k</h2>
-      <p>A $700,000 loan sits just under the 2026 national baseline conforming loan limit of $832,750, set by the <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener noreferrer">Federal Housing Finance Agency</a>. In most U.S. counties, a $700,000 loan on its own still qualifies for standard conforming financing rather than a jumbo loan — the baseline applies everywhere, with higher ceilings up to $1,249,125 in designated high-cost areas. Buyers more commonly cross into jumbo territory when the total loan amount itself climbs past the local limit, which can happen fast with a thin down payment on a $750,000+ home.</p>
+      <p>The <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener noreferrer">Federal Housing Finance Agency's 2026 release</a> lists a $832,750 baseline one-unit conforming loan limit for most of the U.S. and higher ceilings in designated high-cost areas. Confirm the applicable property type, location, and loan amount with the lender rather than assuming conforming status from this example.</p>
       <p>If a quoted loan exceeds the applicable conforming limit, its pricing and underwriting may differ. Credit, down-payment, reserve, and debt-to-income requirements vary by lender and loan program, so compare written loan estimates. See the <a href="/calculator/income-required-for-700k-house">$700,000 house planning scenario</a> to model the broader budget.</p>
     `,
     customFaqs: [
@@ -471,7 +471,7 @@ export const pseoData: PSEOParams[] = [
     customIntro: "This illustrative scenario models a $250,000 mortgage at a 3.5% example annual interest rate. It shows payments by term, editable estimates for taxes and insurance, and comparisons with other selected rates. The rates are inputs, not claims about available offers. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust every assumption.",
     customContent: `
       <h2>Monthly Payment on a $250,000 Mortgage at 3.5%</h2>
-      <p>The interest rate is the single most powerful lever in your mortgage budget. Here is how a $250,000 loan at a 3.5% fixed rate breaks down across common repayment terms:</p>
+      <p>The interest-rate input materially changes the payment. Here is how a $250,000 loan at the selected 3.5% example rate breaks down across several comparison terms:</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -493,7 +493,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>At 3.5% over 30 years the monthly principal and interest payment is $1,123 — and the total interest paid over the life of the loan is $154,280. Compared to the same loan at 6.8%, this saves $251,680 in total interest and $838/month — one of the most dramatic illustrations of how much the rate environment affects lifetime borrowing cost. See the complete month-by-month impact on our <a href="/amortization-schedule">amortization schedule</a>.</p>
+      <p>At the 3.5% example rate over 30 years, the monthly principal and interest payment is $1,123 and total interest is $154,280. Compared with a 6.8% example input, that is $838 less per month and $251,680 less total interest. See the month-by-month comparison in our <a href="/amortization-schedule">amortization schedule</a>.</p>
 
       <h2>Full Monthly Cost Including Taxes and Insurance (PITI)</h2>
       <p>Your bank payment consists of four main parts: Principal, Interest, Taxes, and Insurance. Here is a realistic breakdown for a $278,000 home purchase with 10% down ($28,000), resulting in a $250,000 loan at 3.5% over 30 years:</p>
@@ -576,7 +576,7 @@ export const pseoData: PSEOParams[] = [
     customFaqs: [
       {
         question: "What is the monthly payment on a $250,000 mortgage at 3.5%?",
-        answer: "The monthly principal and interest payment is $1,123 for a 30-year fixed term. For a **$250000 mortgage monthly payment 3.5 percent** scenario including estimated taxes and insurance, the total PITI is typically around $1,577."
+        answer: "The monthly principal and interest payment is $1,123 for a 30-year fixed term. Using the page's selected tax and insurance inputs, the **$250000 mortgage monthly payment 3.5 percent** scenario totals about $1,577."
       },
       {
         question: "How much do I save with a 3.5% rate vs 6.8% on a $250,000 mortgage?",
@@ -710,7 +710,7 @@ export const pseoData: PSEOParams[] = [
     customFaqs: [
       {
         question: "What is the monthly payment on a $400,000 mortgage at 4%?",
-        answer: "The monthly principal and interest payment is $1,910 for a 30-year fixed term. When including property taxes and insurance, the total **$400000 mortgage monthly payment 4 percent** typically comes to around $2,624."
+        answer: "The monthly principal and interest payment is $1,910 for a 30-year fixed term. Using the page's selected tax and insurance inputs, the total **$400000 mortgage monthly payment 4 percent** scenario is about $2,624."
       },
       {
         question: "How much do I save with a 4% rate vs a 7% rate on a $400,000 mortgage?",
@@ -736,7 +736,7 @@ export const pseoData: PSEOParams[] = [
     term: 3, 
     currency: 'USD',
     customTitle: "$10,000 Personal Loan at 10%: Full Repayment Breakdown",
-    customDescription: "What are the monthly payments on a $10,000 personal loan at 10% interest? See exact payments for every term, total interest cost, how to compare lenders, and tips to qualify for a lower rate.",
+    customDescription: "What are the monthly payments on a $10,000 personal loan at 10% interest? See exact payments by term, total interest, rate sensitivity, and offer-comparison questions.",
     customH1: "$10,000 Personal Loan at 10%: Full Repayment Breakdown",
     customIntro: "This illustrative scenario models a $10,000 personal loan at a 10% example annual interest rate. It compares payments and total interest across terms. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
@@ -861,7 +861,7 @@ export const pseoData: PSEOParams[] = [
     term: 5, 
     currency: 'USD',
     customTitle: "$25,000 Personal Loan at 8%: Full Repayment Breakdown",
-    customDescription: "What are the monthly payments on a $25,000 personal loan at 8% interest? See exact payments for every term, total interest cost, income requirements, and how to qualify for the best rate on a $25k loan.",
+    customDescription: "What are the monthly payments on a $25,000 personal loan at 8% interest? See exact payments by term, total interest, rate sensitivity, and offer-comparison questions.",
     customH1: "$25,000 Personal Loan at 8%: Full Repayment Breakdown",
     customIntro: "This illustrative scenario models a $25,000 personal loan at an 8% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
@@ -892,7 +892,7 @@ export const pseoData: PSEOParams[] = [
       <p>At 8% over 5 years — the most popular term for a $25,000 loan — the monthly payment is $507 and total interest is $5,420. Choosing a 3-year term increases the payment by $276/month but saves $2,232 in total interest. If your budget can absorb the higher payment, the 3-year term is almost always the better financial choice. Use our <a href="/total-interest-calculator">total interest calculator</a> to see your exact savings based on early payoff goals.</p>
 
       <h2>How Your Rate Affects the Total Cost</h2>
-      <p>Qualified rates for a $25,000 loan vary significantly based on your debt-to-income (DTI) ratio and credit score. Here is what a 5-year repayment plan looks like across the rate spectrum:</p>
+      <p>The table compares selected example rates for a $25,000 loan over five years. The rates are editable mathematical assumptions rather than available offers or qualification predictions.</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -977,11 +977,11 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What credit score do I need for an 8% personal loan rate?",
-        answer: "For a $25,000 loan amount, an 8% rate usually requires a 'Very Good' credit score of 700–720 or higher, along with a low DTI and stable employment history."
+        answer: "The 8% rate is an editable scenario assumption, not a qualification or pricing prediction. Credit, income, debt, fees, and approval criteria vary by lender and loan product."
       },
       {
         question: "Is a $25,000 personal loan a good idea for debt consolidation?",
-        answer: "Yes, if you qualify for an 8% rate, consolidating credit cards at 20%+ APR can save you over $13,000 in interest and shorten your payoff time by several years."
+        answer: "In the displayed mathematical scenario, replacing four balances modeled at 21% with a five-year loan modeled at 8% reduces estimated interest by about $13,000. Replace the balances, rates, fees, and payoff behavior with your actual offers."
       }
     ]
   },
@@ -995,7 +995,7 @@ export const pseoData: PSEOParams[] = [
     term: 3,
     currency: 'USD',
     customTitle: "$5,000 Personal Loan at 12%: Payments, Costs & Timeline",
-    customDescription: "Monthly payment on a $5,000 personal loan at 12% is $166 over 3 years — $976 total interest. Full term table, APR sensitivity, and qualification guide.",
+    customDescription: "Monthly payment on a $5,000 personal loan at 12% is $166 over 3 years — $976 total interest. Full term table, rate sensitivity, and offer-comparison guide.",
     customH1: "How Much Does a $5,000 Personal Loan at 12% Really Cost?",
     customIntro: "This illustrative scenario models a $5,000 personal loan at a 12% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
@@ -1100,7 +1100,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Is a personal loan better than a credit card for a $5,000 balance?",
-        answer: "Usually yes. A credit card at 24% APR costs $2,056 in interest over 3 years on a $5,000 balance. A personal loan at 12% costs $976 — a saving of $1,080 and $30 per month."
+        answer: "In the displayed scenario, a $5,000 balance modeled at 24% costs $2,056 in interest over three years, while a loan modeled at 12% costs $976. Replace the rates, fees, term, and payment behavior with your actual offers."
       },
       {
         question: "What credit score do I need for a $5,000 personal loan at 12%?",
@@ -1116,7 +1116,7 @@ export const pseoData: PSEOParams[] = [
     term: 3,
     currency: 'USD',
     customTitle: "$15,000 Personal Loan at 10%: Full Repayment Breakdown",
-    customDescription: "$15,000 personal loan at 10%: $484/month over 3 years, $2,424 total interest. Full term comparison, APR sensitivity table, and qualification requirements.",
+    customDescription: "$15,000 personal loan at 10%: $484/month over 3 years and $2,424 total interest. Compare terms, example rates, and written offers.",
     customH1: "$15,000 Personal Loan at 10%: What You Will Actually Pay",
     customIntro: "This illustrative scenario models a $15,000 personal loan at a 10% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
@@ -1169,7 +1169,7 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>Moving from 10% to 20% APR on a $15,000 loan over 3 years adds $2,628 in total interest — the difference between qualifying with decent credit and applying with poor credit is material at this loan size.</p>
+      <p>In this illustrative scenario, moving the annual rate input from 10% to 20% on a $15,000 loan over three years adds $2,628 in total interest. The comparison does not associate either rate with a credit profile or predict pricing.</p>
 
       <h2>Illustrative Borrower Inputs for a 10% Scenario</h2>
       <p>The following borrower profiles are illustrative inputs for comparing a $15,000 loan. They do not predict approval or a 10% offer; lender criteria vary.</p>
@@ -1358,7 +1358,7 @@ export const pseoData: PSEOParams[] = [
     term: 5,
     currency: 'USD',
     customTitle: "$30,000 Personal Loan at 9%: Payments, Costs & Savings",
-    customDescription: "$30,000 personal loan at 9%: $623/month for 5 years, $7,380 total interest. Full term table, rate sensitivity, consolidation math, and qualification guide.",
+    customDescription: "$30,000 personal loan at 9%: $623/month for 5 years and $7,380 total interest. See term, rate-sensitivity, and consolidation scenarios.",
     customH1: "$30,000 Personal Loan at 9%: Monthly Payment & Repayment Options",
     customIntro: "This illustrative scenario models a $30,000 personal loan at a 9% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to run your scenario.",
     customContent: `
@@ -1606,10 +1606,10 @@ export const pseoData: PSEOParams[] = [
     customTitle: "How Much House Can I Afford on a $100k Salary in 2026?",
     customDescription: "How much house can you afford on a $100,000 salary? See your exact maximum loan amount, monthly payment, down payment requirements, and how existing debts affect your buying power in 2026.",
     customH1: "How Much House Can I Afford on a $100k Salary in 2026?",
-    customIntro: "Earning $100,000 per year puts you in a strong position to buy a home in most US markets in 2026 — but the exact number depends on four variables: your existing monthly debts, your down payment, the selected example interest rate, and local property taxes. This page gives you the precise answer based on the 28/36 rule that lenders actually use, a full breakdown of your maximum comfortable payment, and a table showing how debts and down payments shift your budget. Use the <a href='/affordability-calculator'>affordability calculator</a> above to personalise every number for your exact situation.",
+    customIntro: "This illustrative U.S. planning scenario shows how a $100,000 salary, existing monthly debts, down payment, local costs, and a selected example interest rate affect the estimated home budget. It compares editable 28% housing-cost and 36% total-debt assumptions; neither is a lender approval rule. Use the <a href='/affordability-calculator'>affordability calculator</a> above to personalise every input.",
     customContent: `
       <h2>How Much House Can You Afford on $100k? The Core Numbers</h2>
-      <p>Lenders evaluate your buying power using two primary ratios: the 28% front-end ratio and the 36% back-end ratio. Here is how those guidelines apply to a $100,000 annual income at the 6.8% example rate (6.8%):</p>
+      <p>This page compares a 28% housing-cost assumption with a 36% total-debt assumption for a $100,000 annual income at the selected 6.8% example rate. Neither ratio predicts approval.</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -1676,7 +1676,7 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>A 20% down payment eliminates PMI entirely, allowing you to buy more house for the same monthly payment. Check our <a href="/blog/down-payment-guide">down payment guide</a> for more strategies, or explore specialized <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> first-time buyer programs.</p>
+      <p>The 20% down scenario removes the page's mortgage-insurance input, changing the estimated home price at the same monthly budget. Actual insurance terms vary by loan and lender. See our <a href="/blog/down-payment-guide">down payment guide</a> or <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> program information.</p>
 
       <h2>Your Full Monthly Budget at $100k Salary</h2>
       <p>What does a $300,000 home actually cost per month on a $100,000 salary? Here is a realistic breakdown at a 6.8% interest rate:</p>
@@ -1711,7 +1711,7 @@ export const pseoData: PSEOParams[] = [
     customFaqs: [
       {
         question: "How much house can I afford on a $100,000 salary?",
-        answer: "On a $100,000 salary, most buyers can comfortably afford a home priced between $280,000 and $350,000 depending on their down payment and existing debts. Identifying **how much house can I afford 100k salary** requires looking at your specific DTI ratio."
+        answer: "The page's selected assumptions produce home-price scenarios from about $280,000 to $350,000 as down payment and existing debts change. These are planning outputs rather than a comfort or approval range."
       },
       {
         question: "What mortgage payment can I afford on $100k a year?",
@@ -1719,7 +1719,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Can I afford a $400,000 house on $100k salary?",
-        answer: "Affording a $400,000 house on a $100,000 salary is difficult at current 6.8% rates unless you have a very large down payment (20%+) or zero existing monthly debts."
+        answer: "Using this page's 6.8% example rate and cost assumptions, a $400,000 house exceeds the displayed 28% planning ratio on a $100,000 salary. Change the rate, down payment, debts, taxes, and insurance to test your own scenario; this is not an approval estimate."
       },
       {
         question: "How much do I need for a down payment on a $100k salary?",
@@ -1739,10 +1739,10 @@ export const pseoData: PSEOParams[] = [
     customTitle: "How Much House Can I Afford on a $50,000 Salary in 2026?",
     customDescription: "How much house can you afford on a $50,000 salary in 2026? Exact max loan, monthly PITI, DTI breakdown, and debt impact tables for entry-level buyers.",
     customH1: "How Much House Can I Afford on a $50,000 Salary in 2026?",
-    customIntro: "On a $50,000 salary, homeownership requires careful market selection and debt management — most buyers at this income are entry-level workers, recent graduates, or single-income households targeting affordable markets in the Midwest, South, and rural areas where median home prices remain below $175,000. The 28% housing rule leaves a tight monthly budget of just $1,167, and a single car payment meaningfully shrinks your maximum loan amount. This page gives you the exact affordability numbers based on the DTI rules lenders actually use, a full debt-impact breakdown, and guidance for making homeownership work on a $50,000 income. Use the <a href='/affordability-calculator'>affordability calculator</a> above to personalise every figure.",
+    customIntro: "This illustrative U.S. planning scenario applies editable 28% housing-cost and 36% total-debt assumptions to a $50,000 salary. It shows how an existing car payment, down payment, selected example rate, and local ownership costs change the estimate. These ratios are planning inputs rather than lender approval rules. Use the <a href='/affordability-calculator'>affordability calculator</a> above to personalise every figure.",
     customContent: `
       <h2>How Much House Can You Afford on $50k? The Core Numbers</h2>
-      <p>Lenders apply two key ratios: the 28% front-end limit (housing only) and the 36% back-end limit (all debts combined). Here is how those thresholds apply to a $50,000 income at 6.8% in 2026:</p>
+      <p>The table compares a 28% housing-cost assumption with a 36% total-debt assumption for a $50,000 income at a 6.8% example annual interest rate. These are editable planning scenarios, not universal underwriting limits.</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -1809,7 +1809,7 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>A 20% down payment eliminates PMI and lets you buy a $170,000 home versus $140,000 with 3% down — using the same loan amount. Check our <a href="/blog/down-payment-guide">down payment guide</a> and <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD first-time buyer programs</a> for down payment assistance options.</p>
+      <p>The 20% down scenario removes the selected mortgage-insurance input and displays a $170,000 home versus $140,000 at 3% down. Actual insurance and minimum down-payment terms vary. Check our <a href="/blog/down-payment-guide">down payment guide</a> and <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD program information</a>.</p>
 
       <h2>Your Full Monthly Budget on a $50,000 Salary</h2>
       <p>What does a $150,000 home actually cost per month on a $50,000 salary at 6.8%?</p>
@@ -1821,7 +1821,7 @@ export const pseoData: PSEOParams[] = [
         <li><strong>Total Housing Cost:</strong> $1,167</li>
         <li><strong>As % of $50k Gross Income:</strong> 28.0%</li>
       </ul>
-      <p>This is right at the 28% boundary — leaving very little margin for home repairs, HOA fees, or unexpected costs. Financial advisors typically recommend a 20–25% housing ratio so you have breathing room. You can also compare this scenario to a <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at 3.5%</a> to see how a rate difference affects the payment.</p>
+      <p>This result sits at the selected 28% boundary before home repairs, association fees, or unexpected costs. Test a lower ratio such as 20% or 25% to see how a larger budget buffer changes the estimate. You can also compare this scenario to a <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at 3.5%</a> to see how a rate difference affects the payment.</p>
 
       <h2>Get Your Personalised Home Budget</h2>
       <p>Ready to see your exact numbers? Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your specific income, debts, and down payment. Also read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand all the variables lenders evaluate. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> will help you compare loan options confidently.</p>
@@ -1854,7 +1854,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "How much do I need for a down payment on a $50k salary?",
-        answer: "With a $136,000 max loan, you need roughly $7,150 with 5% down or $15,100 with 10% down on a $150,000 home. Saving a 20% down payment of $34,000 eliminates PMI and lets you buy a $170,000 home."
+        answer: "With the page's $136,000 loan scenario, the examples use about $7,150 at 5% down, $15,100 at 10% down, and $34,000 at 20% down. The 20% example removes the model's mortgage-insurance input; actual terms vary."
       }
     ]
   },
@@ -1869,10 +1869,10 @@ export const pseoData: PSEOParams[] = [
     customTitle: "How Much House Can I Afford on a $60,000 Salary in 2026?",
     customDescription: "How much house can you afford on a $60,000 salary in 2026? Get your max loan at 6.8%, monthly PITI limits, FHA eligibility, and debt impact tables.",
     customH1: "How Much House Can I Afford on a $60,000 Salary in 2026?",
-    customIntro: "A $60,000 salary sits near the US median household income, which means lenders view you as a qualified borrower — but high home prices in major metros may still push you toward FHA-backed financing, secondary markets, or co-borrowing with a partner. Your 28% monthly housing budget of $1,400 comfortably supports a mortgage in the $155,000–$170,000 range, covering starter homes across the South, rural Midwest, and secondary metros such as Memphis, Dayton, and Huntsville. This page shows your precise affordability numbers using the same 28/36 DTI rules that FHA and conventional lenders apply, along with a full breakdown of how existing debts shift the picture. Use the <a href='/affordability-calculator'>affordability calculator</a> to model your specific loan scenario.",
+    customIntro: "This illustrative U.S. planning scenario applies editable 28% housing-cost and 36% total-debt assumptions to a $60,000 salary. It shows how existing debts, down payment, a selected example rate, and local ownership costs change the estimated loan range. The results do not predict eligibility for FHA, conventional, or any other financing. Use the <a href='/affordability-calculator'>affordability calculator</a> to model your inputs.",
     customContent: `
       <h2>How Much House Can You Afford on $60k? The Core Numbers</h2>
-      <p>The two standard thresholds lenders use — 28% front-end (housing) and 36% back-end (all debts) — give different answers depending on whether you carry existing debt. Here is the base case at 6.8% for a $60,000 income:</p>
+      <p>The selected 28% housing-cost and 36% total-debt assumptions give different estimates when existing debt changes. Here is the illustrative base case at a 6.8% example annual interest rate for a $60,000 income; actual underwriting varies by lender and loan program.</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -1975,8 +1975,8 @@ export const pseoData: PSEOParams[] = [
         answer: "On a $60,000 salary with no existing debts, you can afford approximately $165,000 at 6.8% using the 28% rule — enough for a home priced around $183,000 with 10% down in affordable US markets."
       },
       {
-        question: "Does a $60k salary qualify me for an FHA loan in 2026?",
-        answer: "Yes. FHA loans are available to most income levels that meet the credit and DTI requirements. On $60,000, you qualify for an FHA loan up to approximately $165,000 under the 28/36 rule, and FHA's 43% DTI allowance may let you stretch further with compensating factors."
+        question: "Does this $60k salary scenario predict FHA eligibility?",
+        answer: "No. The displayed amount follows the page's editable planning assumptions. FHA eligibility and underwriting depend on the current program rules, lender, property, borrower, and full application."
       },
       {
         question: "What is my maximum monthly mortgage payment at $60,000 income?",
@@ -1997,9 +1997,9 @@ export const pseoData: PSEOParams[] = [
     currency: 'USD',
     salary: 70000,
     customTitle: "How Much House Can I Afford on a $70,000 Salary in 2026?",
-    customDescription: "How much house can you afford on a $70,000 salary in 2026? See your max loan amount, full PITI breakdown, debt impact tables, and best markets to buy.",
+    customDescription: "How much house can you afford on a $70,000 salary? Compare editable rate, debt, down-payment, tax, and insurance scenarios.",
     customH1: "How Much House Can I Afford on a $70,000 Salary in 2026?",
-    customIntro: "Earning $70,000 puts you above the US median income and opens the door to moderate-priced markets — secondary suburbs, smaller cities in the South and Mountain West, and towns within commuting range of larger metros where home prices sit in the $200,000–$250,000 range. Your 28% housing budget of $1,633/month supports a loan around $193,000 with no other debts, giving you genuine buying flexibility in markets that strain lower income brackets. Unlike entry-level buyers, $70k earners often qualify for conventional financing with a 10% down payment without needing FHA. This page works through your exact DTI math, shows how car loans and student debt compress your options, and identifies the down payment approach that maximises your buying power. Use the <a href='/affordability-calculator'>affordability calculator</a> above for your exact scenario.",
+    customIntro: "This illustrative U.S. planning scenario applies a 28% housing-cost assumption to a $70,000 salary, producing a $1,633 monthly budget and an estimated $193,000 loan before other debts. It also compares an editable 36% total-debt assumption and several down payments. The results do not predict conventional, FHA, or other loan eligibility. Use the <a href='/affordability-calculator'>affordability calculator</a> above for your inputs.",
     customContent: `
       <h2>How Much House Can You Afford on $70k? The Core Numbers</h2>
       <p>At $70,000 income, the 28% front-end and 36% back-end rules produce meaningfully different affordability ceilings. Here is the base case at 6.8% for 30 years:</p>
@@ -2025,7 +2025,7 @@ export const pseoData: PSEOParams[] = [
       <p>The 28% rule is where most financial advisors recommend you stay. The 36% ceiling defined by the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> is the technical maximum lenders allow, requiring zero existing debts to reach. The $57,000 gap between these scenarios represents the difference between a comfortable $215,000 home and an $280,000 stretch purchase. See our <a href="/blog/28-36-rule-explained">28/36 rule explained</a> guide for more context.</p>
 
       <h2>How Existing Debts Reduce Your Buying Power</h2>
-      <p>Student loans and car payments are the most common obstacles at the $70k income level. Here is the impact at 6.8%:</p>
+      <p>The table shows how entered student-loan and car payments change the estimate at the selected 6.8% example rate:</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -2069,7 +2069,7 @@ export const pseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>A 20% down payment eliminates PMI and lets you buy a $241,000 home versus $199,000 with 3% down — while actually lowering your monthly payment by $42. Review our <a href="/blog/down-payment-guide">down payment guide</a> for strategies to reach 20% faster, and check <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> for state-level DPA programs.</p>
+      <p>The 20% down scenario removes the selected mortgage-insurance input and displays a $241,000 home versus $199,000 at 3% down, with a $42 lower modeled monthly cost. Actual insurance and down-payment terms vary. Review our <a href="/blog/down-payment-guide">down payment guide</a> and <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD</a> program information.</p>
 
       <h2>Your Full Monthly Budget on a $70,000 Salary</h2>
       <p>What does a $214,000 home actually cost per month on a $70,000 salary at 6.8%?</p>
@@ -2105,7 +2105,7 @@ export const pseoData: PSEOParams[] = [
         answer: "On a $70,000 salary with no existing debts, you can afford approximately $193,000 at 6.8% using the 28% rule — enough for a home priced around $214,000 with 10% down in moderate-cost US markets."
       },
       {
-        question: "What loan amount can I qualify for on $70,000 income?",
+        question: "What loan amount does this $70,000 income scenario show?",
         answer: "Using a 28% housing-cost assumption produces roughly $193,000, while a 36% total-debt assumption with no other debts produces about $250,000. These are calculator scenarios, not approval limits; lender requirements vary."
       },
       {
@@ -2129,7 +2129,7 @@ export const pseoData: PSEOParams[] = [
     customTitle: "How Much House Can I Afford on an $80,000 Salary in 2026?",
     customDescription: "How much house can you afford on an $80,000 salary in 2026? Get your max home price, monthly PITI breakdown, debt tables, and down payment analysis.",
     customH1: "How Much House Can I Afford on an $80,000 Salary in 2026?",
-    customIntro: "An $80,000 salary gives you solid buying power across most mid-size US cities — you can comfortably qualify for a $221,000+ loan with no other debts, putting homes in growing suburbs of Columbus, Indianapolis, Raleigh, and comparable markets within reach. Your 28% housing budget of $1,867/month creates a meaningful buffer between what you can technically borrow and what leaves you financially comfortable, which is a hallmark of the $80k income tier. Unlike buyers at lower income levels who are constrained to a single market type, $80k earners can often choose between a smaller home with aggressive payoff or a larger one on a 30-year term. This page gives you the precise numbers using lender DTI rules so you walk into a pre-approval with confidence. Use the <a href='/affordability-calculator'>affordability calculator</a> above to dial in your scenario.",
+    customIntro: "This illustrative U.S. planning scenario applies a 28% housing-cost assumption to an $80,000 salary, producing a $1,867 monthly budget and an estimated $221,000 loan before other debts. It compares editable debt, down-payment, rate, tax, insurance, and mortgage-insurance inputs. The result is not a pre-approval or lender estimate. Use the <a href='/affordability-calculator'>affordability calculator</a> above to change the assumptions.",
     customContent: `
       <h2>How Much House Can You Afford on $80k? The Core Numbers</h2>
       <p>At $80,000, the spread between the conservative 28% rule and the lender-maximum 36% rule is substantial — nearly $65,000 in loan amount. Here is the base case at 6.8%:</p>
@@ -2152,7 +2152,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>The 28% front-end limit is where financial advisors recommend staying. The 36% ceiling from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> requires zero existing monthly debts to reach and represents a $65,000 gap in loan amount. Most $80k buyers target the $220,000–$265,000 loan range depending on their debt load. See our <a href="/blog/28-36-rule-explained">28/36 rule guide</a> for the full framework lenders use.</p>
+      <p>The selected 28% housing-cost and 36% total-debt assumptions produce a $65,000 gap in estimated loan amount when no other monthly debt is entered. They are planning comparisons rather than CFPB or lender limits. See our <a href="/blog/28-36-rule-explained">28/36 rule guide</a> for the math and limitations.</p>
 
       <h2>How Existing Debts Reduce Your Buying Power</h2>
       <p>At $80,000 income, moderate debts are manageable but still cost tens of thousands in buying power. Here is the impact:</p>
@@ -2236,7 +2236,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Can I afford a $300,000 home on an $80,000 salary?",
-        answer: "A $300,000 home requires roughly $270,000 in financing with 10% down. Monthly PITI would be approximately $2,260 — above the 28% guideline of $1,867 for an $80k salary. It is achievable under the 36% rule if you have minimal existing debts and a strong credit score."
+        answer: "With the page's 10% down and local-cost assumptions, a $300,000 home produces about $2,260 per month, above the selected 28% planning budget of $1,867. A 36% scenario gives a different result, but neither ratio predicts approval."
       },
       {
         question: "How does student loan debt affect my buying power at $80k?",
@@ -2244,7 +2244,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "What is the best down payment strategy on an $80,000 salary?",
-        answer: "For most $80k earners, 10% down is the practical sweet spot — it keeps PMI manageable while preserving cash for closing costs and an emergency fund. Reaching 20% allows you to buy a $276,000 home (vs $228,000 with 3% down) while saving $92/month in PMI."
+        answer: "The table compares 3%, 10%, and 20% down-payment inputs. In its 20% scenario, the model removes a $92 monthly mortgage-insurance assumption and displays a $276,000 home versus $228,000 at 3% down. Actual terms and the appropriate cash reserve vary."
       }
     ]
   },
@@ -2257,9 +2257,9 @@ export const pseoData: PSEOParams[] = [
     currency: 'USD',
     salary: 90000,
     customTitle: "How Much House Can I Afford on a $90,000 Salary in 2026?",
-    customDescription: "How much house can you afford on a $90,000 salary in 2026? Discover your max loan amount, monthly budget, debt impact tables, and best buying markets.",
+    customDescription: "How much house can you afford on a $90,000 salary? Compare editable rate, debt, down-payment, tax, and insurance scenarios.",
     customH1: "How Much House Can I Afford on a $90,000 Salary in 2026?",
-    customIntro: "At $90,000 per year, you are firmly in the upper tier of American buyers — your 28% housing budget of $2,100/month supports a loan approaching $249,000 with zero existing debts, which covers median-priced homes in many growing metros and first-ring suburbs of major cities. Buyers at this income level are often repeat purchasers, dual-income couples at the lower end of a combined income, or single professionals in moderate-cost markets where $300,000 homes represent the entry to the move-up tier. The key question at $90k is not whether you qualify, but how to balance loan size, down payment, and market to maximise long-term equity. This page lays out your exact affordability ceiling using the 28/36 rule, plus debt and down payment scenario tables. Use the <a href='/affordability-calculator'>affordability calculator</a> above.",
+    customIntro: "This illustrative U.S. planning scenario applies a 28% housing-cost assumption to a $90,000 salary, producing a $2,100 monthly budget and an estimated $249,000 loan before other debts. It compares editable 28% and 36% ratios, down payments, a selected example rate, and local-cost assumptions. The results are not an affordability ceiling or approval prediction. Use the <a href='/affordability-calculator'>affordability calculator</a> above.",
     customContent: `
       <h2>How Much House Can You Afford on $90k? The Core Numbers</h2>
       <p>At $90,000, the 28% and 36% DTI rules produce a meaningful range of loan amounts. Here is the full picture at 6.8% for 30 years:</p>
@@ -2282,7 +2282,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>The $73,000 gap between the 28% and 36% scenarios is the widest it has been at this income level, offering real strategic flexibility. The 28% rule keeps you well within budget; the 36% ceiling from the <a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> is the maximum lenders allow with no other debts. Most $90k buyers find their practical range is $240,000–$290,000 in loan size. See our <a href="/blog/28-36-rule-explained">28/36 rule explained</a> for the full lender framework.</p>
+      <p>The selected 28% and 36% planning assumptions produce a $73,000 gap in estimated loan amount when no other debts are entered. Neither ratio is a CFPB or lender maximum. See our <a href="/blog/28-36-rule-explained">28/36 rule guide</a> for the math and limitations.</p>
 
       <h2>How Existing Debts Reduce Your Buying Power</h2>
       <p>At $90,000, even modest debts are absorbed more gracefully than at lower income levels — but the impact remains significant in absolute dollar terms:</p>
@@ -2362,19 +2362,19 @@ export const pseoData: PSEOParams[] = [
     customFaqs: [
       {
         question: "How much house can I afford on a $90,000 salary?",
-        answer: "On a $90,000 salary with no existing debts, you can afford approximately $249,000 at 6.8% using the 28% rule — enough for a home priced around $275,000 with 10% down in most mid-size US markets."
+        answer: "With no existing debts, the page's 28% planning assumption and 6.8% example rate produce an estimated $249,000 loan and a $275,000 home at 10% down. This is not an approval or market-availability claim."
       },
       {
         question: "Can I afford a $350,000 home on a $90,000 salary?",
-        answer: "A $350,000 home requires roughly $315,000 in financing with 10% down. Monthly PITI would be approximately $2,600 — above the 28% guideline of $2,100 but within reach under the 36% rule if you carry minimal existing monthly debts."
+        answer: "With the page's 10% down and local-cost assumptions, a $350,000 home produces about $2,600 per month, above the selected 28% planning budget of $2,100. A 36% scenario gives a different result, but neither ratio predicts approval."
       },
       {
         question: "What is the monthly payment on a $249,000 mortgage at 6.8%?",
-        answer: "The monthly principal and interest payment on a $249,000 mortgage at 6.8% over 30 years is $1,623. Including property tax (1.1%), homeowners insurance, and PMI, the total PITI is approximately $2,099 for a buyer purchasing a $275,000 home with 10% down."
+        answer: "The monthly principal and interest payment on a $249,000 mortgage at the 6.8% example rate over 30 years is $1,623. With the page's selected tax, insurance, and mortgage-insurance assumptions, the total scenario is approximately $2,099."
       },
       {
         question: "Is $90,000 enough to buy a home in most US metro areas in 2026?",
-        answer: "A $90,000 salary comfortably qualifies you in most secondary and mid-tier markets — including Charlotte suburbs, Columbus, Nashville exurbs, and similar cities where median prices sit in the $250,000–$320,000 range. In high-cost metros like San Francisco, Seattle, or New York, $90k is insufficient without a large down payment or a co-borrower."
+        answer: "The page does not predict market-level eligibility. Compare its calculated payment with current listings, local costs, your full budget, and lender-specific criteria for the property and jurisdiction you are considering."
       }
     ]
   },
@@ -2389,11 +2389,11 @@ export const pseoData: PSEOParams[] = [
     term: 30,
     currency: 'USD',
     customTitle: "What Income Do You Need to Buy a $200,000 House in 2026?",
-    customDescription: "Planning to buy a $200,000 home? See the minimum salary to qualify, full PITI breakdown with taxes and PMI, and how existing debts affect your approval odds.",
+    customDescription: "Planning to buy a $200,000 home? See illustrative income scenarios, an editable cost breakdown, and how existing debts change the selected planning ratios.",
     customH1: "What Income Do You Need to Buy a $200,000 House?",
-    customIntro: "A $200,000 home is still achievable in many rural and Midwest markets — think small Indiana cities, rural Tennessee, or South Texas towns where median prices sit below the national average. For a first-time buyer on a modest salary, this price point is often the entry to homeownership, and FHA loans with 3.5% down are the most common route. At 6.8%, the monthly principal and interest on a $180,000 loan (10% down) is $1,173 — manageable on a single income around $50,000–$65,000 depending on your debts.",
+    customIntro: "This illustrative U.S. scenario models a $200,000 home with 10% down, producing a $180,000 loan. At the selected 6.8% example annual interest rate over 30 years, principal and interest is $1,173 per month. The page's income figures use editable planning ratios and do not predict lender approval.",
     customContent: `
-<h2>Minimum Income Required for a $200,000 House in 2026</h2>
+<h2>Illustrative Income for a $200,000 House</h2>
 <p>The following illustrative scenarios use a 28% housing-cost assumption for a $200,000 home with 10% down ($20,000), resulting in a $180,000 loan at a 6.8% example rate over 30 years. This ratio is a planning input rather than an approval rule.</p>
 
 <div class="overflow-x-auto my-8">
@@ -2425,10 +2425,10 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>PMI ($75/mo) is based on 0.5% of the $180,000 loan annually and will cancel once you reach 20% equity in the home. Property tax uses a 1.1% annual rate on the $200,000 purchase price. Use the <a href="/mortgage-calculator">mortgage calculator</a> to enter your local tax rate for a more accurate figure.</p>
+<p>This scenario applies a selected 0.5% annual mortgage-insurance cost ($75 per month) and 1.1% property-tax input. The 20% down scenario removes the insurance input; actual premiums and cancellation terms vary by loan and lender. Use the <a href="/mortgage-calculator">mortgage calculator</a> to enter your local tax rate for a more accurate figure.</p>
 
 <h2>How Existing Debt Reduces Your Buying Power</h2>
-<p>Lenders apply a 36% back-end ratio — your total monthly obligations (housing plus all other debts) cannot exceed 36% of gross income. The table below uses the $65,000 Full PITI income as the baseline and shows how debt erodes your available housing budget:</p>
+<p>The table applies a selected 36% total-debt assumption to the $65,000 example income and shows how existing debt changes the available housing budget. It is a planning comparison rather than a lender limit.</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2436,7 +2436,7 @@ export const pseoData: PSEOParams[] = [
       <tr class="bg-surface-container-low border-b border-outline-variant">
         <th class="py-3 px-4 font-bold text-sm">Monthly Debt</th>
         <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
-        <th class="py-3 px-4 font-bold text-sm">Qualifies for $200k House?</th>
+        <th class="py-3 px-4 font-bold text-sm">Fits Selected Scenario?</th>
       </tr>
     </thead>
     <tbody>
@@ -2464,7 +2464,7 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<h2>How Down Payment Size Changes Required Income</h2>
+<h2>How Down Payment Size Changes Illustrative Income</h2>
 <p>A larger down payment reduces the loan amount and monthly principal-and-interest estimate. In this example, the mortgage-insurance assumption is removed at 20% down, reducing the displayed cost by $75 per month. Actual insurance terms vary by loan and lender.</p>
 
 <div class="overflow-x-auto my-8">
@@ -2475,7 +2475,7 @@ export const pseoData: PSEOParams[] = [
         <th class="py-3 px-4 font-bold text-sm">Down Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Loan Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Monthly P&amp;I</th>
-        <th class="py-3 px-4 font-bold text-sm">Required Income</th>
+        <th class="py-3 px-4 font-bold text-sm">Illustrative Income</th>
       </tr>
     </thead>
     <tbody>
@@ -2511,7 +2511,7 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Putting 20% down eliminates the $75/mo PMI and reduces P&I by $130/mo — a combined monthly saving of $205 that compounds significantly over 30 years.</p>
+<p>In this model, moving to 20% down removes the $75 monthly mortgage-insurance assumption and reduces principal and interest by $130 per month, a combined scenario difference of $205.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
 <p>This page does not estimate approval. Credit, income history, debt-to-income limits, documentation, down payment, and other criteria vary by lender and loan program. Treat the 28% and 36% ratios as editable planning assumptions.</p>
@@ -2552,7 +2552,7 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "How much down payment do I need for a $200,000 home?",
-        answer: "You can put as little as 3% down ($6,000) using a conventional loan or 3.5% with FHA financing. However, putting 20% down ($40,000) eliminates PMI and reduces your monthly payment by roughly $205/mo compared to the 10% scenario. FHA loans are common in this price range for buyers with lower credit scores or smaller savings."
+        answer: "The table compares selected 3%, 10%, and 20% down-payment inputs. In the 20% scenario, removing the example mortgage-insurance cost and reducing the loan lowers the displayed monthly amount by about $205 versus the 10% scenario. Actual minimum down payments and insurance terms vary by loan program and lender."
       }
     ]
   },
@@ -2565,12 +2565,12 @@ export const pseoData: PSEOParams[] = [
     term: 30,
     currency: 'USD',
     customTitle: "How Much Income Do You Need for a $300,000 Home in 2026?",
-    customDescription: "What income do you need for a $300,000 house? See the minimum salary to qualify, full PITI with taxes and PMI, and how your debt load affects buying power.",
+    customDescription: "What income do you need for a $300,000 house? See illustrative income scenarios, an editable cost breakdown, and how existing debts change the selected planning ratios.",
     customH1: "How Much Income Do You Need to Afford a $300,000 Home?",
     customIntro: "The $300,000 price point sits near the national median, making it the most competed bracket in American housing. You will find this range in suburban starter neighborhoods outside cities like Columbus, Memphis, and Albuquerque — places where two teachers, two nurses, or an admin and a skilled tradesperson can stretch toward their first home together. With a 10% down payment of $30,000, the loan amount is $270,000 and the monthly P&I at 6.8% is $1,760.",
     customContent: `
-<h2>Minimum Income Required for a $300,000 House in 2026</h2>
-<p>Below are the three income scenarios for a $300,000 home purchase with 10% down ($30,000), producing a $270,000 loan at 6.8% over 30 years. Income requirements use the 28% front-end rule for housing and the 36% back-end rule when existing debt is included:</p>
+<h2>Illustrative Income for a $300,000 House</h2>
+<p>Below are three planning scenarios for a $300,000 home with 10% down, producing a $270,000 loan at a 6.8% example annual interest rate over 30 years. The income figures use editable 28% housing-cost and 36% total-debt assumptions rather than underwriting rules:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2601,10 +2601,10 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Property tax is calculated at 1.1% of the $300,000 purchase price annually ($275/mo). PMI of $113/mo (0.5% of $270,000 loan) cancels once your equity reaches 20%. A dual-income household earning $48,000 each clears the $96,000 full PITI threshold. See the <a href="/affordability-calculator">affordability calculator</a> to model your specific tax rate and debts.</p>
+<p>The model applies a selected 1.1% property-tax input and 0.5% annual mortgage-insurance input ($113 per month). The 20% down scenario removes the insurance input. Dividing the displayed cost by the selected ratio produces a $96,000 illustrative income figure; it is not an approval threshold. See the <a href="/affordability-calculator">affordability calculator</a> to model your specific tax rate and debts.</p>
 
-<h2>How Existing Debt Affects Your $300,000 House Qualification</h2>
-<p>The table below uses the $96,000 Full PITI required income as the salary baseline, then models how car loans, student loans, and credit card minimums reduce your available housing budget:</p>
+<h2>How Existing Debt Changes the $300,000 Planning Scenario</h2>
+<p>The table uses the $96,000 illustrative income result as its baseline, then shows how entered car-loan, student-loan, and credit-card payments change the planning budget:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2612,7 +2612,7 @@ export const pseoData: PSEOParams[] = [
       <tr class="bg-surface-container-low border-b border-outline-variant">
         <th class="py-3 px-4 font-bold text-sm">Monthly Debt</th>
         <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
-        <th class="py-3 px-4 font-bold text-sm">Qualifies for $300k House?</th>
+        <th class="py-3 px-4 font-bold text-sm">Fits Selected Scenario?</th>
       </tr>
     </thead>
     <tbody>
@@ -2640,8 +2640,8 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<h2>How Down Payment Size Changes Required Income</h2>
-<p>Every dollar of additional down payment reduces both the loan balance and the monthly P&I. Reaching 20% down also eliminates PMI ($113/mo), which effectively lowers your required income further:</p>
+<h2>How Down Payment Size Changes Illustrative Income</h2>
+<p>A larger down payment reduces the loan balance and principal-and-interest payment. The 20% scenario also removes the selected $113 monthly mortgage-insurance input, lowering the illustrative income result:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2651,7 +2651,7 @@ export const pseoData: PSEOParams[] = [
         <th class="py-3 px-4 font-bold text-sm">Down Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Loan Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Monthly P&amp;I</th>
-        <th class="py-3 px-4 font-bold text-sm">Required Income</th>
+        <th class="py-3 px-4 font-bold text-sm">Illustrative Income</th>
       </tr>
     </thead>
     <tbody>
@@ -2687,10 +2687,10 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Moving from 10% to 20% down reduces the P&I by $195/mo and eliminates the $113/mo PMI — a total monthly reduction of $308 and a required income drop from ~$96,000 to roughly $83,000 when full PITI is considered.</p>
+<p>In this model, moving from 10% to 20% down reduces principal and interest by $195 per month and removes the $113 monthly mortgage-insurance input. The combined $308 difference changes the illustrative income result from about $96,000 to $83,000.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
-<p>Your income determines whether you can afford the payment in theory, but lenders also examine credit score (620 minimum for conventional, 580 for FHA), the full debt-to-income ratio across all obligations, and two years of stable employment history. A single recent job change or a spike in credit card debt before closing can be enough to stall an approval even when your income meets the threshold.</p>
+<p>This page does not estimate approval. Credit, debt, income, employment, documentation, and down-payment criteria vary by lender and loan program. Use the displayed ratios only as editable planning assumptions.</p>
 
 <h2>Related Calculators</h2>
 <ul>
@@ -2720,11 +2720,11 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Can I afford a $300,000 home on a single income?",
-        answer: "It depends on your salary. A single earner making $96,000 or more can qualify on a full PITI basis. At $75,000, you may qualify if you have minimal existing debts and the lender uses the P&I-only front-end calculation. In many Midwest and Southern markets, $75,000–$96,000 is achievable for skilled professionals such as nurses, engineers, or government employees."
+        answer: "Using the page's selected ratio and cost inputs, the full-cost scenario produces about $96,000 in illustrative annual income. A $75,000 input produces a different planning result. Neither figure predicts approval or represents a market-specific requirement."
       },
       {
         question: "What is the monthly PITI on a $300,000 house with 10% down?",
-        answer: "The full PITI payment on a $300,000 purchase with 10% down at 6.8% over 30 years is approximately $2,248 per month: $1,760 principal and interest, $275 property tax (1.1% annual rate), $100 homeowners insurance, and $113 PMI. PMI will drop once you accumulate 20% equity."
+        answer: "The full PITI payment on a $300,000 purchase with 10% down at 6.8% over 30 years is approximately $2,248 per month: $1,760 principal and interest, $275 property tax (1.1% annual rate), $100 homeowners insurance, and $113 PMI. The page removes its selected mortgage-insurance input in the 20% down scenario; actual cancellation terms vary by loan."
       },
       {
         question: "How much is the monthly payment on a $270,000 mortgage at 6.8%?",
@@ -2741,11 +2741,11 @@ export const pseoData: PSEOParams[] = [
     term: 30,
     currency: 'USD',
     customTitle: "What Annual Income Do You Need for a $400,000 House in 2026?",
-    customDescription: "What income do you need for a $400,000 house? See the minimum salary to qualify, full PITI breakdown, and how debt affects your buying power at 6.8% in 2026.",
+    customDescription: "What income do you need for a $400,000 house? See illustrative income scenarios, an editable cost breakdown, and how debt changes the result at a 6.8% example rate.",
     customH1: "What Annual Salary Is Required for a $400,000 House?",
-    customIntro: "At $400,000, you are in the mid-range suburban sweet spot — the kind of four-bedroom, two-bath home that is the standard upgrade purchase in fast-growing metros like Charlotte, Nashville, or the Phoenix suburbs. Buyers in this bracket are typically established professionals, often dual-income households with combined earnings in the $120k–$150k range. The 10% down loan of $360,000 carries a monthly P&I of $2,347 at 6.8%.",
+    customIntro: "This illustrative U.S. scenario models a $400,000 home with 10% down, producing a $360,000 loan. At the selected 6.8% example annual interest rate over 30 years, principal and interest is $2,347 per month. The page's income figures use editable planning ratios and do not describe a typical buyer or predict approval.",
     customContent: `
-<h2>Minimum Income Required for a $400,000 House in 2026</h2>
+<h2>Illustrative Income for a $400,000 House</h2>
 <p>The scenarios below assume 10% down ($40,000) on a $400,000 purchase, producing a $360,000 loan at 6.8% over 30 years. Income thresholds use the 28% front-end rule for housing and 36% back-end for total debt:</p>
 
 <div class="overflow-x-auto my-8">
@@ -2777,9 +2777,9 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Property tax is estimated at 1.1% of the $400,000 purchase price annually ($367/mo). PMI of $150/mo (0.5% of $360,000 loan annually) cancels once you reach 20% equity. A two-income household with a combined $128,000 clears the full PITI threshold. Use the <a href="/affordability-calculator">affordability calculator</a> for a figure tailored to your local tax rate.</p>
+<p>The model applies selected 1.1% property-tax and 0.5% annual mortgage-insurance inputs. The 20% down scenario removes the $150 monthly insurance input. Dividing the displayed cost by the selected ratio produces a $128,000 illustrative income figure, not an approval threshold. Use the <a href="/affordability-calculator">affordability calculator</a> for a figure tailored to your local tax rate.</p>
 
-<h2>How Existing Debt Affects Your $400,000 House Qualification</h2>
+<h2>How Existing Debt Changes the $400,000 Planning Scenario</h2>
 <p>At the $128,000 baseline income, here is how different levels of existing monthly debt affect the maximum housing budget available to you — and whether a $400,000 house fits:</p>
 
 <div class="overflow-x-auto my-8">
@@ -2788,7 +2788,7 @@ export const pseoData: PSEOParams[] = [
       <tr class="bg-surface-container-low border-b border-outline-variant">
         <th class="py-3 px-4 font-bold text-sm">Monthly Debt</th>
         <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
-        <th class="py-3 px-4 font-bold text-sm">Qualifies for $400k House?</th>
+        <th class="py-3 px-4 font-bold text-sm">Fits Selected Scenario?</th>
       </tr>
     </thead>
     <tbody>
@@ -2816,8 +2816,8 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<h2>How Down Payment Size Changes Required Income</h2>
-<p>Saving more before buying reduces your monthly obligation at every level. At 20% down on a $400,000 home, PMI disappears and the loan shrinks by $40,000 compared to 10% down:</p>
+<h2>How Down Payment Size Changes Illustrative Income</h2>
+<p>A larger down payment reduces the loan and payment. In the 20% scenario, the model also removes its mortgage-insurance input and lowers the loan by $40,000 compared with 10% down:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2827,7 +2827,7 @@ export const pseoData: PSEOParams[] = [
         <th class="py-3 px-4 font-bold text-sm">Down Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Loan Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Monthly P&amp;I</th>
-        <th class="py-3 px-4 font-bold text-sm">Required Income</th>
+        <th class="py-3 px-4 font-bold text-sm">Illustrative Income</th>
       </tr>
     </thead>
     <tbody>
@@ -2866,7 +2866,7 @@ export const pseoData: PSEOParams[] = [
 <p>In this scenario, moving from 10% to 20% down reduces principal and interest by $261 per month and removes the $150 monthly mortgage-insurance assumption. The resulting $411 difference lowers the illustrative income figure; actual insurance terms vary.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
-<p>At the $400,000 price point, lenders scrutinize the full picture: credit score (generally 680+ preferred for conventional loans at these amounts), total debt-to-income across housing and all other obligations, and the source of the down payment funds (lenders verify that gift funds are documented and that the down payment is not itself borrowed). Employment history of two years in the same industry is standard; recent promotions are fine, but a switch to a new field can raise questions.</p>
+<p>Approval criteria can include credit history, total debt, income documentation, funds available to close, and the source of those funds. The required evidence and thresholds vary by lender and loan program, so use a written pre-approval or loan estimate rather than the page's illustrative ratios.</p>
 
 <h2>Related Calculators</h2>
 <ul>
@@ -2896,11 +2896,11 @@ export const pseoData: PSEOParams[] = [
       },
       {
         question: "Can I afford a $400k house on $100,000 salary?",
-        answer: "At $100,000, your maximum housing budget under the 28% rule is about $2,333/mo. The full PITI on a $400,000 home with 10% down is $2,984 — above that threshold. However, with a larger down payment or lower debts, some lenders may approve the loan at $100,000 income. A 20% down payment drops the full PITI (without PMI) closer to $2,720, which may be workable if your debt profile is clean."
+        answer: "At $100,000, your maximum housing budget under the 28% rule is about $2,333/mo. The full PITI on a $400,000 home with 10% down is $2,984 — above that threshold. A larger down payment or lower debts changes the planning result. At 20% down, the model removes its mortgage-insurance input and displays about $2,720; actual approval criteria vary by lender and loan program."
       },
       {
         question: "How much do I need down for a $400,000 home?",
-        answer: "You can purchase with as little as 3% down ($12,000) using conventional financing, though PMI will add $194/mo at that level. A 10% down payment ($40,000) is the standard assumption on this page. Putting 20% down ($80,000) eliminates PMI entirely and reduces the required income from $128,000 to approximately $113,000 for full PITI qualification."
+        answer: "The table compares selected 3%, 10%, and 20% down-payment inputs. It applies a $194 monthly mortgage-insurance assumption at 3% and removes the insurance input at 20%. The resulting illustrative income changes from about $128,000 to $113,000; actual terms vary by loan and lender."
       },
       {
         question: "What is the monthly payment on a $400k house at 6.8%?",
@@ -2917,12 +2917,12 @@ export const pseoData: PSEOParams[] = [
     term: 30,
     currency: 'USD',
     customTitle: "What Income Is Required to Buy a $500,000 House in 2026?",
-    customDescription: "Buying a $500,000 home takes strong income. See the salary to qualify, full PITI including taxes and PMI, and a down payment impact analysis for 2026.",
+    customDescription: "Buying a $500,000 home takes strong income. See illustrative income scenarios, editable tax and insurance assumptions, and a down-payment impact analysis.",
     customH1: "What Income Do You Need for a $500,000 House?",
     customIntro: "This illustrative scenario models a $500,000 home with 10% down ($50,000), producing a $450,000 loan at a 6.8% example annual interest rate. The principal-and-interest estimate is $2,934 per month. Income figures on this page follow displayed planning assumptions and do not predict lender approval.",
     customContent: `
-<h2>Minimum Income Required for a $500,000 House in 2026</h2>
-<p>These figures assume 10% down ($50,000) on a $500,000 purchase, creating a $450,000 loan at 6.8% over 30 years. Income requirements follow the 28% front-end and 36% back-end qualifying ratios:</p>
+<h2>Illustrative Income for a $500,000 House</h2>
+<p>These figures assume 10% down on a $500,000 purchase, creating a $450,000 loan at a 6.8% example annual interest rate over 30 years. The income results follow editable 28% housing-cost and 36% total-debt planning assumptions:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2953,9 +2953,9 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Property tax is estimated at 1.1% of the $500,000 purchase price ($458/mo). PMI at 0.5% of the $450,000 loan adds $188/mo and cancels at 20% equity. Buyers in lower-tax states can reduce the full PITI by $150–$200/mo by choosing markets with sub-0.8% property tax rates. The <a href="/affordability-calculator">affordability calculator</a> lets you enter your actual local tax rate.</p>
+<p>The model applies selected 1.1% property-tax and 0.5% annual mortgage-insurance inputs. The 20% down scenario removes the $188 monthly insurance input. Replace the tax and insurance assumptions with documented local figures. The <a href="/affordability-calculator">affordability calculator</a> lets you enter your actual local tax rate.</p>
 
-<h2>How Existing Debt Affects Your $500,000 House Qualification</h2>
+<h2>How Existing Debt Changes the $500,000 Planning Scenario</h2>
 <p>At a $159,000 baseline income, the 36% back-end ratio allows substantial total debt — meaning moderate existing obligations still leave room for this mortgage:</p>
 
 <div class="overflow-x-auto my-8">
@@ -2964,7 +2964,7 @@ export const pseoData: PSEOParams[] = [
       <tr class="bg-surface-container-low border-b border-outline-variant">
         <th class="py-3 px-4 font-bold text-sm">Monthly Debt</th>
         <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
-        <th class="py-3 px-4 font-bold text-sm">Qualifies for $500k House?</th>
+        <th class="py-3 px-4 font-bold text-sm">Fits Selected Scenario?</th>
       </tr>
     </thead>
     <tbody>
@@ -2992,8 +2992,8 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<h2>How Down Payment Size Changes Required Income</h2>
-<p>Increasing the down payment from 10% to 20% on a $500,000 home eliminates $188/mo in PMI and cuts the P&I by $326/mo — lowering the income required by roughly $22,000 annually:</p>
+<h2>How Down Payment Size Changes Illustrative Income</h2>
+<p>In this model, increasing the down payment from 10% to 20% removes the $188 monthly mortgage-insurance input and cuts principal and interest by $326 per month, lowering the illustrative income result by about $22,000:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -3003,7 +3003,7 @@ export const pseoData: PSEOParams[] = [
         <th class="py-3 px-4 font-bold text-sm">Down Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Loan Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Monthly P&amp;I</th>
-        <th class="py-3 px-4 font-bold text-sm">Required Income</th>
+        <th class="py-3 px-4 font-bold text-sm">Illustrative Income</th>
       </tr>
     </thead>
     <tbody>
@@ -3039,7 +3039,7 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Buyers who can put 20% down reduce the required income from $159,000 (full PITI with PMI) to approximately $138,000 (full PITI without PMI) — a meaningful difference in how many households qualify.</p>
+<p>The 20% down scenario changes the illustrative income result from about $159,000 to $138,000 by reducing the loan and removing the selected mortgage-insurance input. It does not predict qualification.</p>
 
 <h2>What Lenders Check Beyond Income</h2>
 <p>This page does not model underwriting. Credit, debt treatment, income documentation, down payment, and approval criteria vary by lender, borrower, and loan program. Use the displayed ratios only as editable planning assumptions.</p>
@@ -3071,7 +3071,7 @@ export const pseoData: PSEOParams[] = [
         answer: "With 10% down and a $450,000 loan at 6.8%, the P&I-only income requirement is approximately $126,000 under the 28% rule. Including property tax, insurance, and PMI, the full PITI of $3,720/mo requires around $159,000 annually. A 20% down payment reduces the full PITI (without PMI) and lowers the income requirement to approximately $138,000."
       },
       {
-        question: "Is $150,000 enough to qualify for a $500,000 house?",
+        question: "What does a $150,000 income imply in this $500,000 scenario?",
         answer: "At $150,000 income, the page's 28% assumption gives a $3,500 monthly housing budget, compared with $3,720 under the 10%-down cost assumptions. At 20% down, the displayed estimate falls to about $3,370. These are planning scenarios, not approval predictions."
       },
       {
@@ -3093,11 +3093,11 @@ export const pseoData: PSEOParams[] = [
     term: 30,
     currency: 'USD',
     customTitle: "What Salary Do You Need to Afford a $600,000 Home in 2026?",
-    customDescription: "What income do you need for a $600,000 house? See the exact salary, full PITI including taxes and PMI, how debts affect your DTI, and down payment options for 2026.",
+    customDescription: "What income do you need for a $600,000 house? See illustrative income scenarios, editable cost assumptions, debt sensitivity, and down-payment options.",
     customH1: "How Much Do You Need to Earn to Buy a $600,000 Home?",
-    customIntro: "Six hundred thousand dollars puts you squarely in coastal secondary city territory — Portland, San Diego suburbs, Salt Lake City, or the outer ring of the Seattle metro. Buyers here are typically high earners: software engineers, physicians, senior managers, or dual-income households with each partner earning $80,000–$100,000. At this price point, many buyers aim for 20% or more down to avoid PMI and keep the monthly cost manageable — the 10% down scenario shown here requires a household income approaching $190,000.",
+    customIntro: "This illustrative U.S. scenario models a $600,000 home with 10% down, producing a $540,000 loan at the selected 6.8% example annual interest rate. The page compares editable cost, debt, down-payment, and income-ratio assumptions. It does not describe a typical buyer or predict approval.",
     customContent: `
-<h2>Minimum Income Required for a $600,000 House in 2026</h2>
+<h2>Illustrative Income for a $600,000 House</h2>
 <p>The calculations below assume 10% down ($60,000) on a $600,000 purchase, producing a $540,000 loan at a 6.8% example rate over 30 years. The 28% housing-cost and 36% total-debt ratios are illustrative planning inputs rather than approval rules.</p>
 
 <div class="overflow-x-auto my-8">
@@ -3129,9 +3129,9 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Property tax uses 1.1% of the $600,000 purchase price ($550/mo). PMI at 0.5% of the $540,000 loan adds $225/mo and cancels at 20% equity — at which point your monthly obligation drops by $225 automatically. A two-income household with $95,500 each meets the $191,000 threshold. Use the <a href="/mortgage-calculator">mortgage calculator</a> to see how a 15-year term dramatically cuts total interest.</p>
+<p>The model applies selected 1.1% property-tax and 0.5% annual mortgage-insurance inputs. The 20% down scenario removes the $225 monthly insurance input. Dividing the displayed cost by the selected ratio produces a $191,000 illustrative income figure, not an approval threshold. Use the <a href="/mortgage-calculator">mortgage calculator</a> to see how a 15-year term dramatically cuts total interest.</p>
 
-<h2>How Existing Debt Affects Your $600,000 House Qualification</h2>
+<h2>How Existing Debt Changes the $600,000 Planning Scenario</h2>
 <p>At the $191,000 baseline income, the 36% back-end ceiling is generous — meaning moderate existing debts still leave significant room for housing. The impact is less severe than at lower price points:</p>
 
 <div class="overflow-x-auto my-8">
@@ -3140,7 +3140,7 @@ export const pseoData: PSEOParams[] = [
       <tr class="bg-surface-container-low border-b border-outline-variant">
         <th class="py-3 px-4 font-bold text-sm">Monthly Debt</th>
         <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
-        <th class="py-3 px-4 font-bold text-sm">Qualifies for $600k House?</th>
+        <th class="py-3 px-4 font-bold text-sm">Fits Selected Scenario?</th>
       </tr>
     </thead>
     <tbody>
@@ -3168,8 +3168,8 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<h2>How Down Payment Size Changes Required Income</h2>
-<p>Buyers in this bracket often put 20% or more down to eliminate PMI and reduce the income hurdle. Going from 10% to 20% on a $600,000 home saves $225/mo in PMI plus $391/mo in lower P&I — a combined monthly saving of $616:</p>
+<h2>How Down Payment Size Changes Illustrative Income</h2>
+<p>In this model, moving from 10% to 20% down removes the $225 monthly mortgage-insurance input and lowers principal and interest by $391 per month, a combined scenario difference of $616:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -3179,7 +3179,7 @@ export const pseoData: PSEOParams[] = [
         <th class="py-3 px-4 font-bold text-sm">Down Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Loan Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Monthly P&amp;I</th>
-        <th class="py-3 px-4 font-bold text-sm">Required Income</th>
+        <th class="py-3 px-4 font-bold text-sm">Illustrative Income</th>
       </tr>
     </thead>
     <tbody>
@@ -3244,19 +3244,19 @@ export const pseoData: PSEOParams[] = [
     customFaqs: [
       {
         question: "What income do I need for a $600,000 house?",
-        answer: "With 10% down and a $540,000 loan at 6.8%, you need approximately $151,000 to cover P&I under the 28% rule, or around $191,000 when property tax ($550/mo), homeowners insurance ($150/mo), and PMI ($225/mo) are included. A 20% down payment eliminates PMI and reduces the full PITI income requirement to approximately $164,000."
+        answer: "With 10% down and a $540,000 loan at the 6.8% example rate, the selected 28% ratio produces about $151,000 using principal and interest or $191,000 with the page's added cost inputs. The 20% scenario removes its mortgage-insurance input and produces about $164,000. These are illustrative results."
       },
       {
         question: "Can a dual income of $95,000 each afford a $600,000 home?",
-        answer: "A combined income of $190,000 is very close to the $191,000 full PITI threshold for a $600,000 home with 10% down. You would qualify on income, though it leaves a tight margin. Bringing a 20% down payment ($120,000) would comfortably put the required income at ~$164,000 — well within a $190,000 combined income — and eliminate the $225/mo PMI."
+        answer: "A $190,000 income is close to the model's $191,000 illustrative result for the 10% down scenario. Moving the down-payment input to 20% lowers that result to about $164,000 by reducing the loan and removing the $225 monthly mortgage-insurance assumption. Neither result predicts approval."
       },
       {
         question: "What is the monthly payment on a $600,000 house at 6.8%?",
-        answer: "With 10% down ($60,000), the $540,000 loan at 6.8% over 30 years has a monthly P&I of $3,520. Adding property tax ($550/mo), homeowners insurance ($150/mo), and PMI ($225/mo) brings the total PITI to $4,445 per month. PMI cancels once you reach 20% equity, reducing the ongoing cost to $4,220."
+        answer: "With 10% down ($60,000), the $540,000 loan at 6.8% over 30 years has a monthly P&I of $3,520. Adding property tax ($550/mo), homeowners insurance ($150/mo), and PMI ($225/mo) brings the total PITI to $4,445 per month. The 20% down scenario removes the selected mortgage-insurance input; actual cancellation terms vary by loan."
       },
       {
-        question: "Does putting 20% down help qualify for a $600k mortgage?",
-        answer: "Significantly. At 20% down ($120,000), the loan drops to $480,000, P&I falls to $3,129/mo, and PMI of $225/mo disappears entirely. The full PITI becomes approximately $3,829 instead of $4,445 — reducing the required annual income from $191,000 to roughly $164,000 and making qualification accessible to a broader range of dual-income households."
+        question: "How does 20% down change the $600k planning scenario?",
+        answer: "At 20% down, the loan drops to $480,000, principal and interest falls to $3,129 per month, and the model removes the $225 mortgage-insurance input. The displayed total becomes about $3,829 instead of $4,445, changing the illustrative income result from $191,000 to about $164,000."
       }
     ]
   },
@@ -3269,12 +3269,12 @@ export const pseoData: PSEOParams[] = [
     term: 30,
     currency: 'USD',
     customTitle: "Illustrative Income for a $700,000 House",
-    customDescription: "Buying a $700,000 home puts you in a top income bracket. See the salary needed to qualify, full PITI with PMI, debt impact table, and down payment scenarios.",
+    customDescription: "Buying a $700,000 home puts you in a top income bracket. See illustrative income scenarios, editable cost assumptions, a debt-impact table, and down-payment scenarios.",
     customH1: "What Income Does a $700,000 House Actually Require?",
-    customIntro: "Seven hundred thousand dollars is executive-buyer territory — this price range covers larger homes in premium suburbs of Boston, Washington DC, or the Chicago North Shore, and entry-level properties in coastal California or Seattle proper. Buyers typically come from the top 10–15% of household incomes, often with stock compensation, bonuses, or business income supplementing base salary. With 10% down ($70,000), the $630,000 loan at 6.8% carries a monthly P&I of $4,107, and the full PITI approaches $5,172 — putting the income threshold at $222,000.",
+    customIntro: "This illustrative U.S. scenario models a $700,000 home with 10% down, producing a $630,000 loan. At the selected 6.8% example annual interest rate, principal and interest is $4,107 per month. The page compares editable local-cost, debt, down-payment, and income-ratio assumptions and does not describe a typical buyer or predict approval.",
     customContent: `
-<h2>Minimum Income Required for a $700,000 House in 2026</h2>
-<p>The figures below assume 10% down ($70,000) on a $700,000 purchase, creating a $630,000 loan at 6.8% over 30 years. Income thresholds use the 28% front-end and 36% back-end qualifying ratios:</p>
+<h2>Illustrative Income for a $700,000 House</h2>
+<p>The figures below assume 10% down on a $700,000 purchase, creating a $630,000 loan at a 6.8% example annual interest rate over 30 years. The income results use editable 28% housing-cost and 36% total-debt planning assumptions:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -3305,9 +3305,9 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<p>Property tax uses 1.1% of the $700,000 purchase price ($642/mo). PMI of $263/mo (0.5% of the $630,000 loan annually) cancels at 20% equity. In high-tax states like New Jersey or Illinois, the property tax component alone could add $400–$600/mo above the estimate here — use the <a href="/affordability-calculator">affordability calculator</a> to enter your local rate. Most buyers at this price point aim for at least 20% down to eliminate PMI and bring the payment below $5,000/mo.</p>
+<p>The model applies selected 1.1% property-tax and 0.5% annual mortgage-insurance inputs. The 20% down scenario removes the $263 monthly insurance input. Replace both assumptions with documented local tax figures and a written insurance quote in the <a href="/affordability-calculator">affordability calculator</a>.</p>
 
-<h2>How Existing Debt Affects Your $700,000 House Qualification</h2>
+<h2>How Existing Debt Changes the $700,000 Planning Scenario</h2>
 <p>With a $222,000 baseline income, the 36% back-end ceiling is very high — even substantial existing debts leave enough room to cover the PITI. This is one reason buyers in this income range often carry more leverage without it derailing approval:</p>
 
 <div class="overflow-x-auto my-8">
@@ -3316,7 +3316,7 @@ export const pseoData: PSEOParams[] = [
       <tr class="bg-surface-container-low border-b border-outline-variant">
         <th class="py-3 px-4 font-bold text-sm">Monthly Debt</th>
         <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
-        <th class="py-3 px-4 font-bold text-sm">Qualifies for $700k House?</th>
+        <th class="py-3 px-4 font-bold text-sm">Fits Selected Scenario?</th>
       </tr>
     </thead>
     <tbody>
@@ -3344,8 +3344,8 @@ export const pseoData: PSEOParams[] = [
   </table>
 </div>
 
-<h2>How Down Payment Size Changes Required Income</h2>
-<p>Buyers at this level often bring 20% or more down, both to avoid PMI and to reduce the monthly payment to a level that clears underwriting without requiring the top-of-range income. The full PITI income required drops by approximately $27,000 when moving from 10% to 20% down:</p>
+<h2>How Down Payment Size Changes Illustrative Income</h2>
+<p>In this model, moving from 10% to 20% down reduces the loan and removes the selected mortgage-insurance input. The illustrative income result drops by about $27,000:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -3355,7 +3355,7 @@ export const pseoData: PSEOParams[] = [
         <th class="py-3 px-4 font-bold text-sm">Down Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Loan Amount</th>
         <th class="py-3 px-4 font-bold text-sm">Monthly P&amp;I</th>
-        <th class="py-3 px-4 font-bold text-sm">Required Income</th>
+        <th class="py-3 px-4 font-bold text-sm">Illustrative Income</th>
       </tr>
     </thead>
     <tbody>
@@ -3420,19 +3420,19 @@ export const pseoData: PSEOParams[] = [
     customFaqs: [
       {
         question: "What income do I need for a $700,000 house?",
-        answer: "With 10% down and a $630,000 loan at 6.8%, the P&I-only income requirement is approximately $176,000 under the 28% rule. Including property tax ($642/mo), homeowners insurance ($160/mo), and PMI ($263/mo), the full PITI of $5,172/mo requires around $222,000 annually. A 20% down payment eliminates PMI and reduces the full PITI income requirement to approximately $191,000."
+        answer: "With 10% down and a $630,000 loan at the 6.8% example rate, the selected 28% ratio produces about $176,000 using principal and interest or $222,000 with the page's added cost inputs. The 20% scenario removes its mortgage-insurance input and produces about $191,000. These are illustrative results."
       },
       {
         question: "What is the monthly payment on a $700,000 house at 6.8%?",
-        answer: "With 10% down ($70,000), the $630,000 loan at 6.8% over 30 years carries a monthly principal and interest of $4,107. Adding property tax ($642/mo at 1.1% of $700,000), homeowners insurance ($160/mo), and PMI ($263/mo) brings the full PITI to $5,172 per month. PMI cancels once you build 20% equity, reducing monthly costs by $263."
+        answer: "With 10% down ($70,000), the $630,000 loan at 6.8% over 30 years carries a monthly principal and interest of $4,107. Adding property tax ($642/mo at 1.1% of $700,000), homeowners insurance ($160/mo), and PMI ($263/mo) brings the full PITI to $5,172 per month. The 20% down scenario removes the selected $263 mortgage-insurance input; actual cancellation terms vary by loan."
       },
       {
         question: "Is a $222,000 income enough for a $700,000 home?",
-        answer: "Yes — at $222,000 annual income, your 28% housing budget is approximately $5,180/mo, which covers the full PITI of $5,172 with 10% down. That said, the margin is very thin. Most financial advisors would recommend targeting a 20% down payment ($140,000) to lower the PITI to ~$4,453 and bring the income requirement down to ~$191,000, leaving more buffer in the budget."
+        answer: "At $222,000 annual income, the selected 28% planning ratio produces about $5,180 per month, close to the model's $5,172 total at 10% down. Changing the down-payment input to 20% lowers the modeled total to about $4,453 and the illustrative income result to about $191,000. These are scenarios, not recommendations or approval estimates."
       },
       {
         question: "How does a larger down payment change the income needed for $700k?",
-        answer: "Moving from 10% to 20% down reduces the loan from $630,000 to $560,000, cutting P&I from $4,107 to $3,651 — a saving of $456/mo. Eliminating PMI ($263/mo) adds another $263 in monthly savings. Combined, the full PITI drops by $719/mo, reducing the required annual income from approximately $222,000 to $191,000. This difference often determines whether a household can qualify without a co-borrower."
+        answer: "Moving from 10% to 20% down reduces the loan from $630,000 to $560,000, cutting principal and interest from $4,107 to $3,651 and removing the selected $263 mortgage-insurance input. The modeled total falls by $719 per month, changing the illustrative income result from about $222,000 to $191,000."
       }
     ]
   },
@@ -4119,15 +4119,15 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
     affordability: [
       {
         h1: `Mortgage Affordability for a ${formattedSalary} Income`,
-        intro: `Earning ${formattedSalary} annually puts you in a strong position. But what does that mean for your homebuying power in today's ${params.rate}% rate environment?`,
+        intro: `This illustrative scenario applies a ${params.rate}% example annual interest rate to a ${formattedSalary} income. The rate is an editable input and does not represent today's market.`,
       },
       {
         h1: `How Much House Can I Buy with a ${formattedSalary} Salary?`,
-        intro: `With a gross annual income of ${formattedSalary}, your monthly housing budget can vary significantly. Let's see what a lender might approve at ${params.rate}% interest.`,
+        intro: `With a gross annual income of ${formattedSalary}, the estimated housing budget changes with the selected planning ratio, debts, costs, and ${params.rate}% example rate. This does not predict lender approval.`,
       },
       {
         h1: `Budgeting for a Home on ${formattedSalary} a Year`,
-        intro: `Financial experts suggest keeping your housing costs below 28% of your gross income. If you earn ${formattedSalary}, here is your estimated affordability limit.`,
+        intro: `This example limits housing costs to 28% of gross income as an editable planning assumption. If you earn ${formattedSalary}, here is the resulting estimate rather than a universal affordability limit.`,
       }
     ]
   };
@@ -4136,22 +4136,22 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
 
   const tips = {
     mortgage: [
-      "Aim for a 20% down payment to avoid Private Mortgage Insurance (PMI).",
-      "Check your credit score 6 months before applying to secure the best rates.",
+      "Enter the down payment and any quoted mortgage-insurance cost for the loan you are considering.",
+      "Use the interest rate and fees from a written quote; pricing criteria vary by lender and loan program.",
       "Consider a 15-year term if you want to save massively on total interest.",
-      "Don't forget to budget for closing costs, usually 2-5% of the home price."
+      "Add closing costs from a written estimate for your loan and jurisdiction."
     ],
     loan: [
       "Look for loans with no prepayment penalties to save on interest by paying early.",
       "Compare APRs, not just interest rates, to see the true cost including fees.",
-      "Keep your total debt payments below 36% of your gross monthly income.",
+      "Test a 36% total-debt ratio as one planning scenario, then compare it with the lender's actual criteria.",
       "Automate your payments to avoid late fees and protect your credit score."
     ],
     affordability: [
-      "Use the 28/36 rule: House costs < 28% and total debt < 36% of income.",
+      "Use 28% for housing and 36% for total debt only as editable planning assumptions.",
       "Pre-approval is not a guarantee; keep your spending stable before closing.",
-      "Budget for 'hidden' costs like maintenance, which is roughly 1% of home value annually.",
-      "Lenders care about your Debt-to-Income (DTI) ratio more than almost anything else."
+      "Add a maintenance allowance that reflects the property rather than assuming one universal percentage.",
+      "Confirm how a prospective lender defines income and debt for its debt-to-income calculation."
     ]
   };
 
