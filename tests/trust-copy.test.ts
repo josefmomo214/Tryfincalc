@@ -30,6 +30,21 @@ const universalQualificationPatterns = [
   /\b(?:minimum|required|needed)\b[^.!?\n]{0,120}\b(?:credit score|score)\b/gi,
   /\bPMI\b[^.!?\n]{0,140}\b(?:required|automatically|cancels?|continues until|less than 20%|under 20%)\b/gi,
   /\b(?:less than 20%|under 20%)\b[^.!?\n]{0,140}\bPMI\b/gi,
+  /\b(?:housing|total debt|monthly debt|mortgage payment)\b[^.!?\n]{0,120}\bshould not exceed\s+(?:28|36)%/gi,
+  /\b(?:safe benchmark|verified commitment|what sellers actually care about)\b/gi,
+  /\b(?:pre-approval|rate lock)\b[^.!?\n]{0,120}\bguarantees?\b/gi,
+  /\bmultiple (?:mortgage )?(?:applications|credit inquiries|inquiries)\b[^.!?\n]{0,140}\b(?:single|one) (?:credit )?inquiry\b/gi,
+  /\bVA loans?\b[^.!?\n]{0,180}\b(?:never require PMI|no down payment required|zero down|eligible after)\b/gi,
+  /\bVA funding fee\b[^.!?\n]{0,140}\b\d+(?:\.\d+)?%\b/gi,
+] as const;
+
+const unsupportedMarketClaimPatterns = [
+  /\b(?:national|market)\s+(?:average|median)\b/gi,
+  /\b(?:most common|typical|average)\b[^.!?\n]{0,100}\b(?:closing )?fees?\b/gi,
+  /\b(?:consistently lower interest rates|mortgage rates change daily|\d+(?:\.\d+)?% rate environment)\b/gi,
+  /\b(?:average|typical)\s+(?:U\.S\.\s+)?(?:auto loan|mortgage balance|home price|rent|salary|income)\b/gi,
+  /\b(?:index fund|market|investment)\b[^.!?\n]{0,100}\baverag(?:e|ing)\s+\d/gi,
+  /\btypical impact of (?:PMI|mortgage insurance)\b/gi,
 ] as const;
 
 function findMatches(
@@ -57,7 +72,7 @@ function findMatches(
 test('content has no unsupported or undated rate-market claims', () => {
   assert.deepEqual(findMatches(volatileClaimPatterns, (line) => {
     const isExplicitNonClaim = /\b(?:example|illustrative|selected calculator assumption|editable scenario input|mathematical scenarios?)\b/i.test(line)
-      && /\b(?:not (?:a claim|claims|an available offer|a market average|a current market quote)|does not represent|does not describe|not claims about|without making claims about)\b/i.test(line);
+      && /\b(?:not (?:a claim|claims|an available offer|a market average|a current market quote)|does not (?:claim|represent|describe)|not claims about|without (?:making claims|claiming))\b/i.test(line);
     const isBorrowerInput = /\b(?:your|the) current (?:loan |mortgage )?(?:balance|interest rate|rate|adjusted rate)\b/i.test(line)
       && !/\b(?:market|average|benchmark|2026|today)\b/i.test(line);
     const isLoanDocumentInput = /(?:\bcurrent mortgage statement \(for balance and rate\)|\bcurrent loan statement and a fresh rate quote|\bown specific loan amount and current rate\b)/i.test(line);
@@ -73,9 +88,18 @@ test('content does not present lender qualification assumptions as universal rul
       const isHeading = /<h[1-6][^>]*>[^<]*<\/h[1-6]>/i.test(line);
       const isScopedExample = /\b(?:example|illustrative|selected|scenario|model|page)\b/i.test(line)
         && /\b(?:actual|vary|varies|not|rather than|removes?)\b/i.test(line);
-      return isHeading || isScopedExample;
+      const explicitlyVariesByProvider = /\b(?:criteria|requirements|rules|terms)\b[^.!?\n]{0,100}\bvar(?:y|ies)\b[^.!?\n]{0,100}\b(?:lender|loan program|provider|jurisdiction)\b/i.test(line)
+        && /\b(?:actual|check|compare|rather than|written)\b/i.test(line);
+      const isExplicitNegation = /\b(?:not a guarantee|does not guarantee)\b/i.test(line);
+      return isHeading || isScopedExample || explicitlyVariesByProvider || isExplicitNegation;
     },
   ), []);
+});
+
+test('content does not present unsupported market statistics or product comparisons', () => {
+  assert.deepEqual(findMatches(unsupportedMarketClaimPatterns, (line) => {
+    return /\b(?:not a market average|does not (?:claim|represent)|selected|illustrative|example)\b/i.test(line);
+  }), []);
 });
 
 test('euro scenarios do not import US-only PMI or PITI terminology', () => {
