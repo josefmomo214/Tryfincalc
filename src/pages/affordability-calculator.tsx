@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
@@ -9,11 +8,10 @@ import { Input } from "@/components/ui/Input";
 import { formatCurrency, convertCurrency, validateLoan, calculateAffordability } from "@/lib/finance";
 import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 import { Search, PieChart, Wallet } from "lucide-react";
+import { useDisplayCurrency } from "@/lib/currency";
 
 export default function AffordabilityCalculator() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
   const [monthlyIncome, setMonthlyIncome] = useState(7500);
   const [monthlyDebts, setMonthlyDebts] = useState(0);
   const [downPayment, setDownPayment] = useState(50000);
@@ -27,7 +25,7 @@ export default function AffordabilityCalculator() {
       "@type": "WebApplication",
       "name": "Home Affordability Calculator",
       "url": "https://tryfincalc.com/affordability-calculator",
-      "description": "Find out how much house you can afford based on your income, debts, and down payment. Free affordability calculator supporting USD and EUR.",
+      "description": "Explore a home-price estimate using displayed income, debt, down-payment, rate and illustrative US housing-budget assumptions.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {

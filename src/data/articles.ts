@@ -64,6 +64,7 @@ const rawArticles: Omit<Article, "author">[] = [
     },
     content: `
       <p>Thinking about taking out a $400,000 mortgage? Whether you're buying your first home or upgrading to something larger, knowing your exact <strong>monthly payment on a 400k mortgage</strong> is essential for staying within your budget. In 2026, the real cost of homeownership extends beyond just principal and interest. This guide provides the exact math for a $400,000 loan across multiple terms, income requirements, and the total interest you can expect to pay.</p>
+      <p>For the exact-rate calculation, use the interactive <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5% scenario</a>. It starts with the loan amount, rate, and 30-year term already entered and separates principal and interest from optional property costs.</p>
       
       <div class="bg-primary/5 p-6 rounded-2xl my-8 border border-primary/10">
         <h3 class="text-xl font-bold text-primary mb-2">Detailed $400k Payment Breakdown (at 6.5%)</h3>

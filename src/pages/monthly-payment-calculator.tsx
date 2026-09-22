@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
@@ -8,11 +7,11 @@ import { Input } from "@/components/ui/Input";
 
 import { formatCurrency, calculateLoan, convertCurrency, validateLoan } from "@/lib/finance";
 import { CalculationGuide } from "@/components/calculator/CalculationGuide";
+import { useDisplayCurrency } from "@/lib/currency";
+import { generateWebApplicationSchema } from "@/lib/schema";
 
 export default function MonthlyPaymentCalculator() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
 
   const [amount, setAmount] = useState(250000);
   const [rate, setRate] = useState(3.75);
@@ -41,6 +40,12 @@ export default function MonthlyPaymentCalculator() {
         title="Monthly Payment Calculator: Fast Loan Estimates | TryFinCalc"
         description="Get an instant breakdown of your monthly obligation for any loan. See your monthly payment in seconds with our 2026 calculator. No sign-up required."
         canonicalUrl="https://tryfincalc.com/monthly-payment-calculator"
+        structuredData={generateWebApplicationSchema({
+          name: 'Monthly Payment Calculator',
+          path: '/monthly-payment-calculator',
+          description: 'Estimate the monthly principal-and-interest payment for a fixed-rate loan from its amount, annual interest rate and term.',
+          currency,
+        })}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">

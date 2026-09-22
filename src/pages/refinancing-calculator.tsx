@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
@@ -9,11 +8,10 @@ import { Input } from "@/components/ui/Input";
 import { formatCurrency, convertCurrency, validateLoan, calculateRefinancing } from "@/lib/finance";
 import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 import { ArrowLeftRight, TrendingDown, RefreshCw } from "lucide-react";
+import { useDisplayCurrency } from "@/lib/currency";
 
 export default function RefinancingCalculator() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
 
   const [balance, setBalance] = useState(250000);
   const [currentRate, setCurrentRate] = useState(4.5);
@@ -29,7 +27,7 @@ export default function RefinancingCalculator() {
       "@type": "WebApplication",
       "name": "Refinancing Calculator",
       "url": "https://tryfincalc.com/refinancing-calculator",
-      "description": "Calculate your potential savings from refinancing your mortgage. Estimate monthly and lifetime savings, and find your break-even point.",
+      "description": "Estimate monthly cash-flow change, fee-recovery time and scheduled total-cost difference for a refinancing scenario.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {

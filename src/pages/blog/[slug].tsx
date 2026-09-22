@@ -38,8 +38,8 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
       "description": article.excerpt,
       "image": "https://tryfincalc.com/og-image.png",
       "author": {
-        "@type": "Organization",
-        "name": "TryFinCalc Editorial",
+        "@type": "Person",
+        "name": article.author?.name || "Youssef Aaouam",
         "url": "https://tryfincalc.com/about"
       },
       "publisher": {
@@ -47,11 +47,9 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
         "name": "TryFinCalc",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://tryfincalc.com/logo.png"
+          "url": "https://tryfincalc.com/logo-high-res.png"
         }
       },
-      "datePublished": "2026-03-30",
-      "dateModified": "2026-03-30",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": `https://tryfincalc.com/blog/${article.slug}`
@@ -236,20 +234,9 @@ export default function BlogPost({ article, recentArticles }: BlogPostProps) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const paths: { params: { slug: string }; locale: string }[] = [];
-  
-  articles.forEach((article) => {
-    locales?.forEach((locale) => {
-      paths.push({
-        params: { slug: article.slug },
-        locale,
-      });
-    });
-  });
-
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths,
+    paths: articles.map((article) => ({ params: { slug: article.slug } })),
     fallback: false, 
   };
 };

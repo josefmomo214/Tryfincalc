@@ -1,5 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 
@@ -12,11 +11,11 @@ import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 
 
 import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
+import { useDisplayCurrency } from "@/lib/currency";
+import Link from "next/link";
 
 export default function MortgageCalculator() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
 
   const mortgageSchema = [
     {
@@ -24,7 +23,7 @@ export default function MortgageCalculator() {
       "@type": "WebApplication",
       "name": "Mortgage Calculator | TryFinCalc",
       "url": "https://tryfincalc.com/mortgage-calculator",
-      "description": "Premium mortgage calculator for 2026. Estimate monthly payments including PITI (Principal, Interest, Taxes, and Insurance) with real-time accuracy.",
+      "description": "Estimate principal, interest, property tax, homeowners insurance and HOA costs from the inputs shown. PMI, fees and maintenance are excluded.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {
@@ -74,6 +73,21 @@ export default function MortgageCalculator() {
 
         <div className="max-w-7xl mx-auto">
           <MortgageCalculatorWidget currency={currency} />
+
+          <section className="mt-16 rounded-3xl border border-outline-variant/20 bg-surface-container-low p-8">
+            <h2 className="text-2xl font-manrope font-bold text-primary mb-3">Worked mortgage scenarios</h2>
+            <p className="text-on-surface-variant mb-5">
+              Compare two fixed-rate examples with full-term interest and editable assumptions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link className="font-semibold text-primary hover:underline" href="/calculator/400k-mortgage-monthly-payment-6-5-percent">
+                $400,000 mortgage at 6.5%
+              </Link>
+              <Link className="font-semibold text-primary hover:underline" href="/calculator/300k-mortgage-monthly-payment-6-percent">
+                $300,000 mortgage at 6%
+              </Link>
+            </div>
+          </section>
 
           {/* Expert Guidance Section */}
           <section className="mt-24 mb-20">

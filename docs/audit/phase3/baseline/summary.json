@@ -1,0 +1,22 @@
+{
+  "base": "http://127.0.0.1:3102",
+  "responses": 260,
+  "sitemap_urls": 79,
+  "statuses": {
+    "200": 248,
+    "308": 9,
+    "404": 3
+  },
+  "sitemap_non200": [],
+  "sitemap_noindex": [
+    "/contact",
+    "/privacy-policy",
+    "/terms-of-service"
+  ],
+  "missing_assets": [
+    "/logo.png",
+    "/og-image.jpg"
+  ],
+  "broken_anchor_destinations": [],
+  "placeholder_routes": []
+}

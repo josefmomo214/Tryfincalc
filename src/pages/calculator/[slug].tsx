@@ -6,20 +6,11 @@ export default function PSEOPage({ params }: { params: PSEOParams }) {
   return <PSEOPageTemplate params={params} />;
 }
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const paths: any[] = [];
-  
-  pseoData.forEach((item) => {
-    locales?.forEach((locale) => {
-      paths.push({
-        params: { slug: item.slug },
-        locale,
-      });
-    });
-  });
-
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths,
+    paths: pseoData
+      .filter((item) => item.currency === 'USD')
+      .map((item) => ({ params: { slug: item.slug } })),
     fallback: false,
   };
 };
@@ -31,6 +22,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!pSEOParams) {
     return {
       notFound: true,
+    };
+  }
+
+  if (pSEOParams.currency === 'EUR') {
+    return {
+      redirect: {
+        destination: `/eur/calculator/${pSEOParams.slug}`,
+        permanent: true,
+      },
     };
   }
 

@@ -5,6 +5,16 @@ interface MyDocumentProps extends DocumentInitialProps {
   nonce?: string;
 }
 
+export const cookieYesLoader = `(() => {
+  const allowedHosts = ['tryfincalc.com', 'www.tryfincalc.com'];
+  if (!allowedHosts.includes(window.location.hostname)) return;
+  const script = document.createElement('script');
+  script.id = 'cookieyes';
+  script.src = 'https://cdn-cookieyes.com/client_data/29532702d975c18a1902941805a6ae6d/script.js';
+  script.async = false;
+  document.head.appendChild(script);
+})();`;
+
 export default function MyDocument(props: MyDocumentProps) {
   const { nonce } = props;
   
@@ -21,7 +31,7 @@ export default function MyDocument(props: MyDocumentProps) {
               "@type": "Organization",
               "name": "TryFinCalc",
               "url": "https://tryfincalc.com",
-              "logo": "https://tryfincalc.com/logo.png",
+              "logo": "https://tryfincalc.com/logo-high-res.png",
               "sameAs": [
                 "https://www.facebook.com/profile.php?id=61588922634968",
                 "https://www.linkedin.com/company/try-fin-calc/",
@@ -42,11 +52,10 @@ export default function MyDocument(props: MyDocumentProps) {
           });
           window.gtag = gtag;
         ` }} />
-        <Script
-          id="cookieyes"
-          src="https://cdn-cookieyes.com/client_data/29532702d975c18a1902941805a6ae6d/script.js"
-          strategy="beforeInteractive"
+        <script
+          id="cookieyes-loader"
           nonce={nonce}
+          dangerouslySetInnerHTML={{ __html: cookieYesLoader }}
         />
         {/* Google AdSense */}
         <Script

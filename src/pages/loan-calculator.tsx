@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
@@ -9,11 +8,10 @@ import { Input } from "@/components/ui/Input";
 import { formatCurrency, calculateLoan, convertCurrency, validateLoan } from "@/lib/finance";
 import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 import { ArrowLeftRight, BarChart3, TrendingDown } from "lucide-react";
+import { useDisplayCurrency } from "@/lib/currency";
 
 export default function LoanCalculator() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
 
   const [loanAmount, setLoanAmount] = useState(15000);
   const [interestRate, setInterestRate] = useState(6.5);

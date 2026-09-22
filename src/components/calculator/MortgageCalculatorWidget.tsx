@@ -8,6 +8,10 @@ import { formatCurrency, calculateAmortizedPayment, convertCurrency, validateLoa
 interface MortgageCalculatorWidgetProps {
   initialHomePrice?: number;
   initialDownPaymentPercent?: number;
+  initialInterestRate?: number;
+  initialLoanTerm?: number;
+  initialAnnualPropertyTax?: number;
+  initialAnnualInsurance?: number;
   title?: string;
   description?: string;
   currency?: 'USD' | 'EUR';
@@ -16,6 +20,10 @@ interface MortgageCalculatorWidgetProps {
 export function MortgageCalculatorWidget({
   initialHomePrice = 450000,
   initialDownPaymentPercent = 20,
+  initialInterestRate = 6.5,
+  initialLoanTerm = 30,
+  initialAnnualPropertyTax,
+  initialAnnualInsurance,
   title = "Mortgage Calculator",
   description = "Get a detailed breakdown of your monthly mortgage payment, including principal, interest, taxes, and insurance.",
   currency = 'USD'
@@ -23,10 +31,10 @@ export function MortgageCalculatorWidget({
   const [homePrice, setHomePrice] = useState<number>(initialHomePrice);
   const [downPaymentPercent, setDownPaymentPercent] = useState<number>(initialDownPaymentPercent);
   const [downPayment, setDownPayment] = useState<number>((initialHomePrice * initialDownPaymentPercent) / 100);
-  const [interestRate, setInterestRate] = useState<number>(6.5); // Illustrative fixed-rate input
-  const [loanTerm, setLoanTerm] = useState<number>(30); // Standard term
-  const [propertyTax, setPropertyTax] = useState<number>(Math.round(initialHomePrice * 0.011)); // Illustrative annual tax assumption
-  const [insurance, setInsurance] = useState<number>(Math.round(initialHomePrice * 0.0035)); // Illustrative annual insurance assumption
+  const [interestRate, setInterestRate] = useState<number>(initialInterestRate);
+  const [loanTerm, setLoanTerm] = useState<number>(initialLoanTerm);
+  const [propertyTax, setPropertyTax] = useState<number>(initialAnnualPropertyTax ?? Math.round(initialHomePrice * 0.011));
+  const [insurance, setInsurance] = useState<number>(initialAnnualInsurance ?? Math.round(initialHomePrice * 0.0035));
   const [hoa, setHoa] = useState<number>(0);
   const [isCalculated, setIsCalculated] = useState(true);
 

@@ -1,0 +1,15 @@
+{
+  "base": "http://127.0.0.1:3102",
+  "responses": 262,
+  "sitemap_urls": 79,
+  "statuses": {
+    "200": 87,
+    "308": 173,
+    "404": 2
+  },
+  "sitemap_non200": [],
+  "sitemap_noindex": [],
+  "missing_assets": [],
+  "broken_anchor_destinations": [],
+  "placeholder_routes": []
+}

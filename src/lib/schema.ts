@@ -12,6 +12,33 @@ export function generateWebSiteSchema() {
   };
 }
 
+export function generateWebApplicationSchema({
+  name,
+  path,
+  description,
+  currency = 'USD',
+}: {
+  name: string;
+  path: string;
+  description: string;
+  currency?: 'USD' | 'EUR';
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name,
+    url: `https://tryfincalc.com${path}`,
+    description,
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: 0,
+      priceCurrency: currency,
+    },
+  };
+}
+
 export function generateFAQSchema(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",

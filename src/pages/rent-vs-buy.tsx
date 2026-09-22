@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { SEOHandler } from '@/components/seo/SEOHandler';
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from '@/components/calculator/CalculatorContainer';
 import { Input } from '@/components/ui/Input';
 import { compareRentBuy, rentBuySensitivity, validateRentBuy, RENT_BUY_DEFAULTS, formatCurrency, type RentBuyInputs } from '@/lib/finance';
 import Link from 'next/link';
+import { useDisplayCurrency } from '@/lib/currency';
 
 const fields: {key:keyof RentBuyInputs;label:string;step?:number}[] = [
   {key:'rent',label:'Monthly rent'}, {key:'rentGrowth',label:'Annual rent growth (%)',step:.1},
@@ -17,7 +17,7 @@ const fields: {key:keyof RentBuyInputs;label:string;step?:number}[] = [
   {key:'annualInsurance',label:'Annual homeowners insurance'}, {key:'investmentReturn',label:'Annual after-tax investment return / discount rate (%)',step:.1},
 ];
 export default function RentVsBuy() {
-  const currency = useRouter().locale === 'eur' ? 'EUR' : 'USD';
+  const { currency } = useDisplayCurrency();
   const [inputs,setInputs] = useState(RENT_BUY_DEFAULTS);
   const error = validateRentBuy(inputs);
   const result = error ? null : compareRentBuy(inputs);

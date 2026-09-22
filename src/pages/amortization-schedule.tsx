@@ -1,6 +1,5 @@
 import { AmortizationTable } from "@/components/calculator/AmortizationTable";
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
@@ -9,11 +8,10 @@ import { Input } from "@/components/ui/Input";
 
 import { formatCurrency, convertCurrency, validateLoan, generateAmortizationSchedule } from "@/lib/finance";
 import { CalculationGuide } from "@/components/calculator/CalculationGuide";
+import { useDisplayCurrency } from "@/lib/currency";
 
 export default function AmortizationSchedule() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
 
   const [loanAmount, setLoanAmount] = useState(250000);
   const [interestRate, setInterestRate] = useState(3.75);
@@ -28,7 +26,7 @@ export default function AmortizationSchedule() {
       "@type": "WebApplication",
       "name": "Amortization Calculator | TryFinCalc",
       "url": "https://tryfincalc.com/amortization-schedule",
-      "description": "Professional-grade amortization schedule generator for 2026. See the exact split between principal and interest for every payment over the life of your loan.",
+      "description": "Generate an estimated fixed-rate amortization schedule showing principal, interest and remaining balance for each payment.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {

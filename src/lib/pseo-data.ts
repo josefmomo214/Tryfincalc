@@ -1,5 +1,6 @@
-import { loanValue } from './content-calculations';
+import { loanTable, loanValue } from './content-calculations';
 import { calculateLoan, convertCurrency, formatCurrency } from "./finance";
+import { canonicalScenarioPath } from './route-registry';
 
 export interface PSEOParams {
   slug: string;
@@ -15,6 +16,8 @@ export interface PSEOParams {
   customIntro?: string;
   customContent?: string;
   customFaqs?: { question: string; answer: string }[];
+  showPrefilledCalculator?: boolean;
+  substantiveModified?: string;
 }
 
 export interface ComparisonScenario {
@@ -183,6 +186,54 @@ export const pseoData: PSEOParams[] = [
         answer: "The 6% rate is an editable scenario assumption used to calculate payment and interest sensitivity. It is not a statement about available mortgage rates."
       }
     ]
+  },
+  {
+    slug: '400k-mortgage-monthly-payment-6-5-percent',
+    type: 'mortgage',
+    amount: 400000,
+    rate: 6.5,
+    term: 30,
+    currency: 'USD',
+    showPrefilledCalculator: true,
+    substantiveModified: '2026-09-21',
+    customTitle: '$400,000 Mortgage at 6.5%: Monthly Payment and Interest',
+    customDescription: `A $400,000 mortgage at a 6.5% example rate costs ${loanValue(400000, 6.5, 30, 'monthly')} per month in principal and interest. See total interest, assumptions, and rate sensitivity.`,
+    customH1: '$400,000 Mortgage Payment at 6.5%',
+    customIntro: `A $400,000 fixed-rate mortgage at a 6.5% example annual interest rate over 30 years has an estimated principal-and-interest payment of <strong>${loanValue(400000, 6.5, 30, 'monthly')}</strong> per month. Total interest is <strong>${loanValue(400000, 6.5, 30, 'totalInterest')}</strong> if the loan runs for the full term. The rate is an editable scenario input, not a statement about available mortgage rates.`,
+    customContent: `
+      <h2>Exact payment for the 400k mortgage scenario</h2>
+      <p>The shared TryFinCalc amortization function calculates a monthly principal-and-interest payment of <strong>${loanValue(400000, 6.5, 30, 'monthly')}</strong>. Across 360 scheduled payments, the estimated total paid is <strong>${loanValue(400000, 6.5, 30, 'totalPaid')}</strong>, including <strong>${loanValue(400000, 6.5, 30, 'totalInterest')}</strong> of interest.</p>
+
+      <h2>Why the payment is not $400,000 divided by 360</h2>
+      <p>A fixed-rate mortgage payment covers both interest on the outstanding balance and repayment of principal. The monthly rate is 6.5% divided by 12, and the balance changes after every payment. Dividing $400,000 by 360 would account for principal only; multiplying $400,000 by 6.5% would describe first-year simple interest rather than an amortized monthly payment.</p>
+
+      <h2>Rate and term sensitivity</h2>
+      <p>The table uses the same $400,000 principal with selected example rates and terms. It excludes property tax, homeowners insurance, mortgage insurance, HOA dues, closing costs, maintenance, and lender fees.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">
+        ${loanTable(400000, [5.5, 6, 6.5, 7, 7.5], [15, 30])}
+      </div>
+
+      <h2>How to use this estimate</h2>
+      <p>Use the prefilled calculator to replace the home price, down payment, rate, term, tax, insurance, and HOA assumptions. Compare the result with the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6% scenario</a>, review the broader <a href="/blog/mortgage-payment-guide">mortgage payment guide</a>, or generate a full <a href="/amortization-schedule">amortization schedule</a>.</p>
+    `,
+    customFaqs: [
+      {
+        question: 'What is the monthly payment on a $400,000 mortgage at 6.5%?',
+        answer: `The estimated principal-and-interest payment is ${loanValue(400000, 6.5, 30, 'monthly')} per month for a 30-year fixed-rate loan.`,
+      },
+      {
+        question: 'How much interest does a $400,000 mortgage at 6.5% cost?',
+        answer: `The estimated total interest is ${loanValue(400000, 6.5, 30, 'totalInterest')} across 360 scheduled payments when the loan runs for the full term.`,
+      },
+      {
+        question: 'Does the payment include tax, insurance, or PMI?',
+        answer: 'No. The headline result is principal and interest only. Property tax, insurance, mortgage insurance, HOA dues, fees, and maintenance are excluded unless you add them to the calculator.',
+      },
+      {
+        question: 'Is 6.5% presented as an available mortgage rate?',
+        answer: 'No. It is an editable example assumption used to show amortization and sensitivity. Use a written lender quote for an available rate and fees.',
+      },
+    ],
   },
   {
     slug: '350k-mortgage-monthly-payment-6-5-percent',
@@ -4034,7 +4085,11 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
   }[params.type];
 
   const similarPages = pseoData
-    .filter(p => p.type === params.type && p.slug !== params.slug)
+    .filter(p => (
+      p.type === params.type
+      && p.currency === params.currency
+      && p.slug !== params.slug
+    ))
     .slice(0, 2)
     .map(p => {
       const pAmount = convertCurrency(p.amount, p.currency, currency);
@@ -4043,7 +4098,7 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
         title: p.type === 'affordability' 
           ? `${symbol}${Math.round(pSalary || 0).toLocaleString()} Salary Affordability`
           : `${symbol}${Math.round(pAmount).toLocaleString()} ${p.type === 'mortgage' ? 'Mortgage' : 'Loan'}`,
-        href: `/calculator/${p.slug}`
+        href: canonicalScenarioPath(p)
       };
     });
 

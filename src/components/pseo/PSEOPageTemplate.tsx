@@ -8,17 +8,15 @@ import { calculateAmortizedPayment, calculateAffordability, calculateLoan, forma
 import { ArrowRight, ChevronRight, Calculator, Info, Lightbulb, PieChart, TrendingDown } from "lucide-react";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
-
-import { useRouter } from "next/router";
+import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
+import { absoluteUrl, canonicalScenarioPath } from "@/lib/route-registry";
 
 interface PSEOPageTemplateProps {
   params: PSEOParams;
 }
 
 export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
-  const router = useRouter();
-  const locale = router.locale || 'eur';
-  const currency = (locale.toUpperCase() as 'USD' | 'EUR');
+  const currency = params.currency;
   
   const content = getPSEOContent(params, currency);
   
@@ -48,9 +46,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
     payment: calculateAmortizedPayment(params.amount, s.rate, params.term),
   })) : [];
 
-  const canonicalUrl = params.currency === 'EUR'
-    ? `https://tryfincalc.com/eur/calculator/${params.slug}`
-    : `https://tryfincalc.com/calculator/${params.slug}`;
+  const canonicalUrl = absoluteUrl(canonicalScenarioPath(params));
 
   const schemas = [
     generateFAQSchema(content.faqs),
@@ -92,7 +88,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
               <div className="space-y-4">
                  <span className="text-xs font-bold text-primary uppercase tracking-widest">Calculated Result</span>
                  <h2 className="text-5xl md:text-6xl font-display font-black text-primary" suppressHydrationWarning>
-                   {formatCurrency(monthlyPayment, 0, currency)}
+                   {formatCurrency(monthlyPayment, 2, currency)}
                  </h2>
                  <p className="text-xl text-on-surface-variant max-w-md">
                    {params.type === 'affordability' 
@@ -106,6 +102,22 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
               </div>
            </div>
         </section>
+
+        {params.showPrefilledCalculator && params.type === 'mortgage' && (
+          <section className="mb-20">
+            <MortgageCalculatorWidget
+              initialHomePrice={params.amount}
+              initialDownPaymentPercent={0}
+              initialInterestRate={params.rate}
+              initialLoanTerm={params.term}
+              initialAnnualPropertyTax={0}
+              initialAnnualInsurance={0}
+              currency={params.currency}
+              title="Adjust the $400,000 mortgage scenario"
+              description="The initial result uses a $400,000 principal, 6.5% example annual interest rate, 30-year term, and no added property costs. Edit any input to test another estimate."
+            />
+          </section>
+        )}
 
         {/* AdSense Placement 1 */}
         {/* <ins className="adsbygoogle" style={{display: 'block'}} data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> */}
