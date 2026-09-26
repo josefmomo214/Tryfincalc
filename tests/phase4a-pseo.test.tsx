@@ -149,19 +149,27 @@ test('Phase 4A introductions render no literal HTML tokens and each page has an 
   assert.equal(questions.size, targetSlugs.length);
 });
 
-test('shared pSEO labels do not depend on the server or browser default locale', () => {
+test('shared pSEO labels and protected update date do not depend on the default locale', () => {
   const scenario = pseoData.find((item) => item.slug === '300k-mortgage-monthly-payment-6-percent');
   assert.ok(scenario);
   const originalToLocaleString = Number.prototype.toLocaleString;
+  const originalToLocaleDateString = Date.prototype.toLocaleDateString;
   Number.prototype.toLocaleString = () => 'DEFAULT-LOCALE';
+  Date.prototype.toLocaleDateString = function (locales?: Intl.LocalesArgument) {
+    return locales === 'en-US' ? '9/26/2026' : 'DEFAULT-LOCALE-DATE';
+  };
   try {
     const content = getPSEOContent(scenario, 'USD');
     assert.deepEqual(
       content.similarPages.map((page) => page.title),
       ['$400,000 Mortgage', '$350,000 Mortgage'],
     );
+    const protectedHtml = renderScenario('400k-mortgage-monthly-payment-6-5-percent');
+    assert.match(protectedHtml, /Updated as of 9\/26\/2026/);
+    assert.doesNotMatch(protectedHtml, /DEFAULT-LOCALE-DATE/);
   } finally {
     Number.prototype.toLocaleString = originalToLocaleString;
+    Date.prototype.toLocaleDateString = originalToLocaleDateString;
   }
 });
 

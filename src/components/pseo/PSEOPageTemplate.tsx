@@ -122,7 +122,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
               <div className="w-full md:w-auto flex flex-col gap-4">
                  <ButtonLink href={params.scenarioQuestion ? '#calculator-top' : `/${params.type}-calculator`} size="xl" className="w-full shadow-lg">Adjust Parameters <ArrowRight className="ml-2 w-5 h-5" /></ButtonLink>
                  <p className="text-center text-sm text-on-surface-variant/60 italic">
-                   {params.scenarioQuestion ? 'Editable mathematical scenario' : `Updated as of ${new Date().toLocaleDateString()}`}
+                   {params.scenarioQuestion ? 'Editable mathematical scenario' : `Updated as of ${new Date().toLocaleDateString('en-US')}`}
                  </p>
               </div>
            </div>
