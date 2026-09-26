@@ -9,6 +9,7 @@ import {
 } from './content-calculations';
 import { calculateLoan, convertCurrency, formatCurrency } from "./finance";
 import { canonicalScenarioPath } from './route-registry';
+import { getPseoEditorialDecision, getPseoEditorialStatus } from './pseo-publication';
 
 export interface PSEOParams {
   slug: string;
@@ -88,7 +89,7 @@ const affordability80kSensitivity: AffordabilityTableRow[] = [
   { ...affordability80kBase, label: '$175 monthly property insurance', monthlyInsurance: 175 },
 ];
 
-export const pseoData: PSEOParams[] = [
+const basePseoData: PSEOParams[] = [
   // Mortgages USD
   {
     slug: '300k-mortgage-monthly-payment-6-percent',
@@ -439,7 +440,7 @@ export const pseoData: PSEOParams[] = [
 
       <h2>Jumbo Loan Considerations at $700k</h2>
       <p>The <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener noreferrer">Federal Housing Finance Agency's 2026 release</a> lists a $832,750 baseline one-unit conforming loan limit for most of the U.S. and higher ceilings in designated high-cost areas. Confirm the applicable property type, location, and loan amount with the lender rather than assuming conforming status from this example.</p>
-      <p>If a quoted loan exceeds the applicable conforming limit, its pricing and underwriting may differ. Credit, down-payment, reserve, and debt-to-income requirements vary by lender and loan program, so compare written loan estimates. See the <a href="/calculator/income-required-for-700k-house">$700,000 house planning scenario</a> to model the broader budget.</p>
+      <p>If a quoted loan exceeds the applicable conforming limit, its pricing and underwriting may differ. Credit, down-payment, reserve, and debt-to-income requirements vary by lender and loan program, so compare written loan estimates. See the <a href="/income-needed-for-a-house">$700,000 house planning scenario</a> to model the broader budget.</p>
     `,
     customFaqs: [
       {
@@ -3439,7 +3440,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>At 3.5% over 25 years the monthly principal and interest payment is €1,752. Moving to a 20-year term adds €278 per month but saves €38,400 in total interest, while stretching to 30 years trims €180 off the monthly payment at the cost of an extra €40,320 in interest. Use the <a href="/mortgage-calculator">mortgage calculator</a> above to test your own scenario, or <a href="/calculator/400k-mortgage-monthly-payment-4-percent">compare to a $400k USD mortgage</a> for a transatlantic view of a similarly sized loan.</p>
+      <p>At 3.5% over 25 years the monthly principal and interest payment is €1,752. Moving to a 20-year term adds €278 per month but saves €38,400 in total interest, while stretching to 30 years trims €180 off the monthly payment at the cost of an extra €40,320 in interest. Use the <a href="/mortgage-calculator">mortgage calculator</a> above to test your own scenario.</p>
 
       <h2>Fixed and Variable Rate Scenarios</h2>
       <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
@@ -3543,7 +3544,7 @@ export const pseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>At 3.5% over 25 years the monthly principal and interest payment is €2,002. Choosing a 20-year term instead adds €318 per month but saves €43,800 in total interest — a meaningful sum at this loan size. Stretching to 30 years reduces the payment by €206 but adds €45,960 in interest over the full term. Run your own numbers with the <a href="/mortgage-calculator">mortgage calculator</a> above, or <a href="/calculator/400k-mortgage-monthly-payment-4-percent">compare to a $400k USD mortgage</a> to see how this stacks up against a similarly sized US loan.</p>
+      <p>At 3.5% over 25 years the monthly principal and interest payment is €2,002. Choosing a 20-year term instead adds €318 per month but saves €43,800 in total interest — a meaningful sum at this loan size. Stretching to 30 years reduces the payment by €206 but adds €45,960 in interest over the full term. Run your own numbers with the <a href="/mortgage-calculator">mortgage calculator</a> above.</p>
 
       <h2>Fixed and Variable Rate Scenarios</h2>
       <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
@@ -3613,6 +3614,200 @@ export const pseoData: PSEOParams[] = [
   },
 ];
 
+const affordability70kBase: AffordabilityTableRow = {
+  label: 'No other monthly debt',
+  monthlyIncome: 70000 / 12,
+  monthlyDebts: 0,
+  downPayment: 20000,
+  rate: 6.8,
+  years: 30,
+  monthlyPropertyTax: 200,
+  monthlyInsurance: 90,
+};
+
+const affordability70kDebtSensitivity: AffordabilityTableRow[] = [
+  affordability70kBase,
+  { ...affordability70kBase, label: '$400 other monthly debt', monthlyDebts: 400 },
+  { ...affordability70kBase, label: '$800 other monthly debt', monthlyDebts: 800 },
+  { ...affordability70kBase, label: '$1,200 other monthly debt', monthlyDebts: 1200 },
+];
+
+const affordability90kBase: AffordabilityTableRow = {
+  label: '$30,000 down; 6.8% rate',
+  monthlyIncome: 90000 / 12,
+  monthlyDebts: 350,
+  downPayment: 30000,
+  rate: 6.8,
+  years: 30,
+  monthlyPropertyTax: 250,
+  monthlyInsurance: 120,
+};
+
+const affordability90kSensitivity: AffordabilityTableRow[] = [
+  affordability90kBase,
+  { ...affordability90kBase, label: '$0 down payment', downPayment: 0 },
+  { ...affordability90kBase, label: '$60,000 down payment', downPayment: 60000 },
+  { ...affordability90kBase, label: '5.8% example rate', rate: 5.8 },
+  { ...affordability90kBase, label: '7.8% example rate', rate: 7.8 },
+];
+
+const phase4bOverrides: Record<string, Partial<PSEOParams>> = {
+  '350k-mortgage-monthly-payment-6-5-percent': {
+    showPrefilledCalculator: true,
+    customTitle: '$350,000 Mortgage at 6.5%: Term and Rate Trade-Offs',
+    customDescription: 'A $350,000 mortgage principal at a 6.5% selected annual rate: exact payment, term and rate comparisons, assumptions, and an editable calculator.',
+    customH1: '$350,000 Mortgage at 6.5%: Term or Rate?',
+    customIntro: 'This mathematical scenario starts with a $350,000 home price and no down payment, so the loan principal is $350,000. It uses a selected 6.5% nominal annual rate and 30-year term. The headline includes principal and interest only.',
+    scenarioQuestion: 'Would a shorter term or a different rate change this $350,000 mortgage more?',
+    directAnswer: `The 30-year principal-and-interest payment is ${loanValue(350000, 6.5, 30, 'monthly')}, with ${loanValue(350000, 6.5, 30, 'totalInterest')} of scheduled interest if every payment is made. A 15-year term raises the payment to ${loanValue(350000, 6.5, 15, 'monthly')} but reduces the number of interest-bearing months.`,
+    calculatorDescription: 'Edit the $350,000 price, zero down payment, 6.5% annual rate, 30-year term, and any property-cost inputs. The result updates from the shared amortization calculation.',
+    customContent: `
+      <h2>Term and rate answer different questions</h2>
+      <p>A shorter term concentrates principal repayment into fewer payments. A different rate changes the interest charged on the declining balance. The comparison below holds the $350,000 principal constant so those two decisions can be inspected without mixing in a different loan amount.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">${loanTable(350000, [5.5, 6.5, 7.5], [15, 30])}</div>
+      <p>At the selected 6.5% rate, the 15-year payment is <strong>${loanValue(350000, 6.5, 15, 'monthly')}</strong>, versus <strong>${loanValue(350000, 6.5, 30, 'monthly')}</strong> over 30 years. At 30 years, changing the selected rate to 5.5% produces <strong>${loanValue(350000, 5.5, 30, 'monthly')}</strong>; changing it to 7.5% produces <strong>${loanValue(350000, 7.5, 30, 'monthly')}</strong>.</p>
+      <h2>What is included and excluded?</h2>
+      <p>The table includes equal end-of-month principal-and-interest payments under the displayed nominal annual rates. Property tax, insurance, mortgage insurance, association dues, maintenance, closing costs, points, and lender fees are excluded unless entered in the calculator. Compare the nearby <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 at 6% scenario</a> or the protected <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 at 6.5% scenario</a>.</p>
+    `,
+    customFaqs: [
+      { question: 'What is the payment on a $350,000 mortgage at 6.5% for 30 years?', answer: `The estimated principal-and-interest payment is ${loanValue(350000, 6.5, 30, 'monthly')} per month.` },
+      { question: 'How much scheduled interest does the 30-year example produce?', answer: `The shared amortization calculation produces ${loanValue(350000, 6.5, 30, 'totalInterest')} of interest if the loan runs for the full term.` },
+      { question: 'Are ownership costs included?', answer: 'No. The headline and table exclude property tax, insurance, mortgage insurance, association dues, maintenance, closing costs, points, and lender fees.' },
+    ],
+  },
+  '700k-mortgage-monthly-payment-7-percent': {
+    showPrefilledCalculator: true,
+    customTitle: '$700,000 Mortgage at 7%: Payment Versus Total Interest',
+    customDescription: 'A $700,000 mortgage principal at a 7% selected annual rate: compare monthly cash flow with cumulative interest using an editable calculator.',
+    customH1: '$700,000 Mortgage at 7%: Cash Flow Versus Interest',
+    customIntro: 'This mathematical scenario uses a $700,000 home price, no down payment, a $700,000 loan principal, a selected 7% nominal annual rate, and a 30-year term. The headline excludes ownership and transaction costs.',
+    scenarioQuestion: 'How much monthly cash flow buys lower cumulative interest on a $700,000 mortgage?',
+    directAnswer: `The 30-year principal-and-interest payment is ${loanValue(700000, 7, 30, 'monthly')}, and scheduled interest totals ${loanValue(700000, 7, 30, 'totalInterest')} if the loan runs for all 360 payments. Shorter terms increase the required monthly payment while reducing cumulative interest.`,
+    calculatorDescription: 'The initial property price and principal are both $700,000 because the selected down payment is zero. Edit the annual rate, term, contribution, and entered property costs to recalculate.',
+    customContent: `
+      <h2>Compare the monthly obligation with the interest horizon</h2>
+      <p>The same $700,000 principal and 7% selected annual rate produce different cash-flow requirements when the repayment horizon changes. The table is generated by the shared amortization function.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">${loanTable(700000, [7], [15, 20, 30])}</div>
+      <p>The 15-year payment is <strong>${loanValue(700000, 7, 15, 'monthly')}</strong> with <strong>${loanValue(700000, 7, 15, 'totalInterest')}</strong> of scheduled interest. The 20-year payment is <strong>${loanValue(700000, 7, 20, 'monthly')}</strong>. The 30-year payment falls to <strong>${loanValue(700000, 7, 30, 'monthly')}</strong>, while scheduled interest rises to <strong>${loanValue(700000, 7, 30, 'totalInterest')}</strong>.</p>
+      <h2>Use the comparison as a capacity test</h2>
+      <p>No term is presented as universally preferable. The calculation includes principal and interest only and excludes property tax, insurance, mortgage insurance, association dues, maintenance, closing costs, points, and lender fees. Use the <a href="/amortization-schedule">amortization schedule</a> to inspect balance changes, or compare the retained <a href="/calculator/350k-mortgage-monthly-payment-6-5-percent">$350,000 mortgage scenario</a>.</p>
+    `,
+    customFaqs: [
+      { question: 'What is the payment on a $700,000 mortgage at 7% for 30 years?', answer: `The estimated principal-and-interest payment is ${loanValue(700000, 7, 30, 'monthly')} per month.` },
+      { question: 'What is the total scheduled interest?', answer: `The 30-year amortization produces ${loanValue(700000, 7, 30, 'totalInterest')} of interest if the loan runs for the full term.` },
+      { question: 'Does this estimate include the full cost of owning a property?', answer: 'No. Taxes, insurance, maintenance, association dues, transaction costs, and loan-specific fees are excluded unless entered separately.' },
+    ],
+  },
+  '20k-loan-monthly-payment-10-percent': {
+    showPrefilledCalculator: true,
+    customTitle: '$20,000 Loan at 10%: Term, Payment and Total Cost',
+    customDescription: 'A $20,000 loan principal at a 10% selected nominal annual note rate: exact payment, term sensitivity, total cost, and an editable calculator.',
+    customH1: '$20,000 Loan at 10%: How Term Changes Cost',
+    customIntro: 'This mathematical example uses a $20,000 principal, a selected 10% nominal annual note rate, and a five-year term. It includes scheduled principal and interest but excludes origination charges and other fees.',
+    scenarioQuestion: 'How much does extending a $20,000 loan reduce the payment and increase total interest?',
+    directAnswer: `The five-year payment is ${loanValue(20000, 10, 5, 'monthly')}, with ${loanValue(20000, 10, 5, 'totalInterest')} of scheduled interest. A longer term reduces the monthly payment but keeps the balance outstanding for more interest-bearing months.`,
+    calculatorDescription: 'Edit the $20,000 principal, 10% nominal annual note rate, or five-year term. Fees are not modeled, so the selected rate is not an APR when a real product charges fees.',
+    customContent: `
+      <h2>Three repayment horizons for the same principal and rate</h2>
+      <p>The comparison keeps the $20,000 principal and 10% nominal annual note rate fixed, changing only the repayment term.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">${loanTable(20000, [10], [3, 5, 7])}</div>
+      <p>A three-year term requires <strong>${loanValue(20000, 10, 3, 'monthly')}</strong> per month. Extending to seven years lowers that to <strong>${loanValue(20000, 10, 7, 'monthly')}</strong>, while scheduled interest rises to <strong>${loanValue(20000, 10, 7, 'totalInterest')}</strong>. This is a term trade-off, not a claim that one loan product is universally better.</p>
+      <h2>Note rate is not necessarily APR</h2>
+      <p>The calculator applies the selected note interest rate to the principal and does not model origination charges, documentation costs, optional products, or other fees. If a quoted loan includes fees, its APR can differ from the 10% note rate. Compare the retained <a href="/calculator/30k-loan-monthly-payment-9-percent">$30,000 loan</a> and <a href="/calculator/50k-loan-monthly-payment-8-percent">$50,000 loan</a> decision examples without assuming the products are otherwise equivalent.</p>
+    `,
+    customFaqs: [
+      { question: 'What is the payment on a $20,000 loan at 10% for five years?', answer: `The estimated scheduled payment is ${loanValue(20000, 10, 5, 'monthly')} per month.` },
+      { question: 'How much interest is paid over five years?', answer: `The shared loan calculation produces ${loanValue(20000, 10, 5, 'totalInterest')} of scheduled interest.` },
+      { question: 'Is the selected 10% rate an APR?', answer: 'It is a nominal annual note-rate input. Because fees are excluded, it should not be treated as APR when a real loan includes fees.' },
+    ],
+  },
+  'how-much-house-can-i-afford-70k-salary': {
+    showPrefilledCalculator: true,
+    affordabilityInputs: {
+      monthlyIncome: affordability70kBase.monthlyIncome,
+      monthlyDebts: affordability70kBase.monthlyDebts,
+      downPayment: affordability70kBase.downPayment,
+      monthlyPropertyTax: affordability70kBase.monthlyPropertyTax,
+      monthlyInsurance: affordability70kBase.monthlyInsurance,
+    },
+    customTitle: '$70,000 Salary Home Estimate: How Monthly Debt Changes It',
+    customDescription: 'A $70,000 salary planning example with editable debt, down payment, rate, tax and insurance inputs, plus a finance-derived debt sensitivity.',
+    customH1: 'How Monthly Debt Changes a $70,000 Salary Home Estimate',
+    customIntro: 'This U.S.-dollar planning scenario starts with $70,000 annual gross income, no other monthly debt, a $20,000 down payment, a selected 6.8% annual rate for 30 years, $200 monthly property tax, and $90 monthly insurance. The displayed 28% housing and 36% total-debt ratios are selected examples, not lender rules.',
+    scenarioQuestion: 'When do monthly debts start reducing the $70,000 salary estimate?',
+    directAnswer: `With the selected inputs, the estimated home price is ${affordabilityValue(affordability70kBase, 'maxPrice')}. The housing-ratio example binds before modest debt does; at $800 of other monthly debt, the total-debt example reduces the estimate to ${affordabilityValue(affordability70kDebtSensitivity[2], 'maxPrice')}.`,
+    calculatorDescription: 'Edit income, monthly debts, down payment, selected annual rate, term, property tax, and insurance. The result is a planning estimate and does not predict approval.',
+    customContent: `
+      <h2>Debt can be irrelevant at first, then become the binding constraint</h2>
+      <p>The calculation uses the lower of the selected 28% housing budget and 36% total-debt budget, then subtracts the entered tax and insurance costs. With no other debt the estimate is <strong>${affordabilityValue(affordability70kDebtSensitivity[0], 'maxPrice')}</strong>. At $400 of other monthly debt it remains <strong>${affordabilityValue(affordability70kDebtSensitivity[1], 'maxPrice')}</strong> because the housing ratio still binds. At $800, the debt budget becomes tighter.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">${affordabilityTable(affordability70kDebtSensitivity)}</div>
+      <h2>What the estimate does not decide</h2>
+      <p>It does not model closing costs, maintenance, association dues, loan-specific insurance, utilities, taxes beyond the entered amount, or lender underwriting. The ratios are user-selected planning examples and do not guarantee approval. Compare the retained <a href="/calculator/how-much-house-can-i-afford-80k-salary">$80,000 salary sensitivity</a>, the <a href="/calculator/how-much-house-can-i-afford-90k-salary">$90,000 salary scenario</a>, or the consolidated <a href="/income-needed-for-a-house">income-needed planning table</a>.</p>
+    `,
+    customFaqs: [
+      { question: 'What home price does this $70,000 salary example estimate?', answer: `The selected inputs produce ${affordabilityValue(affordability70kBase, 'maxPrice')}. Changing debts or any other input changes the result.` },
+      { question: 'Why does $400 of monthly debt not change the selected result?', answer: 'Under these particular inputs, the selected 28% housing ratio remains tighter than the selected 36% total-debt ratio. More debt eventually makes the total-debt example binding.' },
+      { question: 'Does the result predict approval?', answer: 'No. It is a mathematical planning example using displayed assumptions, not a lender qualification or approval decision.' },
+    ],
+  },
+  'how-much-house-can-i-afford-90k-salary': {
+    showPrefilledCalculator: true,
+    affordabilityInputs: {
+      monthlyIncome: affordability90kBase.monthlyIncome,
+      monthlyDebts: affordability90kBase.monthlyDebts,
+      downPayment: affordability90kBase.downPayment,
+      monthlyPropertyTax: affordability90kBase.monthlyPropertyTax,
+      monthlyInsurance: affordability90kBase.monthlyInsurance,
+    },
+    customTitle: '$90,000 Salary Home Estimate: Down Payment and Rate Sensitivity',
+    customDescription: 'A $90,000 salary planning example showing how the entered down payment and selected annual rate change the estimated home price.',
+    customH1: '$90,000 Salary: Down Payment or Rate?',
+    customIntro: 'This U.S.-dollar planning scenario uses $90,000 annual gross income, $350 of other monthly debt, a $30,000 down payment, a selected 6.8% annual rate for 30 years, $250 monthly property tax, and $120 monthly insurance. The selected 28% and 36% ratios are examples rather than lender criteria.',
+    scenarioQuestion: 'Does a larger down payment or a lower rate move this $90,000 salary estimate further?',
+    directAnswer: `The selected inputs produce an estimated home price of ${affordabilityValue(affordability90kBase, 'maxPrice')}. A $60,000 down payment changes it to ${affordabilityValue(affordability90kSensitivity[2], 'maxPrice')}; a selected 5.8% annual rate with the original down payment changes it to ${affordabilityValue(affordability90kSensitivity[3], 'maxPrice')}.`,
+    calculatorDescription: 'Edit the salary, debt, down payment, annual rate, term, property tax, and insurance. This planning estimate is not a comfort threshold or approval prediction.',
+    customContent: `
+      <h2>Down payment adds equity; rate changes financed capacity</h2>
+      <p>Within this model, changing the down payment directly changes the difference between estimated loan principal and estimated home price. Changing the selected rate changes how much principal fits the same monthly principal-and-interest allowance.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">${affordabilityTable(affordability90kSensitivity)}</div>
+      <p>With no down payment the estimate is <strong>${affordabilityValue(affordability90kSensitivity[1], 'maxPrice')}</strong>; with $60,000 down it is <strong>${affordabilityValue(affordability90kSensitivity[2], 'maxPrice')}</strong>. Holding the $30,000 down payment constant, a 5.8% selected rate produces <strong>${affordabilityValue(affordability90kSensitivity[3], 'maxPrice')}</strong>, while 7.8% produces <strong>${affordabilityValue(affordability90kSensitivity[4], 'maxPrice')}</strong>.</p>
+      <h2>Planning boundary</h2>
+      <p>Closing costs, maintenance, association dues, loan-specific insurance, utilities, and costs beyond the entered tax and insurance values are excluded. These are adjustable mathematical assumptions and do not predict lender approval. Compare the retained <a href="/calculator/how-much-house-can-i-afford-70k-salary">$70,000 debt sensitivity</a> or <a href="/calculator/how-much-house-can-i-afford-80k-salary">$80,000 multi-input sensitivity</a>.</p>
+    `,
+    customFaqs: [
+      { question: 'What price does this $90,000 salary example estimate?', answer: `The selected inputs produce ${affordabilityValue(affordability90kBase, 'maxPrice')}. It is a planning output rather than an approval limit.` },
+      { question: 'How does the down payment change this example?', answer: `Keeping the other selected assumptions fixed, a $60,000 down payment produces ${affordabilityValue(affordability90kSensitivity[2], 'maxPrice')}.` },
+      { question: 'Does a lower selected rate guarantee more borrowing capacity?', answer: 'No. The table shows mathematical sensitivity only. Available rates, fees, underwriting and approval depend on an actual product and lender.' },
+    ],
+  },
+  '250k-mortgage-monthly-payment-3-5-percent-eur': {
+    showPrefilledCalculator: true,
+    customTitle: '€250,000 Mortgage at 3.5%: Term and Amount Borrowed',
+    customDescription: 'A €250,000 euro-denominated mortgage at a 3.5% selected annual rate: exact payment, term and deposit comparisons, and an editable calculator.',
+    customH1: '€250,000 Mortgage at 3.5%: Term or Smaller Principal?',
+    customIntro: 'This euro-denominated mathematical scenario starts with a €250,000 property price, no deposit, a €250,000 loan principal, a selected 3.5% nominal annual rate, and a 25-year term. The headline includes principal and interest only.',
+    scenarioQuestion: 'Should this €250,000 scenario shorten the term or reduce the amount borrowed?',
+    directAnswer: `The 25-year principal-and-interest payment is ${loanValue(250000, 3.5, 25, 'monthly', 'EUR')}. A shorter term raises the payment and reduces scheduled interest; a deposit reduces the principal before the same rate and term are applied.`,
+    calculatorDescription: 'Edit the €250,000 property price, deposit, 3.5% selected annual rate, 25-year term, and entered property costs. This is not guidance for a particular European jurisdiction.',
+    customContent: `
+      <h2>Term sensitivity on the full €250,000 principal</h2>
+      <p>The first table holds the loan principal and selected 3.5% annual rate constant while changing only the number of scheduled payments.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">${loanTable(250000, [3.5], [15, 20, 25, 30], 'EUR')}</div>
+      <p>The payment is <strong>${loanValue(250000, 3.5, 15, 'monthly', 'EUR')}</strong> over 15 years, <strong>${loanValue(250000, 3.5, 20, 'monthly', 'EUR')}</strong> over 20 years, and <strong>${loanValue(250000, 3.5, 30, 'monthly', 'EUR')}</strong> over 30 years.</p>
+      <h2>Reducing the principal with a deposit</h2>
+      <p>The second comparison keeps the selected 3.5% annual rate and 25-year term fixed while changing the deposit and therefore the amount borrowed.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">${downPaymentTable(250000, [0, 10, 20], 3.5, 25, 'EUR')}</div>
+      <p>A 10% deposit reduces the principal to €225,000 and the payment to <strong>${loanValue(225000, 3.5, 25, 'monthly', 'EUR')}</strong>. Taxes, insurance, registration or notary costs, maintenance, transaction charges, subsidies, and loan-specific fees are excluded unless entered. Rules vary by country and product, so this page makes no paneuropean approval claim. Compare the retained <a href="/eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur">€200,000 term scenario</a> or <a href="/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur">€300,000 deposit scenario</a>.</p>
+    `,
+    customFaqs: euroScenarioFaqs(250000),
+  },
+};
+
+export const pseoData: PSEOParams[] = basePseoData.map((scenario) => ({
+  ...scenario,
+  ...phase4bOverrides[scenario.slug],
+}));
+
 function getSimpleHash(str: string) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -3620,6 +3815,21 @@ function getSimpleHash(str: string) {
     hash |= 0;
   }
   return Math.abs(hash);
+}
+
+function applyPseoEditorialLinks(content?: string) {
+  if (!content) return content;
+  return content.replace(
+    /<a(\s+[^>]*?)href=(["'])(\/(?:eur\/)?calculator\/([^"']+))\2([^>]*)>([\s\S]*?)<\/a>/g,
+    (match, before: string, quote: string, _path: string, slug: string, after: string, label: string) => {
+      const decision = getPseoEditorialDecision(slug);
+      if (decision.status === 'noindex') return label;
+      if (decision.status === 'redirect' && decision.destination) {
+        return `<a${before}href=${quote}${decision.destination}${quote}${after}>${label}</a>`;
+      }
+      return match;
+    },
+  );
 }
 
 
@@ -3714,6 +3924,7 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
       p.type === params.type
       && p.currency === params.currency
       && p.slug !== params.slug
+      && getPseoEditorialStatus(p.slug) === 'indexable'
     ))
     .slice(0, 2)
     .map(p => {
@@ -3734,7 +3945,7 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
     h1: params.customH1 || selectedPhrasing.h1,
     description: params.customDescription || `Detailed calculation for a ${formattedAmount} ${params.type} at ${params.rate}% interest. See monthly payments, total cost, and expert tips.`,
     intro: params.customIntro || selectedPhrasing.intro,
-    body: params.customContent,
+    body: applyPseoEditorialLinks(params.customContent),
     tips: tips[params.type],
     relatedBlog,
     similarPages,

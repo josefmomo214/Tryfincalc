@@ -167,7 +167,10 @@ export default function LoanCalculator() {
         <div className="rounded-3xl border border-outline-variant/20 bg-surface-container-low p-8">
           <h2 className="text-2xl font-manrope font-bold text-primary mb-3">Worked loan decisions</h2>
           <p className="text-on-surface-variant mb-5">Compare payment, term, and total scheduled cost using editable note-rate assumptions.</p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/20k-loan-monthly-payment-10-percent">
+              $20,000 loan: term and note-rate cost
+            </Link>
             <Link className="font-semibold text-primary hover:underline" href="/calculator/30k-loan-monthly-payment-9-percent">
               $30,000 loan: three years versus five
             </Link>

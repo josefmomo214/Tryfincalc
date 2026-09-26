@@ -14,6 +14,7 @@ export const CANONICAL_STATIC_ROUTES: CanonicalRoute[] = [
   { path: '/total-interest-calculator', changefreq: 'monthly', priority: '0.8' },
   { path: '/refinancing-calculator', changefreq: 'monthly', priority: '0.8' },
   { path: '/affordability-calculator', changefreq: 'monthly', priority: '0.8' },
+  { path: '/income-needed-for-a-house', changefreq: 'monthly', priority: '0.8' },
   { path: '/rent-vs-buy', changefreq: 'monthly', priority: '0.8' },
   { path: '/amortization-schedule', changefreq: 'monthly', priority: '0.8' },
   { path: '/blog', changefreq: 'weekly', priority: '0.7' },

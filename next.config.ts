@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { pseoData } from "./src/lib/pseo-data";
+import { PSEO_EDITORIAL_DECISIONS } from "./src/lib/pseo-publication";
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -8,6 +9,12 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: isProd ? 'standalone' : undefined, // Only use standalone for production builds
   async redirects() {
+    const consolidatedScenarioRedirects = Object.entries(PSEO_EDITORIAL_DECISIONS)
+      .flatMap(([slug, decision]) => decision.status === 'redirect' ? [{
+        source: `/calculator/${slug}`,
+        destination: decision.destination,
+        permanent: true,
+      }] : []);
     const crossCurrencyScenarioRedirects = pseoData.map((scenario) => ({
       source: scenario.currency === 'EUR'
         ? `/calculator/${scenario.slug}`
@@ -19,6 +26,7 @@ const nextConfig: NextConfig = {
     }));
 
     return [
+      ...consolidatedScenarioRedirects,
       { source: '/blog/debt-to-income-ratio', destination: '/blog/28-36-rule-explained', permanent: true },
       { source: '/blog/reduce-personal-loan-costs', destination: '/blog/compare-loan-offers', permanent: true },
       {

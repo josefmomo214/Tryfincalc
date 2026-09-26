@@ -198,9 +198,12 @@ export default function AffordabilityCalculator() {
         <div className="rounded-3xl border border-outline-variant/20 bg-surface-container-low p-8">
           <h2 className="text-2xl font-manrope font-bold text-primary mb-3">Worked affordability assumptions</h2>
           <p className="text-on-surface-variant mb-5">See how debt, down payment, rate, property tax, and insurance change one transparent planning example.</p>
-          <Link className="font-semibold text-primary hover:underline" href="/calculator/how-much-house-can-i-afford-80k-salary">
-            $80,000 salary affordability sensitivity
-          </Link>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/how-much-house-can-i-afford-70k-salary">$70,000 salary debt sensitivity</Link>
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/how-much-house-can-i-afford-80k-salary">$80,000 salary affordability sensitivity</Link>
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/how-much-house-can-i-afford-90k-salary">$90,000 salary down-payment sensitivity</Link>
+            <Link className="font-semibold text-primary hover:underline" href="/income-needed-for-a-house">Income needed for a target house price</Link>
+          </div>
         </div>
       </section>
 

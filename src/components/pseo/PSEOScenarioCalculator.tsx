@@ -89,7 +89,7 @@ function AffordabilityScenarioCalculator({ params }: { params: PSEOParams }) {
   );
 
   return (
-    <CalculatorContainer title="Adjust the $80,000 salary planning example" description={params.calculatorDescription}>
+    <CalculatorContainer title={`Adjust the ${formatCurrency(params.salary ?? 0, 0, params.currency)} salary planning example`} description={params.calculatorDescription}>
       <CalculatorInputArea>
         <p className="mb-4 text-sm">
           The 28% housing and 36% total-debt ratios are user-selected planning examples, not lender rules. This estimate does not predict lender approval.

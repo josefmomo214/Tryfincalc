@@ -67,8 +67,8 @@ const TRUST_POINTS = [
 
 const USE_CASES = [
   {
-    label: "What's the monthly payment on a $400,000 mortgage?",
-    href: "/calculator/400k-mortgage-monthly-payment-4-percent",
+    label: "What's the monthly payment on a $400,000 mortgage at 6.5%?",
+    href: "/calculator/400k-mortgage-monthly-payment-6-5-percent",
   },
   {
     label: "How much house can I afford on an $80,000 salary?",
@@ -91,12 +91,12 @@ const USE_CASES = [
     href: "/amortization-schedule",
   },
   {
-    label: "What's the monthly payment on a $250,000 mortgage?",
-    href: "/calculator/250k-mortgage-monthly-payment-3-5-percent",
+    label: "How do term and rate change a $350,000 mortgage?",
+    href: "/calculator/350k-mortgage-monthly-payment-6-5-percent",
   },
   {
-    label: "How much house can I afford on a $60,000 salary?",
-    href: "/calculator/how-much-house-can-i-afford-60k-salary",
+    label: "How much house can I afford on a $70,000 salary?",
+    href: "/calculator/how-much-house-can-i-afford-70k-salary",
   },
 ];
 

@@ -523,7 +523,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li><strong>Compare 30-Year vs. 15-Year Terms:</strong> For the same amount and example rate, the 30-year term has a lower payment while the 15-year term has less total interest.</li>
       </ul>
 
-      <p>Finally, evaluate <a href="/blog/rent-vs-buy-2026">whether renting still makes sense</a> in your specific area, as market dynamics vary locally. If you're looking at a standard entry-level home price, see our specific analysis of the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a> requirement. For a personalized estimate, check <a href="/calculator/income-required-for-400k-house">what income you need for a $400k house</a> or model your budget <a href="/calculator/how-much-house-can-i-afford-80k-salary">on an $80,000 salary</a>.</p>
+      <p>Finally, evaluate <a href="/blog/rent-vs-buy-2026">whether renting still makes sense</a> in your specific area, as market dynamics vary locally. If you're looking at a standard entry-level home price, see our specific analysis of the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a> requirement. For a personalized estimate, check <a href="/income-needed-for-a-house">what income you need for a $400k house</a> or model your budget <a href="/calculator/how-much-house-can-i-afford-80k-salary">on an $80,000 salary</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -3095,7 +3095,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>Mortgage-insurance applicability, premiums, and cancellation terms vary by loan. Enter a written quote rather than assuming a down-payment percentage determines the charge. Compare the scenarios in our <a href="/blog/down-payment-guide">down-payment guide</a> and the illustrative income pages for a <a href="/calculator/income-required-for-300k-house">$300,000</a> or <a href="/calculator/income-required-for-400k-house">$400,000</a> home.</p>
+      <p>Mortgage-insurance applicability, premiums, and cancellation terms vary by loan. Enter a written quote rather than assuming a down-payment percentage determines the charge. Compare the scenarios in our <a href="/blog/down-payment-guide">down-payment guide</a> and the illustrative income pages for a <a href="/income-needed-for-a-house">$300,000</a> or <a href="/income-needed-for-a-house">$400,000</a> home.</p>
 
       <h2>Category 2 — Closing Costs</h2>
       <p>Closing costs are paid in addition to the down payment. The amount and components vary by loan, provider, transaction, and jurisdiction, so use the written Loan Estimate and local settlement documents. See our <a href="/blog/closing-costs-breakdown">closing costs breakdown</a> for the categories to check.</p>
@@ -4430,7 +4430,7 @@ const rawArticles: Omit<Article, "author">[] = [
           </tbody>
         </table>
       </div>
-      <p>For a more detailed breakdown beyond these estimates, check out our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility tables</a> or run a personalized calculation with the <a href="/affordability-calculator">affordability calculator</a>. For specific salary breakdowns, try our tools for <a href="/calculator/how-much-house-can-i-afford-80k-salary">affordability on an $80,000 salary</a> or <a href="/calculator/income-required-for-400k-house">income required for a $400k house</a>.</p>
+      <p>For a more detailed breakdown beyond these estimates, check out our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility tables</a> or run a personalized calculation with the <a href="/affordability-calculator">affordability calculator</a>. For specific salary breakdowns, try our tools for <a href="/calculator/how-much-house-can-i-afford-80k-salary">affordability on an $80,000 salary</a> or <a href="/income-needed-for-a-house">income required for a $400k house</a>.</p>
 
       <h2>The 28/36 Scenario vs. Actual Underwriting</h2>
       <p>Actual underwriting can use different income definitions, debt treatment, limits, and automated findings depending on the lender and loan program. A lender's approval also does not measure whether the payment fits personal spending, savings, and risk tolerance. Use the 28/36 figures as comparison points and review our <a href="/blog/how-much-house-can-i-afford">home-affordability guide</a> for the other costs to include.</p>

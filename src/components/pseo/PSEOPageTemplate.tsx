@@ -11,6 +11,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
 import { PSEOScenarioCalculator } from "@/components/pseo/PSEOScenarioCalculator";
 import { absoluteUrl, canonicalScenarioPath } from "@/lib/route-registry";
+import { getPseoEditorialStatus } from "@/lib/pseo-publication";
 
 interface PSEOPageTemplateProps {
   params: PSEOParams;
@@ -60,6 +61,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
   })) : [];
 
   const canonicalUrl = absoluteUrl(canonicalScenarioPath(params));
+  const editorialStatus = getPseoEditorialStatus(params.slug);
 
   const schemas = [
     generateFAQSchema(content.faqs),
@@ -76,6 +78,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
         description={content.description}
         canonicalUrl={canonicalUrl}
         structuredData={schemas}
+        noindex={editorialStatus === 'noindex'}
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">

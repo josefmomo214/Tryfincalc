@@ -88,13 +88,43 @@ export function loanFromPayment(payment: number, rate: number, years: number) {
   return payment / unit;
 }
 
+export const PLANNING_HOUSING_RATIO = 0.28;
+export const PLANNING_TOTAL_DEBT_RATIO = 0.36;
+
 // Illustrative US gross-income budget; currency never selects underwriting rules.
 export function calculateAffordability(income: number, debts: number, downPayment: number, rate: number, years: number, currency: 'USD' | 'EUR', monthlyOwnershipCosts = 0) {
   requireAmounts(income, debts, downPayment, monthlyOwnershipCosts);
-  const housingBudget = Math.max(0, Math.min(income * .28, income * .36 - debts));
+  const housingBudget = Math.max(0, Math.min(income * PLANNING_HOUSING_RATIO, income * PLANNING_TOTAL_DEBT_RATIO - debts));
   const monthlyPayment = Math.max(0, housingBudget - monthlyOwnershipCosts);
   const loanAmount = loanFromPayment(monthlyPayment, rate, years);
   return { monthlyPayment, loanAmount, maxPrice: loanAmount + downPayment };
+}
+
+export function calculateIncomeRequired(
+  homePrice: number,
+  monthlyDebts: number,
+  downPayment: number,
+  rate: number,
+  years: number,
+  monthlyPropertyTax: number,
+  monthlyInsurance: number,
+) {
+  requireAmounts(homePrice, monthlyDebts, downPayment, monthlyPropertyTax, monthlyInsurance);
+  if (downPayment > homePrice) throw new RangeError('Down payment must not exceed the home price.');
+  const principal = homePrice - downPayment;
+  const monthlyPrincipalAndInterest = calculateLoan(principal, rate, years).monthly;
+  const monthlyHousingCost = monthlyPrincipalAndInterest + monthlyPropertyTax + monthlyInsurance;
+  const housingRatioIncome = monthlyHousingCost / PLANNING_HOUSING_RATIO;
+  const totalDebtRatioIncome = (monthlyHousingCost + monthlyDebts) / PLANNING_TOTAL_DEBT_RATIO;
+  const requiredMonthlyIncome = Math.max(housingRatioIncome, totalDebtRatioIncome);
+  return {
+    principal,
+    monthlyPrincipalAndInterest,
+    monthlyHousingCost,
+    requiredMonthlyIncome,
+    requiredAnnualIncome: requiredMonthlyIncome * 12,
+    bindingRatio: housingRatioIncome >= totalDebtRatioIncome ? 'housing' as const : 'total-debt' as const,
+  };
 }
 
 export function calculateRefinancing(balance: number, currentRate: number, yearsRemaining: number, newRate: number, newTerm: number, fees: number) {

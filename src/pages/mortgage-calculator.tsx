@@ -86,8 +86,17 @@ export default function MortgageCalculator() {
               <Link className="font-semibold text-primary hover:underline" href="/calculator/300k-mortgage-monthly-payment-6-percent">
                 $300,000 mortgage at 6%
               </Link>
+              <Link className="font-semibold text-primary hover:underline" href="/calculator/350k-mortgage-monthly-payment-6-5-percent">
+                $350,000 mortgage term and rate comparison
+              </Link>
+              <Link className="font-semibold text-primary hover:underline" href="/calculator/700k-mortgage-monthly-payment-7-percent">
+                $700,000 mortgage cash-flow trade-off
+              </Link>
               <Link className="font-semibold text-primary hover:underline" href="/eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur">
                 €200,000 mortgage term comparison
+              </Link>
+              <Link className="font-semibold text-primary hover:underline" href="/eur/calculator/250k-mortgage-monthly-payment-3-5-percent-eur">
+                €250,000 mortgage term and principal comparison
               </Link>
               <Link className="font-semibold text-primary hover:underline" href="/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur">
                 €300,000 mortgage deposit comparison
