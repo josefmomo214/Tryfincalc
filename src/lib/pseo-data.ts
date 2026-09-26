@@ -1,4 +1,12 @@
-import { loanTable, loanValue } from './content-calculations';
+import {
+  affordabilityTable,
+  affordabilityValue,
+  amortizationValue,
+  downPaymentTable,
+  loanTable,
+  loanValue,
+  type AffordabilityTableRow,
+} from './content-calculations';
 import { calculateLoan, convertCurrency, formatCurrency } from "./finance";
 import { canonicalScenarioPath } from './route-registry';
 
@@ -16,6 +24,16 @@ export interface PSEOParams {
   customIntro?: string;
   customContent?: string;
   customFaqs?: { question: string; answer: string }[];
+  scenarioQuestion?: string;
+  directAnswer?: string;
+  calculatorDescription?: string;
+  affordabilityInputs?: {
+    monthlyIncome: number;
+    monthlyDebts: number;
+    downPayment: number;
+    monthlyPropertyTax: number;
+    monthlyInsurance: number;
+  };
   showPrefilledCalculator?: boolean;
   substantiveModified?: string;
 }
@@ -50,142 +68,77 @@ function euroScenarioFaqs(amount: number) {
   ];
 }
 
+const affordability80kBase: AffordabilityTableRow = {
+  label: 'Selected example',
+  monthlyIncome: 80000 / 12,
+  monthlyDebts: 0,
+  downPayment: 25000,
+  rate: 6.8,
+  years: 30,
+  monthlyPropertyTax: 225,
+  monthlyInsurance: 100,
+};
+
+const affordability80kSensitivity: AffordabilityTableRow[] = [
+  affordability80kBase,
+  { ...affordability80kBase, label: '$800 monthly debt', monthlyDebts: 800 },
+  { ...affordability80kBase, label: '$50,000 down payment', downPayment: 50000 },
+  { ...affordability80kBase, label: '7.8% example rate', rate: 7.8 },
+  { ...affordability80kBase, label: '$325 monthly property tax', monthlyPropertyTax: 325 },
+  { ...affordability80kBase, label: '$175 monthly property insurance', monthlyInsurance: 175 },
+];
+
 export const pseoData: PSEOParams[] = [
   // Mortgages USD
-  { 
-    slug: '300k-mortgage-monthly-payment-6-percent', 
-    type: 'mortgage', 
-    amount: 300000, 
-    rate: 6, 
-    term: 30, 
+  {
+    slug: '300k-mortgage-monthly-payment-6-percent',
+    type: 'mortgage',
+    amount: 300000,
+    rate: 6,
+    term: 30,
     currency: 'USD',
-    customTitle: "$300,000 Mortgage at 6%: Your Complete Payment Breakdown",
-    customDescription: "What is the monthly payment on a $300,000 mortgage at a 6% example rate? See P&I, editable cost inputs, total interest, illustrative income scenarios, and amortization.",
-    customH1: "$300,000 Mortgage at 6%: Your Complete Payment Breakdown",
-    customIntro: "This illustrative scenario models a $300,000 U.S. mortgage at a 6% example annual interest rate. It shows the principal-and-interest payment at several terms, an editable cost estimate for taxes and insurance, and a rate sensitivity table. The rate is a selected calculator assumption, not a claim about today's market. Use the <a href='/mortgage-calculator'>mortgage calculator</a> above to adjust the rate, down payment, term, taxes, and insurance for your situation.",
+    showPrefilledCalculator: true,
+    customTitle: '$300,000 Mortgage at 6%: Payment and First-Month Interest',
+    customDescription: 'A $300,000 mortgage principal at a 6% example annual rate over 30 years: exact payment, first-month interest, total cost, and an editable calculator.',
+    customH1: '$300,000 Mortgage at 6%: Payment and Amortization',
+    customIntro: 'This U.S.-dollar mathematical scenario starts with a $300,000 home price and no down payment, so the loan principal is also $300,000. It applies a selected 6% nominal annual interest rate over 30 years. Property tax, insurance, mortgage insurance, association dues, maintenance, closing costs, and lender fees are excluded from the headline payment.',
+    scenarioQuestion: 'Why isn’t 6% charged on the original $300,000 every year?',
+    directAnswer: `The estimated monthly principal-and-interest payment is ${loanValue(300000, 6, 30, 'monthly')}. The first scheduled payment contains ${amortizationValue(300000, 6, 30, 0, 'interest')} of interest and ${amortizationValue(300000, 6, 30, 0, 'principal')} of principal because interest is charged on the outstanding balance, which declines after each payment.`,
+    calculatorDescription: 'The initial home price and loan principal are both $300,000 because the selected down payment is $0. Edit the price, down payment, annual rate, term, tax, insurance, or other property fees to recalculate.',
     customContent: `
-      <h2>Monthly Payment on a $300,000 Mortgage at 6%</h2>
-      <p>The term of your loan is the biggest factor in determining your monthly cash flow versus your total interest savings. Here is the breakdown for a $300,000 balance at a 6% fixed rate:</p>
+      <h2>6% is an annual rate on a declining balance, not a flat yearly charge</h2>
+      <p>The selected 6% nominal annual rate is divided into a ${(6 / 12).toFixed(1)}% monthly rate for this calculation. Each month, that rate is applied to the remaining principal. The payment stays level in this fixed-rate example, but its composition changes: interest falls as the balance falls, while the principal share rises.</p>
+      <p>On the first scheduled payment, interest is <strong>${amortizationValue(300000, 6, 30, 0, 'interest')}</strong>, principal repayment is <strong>${amortizationValue(300000, 6, 30, 0, 'principal')}</strong>, and the remaining balance is <strong>${amortizationValue(300000, 6, 30, 0, 'balance')}</strong>. The second month's interest is lower at <strong>${amortizationValue(300000, 6, 30, 1, 'interest')}</strong> because it is calculated on that smaller balance.</p>
 
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly P&I</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">$3,330</td><td class="py-3 px-4 text-sm">$99,600</td><td class="py-3 px-4 text-sm">$399,600</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">$2,532</td><td class="py-3 px-4 text-sm">$155,760</td><td class="py-3 px-4 text-sm">$455,760</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">$2,149</td><td class="py-3 px-4 text-sm">$215,760</td><td class="py-3 px-4 text-sm">$515,760</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">$1,933</td><td class="py-3 px-4 text-sm">$279,900</td><td class="py-3 px-4 text-sm">$579,900</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">30 years</td><td class="py-3 px-4 text-sm">$1,799</td><td class="py-3 px-4 text-sm">$347,640</td><td class="py-3 px-4 text-sm">$647,640</td></tr>
-          </tbody>
-        </table>
+      <h2>What changes if you choose 15 years instead of 30?</h2>
+      <p>The comparison holds the ${formatCurrency(300000, 0)} principal and 6% selected annual rate constant. A shorter term raises the scheduled payment but reduces the number of interest-bearing months. Every result comes from the same amortization function as the editable calculator.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">
+        ${loanTable(300000, [6], [15, 30])}
       </div>
+      <p>At 30 years, total scheduled interest is <strong>${loanValue(300000, 6, 30, 'totalInterest')}</strong>. At 15 years it is <strong>${loanValue(300000, 6, 15, 'totalInterest')}</strong>. Whether the higher 15-year payment fits is a cash-flow decision, not a claim that one term is universally preferable.</p>
 
-      <p>At 6% over 30 years the monthly principal and interest payment is $1,799 — and the total interest paid over the life of the loan is $347,640. Choosing a <a href="/blog/15-vs-30-year-mortgage">15-year vs 30-year mortgage comparison</a> shows that the shorter term saves $191,880 in interest but adds $733 to the monthly payment. You can view the full year-by-year equity growth on our <a href="/amortization-schedule">amortization schedule</a>.</p>
-
-      <h2>Full Monthly Cost Including Taxes and Insurance (PITI)</h2>
-      <p>The modeled total includes selected tax, insurance, and mortgage-insurance inputs in addition to principal and interest. Here is the illustrative breakdown for a $334,000 home purchase with 10% down ($34,000), resulting in a $300,000 loan at the 6% example rate over 30 years:</p>
-      
-      <ul>
-        <li><strong>Principal and Interest:</strong> $1,799</li>
-        <li><strong>Property Tax (1.1%/yr):</strong> $306</li>
-        <li><strong>Homeowners Insurance:</strong> $110</li>
-        <li><strong>Private Mortgage Insurance (PMI):</strong> $125</li>
-        <li><strong>Total Monthly Payment:</strong> $2,340</li>
-      </ul>
-
-      <p>The $125 mortgage-insurance amount is an editable example assumption. Actual insurance terms and cancellation rules depend on the loan and lender. Property taxes and homeowners insurance also vary by property and location; use our <a href="/mortgage-calculator">mortgage calculator</a> to replace every estimate with your own inputs. See our <a href="/blog/down-payment-guide">down payment guide</a> for more context.</p>
-
-      <h2>What Income Do You Need for a $300,000 Mortgage at 6%?</h2>
-      <p>The table below is an illustrative affordability check that limits housing costs to 28% of gross income. It is a planning assumption, not an approval rule; lender requirements vary with the loan program and borrower profile.</p>
-
-      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Payment Scenario</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td>P&I only</td><td>$1,799</td><td>~$77,100</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td>Full PITI (example)</td><td>$2,340</td><td>~$100,286</td></tr>
-            <tr class="border-b border-outline-variant/30"><td>With $400 other debts</td><td>$2,740</td><td>~$117,429</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>The $77,000–$117,000 range follows only the assumptions shown in this table. It is not a lender approval estimate. Use the <a href="/affordability-calculator">affordability calculator</a> to change debts and housing costs, or read about <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>.</p>
-
-      <h2>How 6% Compares to Other Rates on a $300,000 Loan</h2>
-      <p>This sensitivity table compares the selected 6% example rate with other illustrative inputs for a 30-year term. It does not represent today's available rates.</p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Interest Rate</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly P&I</th>
-              <th class="py-3 px-4 font-bold text-sm">Difference vs 6%</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td>5.0%</td><td>$1,610</td><td>−$189/month</td><td>$279,600</td></tr>
-            <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$1,703</td><td>−$96/month</td><td>$313,080</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>6.0%</td><td>$1,799</td><td>—</td><td>$347,640</td></tr>
-            <tr class="border-b border-outline-variant/30"><td>6.5%</td><td>$1,896</td><td>+$97/month</td><td>$382,560</td></tr>
-            <tr class="border-b border-outline-variant/30"><td>7.0%</td><td>$1,996</td><td>+$197/month</td><td>$418,560</td></tr>
-            <tr class="border-b border-outline-variant/30 bg-primary/5"><td>7.5%</td><td>$2,098</td><td>+$299/month</td><td>$455,280</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>A 1% rate increase adds approximately $197–$299/month and over $70,000 in total interest. Check out our <a href="/blog/interest-rate-impact">how your rate affects total cost</a> guide for more. If rates drop after you close, the <a href="/refinancing-calculator">refinancing calculator</a> can help you find your break-even point. Also, see our related guides on a <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage at 4%</a> and a <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at 3.5%</a>.</p>
-
-      <h2>Run Your Personalised Scenario</h2>
-      <p>Ready to see your exact numbers? Use the mortgage calculator above to adjust the term, down payment, and rate and see exactly how your payment changes. Don't forget to use the <a href="/affordability-calculator">affordability calculator</a> to confirm this loan fits your income. Understanding <a href="/blog/mortgage-payment-guide">how mortgage payments are calculated</a> is the first step toward smart homeownership.</p>
-
-      <div class="flex flex-col md:flex-row gap-6 my-12">
-        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
-          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
-          <p class="mb-6 opacity-90 text-sm">Get an instant estimate using your assumptions.</p>
-          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
-        </div>
-        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
-          <h3 class="text-xl font-bold mb-4">Total Interest</h3>
-          <p class="mb-6 opacity-70 text-sm">See the full lifetime cost.</p>
-          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">View Lifetime Cost →</a>
-        </div>
-      </div>
-
-      <h2>Is $300,000 the Right Loan Amount for You?</h2>
-      <p>The right loan amount depends on what you are financing and how much monthly cushion you want. Using the same 6% example rate, a $350,000 loan runs $2,098/month in principal and interest — $299 more than the $300,000 payment above. See the full <a href="/calculator/350k-mortgage-monthly-payment-6-5-percent">$350,000 mortgage breakdown</a>. Drop to $250,000 instead and the payment falls to $1,499/month; compare it on the <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage page</a>.</p>
-      <p>The <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener noreferrer">Federal Housing Finance Agency's 2026 release</a> lists a $832,750 baseline one-unit conforming loan limit for most of the U.S. and higher ceilings in designated high-cost areas. Whether a specific loan is conforming and how it is priced depend on the property, location, lender, and loan program.</p>
+      <h2>What the estimate includes and excludes</h2>
+      <p>The payment and comparison include only repayment of the stated loan principal and interest under equal end-of-month payments. They exclude property tax, insurance, mortgage insurance, association dues, maintenance, closing costs, discount points, and other lender fees. Add documented costs in the calculator before using the result as a housing budget.</p>
+      <p>Compare this amount with the protected <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5% scenario</a>, or inspect the payment sequence in the <a href="/amortization-schedule">amortization schedule</a>.</p>
     `,
     customFaqs: [
       {
-        question: "What is the monthly payment on a $300,000 mortgage at 6%?",
-        answer: "The monthly principal and interest payment is $1,799 on a 30-year term. For a **$300000 mortgage monthly payment 6 percent** scenario including taxes and insurance, the total PITI is closer to $2,340."
+        question: 'What is the payment on a $300,000 mortgage at 6% over 30 years?',
+        answer: `The estimated principal-and-interest payment is ${loanValue(300000, 6, 30, 'monthly')} per month. The selected home price and principal are both $300,000 because the initial down payment is zero.`,
       },
       {
-        question: "What income do I need for a $300,000 mortgage?",
-        answer: "Using the page's illustrative 28% housing-cost assumption, the table produces an annual-income range of about $77,000–$100,000 before other debts. This is not an approval estimate; lender requirements vary."
+        question: 'How much of the first payment is interest?',
+        answer: `The first scheduled payment contains ${amortizationValue(300000, 6, 30, 0, 'interest')} of interest and ${amortizationValue(300000, 6, 30, 0, 'principal')} of principal. Later interest is calculated on the declining balance.`,
       },
       {
-        question: "How much total interest do I pay on a $300,000 mortgage at 6%?",
-        answer: "Over 30 years, you will pay a total of $347,640 in interest. If you choose a 15-year term, that interest cost drops to $155,760."
+        question: 'How much total interest does the 30-year example produce?',
+        answer: `The amortization calculation produces ${loanValue(300000, 6, 30, 'totalInterest')} of scheduled interest if the loan runs for all 360 payments.`,
       },
       {
-        question: "What does a 6% example rate show?",
-        answer: "The 6% rate is an editable scenario assumption used to calculate payment and interest sensitivity. It is not a statement about available mortgage rates."
-      }
-    ]
+        question: 'Does the result include ownership costs or lender fees?',
+        answer: 'No. Property tax, insurance, mortgage insurance, association dues, maintenance, closing costs, points, and lender fees are excluded unless entered separately.',
+      },
+    ],
   },
   {
     slug: '400k-mortgage-monthly-payment-6-5-percent',
@@ -1316,102 +1269,46 @@ export const pseoData: PSEOParams[] = [
     rate: 9,
     term: 5,
     currency: 'USD',
-    customTitle: "$30,000 Personal Loan at 9%: Payments, Costs & Savings",
-    customDescription: "$30,000 personal loan at 9%: $623/month for 5 years and $7,380 total interest. See term, rate-sensitivity, and consolidation scenarios.",
-    customH1: "$30,000 Personal Loan at 9%: Monthly Payment & Repayment Options",
-    customIntro: "This illustrative scenario models a $30,000 personal loan at a 9% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to run your scenario.",
+    showPrefilledCalculator: true,
+    customTitle: '$30,000 Loan at 9%: Three-Year vs Five-Year Cost',
+    customDescription: 'Compare a $30,000 loan at a 9% selected annual note rate over three, five, and seven years using an editable calculator and finance-derived totals.',
+    customH1: '$30,000 Loan at 9%: Choose a Term, Not Just a Payment',
+    customIntro: 'This example starts with a $30,000 loan principal, a selected 9% nominal annual note interest rate, and a five-year term. It assumes equal end-of-month payments. Origination charges, application costs, late fees, optional products, and other fees are excluded.',
+    scenarioQuestion: 'Is a three-year or five-year term better for a $30,000 loan?',
+    directAnswer: `The five-year example produces a ${loanValue(30000, 9, 5, 'monthly')} monthly payment, ${loanValue(30000, 9, 5, 'totalInterest')} of interest, and ${loanValue(30000, 9, 5, 'totalPaid')} in total scheduled payments. The term comparison below shows the trade-off between monthly pressure and lifetime interest.`,
+    calculatorDescription: 'The initial form uses a $30,000 principal, 9% nominal annual note rate, and five-year term. Change any input to recalculate the payment and total cost.',
     customContent: `
-      <h2>Monthly Payments on a $30,000 Loan at 9%</h2>
-      <p>At $30,000, every point of difference in your term has a meaningful impact on your monthly obligation. Here is the full breakdown at a 9% fixed APR:</p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">1 year</td><td class="py-3 px-4 text-sm">$2,623</td><td class="py-3 px-4 text-sm">$1,476</td><td class="py-3 px-4 text-sm">$31,476</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2 years</td><td class="py-3 px-4 text-sm">$1,370</td><td class="py-3 px-4 text-sm">$2,880</td><td class="py-3 px-4 text-sm">$32,880</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3 years</td><td class="py-3 px-4 text-sm">$954</td><td class="py-3 px-4 text-sm">$4,344</td><td class="py-3 px-4 text-sm">$34,344</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">5 years</td><td class="py-3 px-4 text-sm">$623</td><td class="py-3 px-4 text-sm">$7,380</td><td class="py-3 px-4 text-sm">$37,380</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">7 years</td><td class="py-3 px-4 text-sm">$483</td><td class="py-3 px-4 text-sm">$10,572</td><td class="py-3 px-4 text-sm">$40,572</td></tr>
-          </tbody>
-        </table>
+      <h2>Three years reduces interest but raises the required payment</h2>
+      <p>The table holds the ${formatCurrency(30000, 0)} principal and selected 9% note rate constant. The three-year row repays principal faster; the seven-year row spreads repayment across more months. The calculation does not decide which payment fits your budget.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">
+        ${loanTable(30000, [9], [3, 5, 7])}
       </div>
+      <p>A three-year term requires <strong>${loanValue(30000, 9, 3, 'monthly')}</strong> per month and produces <strong>${loanValue(30000, 9, 3, 'totalInterest')}</strong> of scheduled interest. The selected five-year term requires <strong>${loanValue(30000, 9, 5, 'monthly')}</strong> per month and produces <strong>${loanValue(30000, 9, 5, 'totalInterest')}</strong> of interest. The lower payment of the seven-year row comes with more scheduled interest-bearing months.</p>
 
-      <p>At 9% over 5 years, the monthly payment is $623 and total interest is $7,380. Moving to a 3-year term adds $331 per month but saves $3,036 in interest. If you can absorb the higher payment, the 3-year term eliminates the loan two years sooner at significantly lower total cost. Use the <a href="/total-interest-calculator">total interest calculator</a> to model any extra payment strategy.</p>
+      <h2>Fees can change the decision even when the note rate is unchanged</h2>
+      <p>The 9% input is the selected nominal annual note interest rate. Because fees are excluded, it is not an APR and the page does not estimate APR. Compare written offers using the amount actually disbursed, required payment, itemized fees, payment count, and total repayment. A shorter term is not universally better if its required payment is not workable, and products with different fees are not universally comparable from note rate alone.</p>
 
-      <h2>How Your Rate Affects the Cost of a $30,000 Loan</h2>
-      <p>Rate differences matter more at $30,000 than at smaller loan sizes. Here is what a 5-year term costs across the rate spectrum — with the base 9% rate highlighted:</p>
-
-      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">APR</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6%</td><td class="py-3 px-4 text-sm">$580</td><td class="py-3 px-4 text-sm">$4,800</td><td class="py-3 px-4 text-sm">$34,800</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">8%</td><td class="py-3 px-4 text-sm">$608</td><td class="py-3 px-4 text-sm">$6,480</td><td class="py-3 px-4 text-sm">$36,480</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">9%</td><td class="py-3 px-4 text-sm">$623</td><td class="py-3 px-4 text-sm">$7,380</td><td class="py-3 px-4 text-sm">$37,380</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">$638</td><td class="py-3 px-4 text-sm">$8,280</td><td class="py-3 px-4 text-sm">$38,280</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">12%</td><td class="py-3 px-4 text-sm">$667</td><td class="py-3 px-4 text-sm">$10,020</td><td class="py-3 px-4 text-sm">$40,020</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15%</td><td class="py-3 px-4 text-sm">$714</td><td class="py-3 px-4 text-sm">$12,840</td><td class="py-3 px-4 text-sm">$42,840</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">$795</td><td class="py-3 px-4 text-sm">$17,700</td><td class="py-3 px-4 text-sm">$47,700</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25%</td><td class="py-3 px-4 text-sm">$890</td><td class="py-3 px-4 text-sm">$23,400</td><td class="py-3 px-4 text-sm">$53,400</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>Moving the selected APR input from 10% to 20% on a $30,000 loan over 5 years adds $9,420 in total interest. Actual pricing criteria vary, so compare written offers.</p>
-
-      <h2>Inputs to Compare in Written Loan Offers</h2>
-      <p>Compare the quoted interest rate, APR, itemized fees, term, payment schedule, and total repayment. This page does not associate its example rate with a credit score, income, employment history, debt ratio, approval threshold, or available offer; lender criteria vary.</p>
-
-      <h2>$30,000 Personal Loan vs. Carrying Debt Across Credit Cards</h2>
-      <p>Consider a $30,000 balance at a 22% example credit-card APR over 5 years. The monthly payment would be $828 and total interest $19,680. A 9% example personal-loan rate for the same term costs $623 per month and $7,380 in total interest. These are scenario inputs rather than market averages or offers. For related breakdowns see <a href="/calculator/20k-loan-monthly-payment-10-percent">$20,000 at 10%</a>, <a href="/calculator/50k-loan-monthly-payment-8-percent">$50,000 at 8%</a>, and the existing <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a> analysis.</p>
-
-      <p>Run your numbers in the <a href="/loan-calculator">loan calculator</a>, or find your exact lifetime interest with the <a href="/total-interest-calculator">total interest calculator</a>.</p>
-
-      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
-        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
-          <h3 class="text-xl font-bold mb-4">Calculate Your Loan</h3>
-          <p class="mb-6 opacity-90 text-sm">Enter your rate, term, and amount.</p>
-          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
-        </div>
-        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
-          <h3 class="text-xl font-bold mb-4">See Total Interest</h3>
-          <p class="mb-6 opacity-70 text-sm">Find your exact lifetime interest cost.</p>
-          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
-        </div>
-      </div>
+      <h2>What to change before making a decision</h2>
+      <p>Replace the principal, note rate, and term with the terms of the offer. If a fee is financed, include it in the principal; if it is paid separately, add it to the displayed total when comparing cash cost. Review the separate <a href="/calculator/50k-loan-monthly-payment-8-percent">$50,000 loan payment-and-cost scenario</a> or use the <a href="/loan-calculator">full loan calculator</a>.</p>
     `,
     customFaqs: [
       {
-        question: "What is the monthly payment on a $30,000 loan at 9%?",
-        answer: "On a 5-year term, the monthly payment is $623. On a 3-year term it rises to $954 per month but saves $3,036 in total interest."
+        question: 'What is the payment on a $30,000 loan at 9% for five years?',
+        answer: `The estimated payment is ${loanValue(30000, 9, 5, 'monthly')} per month across 60 scheduled payments.`,
       },
       {
-        question: "How much total interest do I pay on a $30,000 personal loan at 9%?",
-        answer: "Over the selected 5-year term, total interest is $7,380. Choosing the 3-year example reduces that to $4,344 — $3,036 less interest in exchange for $331 more per month."
+        question: 'How much interest does the five-year example cost?',
+        answer: `The calculation produces ${loanValue(30000, 9, 5, 'totalInterest')} of interest and ${loanValue(30000, 9, 5, 'totalPaid')} in total scheduled payments.`,
       },
       {
-        question: "Can a $30,000 personal loan replace credit card debt at 22% APR?",
-        answer: "Yes. Paying off $30,000 in credit card debt at 22% over 5 years costs $828 per month and $19,680 in interest. A personal loan at 9% costs $623 per month and $7,380 in interest — saving $205 per month and $12,300 total."
+        question: 'Why does the three-year option cost less overall?',
+        answer: `It repays principal across fewer interest-bearing months. Its scheduled payment is ${loanValue(30000, 9, 3, 'monthly')}, so the monthly obligation is higher than the five-year example.`,
       },
       {
-        question: "What credit score and income do I need for a $30,000 loan at 9%?",
-        answer: "The 9% rate is an editable scenario assumption, not an approval prediction. Credit, income, debt, fees, and pricing criteria vary by lender."
-      }
-    ]
+        question: 'Is the selected 9% rate an APR?',
+        answer: 'No. It is a nominal annual note interest-rate input. Fees are not modeled, so this page does not calculate APR.',
+      },
+    ],
   },
   {
     slug: '50k-loan-monthly-payment-8-percent',
@@ -1420,104 +1317,48 @@ export const pseoData: PSEOParams[] = [
     rate: 8,
     term: 7,
     currency: 'USD',
-    customTitle: "$50,000 Personal Loan at 8%: Payment, Costs & HELOC Guide",
-    customDescription: "$50,000 personal loan at an 8% example rate: $780/month for 7 years and $15,520 total interest, with term and APR sensitivity tables.",
-    customH1: "Everything You Need to Know About a $50,000 Personal Loan at 8%",
-    customIntro: "This illustrative scenario models a $50,000 personal loan at an 8% example annual interest rate. It compares payments and total interest with other selected inputs. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to model your scenario.",
+    showPrefilledCalculator: true,
+    customTitle: '$50,000 Loan at 8%: Payment and Total Cost',
+    customDescription: 'Calculate the payment, total interest, and total scheduled cost of a $50,000 loan at an 8% selected annual note rate over seven years.',
+    customH1: '$50,000 Loan at 8%: Payment and Total-Cost Decision',
+    customIntro: 'This example starts with a $50,000 loan principal, an 8% selected nominal annual note interest rate, and a seven-year term. It assumes equal end-of-month payments. Fees, optional products, penalties, and other charges are excluded.',
+    scenarioQuestion: 'What is the payment and total cost of a $50,000 loan at 8%?',
+    directAnswer: `The seven-year example requires ${loanValue(50000, 8, 7, 'monthly')} per month. Across 84 scheduled payments, total interest is ${loanValue(50000, 8, 7, 'totalInterest')} and total payments are ${loanValue(50000, 8, 7, 'totalPaid')}, before any fees.`,
+    calculatorDescription: 'The initial form uses a $50,000 principal, 8% nominal annual note rate, and seven-year term. Edit any input to see how the payment and total scheduled cost change.',
     customContent: `
-      <h2>Monthly Payments on a $50,000 Loan at 8%</h2>
-      <p>At $50,000, the choice of term has a large impact on monthly cash flow. Here is the full breakdown at 8% fixed APR:</p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Loan Term</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">1 year</td><td class="py-3 px-4 text-sm">$4,350</td><td class="py-3 px-4 text-sm">$2,200</td><td class="py-3 px-4 text-sm">$52,200</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2 years</td><td class="py-3 px-4 text-sm">$2,261</td><td class="py-3 px-4 text-sm">$4,264</td><td class="py-3 px-4 text-sm">$54,264</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3 years</td><td class="py-3 px-4 text-sm">$1,567</td><td class="py-3 px-4 text-sm">$6,412</td><td class="py-3 px-4 text-sm">$56,412</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5 years</td><td class="py-3 px-4 text-sm">$1,014</td><td class="py-3 px-4 text-sm">$10,840</td><td class="py-3 px-4 text-sm">$60,840</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">7 years</td><td class="py-3 px-4 text-sm">$780</td><td class="py-3 px-4 text-sm">$15,520</td><td class="py-3 px-4 text-sm">$65,520</td></tr>
-          </tbody>
-        </table>
+      <h2>Decide whether the lower payment justifies the longer term</h2>
+      <p>The comparison keeps the ${formatCurrency(50000, 0)} principal and selected 8% note rate constant. Extending the term lowers the required monthly payment but adds interest-bearing months; shortening it does the reverse.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">
+        ${loanTable(50000, [8], [5, 7, 10])}
       </div>
+      <p>The five-year option totals <strong>${loanValue(50000, 8, 5, 'totalPaid')}</strong> in scheduled payments, compared with <strong>${loanValue(50000, 8, 7, 'totalPaid')}</strong> over seven years and <strong>${loanValue(50000, 8, 10, 'totalPaid')}</strong> over ten years. The table isolates term cost; it does not say which payment leaves enough room in your budget.</p>
 
-      <p>At 8% over 7 years, the monthly payment is $780 and total interest is $15,520. Choosing the 5-year term raises the payment by $234 per month but saves $4,680 in total interest. At $50,000, the difference between terms is large enough that borrowers with capacity to pay more should seriously consider the shorter option. Use our <a href="/total-interest-calculator">total interest calculator</a> to see what additional monthly payments save you.</p>
+      <h2>The selected note interest rate is not an APR</h2>
+      <p>The 8% input is a nominal annual note interest rate used to amortize the stated principal. It is not an APR because origination charges and other fees are not modeled. A written offer can have the same note rate but a different cash cost or APR when fees differ. Compare the disclosed payment schedule, itemized fees, amount received, and total repayment.</p>
 
-      <h2>How Your Rate Affects the Cost of a $50,000 Loan</h2>
-      <p>At this loan size, every percentage point of APR has a significant dollar impact. Here is the full range across a 7-year term:</p>
-
-      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">APR</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6%</td><td class="py-3 px-4 text-sm">$730</td><td class="py-3 px-4 text-sm">$11,320</td><td class="py-3 px-4 text-sm">$61,320</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">8%</td><td class="py-3 px-4 text-sm">$780</td><td class="py-3 px-4 text-sm">$15,520</td><td class="py-3 px-4 text-sm">$65,520</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">$830</td><td class="py-3 px-4 text-sm">$19,720</td><td class="py-3 px-4 text-sm">$69,720</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">12%</td><td class="py-3 px-4 text-sm">$883</td><td class="py-3 px-4 text-sm">$24,172</td><td class="py-3 px-4 text-sm">$74,172</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15%</td><td class="py-3 px-4 text-sm">$965</td><td class="py-3 px-4 text-sm">$31,060</td><td class="py-3 px-4 text-sm">$81,060</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">$1,110</td><td class="py-3 px-4 text-sm">$43,240</td><td class="py-3 px-4 text-sm">$93,240</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">25%</td><td class="py-3 px-4 text-sm">$1,275</td><td class="py-3 px-4 text-sm">$57,100</td><td class="py-3 px-4 text-sm">$107,100</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>Moving the selected APR input from 10% to 20% on a $50,000 loan over 7 years adds $23,520 in total interest. The table shows rate sensitivity without associating either rate with a credit-score threshold.</p>
-
-      <h2>Inputs to Compare in Written Loan Offers</h2>
-      <p>Compare the quoted interest rate, APR, itemized fees, term, payment schedule, and total repayment. This page does not associate its example rate with a credit score, income, employment history, debt ratio, approval threshold, or available offer; lender criteria vary.</p>
-
-      <h2>$50,000 Personal Loan vs. HELOC: When Each Makes Sense</h2>
-      <p>For comparison, a $50,000 HELOC at a 7% example rate over 7 years costs roughly $755 per month and $13,420 in total interest, while an 8% example personal-loan rate produces a different cost. These rates are assumptions rather than offers. HELOC pricing can vary, the debt is secured by the home, and fees and terms depend on the lender. For adjacent sizes, see <a href="/calculator/30k-loan-monthly-payment-9-percent">$30,000 at 9%</a> and <a href="/calculator/25k-personal-loan-repayment-8-percent">$25,000 at 8%</a>.</p>
-
-      <p>Enter your offer into the <a href="/loan-calculator">loan calculator</a> to verify, or find your exact lifetime cost with the <a href="/total-interest-calculator">total interest calculator</a>.</p>
-
-      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
-        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
-          <h3 class="text-xl font-bold mb-4">Calculate Your Loan</h3>
-          <p class="mb-6 opacity-90 text-sm">Enter your rate, term, and amount.</p>
-          <a href="/loan-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
-        </div>
-        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
-          <h3 class="text-xl font-bold mb-4">See Total Interest</h3>
-          <p class="mb-6 opacity-70 text-sm">Find your exact lifetime interest cost.</p>
-          <a href="/total-interest-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Tool →</a>
-        </div>
-      </div>
+      <h2>What the calculation includes and excludes</h2>
+      <p>Included: the ${formatCurrency(50000, 0)} principal, selected 8% annual note rate, selected term, and equal end-of-month payments. Excluded: origination charges, application costs, optional insurance or add-ons, prepayment charges, late fees, and taxes. If a fee is added to the balance, include it in the principal before comparing results.</p>
+      <p>For a term-versus-interest decision on a smaller balance, see the <a href="/calculator/30k-loan-monthly-payment-9-percent">$30,000 loan term comparison</a>. Use the <a href="/loan-calculator">full loan calculator</a> to enter a written offer.</p>
     `,
     customFaqs: [
       {
-        question: "What is the monthly payment on a $50,000 loan at 8%?",
-        answer: "On a 7-year term, the monthly payment is $780. Over 5 years it rises to $1,014 per month, but you save $4,680 in total interest."
+        question: 'What is the payment on a $50,000 loan at 8% over seven years?',
+        answer: `The estimated payment is ${loanValue(50000, 8, 7, 'monthly')} per month across 84 scheduled payments.`,
       },
       {
-        question: "How much total interest do I pay on a $50,000 personal loan at 8%?",
-        answer: "Over a 7-year term, total interest is $15,520. Choosing a 5-year term reduces that to $10,840 — saving $4,680 in exchange for $234 more per month."
+        question: 'What is the total scheduled cost?',
+        answer: `Total scheduled payments are ${loanValue(50000, 8, 7, 'totalPaid')}, including ${loanValue(50000, 8, 7, 'totalInterest')} of interest, before fees.`,
       },
       {
-        question: "Should I use a $50,000 personal loan or a HELOC?",
-        answer: "A HELOC at 7% over 7 years saves roughly $2,100 in interest compared to a personal loan at 8%, but it requires home equity, an appraisal, weeks to close, and ties the debt to your home with a variable rate. The personal loan wins on speed, certainty, and no collateral risk."
+        question: 'How does a five-year term change the result?',
+        answer: `At the same selected note rate, the five-year payment is ${loanValue(50000, 8, 5, 'monthly')} and total scheduled payments are ${loanValue(50000, 8, 5, 'totalPaid')}.`,
       },
       {
-        question: "What credit score and income do I need for a $50,000 personal loan at 8%?",
-        answer: "The 8% rate is an editable scenario assumption, not an approval prediction. Credit, income, debt, maximum loan size, fees, and pricing criteria vary by lender."
-      }
-    ]
+        question: 'Does the page calculate APR?',
+        answer: 'No. The selected rate is a nominal annual note interest rate. Fees are excluded, so an APR is not calculated.',
+      },
+    ],
   },
-
-  // Affordability
   { 
     slug: 'how-much-house-can-i-afford-100k-salary', 
     type: 'affordability', 
@@ -2049,127 +1890,60 @@ export const pseoData: PSEOParams[] = [
     term: 30,
     currency: 'USD',
     salary: 80000,
-    customTitle: "How Much House Can I Afford on an $80,000 Salary in 2026?",
-    customDescription: "How much house can you afford on an $80,000 salary in 2026? Get your max home price, monthly PITI breakdown, debt tables, and down payment analysis.",
-    customH1: "How Much House Can I Afford on an $80,000 Salary in 2026?",
-    customIntro: "This illustrative U.S. planning scenario applies a 28% housing-cost assumption to an $80,000 salary, producing a $1,867 monthly budget and an estimated $221,000 loan before other debts. It compares editable debt, down-payment, rate, tax, insurance, and mortgage-insurance inputs. The result is not a pre-approval or lender estimate. Use the <a href='/affordability-calculator'>affordability calculator</a> above to change the assumptions.",
+    showPrefilledCalculator: true,
+    affordabilityInputs: {
+      monthlyIncome: affordability80kBase.monthlyIncome,
+      monthlyDebts: affordability80kBase.monthlyDebts,
+      downPayment: affordability80kBase.downPayment,
+      monthlyPropertyTax: affordability80kBase.monthlyPropertyTax,
+      monthlyInsurance: affordability80kBase.monthlyInsurance,
+    },
+    customTitle: '$80,000 Salary Home Budget: Editable Assumptions',
+    customDescription: 'See what an $80,000 salary permits under displayed planning assumptions, then test debt, down payment, rate, property tax, and insurance sensitivity.',
+    customH1: 'How Much House Can an $80,000 Salary Support in This Example?',
+    customIntro: 'This U.S.-dollar planning example converts an $80,000 annual gross income to monthly income and applies displayed 28% housing and 36% total-debt ratios. It starts with no other monthly debt, a $25,000 down payment, a selected 6.8% annual interest rate, a 30-year term, $225 monthly property tax, and $100 monthly property insurance. Maintenance, association fees, closing costs, and loan-specific mortgage insurance are excluded.',
+    scenarioQuestion: 'What does this $80,000 salary example actually permit?',
+    directAnswer: `Under the selected assumptions, the calculator estimates a ${affordabilityValue(affordability80kBase, 'maxPrice')} home price made up of a ${affordabilityValue(affordability80kBase, 'loanAmount')} loan principal and the selected down payment. The principal-and-interest allowance is ${affordabilityValue(affordability80kBase, 'monthlyPayment')} after the entered property tax and insurance are deducted from the example housing budget.`,
+    calculatorDescription: 'Change income, debt, down payment, annual rate, term, monthly property tax, or monthly insurance. The displayed ratios are planning inputs, not underwriting criteria.',
     customContent: `
-      <h2>How Much House Can You Afford on $80k? The Core Numbers</h2>
-      <p>At $80,000, the selected 28% and 36% planning assumptions produce loan estimates that differ by nearly $65,000. Neither ratio is a lender maximum. Here is the base case at the 6.8% example rate:</p>
+      <h2>The result follows the displayed inputs, not a lender decision</h2>
+      <p>The base case uses ${formatCurrency(affordability80kBase.monthlyIncome, 2)} of monthly gross income, ${formatCurrency(affordability80kBase.monthlyDebts, 0)} of other monthly debt, a ${formatCurrency(affordability80kBase.downPayment, 0)} down payment, a ${affordability80kBase.rate}% selected annual rate, and a ${affordability80kBase.years}-year term. The entered monthly property costs are ${formatCurrency(affordability80kBase.monthlyPropertyTax, 0)} for tax and ${formatCurrency(affordability80kBase.monthlyInsurance, 0)} for insurance.</p>
+      <p>The 28% housing and 36% total-debt ratios are user-selected planning examples. They are not lender limits, and this result does not predict lender approval. Actual underwriting, qualifying income, debts, reserves, property costs, and loan terms vary.</p>
 
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Selected Ratio</th>
-              <th class="py-3 px-4 font-bold text-sm">Max Monthly PITI</th>
-              <th class="py-3 px-4 font-bold text-sm">Taxes + Insurance Est.</th>
-              <th class="py-3 px-4 font-bold text-sm">Max P&amp;I</th>
-              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">28% rule</td><td class="py-3 px-4 text-sm">$1,867</td><td class="py-3 px-4 text-sm">~$425</td><td class="py-3 px-4 text-sm">~$1,442</td><td class="py-3 px-4 text-sm">~$221,000</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">36% rule</td><td class="py-3 px-4 text-sm">$2,400</td><td class="py-3 px-4 text-sm">~$540</td><td class="py-3 px-4 text-sm">~$1,860</td><td class="py-3 px-4 text-sm">~$286,000</td></tr>
-          </tbody>
-        </table>
+      <h2>How debt, down payment, rate, tax, and insurance change the estimate</h2>
+      <p>Each row changes one displayed assumption while holding the others at the base values. The estimates are recalculated with the same affordability and amortization functions as the editable form.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">
+        ${affordabilityTable(affordability80kSensitivity)}
       </div>
-
-      <p>The selected 28% housing-cost and 36% total-debt assumptions produce a $65,000 gap in estimated loan amount when no other monthly debt is entered. They are planning comparisons rather than CFPB or lender limits. See our <a href="/blog/28-36-rule-explained">28/36 rule guide</a> for the math and limitations.</p>
-
-      <h2>How Existing Debts Reduce Your Buying Power</h2>
-      <p>At $80,000 income, moderate debts are manageable but still cost tens of thousands in buying power. Here is the impact:</p>
-
-      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Monthly Debt Load</th>
-              <th class="py-3 px-4 font-bold text-sm">Max Housing Budget</th>
-              <th class="py-3 px-4 font-bold text-sm">Max Loan Amount</th>
-              <th class="py-3 px-4 font-bold text-sm">Home Price (10% down)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">$0 (debt free)</td><td class="py-3 px-4 text-sm">$1,867</td><td class="py-3 px-4 text-sm">~$221,000</td><td class="py-3 px-4 text-sm">~$245,000</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$300 (one car)</td><td class="py-3 px-4 text-sm">$1,567</td><td class="py-3 px-4 text-sm">~$183,000</td><td class="py-3 px-4 text-sm">~$205,000</td></tr>
-            <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 text-sm">$600 (car + student)</td><td class="py-3 px-4 text-sm">$1,267</td><td class="py-3 px-4 text-sm">~$145,000</td><td class="py-3 px-4 text-sm">~$160,000</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">$900 (multiple debts)</td><td class="py-3 px-4 text-sm">$967</td><td class="py-3 px-4 text-sm">~$108,000</td><td class="py-3 px-4 text-sm">~$120,000</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>Carrying $600 in monthly debts drops your maximum loan from $221,000 to $145,000 — a $76,000 reduction in buying power. At $900/month in debts, your loan barely reaches $108,000. Use our <a href="/loan-calculator">loan calculator</a> to evaluate payoff scenarios before applying for a mortgage. Compare to a <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at 3.5%</a> to understand the monthly commitment at your target loan size.</p>
-
-      <h2>How Your Down Payment Changes the Picture</h2>
-      <p>For the $221,000 loan scenario, higher down-payment inputs produce different modeled home prices and mortgage-insurance inputs:</p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Down Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Cash Needed</th>
-              <th class="py-3 px-4 font-bold text-sm">Home Price</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly PITI</th>
-              <th class="py-3 px-4 font-bold text-sm">PMI</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3%</td><td class="py-3 px-4 text-sm">~$6,840</td><td class="py-3 px-4 text-sm">~$228,000</td><td class="py-3 px-4 text-sm">~$1,852</td><td class="py-3 px-4 text-sm">~$92/mo</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5%</td><td class="py-3 px-4 text-sm">~$11,650</td><td class="py-3 px-4 text-sm">~$233,000</td><td class="py-3 px-4 text-sm">~$1,856</td><td class="py-3 px-4 text-sm">~$92/mo</td></tr>
-            <tr class="border-b border-outline-variant/30 bg-primary/5 font-bold"><td class="py-3 px-4 text-sm">10%</td><td class="py-3 px-4 text-sm">~$24,600</td><td class="py-3 px-4 text-sm">~$246,000</td><td class="py-3 px-4 text-sm">~$1,868</td><td class="py-3 px-4 text-sm">~$92/mo</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">20%</td><td class="py-3 px-4 text-sm">~$55,200</td><td class="py-3 px-4 text-sm">~$276,000</td><td class="py-3 px-4 text-sm">~$1,804</td><td class="py-3 px-4 text-sm">$0</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>In this table, changing the down-payment input from 3% to 20% changes the modeled home price from $228,000 to $276,000 and sets the $92 monthly mortgage-insurance assumption to $0. Actual minimum down payments and insurance terms vary. See the <a href="/blog/down-payment-guide">down-payment guide</a> and the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at a 6% example rate</a>.</p>
-
-      <h2>Your Full Monthly Budget on an $80,000 Salary</h2>
-      <p>What does a $245,000 home actually cost per month on an $80,000 salary at 6.8%?</p>
       <ul>
-        <li><strong>Principal and Interest ($221,000 loan):</strong> $1,441</li>
-        <li><strong>Property Tax (1.1%/yr on $245k):</strong> $225</li>
-        <li><strong>Homeowners Insurance:</strong> $110</li>
-        <li><strong>PMI (~0.5%/yr):</strong> $92</li>
-        <li><strong>Total Housing Cost:</strong> $1,868</li>
-        <li><strong>As % of $80k Gross Income:</strong> 28.0%</li>
+        <li>Adding the selected monthly debt changes the estimated home price to <strong>${affordabilityValue(affordability80kSensitivity[1], 'maxPrice')}</strong>.</li>
+        <li>Raising only the down payment changes the estimated home price to <strong>${affordabilityValue(affordability80kSensitivity[2], 'maxPrice')}</strong>; it does not create more modeled loan capacity.</li>
+        <li>Raising only the selected rate changes the estimate to <strong>${affordabilityValue(affordability80kSensitivity[3], 'maxPrice')}</strong> because the same payment supports less principal.</li>
+        <li>Increasing only the property-tax input changes the estimate to <strong>${affordabilityValue(affordability80kSensitivity[4], 'maxPrice')}</strong>.</li>
+        <li>Increasing only the property-insurance input changes the estimate to <strong>${affordabilityValue(affordability80kSensitivity[5], 'maxPrice')}</strong>.</li>
       </ul>
-      <p>This result matches the selected 28% planning ratio. Compare the modeled price with current listings and documented local costs for the area you are considering. You can also compare the result with the <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary scenario</a>.</p>
 
-      <h2>Get Your Personalised Home Budget</h2>
-      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your exact income, debts, and down payment. Also read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> and the <a href="/blog/mortgage-payment-guide">mortgage payment guide</a> for all the variables lenders review.</p>
-
-      <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
-        <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
-          <h3 class="text-xl font-bold mb-4">Affordability Calculator</h3>
-          <p class="mb-6 opacity-90 text-sm">Model a planning range.</p>
-          <a href="/affordability-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Calculate Now →</a>
-        </div>
-        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant shadow-sm">
-          <h3 class="text-xl font-bold mb-4">Mortgage Calculator</h3>
-          <p class="mb-6 opacity-70 text-sm">Model your monthly PITI.</p>
-          <a href="/mortgage-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Go to Calculator →</a>
-        </div>
-      </div>
+      <h2>Use the estimate as a budget test</h2>
+      <p>Replace every example input with documented figures for the property and financing you are considering. Keep maintenance, association fees, utilities, closing cash, and reserves outside the modeled ceiling unless you deliberately budget for them. Compare the result with the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage amortization example</a> or start from the <a href="/affordability-calculator">full affordability calculator</a>.</p>
     `,
     customFaqs: [
       {
-        question: "How much house can I afford on an $80,000 salary?",
-        answer: "With no existing debts, the page's 28% planning assumption and 6.8% example rate produce an estimated $221,000 loan and a $245,000 home at 10% down. This is not an approval or market-availability claim."
+        question: 'What home price does this $80,000 salary example produce?',
+        answer: `The selected inputs produce an estimated home price of ${affordabilityValue(affordability80kBase, 'maxPrice')}, including the selected down payment and an estimated ${affordabilityValue(affordability80kBase, 'loanAmount')} loan principal.`,
       },
       {
-        question: "Can I afford a $300,000 home on an $80,000 salary?",
-        answer: "With the page's 10% down and local-cost assumptions, a $300,000 home produces about $2,260 per month, above the selected 28% planning budget of $1,867. A 36% scenario gives a different result, but neither ratio predicts approval."
+        question: 'Are the 28% and 36% ratios lender rules?',
+        answer: 'No. They are user-selected planning examples used to make the sensitivity calculation transparent. The result is not an approval estimate.',
       },
       {
-        question: "How does student loan debt affect my buying power at $80k?",
-        answer: "A $400/month student loan payment reduces your available housing budget from $1,867 to $1,467, dropping your maximum loan from $221,000 to roughly $170,000 — a $51,000 reduction in buying power that can shift you to a different market tier entirely."
+        question: 'How do property tax and insurance affect the result?',
+        answer: 'The entered monthly tax and insurance consume part of the selected housing budget, leaving less for principal and interest. Both fields are editable.',
       },
       {
-        question: "What is the best down payment strategy on an $80,000 salary?",
-        answer: "The table compares 3%, 10%, and 20% down-payment inputs. In its 20% scenario, the model removes a $92 monthly mortgage-insurance assumption and displays a $276,000 home versus $228,000 at 3% down. Actual terms and the appropriate cash reserve vary."
-      }
-    ]
+        question: 'What costs are excluded?',
+        answer: 'Maintenance, association fees, utilities, closing costs, reserves, and loan-specific mortgage insurance are excluded from the initial example.',
+      },
+    ],
   },
   {
     slug: 'how-much-house-can-i-afford-90k-salary',
@@ -3472,101 +3246,27 @@ export const pseoData: PSEOParams[] = [
     rate: 3.5,
     term: 25,
     currency: 'EUR',
-    customTitle: "€200,000 Mortgage at 3.5%: Monthly Payment, Payments & Rate Guide",
-    customDescription: "€200,000 mortgage at 3.5% over 25 years in. Monthly payment €1,001, income at 33% DTI, rate table, and country notes for Belgium and France.",
-    customH1: "€200,000 Mortgage at 3.5%: Monthly Payments and Affordability for European Buyers",
-    customIntro: "This illustrative scenario models a €200,000 euro-denominated mortgage at a 3.5% example annual interest rate over 25 years. The rate is an editable input rather than a claim about available offers. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly entered.",
+    showPrefilledCalculator: true,
+    customTitle: '€200,000 Mortgage at 3.5%: Term and Total Interest',
+    customDescription: 'A €200,000 loan principal at a 3.5% selected annual rate: exact 25-year payment, editable euro calculator, and term sensitivity.',
+    customH1: '€200,000 Mortgage at 3.5%: How the Term Changes Cost',
+    customIntro: 'This euro-denominated mathematical example starts with a €200,000 property price and no deposit, so the loan principal is €200,000. It applies a selected 3.5% nominal annual interest rate over 25 years. Local taxes, insurance, recurring property charges, transaction costs, maintenance, subsidies, and loan-specific fees are excluded from the headline payment.',
+    scenarioQuestion: 'How much does the term change a €200,000 mortgage?',
+    directAnswer: `At the selected 25-year term, the estimated principal-and-interest payment is ${loanValue(200000, 3.5, 25, 'monthly', 'EUR')} and total scheduled interest is ${loanValue(200000, 3.5, 25, 'totalInterest', 'EUR')}. A shorter term raises the monthly payment but reduces the number of interest-bearing months.`,
+    calculatorDescription: 'The initial property price and loan principal are both €200,000 because the selected deposit is €0. Edit the euro amount, deposit, annual rate, term, and any documented property-cost inputs.',
     customContent: `
-      <h2>Monthly Payment on a €200,000 Mortgage at 3.5%</h2>
-      <p>Term length has a large effect on monthly cash flow and total interest cost. Here is the full breakdown for a €200,000 loan at 3.5% fixed:</p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Term</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">€1,978</td><td class="py-3 px-4 text-sm">€37,360</td><td class="py-3 px-4 text-sm">€237,360</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€1,430</td><td class="py-3 px-4 text-sm">€57,400</td><td class="py-3 px-4 text-sm">€257,400</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€1,160</td><td class="py-3 px-4 text-sm">€78,400</td><td class="py-3 px-4 text-sm">€278,400</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€1,001</td><td class="py-3 px-4 text-sm">€100,300</td><td class="py-3 px-4 text-sm">€300,300</td></tr>
-            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (comparison term)</td><td class="py-3 px-4 text-sm">€898</td><td class="py-3 px-4 text-sm">€123,280</td><td class="py-3 px-4 text-sm">€323,280</td></tr>
-          </tbody>
-        </table>
+      <h2>Compare the monthly payment with the full-term interest cost</h2>
+      <p>The table holds the ${formatCurrency(200000, 0, 'EUR')} principal and selected 3.5% nominal annual rate constant. Every row uses equal end-of-month payments and the same amortization function as the editable calculator.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">
+        ${loanTable(200000, [3.5], [15, 20, 25, 30], 'EUR')}
       </div>
+      <p>The selected 25-year term requires <strong>${loanValue(200000, 3.5, 25, 'monthly', 'EUR')}</strong> per month. The 20-year term raises that payment to <strong>${loanValue(200000, 3.5, 20, 'monthly', 'EUR')}</strong>, while the 30-year comparison lowers it to <strong>${loanValue(200000, 3.5, 30, 'monthly', 'EUR')}</strong>. Use the total-interest column to judge the cost of extending the term rather than choosing on payment alone.</p>
 
-      <p>At 3.5% over 25 years the monthly principal and interest payment is €1,001 — crossing the symbolic four-figure mark. Shortening to 20 years adds €159 per month but saves €21,900 in total interest. The 15-year term costs €429 more per month than 25 years but cuts total interest paid by €42,900. See the <a href="/blog/200k-euro-mortgage">full €200,000 euro mortgage guide</a> for a deeper analysis of term and rate trade-offs for European buyers.</p>
-
-      <h2>Fixed and Variable Rate Scenarios</h2>
-      <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
-
-      <h2>Rate Sensitivity: €200,000 Mortgage at 25 Years</h2>
-      <p>Here is what different rates cost on a €200,000 loan over the selected 25-year term:</p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Rate</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">vs 3.5%</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€897</td><td class="py-3 px-4 text-sm">€69,100</td><td class="py-3 px-4 text-sm">-€104/mo</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€948</td><td class="py-3 px-4 text-sm">€84,400</td><td class="py-3 px-4 text-sm">-€53/mo</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€1,001</td><td class="py-3 px-4 text-sm">€100,300</td><td class="py-3 px-4 text-sm">—</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€1,056</td><td class="py-3 px-4 text-sm">€116,800</td><td class="py-3 px-4 text-sm">+€55/mo</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€1,112</td><td class="py-3 px-4 text-sm">€133,600</td><td class="py-3 px-4 text-sm">+€111/mo</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€1,169</td><td class="py-3 px-4 text-sm">€150,700</td><td class="py-3 px-4 text-sm">+€168/mo</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Illustrative Affordability Check for a €200,000 Mortgage at 3.5%</h2>
-      <p>The table uses a selected 33% payment-to-income assumption for stress testing. It is not a European or lender qualification rule. Approval criteria vary by jurisdiction, lender, loan product, and borrower.</p>
-      <p><em>Local taxes, insurance, transaction costs, and loan-specific charges are editable example inputs and may be excluded. Replace them with documented local figures before using the estimate.</em></p>
-
-      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Scenario</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€1,001</td><td class="py-3 px-4 text-sm">~€36,400</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Payment plus example local costs</td><td class="py-3 px-4 text-sm">€1,122</td><td class="py-3 px-4 text-sm">~€40,800</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €300 other debts</td><td class="py-3 px-4 text-sm">€1,422</td><td class="py-3 px-4 text-sm">~€51,700</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Jurisdiction and Cost Scope</h2>
-      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. It does not estimate local eligibility, taxes, registration or notary fees, insurance, subsidies, or lender rules. Use a written local quote and local cost inputs for a real decision.</p>
-
-      <div class="flex flex-col md:flex-row gap-6 my-12">
-        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
-          <h3 class="text-xl font-bold mb-4">Calculate Your Euro Mortgage</h3>
-          <p class="mb-6 opacity-90 text-sm">Model any rate, term, and deposit for a European property.</p>
-          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Go to Calculator →</a>
-        </div>
-        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
-          <h3 class="text-xl font-bold mb-4">Check Affordability</h3>
-          <p class="mb-6 opacity-70 text-sm">Find the price range that fits your income and savings.</p>
-          <a href="/affordability-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Check Affordability →</a>
-        </div>
-      </div>
+      <h2>What is included and what remains local</h2>
+      <p>The calculation includes only the stated euro loan principal, selected annual rate, selected term, and scheduled principal-and-interest payments. It excludes local taxes, insurance, recurring property charges, registration or notary costs, maintenance, valuation costs, subsidies, and lender fees.</p>
+      <p>This is not guidance for a single country or lending jurisdiction. Replace the assumptions with a written local offer and documented property costs. For a larger principal with a deposit comparison, see the <a href="/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur">€300,000 mortgage scenario</a>; for a smaller amount, see the <a href="/eur/calculator/150k-mortgage-monthly-payment-3-5-percent-eur">€150,000 scenario</a>.</p>
     `,
-    customFaqs: euroScenarioFaqs(200000)
+    customFaqs: euroScenarioFaqs(200000),
   },
 
   {
@@ -3681,101 +3381,27 @@ export const pseoData: PSEOParams[] = [
     rate: 3.5,
     term: 25,
     currency: 'EUR',
-    customTitle: "€300,000 Mortgage at 3.5%: Monthly Payment & Income Guide",
-    customDescription: "€300,000 mortgage at 3.5% over 25 years in: exact monthly payment, full rate table, illustrative affordability check, and country notes for buyers.",
-    customH1: "€300,000 Mortgage at 3.5%: What European Buyers Pay Each Month",
-    customIntro: "This illustrative scenario models a €300,000 euro-denominated mortgage at a 3.5% example annual interest rate over 25 years. The rate is an editable input rather than a claim about available offers. Taxes, insurance, transaction costs, eligibility, and lender rules are excluded unless explicitly entered.",
+    showPrefilledCalculator: true,
+    customTitle: '€300,000 Mortgage at 3.5%: Deposit and Loan Amount',
+    customDescription: 'See how selected deposit assumptions change the loan principal, monthly payment, and total interest for a €300,000 property at 3.5% over 25 years.',
+    customH1: '€300,000 Mortgage at 3.5%: Deposit Versus Loan Principal',
+    customIntro: 'This euro-denominated mathematical example starts with a €300,000 property price and no deposit, so the initial loan principal is €300,000. It applies a selected 3.5% nominal annual interest rate over 25 years. Local taxes, insurance, recurring property charges, transaction costs, maintenance, subsidies, and lender fees are excluded from the headline payment.',
+    scenarioQuestion: 'How does a down payment change a €300,000 mortgage?',
+    directAnswer: `With no deposit, the selected property price and loan principal are both ${formatCurrency(300000, 0, 'EUR')}, producing an estimated principal-and-interest payment of ${loanValue(300000, 3.5, 25, 'monthly', 'EUR')}. A deposit reduces the amount financed; it is separate upfront cash rather than an extra loan payment.`,
+    calculatorDescription: 'The initial property price and loan principal are both €300,000 because the selected deposit is €0. Edit the deposit to see the financed principal and monthly result update together.',
     customContent: `
-      <h2>Monthly Payment on a €300,000 Mortgage at 3.5%</h2>
-      <p>At this loan size, term length has a real effect on monthly cash flow and lifetime cost. Here is the breakdown for a €300,000 loan at a 3.5% fixed rate across every common term:</p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Term</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Paid</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">10 years</td><td class="py-3 px-4 text-sm">€2,967</td><td class="py-3 px-4 text-sm">€56,040</td><td class="py-3 px-4 text-sm">€356,040</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">15 years</td><td class="py-3 px-4 text-sm">€2,145</td><td class="py-3 px-4 text-sm">€86,100</td><td class="py-3 px-4 text-sm">€386,100</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">20 years</td><td class="py-3 px-4 text-sm">€1,740</td><td class="py-3 px-4 text-sm">€117,600</td><td class="py-3 px-4 text-sm">€417,600</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">25 years</td><td class="py-3 px-4 text-sm">€1,502</td><td class="py-3 px-4 text-sm">€150,600</td><td class="py-3 px-4 text-sm">€450,600</td></tr>
-            <tr class="border-b border-outline-variant/30 text-sm text-on-surface/60"><td class="py-3 px-4 text-sm">30 years (comparison term)</td><td class="py-3 px-4 text-sm">€1,347</td><td class="py-3 px-4 text-sm">€184,920</td><td class="py-3 px-4 text-sm">€484,920</td></tr>
-          </tbody>
-        </table>
+      <h2>Compare deposit cash with the resulting loan principal</h2>
+      <p>The table holds the ${formatCurrency(300000, 0, 'EUR')} property price, selected 3.5% nominal annual rate, and 25-year term constant. It changes only the selected deposit percentage, then recalculates the principal, monthly payment, and total interest with the shared finance functions.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant/30 rounded-2xl">
+        ${downPaymentTable(300000, [0, 10, 20], 3.5, 25, 'EUR')}
       </div>
+      <p>A 10% selected deposit produces a <strong>${formatCurrency(270000, 2, 'EUR')}</strong> loan principal and a <strong>${loanValue(270000, 3.5, 25, 'monthly', 'EUR')}</strong> monthly payment. A 20% selected deposit produces a <strong>${formatCurrency(240000, 2, 'EUR')}</strong> principal and a <strong>${loanValue(240000, 3.5, 25, 'monthly', 'EUR')}</strong> payment. The lower payments must be weighed against the larger upfront cash contribution.</p>
 
-      <p>At 3.5% over 25 years the monthly principal and interest payment is €1,502. Shortening to 20 years adds €238 per month but saves €33,000 in total interest — worth considering if your income has room. Stretching to 30 years lowers the payment by €155 but adds €34,320 in interest over the life of the loan. For a closer look at this exact loan size, see our <a href="/blog/300k-euro-mortgage">€300,000 euro mortgage guide</a>, or <a href="/calculator/400k-mortgage-monthly-payment-4-percent">compare to a $400k USD mortgage</a> for a transatlantic perspective.</p>
-
-      <h2>Fixed and Variable Rate Scenarios</h2>
-      <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
-
-      <h2>Rate Sensitivity: €300,000 Mortgage at 25 Years</h2>
-      <p>Here is what different rates cost on a €300,000 loan over the selected 25-year term:</p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Rate</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Payment</th>
-              <th class="py-3 px-4 font-bold text-sm">Total Interest</th>
-              <th class="py-3 px-4 font-bold text-sm">vs 3.5%</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€1,346</td><td class="py-3 px-4 text-sm">€103,800</td><td class="py-3 px-4 text-sm">-€156/mo</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€1,423</td><td class="py-3 px-4 text-sm">€126,900</td><td class="py-3 px-4 text-sm">-€79/mo</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€1,502</td><td class="py-3 px-4 text-sm">€150,600</td><td class="py-3 px-4 text-sm">—</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€1,584</td><td class="py-3 px-4 text-sm">€175,200</td><td class="py-3 px-4 text-sm">+€82/mo</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€1,667</td><td class="py-3 px-4 text-sm">€200,100</td><td class="py-3 px-4 text-sm">+€165/mo</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€1,754</td><td class="py-3 px-4 text-sm">€226,200</td><td class="py-3 px-4 text-sm">+€252/mo</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Illustrative Affordability Check for a €300,000 Mortgage at 3.5%</h2>
-      <p>The table uses a selected 33% payment-to-income assumption for stress testing. It is not a European or lender qualification rule. Approval criteria vary by jurisdiction, lender, loan product, and borrower.</p>
-      <p><em>Local taxes, insurance, transaction costs, and loan-specific charges are editable example inputs and may be excluded. Replace them with documented local figures before using the estimate.</em></p>
-
-      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-surface-container-low border-b border-outline-variant">
-              <th class="py-3 px-4 font-bold text-sm">Scenario</th>
-              <th class="py-3 px-4 font-bold text-sm">Monthly Cost</th>
-              <th class="py-3 px-4 font-bold text-sm">Illustrative Annual Income</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">P&I only</td><td class="py-3 px-4 text-sm">€1,502</td><td class="py-3 px-4 text-sm">~€54,600</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold bg-primary/5"><td class="py-3 px-4 text-sm">Payment plus example local costs</td><td class="py-3 px-4 text-sm">€1,685</td><td class="py-3 px-4 text-sm">~€61,300</td></tr>
-            <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">With €400 other debts</td><td class="py-3 px-4 text-sm">€2,085</td><td class="py-3 px-4 text-sm">~€75,800</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Jurisdiction and Cost Scope</h2>
-      <p>This euro-denominated page is a mathematical scenario rather than country-specific mortgage guidance. It does not estimate local eligibility, taxes, registration or notary fees, insurance, subsidies, or lender rules. Use a written local quote and local cost inputs for a real decision.</p>
-
-      <div class="flex flex-col md:flex-row gap-6 my-12">
-        <div class="flex-1 bg-primary p-8 rounded-3xl text-white text-center shadow-xl">
-          <h3 class="text-xl font-bold mb-4">Calculate Your Euro Mortgage</h3>
-          <p class="mb-6 opacity-90 text-sm">Model any rate, term, and deposit for a European property.</p>
-          <a href="/mortgage-calculator" class="bg-white text-primary px-8 py-3 rounded-full inline-block font-bold no-underline hover:scale-105 transition-transform">Go to Calculator →</a>
-        </div>
-        <div class="flex-1 bg-surface-container p-8 rounded-3xl border border-outline-variant text-center shadow-sm">
-          <h3 class="text-xl font-bold mb-4">Check Affordability</h3>
-          <p class="mb-6 opacity-70 text-sm">Find the price range that fits your income and savings.</p>
-          <a href="/affordability-calculator" class="bg-primary text-white px-8 py-3 rounded-full inline-block font-bold no-underline hover:bg-primary/90 transition-all">Check Affordability →</a>
-        </div>
-      </div>
+      <h2>What the deposit comparison does not decide</h2>
+      <p>The table does not model the return or liquidity of cash kept outside the purchase, local deposit requirements, transaction charges, taxes, insurance, maintenance, valuation costs, subsidies, or lender eligibility. It is a mathematical comparison rather than guidance for a particular country or loan product.</p>
+      <p>Replace every assumption with a written local offer and documented costs. For a term-focused comparison, see the <a href="/eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur">€200,000 mortgage scenario</a>; for another principal comparison, see the <a href="/eur/calculator/350k-mortgage-monthly-payment-3-5-percent-eur">€350,000 scenario</a>.</p>
     `,
-    customFaqs: euroScenarioFaqs(300000)
+    customFaqs: euroScenarioFaqs(300000),
   },
 
   {
@@ -4003,9 +3629,8 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
   const amount = convertCurrency(params.amount, params.currency, currency);
   const salary = params.salary ? convertCurrency(params.salary, params.currency, currency) : undefined;
   
-  const symbol = currency === 'USD' ? '$' : '€';
-  const formattedAmount = `${symbol}${Math.round(amount).toLocaleString()}`;
-  const formattedSalary = salary ? `${symbol}${Math.round(salary).toLocaleString()}` : '';
+  const formattedAmount = formatCurrency(amount, 0, currency);
+  const formattedSalary = salary ? formatCurrency(salary, 0, currency) : '';
 
   const hash = getSimpleHash(params.slug);
   const variantIdx = hash % 3;
@@ -4096,8 +3721,8 @@ export function getPSEOContent(params: PSEOParams, targetCurrency?: 'USD' | 'EUR
       const pSalary = p.salary ? convertCurrency(p.salary, p.currency, currency) : undefined;
       return {
         title: p.type === 'affordability' 
-          ? `${symbol}${Math.round(pSalary || 0).toLocaleString()} Salary Affordability`
-          : `${symbol}${Math.round(pAmount).toLocaleString()} ${p.type === 'mortgage' ? 'Mortgage' : 'Loan'}`,
+          ? `${formatCurrency(pSalary || 0, 0, currency)} Salary Affordability`
+          : `${formatCurrency(pAmount, 0, currency)} ${p.type === 'mortgage' ? 'Mortgage' : 'Loan'}`,
         href: canonicalScenarioPath(p)
       };
     });

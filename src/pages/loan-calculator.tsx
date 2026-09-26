@@ -9,6 +9,7 @@ import { formatCurrency, calculateLoan, convertCurrency, validateLoan } from "@/
 import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 import { ArrowLeftRight, BarChart3, TrendingDown } from "lucide-react";
 import { useDisplayCurrency } from "@/lib/currency";
+import Link from "next/link";
 
 export default function LoanCalculator() {
   const { currency } = useDisplayCurrency();
@@ -161,6 +162,21 @@ export default function LoanCalculator() {
           </div>
         </CalculatorResultsArea>
       </CalculatorContainer>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-16">
+        <div className="rounded-3xl border border-outline-variant/20 bg-surface-container-low p-8">
+          <h2 className="text-2xl font-manrope font-bold text-primary mb-3">Worked loan decisions</h2>
+          <p className="text-on-surface-variant mb-5">Compare payment, term, and total scheduled cost using editable note-rate assumptions.</p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/30k-loan-monthly-payment-9-percent">
+              $30,000 loan: three years versus five
+            </Link>
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/50k-loan-monthly-payment-8-percent">
+              $50,000 loan: payment and total cost
+            </Link>
+          </div>
+        </div>
+      </section>
 
 
       <CalculationGuide tool="loan" currency={currency} />

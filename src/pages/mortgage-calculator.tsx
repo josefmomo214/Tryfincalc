@@ -77,14 +77,20 @@ export default function MortgageCalculator() {
           <section className="mt-16 rounded-3xl border border-outline-variant/20 bg-surface-container-low p-8">
             <h2 className="text-2xl font-manrope font-bold text-primary mb-3">Worked mortgage scenarios</h2>
             <p className="text-on-surface-variant mb-5">
-              Compare two fixed-rate examples with full-term interest and editable assumptions.
+              Compare principal, term, and deposit decisions using fixed mathematical assumptions in the matching currency.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
               <Link className="font-semibold text-primary hover:underline" href="/calculator/400k-mortgage-monthly-payment-6-5-percent">
                 $400,000 mortgage at 6.5%
               </Link>
               <Link className="font-semibold text-primary hover:underline" href="/calculator/300k-mortgage-monthly-payment-6-percent">
                 $300,000 mortgage at 6%
+              </Link>
+              <Link className="font-semibold text-primary hover:underline" href="/eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur">
+                €200,000 mortgage term comparison
+              </Link>
+              <Link className="font-semibold text-primary hover:underline" href="/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur">
+                €300,000 mortgage deposit comparison
               </Link>
             </div>
           </section>

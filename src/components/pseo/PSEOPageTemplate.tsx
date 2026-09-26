@@ -9,6 +9,7 @@ import { ArrowRight, ChevronRight, Calculator, Info, Lightbulb, PieChart, Trendi
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
 import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
+import { PSEOScenarioCalculator } from "@/components/pseo/PSEOScenarioCalculator";
 import { absoluteUrl, canonicalScenarioPath } from "@/lib/route-registry";
 
 interface PSEOPageTemplateProps {
@@ -23,15 +24,27 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
   // Base Calculation
   let monthlyPayment = 0;
   let totalCost = 0;
+  let headlineResult = 0;
 
   if (params.type !== 'affordability') {
     const loan = calculateLoan(params.amount, params.rate, params.term);
     monthlyPayment = loan.monthly;
     totalCost = loan.totalPaid;
+    headlineResult = loan.monthly;
   } else {
-    const budget = calculateAffordability((params.salary || 0) / 12, 0, 0, params.rate, params.term, currency);
+    const assumptions = params.affordabilityInputs;
+    const budget = calculateAffordability(
+      assumptions?.monthlyIncome ?? (params.salary || 0) / 12,
+      assumptions?.monthlyDebts ?? 0,
+      assumptions?.downPayment ?? 0,
+      params.rate,
+      params.term,
+      currency,
+      assumptions ? assumptions.monthlyPropertyTax + assumptions.monthlyInsurance : 0,
+    );
     monthlyPayment = budget.monthlyPayment;
     totalCost = budget.loanAmount;
+    headlineResult = assumptions ? budget.maxPrice : budget.monthlyPayment;
   }
 
   // Comparison Scenarios (Dynamic table Data)
@@ -78,6 +91,14 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
             <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed font-medium opacity-90">
               {content.intro}
             </p>
+            {params.scenarioQuestion && (
+              <div className="mt-10 rounded-2xl border border-primary/10 bg-surface-container-low p-6 md:p-8">
+                <h2 data-scenario-question="true" className="text-2xl md:text-3xl font-display font-bold text-primary mb-3">
+                  {params.scenarioQuestion}
+                </h2>
+                {params.directAnswer && <p className="text-lg text-on-surface-variant leading-relaxed">{params.directAnswer}</p>}
+              </div>
+            )}
           </div>
         </header>
 
@@ -88,22 +109,32 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
               <div className="space-y-4">
                  <span className="text-xs font-bold text-primary uppercase tracking-widest">Calculated Result</span>
                  <h2 className="text-5xl md:text-6xl font-display font-black text-primary" suppressHydrationWarning>
-                   {formatCurrency(monthlyPayment, 2, currency)}
+                   {formatCurrency(headlineResult, params.type === 'affordability' && params.affordabilityInputs ? 0 : 2, currency)}
                  </h2>
                  <p className="text-xl text-on-surface-variant max-w-md">
                    {params.type === 'affordability' 
-                     ? `Maximum recommended monthly housing budget for an income of ${formatCurrency(params.salary || 0, 0, currency)}.`
+                     ? (params.affordabilityInputs
+                       ? `Estimated home price under the user-selected planning assumptions for ${formatCurrency(params.salary || 0, 0, currency)} annual income.`
+                       : `Maximum recommended monthly housing budget for an income of ${formatCurrency(params.salary || 0, 0, currency)}.`)
                      : `${params.type.charAt(0).toUpperCase() + params.type.slice(1)} principal and interest monthly repayment.`}
                  </p>
               </div>
               <div className="w-full md:w-auto flex flex-col gap-4">
-                 <ButtonLink href={`/${params.type}-calculator`} size="xl" className="w-full shadow-lg">Adjust Parameters <ArrowRight className="ml-2 w-5 h-5" /></ButtonLink>
-                 <p className="text-center text-sm text-on-surface-variant/60 italic">Updated as of {new Date().toLocaleDateString()}</p>
+                 <ButtonLink href={params.scenarioQuestion ? '#calculator-top' : `/${params.type}-calculator`} size="xl" className="w-full shadow-lg">Adjust Parameters <ArrowRight className="ml-2 w-5 h-5" /></ButtonLink>
+                 <p className="text-center text-sm text-on-surface-variant/60 italic">
+                   {params.scenarioQuestion ? 'Editable mathematical scenario' : `Updated as of ${new Date().toLocaleDateString()}`}
+                 </p>
               </div>
            </div>
         </section>
 
-        {params.showPrefilledCalculator && params.type === 'mortgage' && (
+        {params.showPrefilledCalculator && params.scenarioQuestion && (
+          <section className="mb-20">
+            <PSEOScenarioCalculator params={params} />
+          </section>
+        )}
+
+        {params.showPrefilledCalculator && !params.scenarioQuestion && params.type === 'mortgage' && (
           <section className="mb-20">
             <MortgageCalculatorWidget
               initialHomePrice={params.amount}

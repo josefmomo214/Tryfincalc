@@ -9,6 +9,7 @@ import { formatCurrency, convertCurrency, validateLoan, calculateAffordability }
 import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 import { Search, PieChart, Wallet } from "lucide-react";
 import { useDisplayCurrency } from "@/lib/currency";
+import Link from "next/link";
 
 export default function AffordabilityCalculator() {
   const { currency } = useDisplayCurrency();
@@ -192,6 +193,16 @@ export default function AffordabilityCalculator() {
           </div>
         </CalculatorResultsArea>
       </CalculatorContainer>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-16">
+        <div className="rounded-3xl border border-outline-variant/20 bg-surface-container-low p-8">
+          <h2 className="text-2xl font-manrope font-bold text-primary mb-3">Worked affordability assumptions</h2>
+          <p className="text-on-surface-variant mb-5">See how debt, down payment, rate, property tax, and insurance change one transparent planning example.</p>
+          <Link className="font-semibold text-primary hover:underline" href="/calculator/how-much-house-can-i-afford-80k-salary">
+            $80,000 salary affordability sensitivity
+          </Link>
+        </div>
+      </section>
 
 
       <CalculationGuide tool="affordability" currency={currency} />
