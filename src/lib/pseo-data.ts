@@ -9,7 +9,11 @@ import {
 } from './content-calculations';
 import { calculateLoan, convertCurrency, formatCurrency } from "./finance";
 import { canonicalScenarioPath } from './route-registry';
-import { getPseoEditorialDecision, getPseoEditorialStatus } from './pseo-publication';
+import {
+  assertPseoPublicationInventory,
+  getPseoEditorialDecision,
+  getPseoEditorialStatus,
+} from './pseo-publication';
 
 export interface PSEOParams {
   slug: string;
@@ -3810,6 +3814,8 @@ export const pseoData: PSEOParams[] = basePseoData.map((scenario) => ({
   ...scenario,
   ...phase4bOverrides[scenario.slug],
 }));
+
+assertPseoPublicationInventory(pseoData);
 
 function getSimpleHash(str: string) {
   let hash = 0;

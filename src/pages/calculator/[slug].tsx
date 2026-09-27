@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { pseoData, PSEOParams } from "@/lib/pseo-data";
 import { PSEOPageTemplate } from "@/components/pseo/PSEOPageTemplate";
+import { getGeneratedPseoScenarios } from "@/lib/pseo-publication";
 
 export default function PSEOPage({ params }: { params: PSEOParams }) {
   return <PSEOPageTemplate params={params} />;
@@ -8,7 +9,7 @@ export default function PSEOPage({ params }: { params: PSEOParams }) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: pseoData
+    paths: getGeneratedPseoScenarios(pseoData)
       .filter((item) => item.currency === 'USD')
       .map((item) => ({ params: { slug: item.slug } })),
     fallback: false,

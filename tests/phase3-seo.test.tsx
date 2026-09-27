@@ -10,6 +10,7 @@ import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtim
 import type { NextRouter } from 'next/router';
 import { articles } from '../src/data/articles';
 import { getPSEOContent, pseoData } from '../src/lib/pseo-data';
+import { getGeneratedPseoScenarios } from '../src/lib/pseo-publication';
 import { calculateLoan } from '../src/lib/finance';
 import { SEOHandler } from '../src/components/seo/SEOHandler';
 import BlogIndex from '../src/pages/blog';
@@ -139,11 +140,11 @@ test('scenario static paths only prerender the currency owned by each route', as
 
   assert.deepEqual(
     slugs(usdResult),
-    pseoData.filter((item) => item.currency === 'USD').map((item) => item.slug),
+    getGeneratedPseoScenarios(pseoData).filter((item) => item.currency === 'USD').map((item) => item.slug),
   );
   assert.deepEqual(
     slugs(eurResult),
-    pseoData.filter((item) => item.currency === 'EUR').map((item) => item.slug),
+    getGeneratedPseoScenarios(pseoData).filter((item) => item.currency === 'EUR').map((item) => item.slug),
   );
 });
 

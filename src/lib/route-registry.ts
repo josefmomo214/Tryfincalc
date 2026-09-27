@@ -34,6 +34,10 @@ export function canonicalScenarioPath(scenario: { slug: string; currency: 'USD' 
     : `/calculator/${scenario.slug}`;
 }
 
+export function canonicalScenarioSlugRegistry(scenarios: readonly { slug: string; currency: 'USD' | 'EUR' }[]) {
+  return new Set(scenarios.map((scenario) => scenario.slug));
+}
+
 export function absoluteUrl(path: string) {
   return new URL(path, `${SITE_URL}/`).toString();
 }

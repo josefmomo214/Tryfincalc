@@ -1,13 +1,14 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { PSEOPageTemplate } from '@/components/pseo/PSEOPageTemplate';
 import { pseoData, type PSEOParams } from '@/lib/pseo-data';
+import { getGeneratedPseoScenarios } from '@/lib/pseo-publication';
 
 export default function EuroScenarioPage({ params }: { params: PSEOParams }) {
   return <PSEOPageTemplate params={params} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: pseoData
+  paths: getGeneratedPseoScenarios(pseoData)
     .filter((item) => item.currency === 'EUR')
     .map((item) => ({ params: { slug: item.slug } })),
   fallback: false,

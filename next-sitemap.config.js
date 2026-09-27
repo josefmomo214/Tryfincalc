@@ -8,7 +8,7 @@ require('tsx/cjs');
 
 const { pseoData } = require('./src/lib/pseo-data.ts');
 const { articles } = require('./src/data/articles.ts');
-const { getPseoEditorialStatus } = require('./src/lib/pseo-publication.ts');
+const { getIndexablePseoScenarios } = require('./src/lib/pseo-publication.ts');
 const {
   SITE_URL,
   CANONICAL_STATIC_ROUTES,
@@ -57,7 +57,7 @@ module.exports = {
     // pSEO calculator pages — one entry per pseoData item, using the
     // /eur/calculator/ prefix for EUR-currency entries exactly as
     // PSEOPageTemplate.tsx does when it builds canonicalUrl.
-    for (const item of pseoData.filter((scenario) => getPseoEditorialStatus(scenario.slug) === 'indexable')) {
+    for (const item of getIndexablePseoScenarios(pseoData)) {
       paths.push({
         loc: canonicalScenarioPath(item),
         ...(item.substantiveModified ? { lastmod: item.substantiveModified } : {}),
