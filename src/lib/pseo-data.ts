@@ -120,6 +120,7 @@ const basePseoData: PSEOParams[] = [
 
       <h2>What the estimate includes and excludes</h2>
       <p>The payment and comparison include only repayment of the stated loan principal and interest under equal end-of-month payments. They exclude property tax, insurance, mortgage insurance, association dues, maintenance, closing costs, discount points, and other lender fees. Add documented costs in the calculator before using the result as a housing budget.</p>
+      <p>When comparing written offers, hold the loan principal, term, lock period, and points constant. The selected 6% note rate drives this amortization result; APR can differ when fees are included.</p>
       <p>Compare this amount with the protected <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5% scenario</a>, or inspect the payment sequence in the <a href="/amortization-schedule">amortization schedule</a>.</p>
     `,
     customFaqs: [
@@ -168,6 +169,7 @@ const basePseoData: PSEOParams[] = [
       </div>
 
       <h2>How to use this estimate</h2>
+      <p>The $400,000 headline amount is the loan principal, not necessarily the property price. A down payment on a higher-priced property can produce the same financed principal, so compare the upfront cash separately from the monthly loan payment.</p>
       <p>Use the prefilled calculator to replace the home price, down payment, rate, term, tax, insurance, and HOA assumptions. Compare the result with the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6% scenario</a>, review the broader <a href="/blog/mortgage-payment-guide">mortgage payment guide</a>, or generate a full <a href="/amortization-schedule">amortization schedule</a>.</p>
     `,
     customFaqs: [
@@ -1417,7 +1419,7 @@ const basePseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>Carrying $900/month in debt reduces your buying power by over $120,000. Use our <a href="/loan-calculator">loan calculator</a> to see how paying off specific debts before applying can unlock significantly more budget. Read more in our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility by income</a> guide.</p>
+      <p>Carrying $900/month in debt reduces your buying power by over $120,000. Use our <a href="/loan-calculator">loan calculator</a> to see how paying off specific debts before applying can unlock significantly more budget. Read more in our <a href="/blog/loan-eligibility-by-income">loan eligibility by income</a> guide.</p>
 
       <h2>How Your Down Payment Changes the Picture</h2>
       <p>Your down payment doesn't just change your loan amount — it also affects your monthly Private Mortgage Insurance (PMI) cost:</p>
@@ -3265,6 +3267,7 @@ const basePseoData: PSEOParams[] = [
 
       <h2>What is included and what remains local</h2>
       <p>The calculation includes only the stated euro loan principal, selected annual rate, selected term, and scheduled principal-and-interest payments. It excludes local taxes, insurance, recurring property charges, registration or notary costs, maintenance, valuation costs, subsidies, and lender fees.</p>
+      <p>The table keeps one annual rate constant for the full modeled term. If a written contract permits later rate changes, test those contract-defined adjustments as separate scenarios rather than treating this fixed-input result as a forecast.</p>
       <p>This is not guidance for a single country or lending jurisdiction. Replace the assumptions with a written local offer and documented property costs. For a larger principal with a deposit comparison, see the <a href="/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur">€300,000 mortgage scenario</a>; for a smaller amount, see the <a href="/eur/calculator/150k-mortgage-monthly-payment-3-5-percent-eur">€150,000 scenario</a>.</p>
     `,
     customFaqs: euroScenarioFaqs(200000),

@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import { pseoData } from "./src/lib/pseo-data";
 import { PSEO_EDITORIAL_DECISIONS } from "./src/lib/pseo-publication";
+import { ARTICLE_REDIRECTS } from "./src/lib/article-publication";
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -26,6 +27,11 @@ const nextConfig: NextConfig = {
     }));
 
     return [
+      ...Object.entries(ARTICLE_REDIRECTS).map(([source, destination]) => ({
+        source,
+        destination,
+        permanent: true,
+      })),
       ...consolidatedScenarioRedirects,
       { source: '/blog/debt-to-income-ratio', destination: '/blog/28-36-rule-explained', permanent: true },
       { source: '/blog/reduce-personal-loan-costs', destination: '/blog/compare-loan-offers', permanent: true },

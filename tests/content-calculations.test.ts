@@ -13,8 +13,8 @@ test('shared content outputs match reference cases',()=>{
 test('corrected article examples use generated cents and do not leak template tokens',()=>{
  const mortgage=articles.find(a=>a.slug==='mortgage-payment-guide')!.content;
  assert.match(mortgage,/\$2,053\.56/);assert.match(mortgage,/\$424,283\.16/);
- const four=articles.find(a=>a.slug==='400k-mortgage-monthly-payment')!;
- assert.match(four.content,/\$510,177\.95/);
- assert.match(JSON.stringify(four.structuredData),/\$2,528\.27/);
+ const four=pseoData.find(a=>a.slug==='400k-mortgage-monthly-payment-6-5-percent')!;
+ assert.match(four.customContent ?? '',/\$510,177\.95/);
+ assert.match(JSON.stringify(four.customFaqs),/\$2,528\.27/);
  for(const record of [...articles,...pseoData]) assert.doesNotMatch(JSON.stringify(record),/\$\{(?:loanValue|loanTable|formatCurrency)/);
 });

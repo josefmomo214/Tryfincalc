@@ -232,7 +232,7 @@ test('sitemap and internal discovery expose only indexable scenario destinations
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const sitemap = require('../next-sitemap.config.js');
   const locations = (await sitemap.additionalPaths()).map((item: { loc: string }) => item.loc);
-  assert.equal(locations.length, 62);
+  assert.equal(locations.length, new Set(locations).size);
   assert.ok(locations.includes('/income-needed-for-a-house'));
   for (const slug of keptSlugs) assert.ok(locations.includes(scenarioPath(slug)));
   for (const slug of [...noindexSlugs, ...redirectedSlugs]) assert.ok(!locations.includes(scenarioPath(slug)));

@@ -1,5 +1,6 @@
-import { loanValue, loanTable } from '@/lib/content-calculations';
-import { calculateLoan, formatCurrency } from '@/lib/finance';
+import { amortizationValue, loanValue, loanTable } from '@/lib/content-calculations';
+import { calculateLoan, formatCurrency, loanFromPayment } from '@/lib/finance';
+import { RETIRED_ARTICLE_SLUGS } from '@/lib/article-publication';
 export interface Article {
   title: string;
   category: string;
@@ -343,7 +344,7 @@ const rawArticles: Omit<Article, "author">[] = [
 
       <h2>The bottom line</h2>
       <p>Preparation means knowing your budget, comparing financing documents, researching local transactions, reviewing inspection findings, and understanding the contract before signing.</p>
-      <p>Use the tools, do the math, and make your decision based on your specific financial reality — not on market headlines or the pressure of a competitive offer. For a shorter, step-focused version of this guide with different real-world examples, see our <a href="/blog/2026-homebuyers-playbook-step-by-step">2026 Homebuyer's Playbook: Step-by-Step</a>.</p>
+      <p>Use the tools, do the math, and make your decision based on your specific financial reality — not on market headlines or the pressure of a competitive offer.</p>
       <p>Start with your numbers: Try the <a href="/mortgage-calculator">TryFinCalc mortgage calculator</a> →</p>
 
       <p class="text-on-surface-variant/60 text-sm italic mt-12 border-t border-outline-variant/30 pt-4">This article is for informational purposes only and does not constitute financial or legal advice. Always consult with a qualified financial advisor or mortgage professional before making major financial decisions.</p>
@@ -366,7 +367,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <ul>
         <li><strong>Principal:</strong> The amount that goes directly toward paying down your original loan balance.</li>
         <li><strong>Interest:</strong> The fee charged by the lender for borrowing the money, based on your annual percentage rate (APR).</li>
-        <li><strong>Taxes:</strong> Property taxes charged by your local government, often held in an escrow account by your lender. For international buyers, the math is similar but currency-specific. See our guide on the <a href="/blog/200k-euro-mortgage">200,000 Euro mortgage monthly payment</a> for an example of European lending calculations.</li>
+        <li><strong>Taxes:</strong> Property taxes charged by your local government, often held in an escrow account by your lender. For a euro-denominated mathematical example, see the <a href="/eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur">€200,000 mortgage scenario</a>.</li>
         <li><strong>Insurance:</strong> This can include homeowners insurance and any mortgage-insurance premium shown in the loan quote.</li>
       </ul>
 
@@ -428,7 +429,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li><strong>Buy Points:</strong> Pay upfront to lower your interest rate for the life of the loan.</li>
       </ol>
 
-      <p>Use a written Loan Estimate and rate-lock agreement for a decision. For mathematical comparisons, see our <a href="/blog/400k-mortgage-monthly-payment">$400,000 mortgage payment breakdown</a>, the <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage at a 4% example rate</a>, and the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at a 6% example rate</a>.</p>
+      <p>Use a written Loan Estimate and rate-lock agreement for a decision. For mathematical comparisons, see our <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5%</a> and the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -523,7 +524,7 @@ const rawArticles: Omit<Article, "author">[] = [
         <li><strong>Compare 30-Year vs. 15-Year Terms:</strong> For the same amount and example rate, the 30-year term has a lower payment while the 15-year term has less total interest.</li>
       </ul>
 
-      <p>Finally, evaluate <a href="/blog/rent-vs-buy-2026">whether renting still makes sense</a> in your specific area, as market dynamics vary locally. If you're looking at a standard entry-level home price, see our specific analysis of the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a> requirement. For a personalized estimate, check <a href="/income-needed-for-a-house">what income you need for a $400k house</a> or model your budget <a href="/calculator/how-much-house-can-i-afford-80k-salary">on an $80,000 salary</a>.</p>
+      <p>Finally, evaluate <a href="/blog/rent-vs-buy-2026">whether renting still makes sense</a> in your specific area, as market dynamics vary locally. For a payment example, see the <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5%</a>. For a personalized estimate, check <a href="/income-needed-for-a-house">what income you need for a $400k house</a> or model your budget <a href="/calculator/how-much-house-can-i-afford-80k-salary">on an $80,000 salary</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -831,7 +832,7 @@ const rawArticles: Omit<Article, "author">[] = [
 <p>A loan quote may include mortgage insurance. Enter the quoted premium instead of assuming a generic amount, and review the <a href="https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau's PMI guidance</a> for the cancellation conditions that may apply.</p>
 
 <h2>Is a $100,000 Mortgage Worth It? When It Makes Sense</h2>
-      <p>A $100,000 loan can be modeled for a purchase, refinance, manufactured home, condo, or other eligible property, but availability and terms vary by lender, property, borrower, and jurisdiction. Compare fixed and variable structures in our <a href="/blog/fixed-vs-variable-mortgage">mortgage-rate guide</a>, then compare the payment with the <a href="/blog/200k-mortgage-monthly-payment">$200,000</a> and <a href="/blog/400k-mortgage-monthly-payment">$400,000</a> examples. Run your quoted terms through the <a href="/total-interest-calculator">total interest calculator</a>.</p>
+      <p>A $100,000 loan can be modeled for a purchase, refinance, manufactured home, condo, or other eligible property, but availability and terms vary by lender, property, borrower, and jurisdiction. Compare fixed and variable structures in our <a href="/blog/fixed-vs-variable-mortgage">mortgage-rate guide</a>, then compare the payment with the <a href="/blog/200k-mortgage-monthly-payment">$200,000</a> and <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000</a> examples. Run your quoted terms through the <a href="/total-interest-calculator">total interest calculator</a>.</p>
 
 <h2>Frequently Asked Questions</h2>
 <h3>What is the monthly payment on a $100,000 mortgage?</h3>
@@ -985,7 +986,7 @@ const rawArticles: Omit<Article, "author">[] = [
   </tbody>
 </table>
 
-<p>If you find that $200,000 is slightly above your comfortable limit, check out our <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage payment breakdown</a> for a lower-cost alternative. If you have a larger budget, our <a href="/blog/300k-mortgage-monthly-payment">$300,000 mortgage analysis</a> and <a href="/blog/400k-mortgage-monthly-payment">$400,000 mortgage payment breakdown</a> provide similar depth for larger properties.</p>
+<p>If you find that $200,000 is slightly above your comfortable limit, check out our <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage payment breakdown</a> for a lower-cost alternative. For larger principals, compare the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage at 6%</a> and <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5%</a>.</p>
 
 <h2>Frequently Asked Questions</h2>
 <h3>What is the monthly payment on a $200,000 mortgage?</h3>
@@ -1157,7 +1158,7 @@ const rawArticles: Omit<Article, "author">[] = [
       <p>The 20% down scenario removes the selected $125 monthly mortgage-insurance input and uses $75,000 in cash on a $375,000 home. Compare that with the 10% scenario and your required reserves; actual insurance terms vary. See our <a href="/blog/down-payment-guide">down payment guide</a>.</p>
 
       <h2>$300,000 vs Other Loan Amounts — How It Compares</h2>
-      <p>If you're weighing whether to stretch to a larger loan or scale back, here is a direct comparison at 6.8% over 30 years. This is useful as you consider whether a <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage</a>, a <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage</a>, or a <a href="/blog/400k-mortgage-monthly-payment">$400,000 mortgage</a> might better fit your budget.</p>
+      <p>If you're weighing whether to stretch to a larger loan or scale back, here is a direct comparison at 6.8% over 30 years. This is useful as you consider whether a <a href="/blog/100k-mortgage-monthly-payment">$100,000 mortgage</a>, a <a href="/blog/200k-mortgage-monthly-payment">$200,000 mortgage</a>, or the retained <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage scenario</a> might better fit your budget.</p>
 
       <div class="overflow-x-auto my-6">
         <table class="w-full text-left border-collapse">
@@ -4430,7 +4431,7 @@ const rawArticles: Omit<Article, "author">[] = [
           </tbody>
         </table>
       </div>
-      <p>For a more detailed breakdown beyond these estimates, check out our <a href="/blog/loan-eligibility-by-income-detail">detailed loan eligibility tables</a> or run a personalized calculation with the <a href="/affordability-calculator">affordability calculator</a>. For specific salary breakdowns, try our tools for <a href="/calculator/how-much-house-can-i-afford-80k-salary">affordability on an $80,000 salary</a> or <a href="/income-needed-for-a-house">income required for a $400k house</a>.</p>
+      <p>For a planning explanation, read <a href="/blog/loan-eligibility-by-income">loan eligibility by income</a> or run a personalized calculation with the <a href="/affordability-calculator">affordability calculator</a>. For specific salary breakdowns, try our tools for <a href="/calculator/how-much-house-can-i-afford-80k-salary">affordability on an $80,000 salary</a> or <a href="/income-needed-for-a-house">income required for a $400k house</a>.</p>
 
       <h2>The 28/36 Scenario vs. Actual Underwriting</h2>
       <p>Actual underwriting can use different income definitions, debt treatment, limits, and automated findings depending on the lender and loan program. A lender's approval also does not measure whether the payment fits personal spending, savings, and risk tolerance. Use the 28/36 figures as comparison points and review our <a href="/blog/how-much-house-can-i-afford">home-affordability guide</a> for the other costs to include.</p>
@@ -4613,7 +4614,7 @@ const rawArticles: Omit<Article, "author">[] = [
         </table>
       </div>
 
-      <p>For buyers considering a larger property or those in higher-cost cities who need a <strong>€300,000 euro mortgage</strong>, the monthly jump is approximately €527. You can dive deeper into that specific loan amount in our <a href="/blog/300k-euro-mortgage">€300,000 euro mortgage</a> guide.</p>
+      <p>For a larger principal, compare the retained <a href="/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur">€300,000 mortgage scenario</a>.</p>
 
       <h2>Frequently Asked Questions</h2>
       <h3>What is the monthly payment on a €200,000 mortgage?</h3>
@@ -4720,7 +4721,7 @@ const rawArticles: Omit<Article, "author">[] = [
           </tbody>
         </table>
       </div>
-      <p>Note: These are estimates. Use our <a href="/mortgage-calculator">mortgage calculator</a> to refine these numbers with your specific interest rate and local tax data. If you are looking for specific breakdowns, see our guide on the <a href="/blog/400k-mortgage-monthly-payment">$400k mortgage monthly payment</a>.</p>
+      <p>Note: These are estimates. Use our <a href="/mortgage-calculator">mortgage calculator</a> to refine these numbers with your specific interest rate and local tax data. For a specific breakdown, see the <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">$400,000 mortgage at 6.5%</a>.</p>
 
       <h2>Inputs That Can Change a Lender's Calculation</h2>
       <p>Actual underwriting varies by lender and program. Common inputs include:</p>
@@ -4739,7 +4740,184 @@ const rawArticles: Omit<Article, "author">[] = [
   },
 ];
 
-export const articles: Article[] = rawArticles.map((article) => ({
-  ...article,
-  author: defaultAuthor,
-}));
+const eligibilityRate = 6.8;
+const eligibilityTerm = 30;
+const eligibilityRatio = 0.43;
+
+function eligibilityEstimate(annualIncome: number, monthlyDebt: number) {
+  const availablePayment = Math.max(0, annualIncome / 12 * eligibilityRatio - monthlyDebt);
+  return {
+    monthlyIncome: annualIncome / 12,
+    availablePayment,
+    loanAmount: loanFromPayment(availablePayment, eligibilityRate, eligibilityTerm),
+  };
+}
+
+function eligibilityIncomeTable(incomes: number[]) {
+  const rows = incomes.map((income) => {
+    const estimate = eligibilityEstimate(income, 0);
+    return `<tr><td>${formatCurrency(income, 0)}</td><td>${formatCurrency(estimate.monthlyIncome, 0)}</td><td>${formatCurrency(estimate.availablePayment, 0)}</td><td>${formatCurrency(estimate.loanAmount, 0)}</td></tr>`;
+  }).join('');
+  return `<table class="w-full text-left"><caption>Illustrative loan-principal estimates at a selected 43% total-debt ratio, 6.8% nominal annual rate, 30-year term, and no other monthly debt.</caption><thead><tr><th>Annual income</th><th>Gross monthly income</th><th>Selected payment amount</th><th>Illustrative loan principal</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function eligibilityDebtTable(annualIncome: number, monthlyDebts: number[]) {
+  const rows = monthlyDebts.map((debt) => {
+    const estimate = eligibilityEstimate(annualIncome, debt);
+    return `<tr><td>${formatCurrency(debt, 0)}</td><td>${formatCurrency(estimate.availablePayment, 0)}</td><td>${formatCurrency(estimate.loanAmount, 0)}</td></tr>`;
+  }).join('');
+  return `<table class="w-full text-left"><caption>Debt sensitivity for ${formatCurrency(annualIncome, 0)} annual income using the same selected ratio, rate, and term.</caption><thead><tr><th>Entered monthly debt</th><th>Amount left for a new payment</th><th>Illustrative loan principal</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+const articleOverrides: Record<string, Partial<Omit<Article, 'author'>>> = {
+  'loan-eligibility-by-income': {
+    title: 'Loan Eligibility by Income: Planning Estimates and Debt Sensitivity',
+    readTime: '9 min read',
+    excerpt: 'See how income and existing monthly debt change a mathematical borrowing estimate, and why the result is not a lender approval decision.',
+    seoTitle: 'Loan Eligibility by Income: Planning Estimates | TryFinCalc',
+    seoDescription: 'Model how income, debts, a selected ratio, rate, and term change an illustrative loan amount without treating it as approval.',
+    structuredData: undefined,
+    content: `
+      <p>Income is one input in a borrowing decision, not an approval result. This guide uses editable mathematical scenarios to show how gross income and entered monthly debts affect the payment available under a selected planning ratio. It does not predict or guarantee approval.</p>
+
+      <h2>How income and debt enter this planning estimate</h2>
+      <p>Debt-to-income (DTI) divides monthly debt payments by gross monthly income. Lenders and loan programs can define income, debts, and acceptable ratios differently. The 43% total-debt ratio below is a selected example, not a universal eligibility limit.</p>
+      <p>For a ${formatCurrency(75000, 0)} annual income, the selected ratio allocates ${formatCurrency(75000 / 12 * eligibilityRatio, 0)} to total monthly debt before subtracting existing obligations. With no entered debt, that payment supports an illustrative ${formatCurrency(eligibilityEstimate(75000, 0).loanAmount, 0)} principal at the selected ${eligibilityRate}% annual rate and ${eligibilityTerm}-year term. With ${formatCurrency(600, 0)} of entered monthly debt, the estimate becomes ${formatCurrency(eligibilityEstimate(75000, 600).loanAmount, 0)}.</p>
+
+      <h2>Illustrative loan principal by annual income</h2>
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl">${eligibilityIncomeTable([30000, 50000, 75000, 100000, 150000, 200000])}</div>
+      <p>Every row holds the ratio, nominal annual rate, term, and zero-debt assumption constant. The outputs are planning scenarios, not available offers or lender maximums.</p>
+
+      <h2>How existing debt changes the estimate</h2>
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl">${eligibilityDebtTable(75000, [0, 300, 600, 900])}</div>
+      <p>The table isolates one decision: adding an entered monthly obligation leaves less room for a new payment under the selected ratio. A lender may count or document obligations differently.</p>
+
+      <h2>What this model does not decide</h2>
+      <ul>
+        <li><strong>Approval:</strong> Credit, income documentation, debts, assets, property, and other criteria vary by lender and loan program.</li>
+        <li><strong>Comfort:</strong> A household budget also needs room for taxes, insurance, maintenance, utilities, savings, and reserves.</li>
+        <li><strong>Price and fees:</strong> A note rate is not the same as APR when fees are present. Compare written offers using the same amount and term.</li>
+      </ul>
+
+      <h2>Use the right tool for the next question</h2>
+      <p>This guide explains income-and-debt sensitivity. Use the <a href="/affordability-calculator">Affordability Calculator</a> for a personal home-price estimate, <a href="/income-needed-for-a-house">Income Needed for a House</a> to work backward from a selected property price, and the <a href="/loan-calculator">Loan Calculator</a> to compare a written loan amount, rate, and term.</p>
+    `,
+  },
+  '2026-homebuyers-playbook': {
+    title: "Homebuyer's Playbook: A Step-by-Step Guide",
+    readTime: '11 min read',
+    excerpt: 'A coherent path from a personal purchase budget through written loan comparisons, inspection, offer terms, and closing checks.',
+    seoTitle: "Homebuyer's Playbook: Budget, Offers and Closing | TryFinCalc",
+    seoDescription: 'Plan a home purchase with a personal budget, comparable loan estimates, property inspection, contract review, and verified closing figures.',
+    structuredData: undefined,
+    content: `
+      <p>A home purchase combines a personal budget, financing documents, the condition of a specific property, a binding contract, and transaction-specific closing figures. Work through those decisions in order instead of relying on market headlines or a calendar year.</p>
+
+      <h2>Step 1: Set a personal budget before searching</h2>
+      <p>Start with take-home cash flow, recurring debts, savings goals, maintenance, utilities, and a reserve. The <a href="/affordability-calculator">Affordability Calculator</a> can apply editable planning ratios, but those ratios neither predict approval nor define a comfortable payment.</p>
+      <p>Add the intended down payment, written closing-cost estimates, moving costs, immediate repairs, and the reserve you want to keep after closing. The <a href="/income-needed-for-a-house">income-needed calculator</a> works backward from a selected price; it is a planning model rather than a lender decision.</p>
+
+      <h2>Step 2: Compare written loan terms on the same basis</h2>
+      <p>Pre-qualification and pre-approval processes vary. Ask what information was verified, which conditions remain, when a letter expires, and what changes must be reported. Neither is a guarantee of final approval.</p>
+      <p>Compare written Loan Estimates using the same loan amount, term, lock period, and points. Separate the note rate from APR and fees, then use the <a href="/mortgage-calculator">mortgage calculator</a> to test principal and interest plus documented property costs.</p>
+
+      <h2>Step 3: Inspect the property and price the findings</h2>
+      <p>Confirm the inspection scope and its limitations in writing. Review the structure, roof, foundation, electrical, plumbing, heating and cooling, and any property-specific systems covered by the inspection. Obtain estimates for material findings instead of applying generic repair allowances.</p>
+      <p>Keep safety issues, major systems, routine maintenance, and cosmetic preferences separate. Their effect on an offer depends on the property, contract, local law, and advice from the professionals involved.</p>
+
+      <h2>Step 4: Review the offer and contract as one decision</h2>
+      <p>Set a price ceiling from the budget before negotiating. Review price, deposit, financing, appraisal, inspection, escalation, and closing-date terms together. Changing or waiving a contingency can shift financial and legal risk, so understand the consequence before signing.</p>
+
+      <h2>Step 5: Match any rate lock to the closing schedule</h2>
+      <p>A written rate-lock agreement should identify the rate, duration, cost, expiration conditions, and any float-down terms. Compare it with the unlocked quote and the expected closing schedule. Test alternative rate inputs mathematically; do not treat them as forecasts.</p>
+
+      <h2>Step 6: Verify closing figures and instructions</h2>
+      <p>Use the cash-to-close figure and dates in the transaction documents rather than a generic percentage or timeline. Compare final figures with the earlier estimate, confirm the final walkthrough against the contract, verify wire instructions through a trusted contact method, and check the note or payment notice for the first due date.</p>
+
+      <h2>Keep the decision connected</h2>
+      <p>A workable purchase links the household budget, written financing terms, inspection findings, contract protections, and final cash requirement. Revisit the numbers whenever one of those inputs changes, and use the <a href="/rent-vs-buy">rent-versus-buy calculator</a> when expected tenure is still uncertain.</p>
+    `,
+  },
+  'monthly-payment-formula': {
+    title: 'The Monthly Payment Formula: Variables, Amortization and Examples',
+    readTime: '7 min read',
+    excerpt: 'Use the fixed-rate amortization formula, define every variable, and verify loan examples generated by the same shared finance functions as the calculators.',
+    seoTitle: 'Monthly Loan Payment Formula and Amortization | TryFinCalc',
+    seoDescription: 'Learn the amortizing payment formula, its variables, and how principal and interest change through finance-derived examples.',
+    content: `
+      <p>This is the mathematical reference for a standard fully amortizing fixed-rate loan. It explains the formula and amortization mechanics; it does not estimate taxes, insurance, lender fees, or loan eligibility.</p>
+
+      <h2>The monthly payment formula</h2>
+      <div class="bg-surface-container p-6 rounded-2xl border border-outline-variant text-center my-8"><p class="text-2xl font-serif">M = P × [r(1+r)^n] / [(1+r)^n − 1]</p></div>
+      <ul>
+        <li><strong>M</strong> is the level monthly principal-and-interest payment.</li>
+        <li><strong>P</strong> is the starting loan principal.</li>
+        <li><strong>r</strong> is the nominal annual rate divided by 12 and expressed as a decimal.</li>
+        <li><strong>n</strong> is the number of scheduled monthly payments.</li>
+      </ul>
+      <p>The formula assumes equal end-of-month payments and a fixed rate for the modeled term. A note rate is distinct from APR when fees or other charges are included.</p>
+
+      <h2>Three examples from the shared calculation</h2>
+      <ul>
+        <li>A ${formatCurrency(10000, 0)} loan at 10% for 3 years produces ${loanValue(10000, 10, 3, 'monthly')} per month and ${loanValue(10000, 10, 3, 'totalInterest')} of total interest.</li>
+        <li>A ${formatCurrency(25000, 0)} loan at 7% for 5 years produces ${loanValue(25000, 7, 5, 'monthly')} per month and ${loanValue(25000, 7, 5, 'totalInterest')} of total interest.</li>
+        <li>A ${formatCurrency(300000, 0)} loan at 6.8% for 30 years produces ${loanValue(300000, 6.8, 30, 'monthly')} per month and ${loanValue(300000, 6.8, 30, 'totalInterest')} of total interest.</li>
+      </ul>
+
+      <h2>Why early payments contain more interest</h2>
+      <p>Interest is calculated on the outstanding balance. In the first month of the ${formatCurrency(300000, 0)} example, interest is ${amortizationValue(300000, 6.8, 30, 0, 'interest')} and principal is ${amortizationValue(300000, 6.8, 30, 0, 'principal')}. The payment remains ${amortizationValue(300000, 6.8, 30, 0, 'payment')}, but the interest share falls as the balance declines.</p>
+
+      <h2>Rate and term sensitivity</h2>
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl">${loanTable(300000, [5.5, 6.8, 7.5], [15, 30])}</div>
+      <p>Use the <a href="/monthly-payment-calculator">monthly payment calculator</a> to check another input set or the <a href="/amortization-schedule">amortization schedule</a> to inspect every payment. For property taxes, insurance, and other housing-cost inputs, continue to the <a href="/blog/mortgage-payment-guide">mortgage payment guide</a>.</p>
+    `,
+  },
+  'mortgage-payment-guide': {
+    title: 'Mortgage Payment Guide: Components, Assumptions and Full Cost',
+    readTime: '7 min read',
+    excerpt: 'Understand which components can enter a mortgage payment, which costs remain outside it, and how to use the calculator with documented assumptions.',
+    seoTitle: 'Mortgage Payment Components and Calculator Guide | TryFinCalc',
+    seoDescription: 'Separate principal and interest from taxes, insurance, association charges, fees, and other ownership costs before using a mortgage estimate.',
+    content: `
+      <p>This guide is about the scope of a mortgage-payment estimate: what the calculator includes, what must be added from property and loan documents, and how to compare the result with a household budget. For the underlying equation, use the <a href="/blog/monthly-payment-formula">monthly payment formula guide</a>.</p>
+
+      <h2>Four components commonly shown with a housing payment</h2>
+      <ul>
+        <li><strong>Principal:</strong> the portion that reduces the outstanding loan balance.</li>
+        <li><strong>Interest:</strong> the charge calculated from the outstanding balance and selected annual note rate.</li>
+        <li><strong>Property tax:</strong> a property- and jurisdiction-specific amount that may be collected through an escrow account.</li>
+        <li><strong>Homeowners insurance:</strong> the premium from an insurance quote, which may also be collected through escrow.</li>
+      </ul>
+      <p>Mortgage insurance, association charges, or other recurring costs may also apply. Whether a lender collects an item with the payment does not change the need to budget for it.</p>
+
+      <h2>Start with principal and interest</h2>
+      <p>A ${formatCurrency(315000, 0)} loan at a selected 6.8% nominal annual rate over 30 years produces ${loanValue(315000, 6.8, 30, 'monthly')} in monthly principal and interest. The comparison below changes only the annual rate while holding principal and term constant.</p>
+      <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl">${loanTable(315000, [5.5, 6, 6.8, 7.5], [30])}</div>
+
+      <h2>What is included and excluded</h2>
+      <p>The generated table includes loan principal, the selected nominal annual rate, the term, and equal end-of-month payments. It excludes property tax, homeowners insurance, mortgage insurance, association charges, maintenance, utilities, closing costs, discount points, and lender fees.</p>
+      <p>Add documented monthly property costs in the <a href="/mortgage-calculator">mortgage calculator</a>. Keep one-time transaction costs and personal reserves visible outside the monthly result, and compare APR as well as the note rate when a written offer includes fees.</p>
+
+      <h2>Use the calculator without mixing assumptions</h2>
+      <ol>
+        <li>Enter the property price and down payment so the financed principal is clear.</li>
+        <li>Use the note rate and term from the same written quote.</li>
+        <li>Add property tax, insurance, and association charges from current documents.</li>
+        <li>Compare the monthly result with total interest and the <a href="/amortization-schedule">amortization schedule</a>.</li>
+      </ol>
+      <p>For exact amount-and-rate examples, use the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">${formatCurrency(300000, 0)} mortgage at 6%</a> or <a href="/calculator/400k-mortgage-monthly-payment-6-5-percent">${formatCurrency(400000, 0)} mortgage at 6.5%</a>.</p>
+    `,
+  },
+};
+
+export const articles: Article[] = rawArticles
+  .filter((article) => !RETIRED_ARTICLE_SLUGS.has(article.slug))
+  .map((article) => {
+    const publishedArticle: Article = {
+      ...article,
+      ...articleOverrides[article.slug],
+      author: defaultAuthor,
+    };
+    if (publishedArticle.structuredData === undefined) delete publishedArticle.structuredData;
+    return publishedArticle;
+  });
