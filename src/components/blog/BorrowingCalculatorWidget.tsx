@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Input } from "@/components/ui/Input";
 import { Button, ButtonLink } from "@/components/ui/Button";
-import Link from "next/link";
 import { Calculator, Wallet, Receipt, CreditCard, Info, AlertTriangle } from "lucide-react";
-import { formatCurrency } from "@/lib/finance";
+import { formatCurrency, calculateAffordability, validateLoan } from "@/lib/finance";
 
 export function BorrowingCalculatorWidget() {
   const [income, setIncome] = useState<number>(75000);
@@ -11,40 +10,11 @@ export function BorrowingCalculatorWidget() {
   const [rate, setRate] = useState<number>(6.5);
   const [term, setTerm] = useState<number>(30);
   
-  const [frontEndLimit, setFrontEndLimit] = useState<number>(0);
-  const [backEndLimit, setBackEndLimit] = useState<number>(0);
-  const [maxLoanAmount, setMaxLoanAmount] = useState<number>(0);
-  const [limitingFactor, setLimitingFactor] = useState<"front" | "back">("front");
-
-  const calculateMaxLoan = (monthlyBudget: number, annualRate: number, years: number) => {
-    // Estimating $250 for property taxes and insurance (PITI - PI = TI)
-    const estimatedTI = 250; 
-    const availablePI = Math.max(0, monthlyBudget - estimatedTI);
-    
-    if (availablePI <= 0) return 0;
-    
-    const r = annualRate / 100 / 12;
-    const n = years * 12;
-    
-    if (r === 0) return availablePI * n;
-    return availablePI * (Math.pow(1 + r, n) - 1) / (r * Math.pow(1 + r, n));
-  };
-
-  useEffect(() => {
-    const monthlyGross = income / 12;
-    
-    // 28/36 Rule
-    const front = monthlyGross * 0.28;
-    const back = (monthlyGross * 0.36) - debts;
-    
-    setFrontEndLimit(front);
-    setBackEndLimit(back);
-    
-    const finalBudget = Math.min(front, back);
-    setLimitingFactor(front < back ? "front" : "back");
-    
-    setMaxLoanAmount(calculateMaxLoan(finalBudget, rate, term));
-  }, [income, debts, rate, term]);
+  const frontEndLimit = income / 12 * .28;
+  const backEndLimit = income / 12 * .36 - debts;
+  const limitingFactor = frontEndLimit < backEndLimit ? 'front' : 'back';
+  const valid = !validateLoan(0,rate,term) && [income,debts].every(v=>Number.isFinite(v) && v>=0 && v<=1e12);
+  const maxLoanAmount = valid ? calculateAffordability(income / 12, debts, 0, rate, term, 'USD', 250).loanAmount : 0;
 
   return (
     <div className="my-12 bg-surface-container-low rounded-[2.5rem] border border-outline-variant/20 shadow-xl overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -56,7 +26,7 @@ export function BorrowingCalculatorWidget() {
           <h3 className="text-2xl font-manrope font-extrabold tracking-tight">2026 Borrowing Power Estimator</h3>
         </div>
         <p className="text-white/80 max-w-xl">
-          Apply the 28/36 rule to see how much lenders might qualify you for based on your current income and debts.
+          Illustrative US gross-income budget using 28/36 assumptions and $250 monthly tax/insurance. This is not a lender approval estimate.
         </p>
       </div>
 

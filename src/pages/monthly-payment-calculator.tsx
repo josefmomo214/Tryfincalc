@@ -1,29 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
 
 import { Input } from "@/components/ui/Input";
 
-import { formatCurrency, calculateAmortizedPayment, convertCurrency, validateLoan } from "@/lib/finance";
-import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
+import { formatCurrency, calculateLoan, convertCurrency, validateLoan } from "@/lib/finance";
+import { CalculationGuide } from "@/components/calculator/CalculationGuide";
+import { useDisplayCurrency } from "@/lib/currency";
+import { generateWebApplicationSchema } from "@/lib/schema";
 
 export default function MonthlyPaymentCalculator() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
 
   const [amount, setAmount] = useState(250000);
   const [rate, setRate] = useState(3.75);
   const [years, setYears] = useState(25);
-  const [isCalculated, setIsCalculated] = useState(false);
 
-  const [results, setResults] = useState({
-    monthly: 0,
-    totalInterest: 0,
-    totalPaid: 0
-  });
+
 
   const validationError = validateLoan(amount, rate, years) || (![amount, rate, years].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
 
@@ -37,16 +31,7 @@ export default function MonthlyPaymentCalculator() {
     setAmount(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
   }, [currency]);
 
-  useEffect(() => {
-    if (validationError) return;
-    const monthly = calculateAmortizedPayment(amount, rate, years);
-    const totalPaid = monthly * (years * 12);
-    setResults({
-      monthly,
-      totalPaid,
-      totalInterest: totalPaid - amount
-    });
-  }, [validationError, amount, rate, years]);
+  const results = validationError ? calculateLoan(0, 0, 1) : calculateLoan(amount, rate, years);
 
 
   return (
@@ -55,6 +40,12 @@ export default function MonthlyPaymentCalculator() {
         title="Monthly Payment Calculator: Fast Loan Estimates | TryFinCalc"
         description="Get an instant breakdown of your monthly obligation for any loan. See your monthly payment in seconds with our 2026 calculator. No sign-up required."
         canonicalUrl="https://tryfincalc.com/monthly-payment-calculator"
+        structuredData={generateWebApplicationSchema({
+          name: 'Monthly Payment Calculator',
+          path: '/monthly-payment-calculator',
+          description: 'Estimate the monthly principal-and-interest payment for a fixed-rate loan from its amount, annual interest rate and term.',
+          currency,
+        })}
       />
 
       <header className="max-w-7xl mx-auto pt-20 pb-8 px-4 sm:px-6 lg:px-8">
@@ -75,15 +66,15 @@ export default function MonthlyPaymentCalculator() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label htmlFor="amount" className="block text-sm font-semibold text-on-surface">Total Loan Amount ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input id="amount" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={amount} onChange={(e) => { setIsCalculated(true); setAmount(e.target.valueAsNumber); }} />
+              <Input id="amount" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={amount} onChange={(e) => { setAmount(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-2">
               <label htmlFor="rate" className="block text-sm font-semibold text-on-surface">Interest Rate (%)</label>
-              <Input max={100} id="rate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={rate} onChange={(e) => { setIsCalculated(true); setRate(e.target.valueAsNumber); }} />
+              <Input max={100} id="rate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={rate} onChange={(e) => { setRate(e.target.valueAsNumber); }} />
             </div>
             <div className="space-y-2">
               <label htmlFor="years" className="block text-sm font-semibold text-on-surface">Term (Years)</label>
-              <Input min={1/12} max={100} step="any" id="years" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={years} onChange={(e) => { setIsCalculated(true); setYears(e.target.valueAsNumber); }} />
+              <Input min={1/12} max={100} step="any" id="years" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={years} onChange={(e) => { setYears(e.target.valueAsNumber); }} />
             </div>
           </div>
         </CalculatorInputArea>
@@ -92,7 +83,7 @@ export default function MonthlyPaymentCalculator() {
           <div className="space-y-8">
             <div className="text-center p-8 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Estimated Monthly Payment</h3>
-              {(isCalculated && !validationError) ? (
+              {(!validationError) ? (
                 <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
                   {formatCurrency(results.monthly, 2, currency)}
                 </div>
@@ -107,15 +98,15 @@ export default function MonthlyPaymentCalculator() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-on-surface-variant">Principal</span>
-                  <span className="font-bold text-primary">{(isCalculated && !validationError) ? formatCurrency(amount, 0, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(amount, 0, currency) : "—"}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-on-surface-variant">Total Interest</span>
-                  <span className="font-bold text-primary">{(isCalculated && !validationError) ? formatCurrency(results.totalInterest, 2, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(results.totalInterest, 2, currency) : "—"}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm pt-2 border-t border-outline-variant/10">
                   <span className="text-on-surface font-bold">Total Cost</span>
-                  <span className="font-bold text-primary">{(isCalculated && !validationError) ? formatCurrency(results.totalPaid, 2, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(results.totalPaid, 2, currency) : "—"}</span>
                 </div>
               </div>
             </div>
@@ -124,74 +115,7 @@ export default function MonthlyPaymentCalculator() {
       </CalculatorContainer>
 
 
-      <CalculatorSEOSection 
-        title="Monthly Payment Calculator: Mastering Your Monthly Budget"
-        intro={
-          <>
-            <p>When you take out a loan, the single most important number for your day-to-day life is the monthly payment. This amount determines how much room you have in your budget for other essentials, savings, and discretionary spending.</p>
-            <p>Our Monthly Payment Calculator helps you see exactly how much you’ll owe each month, allowing you to plan ahead with certainty and avoid over-extending your finances across any currency or market.</p>
-          </>
-        }
-        howItWorks={
-          <>
-            <p>Monthly payments on most fixed-rate loans are determined by an amortization formula. This formula ensures that over the life of the loan, you pay back the entire principal plus the interest charged by the lender in equal installments.</p>
-            <ul>
-              <li><strong>Fixed-Rate Benefits:</strong> With a fixed-rate loan, your monthly principal and interest (P&I) payment never changes, providing financial predictability for years to come.</li>
-              <li><strong>Amortization Schedule:</strong> Early in the loan, a larger portion of your payment goes toward interest. As the balance decreases, more and more of each payment goes toward the principal.</li>
-              <li><strong>Taxes and Insurance:</strong> Remember that if you are calculating a mortgage payment, your total monthly cost might also include property taxes and homeowners insurance.</li>
-            </ul>
-          </>
-        }
-        examples={[
-          {
-            title: "Starter Home Mortgage",
-            items: [
-              { label: "Loan Amount", value: currency === 'USD' ? "$300,000" : "€300,000" },
-              { label: "Interest Rate", value: "5.5%" },
-              { label: "Term", value: "30 Years" },
-              { label: "Monthly P&I", value: currency === 'USD' ? "$1,703" : "€1,703" }
-            ],
-            description: "A typical 30-year fixed-rate mortgage scenario."
-          },
-          {
-            title: "Vehicle Financing",
-            items: [
-              { label: "Loan Amount", value: currency === 'USD' ? "$35,000" : "€35,000" },
-              { label: "Interest Rate", value: "6.0%" },
-              { label: "Term", value: "5 Years" },
-              { label: "Monthly Payment", value: currency === 'USD' ? "$677" : "€677" }
-            ],
-            description: "Choosing a shorter term for personal or auto loans."
-          }
-        ]}
-        tips={[
-          "Try to keep your total housing payment under 28% of your gross income.",
-          "Check if your lender allows bi-weekly payments to pay off the loan faster.",
-          "Factor in PMI or mortgage insurance if your down payment is less than 20%.",
-          "Automate your payments to ensure you never miss a deadline and protect your credit."
-        ]}
-        faqs={[
-          {
-            question: "Does my monthly payment include property taxes?",
-            answer: "The base calculation here is for Principal and Interest (P&I). Depending on your loan, you may need to add monthly property taxes and insurance to this total for a full escrow estimate."
-          },
-          {
-            question: "Can I lower my monthly payment after the loan starts?",
-            answer: "Usually, you would need to refinance your loan to a lower interest rate or a longer term to reduce the monthly obligation."
-          }
-        ]}
-        relatedCalculators={[
-          { label: "Mortgage", href: "/mortgage-calculator" },
-          { label: "Loan Calculator", href: "/loan-calculator" },
-          { label: "Total Interest", href: "/total-interest-calculator" }
-        ]}
-        relatedBlogs={[
-          { title: "Interest Rates Guide", href: "/blog/interest-rate-impact" }
-        ]}
-        ctaText="See your total lifetime costs"
-        ctaHref="/total-interest-calculator"
-        ctaButtonText="Calculate total loan interest"
-      />
+      <CalculationGuide tool="monthly-payment" currency={currency} />
     </MainLayout>
   );
 }

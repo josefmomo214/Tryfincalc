@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter, CardDescription } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BlogThumbnail } from "@/components/blog/BlogThumbnail";
@@ -16,16 +15,7 @@ export async function getStaticProps() {
 
 export default function BlogIndex() {
   const featuredArticle = articles[0];
-  const remainingArticles = articles.slice(1);
-  
-  const [visibleCount, setVisibleCount] = useState(6);
-  
-  const handleLoadMore = () => {
-    setVisibleCount(prev => prev + 6);
-  };
-
-  const visibleArticles = remainingArticles.slice(0, visibleCount);
-  const hasMore = visibleCount < remainingArticles.length;
+  const visibleArticles = articles.slice(1);
 
   return (
     <MainLayout>
@@ -119,13 +109,6 @@ export default function BlogIndex() {
             ))}
           </div>
 
-          {hasMore && (
-            <div className="mt-16 text-center">
-              <Button variant="outline" size="lg" onClick={handleLoadMore}>
-                Load More Articles
-              </Button>
-            </div>
-          )}
         </div>
       </section>
 

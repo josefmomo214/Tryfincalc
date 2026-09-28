@@ -1,0 +1,61 @@
+
+> next-app@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/josef214/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/josef214/My Apps/Tryfincalc/package-lock.json
+
+▲ Next.js 16.2.7 (Turbopack)
+
+  Running TypeScript ...
+  Finished TypeScript in 21.2s ...
+  Creating an optimized production build ...
+Turbopack build encountered 4 warnings:
+[next]/internal/font/google/bricolage_grotesque_99869bec.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap
+
+
+[next]/internal/font/google/dm_sans_f38b9ff1.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap
+
+
+[next]/internal/font/google/inter_6e63d4e8.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
+
+
+[next]/internal/font/google/manrope_98acd17b.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap
+
+
+
+> Build error occurred
+Error: Turbopack build failed with 4 errors:
+[next]/internal/font/google/bricolage_grotesque_99869bec.module.css
+next/font: error:
+Failed to fetch `Bricolage Grotesque` from Google Fonts.
+
+
+[next]/internal/font/google/dm_sans_f38b9ff1.module.css
+next/font: error:
+Failed to fetch `DM Sans` from Google Fonts.
+
+
+[next]/internal/font/google/inter_6e63d4e8.module.css
+next/font: error:
+Failed to fetch `Inter` from Google Fonts.
+
+
+[next]/internal/font/google/manrope_98acd17b.module.css
+next/font: error:
+Failed to fetch `Manrope` from Google Fonts.
+
+
+    at ignore-listed frames

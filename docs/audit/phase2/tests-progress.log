@@ -1,0 +1,149 @@
+
+> next-app@0.1.0 test
+> node --import tsx --test tests/*.test.ts tests/*.test.tsx
+
+TAP version 13
+# Subtest: shared content outputs match reference cases
+ok 1 - shared content outputs match reference cases
+  ---
+  duration_ms: 4.612497
+  ...
+# Subtest: corrected article examples use generated cents and do not leak template tokens
+ok 2 - corrected article examples use generated cents and do not leak template tokens
+  ---
+  duration_ms: 10.653053
+  ...
+# Subtest: known monthly payments
+ok 3 - known monthly payments
+  ---
+  duration_ms: 9.65918
+  ...
+# Subtest: invalid loans cannot return nonfinite or negative payments
+ok 4 - invalid loans cannot return nonfinite or negative payments
+  ---
+  duration_ms: 0.499698
+  ...
+# Subtest: currency formatting suppresses negative zero
+ok 5 - currency formatting suppresses negative zero
+  ---
+  duration_ms: 84.981165
+  ...
+# Subtest: complete schedules reconcile principal, interest and final balance
+ok 6 - complete schedules reconcile principal, interest and final balance
+  ---
+  duration_ms: 15.781641
+  ...
+# Subtest: affordability is the inverse of amortization, including zero interest
+ok 7 - affordability is the inverse of amortization, including zero interest
+  ---
+  duration_ms: 1.61701
+  ...
+# Subtest: refinancing includes fees and both terms
+ok 8 - refinancing includes fees and both terms
+  ---
+  duration_ms: 1.15107
+  ...
+# Subtest: currency conversion round-trips and term validation
+ok 9 - currency conversion round-trips and term validation
+  ---
+  duration_ms: 2.350014
+  ...
+# Subtest: reference cases round only final displayed values
+ok 10 - reference cases round only final displayed values
+  ---
+  duration_ms: 2.603031
+  ...
+# Subtest: affordability uses explicit US illustrative 28/36 gross-income budgets in either currency
+ok 11 - affordability uses explicit US illustrative 28/36 gross-income budgets in either currency
+  ---
+  duration_ms: 1.167904
+  ...
+# Subtest: refinance cannot imply immediate break-even when payments increase
+ok 12 - refinance cannot imply immediate break-even when payments increase
+  ---
+  duration_ms: 0.742812
+  ...
+# Subtest: Mortgage has nonzero result and Calculate action without hydration
+ok 13 - Mortgage has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 133.247452
+  ...
+# Subtest: Loan has nonzero result and Calculate action without hydration
+ok 14 - Loan has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 41.311544
+  ...
+# Subtest: Monthly has nonzero result and Calculate action without hydration
+ok 15 - Monthly has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 35.884956
+  ...
+# Subtest: Interest has nonzero result and Calculate action without hydration
+ok 16 - Interest has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 28.882488
+  ...
+# Subtest: Refinance has nonzero result and Calculate action without hydration
+ok 17 - Refinance has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 44.092144
+  ...
+# Subtest: Affordability has nonzero result and Calculate action without hydration
+ok 18 - Affordability has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 46.588618
+  ...
+# Subtest: RentBuy has nonzero result and Calculate action without hydration
+ok 19 - RentBuy has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 58.302295
+  ...
+# Subtest: Amortization has nonzero result and Calculate action without hydration
+ok 20 - Amortization has nonzero result and Calculate action without hydration
+  ---
+  duration_ms: 51.792436
+  ...
+# Subtest: invalid mortgage renders a field-associated message and no negative principal
+ok 21 - invalid mortgage renders a field-associated message and no negative principal
+  ---
+  duration_ms: 64.882263
+  ...
+# Subtest: empty numeric field remains empty with an accessible error
+ok 22 - empty numeric field remains empty with an accessible error
+  ---
+  duration_ms: 2.46417
+  ...
+# Subtest: amortization preview and expanded table render complete, numbered payments
+ok 23 - amortization preview and expanded table render complete, numbered payments
+  ---
+  duration_ms: 947.343276
+  ...
+# Subtest: zero-cost ownership returns all equity and costs no net money
+ok 24 - zero-cost ownership returns all equity and costs no net money
+  ---
+  duration_ms: 5.354057
+  ...
+# Subtest: costs, growth and opportunity return change outcomes in expected direction
+ok 25 - costs, growth and opportunity return change outcomes in expected direction
+  ---
+  duration_ms: 4.010371
+  ...
+# Subtest: paid-off mortgage and fractional horizons reconcile
+ok 26 - paid-off mortgage and fractional horizons reconcile
+  ---
+  duration_ms: 5.678062
+  ...
+# Subtest: invalid model inputs reject rather than silently produce estimates
+ok 27 - invalid model inputs reject rather than silently produce estimates
+  ---
+  duration_ms: 2.142961
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3152.728642

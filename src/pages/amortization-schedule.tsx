@@ -1,6 +1,5 @@
 import { AmortizationTable } from "@/components/calculator/AmortizationTable";
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
@@ -8,12 +7,11 @@ import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from 
 import { Input } from "@/components/ui/Input";
 
 import { formatCurrency, convertCurrency, validateLoan, generateAmortizationSchedule } from "@/lib/finance";
-import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
+import { CalculationGuide } from "@/components/calculator/CalculationGuide";
+import { useDisplayCurrency } from "@/lib/currency";
 
 export default function AmortizationSchedule() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
 
   const [loanAmount, setLoanAmount] = useState(250000);
   const [interestRate, setInterestRate] = useState(3.75);
@@ -28,7 +26,7 @@ export default function AmortizationSchedule() {
       "@type": "WebApplication",
       "name": "Amortization Calculator | TryFinCalc",
       "url": "https://tryfincalc.com/amortization-schedule",
-      "description": "Professional-grade amortization schedule generator for 2026. See the exact split between principal and interest for every payment over the life of your loan.",
+      "description": "Generate an estimated fixed-rate amortization schedule showing principal, interest and remaining balance for each payment.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {
@@ -143,68 +141,7 @@ export default function AmortizationSchedule() {
 
       <AmortizationTable schedule={schedule} currency={currency} showFullSchedule={showFullSchedule}
         validationError={validationError} onToggle={() => setShowFullSchedule(value => !value)} />
-      <CalculatorSEOSection 
-        title="Amortization Schedule: Your Path to Full Ownership"
-        intro={
-          <>
-            <p>Every month, when you pay your mortgage installment, that money is split into two parts: principal repayment and interest. Our <strong>Amortization Schedule</strong> provides the visual roadmap of your journey from deep debt to full home ownership.</p>
-            <p>Understanding this breakdown is essential for deciding when to refinance, when to make extra repayments, or simply for managing your long-term personal wealth across any global market.</p>
-          </>
-        }
-        howItWorks={
-          <>
-            <p>Amortization is the process of paying off a debt over time through regular installments. With a fixed-rate loan, your total monthly payment (P&I) stays the same, but the mix of interest and principal changes every month.</p>
-            <ul>
-              <li><strong>Interest-Heavy Start:</strong> In the first few years, your balance is high, so a larger portion of your payment goes to interest. This is why your debt seems to decrease slowly at first.</li>
-              <li><strong>Principal Acceleration:</strong> As the years go by, the interest portion shrinks, and more of your payment goes directly into building equity in your home.</li>
-              <li><strong>Full Debt Freedom:</strong> By the end of the term, your payments are almost entirely principal, leading to a zero balance and full ownership.</li>
-            </ul>
-          </>
-        }
-        examples={[
-          {
-            title: "Your First Payment",
-            items: [
-              { label: "Principal", value: schedule[0] ? formatCurrency(schedule[0].principal, 2, currency) : '—' },
-              { label: "Interest", value: schedule[0] ? formatCurrency(schedule[0].interest, 2, currency) : '—' }
-            ],
-            description: "Calculated from the loan amount, interest rate and term entered above."
-          },
-          {
-            title: "Your Final Payment",
-            items: [
-              { label: "Principal", value: schedule.length ? formatCurrency(schedule[schedule.length - 1].principal, 2, currency) : '—' },
-              { label: "Interest", value: schedule.length ? formatCurrency(schedule[schedule.length - 1].interest, 2, currency) : '—' },
-              { label: "Remaining Balance", value: schedule.length ? formatCurrency(schedule[schedule.length - 1].balance, 2, currency) : '—' }
-            ],
-            description: "The final payment clears the remaining balance, with a small adjustment for floating-point precision."
-          }
-        ]}
-        tips={[
-          "Track your equity growth monthly to stay motivated.",
-          "Identify when your loan-to-value ratio allows you to remove mortgage insurance.",
-          "See the massive long-term impact of making even small extra principal payments.",
-          "Keep your schedule for annual tax preparation and overall financial planning."
-        ]}
-        faqs={[
-          {
-            question: "How does a variable rate affect my schedule?",
-            answer: "If your interest rate is variable, your schedule will be recalculated by your lender at each revision date based on the new rate and remaining balance."
-          },
-          {
-            question: "Can I use this for a car loan?",
-            answer: "Yes! Most installment loans for vehicles use the same base amortization math, showing how each payment reduces your total balance."
-          }
-        ]}
-        relatedCalculators={[
-          { label: "Monthly Payment", href: "/monthly-payment-calculator" },
-          { label: "Total Interest", href: "/total-interest-calculator" },
-          { label: "Refinancing", href: "/refinancing-calculator" }
-        ]}
-        ctaText="Ready to lower your monthly cost?"
-        ctaHref="/refinancing-calculator"
-        ctaButtonText="Compare refinancing scenarios"
-      />
+      <CalculationGuide tool="amortization" currency={currency} />
     </MainLayout>
   );
 }

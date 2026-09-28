@@ -1,0 +1,270 @@
+[
+  {
+    "tool": "mortgage-calculator",
+    "width": 1440,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "loan-calculator",
+    "width": 1440,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "monthly-payment-calculator",
+    "width": 1440,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "total-interest-calculator",
+    "width": 1440,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "refinancing-calculator",
+    "width": 1440,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "affordability-calculator",
+    "width": 1440,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "rent-vs-buy",
+    "width": 1440,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "amortization-schedule",
+    "width": 1440,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "mortgage-calculator",
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "loan-calculator",
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "monthly-payment-calculator",
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "total-interest-calculator",
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "refinancing-calculator",
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "affordability-calculator",
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "rent-vs-buy",
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "tool": "amortization-schedule",
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "initial results",
+      "one H1",
+      "keyboard Calculate",
+      "empty input error",
+      "negative input error",
+      "invalid focus",
+      "recovery",
+      "reactive result",
+      "viewport overflow"
+    ]
+  },
+  {
+    "status": "pass",
+    "checks": [
+      "80000 at 6% => 479.64",
+      "400000 at 6.5% => 2528.27 monthly and 510177.95 interest",
+      "315000 at 6.8% => 2053.56 monthly and 424283.16 interest",
+      "zero-rate payment",
+      "investment-return sensitivity",
+      "appreciation sensitivity",
+      "79 sitemap routes free of template tokens"
+    ]
+  }
+]

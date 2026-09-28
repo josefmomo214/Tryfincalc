@@ -73,12 +73,6 @@ export const searchIndex = [
     category: "Loan Guides",
   },
   {
-    title: "Loan Eligibility by Income — Detailed Tables",
-    description: "Detailed borrowing limits for every salary level in 2026.",
-    url: "/blog/loan-eligibility-by-income-detail",
-    category: "Loan Guides",
-  },
-  {
     title: "The Monthly Payment Formula Explained",
     description: "Calculate any loan payment manually with step-by-step examples.",
     url: "/blog/monthly-payment-formula",
@@ -103,8 +97,8 @@ export const searchIndex = [
     category: "Mortgage Guides",
   },
   {
-    title: "The 2026 Homebuyer's Playbook",
-    description: "Step-by-step guide to buying a home smart in 2026.",
+    title: "Homebuyer's Playbook",
+    description: "A step-by-step guide from budgeting through closing checks.",
     url: "/blog/2026-homebuyers-playbook",
     category: "Home Buying",
   },
@@ -157,15 +151,15 @@ export const searchIndex = [
     category: "Mortgage Guides",
   },
   {
-    title: "€300,000 Euro Mortgage",
-    description: "Monthly payments, rates, and full cost breakdown for European buyers.",
-    url: "/blog/300k-euro-mortgage",
+    title: "€300,000 Mortgage at 3.5%",
+    description: "Compare the deposit, financed principal, monthly payment, and total interest in euros.",
+    url: "/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur",
     category: "European Guides",
   },
   {
-    title: "€200,000 Euro Mortgage",
-    description: "Monthly payments and full cost breakdown for European buyers.",
-    url: "/blog/200k-euro-mortgage",
+    title: "€200,000 Mortgage at 3.5%",
+    description: "Compare term and total-interest scenarios for a euro-denominated mortgage.",
+    url: "/eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur",
     category: "European Guides",
   },
   {

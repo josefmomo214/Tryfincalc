@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5fbfa"/>
+  <circle cx="1080" cy="80" r="250" fill="#d5f5ef"/>
+  <circle cx="110" cy="590" r="220" fill="#e2f2ef"/>
+  <rect x="90" y="92" width="74" height="74" rx="15" fill="#191c1d"/>
+  <rect x="112" y="114" width="10" height="10" fill="#0d9488"/>
+  <rect x="132" y="114" width="10" height="10" fill="#ffffff" opacity=".45"/>
+  <rect x="112" y="134" width="10" height="10" fill="#ffffff" opacity=".45"/>
+  <rect x="132" y="134" width="10" height="10" fill="#0d9488"/>
+  <text x="188" y="148" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#003434">Try<tspan fill="#3f4848">FinCalc</tspan></text>
+  <text x="90" y="305" font-family="Arial, sans-serif" font-size="70" font-weight="700" fill="#003434">Financial calculators</text>
+  <text x="90" y="385" font-family="Arial, sans-serif" font-size="70" font-weight="700" fill="#003434">with clear assumptions.</text>
+  <text x="94" y="470" font-family="Arial, sans-serif" font-size="30" fill="#3f4848">Mortgage, loan, affordability and comparison tools</text>
+  <rect x="90" y="525" width="315" height="8" rx="4" fill="#0d9488"/>
+</svg>

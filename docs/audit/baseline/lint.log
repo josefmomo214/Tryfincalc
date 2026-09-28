@@ -1,0 +1,325 @@
+
+> next-app@0.1.0 lint
+> eslint
+
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+/Users/josef214/My Apps/Tryfincalc/scratch/audit_links.js
+   1:12  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   2:14  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  54:31  warning  'index' is defined but never used        @typescript-eslint/no-unused-vars
+  88:35  warning  'from' is defined but never used         @typescript-eslint/no-unused-vars
+
+/Users/josef214/My Apps/Tryfincalc/src/components/ads/AdPlaceholder.tsx
+   3:10  warning  'X' is defined but never used                      @typescript-eslint/no-unused-vars
+  11:67  warning  'label' is assigned a value but never used         @typescript-eslint/no-unused-vars
+  12:21  warning  'setIsVisible' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/josef214/My Apps/Tryfincalc/src/components/blog/BlogTemplate.tsx
+  170:16  warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/josef214/My Apps/Tryfincalc/src/components/blog/BorrowingCalculatorWidget.tsx
+   4:8  warning  'Link' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  40:5  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/components/blog/BorrowingCalculatorWidget.tsx:40:5
+  38 |     const back = (monthlyGross * 0.36) - debts;
+  39 |     
+> 40 |     setFrontEndLimit(front);
+     |     ^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  41 |     setBackEndLimit(back);
+  42 |     
+  43 |     const finalBudget = Math.min(front, back);  react-hooks/set-state-in-effect
+
+/Users/josef214/My Apps/Tryfincalc/src/components/blog/FixedVsVariableWidget.tsx
+   4:8   warning  'Link' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+  10:21  warning  'setFixedRate' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  11:24  warning  'setVariableRate' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  24:5   warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/components/blog/FixedVsVariableWidget.tsx:24:5
+  22 |
+  23 |   useEffect(() => {
+> 24 |     setFixedPayment(calculateMonthlyPayment(loanAmount, fixedRate, 30));
+     |     ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  25 |     setVariablePayment(calculateMonthlyPayment(loanAmount, variableRate, 30));
+  26 |   }, [loanAmount, fixedRate, variableRate]);
+  27 |  react-hooks/set-state-in-effect
+
+/Users/josef214/My Apps/Tryfincalc/src/components/calculator/MortgageCalculatorWidget.tsx
+  69:5  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/components/calculator/MortgageCalculatorWidget.tsx:69:5
+  67 |     const monthlyPMI = calculatePMI(loanAmount, downPayment, homePrice);
+  68 |     
+> 69 |     setResults({
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  70 |       monthlyPayment: monthlyPI + monthlyTax + monthlyInsurance + monthlyPMI + hoa,
+  71 |       principalInterest: monthlyPI,
+  72 |       tax: monthlyTax,  react-hooks/set-state-in-effect
+
+/Users/josef214/My Apps/Tryfincalc/src/components/navigation/Footer.tsx
+  58:43  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  59:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/josef214/My Apps/Tryfincalc/src/components/navigation/Header.tsx
+  8:8  warning  'SearchBar' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/josef214/My Apps/Tryfincalc/src/components/navigation/SearchBar.tsx
+  23:42  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  33:7   warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/components/navigation/SearchBar.tsx:33:7
+  31 |   useEffect(() => {
+  32 |     if (query.length < 2) {
+> 33 |       setResults([]);
+     |       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  34 |       setIsOpen(false);
+  35 |       return;
+  36 |     }  react-hooks/set-state-in-effect
+
+/Users/josef214/My Apps/Tryfincalc/src/components/navigation/SearchOverlay.tsx
+   28:42  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-explicit-any
+   36:7   warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/components/navigation/SearchOverlay.tsx:36:7
+  34 |   useEffect(() => {
+  35 |     if (!isOpen) {
+> 36 |       setQuery('');
+     |       ^^^^^^^^ Avoid calling setState() directly within an effect
+  37 |       setResults([]);
+  38 |       return;
+  39 |     }                                                   react-hooks/set-state-in-effect
+   52:7   warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/components/navigation/SearchOverlay.tsx:52:7
+  50 |   useEffect(() => {
+  51 |     if (query.length < 2) {
+> 52 |       setResults([]);
+     |       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  53 |       return;
+  54 |     }
+  55 |     const searchResults = fuse.search(query).slice(0, 8);  react-hooks/set-state-in-effect
+  182:38  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react/no-unescaped-entities
+  182:46  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react/no-unescaped-entities
+
+/Users/josef214/My Apps/Tryfincalc/src/components/pseo/PSEOPageTemplate.tsx
+   33:5   warning  'totalInterest' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  255:54  warning  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+
+/Users/josef214/My Apps/Tryfincalc/src/data/articles.ts
+  10:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/josef214/My Apps/Tryfincalc/src/lib/context/ThemeContext.tsx
+  22:5  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/lib/context/ThemeContext.tsx:22:5
+  20 |     
+  21 |     const initialTheme = savedTheme === "dark" || savedTheme === "light" ? savedTheme : systemTheme;
+> 22 |     setTheme(initialTheme);
+     |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  23 |     
+  24 |     if (initialTheme === "dark") {
+  25 |       document.documentElement.classList.add("dark");  react-hooks/set-state-in-effect
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/affordability-calculator.tsx
+  82:5  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/affordability-calculator.tsx:82:5
+  80 |   useEffect(() => {
+  81 |     if (validationError) return;
+> 82 |     setResults(calculateAffordability(monthlyIncome, monthlyDebts, downPayment, interestRate, loanTerm, currency));
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  83 |   }, [validationError, monthlyIncome, monthlyDebts, downPayment, interestRate, loanTerm, currency]);
+  84 |
+  85 |  react-hooks/set-state-in-effect
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/blog/[slug].tsx
+  91:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/calculator/[slug].tsx
+  10:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/loan-calculator.tsx
+  81:5  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/loan-calculator.tsx:81:5
+  79 |     const monthly = calculateAmortizedPayment(loanAmount, interestRate, loanTerm);
+  80 |     const totalPaid = monthly * (loanTerm * 12);
+> 81 |     setResults({
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  82 |       monthly,
+  83 |       totalPaid,
+  84 |       totalInterest: totalPaid - loanAmount  react-hooks/set-state-in-effect
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/monthly-payment-calculator.tsx
+  44:5  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/monthly-payment-calculator.tsx:44:5
+  42 |     const monthly = calculateAmortizedPayment(amount, rate, years);
+  43 |     const totalPaid = monthly * (years * 12);
+> 44 |     setResults({
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  45 |       monthly,
+  46 |       totalPaid,
+  47 |       totalInterest: totalPaid - amount  react-hooks/set-state-in-effect
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/mortgage-calculator.tsx
+  2:17  warning  'useState' is defined but never used   @typescript-eslint/no-unused-vars
+  2:27  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/refinancing-calculator.tsx
+   84:5    warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/refinancing-calculator.tsx:84:5
+  82 |   useEffect(() => {
+  83 |     if (validationError) return;
+> 84 |     setResults(calculateRefinancing(balance, currentRate, yearsRemaining, newRate, newTerm, fees));
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  85 |   }, [validationError, balance, currentRate, yearsRemaining, newRate, newTerm, fees]);
+  86 |
+  87 |  react-hooks/set-state-in-effect
+  218:160  warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react/no-unescaped-entities
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/rent-vs-buy.tsx
+   26:10  warning  'isCalculated' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+   84:5   warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/rent-vs-buy.tsx:84:5
+  82 |   useEffect(() => {
+  83 |     if (validationError) return;
+> 84 |     setResults(calculateRentVsBuy(rent, rentIncrease, homePrice, downPercent, interestRate, years, closingCosts));
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  85 |   }, [validationError, rent, rentIncrease, homePrice, downPercent, interestRate, years, closingCosts, currency]);
+  86 |
+  87 |  react-hooks/set-state-in-effect
+  227:59  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+  227:70  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+  227:96  warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/search.tsx
+    3:8    warning  'Head' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+    9:56   warning  'CardContent' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+   11:10   warning  'cn' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+   47:42   warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-explicit-any
+   52:7    warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/search.tsx:52:7
+  50 |   useEffect(() => {
+  51 |     if (q && typeof q === "string") {
+> 52 |       setQuery(q);
+     |       ^^^^^^^^ Avoid calling setState() directly within an effect
+  53 |       const searchResults = fuse.search(q);
+  54 |       setResults(searchResults.map(r => r.item));
+  55 |     }  react-hooks/set-state-in-effect
+   65:39   warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-explicit-any
+   93:84   warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react/no-unescaped-entities
+   93:92   warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react/no-unescaped-entities
+  151:92   warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react/no-unescaped-entities
+  151:100  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react/no-unescaped-entities
+  153:26   warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react/no-unescaped-entities
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/total-interest-calculator.tsx
+   43:5    warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/josef214/My Apps/Tryfincalc/src/pages/total-interest-calculator.tsx:43:5
+  41 |     const monthly = calculateAmortizedPayment(principal, rate, years);
+  42 |     const total = monthly * (years * 12);
+> 43 |     setResults({
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  44 |       totalPaid: total,
+  45 |       totalInterest: total - principal
+  46 |     });  react-hooks/set-state-in-effect
+   63:14   warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react/no-unescaped-entities
+  116:42   warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react/no-unescaped-entities
+  116:94   warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react/no-unescaped-entities
+  116:116  warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react/no-unescaped-entities
+
+✖ 59 problems (2 errors, 57 warnings)
+

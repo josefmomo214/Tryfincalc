@@ -4,41 +4,48 @@ import { SEOHandler } from "@/components/seo/SEOHandler";
 import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
 import { PSEOParams, getPSEOContent } from "@/lib/pseo-data";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
-import { calculateAmortizedPayment, formatCurrency } from "@/lib/finance";
+import { calculateAmortizedPayment, calculateAffordability, calculateLoan, formatCurrency } from "@/lib/finance";
 import { ArrowRight, ChevronRight, Calculator, Info, Lightbulb, PieChart, TrendingDown } from "lucide-react";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
-
-import { useRouter } from "next/router";
+import { MortgageCalculatorWidget } from "@/components/calculator/MortgageCalculatorWidget";
+import { PSEOScenarioCalculator } from "@/components/pseo/PSEOScenarioCalculator";
+import { absoluteUrl, canonicalScenarioPath } from "@/lib/route-registry";
+import { getPseoEditorialStatus } from "@/lib/pseo-publication";
 
 interface PSEOPageTemplateProps {
   params: PSEOParams;
 }
 
 export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
-  const router = useRouter();
-  const locale = router.locale || 'eur';
-  const currency = (locale.toUpperCase() as 'USD' | 'EUR');
+  const currency = params.currency;
   
   const content = getPSEOContent(params, currency);
   
   // Base Calculation
   let monthlyPayment = 0;
-  let totalInterest = 0;
   let totalCost = 0;
+  let headlineResult = 0;
 
   if (params.type !== 'affordability') {
-    monthlyPayment = calculateAmortizedPayment(params.amount, params.rate, params.term);
-    totalCost = monthlyPayment * (params.term * 12);
-    totalInterest = totalCost - params.amount;
+    const loan = calculateLoan(params.amount, params.rate, params.term);
+    monthlyPayment = loan.monthly;
+    totalCost = loan.totalPaid;
+    headlineResult = loan.monthly;
   } else {
-    // Affordability Calculation (approximate)
-    const monthlyGross = (params.salary || 0) / 12;
-    monthlyPayment = monthlyGross * 0.28; // Standard 28% housing rule
-    const monthlyRate = (params.rate / 100) / 12;
-    const n = params.term * 12;
-    const estimatedLoan = monthlyPayment * (Math.pow(1 + monthlyRate, n) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, n));
-    totalCost = estimatedLoan;
+    const assumptions = params.affordabilityInputs;
+    const budget = calculateAffordability(
+      assumptions?.monthlyIncome ?? (params.salary || 0) / 12,
+      assumptions?.monthlyDebts ?? 0,
+      assumptions?.downPayment ?? 0,
+      params.rate,
+      params.term,
+      currency,
+      assumptions ? assumptions.monthlyPropertyTax + assumptions.monthlyInsurance : 0,
+    );
+    monthlyPayment = budget.monthlyPayment;
+    totalCost = budget.loanAmount;
+    headlineResult = assumptions ? budget.maxPrice : budget.monthlyPayment;
   }
 
   // Comparison Scenarios (Dynamic table Data)
@@ -53,9 +60,8 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
     payment: calculateAmortizedPayment(params.amount, s.rate, params.term),
   })) : [];
 
-  const canonicalUrl = params.currency === 'EUR'
-    ? `https://tryfincalc.com/eur/calculator/${params.slug}`
-    : `https://tryfincalc.com/calculator/${params.slug}`;
+  const canonicalUrl = absoluteUrl(canonicalScenarioPath(params));
+  const editorialStatus = getPseoEditorialStatus(params.slug);
 
   const schemas = [
     generateFAQSchema(content.faqs),
@@ -72,6 +78,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
         description={content.description}
         canonicalUrl={canonicalUrl}
         structuredData={schemas}
+        noindex={editorialStatus === 'noindex'}
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
@@ -84,9 +91,18 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-primary leading-[1.1] mb-8 tracking-tight">
               {content.h1}
             </h1>
-            <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed font-medium opacity-90">
-              {content.intro}
-            </p>
+            <p
+              className="text-xl md:text-2xl text-on-surface-variant leading-relaxed font-medium opacity-90"
+              dangerouslySetInnerHTML={{ __html: content.intro }}
+            />
+            {params.scenarioQuestion && (
+              <div className="mt-10 rounded-2xl border border-primary/10 bg-surface-container-low p-6 md:p-8">
+                <h2 data-scenario-question="true" className="text-2xl md:text-3xl font-display font-bold text-primary mb-3">
+                  {params.scenarioQuestion}
+                </h2>
+                {params.directAnswer && <p className="text-lg text-on-surface-variant leading-relaxed">{params.directAnswer}</p>}
+              </div>
+            )}
           </div>
         </header>
 
@@ -97,20 +113,46 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
               <div className="space-y-4">
                  <span className="text-xs font-bold text-primary uppercase tracking-widest">Calculated Result</span>
                  <h2 className="text-5xl md:text-6xl font-display font-black text-primary" suppressHydrationWarning>
-                   {formatCurrency(monthlyPayment, 0, currency)}
+                   {formatCurrency(headlineResult, params.type === 'affordability' && params.affordabilityInputs ? 0 : 2, currency)}
                  </h2>
                  <p className="text-xl text-on-surface-variant max-w-md">
                    {params.type === 'affordability' 
-                     ? `Maximum recommended monthly housing budget for an income of ${formatCurrency(params.salary || 0, 0, currency)}.`
+                     ? (params.affordabilityInputs
+                       ? `Estimated home price under the user-selected planning assumptions for ${formatCurrency(params.salary || 0, 0, currency)} annual income.`
+                       : `Maximum recommended monthly housing budget for an income of ${formatCurrency(params.salary || 0, 0, currency)}.`)
                      : `${params.type.charAt(0).toUpperCase() + params.type.slice(1)} principal and interest monthly repayment.`}
                  </p>
               </div>
               <div className="w-full md:w-auto flex flex-col gap-4">
-                 <ButtonLink href={`/${params.type}-calculator`} size="xl" className="w-full shadow-lg">Adjust Parameters <ArrowRight className="ml-2 w-5 h-5" /></ButtonLink>
-                 <p className="text-center text-sm text-on-surface-variant/60 italic">Updated as of {new Date().toLocaleDateString()}</p>
+                 <ButtonLink href={params.scenarioQuestion ? '#calculator-top' : `/${params.type}-calculator`} size="xl" className="w-full shadow-lg">Adjust Parameters <ArrowRight className="ml-2 w-5 h-5" /></ButtonLink>
+                 <p className="text-center text-sm text-on-surface-variant/60 italic">
+                   {params.scenarioQuestion ? 'Editable mathematical scenario' : `Updated as of ${new Date().toLocaleDateString('en-US')}`}
+                 </p>
               </div>
            </div>
         </section>
+
+        {params.showPrefilledCalculator && params.scenarioQuestion && (
+          <section className="mb-20">
+            <PSEOScenarioCalculator params={params} />
+          </section>
+        )}
+
+        {params.showPrefilledCalculator && !params.scenarioQuestion && params.type === 'mortgage' && (
+          <section className="mb-20">
+            <MortgageCalculatorWidget
+              initialHomePrice={params.amount}
+              initialDownPaymentPercent={0}
+              initialInterestRate={params.rate}
+              initialLoanTerm={params.term}
+              initialAnnualPropertyTax={0}
+              initialAnnualInsurance={0}
+              currency={params.currency}
+              title="Adjust the $400,000 mortgage scenario"
+              description="The initial result uses a $400,000 principal, 6.5% example annual interest rate, 30-year term, and no added property costs. Edit any input to test another estimate."
+            />
+          </section>
+        )}
 
         {/* AdSense Placement 1 */}
         {/* <ins className="adsbygoogle" style={{display: 'block'}} data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> */}
@@ -230,7 +272,7 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-display font-black mb-8">Ready to lock in your rate?</h2>
             <p className="text-xl md:text-2xl text-primary-fixed-dim/80 mb-12 max-w-2xl mx-auto font-medium">
-              Join thousands of smart borrowers who used our calculators to plan their future with 100% mathematical certainty.
+              Explore estimated payments and compare assumptions using the calculators. Actual lender terms and local costs can differ.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
                <ButtonLink href={`/${params.type}-calculator`} size="xl" className="bg-white text-primary hover:bg-primary-fixed-dim rounded-2xl px-12 h-16 text-xl shadow-2xl">

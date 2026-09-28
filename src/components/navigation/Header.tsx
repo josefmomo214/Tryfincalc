@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/navigation/Logo";
 import { ThemeToggle } from "@/components/navigation/ThemeToggle";
 import SearchBar from "@/components/navigation/SearchBar";
 import { Search } from "lucide-react";
+import { useDisplayCurrency } from "@/lib/currency";
 
 interface HeaderProps {
   onSearchOpen: () => void;
 }
 
 export function Header({ onSearchOpen }: HeaderProps) {
-  const router = useRouter();
-  const { pathname, asPath, query, locale } = router;
+  const { currency, setCurrency } = useDisplayCurrency();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -29,12 +28,6 @@ export function Header({ onSearchOpen }: HeaderProps) {
     document.addEventListener('keydown', closeOnEscape);
     return () => document.removeEventListener('keydown', closeOnEscape);
   }, [mobileMenuOpen]);
-
-  const currency = locale?.toUpperCase() || 'USD';
-
-  const handleCurrencyChange = (newLocale: string) => {
-    router.push({ pathname, query }, asPath, { locale: newLocale });
-  };
 
   const links = [
     { name: "Home", href: "/" },
@@ -81,7 +74,8 @@ export function Header({ onSearchOpen }: HeaderProps) {
             <ThemeToggle />
             <div className="flex bg-surface-container-low rounded-lg p-1 border border-outline-variant/10">
               <button
-                onClick={() => handleCurrencyChange('eur')}
+                onClick={() => setCurrency('EUR')}
+                aria-pressed={currency === 'EUR'}
                 className={cn(
                   "px-4 py-2 text-xs font-bold rounded-md transition-all min-w-[3rem]",
                   currency === 'EUR' ? "bg-primary text-white shadow-sm" : "text-on-surface-variant hover:text-primary"
@@ -90,7 +84,8 @@ export function Header({ onSearchOpen }: HeaderProps) {
                 EUR €
               </button>
               <button
-                onClick={() => handleCurrencyChange('usd')}
+                onClick={() => setCurrency('USD')}
+                aria-pressed={currency === 'USD'}
                 className={cn(
                   "px-4 py-2 text-xs font-bold rounded-md transition-all min-w-[3rem]",
                   currency === 'USD' ? "bg-primary text-white shadow-sm" : "text-on-surface-variant hover:text-primary"
@@ -147,7 +142,8 @@ export function Header({ onSearchOpen }: HeaderProps) {
           ))}
           <div className="flex bg-surface-container-low rounded-lg p-1 border border-outline-variant/10 mt-4 mb-4 mx-3">
             <button
-              onClick={() => handleCurrencyChange('eur')}
+              onClick={() => setCurrency('EUR')}
+              aria-pressed={currency === 'EUR'}
               className={cn(
                 "flex-1 py-2 text-sm font-bold rounded-md transition-all",
                 currency === 'EUR' ? "bg-primary text-white shadow-sm" : "text-on-surface-variant hover:text-primary"
@@ -156,7 +152,8 @@ export function Header({ onSearchOpen }: HeaderProps) {
               EUR €
             </button>
             <button
-              onClick={() => handleCurrencyChange('usd')}
+              onClick={() => setCurrency('USD')}
+              aria-pressed={currency === 'USD'}
               className={cn(
                 "flex-1 py-2 text-sm font-bold rounded-md transition-all",
                 currency === 'USD' ? "bg-primary text-white shadow-sm" : "text-on-surface-variant hover:text-primary"

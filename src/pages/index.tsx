@@ -1,3 +1,5 @@
+import { calculateLoan, formatCurrency } from '@/lib/finance';
+import { ACCURACY } from '@/lib/trust';
 import React from "react";
 import Link from "next/link";
 import { MainLayout } from "@/components/layout/MainLayout";
@@ -9,7 +11,7 @@ const CALCULATORS = [
   {
     name: "Mortgage Calculator",
     href: "/mortgage-calculator",
-    problem: "Calculate your exact monthly payment including taxes, insurance, and PMI.",
+    problem: "Estimate monthly payments including entered taxes and insurance; PMI is excluded.",
     output: "Full PITI breakdown, 15 vs 30-year comparison",
   },
   {
@@ -21,8 +23,8 @@ const CALCULATORS = [
   {
     name: "Affordability Calculator",
     href: "/affordability-calculator",
-    problem: "Find your actual home price range based on your income and current debt.",
-    output: "Max home price, required down payment, safe payment range",
+    problem: "Explore an estimated home price ceiling based on your income and current debt.",
+    output: "Max home price, entered down payment, illustrative payment budget",
   },
   {
     name: "Refinancing Calculator",
@@ -34,7 +36,7 @@ const CALCULATORS = [
     name: "Rent vs. Buy",
     href: "/rent-vs-buy",
     problem: "Compare the true 10-year cost of renting versus buying.",
-    output: "Financial verdict with total cost and break-even year",
+    output: "Estimated costs, sensitivity and break-even range",
   },
   {
     name: "Amortization Schedule",
@@ -58,15 +60,15 @@ const CALCULATORS = [
 
 const TRUST_POINTS = [
   "All calculations run in your browser — your data never leaves your screen",
-  "Formulas validated against CFPB and Federal Reserve standards",
-  "Supports USD and EUR — built for US and European users",
+  ACCURACY,
+  "US-first illustrative assumptions; USD and EUR display options",
   "No sign-up. No email. No paywall. Free forever.",
 ];
 
 const USE_CASES = [
   {
-    label: "What's the monthly payment on a $400,000 mortgage?",
-    href: "/calculator/400k-mortgage-monthly-payment-4-percent",
+    label: "What's the monthly payment on a $400,000 mortgage at 6.5%?",
+    href: "/calculator/400k-mortgage-monthly-payment-6-5-percent",
   },
   {
     label: "How much house can I afford on an $80,000 salary?",
@@ -89,12 +91,12 @@ const USE_CASES = [
     href: "/amortization-schedule",
   },
   {
-    label: "What's the monthly payment on a $250,000 mortgage?",
-    href: "/calculator/250k-mortgage-monthly-payment-3-5-percent",
+    label: "How do term and rate change a $350,000 mortgage?",
+    href: "/calculator/350k-mortgage-monthly-payment-6-5-percent",
   },
   {
-    label: "How much house can I afford on a $60,000 salary?",
-    href: "/calculator/how-much-house-can-i-afford-60k-salary",
+    label: "How much house can I afford on a $70,000 salary?",
+    href: "/calculator/how-much-house-can-i-afford-70k-salary",
   },
 ];
 
@@ -154,7 +156,7 @@ export default function HomePage() {
               <div className="divide-y divide-outline-variant/20">
                 <div className="pb-5">
                   <div className="font-display text-[2.5rem] font-bold text-primary tabular-nums leading-none">
-                    $2,528{" "}
+                    {formatCurrency(calculateLoan(400000,6.5,30).monthly,2)}{" "}
                     <span className="text-2xl font-medium text-on-surface-variant">/mo</span>
                   </div>
                   <div className="text-sm text-on-surface-variant mt-2">
@@ -163,7 +165,7 @@ export default function HomePage() {
                 </div>
                 <div className="py-5">
                   <div className="font-display text-[2.5rem] font-bold text-on-surface tabular-nums leading-none">
-                    $510,080
+                    {formatCurrency(calculateLoan(400000,6.5,30).totalInterest,2)}
                   </div>
                   <div className="text-sm text-on-surface-variant mt-2">Total interest paid</div>
                 </div>
@@ -250,7 +252,7 @@ export default function HomePage() {
               <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
                 Most people negotiate on monthly payment, but that&apos;s the wrong
                 number to optimize. A 30-year mortgage at 6.5% on a $400,000 home
-                costs $510,080 in interest alone — more than the home itself.
+                costs {formatCurrency(calculateLoan(400000,6.5,30).totalInterest,2)} in interest alone — more than the home itself.
                 Stretching to a longer term lowers your monthly bill, but the
                 lifetime cost is dramatically higher. The honest number to look at
                 is total cost of financing, not just what hits your bank account

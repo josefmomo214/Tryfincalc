@@ -1,6 +1,4 @@
-import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEOHandler } from "@/components/seo/SEOHandler";
 import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from "@/components/calculator/CalculatorContainer";
@@ -8,19 +6,19 @@ import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from 
 import { Input } from "@/components/ui/Input";
 
 import { formatCurrency, convertCurrency, validateLoan, calculateAffordability } from "@/lib/finance";
-import { CalculatorSEOSection } from "@/components/calculator/CalculatorSEOSection";
+import { CalculationGuide } from "@/components/calculator/CalculationGuide";
 import { Search, PieChart, Wallet } from "lucide-react";
+import { useDisplayCurrency } from "@/lib/currency";
+import Link from "next/link";
 
 export default function AffordabilityCalculator() {
-  const router = useRouter();
-  const { locale } = router;
-  const currency = (locale?.toUpperCase() as 'USD' | 'EUR') || 'USD';
+  const { currency } = useDisplayCurrency();
   const [monthlyIncome, setMonthlyIncome] = useState(7500);
   const [monthlyDebts, setMonthlyDebts] = useState(0);
   const [downPayment, setDownPayment] = useState(50000);
   const [interestRate, setInterestRate] = useState(3.75);
   const [loanTerm, setLoanTerm] = useState(25);
-  const [isCalculated, setIsCalculated] = useState(false);
+
 
   const affordabilitySchema = [
     {
@@ -28,7 +26,7 @@ export default function AffordabilityCalculator() {
       "@type": "WebApplication",
       "name": "Home Affordability Calculator",
       "url": "https://tryfincalc.com/affordability-calculator",
-      "description": "Find out how much house you can afford based on your income, debts, and down payment. Free affordability calculator supporting USD and EUR.",
+      "description": "Explore a home-price estimate using displayed income, debt, down-payment, rate and illustrative US housing-budget assumptions.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {
@@ -57,11 +55,6 @@ export default function AffordabilityCalculator() {
     }
   ];
 
-  const [results, setResults] = useState({
-    maxPrice: 0,
-    monthlyPayment: 0,
-    loanAmount: 0
-  });
 
   const validationError = validateLoan(downPayment, interestRate, loanTerm) || (![monthlyIncome, monthlyDebts, downPayment, interestRate, loanTerm].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
 
@@ -77,10 +70,7 @@ export default function AffordabilityCalculator() {
     setDownPayment(prev => Math.round(convertCurrency(prev, prevCurrency, currency) * 100) / 100);
   }, [currency]);
 
-  useEffect(() => {
-    if (validationError) return;
-    setResults(calculateAffordability(monthlyIncome, monthlyDebts, downPayment, interestRate, loanTerm, currency));
-  }, [validationError, monthlyIncome, monthlyDebts, downPayment, interestRate, loanTerm, currency]);
+  const results = validationError ? calculateAffordability(0, 0, 0, 0, 1, currency) : calculateAffordability(monthlyIncome, monthlyDebts, downPayment, interestRate, loanTerm, currency);
 
 
   return (
@@ -97,7 +87,7 @@ export default function AffordabilityCalculator() {
           Affordability Calculator
         </h1>
         <p className="text-xl text-on-surface-variant max-w-2xl">
-          Find out your ideal home price range based on your income and standard debt-to-income limits.
+          Find out your ideal home price range based on your income and illustrative US budgeting assumptions.
         </p>
       </header>
 
@@ -106,23 +96,24 @@ export default function AffordabilityCalculator() {
         description="Find out how much house you can afford based on your income and debts. Plan your budget with confidence. Free and requires no sign-up. Try it at TryFinCalc."
       >
         <CalculatorInputArea>
+          <p className="mb-4 text-sm">Illustrative US budget: housing capped at 28% of gross income and housing plus other debt at 36%. These are documented planning assumptions, not universal lender rules or approval estimates. Tax, insurance, HOA and PMI are excluded here, so the displayed ceiling can overstate a usable purchase budget. Currency changes do not change these assumptions.</p>
           {validationError && <p id="calculator-error" role="alert" className="mb-4 text-red-700 dark:text-red-300">{validationError}</p>}
           <div className="space-y-6">
             <div className="space-y-2">
               <label htmlFor="monthlyIncome" className="block text-sm font-semibold text-on-surface">
-                Monthly Household Income ({currency === 'EUR' ? '€' : '$'})
+                Monthly Gross Household Income ({currency === 'EUR' ? '€' : '$'})
               </label>
-              <Input id="monthlyIncome" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={monthlyIncome} onChange={(e) => { setIsCalculated(true); setMonthlyIncome(e.target.valueAsNumber); }} />
+              <Input id="monthlyIncome" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={monthlyIncome} onChange={(e) => { setMonthlyIncome(e.target.valueAsNumber); }} />
               <p className="text-xs text-on-surface-variant">Include base salary and any recurring income sources.</p>
             </div>
             <div className="space-y-2">
               <label htmlFor="monthlyDebts" className="block text-sm font-semibold text-on-surface">Other Monthly Debts ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input id="monthlyDebts" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={monthlyDebts} onChange={(e) => { setIsCalculated(true); setMonthlyDebts(e.target.valueAsNumber); }} />
+              <Input id="monthlyDebts" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={monthlyDebts} onChange={(e) => { setMonthlyDebts(e.target.valueAsNumber); }} />
               <p className="text-xs text-on-surface-variant">Auto loans, personal loans, or other commitments.</p>
             </div>
             <div className="space-y-2">
               <label htmlFor="downPayment" className="block text-sm font-semibold text-on-surface">Personal Contribution / Down Payment ({currency === 'EUR' ? '€' : '$'})</label>
-              <Input id="downPayment" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={downPayment} onChange={(e) => { setIsCalculated(true); setDownPayment(e.target.valueAsNumber); }} />
+              <Input id="downPayment" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={downPayment} onChange={(e) => { setDownPayment(e.target.valueAsNumber); }} />
               <p className="text-xs text-on-surface-variant">Savings used for the purchase.</p>
             </div>
             
@@ -131,11 +122,11 @@ export default function AffordabilityCalculator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="interestRate" className="block text-xs font-semibold text-on-surface">Interest Rate (%)</label>
-                  <Input max={100} id="interestRate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={interestRate} onChange={(e) => { setIsCalculated(true); setInterestRate(e.target.valueAsNumber); }} />
+                  <Input max={100} id="interestRate" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" step="0.1" value={interestRate} onChange={(e) => { setInterestRate(e.target.valueAsNumber); }} />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="loanTerm" className="block text-xs font-semibold text-on-surface">Loan Term (Years)</label>
-                  <Input min={1/12} max={100} step="any" id="loanTerm" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={loanTerm} onChange={(e) => { setIsCalculated(true); setLoanTerm(e.target.valueAsNumber); }} />
+                  <Input min={1/12} max={100} step="any" id="loanTerm" aria-invalid={!!validationError} aria-describedby={validationError ? "calculator-error" : undefined} type="number" value={loanTerm} onChange={(e) => { setLoanTerm(e.target.valueAsNumber); }} />
                 </div>
               </div>
             </div>
@@ -167,7 +158,7 @@ export default function AffordabilityCalculator() {
           <div className="space-y-8">
             <div className="text-center p-8 bg-primary/5 rounded-3xl border border-primary/10">
               <h3 className="text-sm font-semibold tracking-wider text-primary uppercase mb-2">Estimated Home Price</h3>
-              {(isCalculated && !validationError) ? (
+              {(!validationError) ? (
                 <div className="text-5xl md:text-6xl font-manrope font-extrabold text-primary animate-in fade-in duration-700">
                   {formatCurrency(results.maxPrice, 0, currency)}
                 </div>
@@ -182,13 +173,13 @@ export default function AffordabilityCalculator() {
               <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Max Monthly Budget</h3>
                 <div className="text-2xl font-bold text-primary">
-                  {(isCalculated && !validationError) ? formatCurrency(results.monthlyPayment, 0, currency) : "—"}
+                  {(!validationError) ? formatCurrency(results.monthlyPayment, 0, currency) : "—"}
                 </div>
               </div>
               <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Max Loan Amount</h3>
                 <div className="text-2xl font-bold text-primary">
-                  {(isCalculated && !validationError) ? formatCurrency(results.loanAmount, 0, currency) : "—"}
+                  {(!validationError) ? formatCurrency(results.loanAmount, 0, currency) : "—"}
                 </div>
               </div>
             </div>
@@ -203,78 +194,21 @@ export default function AffordabilityCalculator() {
         </CalculatorResultsArea>
       </CalculatorContainer>
 
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-16">
+        <div className="rounded-3xl border border-outline-variant/20 bg-surface-container-low p-8">
+          <h2 className="text-2xl font-manrope font-bold text-primary mb-3">Worked affordability assumptions</h2>
+          <p className="text-on-surface-variant mb-5">See how debt, down payment, rate, property tax, and insurance change one transparent planning example.</p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/how-much-house-can-i-afford-70k-salary">$70,000 salary debt sensitivity</Link>
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/how-much-house-can-i-afford-80k-salary">$80,000 salary affordability sensitivity</Link>
+            <Link className="font-semibold text-primary hover:underline" href="/calculator/how-much-house-can-i-afford-90k-salary">$90,000 salary down-payment sensitivity</Link>
+            <Link className="font-semibold text-primary hover:underline" href="/income-needed-for-a-house">Income needed for a target house price</Link>
+          </div>
+        </div>
+      </section>
 
-      <CalculatorSEOSection 
-        title="Mortgage Affordability: How Much House Can You Afford?"
-        intro={
-          <>
-            <p>Determining your borrowing capacity is the crucial first step in your home-buying journey. Lenders look closely at your monthly disposable income and your ability to maintain a comfortable standard of living after the mortgage is paid.</p>
-            <p>Our Affordability Calculator applies standard industry estimates used by global lenders to give you a realistic target price for your next home search.</p>
-            <p>See specific scenarios: <Link href="/calculator/how-much-house-can-i-afford-80k-salary" className="text-primary underline">$80k salary affordability</Link> · <Link href="/calculator/how-much-house-can-i-afford-70k-salary" className="text-primary underline">$70k salary affordability</Link></p>
-          </>
-        }
-        howItWorks={
-          <>
-            <p>Affordability is generally calculated using Debt-to-Income (DTI) ratios. Standard conservative limits ensure your total monthly installments for all loans stay under a sustainable portion of your income.</p>
-            <ul>
-              <li><strong>Residual Income:</strong> Beyond fixed ratios, banks also check for a minimum residual income to cover essential living expenses for your household.</li>
-              <li><strong>Closing Costs:</strong> Remember to budget for registration duties, notary fees, and administrative costs, which are often paid upfront from your own savings.</li>
-              <li><strong>Down Payment:</strong> A larger down payment reduces your loan amount, which lowers your monthly payment and significantly increases the total price you can afford.</li>
-            </ul>
-          </>
-        }
-        examples={[
-          {
-            title: "Solo Professional",
-            items: [
-              { label: "Monthly Income", value: currency === 'EUR' ? "€3,500" : "$3,500" },
-              { label: "Existing Debts", value: currency === 'EUR' ? "€200" : "$200" },
-              { label: "Estimated Budget", value: currency === 'EUR' ? "€950" : "$950" },
-              { label: "Approx. Loan", value: currency === 'EUR' ? "€195,000" : "$195,000" }
-            ],
-            description: "A typical solo buyer scenario with manageable recurring debt."
-          },
-          {
-            title: "Dual-Income Household",
-            items: [
-              { label: "Combined Gross Income", value: "$120,000/yr" },
-              { label: "Monthly Gross Income", value: "$10,000" },
-              { label: "28% Housing Budget", value: "$2,800/mo" },
-              { label: "Estimated Max Loan", value: "~$417,000 at 6.8%" },
-              { label: "Recommended Home Price", value: "~$463,000 (10% down)" }
-            ],
-            description: "Combined household income of $120,000/yr"
-          }
-        ]}
-        tips={[
-          "Get pre-approved to understand your exact borrowing limit before you offer.",
-          "Include all reliable sources of income when calculating your budget.",
-          "Try to consolidate or reduce recurring debts before applying for a mortgage.",
-          "Ensure you have enough liquid savings to cover closing costs and taxes."
-        ]}
-        faqs={[
-          {
-            question: "How does my credit score affect affordability?",
-            answer: "A higher score usually unlocks lower interest rates, which lowers your monthly payment and allows you to afford a more expensive home with the same budget."
-          },
-          {
-            question: "Should I spend the maximum amount I can afford?",
-            answer: "Not necessarily. Financial experts recommend leaving room in your budget for unexpected maintenance, personal savings, and fluctuating living expenses."
-          }
-        ]}
-        relatedCalculators={[
-          { label: "Mortgage Calculator", href: "/mortgage-calculator" },
-          { label: "Rent vs Buy", href: "/rent-vs-buy" },
-          { label: "Monthly Payment", href: "/monthly-payment-calculator" }
-        ]}
-        relatedBlogs={[
-          { title: "How Much Can I Borrow?", href: "/blog/how-much-can-i-borrow" },
-          { title: "How Much House Can I Afford?", href: "/blog/how-much-house-can-i-afford" }
-        ]}
-        ctaText="Find your price range today"
-        ctaHref="#calculator-top"
-        ctaButtonText="Check Your Affordability"
-      />
+
+      <CalculationGuide tool="affordability" currency={currency} />
     </MainLayout>
   );
 }

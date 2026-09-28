@@ -1,0 +1,4 @@
+export const OWNERSHIP = 'TryFinCalc is built and maintained by Youssef Aaouam, a web designer and independent investor. I create calculators and educational guides to help people explore financial scenarios. TryFinCalc does not provide personalized financial advice, lender approval estimates, or professional tax or legal advice.';
+export const FUNDING = 'TryFinCalc may be supported by advertising and, in the future, clearly disclosed affiliate links. Compensation does not change calculator formulas, examples, or editorial conclusions. TryFinCalc does not accept payment for lender rankings.';
+export const ACCURACY = 'TryFinCalc uses standard time-value-of-money formulas documented on our Methodology page. Automated tests compare each implementation with independently calculated examples. Results are estimates and may exclude taxes, fees, insurance, lender rules, or local costs unless those inputs are shown.';
+export const ASSUMPTIONS_VERSION = '2026-09-20.1';

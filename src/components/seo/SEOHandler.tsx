@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { absoluteUrl } from "@/lib/route-registry";
 
 interface SEOHandlerProps {
   title: string;
@@ -15,12 +16,13 @@ export function SEOHandler({
   description,
   keywords,
   canonicalUrl,
-  ogImage = "/og-image.jpg", // Placeholder for an actual OG image
+  ogImage = "https://tryfincalc.com/og-image.png",
   structuredData,
   noindex = false
 }: SEOHandlerProps) {
   const siteName = "TryFinCalc";
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+  const absoluteOgImage = absoluteUrl(ogImage);
 
   return (
     <Head>
@@ -35,23 +37,16 @@ export function SEOHandler({
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={absoluteOgImage} />
       
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      {canonicalUrl && <meta property="twitter:url" content={canonicalUrl} />}
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={ogImage} />
+      <meta name="twitter:card" content="summary_large_image" />
+      {canonicalUrl && <meta name="twitter:url" content={canonicalUrl} />}
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={absoluteOgImage} />
 
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-      {canonicalUrl && canonicalUrl.includes('/eur/') && (
-        <>
-          <link rel="alternate" hrefLang="en" href={canonicalUrl} />
-          <link rel="alternate" hrefLang="x-default" href={canonicalUrl.replace('/eur/', '/')} />
-        </>
-      )}
-
       {structuredData && (
         <script
           type="application/ld+json"

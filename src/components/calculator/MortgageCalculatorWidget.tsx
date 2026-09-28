@@ -3,11 +3,15 @@ import { CalculatorContainer, CalculatorInputArea, CalculatorResultsArea } from 
 import { Input } from "@/components/ui/Input";
 import { ResultCard } from "@/components/calculator/ResultCard";
 import { BarChart3, Search, PieChart, TrendingDown } from "lucide-react";
-import { formatCurrency, calculateAmortizedPayment, calculatePMI, convertCurrency, validateLoan } from "@/lib/finance";
+import { formatCurrency, calculateAmortizedPayment, convertCurrency, validateLoan } from "@/lib/finance";
 
 interface MortgageCalculatorWidgetProps {
   initialHomePrice?: number;
   initialDownPaymentPercent?: number;
+  initialInterestRate?: number;
+  initialLoanTerm?: number;
+  initialAnnualPropertyTax?: number;
+  initialAnnualInsurance?: number;
   title?: string;
   description?: string;
   currency?: 'USD' | 'EUR';
@@ -16,29 +20,25 @@ interface MortgageCalculatorWidgetProps {
 export function MortgageCalculatorWidget({
   initialHomePrice = 450000,
   initialDownPaymentPercent = 20,
+  initialInterestRate = 6.5,
+  initialLoanTerm = 30,
+  initialAnnualPropertyTax,
+  initialAnnualInsurance,
   title = "Mortgage Calculator",
   description = "Get a detailed breakdown of your monthly mortgage payment, including principal, interest, taxes, and insurance.",
   currency = 'USD'
 }: MortgageCalculatorWidgetProps) {
+  const isEuro = currency === 'EUR';
   const [homePrice, setHomePrice] = useState<number>(initialHomePrice);
   const [downPaymentPercent, setDownPaymentPercent] = useState<number>(initialDownPaymentPercent);
   const [downPayment, setDownPayment] = useState<number>((initialHomePrice * initialDownPaymentPercent) / 100);
-  const [interestRate, setInterestRate] = useState<number>(6.5); // Updated to 2026 average
-  const [loanTerm, setLoanTerm] = useState<number>(30); // Standard term
-  const [propertyTax, setPropertyTax] = useState<number>(Math.round(initialHomePrice * 0.011)); // 1.1% avg
-  const [insurance, setInsurance] = useState<number>(Math.round(initialHomePrice * 0.0035)); // 0.35% avg
+  const [interestRate, setInterestRate] = useState<number>(initialInterestRate);
+  const [loanTerm, setLoanTerm] = useState<number>(initialLoanTerm);
+  const [propertyTax, setPropertyTax] = useState<number>(initialAnnualPropertyTax ?? Math.round(initialHomePrice * 0.011));
+  const [insurance, setInsurance] = useState<number>(initialAnnualInsurance ?? Math.round(initialHomePrice * 0.0035));
   const [hoa, setHoa] = useState<number>(0);
   const [isCalculated, setIsCalculated] = useState(true);
 
-  const [results, setResults] = useState({
-    monthlyPayment: 0,
-    principalInterest: 0,
-    tax: 0,
-    insurance: 0,
-    pmi: 0,
-    hoa: 0,
-    loanAmount: 0
-  });
 
   const previousCurrency = useRef(currency);
   useEffect(() => {
@@ -57,16 +57,15 @@ export function MortgageCalculatorWidget({
     validateLoan(homePrice, interestRate, loanTerm) ||
     (![homePrice, downPayment, downPaymentPercent, propertyTax, insurance, hoa].every(value => Number.isFinite(value) && value >= 0 && value <= 1e12) ? 'Enter a non-negative number up to 1 trillion in every field.' : '');
 
-  useEffect(() => {
-    if (validationError) return;
-    const loanAmount = homePrice - downPayment;
+  const results = (() => {
+    const loanAmount = validationError ? 0 : homePrice - downPayment;
     const monthlyPI = calculateAmortizedPayment(loanAmount, interestRate, loanTerm);
     
     const monthlyTax = propertyTax / 12;
     const monthlyInsurance = insurance / 12;
-    const monthlyPMI = calculatePMI(loanAmount, downPayment, homePrice);
+    const monthlyPMI = 0; // PMI is excluded; no hidden default premium.
     
-    setResults({
+    return {
       monthlyPayment: monthlyPI + monthlyTax + monthlyInsurance + monthlyPMI + hoa,
       principalInterest: monthlyPI,
       tax: monthlyTax,
@@ -74,8 +73,8 @@ export function MortgageCalculatorWidget({
       pmi: monthlyPMI,
       hoa: hoa,
       loanAmount: loanAmount
-    });
-  }, [homePrice, downPayment, interestRate, loanTerm, propertyTax, insurance, hoa, validationError]);
+    };
+  })();
 
   const handlePriceChange = (value: number) => {
     setIsCalculated(true);
@@ -102,20 +101,25 @@ export function MortgageCalculatorWidget({
       description={description}
     >
       <CalculatorInputArea>
+        <p className="mb-4 text-sm">
+          {isEuro
+            ? 'Euro-denominated fixed-rate mathematical estimate. Entered property tax, insurance and recurring property fees are included. Transaction costs, maintenance and loan-specific charges are excluded.'
+            : 'US-style fixed-rate estimate. PMI, closing costs and maintenance are excluded. Tax, insurance and HOA inputs are included; defaults are examples, not quotes.'}
+        </p>
         {validationError && <p id="mortgage-error" role="alert" className="mb-4 text-red-700 dark:text-red-300">{validationError}</p>}
         <div className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <label htmlFor="homePrice" className="block text-sm font-semibold text-on-surface">Home Price ({currency === 'EUR' ? '€' : '$'})</label>
+              <label htmlFor="homePrice" className="block text-sm font-semibold text-on-surface">{isEuro ? 'Property price (€)' : 'Home Price ($)'}</label>
               <Input id="homePrice" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={homePrice} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handlePriceChange(e.target.valueAsNumber)} />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <label htmlFor="downPayment" className="block text-sm font-semibold text-on-surface">Down ({currency === 'EUR' ? '€' : '$'})</label>
+                <label htmlFor="downPayment" className="block text-sm font-semibold text-on-surface">{isEuro ? 'Deposit (€)' : 'Down ($)'}</label>
                 <Input id="downPayment" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={downPayment} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleDownPaymentChange(e.target.valueAsNumber)} />
               </div>
               <div className="space-y-4">
-                <label htmlFor="downPaymentPercent" className="block text-sm font-semibold text-on-surface">Down (%)</label>
+                <label htmlFor="downPaymentPercent" className="block text-sm font-semibold text-on-surface">{isEuro ? 'Deposit (%)' : 'Down (%)'}</label>
                 <Input max={100} id="downPaymentPercent" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={downPaymentPercent} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleDownPercentChange(e.target.valueAsNumber)} />
               </div>
             </div>
@@ -141,18 +145,18 @@ export function MortgageCalculatorWidget({
           </div>
 
           <div className="pt-8 border-t border-outline-variant/20">
-            <h3 className="text-lg font-bold text-primary mb-6">Out-of-Pocket monthly costs</h3>
+            <h3 className="text-lg font-bold text-primary mb-6">Entered property costs</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="space-y-2">
-                <label htmlFor="propertyTax" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tax / yr</label>
+                <label htmlFor="propertyTax" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">{isEuro ? 'Property / local tax / yr' : 'Tax / yr'}</label>
                 <Input id="propertyTax" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={propertyTax} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setPropertyTax(e.target.valueAsNumber); }} />
               </div>
               <div className="space-y-2">
-                <label htmlFor="insurance" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">Insurance / yr</label>
+                <label htmlFor="insurance" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">{isEuro ? 'Property insurance / yr' : 'Insurance / yr'}</label>
                 <Input id="insurance" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={insurance} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setInsurance(e.target.valueAsNumber); }} />
               </div>
               <div className="space-y-2">
-                <label htmlFor="hoa" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">HOA / mo</label>
+                <label htmlFor="hoa" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">{isEuro ? 'Recurring property fees / mo' : 'HOA / mo'}</label>
                 <Input id="hoa" aria-describedby={validationError ? "mortgage-error" : undefined} aria-invalid={!!validationError} type="number" value={hoa} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setIsCalculated(true); setHoa(e.target.valueAsNumber); }} />
               </div>
             </div>
@@ -201,8 +205,8 @@ export function MortgageCalculatorWidget({
             <h4 className="text-xs font-semibold tracking-widest text-on-surface-variant uppercase mb-6">Monthly Breakdown</h4>
             <div className="space-y-4">
               <ResultCard title="Principal & Interest" value={(isCalculated && !validationError) ? formatCurrency(results.principalInterest, 2, currency) : "—"} />
-              <ResultCard title="Property Taxes" value={(isCalculated && !validationError) ? formatCurrency(results.tax, 0, currency) : "—"} />
-              <ResultCard title="Homeowners Insurance" value={(isCalculated && !validationError) ? formatCurrency(results.insurance, 0, currency) : "—"} />
+              <ResultCard title={isEuro ? 'Property / local taxes' : 'Property Taxes'} value={(isCalculated && !validationError) ? formatCurrency(results.tax, 0, currency) : "—"} />
+              <ResultCard title={isEuro ? 'Property insurance' : 'Homeowners Insurance'} value={(isCalculated && !validationError) ? formatCurrency(results.insurance, 0, currency) : "—"} />
               {results.pmi > 0 && <ResultCard title="PMI" value={(isCalculated && !validationError) ? formatCurrency(results.pmi, 0, currency) : "—"} />}
               {results.hoa > 0 && <ResultCard title="HOA Fees" value={(isCalculated && !validationError) ? formatCurrency(results.hoa, 0, currency) : "—"} />}
               <div className="pt-4 border-t border-outline-variant/10">
@@ -216,7 +220,7 @@ export function MortgageCalculatorWidget({
               <div className="w-12 h-12 bg-white dark:bg-surface-container-lowest rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <BarChart3 className="w-6 h-6 text-primary" />
               </div>
-              <p className="font-medium">Detailed breakdown and PITI analysis</p>
+              <p className="font-medium">{isEuro ? 'Loan payment and entered-cost breakdown' : 'Detailed breakdown and PITI analysis'}</p>
             </div>
           </div>
         </div>
