@@ -7,6 +7,7 @@ import { pseoData } from '../src/lib/pseo-data';
 const sourceFiles = [
   'src/lib/pseo-data.ts',
   'src/data/articles.ts',
+  'src/pages/index.tsx',
 ] as const;
 
 const volatileClaimPatterns = [
@@ -68,6 +69,18 @@ function findMatches(
   }
   return matches;
 }
+
+test('homepage avoids volatile rates and universal qualification language', () => {
+  const homepage = readFileSync('src/pages/index.tsx', 'utf8');
+  for (const pattern of [
+    /Income needed to qualify/i,
+    /The standard is 28%/i,
+    /today(?:'s)? rates/i,
+    /you(?:&apos;|')ve lost money/i,
+  ]) {
+    assert.doesNotMatch(homepage, pattern);
+  }
+});
 
 test('content has no unsupported or undated rate-market claims', () => {
   assert.deepEqual(findMatches(volatileClaimPatterns, (line) => {

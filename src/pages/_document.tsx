@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from "next/document";
-import Script from "next/script";
 
 interface MyDocumentProps extends DocumentInitialProps {
   nonce?: string;
@@ -58,11 +57,11 @@ export default function MyDocument(props: MyDocumentProps) {
           dangerouslySetInnerHTML={{ __html: cookieYesLoader }}
         />
         {/* Google AdSense */}
-        <Script
+        <script
           id="adsbygoogle-loader"
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3710437974251848"
           crossOrigin="anonymous"
-          strategy="beforeInteractive"
           nonce={nonce}
         />
       </Head>
