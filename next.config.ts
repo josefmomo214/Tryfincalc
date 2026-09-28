@@ -32,6 +32,12 @@ const nextConfig: NextConfig = {
     });
 
     return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.tryfincalc.com' }],
+        destination: 'https://tryfincalc.com/:path*',
+        permanent: true,
+      },
       ...Object.entries(ARTICLE_REDIRECTS).map(([source, destination]) => ({
         source,
         destination,

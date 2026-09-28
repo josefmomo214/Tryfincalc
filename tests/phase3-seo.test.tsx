@@ -65,6 +65,23 @@ test('CookieYes loads on the public site but not on local browser hosts', async 
   assert.equal(loadedSources('www.tryfincalc.com').length, 1);
 });
 
+test('AdSense uses a plain async document script without Next.js script annotations', () => {
+  const documentSource = fs.readFileSync(
+    path.join(process.cwd(), 'src', 'pages', '_document.tsx'),
+    'utf8',
+  );
+  const adsenseStart = documentSource.indexOf('id="adsbygoogle-loader"');
+  assert.notEqual(adsenseStart, -1);
+  const adsenseMarkup = documentSource.slice(
+    documentSource.lastIndexOf('<script', adsenseStart),
+    documentSource.indexOf('/>', adsenseStart) + 2,
+  );
+  assert.match(adsenseMarkup, /<script/);
+  assert.match(adsenseMarkup, /\basync\b/);
+  assert.match(adsenseMarkup, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/);
+  assert.doesNotMatch(adsenseMarkup, /<Script|strategy=|data-nscript/);
+});
+
 function renderHead(element: React.ReactElement) {
   let head: React.ReactElement[] = [];
   const manager = {
@@ -109,6 +126,15 @@ test('Next routing has one ordinary canonical URL and no 400k redirect', async (
   assert.equal(
     redirects.some((rule) => rule.source === '/calculator/400k-mortgage-monthly-payment-6-5-percent'),
     false,
+  );
+  assert.deepEqual(
+    redirects.find((rule) => rule.source === '/:path*' && rule.has?.[0]?.type === 'host'),
+    {
+      source: '/:path*',
+      has: [{ type: 'host', value: 'www.tryfincalc.com' }],
+      destination: 'https://tryfincalc.com/:path*',
+      permanent: true,
+    },
   );
 });
 

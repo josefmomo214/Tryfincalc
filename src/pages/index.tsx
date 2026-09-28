@@ -75,7 +75,7 @@ const USE_CASES = [
     href: "/calculator/how-much-house-can-i-afford-80k-salary",
   },
   {
-    label: "Should I refinance at today's rates?",
+    label: "Should I refinance using my quoted rate?",
     href: "/refinancing-calculator",
   },
   {
@@ -171,11 +171,10 @@ export default function HomePage() {
                 </div>
                 <div className="pt-5">
                   <div className="font-display text-[2.5rem] font-bold text-on-surface tabular-nums leading-none">
-                    $138k{" "}
-                    <span className="text-2xl font-medium text-on-surface-variant">/yr</span>
+                    {formatCurrency(calculateLoan(400000,6.5,30).totalPaid,2)}
                   </div>
                   <div className="text-sm text-on-surface-variant mt-2">
-                    Income needed to qualify
+                    Total scheduled payments
                   </div>
                 </div>
               </div>
@@ -268,16 +267,14 @@ export default function HomePage() {
 
             <div>
               <h3 className="font-display text-lg font-semibold text-on-surface mb-3">
-                The 28% rule: what lenders actually check
+                Affordability estimates are not approval rules
               </h3>
               <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                Lenders use a front-end debt-to-income ratio to decide if you
-                qualify. The standard is 28%: your monthly housing payment
-                shouldn&apos;t exceed 28% of your gross monthly income. On an
-                $80,000 salary, that&apos;s $1,867/month max for housing. But
-                lenders also check back-end DTI — all your debts combined. If you
-                carry car loans or student debt, your effective buying power is
-                lower than the 28% rule suggests.
+                The calculator turns the income, debt, down payment, rate, term,
+                and ownership-cost assumptions you enter into a planning estimate.
+                Actual borrowing limits and documentation requirements vary by
+                lender, loan program, and jurisdiction. Compare the result with a
+                written quote rather than treating it as a qualification decision.
               </p>
               <Link
                 href="/affordability-calculator"
@@ -292,12 +289,11 @@ export default function HomePage() {
                 Refinancing: the break-even math most people skip
               </h3>
               <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-                Refinancing to a lower rate saves money monthly — but closing costs
-                erase those savings up front. If refinancing costs $6,000 and saves
-                $200/month, you need 30 months just to break even. Move before then
-                and you&apos;ve lost money. The break-even calculation is simple,
-                but most people skip it and refinance based on rate alone. Run the
-                numbers before you commit to new closing costs.
+                In an illustrative scenario with $6,000 of entered fees and $200
+                of modeled monthly savings, the simple break-even point is 30 months.
+                Leaving or refinancing earlier may mean the modeled savings do not
+                recover the entered upfront costs. Compare the estimate with written
+                fees and terms for your loan.
               </p>
               <Link
                 href="/refinancing-calculator"
