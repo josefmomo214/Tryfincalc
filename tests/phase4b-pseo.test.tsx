@@ -170,11 +170,13 @@ test('income-required legacy routes permanently redirect to the one canonical pa
   const redirects = await nextConfig.redirects?.();
   assert.ok(Array.isArray(redirects));
   for (const slug of redirectedSlugs) {
-    assert.ok(redirects.some((rule) => (
-      rule.source === `/calculator/${slug}`
-      && rule.destination === '/income-needed-for-a-house'
-      && rule.permanent === true
-    )), `Missing permanent redirect for ${slug}`);
+    for (const source of [`/calculator/${slug}`, `/eur/calculator/${slug}`]) {
+      assert.ok(redirects.some((rule) => (
+        rule.source === source
+        && rule.destination === '/income-needed-for-a-house'
+        && rule.permanent === true
+      )), `Missing direct permanent redirect for ${source}`);
+    }
   }
 });
 

@@ -16,15 +16,20 @@ const nextConfig: NextConfig = {
         destination: decision.destination,
         permanent: true,
       }] : []);
-    const crossCurrencyScenarioRedirects = pseoData.map((scenario) => ({
-      source: scenario.currency === 'EUR'
-        ? `/calculator/${scenario.slug}`
-        : `/eur/calculator/${scenario.slug}`,
-      destination: scenario.currency === 'EUR'
-        ? `/eur/calculator/${scenario.slug}`
-        : `/calculator/${scenario.slug}`,
-      permanent: true,
-    }));
+    const crossCurrencyScenarioRedirects = pseoData.map((scenario) => {
+      const decision = PSEO_EDITORIAL_DECISIONS[scenario.slug];
+      return {
+        source: scenario.currency === 'EUR'
+          ? `/calculator/${scenario.slug}`
+          : `/eur/calculator/${scenario.slug}`,
+        destination: decision.status === 'redirect'
+          ? decision.destination
+          : scenario.currency === 'EUR'
+            ? `/eur/calculator/${scenario.slug}`
+            : `/calculator/${scenario.slug}`,
+        permanent: true,
+      };
+    });
 
     return [
       ...Object.entries(ARTICLE_REDIRECTS).map(([source, destination]) => ({

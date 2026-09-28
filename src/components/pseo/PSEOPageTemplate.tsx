@@ -91,9 +91,10 @@ export function PSEOPageTemplate({ params }: PSEOPageTemplateProps) {
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-primary leading-[1.1] mb-8 tracking-tight">
               {content.h1}
             </h1>
-            <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed font-medium opacity-90">
-              {content.intro}
-            </p>
+            <p
+              className="text-xl md:text-2xl text-on-surface-variant leading-relaxed font-medium opacity-90"
+              dangerouslySetInnerHTML={{ __html: content.intro }}
+            />
             {params.scenarioQuestion && (
               <div className="mt-10 rounded-2xl border border-primary/10 bg-surface-container-low p-6 md:p-8">
                 <h2 data-scenario-question="true" className="text-2xl md:text-3xl font-display font-bold text-primary mb-3">

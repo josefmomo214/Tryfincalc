@@ -149,6 +149,16 @@ test('Phase 4A introductions render no literal HTML tokens and each page has an 
   assert.equal(questions.size, targetSlugs.length);
 });
 
+test('all scenario introductions render trusted formatting instead of literal HTML tags', () => {
+  for (const scenario of pseoData) {
+    const html = renderScenario(scenario.slug);
+    assert.doesNotMatch(html, /&lt;\/?(?:a|strong|em)\b[^&]*&gt;/i, `${scenario.slug} exposes literal formatting tags`);
+  }
+
+  const protectedScenario = renderScenario('400k-mortgage-monthly-payment-6-5-percent');
+  assert.match(protectedScenario, /payment of <strong>\$2,528\.27<\/strong> per month/);
+});
+
 test('shared pSEO labels and protected update date do not depend on the default locale', () => {
   const scenario = pseoData.find((item) => item.slug === '300k-mortgage-monthly-payment-6-percent');
   assert.ok(scenario);
