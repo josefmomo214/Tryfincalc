@@ -25,7 +25,7 @@ export default function LoanCalculator() {
       "@type": "WebApplication",
       "name": "Loan Calculator",
       "url": "https://tryfincalc.com/loan-calculator",
-      "description": "Free loan calculator — calculate monthly payments, total interest, and total repayment for fixed-rate personal or auto loans.",
+      "description": "Free loan calculator: calculate monthly payments, total interest, and total repayment for fixed-rate personal or auto loans.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "offers": {
@@ -149,13 +149,13 @@ export default function LoanCalculator() {
                <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                  <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Interest</h3>
                  <div className="text-2xl font-bold text-primary">
-                   {(!validationError) ? formatCurrency(results.totalInterest, 2, currency) : "—"}
+                   {(!validationError) ? formatCurrency(results.totalInterest, 2, currency) : "-"}
                  </div>
                </div>
                <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                  <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Total Paid</h3>
                  <div className="text-2xl font-bold text-primary">
-                   {(!validationError) ? formatCurrency(results.totalPaid, 2, currency) : "—"}
+                   {(!validationError) ? formatCurrency(results.totalPaid, 2, currency) : "-"}
                  </div>
                </div>
              </div>

@@ -38,7 +38,7 @@ export const searchIndex = [
   },
   {
     title: "How to Pay Off Your Mortgage Early",
-    description: "Strategies that actually work — with exact interest savings.",
+    description: "Strategies that actually work: with exact interest savings.",
     url: "/blog/early-mortgage-payoff",
     category: "Mortgage Guides",
   },
@@ -80,7 +80,7 @@ export const searchIndex = [
   },
   {
     title: "Total Interest Paid on a Loan",
-    description: "What it really costs to borrow — with strategies to reduce it.",
+    description: "What it really costs to borrow: with strategies to reduce it.",
     url: "/blog/total-interest-explained",
     category: "Loan Guides",
   },
@@ -116,7 +116,7 @@ export const searchIndex = [
   },
   {
     title: "Closing Costs Explained",
-    description: "Every fee you will pay at closing — and how to reduce them.",
+    description: "Every fee you will pay at closing, and how to reduce them.",
     url: "/blog/closing-costs-breakdown",
     category: "Home Buying",
   },
@@ -128,7 +128,7 @@ export const searchIndex = [
   },
   {
     title: "7 Mortgage Calculator Mistakes",
-    description: "Common errors that lead to budget surprises — and how to avoid them.",
+    description: "Common errors that lead to budget surprises, and how to avoid them.",
     url: "/blog/calculator-mistakes",
     category: "Guides",
   },

@@ -182,7 +182,7 @@ export default function RefinancingCalculator() {
               <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Lifetime Savings</h3>
                 <div className="text-2xl font-bold text-primary">
-                  {(!validationError) ? formatCurrency(results.lifetimeSavings, 0, currency) : "—"}
+                  {(!validationError) ? formatCurrency(results.lifetimeSavings, 0, currency) : "-"}
                 </div>
               </div>
               <div className="p-6 bg-surface-container-lowest border-t-4 border-tertiary rounded-3xl text-center shadow-sm">
@@ -192,7 +192,7 @@ export default function RefinancingCalculator() {
                     <>
                       {results.monthlySavings > 0 && Number.isFinite(results.breakEven) ? `${Math.ceil(results.breakEven ?? 0)} Mo.` : 'No fee recovery within both loan terms'}
                     </>
-                  ) : "—"}
+                  ) : "-"}
                 </div>
               </div>
             </div>

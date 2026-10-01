@@ -51,7 +51,7 @@ test('currency conversion round-trips and term validation', () => {
   assert.ok(finance.validateLoan(100, 5, .1));
   assert.equal(finance.validateLoan(100, 0, 1 / 12), '');
   assert.deepEqual(finance.generateAmortizationSchedule(100, 5, 0), []);
-  assert.equal(finance.formatCurrency(Infinity), '—');
+  assert.equal(finance.formatCurrency(Infinity), '-');
 });
 
 test('reference cases round only final displayed values', () => {

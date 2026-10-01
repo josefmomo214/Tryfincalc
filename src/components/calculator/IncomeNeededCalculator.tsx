@@ -101,16 +101,16 @@ export function IncomeNeededCalculator() {
           <div className="rounded-3xl border border-primary/10 bg-primary/5 p-8 text-center">
             <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">Illustrative annual income needed</h3>
             <div className="font-manrope text-5xl font-extrabold text-primary">
-              {results ? formatCurrency(results.requiredAnnualIncome, 0) : '—'}
+              {results ? formatCurrency(results.requiredAnnualIncome, 0) : '-'}
             </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
-            <ResultCard title="Loan principal" value={results ? formatCurrency(results.principal, 0) : '—'} />
-            <ResultCard title="Monthly principal and interest" value={results ? formatCurrency(results.monthlyPrincipalAndInterest, 2) : '—'} />
-            <ResultCard title="Entered monthly housing cost" value={results ? formatCurrency(results.monthlyHousingCost, 2) : '—'} />
+            <ResultCard title="Loan principal" value={results ? formatCurrency(results.principal, 0) : '-'} />
+            <ResultCard title="Monthly principal and interest" value={results ? formatCurrency(results.monthlyPrincipalAndInterest, 2) : '-'} />
+            <ResultCard title="Entered monthly housing cost" value={results ? formatCurrency(results.monthlyHousingCost, 2) : '-'} />
             <ResultCard
               title={annualDifference >= 0 ? 'Selected income above estimate' : 'Selected income below estimate'}
-              value={results ? formatCurrency(Math.abs(annualDifference), 0) : '—'}
+              value={results ? formatCurrency(Math.abs(annualDifference), 0) : '-'}
               highlighted
             />
           </div>

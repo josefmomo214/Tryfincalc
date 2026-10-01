@@ -1,8 +1,8 @@
 # TryFinCalc
 
-> Free, transparent financial calculators for mortgages, loans, and affordability — built for both US (USD) and European (EUR) users. All calculations run client-side in the browser; no data is collected or stored. Created and maintained by Youssef Aaouam.
+> Free, transparent financial calculators for mortgages, loans, and affordability: built for both US (USD) and European (EUR) users. All calculations run client-side in the browser; no data is collected or stored. Created and maintained by Youssef Aaouam.
 
-TryFinCalc helps people understand the real cost of borrowing money — mortgages, personal loans, refinancing, and home affordability — using verified financial formulas validated against CFPB and Federal Reserve standards. The site has no sign-up requirement and no paywall.
+TryFinCalc helps people understand the real cost of borrowing money (mortgages, personal loans, refinancing, and home affordability) using verified financial formulas validated against CFPB and Federal Reserve standards. The site has no sign-up requirement and no paywall.
 
 ## Calculators
 
@@ -42,7 +42,7 @@ TryFinCalc helps people understand the real cost of borrowing money — mortgage
 - [$25k Personal Loan at 8%](https://tryfincalc.com/calculator/25k-personal-loan-repayment-8-percent)
 - [$50k Loan at 8%](https://tryfincalc.com/calculator/50k-loan-monthly-payment-8-percent)
 
-## Scenario Pages (Mortgage Amounts, EUR — European Market)
+## Scenario Pages (Mortgage Amounts, EUR: European Market)
 
 - [€200k Mortgage at 3.5%](https://tryfincalc.com/eur/calculator/200k-mortgage-monthly-payment-3-5-percent-eur)
 - [€300k Mortgage at 3.5%](https://tryfincalc.com/eur/calculator/300k-mortgage-monthly-payment-3-5-percent-eur)

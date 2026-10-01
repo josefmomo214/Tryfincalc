@@ -173,13 +173,13 @@ export default function AffordabilityCalculator() {
               <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Max Monthly Budget</h3>
                 <div className="text-2xl font-bold text-primary">
-                  {(!validationError) ? formatCurrency(results.monthlyPayment, 0, currency) : "—"}
+                  {(!validationError) ? formatCurrency(results.monthlyPayment, 0, currency) : "-"}
                 </div>
               </div>
               <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h3 className="text-xs font-semibold text-on-surface-variant uppercase mb-1">Max Loan Amount</h3>
                 <div className="text-2xl font-bold text-primary">
-                  {(!validationError) ? formatCurrency(results.loanAmount, 0, currency) : "—"}
+                  {(!validationError) ? formatCurrency(results.loanAmount, 0, currency) : "-"}
                 </div>
               </div>
             </div>

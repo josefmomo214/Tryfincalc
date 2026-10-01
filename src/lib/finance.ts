@@ -7,7 +7,7 @@ export const convertCurrency = (amount: number, from: 'USD' | 'EUR', to: 'USD' |
 };
 
 export const formatCurrency = (val: number, decimals: number = 0, currency: 'USD' | 'EUR' = 'USD') => {
-  if (!Number.isFinite(val)) return '—';
+  if (!Number.isFinite(val)) return '-';
   if (Math.abs(val) < 0.5 * 10 ** -decimals) val = 0;
   const locale = currency === 'USD' ? 'en-US' : 'en-GB';
   return new Intl.NumberFormat(locale, { 

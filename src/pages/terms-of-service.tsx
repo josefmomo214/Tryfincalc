@@ -80,7 +80,7 @@ export default function TermsOfService() {
           <h2 id="use-of-the-site" className="text-2xl font-manrope font-bold text-primary mt-12 mb-4 scroll-mt-24">2. Use of the Site</h2>
           <p>
             TryFinCalc grants you a limited, non-exclusive, non-transferable, revocable licence to access 
-            and use the website for personal, non-commercial purposes — specifically to use our financial 
+            and use the website for personal, non-commercial purposes: specifically to use our financial
             calculators, read our guides and articles, and make informed personal financial decisions.
           </p>
 
@@ -111,7 +111,7 @@ export default function TermsOfService() {
             <li>
               The results produced by our calculators are estimates based on the inputs you provide and 
               standard financial formulas. They are intended to help you understand the approximate financial 
-              impact of different scenarios — not to provide exact figures for contractual, legal, or investment purposes.
+              impact of different scenarios: not to provide exact figures for contractual, legal, or investment purposes.
             </li>
             <li>
               The articles and guides on TryFinCalc are educational in nature. They represent general 
@@ -120,8 +120,8 @@ export default function TermsOfService() {
             </li>
           </ul>
           <p>
-            Before making any significant financial decision — including but not limited to taking 
-            out a mortgage, refinancing a loan, purchasing a home, or making an investment — you should 
+            Before making any significant financial decision (including but not limited to taking
+            out a mortgage, refinancing a loan, purchasing a home, or making an investment) you should
             consult with a qualified and licenced financial advisor, mortgage broker, or other appropriate 
             professional in your jurisdiction.
           </p>
@@ -136,7 +136,7 @@ export default function TermsOfService() {
           <h2 id="calculator-accuracy" className="text-2xl font-manrope font-bold text-primary mt-12 mb-4 scroll-mt-24">4. Calculator Accuracy</h2>
           <p>
             We work to ensure our calculators use industry-standard financial formulas and 
-            produce accurate results. However, we make no warranty — express or implied — as to 
+            produce accurate results. However, we make no warranty, express or implied, as to
             the accuracy, completeness, or reliability of any calculator output.
           </p>
           <p>
@@ -156,8 +156,8 @@ export default function TermsOfService() {
           {/* 5. Intellectual Property */}
           <h2 id="intellectual-property" className="text-2xl font-manrope font-bold text-primary mt-12 mb-4 scroll-mt-24">5. Intellectual Property</h2>
           <p>
-            All content on TryFinCalc — including but not limited to text, articles, guides, calculator 
-            interfaces, code, graphics, logos, and the TryFinCalc name and brand — is owned by or 
+            All content on TryFinCalc (including but not limited to text, articles, guides, calculator
+            interfaces, code, graphics, logos, and the TryFinCalc name and brand) is owned by or
             licenced to TryFinCalc and is protected by applicable copyright, trademark, and 
             intellectual property laws.
           </p>
@@ -251,8 +251,8 @@ export default function TermsOfService() {
           <h2 id="indemnification" className="text-2xl font-manrope font-bold text-primary mt-12 mb-4 scroll-mt-24">10. Indemnification</h2>
           <p>
             You agree to indemnify, defend, and hold harmless TryFinCalc and its operators from 
-            and against any claims, liabilities, damages, losses, and expenses — including reasonable 
-            legal fees — arising out of or in any way connected with your access to or use of 
+            and against any claims, liabilities, damages, losses, and expenses, including reasonable
+            legal fees, arising out of or in any way connected with your access to or use of
             TryFinCalc, your violation of these Terms of Service, or your violation of any third party&apos;s rights.
           </p>
 

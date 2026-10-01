@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
 
         <div className="prose prose-teal max-w-none text-on-surface-variant leading-relaxed">
           <p>
-            TryFinCalc (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates tryfincalc.com — a free financial calculator
+            TryFinCalc (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates tryfincalc.com: a free financial calculator
             platform. This Privacy Policy explains what information we collect when you use our site,
             how we use it, and what rights you have. We have written it in plain English so you can
             actually understand it.
@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
 
           {/* 1. Information We Collect */}
           <h2 id="information-we-collect" className="text-2xl font-manrope font-bold text-primary mt-12 mb-4 scroll-mt-24">1. Information We Collect</h2>
-          <h3 className="text-lg font-bold text-on-surface mt-8 mb-3 font-manrope">Calculator Inputs — We Collect Nothing</h3>
+          <h3 className="text-lg font-bold text-on-surface mt-8 mb-3 font-manrope">Calculator Inputs: We Collect Nothing</h3>
           <p>
             Every calculator on TryFinCalc runs entirely inside your browser. When you type in a loan
             amount, interest rate, salary, or any other financial figure, that data is processed
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
             When you visit TryFinCalc, analytics tools automatically collect general technical
             information: your approximate IP address, browser type and version, operating system,
             the page that referred you here, which pages you visit, and how long you spend on them.
-            This data is aggregated and used to improve the site — it does not identify you personally.
+            This data is aggregated and used to improve the site: it does not identify you personally.
           </p>
 
           {/* 2. Cookies and Tracking Technologies */}
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
 
           <h3 className="text-lg font-bold text-on-surface mt-8 mb-3 font-manrope">Analytics Cookies (Google Analytics)</h3>
           <p>
-            We use Google Analytics to understand how visitors use TryFinCalc — which calculators
+            We use Google Analytics to understand how visitors use TryFinCalc, which calculators
             are most popular, how people navigate the site, and which articles are most helpful.
             Google Analytics collects this data in aggregate, anonymised form using cookies. It
             does not receive any financial figures you enter into our calculators.
@@ -129,25 +129,25 @@ export default function PrivacyPolicy() {
               <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">
                 adssettings.google.com
               </a>{" "}
-              — opt out of personalised ads from Google.
+             : opt out of personalised ads from Google.
             </p>
             <p>
               <strong>US opt-out (NAI):</strong>{" "}
               <a href="https://optout.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">
                 optout.aboutads.info
               </a>{" "}
-              — opt out of interest-based advertising from participating companies.
+             : opt out of interest-based advertising from participating companies.
             </p>
             <p>
               <strong>EU opt-out:</strong>{" "}
               <a href="https://youronlinechoices.eu" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">
                 youronlinechoices.eu
               </a>{" "}
-              — manage advertising cookie preferences for European users.
+             : manage advertising cookie preferences for European users.
             </p>
           </div>
           <p className="mt-4">
-            Opting out of personalised ads does not remove ads from the site — it means the ads
+            Opting out of personalised ads does not remove ads from the site: it means the ads
             shown will be less relevant to your interests.
           </p>
 
@@ -174,7 +174,7 @@ export default function PrivacyPolicy() {
           <p>
             We do <strong>not</strong> sell your personal information. We do not share your data
             with any third party except Google (for analytics and advertising as described above).
-            We never receive the financial figures you enter into our calculators — they never
+            We never receive the financial figures you enter into our calculators: they never
             leave your device.
           </p>
 
@@ -198,7 +198,7 @@ export default function PrivacyPolicy() {
             To exercise any of these rights, email us at{" "}
             <a href="mailto:hello@tryfincalc.com" className="text-primary hover:underline">hello@tryfincalc.com</a>.
             We will respond within 30 days. You also have the right to lodge a complaint with your
-            national data protection supervisory authority — for example, the ICO in the UK or the
+            national data protection supervisory authority: for example, the ICO in the UK or the
             relevant DPA in your EU member state.
           </p>
 
@@ -211,7 +211,7 @@ export default function PrivacyPolicy() {
           <ul>
             <li>The right to know what personal information we collect, use, and disclose</li>
             <li>The right to request deletion of your personal information</li>
-            <li>The right to opt out of the sale of your personal information — note that we do not sell personal information</li>
+            <li>The right to opt out of the sale of your personal information: note that we do not sell personal information</li>
             <li>The right not to be discriminated against for exercising your privacy rights</li>
           </ul>
           <p>
@@ -227,7 +227,7 @@ export default function PrivacyPolicy() {
           </p>
           <ul>
             <li>
-              <strong>Google AdSense</strong> — may provide ads if approval is obtained and advertising is enabled. Google and its partners
+              <strong>Google AdSense</strong>: may provide ads if approval is obtained and advertising is enabled. Google and its partners
               use cookies and similar technologies to serve ads based on your browsing history
               across TryFinCalc and other websites. Google is an independent controller of this
               data.{" "}
@@ -236,7 +236,7 @@ export default function PrivacyPolicy() {
               </a>
             </li>
             <li>
-              <strong>Google Analytics</strong> — measures site traffic using anonymised,
+              <strong>Google Analytics</strong>: measures site traffic using anonymised,
               aggregated data.{" "}
               <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold">
                 Google Privacy Policy
@@ -244,10 +244,10 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
           <p>
-            When you click an external link on TryFinCalc — such as to the Consumer Financial
+            When you click an external link on TryFinCalc: such as to the Consumer Financial
             Protection Bureau (<a href="https://www.consumerfinance.gov" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">consumerfinance.gov</a>),
             the Federal Reserve (<a href="https://www.federalreserve.gov" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">federalreserve.gov</a>),
-            or IRS (<a href="https://www.irs.gov" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">irs.gov</a>) — you leave
+            or IRS (<a href="https://www.irs.gov" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">irs.gov</a>): you leave
             TryFinCalc and that site&apos;s own privacy policy applies. We are not responsible for
             third-party privacy practices.
           </p>
@@ -260,7 +260,7 @@ export default function PrivacyPolicy() {
             default).
           </p>
           <p>
-            We retain no financial data from our calculators — because we never receive any.
+            We retain no financial data from our calculators: because we never receive any.
           </p>
 
           {/* 8. Data Security */}
@@ -289,7 +289,7 @@ export default function PrivacyPolicy() {
           {/* 10. Changes to This Privacy Policy */}
           <h2 id="changes" className="text-2xl font-manrope font-bold text-primary mt-12 mb-4 scroll-mt-24">10. Changes to This Privacy Policy</h2>
           <p>
-            We may update this policy from time to time — for example, if we add a new
+            We may update this policy from time to time: for example, if we add a new
             third-party service or if the law changes. When we make material changes, we will
             update the &quot;Last updated&quot; date at the top of this page. We encourage you to check
             back periodically. Continuing to use TryFinCalc after a change is posted means
