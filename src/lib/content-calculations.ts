@@ -15,7 +15,7 @@ export function amortizationValue(
   currency: 'USD' | 'EUR' = 'USD',
 ) {
   const row = generateAmortizationSchedule(principal, rate, years)[paymentIndex];
-  return row ? formatCurrency(row[field], 2, currency) : '—';
+  return row ? formatCurrency(row[field], 2, currency) : '-';
 }
 
 export function downPaymentTable(

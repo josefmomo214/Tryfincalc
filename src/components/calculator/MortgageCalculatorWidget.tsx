@@ -204,13 +204,13 @@ export function MortgageCalculatorWidget({
           <div className="bg-surface rounded-3xl p-8 border border-outline-variant/10">
             <h4 className="text-xs font-semibold tracking-widest text-on-surface-variant uppercase mb-6">Monthly Breakdown</h4>
             <div className="space-y-4">
-              <ResultCard title="Principal & Interest" value={(isCalculated && !validationError) ? formatCurrency(results.principalInterest, 2, currency) : "—"} />
-              <ResultCard title={isEuro ? 'Property / local taxes' : 'Property Taxes'} value={(isCalculated && !validationError) ? formatCurrency(results.tax, 0, currency) : "—"} />
-              <ResultCard title={isEuro ? 'Property insurance' : 'Homeowners Insurance'} value={(isCalculated && !validationError) ? formatCurrency(results.insurance, 0, currency) : "—"} />
-              {results.pmi > 0 && <ResultCard title="PMI" value={(isCalculated && !validationError) ? formatCurrency(results.pmi, 0, currency) : "—"} />}
-              {results.hoa > 0 && <ResultCard title="HOA Fees" value={(isCalculated && !validationError) ? formatCurrency(results.hoa, 0, currency) : "—"} />}
+              <ResultCard title="Principal & Interest" value={(isCalculated && !validationError) ? formatCurrency(results.principalInterest, 2, currency) : "-"} />
+              <ResultCard title={isEuro ? 'Property / local taxes' : 'Property Taxes'} value={(isCalculated && !validationError) ? formatCurrency(results.tax, 0, currency) : "-"} />
+              <ResultCard title={isEuro ? 'Property insurance' : 'Homeowners Insurance'} value={(isCalculated && !validationError) ? formatCurrency(results.insurance, 0, currency) : "-"} />
+              {results.pmi > 0 && <ResultCard title="PMI" value={(isCalculated && !validationError) ? formatCurrency(results.pmi, 0, currency) : "-"} />}
+              {results.hoa > 0 && <ResultCard title="HOA Fees" value={(isCalculated && !validationError) ? formatCurrency(results.hoa, 0, currency) : "-"} />}
               <div className="pt-4 border-t border-outline-variant/10">
-                <ResultCard title="Total Loan Amount" value={(isCalculated && !validationError) ? formatCurrency(results.loanAmount, 0, currency) : "—"} highlighted={true} />
+                <ResultCard title="Total Loan Amount" value={(isCalculated && !validationError) ? formatCurrency(results.loanAmount, 0, currency) : "-"} highlighted={true} />
               </div>
             </div>
           </div>

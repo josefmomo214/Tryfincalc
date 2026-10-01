@@ -98,15 +98,15 @@ export default function MonthlyPaymentCalculator() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-on-surface-variant">Principal</span>
-                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(amount, 0, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(amount, 0, currency) : "-"}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-on-surface-variant">Total Interest</span>
-                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(results.totalInterest, 2, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(results.totalInterest, 2, currency) : "-"}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm pt-2 border-t border-outline-variant/10">
                   <span className="text-on-surface font-bold">Total Cost</span>
-                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(results.totalPaid, 2, currency) : "—"}</span>
+                  <span className="font-bold text-primary">{(!validationError) ? formatCurrency(results.totalPaid, 2, currency) : "-"}</span>
                 </div>
               </div>
             </div>

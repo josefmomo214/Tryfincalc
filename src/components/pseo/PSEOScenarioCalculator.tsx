@@ -46,10 +46,10 @@ function LoanScenarioCalculator({ params }: { params: PSEOParams }) {
       </CalculatorInputArea>
       <CalculatorResultsArea>
         <div className="space-y-6">
-          <ResultCard title="Monthly payment" value={results ? formatCurrency(results.monthly, 2, params.currency) : '—'} highlighted />
+          <ResultCard title="Monthly payment" value={results ? formatCurrency(results.monthly, 2, params.currency) : '-'} highlighted />
           <div className="grid sm:grid-cols-2 gap-4">
-            <ResultCard title="Total interest" value={results ? formatCurrency(results.totalInterest, 2, params.currency) : '—'} />
-            <ResultCard title="Total of payments" value={results ? formatCurrency(results.totalPaid, 2, params.currency) : '—'} />
+            <ResultCard title="Total interest" value={results ? formatCurrency(results.totalInterest, 2, params.currency) : '-'} />
+            <ResultCard title="Total of payments" value={results ? formatCurrency(results.totalPaid, 2, params.currency) : '-'} />
           </div>
         </div>
       </CalculatorResultsArea>
@@ -132,10 +132,10 @@ function AffordabilityScenarioCalculator({ params }: { params: PSEOParams }) {
       </CalculatorInputArea>
       <CalculatorResultsArea>
         <div className="space-y-6">
-          <ResultCard title="Estimated home price" value={results ? formatCurrency(results.maxPrice, 0, params.currency) : '—'} highlighted />
+          <ResultCard title="Estimated home price" value={results ? formatCurrency(results.maxPrice, 0, params.currency) : '-'} highlighted />
           <div className="grid sm:grid-cols-2 gap-4">
-            <ResultCard title="Estimated loan principal" value={results ? formatCurrency(results.loanAmount, 0, params.currency) : '—'} />
-            <ResultCard title="Monthly principal-and-interest allowance" value={results ? formatCurrency(results.monthlyPayment, 2, params.currency) : '—'} />
+            <ResultCard title="Estimated loan principal" value={results ? formatCurrency(results.loanAmount, 0, params.currency) : '-'} />
+            <ResultCard title="Monthly principal-and-interest allowance" value={results ? formatCurrency(results.monthlyPayment, 2, params.currency) : '-'} />
           </div>
           <p className="text-sm text-on-surface-variant">
             Entered property tax and insurance consume part of the selected housing budget. Maintenance, association fees, closing costs and loan-specific insurance are excluded.

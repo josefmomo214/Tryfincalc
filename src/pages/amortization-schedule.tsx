@@ -113,13 +113,13 @@ export default function AmortizationSchedule() {
               <div className="p-6 bg-primary/5 rounded-3xl border border-primary/20 text-center sm:text-left">
                 <h3 className="text-xs font-bold text-primary uppercase mb-2">First Pmt Principal</h3>
                 <div className="text-3xl font-bold text-primary">
-                  {isCalculated && !validationError && schedule.length > 0 ? formatCurrency(schedule[0].principal, 2, currency) : "—"}
+                  {isCalculated && !validationError && schedule.length > 0 ? formatCurrency(schedule[0].principal, 2, currency) : "-"}
                 </div>
               </div>
               <div className="p-6 bg-white dark:bg-surface-container-lowest rounded-3xl border border-outline-variant/10 text-center sm:text-left">
                 <h3 className="text-xs font-bold text-on-surface-variant uppercase mb-2">First Pmt Interest</h3>
                 <div className="text-3xl font-bold text-primary">
-                  {isCalculated && !validationError && schedule.length > 0 ? formatCurrency(schedule[0].interest, 2, currency) : "—"}
+                  {isCalculated && !validationError && schedule.length > 0 ? formatCurrency(schedule[0].interest, 2, currency) : "-"}
                 </div>
               </div>
             </div>

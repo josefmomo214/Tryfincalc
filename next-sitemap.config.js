@@ -1,4 +1,4 @@
-// next-sitemap config — runs as the "postbuild" script (see package.json).
+// next-sitemap config: runs as the "postbuild" script (see package.json).
 //
 // pseo-data.ts and articles.ts are TypeScript, so we register tsx's require
 // hook before importing them. That keeps this file the single place that
@@ -40,7 +40,7 @@ module.exports = {
     }
 
     // Blog articles. A couple of slugs in articles.ts are accidentally
-    // duplicated (same slug, different content) — only the first article
+    // duplicated (same slug, different content): only the first article
     // for a given slug is reachable at /blog/[slug], so only emit one
     // sitemap entry per unique slug to match reality.
     const seenSlugs = new Set();
@@ -54,7 +54,7 @@ module.exports = {
       });
     }
 
-    // pSEO calculator pages — one entry per pseoData item, using the
+    // pSEO calculator pages: one entry per pseoData item, using the
     // /eur/calculator/ prefix for EUR-currency entries exactly as
     // PSEOPageTemplate.tsx does when it builds canonicalUrl.
     for (const item of getIndexablePseoScenarios(pseoData)) {

@@ -59,7 +59,7 @@ const CALCULATORS = [
 ];
 
 const TRUST_POINTS = [
-  "All calculations run in your browser — your data never leaves your screen",
+  "All calculations run in your browser: your data never leaves your screen",
   ACCURACY,
   "US-first illustrative assumptions; USD and EUR display options",
   "No sign-up. No email. No paywall. Free forever.",
@@ -131,7 +131,7 @@ export default function HomePage() {
             {/* Left: Headline + CTAs */}
             <div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-on-surface leading-[1.08] tracking-tight mb-6">
-                Free Mortgage &amp; Loan Calculators —{" "}
+                Free Mortgage &amp; Loan Calculators -{" "}
                 <span className="text-primary">See the Real Numbers</span>
               </h1>
               <p className="text-lg text-on-surface-variant leading-relaxed mb-8 max-w-lg">
@@ -251,7 +251,7 @@ export default function HomePage() {
               <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
                 Most people negotiate on monthly payment, but that&apos;s the wrong
                 number to optimize. A 30-year mortgage at 6.5% on a $400,000 home
-                costs {formatCurrency(calculateLoan(400000,6.5,30).totalInterest,2)} in interest alone — more than the home itself.
+                costs {formatCurrency(calculateLoan(400000,6.5,30).totalInterest,2)} in interest alone: more than the home itself.
                 Stretching to a longer term lowers your monthly bill, but the
                 lifetime cost is dramatically higher. The honest number to look at
                 is total cost of financing, not just what hits your bank account

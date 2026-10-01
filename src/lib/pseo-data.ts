@@ -277,7 +277,7 @@ const basePseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">$1,880</td><td class="py-3 px-4 text-sm">−$332/month</td><td class="py-3 px-4 text-sm">$326,800</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.5%</td><td class="py-3 px-4 text-sm">$1,988</td><td class="py-3 px-4 text-sm">−$224/month</td><td class="py-3 px-4 text-sm">$365,680</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6.0%</td><td class="py-3 px-4 text-sm">$2,100</td><td class="py-3 px-4 text-sm">−$112/month</td><td class="py-3 px-4 text-sm">$406,000</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">6.5%</td><td class="py-3 px-4 text-sm">$2,212</td><td class="py-3 px-4 text-sm">—</td><td class="py-3 px-4 text-sm">$446,320</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">6.5%</td><td class="py-3 px-4 text-sm">$2,212</td><td class="py-3 px-4 text-sm">-</td><td class="py-3 px-4 text-sm">$446,320</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">7.0%</td><td class="py-3 px-4 text-sm">$2,328</td><td class="py-3 px-4 text-sm">+$116/month</td><td class="py-3 px-4 text-sm">$488,080</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">7.5%</td><td class="py-3 px-4 text-sm">$2,447</td><td class="py-3 px-4 text-sm">+$235/month</td><td class="py-3 px-4 text-sm">$530,920</td></tr>
             <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 text-sm">8.0%</td><td class="py-3 px-4 text-sm">$2,569</td><td class="py-3 px-4 text-sm">+$357/month</td><td class="py-3 px-4 text-sm">$574,840</td></tr>
@@ -332,7 +332,7 @@ const basePseoData: PSEOParams[] = [
       },
       {
         question: "How much total interest do I pay on a $350,000 mortgage at 6.5%?",
-        answer: "Over 30 years you will pay $446,320 in total interest. Choosing a 15-year term reduces that to $198,820 — a saving of $247,500 — but the monthly payment rises by $837."
+        answer: "Over 30 years you will pay $446,320 in total interest. Choosing a 15-year term reduces that to $198,820 (a saving of $247,500) but the monthly payment rises by $837."
       },
       {
         question: "What does the $350,000 example represent?",
@@ -375,7 +375,7 @@ const basePseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>At 7% over 30 years the monthly P&amp;I is $4,657 — total interest paid is $976,520, meaning you repay $1,676,520 on a $700,000 loan. The 15-year term saves $545,040 in interest but adds $1,629/month. See the full equity schedule on our <a href="/amortization-schedule">amortization schedule</a>.</p>
+      <p>At 7% over 30 years the monthly P&amp;I is $4,657: total interest paid is $976,520, meaning you repay $1,676,520 on a $700,000 loan. The 15-year term saves $545,040 in interest but adds $1,629/month. See the full equity schedule on our <a href="/amortization-schedule">amortization schedule</a>.</p>
 
       <h2>Full Monthly Cost Including Taxes and Insurance (PITI)</h2>
       <p>Here is an illustrative cost breakdown using selected tax, insurance, and mortgage-insurance inputs for a $778,000 home purchase with 10% down ($78,000), resulting in a $700,000 loan at the 7% example rate over 30 years:</p>
@@ -423,7 +423,7 @@ const basePseoData: PSEOParams[] = [
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.5%</td><td class="py-3 px-4 text-sm">$3,976</td><td class="py-3 px-4 text-sm">−$681/month</td><td class="py-3 px-4 text-sm">$731,360</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6.0%</td><td class="py-3 px-4 text-sm">$4,200</td><td class="py-3 px-4 text-sm">−$457/month</td><td class="py-3 px-4 text-sm">$812,000</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">6.5%</td><td class="py-3 px-4 text-sm">$4,424</td><td class="py-3 px-4 text-sm">−$233/month</td><td class="py-3 px-4 text-sm">$892,640</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">7.0%</td><td class="py-3 px-4 text-sm">$4,657</td><td class="py-3 px-4 text-sm">—</td><td class="py-3 px-4 text-sm">$976,520</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">7.0%</td><td class="py-3 px-4 text-sm">$4,657</td><td class="py-3 px-4 text-sm">-</td><td class="py-3 px-4 text-sm">$976,520</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">7.5%</td><td class="py-3 px-4 text-sm">$4,893</td><td class="py-3 px-4 text-sm">+$236/month</td><td class="py-3 px-4 text-sm">$1,061,480</td></tr>
             <tr class="border-b border-outline-variant/30 bg-primary/5"><td class="py-3 px-4 text-sm">8.0%</td><td class="py-3 px-4 text-sm">$5,138</td><td class="py-3 px-4 text-sm">+$481/month</td><td class="py-3 px-4 text-sm">$1,149,680</td></tr>
           </tbody>
@@ -459,7 +459,7 @@ const basePseoData: PSEOParams[] = [
       },
       {
         question: "How much total interest do I pay on a $700,000 mortgage at 7%?",
-        answer: "Over 30 years you will pay $976,520 in total interest, bringing the total repaid to $1,676,520. Choosing a 15-year term cuts that to $431,480 — a saving of $545,040 — but raises the monthly payment by $1,629."
+        answer: "Over 30 years you will pay $976,520 in total interest, bringing the total repaid to $1,676,520. Choosing a 15-year term cuts that to $431,480 (a saving of $545,040) but raises the monthly payment by $1,629."
       },
       {
         question: "Is a $700,000 mortgage considered a jumbo loan in 2026?",
@@ -555,7 +555,7 @@ const basePseoData: PSEOParams[] = [
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>3.5%</td><td>$1,123</td><td>—</td><td>$154,280</td><td>—</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>3.5%</td><td>$1,123</td><td>-</td><td>$154,280</td><td>-</td></tr>
             <tr class="border-b border-outline-variant/30"><td>4.5%</td><td>$1,267</td><td>+$144/month</td><td>$206,120</td><td>+$51,840</td></tr>
             <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$1,419</td><td>+$296/month</td><td>$260,840</td><td>+$106,560</td></tr>
             <tr class="border-b border-outline-variant/30"><td>6.0%</td><td>$1,499</td><td>+$376/month</td><td>$289,640</td><td>+$135,360</td></tr>
@@ -689,7 +689,7 @@ const basePseoData: PSEOParams[] = [
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>4.0%</td><td>$1,910</td><td>—</td><td>$287,480</td><td>—</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td>4.0%</td><td>$1,910</td><td>-</td><td>$287,480</td><td>-</td></tr>
             <tr class="border-b border-outline-variant/30"><td>5.0%</td><td>$2,147</td><td>+$237/month</td><td>$372,920</td><td>+$85,440</td></tr>
             <tr class="border-b border-outline-variant/30"><td>5.5%</td><td>$2,271</td><td>+$361/month</td><td>$417,560</td><td>+$130,080</td></tr>
             <tr class="border-b border-outline-variant/30"><td>6.0%</td><td>$2,398</td><td>+$488/month</td><td>$463,280</td><td>+$175,800</td></tr>
@@ -968,7 +968,7 @@ const basePseoData: PSEOParams[] = [
     term: 3,
     currency: 'USD',
     customTitle: "$5,000 Personal Loan at 12%: Payments, Costs & Timeline",
-    customDescription: "Monthly payment on a $5,000 personal loan at 12% is $166 over 3 years — $976 total interest. Full term table, rate sensitivity, and offer-comparison guide.",
+    customDescription: "Monthly payment on a $5,000 personal loan at 12% is $166 over 3 years: $976 total interest. Full term table, rate sensitivity, and offer-comparison guide.",
     customH1: "How Much Does a $5,000 Personal Loan at 12% Really Cost?",
     customIntro: "This illustrative scenario models a $5,000 personal loan at a 12% example annual interest rate. It compares payments and total interest across terms and rates. The rate is an input rather than an available offer, and approval criteria vary by lender. Use the <a href='/loan-calculator'>loan calculator</a> above to adjust the rate and term.",
     customContent: `
@@ -1201,7 +1201,7 @@ const basePseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>At 10% over 5 years — a common term for this loan size — the monthly payment is $425 and total interest is $5,500. Choosing the 3-year term raises the monthly payment by $220 but saves $2,280 in interest. If your budget can handle $645 per month, the 3-year term is the better financial outcome. Use the <a href="/total-interest-calculator">total interest calculator</a> to see how much extra payments save you.</p>
+      <p>At 10% over 5 years, a common term for this loan size, the monthly payment is $425 and total interest is $5,500. Choosing the 3-year term raises the monthly payment by $220 but saves $2,280 in interest. If your budget can handle $645 per month, the 3-year term is the better financial outcome. Use the <a href="/total-interest-calculator">total interest calculator</a> to see how much extra payments save you.</p>
 
       <h2>How Your Rate Affects the Cost of a $20,000 Loan</h2>
       <p>Your credit profile sets the rate ceiling you can reach. Here is what a 5-year repayment looks like across the full APR range for a $20,000 balance:</p>
@@ -1257,7 +1257,7 @@ const basePseoData: PSEOParams[] = [
       },
       {
         question: "How much total interest do I pay on a $20,000 personal loan at 10%?",
-        answer: "Over a 5-year term, total interest is $5,500. Choosing a 3-year term reduces that to $3,220 — a saving of $2,280 in exchange for $220 more per month."
+        answer: "Over a 5-year term, total interest is $5,500. Choosing a 3-year term reduces that to $3,220: a saving of $2,280 in exchange for $220 more per month."
       },
       {
         question: "Should I use a personal loan or a home equity loan for a $20,000 home improvement?",
@@ -1426,7 +1426,7 @@ const basePseoData: PSEOParams[] = [
       <p>Carrying $900/month in debt reduces your buying power by over $120,000. Use our <a href="/loan-calculator">loan calculator</a> to see how paying off specific debts before applying can unlock significantly more budget. Read more in our <a href="/blog/loan-eligibility-by-income">loan eligibility by income</a> guide.</p>
 
       <h2>How Your Down Payment Changes the Picture</h2>
-      <p>Your down payment doesn't just change your loan amount — it also affects your monthly Private Mortgage Insurance (PMI) cost:</p>
+      <p>Your down payment doesn't just change your loan amount: it also affects your monthly Private Mortgage Insurance (PMI) cost:</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -1689,7 +1689,7 @@ const basePseoData: PSEOParams[] = [
       <p>Within the selected ratio, adding a $300 monthly debt lowers the modeled loan by $38,000. Use our <a href="/loan-calculator">loan calculator</a> to compare payoff scenarios, and compare the payment with the <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at a 3.5% example rate</a>.</p>
 
       <h2>How Your Down Payment Changes the Picture</h2>
-      <p>With a fixed loan near $165,000, the down payment determines how expensive a home you can buy — not how much you borrow:</p>
+      <p>With a fixed loan near $165,000, the down payment determines how expensive a home you can buy: not how much you borrow:</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-left border-collapse">
@@ -1710,7 +1710,7 @@ const basePseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>Going from 3% to 20% down on the same $165,000 loan lets you buy a $206,000 home instead of $170,000 — a $36,000 upgrade at the same loan amount. Check <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD's first-time buyer programs</a> for down payment assistance, and see our <a href="/blog/down-payment-guide">down payment guide</a> for savings strategies.</p>
+      <p>Going from 3% to 20% down on the same $165,000 loan lets you buy a $206,000 home instead of $170,000: a $36,000 upgrade at the same loan amount. Check <a href="https://www.hud.gov" target="_blank" rel="noopener noreferrer">HUD's first-time buyer programs</a> for down payment assistance, and see our <a href="/blog/down-payment-guide">down payment guide</a> for savings strategies.</p>
 
       <h2>Your Full Monthly Budget on a $60,000 Salary</h2>
       <p>What does a $183,000 home actually cost per month on a $60,000 salary at 6.8%?</p>
@@ -1816,7 +1816,7 @@ const basePseoData: PSEOParams[] = [
           </tbody>
         </table>
       </div>
-      <p>A $300 car payment cuts $38,000 from your maximum loan — dropping you from a $215,000 home to a $170,000 home. Carrying $600 in monthly debts nearly halves your buying power. Use our <a href="/loan-calculator">loan calculator</a> to see how payoff scenarios shift your budget, and compare to a <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at 3.5%</a> to set realistic expectations.</p>
+      <p>A $300 car payment cuts $38,000 from your maximum loan: dropping you from a $215,000 home to a $170,000 home. Carrying $600 in monthly debts nearly halves your buying power. Use our <a href="/loan-calculator">loan calculator</a> to see how payoff scenarios shift your budget, and compare to a <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at 3.5%</a> to set realistic expectations.</p>
 
       <h2>How Your Down Payment Changes the Picture</h2>
       <p>With a fixed $193,000 loan, the selected down payment changes the modeled home price and mortgage-insurance input:</p>
@@ -1855,7 +1855,7 @@ const basePseoData: PSEOParams[] = [
       <p>This result matches the selected 28% planning ratio. Compare the modeled price with current listings and documented local costs for the area you are considering, then compare the payment with the <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage at a 3.5% example rate</a>.</p>
 
       <h2>Get Your Personalised Home Budget</h2>
-      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your exact income, debts, and down payment. Read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand all the factors lenders weigh — and compare to a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary affordability</a> page to see how income growth expands your options.</p>
+      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to enter your exact income, debts, and down payment. Read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand all the factors lenders weigh, and compare to a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary affordability</a> page to see how income growth expands your options.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
@@ -1881,7 +1881,7 @@ const basePseoData: PSEOParams[] = [
       },
       {
         question: "How does a $400/month car payment affect my mortgage on $70,000?",
-        answer: "A $400/month car payment reduces your available housing budget from $1,633 to $1,233, dropping your maximum loan from $193,000 to approximately $142,000 — a $51,000 reduction in buying power."
+        answer: "A $400/month car payment reduces your available housing budget from $1,633 to $1,233, dropping your maximum loan from $193,000 to approximately $142,000: a $51,000 reduction in buying power."
       },
       {
         question: "How should I compare this $70,000 salary scenario with local listings?",
@@ -1989,7 +1989,7 @@ const basePseoData: PSEOParams[] = [
       <p>The selected 28% and 36% planning assumptions produce a $73,000 gap in estimated loan amount when no other debts are entered. Neither ratio is a CFPB or lender maximum. See our <a href="/blog/28-36-rule-explained">28/36 rule guide</a> for the math and limitations.</p>
 
       <h2>How Existing Debts Reduce Your Buying Power</h2>
-      <p>At $90,000, even modest debts are absorbed more gracefully than at lower income levels — but the impact remains significant in absolute dollar terms:</p>
+      <p>At $90,000, even modest debts are absorbed more gracefully than at lower income levels, but the impact remains significant in absolute dollar terms:</p>
 
       <div class="overflow-x-auto my-8 border border-outline-variant rounded-xl overflow-hidden shadow-sm">
         <table class="w-full text-left border-collapse">
@@ -2048,7 +2048,7 @@ const basePseoData: PSEOParams[] = [
       <p>This result matches the selected 28% planning ratio. The model does not determine whether that payment is comfortable for a household. The <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100,000 salary scenario</a> produces roughly $313,000 under the same example inputs.</p>
 
       <h2>Get Your Personalised Home Budget</h2>
-      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to model your exact income, debts, and down payment. Read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand every variable lenders scrutinise — and the <a href="/blog/mortgage-payment-guide">mortgage payment guide</a> to calculate your full cost from first payment to payoff.</p>
+      <p>Use the <a href="/affordability-calculator">affordability calculator</a> above to model your exact income, debts, and down payment. Read our guide on <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a> to understand every variable lenders scrutinise, and the <a href="/blog/mortgage-payment-guide">mortgage payment guide</a> to calculate your full cost from first payment to payoff.</p>
 
       <div class="flex flex-col md:flex-row gap-6 my-12 text-center">
         <div class="flex-1 bg-primary p-8 rounded-3xl text-white shadow-xl">
@@ -2205,7 +2205,7 @@ const basePseoData: PSEOParams[] = [
         <td class="py-3 px-4 text-sm">~$50,000</td>
       </tr>
       <tr class="border-b border-outline-variant/30">
-        <td class="py-3 px-4 text-sm">20% — insurance input $0</td>
+        <td class="py-3 px-4 text-sm">20%: insurance input $0</td>
         <td class="py-3 px-4 text-sm">$40,000</td>
         <td class="py-3 px-4 text-sm">$160,000</td>
         <td class="py-3 px-4 text-sm">$1,043</td>
@@ -2223,7 +2223,7 @@ const basePseoData: PSEOParams[] = [
 <h2>Related Calculators</h2>
 <ul>
   <li>For a pure payment breakdown on a comparable loan, see the <a href="/calculator/250k-mortgage-monthly-payment-3-5-percent">$250,000 mortgage monthly payment page</a>.</li>
-  <li>If you earn around $60,000, see <a href="/calculator/how-much-house-can-i-afford-60k-salary">how much house a $60k salary can afford</a> — or compare to a <a href="/calculator/how-much-house-can-i-afford-70k-salary">$70k salary affordability analysis</a>.</li>
+  <li>If you earn around $60,000, see <a href="/calculator/how-much-house-can-i-afford-60k-salary">how much house a $60k salary can afford</a>, or compare to a <a href="/calculator/how-much-house-can-i-afford-70k-salary">$70k salary affordability analysis</a>.</li>
   <li>Use the <a href="/affordability-calculator">affordability calculator</a> to model your exact income, debts, and down payment.</li>
   <li>Use the <a href="/mortgage-calculator">mortgage calculator</a> to adjust the rate, term, or loan amount.</li>
 </ul>
@@ -2381,7 +2381,7 @@ const basePseoData: PSEOParams[] = [
         <td class="py-3 px-4 text-sm">~$75,000</td>
       </tr>
       <tr class="border-b border-outline-variant/30">
-        <td class="py-3 px-4 text-sm">20% — insurance input $0</td>
+        <td class="py-3 px-4 text-sm">20%: insurance input $0</td>
         <td class="py-3 px-4 text-sm">$60,000</td>
         <td class="py-3 px-4 text-sm">$240,000</td>
         <td class="py-3 px-4 text-sm">$1,565</td>
@@ -2399,7 +2399,7 @@ const basePseoData: PSEOParams[] = [
 <h2>Related Calculators</h2>
 <ul>
   <li>See the exact monthly payment breakdown on the <a href="/calculator/300k-mortgage-monthly-payment-6-percent">$300,000 mortgage monthly payment page</a>.</li>
-  <li>If you earn around $90,000, see <a href="/calculator/how-much-house-can-i-afford-90k-salary">how much house a $90k salary can afford</a> — or compare to a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100k salary affordability analysis</a>.</li>
+  <li>If you earn around $90,000, see <a href="/calculator/how-much-house-can-i-afford-90k-salary">how much house a $90k salary can afford</a>, or compare to a <a href="/calculator/how-much-house-can-i-afford-100k-salary">$100k salary affordability analysis</a>.</li>
   <li>Use the <a href="/affordability-calculator">affordability calculator</a> to enter your exact income, debts, and down payment.</li>
   <li>Use the <a href="/mortgage-calculator">mortgage calculator</a> to adjust the rate or term.</li>
 </ul>
@@ -2484,7 +2484,7 @@ const basePseoData: PSEOParams[] = [
 <p>The model applies selected 1.1% property-tax and 0.5% annual mortgage-insurance inputs. The 20% down scenario removes the $150 monthly insurance input. Dividing the displayed cost by the selected ratio produces a $128,000 illustrative income figure, not an approval threshold. Use the <a href="/affordability-calculator">affordability calculator</a> for a figure tailored to your local tax rate.</p>
 
 <h2>How Existing Debt Changes the $400,000 Planning Scenario</h2>
-<p>At the $128,000 baseline income, here is how different levels of existing monthly debt affect the maximum housing budget available to you — and whether a $400,000 house fits:</p>
+<p>At the $128,000 baseline income, here is how different levels of existing monthly debt affect the maximum housing budget available to you, and whether a $400,000 house fits:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2557,7 +2557,7 @@ const basePseoData: PSEOParams[] = [
         <td class="py-3 px-4 text-sm">~$101,000</td>
       </tr>
       <tr class="border-b border-outline-variant/30">
-        <td class="py-3 px-4 text-sm">20% — insurance input $0</td>
+        <td class="py-3 px-4 text-sm">20%: insurance input $0</td>
         <td class="py-3 px-4 text-sm">$80,000</td>
         <td class="py-3 px-4 text-sm">$320,000</td>
         <td class="py-3 px-4 text-sm">$2,086</td>
@@ -2575,7 +2575,7 @@ const basePseoData: PSEOParams[] = [
 <h2>Related Calculators</h2>
 <ul>
   <li>For a full payment table at a similar loan amount, see the <a href="/calculator/400k-mortgage-monthly-payment-4-percent">$400,000 mortgage monthly payment page</a>.</li>
-  <li>If you earn $100,000, see <a href="/calculator/how-much-house-can-i-afford-100k-salary">how much house a $100k salary can afford</a> — and compare it with the illustrative income result on this page.</li>
+  <li>If you earn $100,000, see <a href="/calculator/how-much-house-can-i-afford-100k-salary">how much house a $100k salary can afford</a>, and compare it with the illustrative income result on this page.</li>
   <li>Use the <a href="/affordability-calculator">affordability calculator</a> to model your exact income, debts, and down payment.</li>
   <li>Use the <a href="/mortgage-calculator">mortgage calculator</a> to run your specific scenario.</li>
 </ul>
@@ -2660,7 +2660,7 @@ const basePseoData: PSEOParams[] = [
 <p>The model applies selected 1.1% property-tax and 0.5% annual mortgage-insurance inputs. The 20% down scenario removes the $188 monthly insurance input. Replace the tax and insurance assumptions with documented local figures. The <a href="/affordability-calculator">affordability calculator</a> lets you enter your actual local tax rate.</p>
 
 <h2>How Existing Debt Changes the $500,000 Planning Scenario</h2>
-<p>At a $159,000 baseline income, the 36% back-end ratio allows substantial total debt — meaning moderate existing obligations still leave room for this mortgage:</p>
+<p>At a $159,000 baseline income, the 36% back-end ratio allows substantial total debt: meaning moderate existing obligations still leave room for this mortgage:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2733,7 +2733,7 @@ const basePseoData: PSEOParams[] = [
         <td class="py-3 px-4 text-sm">~$126,000</td>
       </tr>
       <tr class="border-b border-outline-variant/30">
-        <td class="py-3 px-4 text-sm">20% — insurance input $0</td>
+        <td class="py-3 px-4 text-sm">20%: insurance input $0</td>
         <td class="py-3 px-4 text-sm">$100,000</td>
         <td class="py-3 px-4 text-sm">$400,000</td>
         <td class="py-3 px-4 text-sm">$2,608</td>
@@ -2836,7 +2836,7 @@ const basePseoData: PSEOParams[] = [
 <p>The model applies selected 1.1% property-tax and 0.5% annual mortgage-insurance inputs. The 20% down scenario removes the $225 monthly insurance input. Dividing the displayed cost by the selected ratio produces a $191,000 illustrative income figure, not an approval threshold. Use the <a href="/mortgage-calculator">mortgage calculator</a> to see how a 15-year term dramatically cuts total interest.</p>
 
 <h2>How Existing Debt Changes the $600,000 Planning Scenario</h2>
-<p>At the $191,000 baseline income, the 36% back-end ceiling is generous — meaning moderate existing debts still leave significant room for housing. The impact is less severe than at lower price points:</p>
+<p>At the $191,000 baseline income, the 36% back-end ceiling is generous: meaning moderate existing debts still leave significant room for housing. The impact is less severe than at lower price points:</p>
 
 <div class="overflow-x-auto my-8">
   <table class="w-full text-left border-collapse">
@@ -2909,7 +2909,7 @@ const basePseoData: PSEOParams[] = [
         <td class="py-3 px-4 text-sm">~$151,000</td>
       </tr>
       <tr class="border-b border-outline-variant/30">
-        <td class="py-3 px-4 text-sm">20% — insurance input $0</td>
+        <td class="py-3 px-4 text-sm">20%: insurance input $0</td>
         <td class="py-3 px-4 text-sm">$120,000</td>
         <td class="py-3 px-4 text-sm">$480,000</td>
         <td class="py-3 px-4 text-sm">$3,129</td>
@@ -3085,7 +3085,7 @@ const basePseoData: PSEOParams[] = [
         <td class="py-3 px-4 text-sm">~$176,000</td>
       </tr>
       <tr class="border-b border-outline-variant/30">
-        <td class="py-3 px-4 text-sm">20% — insurance input $0</td>
+        <td class="py-3 px-4 text-sm">20%: insurance input $0</td>
         <td class="py-3 px-4 text-sm">$140,000</td>
         <td class="py-3 px-4 text-sm">$560,000</td>
         <td class="py-3 px-4 text-sm">$3,651</td>
@@ -3141,7 +3141,7 @@ const basePseoData: PSEOParams[] = [
     ]
   },
 
-  // Mortgages EUR — Wave 5A
+  // Mortgages EUR: Wave 5A
   {
     slug: '150k-mortgage-monthly-payment-3-5-percent-eur',
     type: 'mortgage',
@@ -3177,7 +3177,7 @@ const basePseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>At 3.5% over 25 years the monthly principal and interest payment is €751 — and the total interest over the life of the loan is €75,300. Choosing the 20-year term instead adds €119 to the monthly payment but saves €16,500 in total interest. Use the <a href="/mortgage-calculator">mortgage calculator</a> above to run your exact scenario, or check our <a href="/affordability-calculator">affordability calculator</a> to confirm your buying power.</p>
+      <p>At 3.5% over 25 years the monthly principal and interest payment is €751, and the total interest over the life of the loan is €75,300. Choosing the 20-year term instead adds €119 to the monthly payment but saves €16,500 in total interest. Use the <a href="/mortgage-calculator">mortgage calculator</a> above to run your exact scenario, or check our <a href="/affordability-calculator">affordability calculator</a> to confirm your buying power.</p>
 
       <h2>Fixed and Variable Rate Scenarios</h2>
       <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
@@ -3198,7 +3198,7 @@ const basePseoData: PSEOParams[] = [
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€673</td><td class="py-3 px-4 text-sm">€51,900</td><td class="py-3 px-4 text-sm">-€78/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€711</td><td class="py-3 px-4 text-sm">€63,300</td><td class="py-3 px-4 text-sm">-€40/mo</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€751</td><td class="py-3 px-4 text-sm">€75,300</td><td class="py-3 px-4 text-sm">—</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€751</td><td class="py-3 px-4 text-sm">€75,300</td><td class="py-3 px-4 text-sm">-</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€792</td><td class="py-3 px-4 text-sm">€87,600</td><td class="py-3 px-4 text-sm">+€41/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€834</td><td class="py-3 px-4 text-sm">€100,200</td><td class="py-3 px-4 text-sm">+€83/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€877</td><td class="py-3 px-4 text-sm">€113,100</td><td class="py-3 px-4 text-sm">+€126/mo</td></tr>
@@ -3312,7 +3312,7 @@ const basePseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>At 3.5% over 25 years the monthly principal and interest payment is €1,252. Shortening the term to 20 years adds €198 per month but saves €27,600 in total interest. The difference between a 25-year and a 15-year term is €535 per month but saves €53,940 in interest over the life of the loan — a decision that depends heavily on monthly cash flow and income stability. Use the <a href="/mortgage-calculator">mortgage calculator</a> to compare scenarios, and verify your buying power with our <a href="/affordability-calculator">affordability calculator</a>.</p>
+      <p>At 3.5% over 25 years the monthly principal and interest payment is €1,252. Shortening the term to 20 years adds €198 per month but saves €27,600 in total interest. The difference between a 25-year and a 15-year term is €535 per month but saves €53,940 in interest over the life of the loan: a decision that depends heavily on monthly cash flow and income stability. Use the <a href="/mortgage-calculator">mortgage calculator</a> to compare scenarios, and verify your buying power with our <a href="/affordability-calculator">affordability calculator</a>.</p>
 
       <h2>Fixed and Variable Rate Scenarios</h2>
       <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
@@ -3333,7 +3333,7 @@ const basePseoData: PSEOParams[] = [
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€1,122</td><td class="py-3 px-4 text-sm">€86,600</td><td class="py-3 px-4 text-sm">-€130/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€1,186</td><td class="py-3 px-4 text-sm">€105,800</td><td class="py-3 px-4 text-sm">-€66/mo</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€1,252</td><td class="py-3 px-4 text-sm">€125,600</td><td class="py-3 px-4 text-sm">—</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€1,252</td><td class="py-3 px-4 text-sm">€125,600</td><td class="py-3 px-4 text-sm">-</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€1,320</td><td class="py-3 px-4 text-sm">€146,000</td><td class="py-3 px-4 text-sm">+€68/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€1,390</td><td class="py-3 px-4 text-sm">€167,000</td><td class="py-3 px-4 text-sm">+€138/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€1,461</td><td class="py-3 px-4 text-sm">€188,300</td><td class="py-3 px-4 text-sm">+€209/mo</td></tr>
@@ -3381,7 +3381,7 @@ const basePseoData: PSEOParams[] = [
     customFaqs: euroScenarioFaqs(250000)
   },
 
-  // Mortgages EUR — Wave 5B
+  // Mortgages EUR: Wave 5B
   {
     slug: '300k-mortgage-monthly-payment-3-5-percent-eur',
     type: 'mortgage',
@@ -3468,7 +3468,7 @@ const basePseoData: PSEOParams[] = [
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€1,570</td><td class="py-3 px-4 text-sm">€121,000</td><td class="py-3 px-4 text-sm">-€182/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€1,660</td><td class="py-3 px-4 text-sm">€148,000</td><td class="py-3 px-4 text-sm">-€92/mo</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€1,752</td><td class="py-3 px-4 text-sm">€175,600</td><td class="py-3 px-4 text-sm">—</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€1,752</td><td class="py-3 px-4 text-sm">€175,600</td><td class="py-3 px-4 text-sm">-</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€1,847</td><td class="py-3 px-4 text-sm">€204,100</td><td class="py-3 px-4 text-sm">+€95/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€1,945</td><td class="py-3 px-4 text-sm">€233,500</td><td class="py-3 px-4 text-sm">+€193/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€2,046</td><td class="py-3 px-4 text-sm">€263,800</td><td class="py-3 px-4 text-sm">+€294/mo</td></tr>
@@ -3551,7 +3551,7 @@ const basePseoData: PSEOParams[] = [
         </table>
       </div>
 
-      <p>At 3.5% over 25 years the monthly principal and interest payment is €2,002. Choosing a 20-year term instead adds €318 per month but saves €43,800 in total interest — a meaningful sum at this loan size. Stretching to 30 years reduces the payment by €206 but adds €45,960 in interest over the full term. Run your own numbers with the <a href="/mortgage-calculator">mortgage calculator</a> above.</p>
+      <p>At 3.5% over 25 years the monthly principal and interest payment is €2,002. Choosing a 20-year term instead adds €318 per month but saves €43,800 in total interest: a meaningful sum at this loan size. Stretching to 30 years reduces the payment by €206 but adds €45,960 in interest over the full term. Run your own numbers with the <a href="/mortgage-calculator">mortgage calculator</a> above.</p>
 
       <h2>Fixed and Variable Rate Scenarios</h2>
       <p>The 3.5% rate is a selected calculator assumption. A quoted variable rate may change over time, while a fixed-rate quote follows its contract terms. The sensitivity table below compares mathematical inputs and does not claim that any rate or product is available in a particular country.</p>
@@ -3572,7 +3572,7 @@ const basePseoData: PSEOParams[] = [
           <tbody>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">2.5%</td><td class="py-3 px-4 text-sm">€1,794</td><td class="py-3 px-4 text-sm">€138,200</td><td class="py-3 px-4 text-sm">-€208/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">3.0%</td><td class="py-3 px-4 text-sm">€1,897</td><td class="py-3 px-4 text-sm">€169,100</td><td class="py-3 px-4 text-sm">-€105/mo</td></tr>
-            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€2,002</td><td class="py-3 px-4 text-sm">€200,600</td><td class="py-3 px-4 text-sm">—</td></tr>
+            <tr class="border-b border-outline-variant/30 font-bold text-primary"><td class="py-3 px-4 text-sm">3.5%</td><td class="py-3 px-4 text-sm">€2,002</td><td class="py-3 px-4 text-sm">€200,600</td><td class="py-3 px-4 text-sm">-</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.0%</td><td class="py-3 px-4 text-sm">€2,111</td><td class="py-3 px-4 text-sm">€233,300</td><td class="py-3 px-4 text-sm">+€109/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">4.5%</td><td class="py-3 px-4 text-sm">€2,223</td><td class="py-3 px-4 text-sm">€266,900</td><td class="py-3 px-4 text-sm">+€221/mo</td></tr>
             <tr class="border-b border-outline-variant/30"><td class="py-3 px-4 text-sm">5.0%</td><td class="py-3 px-4 text-sm">€2,338</td><td class="py-3 px-4 text-sm">€301,400</td><td class="py-3 px-4 text-sm">+€336/mo</td></tr>

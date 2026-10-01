@@ -31,7 +31,7 @@ export default function Contact() {
             <div className="flex flex-col items-center">
               
               <p className="text-[15px] leading-[1.7] text-on-surface-variant text-center">
-                Have a question about our calculators? Found a calculation error? We&apos;d love to hear from you — whether it&apos;s a bug report, a suggestion, or just feedback on what we could do better.
+                Have a question about our calculators? Found a calculation error? We&apos;d love to hear from you, whether it&apos;s a bug report, a suggestion, or just feedback on what we could do better.
               </p>
 
               {/* Thin horizontal divider line */}
